@@ -1,0 +1,600 @@
+{
+  "manifestVersion": "1.0.0",
+  "generated": "2026-10-30",
+  "note": {
+    "ar": "سجل المصادر وبيانات الوصف. كل مجموعة بيانات في هذا الأطلس مرتبطة بمدخل هنا يوضح الجهة المصدِّرة وتاريخ النشر والدقة الجغرافية والمنهجية والقيود. الحقل resolution يوصف دقة التمثيل المكاني لا دقة المحتوى.",
+    "en": "Source register and metadata. Every dataset in this atlas links to an entry here declaring publisher, publication date, geographic resolution, methodology and limitations. The resolution field describes spatial representation fidelity, not content accuracy."
+  },
+  "datasets": [
+    {
+      "id": "ne-admin0",
+      "file": "countries.json",
+      "title": {
+        "ar": "حدود الدول — Natural Earth مقياس 1:50m",
+        "en": "Admin-0 countries — Natural Earth 1:50m"
+      },
+      "publisher": "Natural Earth",
+      "url": "https://www.naturalearthdata.com/downloads/50m-cultural-vectors/",
+      "license": "Public domain",
+      "published": "2022-05",
+      "lastRetrieved": "2026-10-30",
+      "resolution": {
+        "ar": "1:50,000,000 — تبسيط الإحداثيات إلى 3 منازل عشرية (~110 م)",
+        "en": "1:50,000,000 — coordinates rounded to 3 decimals (~110 m)"
+      },
+      "methodology": {
+        "ar": "حدود مجمَّعة من مصادر رسمية ومراجع كارتوغرافية، مع حقول أسماء متعددة اللغات وحقول FCLASS تمثّل وجهات نظر دول مختلفة في الحدود المتنازع عليها.",
+        "en": "Boundaries compiled from official and cartographic references, with multilingual name fields and FCLASS fields encoding different states' views of contested boundaries."
+      },
+      "limitations": {
+        "ar": "مقياس عام غير مناسب للاستخدام القانوني أو المساحي. يمثّل تصويراً كارتوغرافياً واحداً لحدود يختلف حولها أطراف متعددة؛ لا يُعدّ موقفاً قانونياً.",
+        "en": "Generalised scale, unsuitable for legal or cadastral use. Represents one cartographic depiction of boundaries contested by multiple parties; not a legal position."
+      },
+      "fieldsUsed": [
+        "NAME_EN",
+        "NAME_AR",
+        "ISO_A3_EH",
+        "POP_EST",
+        "POP_YEAR",
+        "GDP_MD",
+        "GDP_YEAR",
+        "CONTINENT",
+        "SUBREGION",
+        "INCOME_GRP",
+        "ECONOMY"
+      ]
+    },
+    {
+      "id": "ne-disputed",
+      "file": "disputed_areas.json",
+      "title": {
+        "ar": "الأقاليم المتنازع عليها — Natural Earth مقياس 1:10m",
+        "en": "Disputed areas — Natural Earth 1:10m"
+      },
+      "publisher": "Natural Earth",
+      "url": "https://www.naturalearthdata.com/downloads/10m-cultural-vectors/",
+      "license": "Public domain",
+      "published": "2022-05",
+      "lastRetrieved": "2026-10-30",
+      "resolution": {
+        "ar": "1:10,000,000",
+        "en": "1:10,000,000"
+      },
+      "methodology": {
+        "ar": "طبقة منفصلة ترصد المساحات التي تطالب بها أكثر من جهة، مع حقل NOTE_BRK الذي يوثّق طبيعة الخلاف.",
+        "en": "Separate layer recording areas claimed by more than one party, with a NOTE_BRK field documenting the nature of the disagreement."
+      },
+      "limitations": {
+        "ar": "غير شامل: يغطي الخلافات التي رصدتها Natural Earth كارتوغرافياً، ولا يشمل كل المطالبات البحرية أو الخلافات الحدودية الصغيرة.",
+        "en": "Not exhaustive: covers disputes Natural Earth records cartographically; excludes many maritime claims and minor boundary disagreements."
+      }
+    },
+    {
+      "id": "ne-boundaries",
+      "file": "boundary_lines.json",
+      "title": {
+        "ar": "خطوط الحدود البرية — Natural Earth",
+        "en": "Land boundary lines — Natural Earth"
+      },
+      "publisher": "Natural Earth",
+      "url": "https://www.naturalearthdata.com/downloads/50m-cultural-vectors/",
+      "license": "Public domain",
+      "published": "2022-05",
+      "lastRetrieved": "2026-10-30",
+      "resolution": {
+        "ar": "1:50,000,000",
+        "en": "1:50,000,000"
+      },
+      "methodology": {
+        "ar": "خطوط حدود مصنّفة حسب النوع (حدود دولية، خط هدنة، حدود متنازع عليها، خط إداري).",
+        "en": "Boundary lines classified by type (international boundary, line of control, disputed boundary, indefinite administrative line)."
+      },
+      "limitations": {
+        "ar": "تصنيف النوع هو تصنيف Natural Earth وليس تصنيفاً قانونياً دولياً.",
+        "en": "Type classification is Natural Earth's, not an international legal classification."
+      }
+    },
+    {
+      "id": "atlas-conflicts",
+      "file": "thematic/conflicts.json",
+      "title": {
+        "ar": "ملفات النزاعات ونقاط الاشتعال",
+        "en": "Conflict and flashpoint dossiers"
+      },
+      "publisher": {
+        "ar": "تجميع تحريري لهذا الأطلس",
+        "en": "Editorial compilation for this atlas"
+      },
+      "license": "CC-BY-4.0 (compilation)",
+      "published": "2026-10-30",
+      "lastRetrieved": "2026-10-30",
+      "resolution": {
+        "ar": "نقطة تمثيلية لكل نزاع + مضلّع نطاق تقريبي حيث توفّر. النقطة تدلّ على مركز الثقل الجغرافي للنزاع ولا تمثّل خط جبهة.",
+        "en": "One representative point per conflict plus an approximate extent polygon where available. The point marks the conflict's geographic centre of gravity and is not a front line."
+      },
+      "methodology": {
+        "ar": "صيغت الخلفية التاريخية والأسباب من مراجع ثانوية راسخة. أما حقل «الوضع الحالي» وقائمة «أحدث التطورات» فقد تم التحقق منهما يوم 2026-10-30 مقابل تقارير أساسية (الأمم المتحدة، مجلس الأمن، OHCHR، ACLED، ICG، CFR، Reuters، AFP، Al Jazeera). كل نزاع يحمل حقل dimensions يفصّل الأسباب السياسية والإقليمية والاقتصادية والأيديولوجية والهوياتية بصورة منفصلة.",
+        "en": "Historical background and causes drawn from established secondary references. The current-status field and recent-developments list were verified on 2026-10-30 against primary reporting (UN, Security Council Report, OHCHR, ACLED, ICG, CFR, Reuters, AFP, Al Jazeera). Each conflict carries a dimensions field separating political, territorial, economic, ideological and identity causes."
+      },
+      "limitations": {
+        "ar": "ليس مصدراً أولياً لبيانات الأحداث. للتحليل الكمّي لأحداث العنف استخدم ACLED أو UCDP مباشرة. حقل confidence يوضح مستوى التحقق لكل سجل: verified يعني أن الوضع الحالي تم تدقيقه في تاريخ statusAsOf، وpartial يعني أن الخلفية موثّقة لكن الوضع الحالي يحتاج تحديثاً.",
+        "en": "Not a primary event-data source. For quantitative analysis of violent events use ACLED or UCDP directly. The confidence field states each record's verification level: verified means current status was checked on statusAsOf; partial means background is documented but current status needs refresh."
+      },
+      "recommendedPrimary": [
+        "ucdp",
+        "acled",
+        "icg",
+        "ocha-hdx"
+      ]
+    },
+    {
+      "id": "atlas-ethnic",
+      "file": "thematic/ethnic_groups.json",
+      "title": {
+        "ar": "النطاقات التقريبية للمجموعات العرقية",
+        "en": "Approximate ethnic group extents"
+      },
+      "publisher": {
+        "ar": "تجميع تحريري لهذا الأطلس",
+        "en": "Editorial compilation for this atlas"
+      },
+      "license": "CC-BY-4.0 (compilation)",
+      "published": "2026-10-30",
+      "lastRetrieved": "2026-10-30",
+      "resolution": {
+        "ar": "مضلّعات تخطيطية خشنة (5–12 رأساً) على مقياس إقليمي. ليست حدوداً ولا بيانات تعداد.",
+        "en": "Coarse schematic polygons (5–12 vertices) at regional scale. Not boundaries and not census data."
+      },
+      "methodology": {
+        "ar": "رُسم لكل مجموعة نطاق استيطان أساسي تخطيطي يعكس المناطق التي يُعرف أنها تضم تجمعاً سكانياً كبيراً للمجموعة. الطبقة تُرسم بتعبئة شفّافة وحدود متقطّعة متعمّدة، وتُعرض المضلّعات متراكبة لأن المجموعات تتشارك المجال الجغرافي. حقل countries يسرد الدول التي تتوزّع فيها المجموعة، وهو الحقل الأدق تحليلياً في هذا الملف.",
+        "en": "Each group is drawn as a schematic core-settlement extent reflecting areas known to hold a substantial population of that group. The layer renders with transparent fill and deliberately dashed edges, and polygons are shown overlapping because groups share geographic space. The countries field lists states across which the group is distributed and is the analytically stronger field in this file."
+      },
+      "limitations": {
+        "ar": "تحذير جوهري: التوزيع العرقي ليس مساحات متجاورة ولا متنافية. هذه المضلّعات توضيحية للعرض الخرائطي فقط، ولا يجوز استخدامها لقياس المساحة أو عدد السكان أو لدعم أي مطالبة إقليمية. للحصول على بيانات إحداثية موثّقة استخدم GREG أو GeoEPR من PRIO أو تعدادات السكان الوطنية.",
+        "en": "Material caveat: ethnic distribution is neither contiguous nor mutually exclusive. These polygons are illustrative, for cartographic display only, and must not be used to measure area or population or to support any territorial claim. For documented georeferenced data use GREG, PRIO's GeoEPR, or national censuses."
+      },
+      "recommendedPrimary": [
+        "geoepr",
+        "mrg",
+        "ethnologue"
+      ]
+    },
+    {
+      "id": "atlas-religion",
+      "file": "thematic/religions.json",
+      "title": {
+        "ar": "التركيب الديني على مستوى الدول",
+        "en": "Country-level religious composition"
+      },
+      "publisher": {
+        "ar": "تجميع تحريري من Pew وكتاب الحقائق العالمي",
+        "en": "Editorial compilation from Pew and The World Factbook"
+      },
+      "license": "CC-BY-4.0 (compilation)",
+      "published": "2026-10-30",
+      "lastRetrieved": "2026-10-30",
+      "resolution": {
+        "ar": "مستوى الدولة (ADM0) فقط. لا توجد تقديرات على مستوى الأقاليم في هذه النسخة.",
+        "en": "Country level (ADM0) only. No subnational estimates in this release."
+      },
+      "methodology": {
+        "ar": "لكل دولة نسب مئوية تقديرية مع سنة البيانات وجهة التقدير مذكورتين في كل سجل. النسب مأخوذة من تقديرات منشورة ولم يُجرِ الأطلس أي استقراء أو تعديل عليها. حيث تتعارض التقديرات يُسجَّل المدى لا رقم واحد.",
+        "en": "Each country carries estimated percentages with the data year and estimating body stated per record. Percentages are taken from published estimates; the atlas performs no interpolation or adjustment. Where estimates conflict, a range is recorded rather than a single figure."
+      },
+      "limitations": {
+        "ar": "الانتماء الديني يُقاس بطرق متباينة بين الدول (تعداد، مسح، تقدير إداري)، وبعض الدول لا تجمع هذا البيانات أصلاً. تقديرات الانقسام السني/الشيعي حسّاسة سياسياً وغالباً متنازع عليها. الدول غير المدرجة تعني غياب تقدير موثّق في هذه النسخة، لا غياب تعدد ديني.",
+        "en": "Religious affiliation is measured differently across states (census, survey, administrative estimate), and some states do not collect it at all. Sunni/Shia split estimates are politically sensitive and frequently contested. Countries not listed mean no documented estimate in this release, not an absence of religious plurality."
+      },
+      "recommendedPrimary": [
+        "pew",
+        "wrd",
+        "ciawf"
+      ]
+    },
+    {
+      "id": "atlas-chokepoints",
+      "file": "thematic/chokepoints.json",
+      "title": {
+        "ar": "المضائق والممرات البحرية الاستراتيجية",
+        "en": "Strategic maritime chokepoints"
+      },
+      "publisher": {
+        "ar": "تجميع تحريري من EIA وUNCTAD",
+        "en": "Editorial compilation from EIA and UNCTAD"
+      },
+      "license": "CC-BY-4.0 (compilation)",
+      "published": "2026-10-30",
+      "lastRetrieved": "2026-10-30",
+      "resolution": {
+        "ar": "نقطة لكل ممر عند أضيق مقطع تقريبي.",
+        "en": "One point per corridor at the approximate narrowest section."
+      },
+      "methodology": {
+        "ar": "أحجام التدفّق النفطي مأخوذة من تقديرات إدارة معلومات الطاقة الأمريكية (EIA) لسنة محددة مذكورة في كل سجل.",
+        "en": "Oil flow volumes taken from US Energy Information Administration estimates for a specific year stated per record."
+      },
+      "limitations": {
+        "ar": "أحجام التدفّق تتغيّر سنوياً وبشكل حادّ خلال الأزمات؛ الأرقام هنا مرجعية لسنة الأساس ولا تمثّل التدفّق اللحظي.",
+        "en": "Flow volumes change annually and sharply during crises; figures here are baseline-year references, not live throughput."
+      }
+    },
+    {
+      "id": "atlas-relations",
+      "file": "thematic/relations.json",
+      "title": {
+        "ar": "شبكة العلاقات الجيوسياسية",
+        "en": "Geopolitical relationship network"
+      },
+      "publisher": {
+        "ar": "تجميع تحريري لهذا الأطلس",
+        "en": "Editorial compilation for this atlas"
+      },
+      "license": "CC-BY-4.0 (compilation)",
+      "published": "2026-10-30",
+      "lastRetrieved": "2026-10-30",
+      "resolution": {
+        "ar": "حافة واحدة لكل علاقة ثنائية بين دولتين.",
+        "en": "One edge per bilateral relationship between two states."
+      },
+      "methodology": {
+        "ar": "تفصل الشبكة صراحةً بين نوعين من الحافات: حافة treaty مبنية على التزام رسمي قابل للتحقق (عضوية حلف، معاهدة دفاع، اتفاقية موقّعة) وتُرسم خطاً متصلاً؛ وحافة assessed تمثّل تقديراً تحليلياً لعلاقة غير موثّقة بمعاهدة (نفوذ، دعم بالوكالة، تنافس) وتُرسم خطاً متقطّعاً. هذا التمييز مطبّق في العرض وليس في البيانات فقط.",
+        "en": "The network explicitly separates two edge kinds: a treaty edge rests on a verifiable formal commitment (alliance membership, defence treaty, signed agreement) and renders as a solid line; an assessed edge represents an analytical judgement about a relationship not documented by treaty (influence, proxy support, rivalry) and renders dashed. This distinction is applied in the rendering, not only in the data."
+      },
+      "limitations": {
+        "ar": "حافات assessed هي تفسير ويختلف المحللون حولها؛ الدعم بالوكالة تحديداً تنفيه الأطراف المعنية في العادة، وهذا مسجّل في حقل contested.",
+        "en": "Assessed edges are interpretation and analysts differ on them; proxy support in particular is typically denied by the parties involved, which is recorded in the contested field."
+      }
+    },
+    {
+      "id": "atlas-timeline",
+      "file": "thematic/timeline.json",
+      "title": {
+        "ar": "الخط الزمني 1900 — الوقت الحاضر",
+        "en": "Historical timeline, 1900 to present"
+      },
+      "publisher": {
+        "ar": "تجميع تحريري لهذا الأطلس",
+        "en": "Editorial compilation for this atlas"
+      },
+      "license": "CC-BY-4.0 (compilation)",
+      "published": "2026-10-30",
+      "lastRetrieved": "2026-10-30",
+      "resolution": {
+        "ar": "دقة التاريخ مُعلَنة لكل حدث في حقل datePrecision: day أو month أو year أو period.",
+        "en": "Date precision is declared per event in the datePrecision field: day, month, year or period."
+      },
+      "methodology": {
+        "ar": "أحداث موثّقة تاريخياً مع تواريخ مُعلَنة الدقة. لا يحتوي الأطلس على طبقات حدود تاريخية مرسومة: لم تُلفَّق أي حدود لسنوات ماضية. عند اختيار حدث يُبرز الأطلس الدول والأقاليم المعنية على الخريطة الحالية ويذكر صراحةً أن الحدود المعروضة حدود معاصرة.",
+        "en": "Historically documented events with declared date precision. The atlas contains no drawn historical boundary layers: no past-year borders have been fabricated. Selecting an event highlights the countries and territories involved on the present-day map and states explicitly that the displayed boundaries are contemporary."
+      },
+      "limitations": {
+        "ar": "قيد صريح مقصود: الخريطة لا تُعيد رسم حدود عام 1914 أو 1945 أو 1991. بناء طبقات حدود تاريخية يتطلّب مجموعات بيانات مثل CShapes أو Euratlas، وهي غير مضمّنة لأن تلفيق حدود تاريخية أسوأ من غيابها. يوضح الأطلس هذا القيد في واجهة الخط الزمني نفسها.",
+        "en": "A deliberate, stated limitation: the map does not redraw the borders of 1914, 1945 or 1991. Historical boundary layers require datasets such as CShapes or Euratlas, which are not bundled, because fabricating historical borders is worse than omitting them. The atlas states this limitation in the timeline interface itself."
+      },
+      "recommendedPrimary": [
+        "cshapes",
+        "euratlas"
+      ]
+    },
+    {
+      "id": "atlas-resources",
+      "file": "thematic/resources.json",
+      "title": {
+        "ar": "الموارد الاستراتيجية",
+        "en": "Strategic resources"
+      },
+      "publisher": {
+        "ar": "تجميع تحريري من USGS وEIA وBP/Energy Institute",
+        "en": "Editorial compilation from USGS, EIA and the Energy Institute"
+      },
+      "license": "CC-BY-4.0 (compilation)",
+      "published": "2026-10-30",
+      "lastRetrieved": "2026-10-30",
+      "resolution": {
+        "ar": "مستويان متمايزان: سجلّ على مستوى الدولة يُعرض عند نقطة تسمية الدولة ولا يدلّ على إحداثي، وموقع نقطي يمثّل منطقة إنتاج أو حوضاً لا حدّ امتياز. التمييز بينهما مطبّق في شكل الرمز على الخريطة.",
+        "en": "Two distinct levels: a country-level record shown at the country's label point, marking no coordinate, and a point site representing a production area or basin rather than a concession boundary. The distinction is applied in the marker's shape on the map."
+      },
+      "methodology": {
+        "ar": "حصص الإنتاج والاحتياطيات من تقارير منشورة، وسنة الأساس وجهة التقدير مذكورتان في كل سجل. أرقام الفوسفات والبوتاس والبروم من ملخّصات السلع المعدنية الصادرة عن مسح الولايات المتحدة الجيولوجي، وأرقام الطاقة من إدارة معلومات الطاقة الأمريكية. حيث تتباين التقديرات تبايناً واسعاً — كاحتياطي الصخر الزيتي الأردني — يُسجَّل المدى كاملاً مع ذكر سبب التباين، لا رقم واحد.",
+        "en": "Production and reserve shares are from published reports, with the baseline year and estimating body stated per record. Phosphate, potash and bromine figures are from the US Geological Survey's Mineral Commodity Summaries; energy figures from the US Energy Information Administration. Where estimates diverge widely — as with Jordan's oil shale reserve — the full range is recorded with the reason for the divergence, rather than a single figure."
+      },
+      "limitations": {
+        "ar": "التغطية ليست شاملة وليست قائمة بكل منتج لكل مورد: تضمّ الدول ذات المكانة العالمية الموثّقة في المورد المعني. غياب دولة يعني غياب سجلّ في هذه النسخة لا غياب موارد، وملفّ الدولة يعلن ذلك صراحةً. بيانات الاحتياطيات معلنة ذاتياً من الدول في كثير من الحالات ويصعب مراجعتها مستقلّاً، خاصة في منطقة الخليج. المواقع النقطية تمثيلية للمنطقة ولا تمثّل حدود امتياز.",
+        "en": "Coverage is not exhaustive and is not a list of every producer of every resource: it holds states with a documented global standing in the resource concerned. A country's absence means no record in this release, not an absence of resources, and the country panel declares this explicitly. Reserve data is in many cases self-declared by states and hard to audit independently, particularly in the Gulf. Point sites represent an area, not a concession boundary."
+      }
+    },
+    {
+      "id": "atlas-country-intel",
+      "file": "thematic/country_intel.json",
+      "title": {
+        "ar": "ملفات الدول التحليلية التكميلية",
+        "en": "Supplementary country intelligence profiles"
+      },
+      "publisher": {
+        "ar": "تجميع تحريري لهذا الأطلس",
+        "en": "Editorial compilation for this atlas"
+      },
+      "license": "CC-BY-4.0 (compilation)",
+      "published": "2026-10-30",
+      "lastRetrieved": "2026-10-30",
+      "resolution": {
+        "ar": "مستوى الدولة.",
+        "en": "Country level."
+      },
+      "methodology": {
+        "ar": "يكمّل حقول Natural Earth الكمّية بحقول نوعية: النظام السياسي، اللغات الرسمية، الحركات الانفصالية، الخلافات الإقليمية، التحالفات الإقليمية.",
+        "en": "Supplements Natural Earth's quantitative fields with qualitative ones: political system, official languages, separatist movements, territorial disputes, regional alliances."
+      },
+      "limitations": {
+        "ar": "يغطّي مجموعة فرعية من الدول ذات الصلة بالنزاعات المرصودة. الدول غير المغطّاة تعرض بيانات Natural Earth فقط مع إشعار واضح بأن الملف التكميلي غير متوفّر. وصف «النظام السياسي» توصيف مختصر وليس تقييماً لجودة الحكم.",
+        "en": "Covers a subset of states relevant to the tracked conflicts. Uncovered states display Natural Earth fields only, with a clear notice that no supplementary profile exists. The political-system description is a short characterisation, not an assessment of governance quality."
+      }
+    }
+  ],
+  "references": [
+    {
+      "id": "ne",
+      "name": {
+        "ar": "Natural Earth",
+        "en": "Natural Earth"
+      },
+      "url": "https://www.naturalearthdata.com/",
+      "role": {
+        "ar": "الحدود والأقاليم المتنازع عليها — مضمّنة",
+        "en": "Boundaries and disputed areas — bundled"
+      }
+    },
+    {
+      "id": "gadm",
+      "name": {
+        "ar": "GADM",
+        "en": "GADM"
+      },
+      "url": "https://gadm.org/",
+      "role": {
+        "ar": "الحدود الإدارية الفرعية — غير مضمّنة، الترخيص يقيّد إعادة التوزيع",
+        "en": "Subnational administrative boundaries — not bundled, licence restricts redistribution"
+      }
+    },
+    {
+      "id": "geonames",
+      "name": {
+        "ar": "GeoNames",
+        "en": "GeoNames"
+      },
+      "url": "https://www.geonames.org/",
+      "role": {
+        "ar": "أسماء الأماكن — موصّل اختياري",
+        "en": "Place names — optional connector"
+      }
+    },
+    {
+      "id": "ucdp",
+      "name": {
+        "ar": "برنامج أوبسالا لبيانات النزاعات",
+        "en": "Uppsala Conflict Data Program"
+      },
+      "url": "https://ucdp.uu.se/",
+      "role": {
+        "ar": "بيانات أحداث النزاع المرجعية — موصّل، يُنصح به للتحليل الكمّي",
+        "en": "Reference conflict event data — connector, recommended for quantitative analysis"
+      }
+    },
+    {
+      "id": "acled",
+      "name": {
+        "ar": "ACLED",
+        "en": "ACLED"
+      },
+      "url": "https://acleddata.com/",
+      "role": {
+        "ar": "أحداث العنف المُرمَّزة جغرافياً — موصّل بمفتاح API",
+        "en": "Georeferenced violent events — connector, API key required"
+      }
+    },
+    {
+      "id": "icg",
+      "name": {
+        "ar": "مجموعة الأزمات الدولية",
+        "en": "International Crisis Group"
+      },
+      "url": "https://www.crisisgroup.org/crisiswatch",
+      "role": {
+        "ar": "تقييم شهري لحالة النزاعات — مرجع للتحقق",
+        "en": "Monthly conflict status assessment — verification reference"
+      }
+    },
+    {
+      "id": "mrg",
+      "name": {
+        "ar": "مجموعة حقوق الأقليات الدولية",
+        "en": "Minority Rights Group International"
+      },
+      "url": "https://minorityrights.org/",
+      "role": {
+        "ar": "ملفات الأقليات العرقية والدينية — مرجع",
+        "en": "Ethnic and religious minority profiles — reference"
+      }
+    },
+    {
+      "id": "pew",
+      "name": {
+        "ar": "مركز بيو للأبحاث",
+        "en": "Pew Research Center"
+      },
+      "url": "https://www.pewresearch.org/religion/",
+      "role": {
+        "ar": "التركيب الديني العالمي — مصدر لطبقة الأديان",
+        "en": "Global religious composition — source for the religion layer"
+      }
+    },
+    {
+      "id": "wrd",
+      "name": {
+        "ar": "قاعدة بيانات الأديان العالمية",
+        "en": "World Religion Database"
+      },
+      "url": "https://www.worldreligiondatabase.org/",
+      "role": {
+        "ar": "تقديرات دينية تفصيلية — تتطلّب اشتراكاً",
+        "en": "Detailed religious estimates — subscription required"
+      }
+    },
+    {
+      "id": "ethnologue",
+      "name": {
+        "ar": "Ethnologue",
+        "en": "Ethnologue"
+      },
+      "url": "https://www.ethnologue.com/",
+      "role": {
+        "ar": "التوزيع اللغوي — يتطلّب اشتراكاً",
+        "en": "Linguistic distribution — subscription required"
+      }
+    },
+    {
+      "id": "geoepr",
+      "name": {
+        "ar": "GeoEPR — PRIO",
+        "en": "GeoEPR — PRIO"
+      },
+      "url": "https://icr.ethz.ch/data/epr/geoepr/",
+      "role": {
+        "ar": "مواقع المجموعات العرقية ذات الصلة السياسية — البديل الموثّق لطبقة العرقيات التوضيحية",
+        "en": "Georeferenced politically relevant ethnic groups — the documented replacement for the illustrative ethnic layer"
+      }
+    },
+    {
+      "id": "ocha-hdx",
+      "name": {
+        "ar": "HDX — مكتب تنسيق الشؤون الإنسانية",
+        "en": "HDX — UN OCHA"
+      },
+      "url": "https://data.humdata.org/",
+      "role": {
+        "ar": "بيانات إنسانية وحدود إدارية تشغيلية — موصّل",
+        "en": "Humanitarian data and operational administrative boundaries — connector"
+      }
+    },
+    {
+      "id": "unhcr",
+      "name": {
+        "ar": "المفوضية السامية للأمم المتحدة للاجئين",
+        "en": "UNHCR"
+      },
+      "url": "https://www.unhcr.org/refugee-statistics/",
+      "role": {
+        "ar": "إحصاءات اللجوء والتهجير — موصّل",
+        "en": "Refugee and displacement statistics — connector"
+      }
+    },
+    {
+      "id": "iom",
+      "name": {
+        "ar": "المنظمة الدولية للهجرة",
+        "en": "IOM"
+      },
+      "url": "https://dtm.iom.int/",
+      "role": {
+        "ar": "مصفوفة تتبّع التهجير — موصّل",
+        "en": "Displacement Tracking Matrix — connector"
+      }
+    },
+    {
+      "id": "worldbank",
+      "name": {
+        "ar": "البنك الدولي",
+        "en": "World Bank"
+      },
+      "url": "https://data.worldbank.org/",
+      "role": {
+        "ar": "مؤشرات اقتصادية وسكانية — موصّل",
+        "en": "Economic and demographic indicators — connector"
+      }
+    },
+    {
+      "id": "undata",
+      "name": {
+        "ar": "بيانات الأمم المتحدة",
+        "en": "UN Data"
+      },
+      "url": "https://data.un.org/",
+      "role": {
+        "ar": "إحصاءات رسمية — موصّل",
+        "en": "Official statistics — connector"
+      }
+    },
+    {
+      "id": "ciawf",
+      "name": {
+        "ar": "كتاب الحقائق العالمي",
+        "en": "The World Factbook"
+      },
+      "url": "https://www.cia.gov/the-world-factbook/",
+      "role": {
+        "ar": "التركيب العرقي والديني واللغوي على مستوى الدولة — مصدر مرجعي",
+        "en": "Country-level ethnic, religious and linguistic composition — reference source"
+      }
+    },
+    {
+      "id": "eia",
+      "name": {
+        "ar": "إدارة معلومات الطاقة الأمريكية",
+        "en": "US Energy Information Administration"
+      },
+      "url": "https://www.eia.gov/international/analysis/special-topics/World_Oil_Transit_Chokepoints",
+      "role": {
+        "ar": "تدفّقات الطاقة عبر المضائق — مصدر لطبقة الممرات",
+        "en": "Energy flows through chokepoints — source for the corridors layer"
+      }
+    },
+    {
+      "id": "cshapes",
+      "name": {
+        "ar": "CShapes 2.0",
+        "en": "CShapes 2.0"
+      },
+      "url": "https://icr.ethz.ch/data/cshapes/",
+      "role": {
+        "ar": "حدود الدول التاريخية 1886–2019 — البديل الموثّق لطبقة الحدود التاريخية الغائبة",
+        "en": "Historical state boundaries 1886–2019 — the documented replacement for the absent historical boundary layer"
+      }
+    },
+    {
+      "id": "euratlas",
+      "name": {
+        "ar": "Euratlas",
+        "en": "Euratlas"
+      },
+      "url": "https://www.euratlas.net/",
+      "role": {
+        "ar": "حدود أوروبا التاريخية — مرجع تجاري",
+        "en": "Historical European boundaries — commercial reference"
+      }
+    },
+    {
+      "id": "joshua",
+      "name": {
+        "ar": "Joshua Project",
+        "en": "Joshua Project"
+      },
+      "url": "https://joshuaproject.net/",
+      "role": {
+        "ar": "غير مستخدَم كمرجع ديموغرافي في هذه النسخة. المشروع ذو غرض تبشيري وتصنيفه للمجموعات مبني على ذلك الغرض، لذا لا يصلح سلطةً ديموغرافية مستقلة.",
+        "en": "Not used as a demographic reference in this release. The project has a missiological purpose and classifies groups to serve it, so it is unsuitable as a standalone demographic authority."
+      }
+    },
+    {
+      "id": "usgs",
+      "name": {
+        "ar": "مسح الولايات المتحدة الجيولوجي — ملخّصات السلع المعدنية",
+        "en": "US Geological Survey — Mineral Commodity Summaries"
+      },
+      "url": "https://www.usgs.gov/centers/national-minerals-information-center/mineral-commodity-summaries",
+      "role": {
+        "ar": "إنتاج واحتياطيات المعادن على مستوى الدول — مصدر طبقة الموارد",
+        "en": "Country-level mineral production and reserves — source for the resources layer"
+      }
+    }
+  ]
+}

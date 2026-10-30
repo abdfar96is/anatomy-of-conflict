@@ -1,0 +1,512 @@
+{
+  "region": "asia",
+  "regionName": { "ar": "آسيا", "en": "Asia" },
+  "statusAsOf": "2026-10-30",
+  "conflicts": [
+    {
+      "id": "taiwan-strait",
+      "name": { "ar": "مضيق تايوان", "en": "The Taiwan Strait" },
+      "coords": [120.0, 23.8],
+      "countries": ["TWN", "CHN"],
+      "severity": "high-tension",
+      "started": "1949",
+      "dimensions": ["political", "territorial", "economic", "ideological"],
+      "dimensionNote": {
+        "ar": "نزاع سيادة وشرعية سياسية لا نزاع عرقي ولا ديني: الطرفان يتشاركان الأصل العرقي الهاني واللغة والتراث الثقافي. محلّ الخلاف هو أيّ حكومة تمثّل الصين، وما إذا كانت تايوان كياناً سيادياً قائماً بذاته.",
+        "en": "A dispute over sovereignty and political legitimacy, not an ethnic or religious one: both sides share Han ethnic origin, language and cultural heritage. What is contested is which government represents China, and whether Taiwan is a sovereign entity in its own right."
+      },
+      "parties": {
+        "ar": ["جمهورية الصين (تايوان)", "جمهورية الصين الشعبية", "الولايات المتحدة"],
+        "en": ["Republic of China (Taiwan)", "People's Republic of China", "United States"]
+      },
+      "ethnoReligious": {
+        "ar": "أغلبية هانية في تايوان، مع شعوب أصلية أسترونيزية تمثّل نحو 2٪ من السكان ولها لغاتها الخاصة. المشهد الديني في تايوان يجمع البوذية والطاوية والمعتقدات الشعبية والمسيحية، وهو أكثر تعدّداً وحرّية من نظيره في البرّ.",
+        "en": "A Han majority in Taiwan alongside Austronesian indigenous peoples comprising around 2% of the population with their own languages. Taiwan's religious landscape combines Buddhism, Taoism, folk belief and Christianity, and is more plural and free than the mainland's."
+      },
+      "history": {
+        "ar": "انتقلت حكومة الكومينتانغ إلى تايوان في 1949 بعد خسارة الحرب الأهلية الصينية، واستمرّ كلّ من الجانبين في الادعاء بتمثيل الصين كلها. نُقل مقعد الصين في الأمم المتحدة إلى بكين في 1971، وحوّلت الولايات المتحدة اعترافها الدبلوماسي في 1979 مع إقرار قانون العلاقات مع تايوان. أرست تايوان ديمقراطية تعدّدية منذ أول انتخابات رئاسية مباشرة في 1996.",
+        "en": "The Kuomintang government relocated to Taiwan in 1949 after losing the Chinese civil war, and each side continued to claim to represent all of China. China's UN seat passed to Beijing in 1971, and the United States switched diplomatic recognition in 1979 while enacting the Taiwan Relations Act. Taiwan established a plural democracy from its first direct presidential election in 1996."
+      },
+      "politicalCauses": {
+        "ar": "رفض بكين لأي خطوة نحو استقلال رسمي وعدم استبعادها استخدام القوة، وتباعد الهوية السياسية التايوانية عن الهوية الصينية، وغموض الالتزام الأمريكي الاستراتيجي، وإقصاء تايوان من المنظمات الدولية.",
+        "en": "Beijing's rejection of any step toward formal independence and its refusal to rule out the use of force, the divergence of Taiwanese political identity from Chinese identity, the ambiguity of the American strategic commitment, and Taiwan's exclusion from international organisations."
+      },
+      "territorialClaims": {
+        "ar": "تطالب بكين بتايوان وجزرها، وتدير تايوان كينمن وماتسو قرب الساحل الصيني وجزر برَتاس (دونغشا) وجزيرة تايپينغ في بحر الصين الجنوبي. وتطالب تايوان نظرياً بما تطالب به الصين في بحر الصين الجنوبي بحكم استمرار دستورها.",
+        "en": "Beijing claims Taiwan and its islands; Taiwan administers Kinmen and Matsu close to the Chinese coast, the Pratas (Dongsha) Islands and Taiping Island in the South China Sea. Taiwan notionally claims what China claims in the South China Sea by virtue of its continuing constitution."
+      },
+      "strategicInterests": {
+        "ar": "تايوان تنتج الحصّة الأكبر عالمياً من أشباه الموصلات المتقدّمة، وهو ما يجعل أي اضطراب فيها أزمة اقتصادية عالمية فورية. موقعها يشكّل عقدة في سلسلة الجزر الأولى التي تحدّ وصول البحرية الصينية إلى المحيط الهادئ.",
+        "en": "Taiwan produces the world's largest share of advanced semiconductors, making any disruption there an immediate global economic crisis. Its position forms a node in the First Island Chain that constrains Chinese naval access to the Pacific."
+      },
+      "externalPowers": [
+        { "iso3": "USA", "role": { "ar": "مورّد أسلحة رئيسي بموجب قانون العلاقات مع تايوان، وتجري عمليات حرية ملاحة في المضيق وبحر الصين الجنوبي", "en": "Principal arms supplier under the Taiwan Relations Act, and conducts freedom-of-navigation operations in the strait and the South China Sea" }, "kind": "treaty" },
+        { "iso3": "JPN", "role": { "ar": "تنشر مع مشاة البحرية الأمريكية صواريخ مضادة للسفن في جزيرة يوناغوني على نحو 110 كم من تايوان", "en": "Deploys anti-ship missiles with the US Marine Corps on Yonaguni Island, around 110 km from Taiwan" }, "kind": "treaty" },
+        { "iso3": "PHL", "role": { "ar": "تتعرّض لضغط بحري صيني متزايد وتمنح الولايات المتحدة وصولاً إلى قواعدها", "en": "Faces growing Chinese maritime pressure and grants the United States access to its bases" }, "kind": "treaty" }
+      ],
+      "status": {
+        "ar": "ضغط رمادي اللون متصاعد دون صدام مسلح. كثّفت الصين في 2026 الضغط البحري بنشر أعداد قياسية من سفن خفر السواحل وسفن المسح حول الجزيرة، وبدأت دوريات إنفاذ قانون شرق تايوان في يونيو 2026. وقع حادث استخدام تايوان لخراطيم المياه ضد قارب صيني قرب برَتاس في 1 أكتوبر 2026، وأبعدت تايوان في 18 أكتوبر ستة عشر سفينة صينية وصفتها بحملة تحريش منسّقة. لم تُجرِ الصين تدريبات حول الجزيرة ردّاً على خطاب العيد الوطني التايواني هذا العام خلافاً للمعتاد.",
+        "en": "Escalating grey-zone pressure without armed clash. In 2026 China intensified maritime pressure by deploying record numbers of coast guard and survey vessels around the island, and began law-enforcement patrols east of Taiwan in June 2026. Taiwan used water cannon against a Chinese boat near Pratas on 1 October 2026, and on 18 October warded off sixteen Chinese vessels it described as a coordinated harassment campaign. Unlike previous years, China did not conduct exercises around the island in response to Taiwan's National Day address."
+      },
+      "statusAsOf": "2026-10-30",
+      "recent": [
+        { "date": "2026-10-20", "ar": "أرسل خفر السواحل التايواني سفينة لإبعاد سفينة خفر سواحل صينية دخلت منطقة محظورة حول جزر برَتاس، وأعلنت الصين إرسال قوات بحرية لمراقبة سفينة حربية أمريكية قرب سابينا شول.", "en": "Taiwan's coast guard sent a ship to ward off a Chinese coast guard vessel that entered a restricted area around the Pratas Islands, and China announced it had dispatched naval forces to shadow a US warship near Sabina Shoal.", "source": "Reuters / USA Today via CFR" },
+        { "date": "2026-10-19", "ar": "جرى نشر صواريخ مضادة للسفن أمريكية ويابانية في جزيرة يوناغوني خلال تدريبات «كين سورد» الممتدة حتى 29 أكتوبر.", "en": "US and Japanese anti-ship missiles were deployed on Yonaguni Island during the Keen Sword exercises running to 29 October.", "source": "ISW / AEI" },
+        { "date": "2026-10-14", "ar": "حذّرت بكين تايوان من «تحمّل العواقب» بعد حادثة خراطيم المياه قرب برَتاس وأكّدت ما وصفته بسيادتها غير القابلة للجدل على الجزر.", "en": "Beijing warned Taiwan it must bear the consequences of the Pratas water-cannon incident and asserted what it called indisputable sovereignty over the islands.", "source": "China Taiwan Affairs Office statements" }
+      ],
+      "confidence": "verified",
+      "sourceRefs": ["icg", "acled"]
+    },
+    {
+      "id": "south-china-sea",
+      "name": { "ar": "بحر الصين الجنوبي", "en": "South China Sea" },
+      "coords": [114.5, 12.5],
+      "countries": ["CHN", "PHL", "VNM", "MYS", "BRN", "TWN", "IDN"],
+      "severity": "high-tension",
+      "started": "1974",
+      "dimensions": ["territorial", "economic", "political"],
+      "dimensionNote": {
+        "ar": "نزاع بحري وإقليمي واقتصادي خالص: سيادة على جزر وشعاب، وحقوق في مناطق اقتصادية خالصة، ومصائد أسماك وموارد طاقة. لا بعد عرقي ولا ديني فيه على الإطلاق، وهو مثال نافع على نزاع تحكمه الجغرافيا والقانون لا الهوية.",
+        "en": "A purely maritime, territorial and economic dispute: sovereignty over islands and reefs, rights in exclusive economic zones, fisheries and energy resources. It has no ethnic or religious dimension whatsoever, making it a useful example of a conflict governed by geography and law rather than identity."
+      },
+      "parties": {
+        "ar": ["الصين", "الفلبين", "فيتنام", "ماليزيا", "بروناي", "تايوان", "إندونيسيا"],
+        "en": ["China", "Philippines", "Vietnam", "Malaysia", "Brunei", "Taiwan", "Indonesia"]
+      },
+      "ethnoReligious": null,
+      "ethnoReligiousNote": {
+        "ar": "لا يوجد بعد عرقي أو ديني لهذا النزاع. أدرجنا الحقل فارغاً صراحةً بدلاً من تركه حتى يكون غياب البعد الهوياتي معلومة في ذاتها.",
+        "en": "This conflict has no ethnic or religious dimension. The field is explicitly set empty rather than omitted, so that the absence of an identity dimension is itself recorded information."
+      },
+      "history": {
+        "ar": "سيطرت الصين على جزر باراسيل كاملةً بعد معركة مع فيتنام الجنوبية في 1974، وجرى صدام مع فيتنام عند شعاب جونسون الجنوبية في 1988. بنت الصين منذ 2013 جزراً صناعية ومرافق عسكرية في سبراتلي. وفي 2016 أصدرت هيئة تحكيم بموجب اتفاقية قانون البحار حكماً لصالح الفلبين قضى بأن مطالبة الخطوط التسعة لا أساس قانوني لها، ورفضت الصين الحكم.",
+        "en": "China took full control of the Paracel Islands after a battle with South Vietnam in 1974, and clashed with Vietnam at Johnson South Reef in 1988. From 2013 China built artificial islands and military facilities in the Spratlys. In 2016 an arbitral tribunal under the Law of the Sea Convention ruled in the Philippines' favour that the nine-dash-line claim had no legal basis; China rejected the ruling."
+      },
+      "politicalCauses": {
+        "ar": "تعارض المطالبات التاريخية الصينية مع نظام المناطق الاقتصادية الخالصة في اتفاقية قانون البحار، تعثّر مفاوضات مدوّنة قواعد السلوك مع رابطة آسيان، وأثر التحالفات الأمريكية في المنطقة.",
+        "en": "The clash between China's historical claims and the exclusive economic zone regime under the Law of the Sea Convention, stalled negotiations on a code of conduct with ASEAN, and the effect of American alliances in the region."
+      },
+      "territorialClaims": {
+        "ar": "تطالب الصين بمعظم البحر وفق خطّ متقطّع، وتطالب الفلبين بمنطقتها الاقتصادية الخالصة التي تشمل سكاربورو شول وسكند توماس شول، وتطالب فيتنام بباراسيل وسبراتلي، وتطالب ماليزيا وبروناي بجرف قاري قبالة بورنيو، وتجد إندونيسيا مطالبتها الصينية متقاطعة مع مياه ناتونا.",
+        "en": "China claims most of the sea along a dashed line; the Philippines claims its exclusive economic zone including Scarborough Shoal and Second Thomas Shoal; Vietnam claims the Paracels and Spratlys; Malaysia and Brunei claim continental shelf off Borneo; and Indonesia finds the Chinese claim overlapping the waters off the Natunas."
+      },
+      "strategicInterests": {
+        "ar": "يمرّ عبر البحر جزء كبير من التجارة البحرية العالمية، وفيه مصائد أسماك تغذّي مئات الملايين واحتياطيات نفط وغاز غير مؤكّدة الحجم. وله أهمية عسكرية بوصفه حوضاً تعمل منه الغوّاصات الصينية النووية.",
+        "en": "A large share of global seaborne trade passes through the sea, which also holds fisheries feeding hundreds of millions and oil and gas reserves of uncertain size. It has military importance as a basin from which China's nuclear submarines operate."
+      },
+      "externalPowers": [
+        { "iso3": "USA", "role": { "ar": "عمليات حرية ملاحة وتحالف دفاعي مع الفلبين", "en": "Freedom-of-navigation operations and a defence alliance with the Philippines" }, "kind": "treaty" },
+        { "iso3": "JPN", "role": { "ar": "دعم قدرات خفر السواحل لدول مطالبة", "en": "Support for claimant states' coast guard capabilities" }, "kind": "assessed" },
+        { "iso3": "AUS", "role": { "ar": "دوريات بحرية مشتركة", "en": "Joint maritime patrols" }, "kind": "treaty" }
+      ],
+      "status": {
+        "ar": "مواجهات متكرّرة بين سفن مدنية وخفر سواحل دون قتال بين قوات نظامية. تكثّف الصين في أكتوبر 2026 الضغط الخطابي والبحري على الفلبين بهدف تقليص حضورها البحري، ووصفت دورياتها قرب سكاربورو شول بالاستفزازات. وجرت مواجهة بحرية أمريكية صينية قرب سابينا شول في 20 أكتوبر 2026.",
+        "en": "Recurring confrontations between civilian vessels and coast guards without fighting between regular forces. In October 2026 China intensified rhetorical and maritime pressure on the Philippines to reduce its maritime presence, describing Philippine patrols near Scarborough Shoal as provocations. A US–Chinese naval encounter occurred near Sabina Shoal on 20 October 2026."
+      },
+      "statusAsOf": "2026-10-30",
+      "recent": [
+        { "date": "2026-10-20", "ar": "أعلنت القيادة الجنوبية الصينية إرسال قوات بحرية لتتبّع سفينة حربية أمريكية كانت تنفّذ عملية حرية ملاحة قرب سابينا شول.", "en": "China's Southern Theatre Command announced it had dispatched naval forces to track a US warship conducting a freedom-of-navigation operation near Sabina Shoal.", "source": "CFR Global Conflict Tracker" },
+        { "date": "2026-10-16", "ar": "تصاعد خلاف دبلوماسي بين مانيلا وبكين بعد تصريحات للسفير الصيني، واستدعى الرئيس الفلبيني السفير لمناقشة مباشرة.", "en": "A diplomatic row escalated between Manila and Beijing after remarks by China's ambassador, and the Philippine president summoned the ambassador for a direct discussion.", "source": "ISW / AEI" }
+      ],
+      "confidence": "verified",
+      "sourceRefs": ["icg", "eia"]
+    },
+    {
+      "id": "kashmir",
+      "name": { "ar": "كشمير والهند وباكستان", "en": "Kashmir, India and Pakistan" },
+      "coords": [75.0, 34.0],
+      "countries": ["IND", "PAK", "CHN"],
+      "severity": "armed-conflict",
+      "started": "1947",
+      "dimensions": ["territorial", "identity", "political", "economic"],
+      "dimensionNote": {
+        "ar": "نزاع إقليمي بين دولتين نوويتين تشكّل عند التقسيم على أساس ديني، فالبعد الديني مؤسِّس هنا بخلاف معظم النزاعات الأخرى. لكن محلّ النزاع الحالي هو السيادة والحكم الذاتي وتقاسم المياه، وليس خلافاً عقدياً.",
+        "en": "A territorial conflict between two nuclear states that formed at partition on a religious basis, so the religious dimension here is foundational unlike most other conflicts. What is contested now, however, is sovereignty, autonomy and water sharing, not doctrine."
+      },
+      "parties": {
+        "ar": ["الهند", "باكستان", "الصين", "جماعات مسلحة كشميرية"],
+        "en": ["India", "Pakistan", "China", "Kashmiri armed groups"]
+      },
+      "ethnoReligious": {
+        "ar": "وادي كشمير ذو أغلبية مسلمة، ومنطقة جامو ذات أغلبية هندوسية، ولاداخ تضمّ بوذيين ومسلمين شيعة. الكشميريون شعب متمايز لغوياً (الكشميرية لغة داردية). غادر معظم الپانديت الهندوس الوادي في التسعينيات.",
+        "en": "The Kashmir Valley is Muslim-majority, the Jammu region Hindu-majority, and Ladakh contains Buddhists and Shia Muslims. Kashmiris are a linguistically distinct people (Kashmiri is a Dardic language). Most Hindu Pandits left the valley in the 1990s."
+      },
+      "history": {
+        "ar": "عند تقسيم الهند في 1947 اختار مهراجا كشمير الهندوسي الانضمام إلى الهند في ولاية ذات أغلبية مسلمة، فنشبت الحرب الأولى وانتهت بخطّ وقف نار صار خطّ السيطرة. تكرّرت الحروب في 1965 و1971 و1999 في كارغيل. تصاعد تمرّد مسلح في الوادي منذ 1989. ألغت الهند في أغسطس 2019 المادة 370 التي كانت تمنح الولاية حكماً ذاتياً وقسّمتها إلى إقليمين اتحاديين. وفي أبريل 2025 قُتل 26 سائحاً في هجوم في پاهالغام تلاه تبادل ضربات ومواجهة قصيرة بين الدولتين.",
+        "en": "At India's partition in 1947 Kashmir's Hindu maharaja chose accession to India in a Muslim-majority state, triggering the first war which ended at a ceasefire line that became the Line of Control. Wars recurred in 1965, 1971 and 1999 at Kargil. An armed insurgency escalated in the valley from 1989. In August 2019 India revoked Article 370, which had granted the state autonomy, and split it into two union territories. In April 2025 twenty-six tourists were killed in an attack at Pahalgam, followed by exchanges of strikes and a short confrontation between the two states."
+      },
+      "politicalCauses": {
+        "ar": "وضع الإقليم الدستوري ومطلب إعادة صفة الولاية، شرعية التمثيل السياسي الكشميري، الاتهامات المتبادلة بدعم الجماعات المسلحة، وتعليق الهند مشاركتها في معاهدة مياه السند.",
+        "en": "The region's constitutional status and the demand to restore statehood, the legitimacy of Kashmiri political representation, mutual accusations of supporting armed groups, and India's suspension of its participation in the Indus Waters Treaty."
+      },
+      "territorialClaims": {
+        "ar": "تطالب كلّ من الهند وباكستان بكامل الإقليم. تدير الهند جامو وكشمير ولاداخ، وتدير باكستان آزاد كشمير وغلغت بلتستان، وتسيطر الصين على أكساي تشين وعلى وادي شاكسغام الذي تنازلت عنه باكستان في 1963.",
+        "en": "Both India and Pakistan claim the entire region. India administers Jammu and Kashmir and Ladakh; Pakistan administers Azad Kashmir and Gilgit-Baltistan; and China controls Aksai Chin and the Shaksgam Valley ceded by Pakistan in 1963."
+      },
+      "strategicInterests": {
+        "ar": "منابع نهر السند وفروعه التي تعتمد عليها الزراعة الباكستانية اعتماداً كلياً، ومرور الممرّ الاقتصادي الصيني الباكستاني عبر غلغت بلتستان، والمواقع الجبلية المشرفة على خطّ السيطرة ونهر سياتشين الجليدي.",
+        "en": "The headwaters of the Indus and its tributaries, on which Pakistani agriculture depends entirely; the China–Pakistan Economic Corridor's passage through Gilgit-Baltistan; and the mountain positions overlooking the Line of Control and the Siachen Glacier."
+      },
+      "externalPowers": [
+        { "iso3": "CHN", "role": { "ar": "طرف مطالب بأكساي تشين وشريك استراتيجي لباكستان", "en": "A claimant to Aksai Chin and Pakistan's strategic partner" }, "kind": "assessed" },
+        { "iso3": "USA", "role": { "ar": "علاقة متنامية مع الهند، وتصريحات سفيرها في 2026 بوصف الإقليم جزءاً مهمّاً من الهند خرجت عن سياسة الحياد الأمريكية التقليدية", "en": "A deepening relationship with India; its ambassador's 2026 description of the region as an important part of India departed from traditional American neutrality" }, "kind": "assessed" }
+      ],
+      "status": {
+        "ar": "تمرّد منخفض الحدّة وتوتّر ثنائي حادّ دون حرب مفتوحة. أبرز ملفّات 2026 هي أزمة المياه: حكمت محكمة التحكيم الدائمة في 31 أغسطس 2026 بأن معاهدة مياه السند تبقى ملزمة بالكامل للطرفين وبوقف العمل في محطة كهرومائية في كشمير حتى تقييم خبير محيّد، فرحّبت إسلام آباد بالحكم ورفضته نيودلهي. وجرت انتخابات محلّية في كشمير الباكستانية في أغسطس 2026 تأجّلت في عدد من الدوائر بسبب العنف.",
+        "en": "A low-intensity insurgency and sharp bilateral tension without open war. The most prominent 2026 file is water: on 31 August 2026 the Permanent Court of Arbitration ruled that the Indus Waters Treaty remains fully binding on both parties and that work on a hydroelectric plant in Kashmir must halt pending a neutral expert's assessment; Islamabad welcomed the ruling and New Delhi rejected it. Local elections in Pakistan-administered Kashmir took place in August 2026, postponed in several constituencies because of violence."
+      },
+      "statusAsOf": "2026-10-30",
+      "recent": [
+        { "date": "2026-10-02", "ar": "أطلقت قوات الحدود الهندية النار على ثلاثة مدنيين باكستانيين في قطاع بيديان على الحدود الدولية فقتلت اثنين وجرحت واحداً، وتبادل الطرفان استدعاء القائمين بالأعمال مع تباين الروايات.", "en": "India's Border Security Force shot three unarmed Pakistani civilians in the Bedian sector of the international border, killing two and injuring one; the two sides disputed each other's accounts and summoned each other's chargés d'affaires.", "source": "AP via CFR" },
+        { "date": "2026-08-31", "ar": "حكمت محكمة التحكيم الدائمة بأن معاهدة مياه السند تبقى ملزمة بالكامل رغم إعلان الهند تعليق مشاركتها فيها.", "en": "The Permanent Court of Arbitration ruled that the Indus Waters Treaty remains fully binding despite India placing its participation in abeyance.", "source": "Permanent Court of Arbitration via ICG" }
+      ],
+      "confidence": "verified",
+      "sourceRefs": ["icg", "acled", "mrg"]
+    },
+    {
+      "id": "afghanistan-pakistan",
+      "name": { "ar": "أفغانستان وباكستان", "en": "Afghanistan and Pakistan" },
+      "coords": [69.5, 33.5],
+      "countries": ["AFG", "PAK"],
+      "severity": "armed-conflict",
+      "started": "1947",
+      "currentPhaseStarted": "2025-10",
+      "dimensions": ["territorial", "political", "identity", "ideological"],
+      "dimensionNote": {
+        "ar": "نزاع بين دولتين حول الحدود والملاذات الآمنة للجماعات المسلحة. البعد الهوياتي حاضر عبر الپشتون المقسّمين على جانبي خطّ ديوراند، لكن المواجهة الحالية بين سلطتين تتشاركان الأيديولوجيا الإسلامية ذاتها، وهذا يبيّن أن الاتفاق العقدي لا يمنع الحرب.",
+        "en": "An interstate conflict over borders and safe havens for armed groups. The identity dimension is present through Pashtuns divided across the Durand Line, but the present confrontation is between two authorities sharing the same Islamist ideology — which shows that doctrinal agreement does not prevent war."
+      },
+      "parties": {
+        "ar": ["باكستان", "الإمارة الإسلامية في أفغانستان", "حركة طالبان باكستان"],
+        "en": ["Pakistan", "Islamic Emirate of Afghanistan", "Tehreek-e-Taliban Pakistan"]
+      },
+      "ethnoReligious": {
+        "ar": "الپشتون أكبر مجموعة عرقية في أفغانستان ويمثّلون أيضاً سكان خيبر پختونخوا في باكستان، والحدود تقسمهم. أفغانستان تضمّ طاجيكاً وهزارة (شيعة) وأوزبكاً وتركماناً وبلوشاً. أغلبية الطرفين سنّية حنفية، وهو ما ينفي الطابع المذهبي للمواجهة.",
+        "en": "Pashtuns are Afghanistan's largest ethnic group and also populate Pakistan's Khyber Pakhtunkhwa, with the border dividing them. Afghanistan also contains Tajiks, Hazaras (Shia), Uzbeks, Turkmen and Baloch. Both sides are predominantly Hanafi Sunni, which rules out a sectarian character to the confrontation."
+      },
+      "history": {
+        "ar": "رسم خطّ ديوراند في 1893 بين الهند البريطانية وأفغانستان، ولم تعترف به أي حكومة أفغانية منذ 1947. مرّت أفغانستان بالاحتلال السوفييتي 1979–1989 وحرب أهلية وحكم طالبان 1996–2001 ثم تدخّل دولي قاده الناتو حتى 2021، وعادت طالبان إلى الحكم في أغسطس 2021. تصاعد نشاط حركة طالبان باكستان بعدها.",
+        "en": "The Durand Line was drawn in 1893 between British India and Afghanistan and no Afghan government has recognised it since 1947. Afghanistan passed through Soviet occupation in 1979–1989, civil war, Taliban rule in 1996–2001, then a NATO-led international intervention until 2021, with the Taliban returning to power in August 2021. Tehreek-e-Taliban Pakistan activity escalated thereafter."
+      },
+      "politicalCauses": {
+        "ar": "اتهام باكستان لكابول بإيواء حركة طالبان باكستان، إغلاق الحدود ووقف التجارة العابرة الذي يضرب اقتصاداً أفغانياً حبيس اليابسة، وملف اللاجئين الأفغان وعمليات الإعادة القسرية.",
+        "en": "Pakistan's accusation that Kabul harbours Tehreek-e-Taliban Pakistan, border closures and suspension of transit trade which strike a landlocked Afghan economy, and the Afghan refugee file including forced returns."
+      },
+      "territorialClaims": {
+        "ar": "ترفض أفغانستان الاعتراف بخطّ ديوراند حدّاً دولياً وترى في مناطق الپشتون الباكستانية جزءاً من مجالها التاريخي، وتعتبر باكستان الخطّ حدّاً نهائياً وتقوم بتسييجه.",
+        "en": "Afghanistan refuses to recognise the Durand Line as an international border and regards Pakistan's Pashtun areas as part of its historical sphere; Pakistan treats the line as a settled border and has been fencing it."
+      },
+      "strategicInterests": {
+        "ar": "معابر طورخم وتشامان التجارية، وطرق العبور نحو آسيا الوسطى، ومعادن أفغانستان غير المستغلّة. ولباكستان مصلحة في منع وجود جبهتين معادية شرقاً وغرباً في الوقت ذاته.",
+        "en": "The Torkham and Chaman trade crossings, transit routes toward Central Asia, and Afghanistan's unexploited minerals. Pakistan has an interest in avoiding simultaneously hostile eastern and western fronts."
+      },
+      "externalPowers": [
+        { "iso3": "QAT", "role": { "ar": "وسيط في وقف نار أكتوبر 2025 ومارس 2026", "en": "Mediator in the October 2025 and March 2026 ceasefires" }, "kind": "treaty" },
+        { "iso3": "TUR", "role": { "ar": "وسيط مشارك في مسار الدوحة وإسطنبول", "en": "Co-mediator in the Doha and Istanbul track" }, "kind": "treaty" },
+        { "iso3": "SAU", "role": { "ar": "وسيط في هدنة عيد الفطر مارس 2026", "en": "Mediator in the Eid al-Fitr truce of March 2026" }, "kind": "treaty" },
+        { "iso3": "CHN", "role": { "ar": "وسيط في محادثات أورومتشي أبريل 2026 ووقف النار الذي تلاها", "en": "Mediator in the Urumqi talks of April 2026 and the ceasefire that followed" }, "kind": "treaty" }
+      ],
+      "status": {
+        "ar": "وقف نار هشّ متكرّر الانهيار. بدأت المواجهة بضربة باكستانية في كابول في أكتوبر 2025، وتصاعدت في 26–27 فبراير 2026 إلى ما وصفته إسلام آباد بالحرب المفتوحة مع ضربات على كابول وقندهار. أفادت الأمم المتحدة بمقتل 372 مدنياً أفغانياً على الأقل وجرح 397 في الربع الأول من 2026، وبتهجير أكثر من 115 ألفاً. جرت هدنة بوساطة سعودية وقطرية وتركية في مارس ثم وقف نار بوساطة صينية في أبريل، وشهد يونيو 2026 ضربات أفغانية على مواقع في بلوشستان وخيبر پختونخوا. الاشتباكات المحدودة مستمرة.",
+        "en": "A fragile, repeatedly collapsing ceasefire. The confrontation began with a Pakistani strike in Kabul in October 2025 and escalated on 26–27 February 2026 into what Islamabad called open war, with strikes on Kabul and Kandahar. The UN reported at least 372 Afghan civilians killed and 397 injured in the first quarter of 2026, and more than 115,000 displaced. A Saudi, Qatari and Turkish–mediated truce came in March and a Chinese-mediated ceasefire in April; June 2026 saw Afghan strikes on sites in Balochistan and Khyber Pakhtunkhwa. Limited clashes continue."
+      },
+      "statusAsOf": "2026-10-30",
+      "recent": [
+        { "date": "2026-06-19", "ar": "أعلنت كابول تنفيذ ضربات جوية على ما وصفتها بمخابئ لجماعات مسلحة في بلوشستان وخيبر پختونخوا، في تهديد جديد لوقف النار.", "en": "Kabul announced airstrikes on what it called armed-group hideouts in Balochistan and Khyber Pakhtunkhwa, a fresh threat to the ceasefire.", "source": "Al Jazeera" },
+        { "date": "2026-03-24", "ar": "دعا خبراء أمميون الطرفين إلى وقف نار دائم بعد انهيار وقف نار أكتوبر 2025 واندلاع القتال في فبراير.", "en": "UN experts urged both parties to declare a permanent ceasefire after the collapse of the October 2025 ceasefire and the February outbreak of fighting.", "source": "OHCHR" }
+      ],
+      "confidence": "verified",
+      "sourceRefs": ["icg", "unhcr", "acled"]
+    },
+    {
+      "id": "myanmar",
+      "name": { "ar": "ميانمار والنزاعات العرقية", "en": "Myanmar and its ethnic conflicts" },
+      "coords": [96.5, 21.0],
+      "countries": ["MMR", "BGD", "THA"],
+      "severity": "war",
+      "started": "1948",
+      "currentPhaseStarted": "2021-02-01",
+      "dimensions": ["political", "identity", "economic", "territorial"],
+      "dimensionNote": {
+        "ar": "نزاع مركّب يجمع صراعاً سياسياً على الشرعية بعد انقلاب، مع أقدم حروب عرقية في العالم على الحكم الذاتي، مع اقتصاد حرب يعتمد على المعادن والمخدّرات ومراكز الاحتيال الإلكتروني. البعد الاقتصادي صار محرّكاً مستقلاً لا نتيجةً فقط.",
+        "en": "A compound conflict combining a political struggle over legitimacy after a coup, the world's longest-running ethnic wars over autonomy, and a war economy resting on minerals, narcotics and cyber-scam centres. The economic dimension has become an independent driver rather than merely a consequence."
+      },
+      "parties": {
+        "ar": ["المجلس العسكري", "حكومة الوحدة الوطنية وقوات الدفاع الشعبي", "تحالف الأخوة الثلاثة", "جيش أراكان", "جيوش عرقية أخرى"],
+        "en": ["State Administration Council (junta)", "National Unity Government and People's Defence Forces", "Three Brotherhood Alliance", "Arakan Army", "Other ethnic armed organisations"]
+      },
+      "ethnoReligious": {
+        "ar": "البامار أغلبية بوذية، مع شان وكارين وكاتشين (مسيحيون بنسبة كبيرة) وتشين ومون وراخين ووا. الروهينغيا مسلمون في راخين جرّدتهم ميانمار من الجنسية بقانون 1982، وطُرد نحو 700 ألف منهم إلى بنغلاديش في 2017. يسيطر جيش أراكان على معظم راخين ولم يعترف بهوية الروهينغيا العرقية ولم يوفّر لهم حمايةً متكافئة.",
+        "en": "Bamar form a Buddhist majority, alongside Shan, Karen, Kachin (substantially Christian), Chin, Mon, Rakhine and Wa. The Rohingya are Muslims in Rakhine stripped of citizenship by Myanmar's 1982 law, around 700,000 of whom were expelled to Bangladesh in 2017. The Arakan Army controls most of Rakhine and has not recognised Rohingya ethnic identity or afforded them equal protection."
+      },
+      "history": {
+        "ar": "استقلّت بورما في 1948 واندلعت حروب عرقية فوراً لم تنقطع. حكم الجيش من 1962 إلى 2011، ثم جرى انفتاح جزئي أوصل حزب الرابطة الوطنية للديمقراطية إلى الحكم. استولى الجيش على السلطة في 1 فبراير 2021 واعتقل أونغ سان سو تشي، فتحوّل الحراك السلمي إلى مقاومة مسلحة واسعة. أضعفت عملية 1027 التي قادها تحالف الأخوة الثلاثة في 2023 سيطرة المجلس العسكري بشكل حادّ.",
+        "en": "Burma became independent in 1948 and ethnic wars broke out immediately and have never ceased. The military ruled from 1962 to 2011, followed by a partial opening that brought the National League for Democracy to power. The military seized power on 1 February 2021 and detained Aung San Suu Kyi, turning peaceful protest into broad armed resistance. Operation 1027, led by the Three Brotherhood Alliance in 2023, sharply eroded the junta's territorial control."
+      },
+      "politicalCauses": {
+        "ar": "رفض شرعية الانقلاب، مطالب الفيدرالية والحكم الذاتي العرقي، رفض بنية الدولة المركزية بقيادة البامار، وانتخابات 2025–2026 التي نظّمها المجلس العسكري ورفضها الاتحاد الأوروبي والمقرّر الأممي كغير حرّة ولا نزيهة.",
+        "en": "Rejection of the coup's legitimacy, demands for federalism and ethnic autonomy, rejection of a Bamar-led centralised state structure, and the 2025–2026 elections organised by the junta which the European Union and the UN special rapporteur rejected as neither free nor fair."
+      },
+      "territorialClaims": {
+        "ar": "لا نزاع حدودي دولي رئيسي. محلّ النزاع هو درجة الحكم الذاتي للولايات العرقية داخل اتحاد ميانمار، والسيطرة الفعلية على المناطق الحدودية مع الصين وتايلند والهند.",
+        "en": "No major international border dispute. What is contested is the degree of autonomy for ethnic states within the Myanmar union, and effective control of the border areas with China, Thailand and India."
+      },
+      "strategicInterests": {
+        "ar": "اليشم والأحجار الكريمة في كاتشين والمعادن النادرة، خطّ أنابيب النفط والغاز من ميناء كيوكفيو إلى يونان الذي يمنح الصين منفذاً يتجاوز مضيق ملقّا، وخشب الساج، ومراكز الاحتيال الإلكتروني على الحدود التي صارت مصدر تمويل رئيسياً.",
+        "en": "Jade and gemstones in Kachin and rare earths, the oil and gas pipeline from Kyaukphyu port to Yunnan which gives China an outlet bypassing the Strait of Malacca, teak, and the border cyber-scam centres that have become a major funding source."
+      },
+      "externalPowers": [
+        { "iso3": "CHN", "role": { "ar": "تدعم المجلس العسكري مادياً ودبلوماسياً وتحافظ في الوقت ذاته على قنوات مع جماعات المقاومة لحماية مصالحها", "en": "Provides material and diplomatic backing to the junta while maintaining channels with resistance groups to protect its interests" }, "kind": "assessed" },
+        { "iso3": "RUS", "role": { "ar": "مورّد أسلحة رئيسي للمجلس العسكري", "en": "Principal arms supplier to the junta" }, "kind": "assessed" },
+        { "iso3": "THA", "role": { "ar": "حدود طويلة ومستضيفة للاجئين وطرق تجارة", "en": "A long border, host to refugees and trade routes" }, "kind": "assessed" },
+        { "iso3": "BGD", "role": { "ar": "تستضيف نحو مليون لاجئ روهينغي في كوكس بازار", "en": "Hosts around one million Rohingya refugees in Cox's Bazar" }, "kind": "assessed" }
+      ],
+      "status": {
+        "ar": "حرب أهلية متصاعدة ومجزّأة، وصفها المقرّر الأممي في 29 أكتوبر 2026 بحالة حقوقية كارثية لا نهاية لها في الأفق. تجاوزت حصيلة القتلى منذ الانقلاب مئة ألف بحسب إفادات أممية في أكتوبر 2026، ويقدّر المقرّر الأممي مقتل 8,384 مدنياً على يد الجيش حتى 15 سبتمبر 2026، كما سجّلت جمعية مساعدة السجناء السياسيين 32,046 اعتقالاً سياسياً و8,477 قتيلاً حتى نهاية سبتمبر 2026. تقديرات السيطرة تتباين: نحو 21٪ للمجلس العسكري بحسب تقديرات معتمدة على بيانات ACLED، ونحو 42٪ لقوى المقاومة والجيوش العرقية بحسب CFR. كرّست انتخابات أبريل 2026 سلطة قائد الجيش عبر برلمان موالٍ.",
+        "en": "An escalating and fragmented civil war, described by the UN special rapporteur on 29 October 2026 as a catastrophic human rights situation with no end in sight. The death toll since the coup surpassed 100,000 according to UN testimony in October 2026, and the special rapporteur records 8,384 civilians killed by the military up to 15 September 2026, while the Assistance Association for Political Prisoners recorded 32,046 political arrests and 8,477 killed by end-September 2026. Control estimates diverge: around 21% for the junta on ACLED-derived estimates, and around 42% for resistance forces and ethnic armies according to CFR. The April 2026 election entrenched the army chief's authority through a loyalist parliament."
+      },
+      "statusAsOf": "2026-10-30",
+      "recent": [
+        { "date": "2026-10-29", "ar": "تقرير للمقرّرة الأممية الخاصة يربط اقتصاد ميانمار غير المشروع بتصاعد العنف، ويذكر أن شبكات إجرام عابرة للحدود تشكّل العمود الفقري لمعظم المشاريع الإجرامية في البلاد.", "en": "A UN special rapporteur report linked Myanmar's illicit economy to escalating violence, noting that transnational criminal networks form the backbone of most criminal enterprises in the country.", "source": "UN News / OHCHR" },
+        { "date": "2026-10-27", "ar": "أُبلغت اللجنة الثالثة للجمعية العامة بتجاوز حصيلة القتلى مئة ألف منذ انقلاب 2021، ورفض الاتحاد الأوروبي شرعية انتخابات الجيش.", "en": "The General Assembly's Third Committee was told the death toll had passed 100,000 since the 2021 coup, and the European Union rejected the legitimacy of the military's elections.", "source": "UN Press" },
+        { "date": "2026-10-16", "ar": "عقد مسؤولون أمريكيون لقاءً مع ممثّلين عن الحكومة المدعومة عسكرياً في طوكيو، وهو اللقاء الثاني في شهر، بشأن مراكز الاحتيال والمعادن النادرة.", "en": "US officials met representatives of the military-backed government in Tokyo, their second meeting in a month, on scam centres and rare-earth minerals.", "source": "Reuters via CFR" }
+      ],
+      "confidence": "verified",
+      "sourceRefs": ["acled", "unhcr", "mrg"]
+    },
+    {
+      "id": "xinjiang",
+      "name": { "ar": "شينجيانغ والأويغور", "en": "Xinjiang and the Uyghurs" },
+      "coords": [84.5, 41.5],
+      "countries": ["CHN"],
+      "severity": "repression",
+      "started": "1949",
+      "dimensions": ["identity", "political", "ideological", "economic"],
+      "dimensionNote": {
+        "ar": "ليس نزاعاً مسلحاً نشطاً بل ملفّ قمع دولة لمجموعة عرقية ودينية، ولذلك صُنّف severity بقيمة repression لا بقيمة حرب. تصنيفه حرباً يشوّه طبيعته، وتصنيفه خلافاً سياسياً عادياً يقلّل من حجمه.",
+        "en": "Not an active armed conflict but a file of state repression of an ethnic and religious group, which is why severity is coded repression rather than war. Classing it as war distorts its nature; classing it as ordinary political disagreement understates its scale."
+      },
+      "parties": { "ar": ["الدولة الصينية", "الأويغور", "منظمات أويغورية في المنفى"], "en": ["Chinese state", "Uyghurs", "Uyghur diaspora organisations"] },
+      "ethnoReligious": {
+        "ar": "الأويغور شعب تركي مسلم سنّي بلغة تركية، ويشاركهم الإقليم الكازاخ والقرغيز والهوي (مسلمون صينيون) والهان الذين ارتفعت نسبتهم بشدّة عبر سياسات الاستيطان الداخلي.",
+        "en": "Uyghurs are a Turkic, Sunni Muslim people with a Turkic language, sharing the region with Kazakhs, Kyrgyz, Hui (Chinese Muslims) and Han, whose share has risen sharply through internal settlement policies."
+      },
+      "history": {
+        "ar": "قامت في الإقليم جمهوريتان قصيرتان باسم تركستان الشرقية في 1933 و1944، وضمّته جمهورية الصين الشعبية في 1949 وأنشأت إقليم شينجيانغ الأويغوري ذا الحكم الذاتي في 1955. تصاعدت أعمال عنف وهجمات في 2009–2014، وأعقبها منذ 2017 نظام واسع من مراكز الاحتجاز والمراقبة وُثّق في تقرير لمكتب حقوق الإنسان الأممي في 2022.",
+        "en": "Two short-lived republics named East Turkestan existed in the region in 1933 and 1944; the People's Republic of China incorporated it in 1949 and created the Xinjiang Uyghur Autonomous Region in 1955. Violence and attacks escalated in 2009–2014, followed from 2017 by an extensive system of detention centres and surveillance documented in a 2022 UN human rights office report."
+      },
+      "politicalCauses": {
+        "ar": "سياسة الدولة تجاه الهوية الدينية والثقافية والممارسة الإسلامية، التعليم باللغة الأويغورية، برامج نقل العمالة، وتأطير الملف أمنياً بوصفه مكافحة تطرّف. ويشكّل الملف نقطة احتكاك في السياسة التجارية الدولية عبر قوانين تحظر السلع المنتَجة بعمل قسري.",
+        "en": "State policy toward religious and cultural identity and Islamic practice, Uyghur-language education, labour transfer programmes, and the securitised framing of the file as counter-extremism. It is also a friction point in international trade policy through laws banning goods made with forced labour."
+      },
+      "territorialClaims": {
+        "ar": "لا تطالب أي دولة بالإقليم. تطالب منظمات أويغورية في المنفى بالاستقلال أو بحكم ذاتي فعلي، وليس لها سيطرة ميدانية.",
+        "en": "No state claims the region. Uyghur diaspora organisations call for independence or genuine autonomy and have no presence on the ground."
+      },
+      "strategicInterests": {
+        "ar": "ينتج الإقليم حصّة كبيرة من القطن الصيني ومن البوليسيليكون المستخدم في الألواح الشمسية، ويحتوي على نفط وغاز وفحم، وهو ممرّ مبادرة الحزام والطريق البري نحو آسيا الوسطى وأوروبا ونحو باكستان.",
+        "en": "The region produces a large share of China's cotton and of the polysilicon used in solar panels, contains oil, gas and coal, and is the overland corridor of the Belt and Road Initiative toward Central Asia and Europe and toward Pakistan."
+      },
+      "externalPowers": [
+        { "iso3": "TUR", "role": { "ar": "تستضيف أكبر شتات أويغوري وتوازن بين القرابة الثقافية والعلاقة الاقتصادية مع بكين", "en": "Hosts the largest Uyghur diaspora and balances cultural kinship against its economic relationship with Beijing" }, "kind": "assessed" },
+        { "iso3": "USA", "role": { "ar": "فرضت قيوداً تجارية مرتبطة بالعمل القسري", "en": "Imposed trade restrictions tied to forced labour" }, "kind": "assessed" }
+      ],
+      "status": {
+        "ar": "لا قتال مسلح. الملف قائم كقضية حقوق إنسان دولية وكنقطة احتكاك تجاري ودبلوماسي، مع استمرار نظام المراقبة والقيود على الممارسة الدينية والثقافية بحسب تقارير حقوقية. تنفي الصين الاتهامات وتصف السياسات بأنها تدريب مهني ومكافحة تطرّف.",
+        "en": "No armed fighting. The file persists as an international human rights issue and a point of trade and diplomatic friction, with the surveillance system and restrictions on religious and cultural practice continuing according to human rights reporting. China denies the allegations and describes the policies as vocational training and counter-extremism."
+      },
+      "statusAsOf": "2026-10-30",
+      "recent": [],
+      "confidence": "partial",
+      "sourceRefs": ["mrg"]
+    },
+    {
+      "id": "tibet",
+      "name": { "ar": "التبت", "en": "Tibet" },
+      "coords": [89.0, 31.5],
+      "countries": ["CHN", "IND"],
+      "severity": "repression",
+      "started": "1950",
+      "dimensions": ["identity", "political", "territorial", "economic"],
+      "dimensionNote": {
+        "ar": "ملفّ هوية وحكم ذاتي ديني وثقافي، أُدرج كملفّ قمع لا كنزاع مسلح. البعد الديني هنا حقيقي ومؤسسي: الخلاف حول من يسمّي التجسيدات الدينية هو خلاف على السلطة الروحية والسياسية في الوقت ذاته.",
+        "en": "A file of identity and religious and cultural autonomy, recorded as repression rather than armed conflict. The religious dimension here is real and institutional: the dispute over who names religious reincarnations is simultaneously a dispute over spiritual and political authority."
+      },
+      "parties": { "ar": ["الدولة الصينية", "الإدارة التبتية المركزية في المنفى", "الدلاي لاما"], "en": ["Chinese state", "Central Tibetan Administration in exile", "the Dalai Lama"] },
+      "ethnoReligious": {
+        "ar": "التبتيون شعب بلغة تبتية بورمية وبوذية تبتية مؤسسية عميقة الجذور. يعيش تبتيون أيضاً في مقاطعات تشينغهاي وسيتشوان وقانسو ويونان خارج إقليم التبت الإداري، وفي لاداخ الهندية وأروناشال براديش ونيبال وبوتان.",
+        "en": "Tibetans are a Tibeto-Burman–speaking people with a deeply rooted institutional Tibetan Buddhism. Tibetans also live in Qinghai, Sichuan, Gansu and Yunnan provinces outside the administrative Tibet region, and in Indian Ladakh and Arunachal Pradesh, Nepal and Bhutan."
+      },
+      "history": {
+        "ar": "تمتّعت التبت باستقلال فعلي بين 1913 و1950، وسيّرت جمهورية الصين الشعبية قواتها إليها في 1950 ووقّعت اتفاقية السبع عشرة نقطة في 1951. فرّ الدلاي لاما الرابع عشر إلى الهند بعد انتفاضة 1959 وأقام إدارة في دارامسالا. جرت احتجاجات واسعة في 1987–1989 و2008.",
+        "en": "Tibet enjoyed de facto independence between 1913 and 1950; the People's Republic of China moved forces in during 1950 and the Seventeen Point Agreement was signed in 1951. The fourteenth Dalai Lama fled to India after the 1959 uprising and established an administration in Dharamsala. Large protests occurred in 1987–1989 and 2008."
+      },
+      "politicalCauses": {
+        "ar": "حدود الحكم الذاتي الثقافي والديني، التعليم باللغة التبتية ونظام المدارس الداخلية، وملف الخلافة: تصرّ بكين على حقّها في إقرار تجسيد الدلاي لاما المقبل بينما يرفض الدلاي لاما والإدارة في المنفى ذلك.",
+        "en": "The limits of cultural and religious autonomy, Tibetan-language education and the boarding school system, and the succession file: Beijing insists on its right to approve the next Dalai Lama's reincarnation, which the Dalai Lama and the exile administration reject."
+      },
+      "territorialClaims": {
+        "ar": "لا تطالب أي دولة بالتبت. تطرح الإدارة في المنفى «الطريق الوسطى» بحكم ذاتي حقيقي لا الاستقلال. وتتداخل المسألة مع خلاف الحدود الصيني الهندي في أكساي تشين وأروناشال براديش التي تسمّيها الصين التبت الجنوبية.",
+        "en": "No state claims Tibet. The exile administration advances the Middle Way of genuine autonomy rather than independence. The question overlaps the China–India border dispute in Aksai Chin and Arunachal Pradesh, which China calls South Tibet."
+      },
+      "strategicInterests": {
+        "ar": "هضبة التبت منبع أنهار آسيا الكبرى — السند وبراهماپوترا والميكونغ واليانغتسي والنهر الأصفر — وهو ما يجعل السيطرة عليها مسألة مياه لنصف سكّان آسيا. وفيها معادن وليثيوم ونحاس، وموقع مرتفع مشرف على شبه القارة الهندية.",
+        "en": "The Tibetan plateau is the source of Asia's great rivers — the Indus, Brahmaputra, Mekong, Yangtze and Yellow — making control of it a water question for half of Asia's population. It holds minerals, lithium and copper, and a commanding elevation over the Indian subcontinent."
+      },
+      "externalPowers": [
+        { "iso3": "IND", "role": { "ar": "تستضيف الإدارة التبتية في المنفى في دارامسالا", "en": "Hosts the Tibetan administration in exile at Dharamsala" }, "kind": "assessed" },
+        { "iso3": "USA", "role": { "ar": "تشريعات تتعلّق بالتبت وبالخلافة الدينية", "en": "Legislation concerning Tibet and the religious succession" }, "kind": "assessed" }
+      ],
+      "status": {
+        "ar": "لا قتال مسلح. ملفّ حقوقي وثقافي مستمر، وتزداد مركزية مسألة الخلافة كلّما تقدّم الدلاي لاما في العمر، وهي النقطة الأكثر احتمالاً لتوليد أزمة مقبلة.",
+        "en": "No armed fighting. A continuing human rights and cultural file, with the succession question becoming more central as the Dalai Lama ages — the point most likely to generate a future crisis."
+      },
+      "statusAsOf": "2026-10-30",
+      "recent": [],
+      "confidence": "partial",
+      "sourceRefs": ["mrg"]
+    },
+    {
+      "id": "korean-peninsula",
+      "name": { "ar": "شبه الجزيرة الكورية", "en": "Korean Peninsula" },
+      "coords": [127.0, 38.3],
+      "countries": ["PRK", "KOR"],
+      "severity": "frozen",
+      "started": "1945",
+      "dimensions": ["political", "ideological", "territorial"],
+      "dimensionNote": {
+        "ar": "نزاع أيديولوجي وسياسي بين نظامين على شعب واحد متماثل عرقياً ولغوياً بالكامل. لا بعد عرقي ولا ديني، وهو مثال على أن التماثل الهوياتي المطلق لا يمنع أحد أخطر النزاعات في العالم.",
+        "en": "An ideological and political conflict between two systems over a single people entirely homogeneous in ethnicity and language. It has no ethnic or religious dimension, and exemplifies how total identity homogeneity does not prevent one of the world's most dangerous conflicts."
+      },
+      "parties": { "ar": ["كوريا الشمالية", "كوريا الجنوبية", "الولايات المتحدة"], "en": ["North Korea", "South Korea", "United States"] },
+      "ethnoReligious": {
+        "ar": "شعب كوري واحد بلغة واحدة. كوريا الجنوبية متعدّدة دينياً بين البوذية والمسيحية ونسبة كبيرة غير متديّنة، وكوريا الشمالية لا تتيح ممارسة دينية مستقلة وتقوم أيديولوجيتها على الجوتشيه وعبادة القيادة.",
+        "en": "A single Korean people with one language. South Korea is religiously plural between Buddhism, Christianity and a large non-religious share; North Korea permits no independent religious practice and bases its ideology on Juche and leader veneration."
+      },
+      "history": {
+        "ar": "قُسّمت كوريا عند خطّ العرض 38 في 1945 بين احتلال سوفييتي وأمريكي، وأقيمت دولتان في 1948. اندلعت الحرب الكورية 1950–1953 وانتهت باتفاقية هدنة لا معاهدة سلام، فالحرب لم تُنهَ قانونياً حتى اليوم. أجرت كوريا الشمالية تجربتها النووية الأولى في 2006 وتلتها تجارب عدّة.",
+        "en": "Korea was divided at the 38th parallel in 1945 between Soviet and American occupation, and two states were established in 1948. The Korean War of 1950–1953 ended in an armistice, not a peace treaty, so the war has never been legally concluded. North Korea conducted its first nuclear test in 2006, followed by several more."
+      },
+      "politicalCauses": {
+        "ar": "البرنامج النووي والصاروخي، العقوبات الدولية، التحالف الأمريكي الكوري الجنوبي والتدريبات المشتركة، وانقطاع قنوات الحوار بين الكوريتين وإعلان بيونغ يانغ التخلّي عن هدف إعادة التوحيد.",
+        "en": "The nuclear and missile programmes, international sanctions, the US–South Korea alliance and joint exercises, and the rupture of inter-Korean channels alongside Pyongyang's declared abandonment of the reunification goal."
+      },
+      "territorialClaims": {
+        "ar": "كلّ دولة تطالب دستورياً بكامل شبه الجزيرة. وتبقى المنطقة المنزوعة السلاح والخطّ الشمالي الفاصل في البحر الأصفر مصدر حوادث بحرية متكرّرة.",
+        "en": "Each state constitutionally claims the whole peninsula. The Demilitarised Zone and the Northern Limit Line in the Yellow Sea remain sources of recurring maritime incidents."
+      },
+      "strategicInterests": {
+        "ar": "موقع شبه الجزيرة في قلب التنافس بين الولايات المتحدة والصين، واقتصاد كوريا الجنوبية بوصفه مركزاً عالمياً لأشباه الموصلات وبناء السفن، ومعادن كوريا الشمالية غير المستغلّة.",
+        "en": "The peninsula's position at the heart of US–China competition, South Korea's economy as a global centre for semiconductors and shipbuilding, and North Korea's unexploited minerals."
+      },
+      "externalPowers": [
+        { "iso3": "USA", "role": { "ar": "تحالف دفاعي مع سيول ونحو 28 ألف جندي", "en": "Defence alliance with Seoul and around 28,000 troops" }, "kind": "treaty" },
+        { "iso3": "CHN", "role": { "ar": "الحليف الوحيد لبيونغ يانغ بمعاهدة والشريك التجاري الأكبر", "en": "Pyongyang's only treaty ally and largest trading partner" }, "kind": "treaty" },
+        { "iso3": "RUS", "role": { "ar": "علاقة عسكرية متعمّقة مع بيونغ يانغ على خلفية حرب أوكرانيا", "en": "A deepening military relationship with Pyongyang against the backdrop of the Ukraine war" }, "kind": "assessed" }
+      ],
+      "status": {
+        "ar": "نزاع مجمّد بموجب هدنة 1953 دون معاهدة سلام. لا مفاوضات نووية جارية، والعلاقات بين الكوريتين في أدنى مستوياتها، مع استمرار تجارب صاروخية وتدريبات عسكرية متقابلة.",
+        "en": "A frozen conflict under the 1953 armistice without a peace treaty. No nuclear negotiations are under way and inter-Korean relations are at their lowest, with continuing missile tests and opposing military exercises."
+      },
+      "statusAsOf": "2026-10-30",
+      "recent": [],
+      "confidence": "partial",
+      "sourceRefs": ["icg"]
+    },
+    {
+      "id": "balochistan",
+      "name": { "ar": "بلوشستان", "en": "Balochistan" },
+      "coords": [65.5, 28.5],
+      "countries": ["PAK", "IRN", "AFG"],
+      "severity": "armed-conflict",
+      "started": "1948",
+      "dimensions": ["identity", "economic", "political", "territorial"],
+      "dimensionNote": {
+        "ar": "نزاع هوياتي واقتصادي حول توزيع عوائد الموارد والحكم الذاتي، موزّع على ثلاث دول. البعد المذهبي حاضر في إيران (بلوش سنّة في دولة شيعية) وغائب في باكستان (بلوش سنّة في دولة سنّية)، وهذا التباين يبيّن أن المحرّك هوياتي عرقي لا مذهبي.",
+        "en": "An identity and economic conflict over the distribution of resource revenues and autonomy, spread across three states. The sectarian dimension is present in Iran (Sunni Baloch in a Shia state) and absent in Pakistan (Sunni Baloch in a Sunni state); that contrast shows the driver is ethnic identity rather than sect."
+      },
+      "parties": {
+        "ar": ["باكستان", "إيران", "جماعات بلوشية مسلحة"],
+        "en": ["Pakistan", "Iran", "Baloch armed groups"]
+      },
+      "ethnoReligious": {
+        "ar": "البلوش شعب إيراني اللغة يتوزّع على إقليم بلوشستان الباكستاني وسيستان وبلوشستان الإيراني وجنوب أفغانستان، وأغلبهم مسلمون سنّة. وجودهم كأقلية سنّية في إيران يضيف بعداً مذهبياً هناك لا يوجد نظيره في باكستان.",
+        "en": "The Baloch are an Iranian-speaking people spread across Pakistan's Balochistan, Iran's Sistan and Baluchestan, and southern Afghanistan, mostly Sunni Muslim. Their position as a Sunni minority in Iran adds a sectarian dimension there with no counterpart in Pakistan."
+      },
+      "history": {
+        "ar": "ضُمّت ولاية قلات إلى باكستان في 1948 ضمن خلاف حول شروط الانضمام، وتلتها موجات تمرّد في 1958 و1962 و1973–1977 ثم موجة متجدّدة منذ 2004. وفي إيران نشط تمرّد بلوشي سنّي منخفض الحدّة على الحدود الباكستانية.",
+        "en": "The princely state of Kalat was incorporated into Pakistan in 1948 amid dispute over the terms of accession, followed by insurgent waves in 1958, 1962, 1973–1977 and a renewed wave from 2004. In Iran a low-intensity Sunni Baloch insurgency has been active along the Pakistani border."
+      },
+      "politicalCauses": {
+        "ar": "توزيع عوائد الغاز والمعادن، التمثيل السياسي والتهميش الاقتصادي، الاختفاء القسري وملف المفقودين، ومعارضة مشاريع لا يرى السكان أنها تعود عليهم بالنفع.",
+        "en": "Distribution of gas and mineral revenues, political representation and economic marginalisation, enforced disappearances and the missing-persons file, and opposition to projects local populations do not see as benefiting them."
+      },
+      "territorialClaims": {
+        "ar": "تطالب جماعات بلوشية بالاستقلال أو بحكم ذاتي واسع، وبعضها يطرح بلوشستان موحّدة عبر الحدود الثلاثة. لا دولة تطالب بالإقليم.",
+        "en": "Baloch groups seek independence or broad autonomy, with some advancing a unified Balochistan across the three borders. No state claims the region."
+      },
+      "strategicInterests": {
+        "ar": "حقل غاز سوي، ميناء غوادر وهو المنفذ البحري للممرّ الاقتصادي الصيني الباكستاني على بحر العرب قرب مدخل هرمز، ومنجم ريكو ديك للنحاس والذهب، وممرّ مقترح لخطّ أنابيب الغاز الإيراني.",
+        "en": "The Sui gas field, Gwadar port as the maritime outlet of the China–Pakistan Economic Corridor on the Arabian Sea near the approaches to Hormuz, the Reko Diq copper and gold deposit, and a proposed corridor for an Iranian gas pipeline."
+      },
+      "externalPowers": [
+        { "iso3": "CHN", "role": { "ar": "مستثمر رئيسي في غوادر والممرّ الاقتصادي، وعمالها هدف متكرّر للهجمات", "en": "Principal investor in Gwadar and the economic corridor, with its workers a recurring target of attacks" }, "kind": "assessed" },
+        { "iso3": "IRN", "role": { "ar": "طرف في الملف على جانب حدودها وتبادلت ضربات مع باكستان في 2024", "en": "A party to the file on its side of the border, and exchanged strikes with Pakistan in 2024" }, "kind": "assessed" }
+      ],
+      "status": {
+        "ar": "تمرّد مسلح منخفض ومتوسّط الحدّة مستمر بهجمات على قوات الأمن والبنية التحتية ومشاريع صينية، وبعمليات أمنية واسعة في المقابل. الملف يتفاعل مع المواجهة الأفغانية الباكستانية إذ شملت الضربات المتبادلة في 2026 أهدافاً في بلوشستان.",
+        "en": "A continuing low-to-medium intensity insurgency with attacks on security forces, infrastructure and Chinese projects, met by broad security operations. The file interacts with the Afghan–Pakistani confrontation, as the 2026 exchanges of strikes included targets in Balochistan."
+      },
+      "statusAsOf": "2026-10-30",
+      "recent": [],
+      "confidence": "partial",
+      "sourceRefs": ["acled", "mrg"]
+    },
+    {
+      "id": "sri-lanka-tamil",
+      "name": { "ar": "التاميل في سريلانكا", "en": "Tamils in Sri Lanka" },
+      "coords": [80.4, 8.8],
+      "countries": ["LKA", "IND"],
+      "severity": "post-conflict",
+      "started": "1983",
+      "dimensions": ["identity", "political", "territorial"],
+      "dimensionNote": {
+        "ar": "نزاع هوياتي انتهى عسكرياً في 2009 وبقي سياسياً: لامركزية ومحاسبة وحقّ عودة. أُدرج بوصفه post-conflict لا نزاعاً نشطاً، لأن إدراجه حرباً جارية يشوّه الواقع الحالي.",
+        "en": "An identity conflict that ended militarily in 2009 and persists politically: devolution, accountability and the right of return. Recorded as post-conflict rather than active, since listing it as an ongoing war would distort the present reality."
+      },
+      "parties": { "ar": ["الدولة السريلانكية", "التاميل", "أحزاب تاميلية"], "en": ["Sri Lankan state", "Tamils", "Tamil political parties"] },
+      "ethnoReligious": {
+        "ar": "أغلبية سنهالية بوذية، وأقلية تاميلية هندوسية في الشمال والشرق، وتاميل مسلمون يعرّفون أنفسهم كجماعة متمايزة، وتاميل الهضاب الذين جاءوا في الحقبة الاستعمارية. البعد الديني واللغوي متلازمان في هذا الملف.",
+        "en": "A Sinhalese Buddhist majority, a Hindu Tamil minority in the north and east, Muslim Tamils who identify as a distinct community, and Up-Country Tamils brought in during the colonial period. The religious and linguistic dimensions are intertwined in this file."
+      },
+      "history": {
+        "ar": "أدّت سياسات لغوية وتعليمية تفضيلية بعد الاستقلال إلى تهميش التاميل، وتصاعد العنف إلى حرب أهلية من 1983 إلى 2009 بين الدولة ونمور تاميل إيلام راح فيها عشرات الآلاف. انتهت الحرب بهزيمة النمور عسكرياً وبمزاعم موثّقة عن سقوط أعداد كبيرة من المدنيين في مراحلها الأخيرة.",
+        "en": "Preferential language and education policies after independence marginalised Tamils, and violence escalated into a civil war from 1983 to 2009 between the state and the Liberation Tigers of Tamil Eelam, killing tens of thousands. The war ended in the Tigers' military defeat amid documented allegations of large civilian casualties in its final phases."
+      },
+      "politicalCauses": {
+        "ar": "تطبيق التعديل الدستوري الثالث عشر بشأن اللامركزية، المحاسبة على جرائم الحرب، إعادة الأراضي التي يشغلها الجيش، وملف المفقودين.",
+        "en": "Implementation of the Thirteenth Amendment on devolution, accountability for war crimes, return of land occupied by the military, and the missing-persons file."
+      },
+      "territorialClaims": {
+        "ar": "لم يعد هناك مطلب انفصالي مسلح. تطرح أحزاب تاميلية دمج الشمال والشرق في وحدة إدارية واحدة ضمن دولة موحّدة.",
+        "en": "There is no longer an armed secessionist demand. Tamil parties advance merging the north and east into a single administrative unit within a unitary state."
+      },
+      "strategicInterests": {
+        "ar": "موقع سريلانكا على الممرّ البحري بين الخليج وشرق آسيا، وميناء هامبانتوتا الذي أُجّر لشركة صينية، وهو ما جعل الجزيرة ساحة تنافس بين الهند والصين.",
+        "en": "Sri Lanka's position on the sea lane between the Gulf and East Asia, and Hambantota port leased to a Chinese company, which has made the island an arena of India–China competition."
+      },
+      "externalPowers": [
+        { "iso3": "IND", "role": { "ar": "لها علاقة خاصة بالملف بفعل ولاية تاميل نادو، وتدخّلت عسكرياً في 1987–1990", "en": "Has a special relationship to the file through Tamil Nadu, and intervened militarily in 1987–1990" }, "kind": "assessed" },
+        { "iso3": "CHN", "role": { "ar": "مستثمر رئيسي في الموانئ والبنية التحتية", "en": "Principal investor in ports and infrastructure" }, "kind": "assessed" }
+      ],
+      "status": {
+        "ar": "لا قتال. ملفّ سياسي وحقوقي مستمر حول اللامركزية والمحاسبة، ويخضع لمتابعة دورية في مجلس حقوق الإنسان الأممي.",
+        "en": "No fighting. A continuing political and human rights file over devolution and accountability, subject to periodic review at the UN Human Rights Council."
+      },
+      "statusAsOf": "2026-10-30",
+      "recent": [],
+      "confidence": "partial",
+      "sourceRefs": ["mrg"]
+    }
+  ]
+}

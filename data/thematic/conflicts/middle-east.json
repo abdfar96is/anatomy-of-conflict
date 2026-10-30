@@ -1,0 +1,441 @@
+{
+  "region": "middle-east",
+  "regionName": { "ar": "الشرق الأوسط", "en": "Middle East" },
+  "statusAsOf": "2026-10-30",
+  "conflicts": [
+    {
+      "id": "israel-palestine",
+      "name": { "ar": "إسرائيل وفلسطين", "en": "Israel and Palestine" },
+      "coords": [34.47, 31.45],
+      "countries": ["ISR", "PSE", "EGY"],
+      "severity": "war",
+      "started": "1948",
+      "currentPhaseStarted": "2023-10-07",
+      "dimensions": ["territorial", "identity", "political", "ideological"],
+      "dimensionNote": {
+        "ar": "نزاع إقليمي وسياسي في جوهره حول السيادة على أرض واحدة وحقّ العودة والسيطرة العسكرية، تتقاطع معه أبعاد هوياتية ودينية قوية دون أن تكون هي السبب المؤسِّس. تأطيره كنزاع ديني أولاً يحجب جوهره الإقليمي.",
+        "en": "At root a territorial and political conflict over sovereignty on one land, the right of return and military control, intersected by strong identity and religious dimensions without those being the founding cause. Framing it as primarily religious obscures its territorial core."
+      },
+      "parties": {
+        "ar": ["إسرائيل", "حماس", "السلطة الفلسطينية", "فصائل فلسطينية مسلحة أخرى"],
+        "en": ["Israel", "Hamas", "Palestinian Authority", "Other Palestinian armed factions"]
+      },
+      "ethnoReligious": {
+        "ar": "يهود إسرائيليون في مقابل عرب فلسطينيين (مسلمون بأغلبية سنية، ومسيحيون). القدس تحمل مكانة مقدّسة للديانات الثلاث، وهو ما يضاعف صعوبة أي تسوية حول وضعها.",
+        "en": "Israeli Jews and Palestinian Arabs (predominantly Sunni Muslim, with a Christian minority). Jerusalem holds sacred status for all three Abrahamic faiths, which compounds the difficulty of any settlement over its status."
+      },
+      "history": {
+        "ar": "تشكّل النزاع من الهجرة الصهيونية إلى فلسطين العثمانية ثم الانتداب البريطاني ووعد بلفور 1917، وبلغ منعطفه الحاسم بحرب 1948 وتهجير نحو 700 ألف فلسطيني (النكبة) وإقامة دولة إسرائيل. احتلّت إسرائيل الضفة الغربية وقطاع غزة والقدس الشرقية في حرب 1967. أنشأت اتفاقيات أوسلو 1993–1995 سلطة فلسطينية منقوصة السيادة دون حلّ قضايا الحدود والقدس واللاجئين والمستوطنات. انسحبت إسرائيل من غزة 2005، وسيطرت حماس عليه 2007 فتلاه حصار وجولات قتال متكررة.",
+        "en": "The conflict took shape through Zionist immigration to Ottoman Palestine, the British Mandate and the 1917 Balfour Declaration, reaching its decisive turn in the 1948 war, the displacement of some 700,000 Palestinians (the Nakba) and the establishment of Israel. Israel occupied the West Bank, Gaza and East Jerusalem in 1967. The Oslo Accords of 1993–1995 created a Palestinian Authority with partial sovereignty while leaving borders, Jerusalem, refugees and settlements unresolved. Israel withdrew from Gaza in 2005; Hamas took control there in 2007, followed by blockade and repeated rounds of fighting."
+      },
+      "politicalCauses": {
+        "ar": "غياب أفق سياسي لحلّ الدولتين، توسّع الاستيطان في الضفة الغربية، الانقسام الفلسطيني بين فتح وحماس، ضعف شرعية السلطة الفلسطينية، وتحوّل الخطاب السياسي الإسرائيلي نحو اليمين ورفض متزايد لفكرة الدولة الفلسطينية.",
+        "en": "Absence of a political horizon for a two-state outcome, settlement expansion in the West Bank, the Palestinian split between Fatah and Hamas, the Palestinian Authority's weakened legitimacy, and a rightward shift in Israeli politics with growing rejection of Palestinian statehood."
+      },
+      "territorialClaims": {
+        "ar": "تطالب فلسطين بالضفة الغربية وغزة والقدس الشرقية على حدود 1967. تضمّ إسرائيل القدس الشرقية فعلياً وتحتفظ بالسيطرة الأمنية على الضفة، وتوسّع سيطرتها الميدانية في غزة. وتبقى المياه الإقليمية والمجال الجوي وحوض الغاز البحري ضمن المتنازع عليه.",
+        "en": "Palestine claims the West Bank, Gaza and East Jerusalem on 1967 lines. Israel has effectively annexed East Jerusalem, retains security control over the West Bank, and has expanded its ground control in Gaza. Territorial waters, airspace and the offshore gas basin remain contested."
+      },
+      "strategicInterests": {
+        "ar": "السيطرة على المياه الجوفية لحوض الضفة الغربية، حقول الغاز قبالة ساحل غزة، ممر فيلادلفيا على الحدود المصرية، والموقع على الممر البري بين آسيا وأفريقيا. وللقدس وزن رمزي يفوق وزنها الاقتصادي.",
+        "en": "Control of the West Bank aquifer, gas fields off the Gaza coast, the Philadelphi corridor on the Egyptian border, and position on the land corridor between Asia and Africa. Jerusalem's symbolic weight far exceeds its economic weight."
+      },
+      "externalPowers": [
+        { "iso3": "USA", "role": { "ar": "الحامي العسكري والدبلوماسي الرئيسي لإسرائيل، وراعي خطة وقف النار لعام 2025", "en": "Israel's principal military and diplomatic backer, and sponsor of the 2025 ceasefire plan" }, "kind": "treaty" },
+        { "iso3": "EGY", "role": { "ar": "وسيط رئيسي ويتحكّم بمعبر رفح", "en": "Principal mediator and controls the Rafah crossing" }, "kind": "treaty" },
+        { "iso3": "QAT", "role": { "ar": "وسيط ومموّل إنساني ومستضيف لقيادة حماس السياسية", "en": "Mediator, humanitarian funder and host of Hamas's political leadership" }, "kind": "assessed" },
+        { "iso3": "IRN", "role": { "ar": "دعم مالي وعسكري لفصائل فلسطينية مسلحة", "en": "Financial and military support to Palestinian armed factions" }, "kind": "assessed" }
+      ],
+      "status": {
+        "ar": "سريان وقف نار هشّ بدأ في 10 أكتوبر 2025 كمرحلة أولى من خطة سلام مدعومة أمريكياً، لكن الضربات الجوية الإسرائيلية والعمليات البرية استمرّت خلاله. مع إحياء الذكرى الأولى لوقف النار في أكتوبر 2026 أعلنت أكثر من مئة منظمة إنسانية وحقوقية أن الاتفاق «قائم بالاسم فقط». توسّعت السيطرة الإسرائيلية الميدانية من نحو 53٪ من القطاع عند بدء وقف النار إلى ما لا يقلّ عن 60٪ بحسب لجنة التحقيق الأممية، مع ترسيم «الخط الأصفر» الذي يفصل مناطق السيطرة العسكرية.",
+        "en": "A fragile ceasefire that began on 10 October 2025 as phase one of a US-backed peace plan remains nominally in force, but Israeli airstrikes and ground operations have continued throughout it. On the ceasefire's first anniversary in October 2026, more than one hundred humanitarian and human rights organisations said the agreement exists in name only. Israeli ground control expanded from around 53% of the Strip when the ceasefire began to at least 60% according to the UN commission of inquiry, with a demarcated 'Yellow Line' separating zones of military control."
+      },
+      "statusAsOf": "2026-10-30",
+      "recent": [
+        { "date": "2026-10-26", "ar": "خلصت لجنة التحقيق الأممية إلى أن وقف النار لم يوقف ما وصفته بأفعال الإبادة الجماعية، ووجّهت اتهامات بجرائم حرب وجرائم ضد الإنسانية في الضفة الغربية أيضاً. رفضت إسرائيل الاستنتاجات.", "en": "The UN commission of inquiry concluded that the ceasefire had not stopped what it described as genocidal acts, and also alleged war crimes and crimes against humanity in the occupied West Bank. Israel rejected the findings.", "source": "UN Commission of Inquiry / The National" },
+        { "date": "2026-10-12", "ar": "أعلنت وزارة الصحة في غزة حصيلة 1,493 قتيلاً و5,299 جريحاً منذ بدء وقف النار، وحصيلة تراكمية 74,382 قتيلاً منذ أكتوبر 2023.", "en": "Gaza's health ministry put the toll since the truce at 1,493 killed and 5,299 wounded, with a cumulative toll of 74,382 since October 2023.", "source": "Gaza Health Ministry via Al Jazeera" },
+        { "date": "2026-10-09", "ar": "تقرير لمنظمة أطباء من أجل حقوق الإنسان أفاد أنه بعد عام من وقف النار لا يعمل أي من مستشفيات غزة الستة والثلاثين بكامل طاقته.", "en": "A Physicians for Human Rights Israel report found that a year into the ceasefire not one of Gaza's 36 hospitals was operating at full capacity.", "source": "PHR Israel via Al Jazeera" }
+      ],
+      "confidence": "verified",
+      "sourceRefs": ["icg", "ocha-hdx", "acled"]
+    },
+    {
+      "id": "iran-us-israel",
+      "name": { "ar": "حرب إيران 2026", "en": "2026 Iran war" },
+      "coords": [53.5, 32.4],
+      "countries": ["IRN", "USA", "ISR"],
+      "severity": "war",
+      "started": "2026-02-28",
+      "dimensions": ["political", "ideological", "economic", "territorial"],
+      "dimensionNote": {
+        "ar": "نزاع بين دول حول البرنامج النووي وميزان القوة الإقليمي والسيطرة على ممرات الطاقة. البعد المذهبي حاضر في الخطاب لكنه ليس المحرّك: التحالفات هنا مبنية على حساب القوة لا على المذهب، بدليل اصطفاف دول سنّية وشيعية على جانبي الصراع.",
+        "en": "An interstate conflict over the nuclear programme, the regional balance of power and control of energy corridors. The sectarian dimension appears in the rhetoric but is not the driver: alignments here follow power calculation rather than sect, as shown by both Sunni and Shia states appearing on each side."
+      },
+      "parties": {
+        "ar": ["إيران", "الولايات المتحدة", "إسرائيل", "حزب الله", "الحوثيون"],
+        "en": ["Iran", "United States", "Israel", "Hezbollah", "Houthis"]
+      },
+      "ethnoReligious": {
+        "ar": "إيران دولة ذات أغلبية شيعية اثني عشرية وتقدّم نفسها راعيةً لما تسمّيه محور المقاومة. لكنّ خطوط الصراع لا تتبع الخطوط المذهبية: باكستان، وهي دولة سنّية، قامت بدور الوساطة الرئيسي، كما أن تركيا وقطر وعُمان لعبت أدواراً تفاوضية.",
+        "en": "Iran is a Twelver Shia–majority state and presents itself as patron of what it calls the Axis of Resistance. The lines of conflict do not, however, follow sectarian lines: Pakistan, a Sunni state, played the principal mediating role, and Türkiye, Qatar and Oman all took negotiating roles."
+      },
+      "history": {
+        "ar": "جاءت الحرب امتداداً لمواجهة بين إيران وإسرائيل تصاعدت منذ 2023، ومرّت بحرب الاثني عشر يوماً في يونيو 2025 التي انتهت بوقف نار استمرّ حتى 28 فبراير 2026، حين شنّت الولايات المتحدة وإسرائيل هجوماً جوياً مشتركاً على إيران أسفر عن مقتل المرشد الأعلى علي خامنئي ومسؤولين آخرين. ردّت إيران بتلغيم مضيق هرمز وإغلاقه.",
+        "en": "The war extended a confrontation between Iran and Israel that escalated from 2023, passing through the Twelve-Day War of June 2025 which ended in a ceasefire that held until 28 February 2026, when the United States and Israel launched a joint air campaign against Iran that killed Supreme Leader Ali Khamenei and other officials. Iran responded by mining and closing the Strait of Hormuz."
+      },
+      "politicalCauses": {
+        "ar": "الخلاف حول تخصيب اليورانيوم والرقابة النووية، شبكة الوكلاء الإيرانية الإقليمية، العقوبات والعزل الاقتصادي، وتصميم إسرائيلي على إزالة ما تعتبره تهديداً وجودياً.",
+        "en": "Disagreement over uranium enrichment and nuclear inspection, Iran's regional proxy network, sanctions and economic isolation, and an Israeli determination to remove what it regards as an existential threat."
+      },
+      "territorialClaims": {
+        "ar": "لا مطالبات إقليمية متبادلة بين الأطراف الرئيسية. محلّ النزاع هو حرية الملاحة في مضيق هرمز والسيادة على جزر الخليج المتنازع عليها مع الإمارات (طنب الكبرى والصغرى وأبو موسى).",
+        "en": "No mutual territorial claims between the principal parties. What is contested is freedom of navigation in the Strait of Hormuz and sovereignty over the Gulf islands disputed with the UAE (Greater and Lesser Tunb, Abu Musa)."
+      },
+      "strategicInterests": {
+        "ar": "مضيق هرمز يمثّل أهم نقطة عبور للنفط في العالم، وإغلاقه يمنح إيران أداة ضغط عالمية. وبالمقابل تمثّل القدرة على إبقائه مفتوحاً مصلحة أمريكية وخليجية وآسيوية مشتركة، لأن المستورد الأكبر للنفط العابر منه هو شرق آسيا.",
+        "en": "The Strait of Hormuz is the world's most important oil transit point, and closing it gives Iran global leverage. Conversely, keeping it open is a shared American, Gulf and Asian interest, since the largest importer of oil transiting it is East Asia."
+      },
+      "externalPowers": [
+        { "iso3": "PAK", "role": { "ar": "الوسيط الرئيسي، وراعي مذكّرة إسلام آباد", "en": "Principal mediator and sponsor of the Islamabad Memorandum" }, "kind": "treaty" },
+        { "iso3": "QAT", "role": { "ar": "وسيط مشارك", "en": "Co-mediator" }, "kind": "treaty" },
+        { "iso3": "OMN", "role": { "ar": "وسيط مشارك وقناة اتصال تاريخية مع طهران", "en": "Co-mediator and historic channel to Tehran" }, "kind": "treaty" },
+        { "iso3": "RUS", "role": { "ar": "شريك لإيران في التسليح والطاقة النووية المدنية", "en": "Partner to Iran in armaments and civil nuclear energy" }, "kind": "assessed" },
+        { "iso3": "CHN", "role": { "ar": "المشتري الأكبر للنفط الإيراني ومتأثّر مباشرةً بإغلاق هرمز", "en": "Largest buyer of Iranian oil and directly exposed to a Hormuz closure" }, "kind": "assessed" }
+      ],
+      "status": {
+        "ar": "وقف نار هشّ غير مكتمل. وُقّعت مذكّرة إسلام آباد — وهي اتفاق من 14 نقطة بوساطة باكستانية مع قطر وعُمان — في منتصف يونيو 2026 ورفعت الحصار المزدوج، لكنها انهارت في 8 يوليو 2026 عند استئناف إيران استهداف السفن التجارية في هرمز. الحرب لم تُنهَ رسمياً، والقتال الكثيف توقّف في معظمه، مع تبادل نار متقطّع في المضيق. صرّح وزير الخارجية الإيراني في 21 أكتوبر 2026 بأن هرمز يبقى مغلقاً حتى تقبل واشنطن شروط طهران.",
+        "en": "A fragile and incomplete ceasefire. The Islamabad Memorandum — a 14-point agreement mediated by Pakistan with Qatar and Oman — was signed in mid-June 2026 and lifted the dual blockade, but collapsed on 8 July 2026 when Iran resumed targeting commercial vessels in Hormuz. The war has not formally ended, heavy fighting has largely stopped, and intermittent exchanges continue in the strait. Iran's foreign minister stated on 21 October 2026 that Hormuz remains closed until Washington accepts Tehran's terms."
+      },
+      "statusAsOf": "2026-10-30",
+      "recent": [
+        { "date": "2026-10-21", "ar": "أعلن وزير الخارجية الإيراني أن استخدام المضيق مرهون بقبول واشنطن شروط إيران، وأن الالتزام بمذكّرة إسلام آباد يجب أن يسبق أي مفاوضات أخرى.", "en": "Iran's foreign minister said use of the strait depends on Washington accepting Iran's conditions, and that compliance with the Islamabad MoU must precede other talks.", "source": "Iranian MFA statements via conflict trackers" },
+        { "date": "2026-10-13", "ar": "غرقت سفينة الحاويات GFS Pride بعد استهدافها في مضيق هرمز.", "en": "The container ship GFS Pride sank after being struck in the Strait of Hormuz.", "source": "Maritime reporting" },
+        { "date": "2026-09", "ar": "قدّرت وزارة الدفاع الأمريكية التكلفة التراكمية للحرب بنحو 43.6 مليار دولار.", "en": "The US Department of Defense estimated the war's cumulative cost at around $43.6 billion.", "source": "US DoD" }
+      ],
+      "confidence": "verified",
+      "sourceRefs": ["icg", "eia", "acled"]
+    },
+    {
+      "id": "syria-transition",
+      "name": { "ar": "الانتقال السياسي في سوريا", "en": "Syria's political transition" },
+      "coords": [38.0, 35.0],
+      "countries": ["SYR", "TUR", "ISR", "JOR", "IRQ"],
+      "severity": "armed-conflict",
+      "started": "2011-03",
+      "currentPhaseStarted": "2024-12",
+      "dimensions": ["political", "identity", "territorial", "economic"],
+      "dimensionNote": {
+        "ar": "بدأ النزاع ثورةً سياسية على نظام سلطوي، ثم اكتسب طابعاً طائفياً وعرقياً عبر تدويله وتجنيد المجموعات على أساس الهوية. المرحلة الحالية سياسية أساساً — بناء دولة وتوزيع سلطة — مع توتّرات بين الطوائف ناتجة عن انعدام الثقة في الأجهزة الأمنية الجديدة لا عن خلاف عقدي.",
+        "en": "The conflict began as a political revolt against an authoritarian regime, then acquired sectarian and ethnic character through internationalisation and identity-based recruitment. The present phase is primarily political — state-building and power distribution — with intercommunal tension arising from distrust of the new security apparatus rather than doctrinal dispute."
+      },
+      "parties": {
+        "ar": ["الحكومة السورية الانتقالية", "مجموعات درزية في السويداء", "أطراف كردية في الشمال الشرقي", "إسرائيل", "تنظيم الدولة الإسلامية"],
+        "en": ["Syrian transitional government", "Druze groups in Suwayda", "Kurdish actors in the north-east", "Israel", "Islamic State"]
+      },
+      "ethnoReligious": {
+        "ar": "أغلبية عربية سنّية، مع أقليات علوية وكردية ودرزية ومسيحية وإسماعيلية وتركمانية وأرمنية. تعرّضت المناطق العلوية الساحلية لعنف جماعي في 2025، وشهدت مناطق درزية في الجنوب مواجهات. أصدر الرئيس في يناير 2026 مرسوماً يعترف بالكرد جزءاً أصيلاً من سوريا ويعترف باللغة الكردية وبعيد نوروز.",
+        "en": "A Sunni Arab majority with Alawite, Kurdish, Druze, Christian, Ismaili, Turkmen and Armenian minorities. Alawite coastal areas suffered mass violence in 2025 and Druze areas in the south saw clashes. In January 2026 the president issued a decree recognising Kurds as an integral part of Syria and recognising the Kurdish language and Nowruz."
+      },
+      "history": {
+        "ar": "اندلعت الاحتجاجات في مارس 2011 ضمن موجة الربيع العربي وتحوّلت إلى حرب أهلية مدوّلة تدخّلت فيها إيران وروسيا وتركيا والولايات المتحدة، وقتل فيها مئات الآلاف وهُجّر أكثر من نصف السكان. سقط نظام بشار الأسد في ديسمبر 2024 بعد هجوم سريع قادته هيئة تحرير الشام، وتولّى أحمد الشرع رئاسة مرحلة انتقالية مدّتها خمس سنوات في يناير 2025، وأُجريت انتخابات برلمانية في أكتوبر 2025 هي الأولى بعد سقوط النظام.",
+        "en": "Protests began in March 2011 amid the Arab Spring and became an internationalised civil war drawing in Iran, Russia, Türkiye and the United States, killing hundreds of thousands and displacing more than half the population. Bashar al-Assad's regime fell in December 2024 after a rapid offensive led by Hayat Tahrir al-Sham; Ahmed al-Sharaa assumed the presidency of a five-year transition in January 2025, and parliamentary elections — the first since the regime's fall — were held in October 2025."
+      },
+      "politicalCauses": {
+        "ar": "الخلاف على شكل الدولة ودرجة المركزية، دمج الفصائل المسلحة في جيش واحد، العدالة الانتقالية والمحاسبة، ضمانات الأقليات، وإصلاح القطاع الأمني. أثار المركزية الزائدة وغياب فصل السلطات انتقادات أممية صريحة.",
+        "en": "Disagreement over the shape of the state and the degree of centralisation, integration of armed factions into a single army, transitional justice and accountability, minority guarantees, and security-sector reform. Excessive centralisation and the absence of separation of powers have drawn explicit UN criticism."
+      },
+      "territorialClaims": {
+        "ar": "تحتفظ إسرائيل بأراضٍ موسّعة في الجنوب السوري احتلّتها منذ ديسمبر 2024 إضافةً إلى الجولان المحتل منذ 1967. تبقى محافظة السويداء خارج سيطرة دمشق فعلياً. وأُنجز دمج مؤسسات الإدارة الذاتية في الشمال الشرقي في الدولة السورية مع حلّ قوات سوريا الديمقراطية في أغسطس 2026.",
+        "en": "Israel holds expanded territory in southern Syria occupied since December 2024, in addition to the Golan Heights occupied since 1967. Suwayda governorate remains effectively outside Damascus's control. Integration of the north-east self-administration's institutions into the Syrian state was completed with the dissolution of the Syrian Democratic Forces in August 2026."
+      },
+      "strategicInterests": {
+        "ar": "حقول النفط والغاز في الشمال الشرقي، الأراضي الزراعية في الجزيرة، ممرّات التجارة البرية بين تركيا والخليج، وموانئ طرطوس واللاذقية على المتوسط. وتعدّ إعادة الإعمار نفسها سوقاً استراتيجية جاذبة للاستثمار الخليجي والتركي.",
+        "en": "Oil and gas fields in the north-east, farmland in the Jazira, overland trade corridors between Türkiye and the Gulf, and the Mediterranean ports of Tartus and Latakia. Reconstruction is itself a strategic market attracting Gulf and Turkish investment."
+      },
+      "externalPowers": [
+        { "iso3": "TUR", "role": { "ar": "الدولة الأكثر نفوذاً على الحكومة الانتقالية", "en": "The state with most influence over the transitional government" }, "kind": "assessed" },
+        { "iso3": "ISR", "role": { "ar": "عمليات عسكرية وتوغّلات متكررة في الجنوب واحتلال أراضٍ موسّعة", "en": "Recurrent military operations and incursions in the south, and occupation of expanded territory" }, "kind": "assessed" },
+        { "iso3": "USA", "role": { "ar": "رفعت تصنيف هيئة تحرير الشام كتنظيم إرهابي في يوليو 2025 وتدير علاقة أمنية مع دمشق", "en": "Removed Hayat Tahrir al-Sham's terrorist designation in July 2025 and maintains a security relationship with Damascus" }, "kind": "assessed" },
+        { "iso3": "SAU", "role": { "ar": "ناشطة في إعادة دمج سوريا إقليمياً واستثمارياً", "en": "Active in Syria's regional and investment reintegration" }, "kind": "assessed" },
+        { "iso3": "RUS", "role": { "ar": "حافظت على وجود وعلاقة مع الحكم الجديد بعد سقوط حليفها", "en": "Retained a presence and a relationship with the new government after its ally's fall" }, "kind": "assessed" }
+      ],
+      "status": {
+        "ar": "انتقال هشّ تحت ضغوط متعدّدة. لا يزال 5.5 مليون سوري مهجّرين، نحو 800 ألف منهم في مخيمات. الأزمة الاقتصادية تغذّي الاضطراب، والتوغّلات الإسرائيلية مستمرة في الجنوب، والتوتّر الطائفي قائم في السويداء، بينما تتحدّث دمشق عن تقدّم في ملف الأسلحة الكيميائية وعن انتخابات مقبلة. وفي أكتوبر 2026 وقعت أزمة ثنائية حادّة مع الأردن بعد ضربات جوية أردنية في ريف درعا.",
+        "en": "A fragile transition under multiple pressures. 5.5 million Syrians remain displaced, around 800,000 of them in camps. Economic hardship is fuelling unrest, Israeli incursions continue in the south, sectarian tension persists in Suwayda, while Damascus reports progress on its chemical weapons file and discusses future elections. In October 2026 a sharp bilateral crisis erupted with Jordan after Jordanian airstrikes in the Daraa countryside."
+      },
+      "statusAsOf": "2026-10-30",
+      "recent": [
+        { "date": "2026-10-28", "ar": "أُعيد فتح الحدود السورية الأردنية في ظلّ تحقيق في الضربات الجوية، وزار رئيس الوزراء العراقي دمشق في زيارة وُصفت بالتاريخية.", "en": "The Syria–Jordan border reopened amid an inquiry into the airstrikes, and Iraq's prime minister visited Damascus in a visit described as historic.", "source": "Al Jazeera" },
+        { "date": "2026-10-26", "ar": "نفّذ الأردن ضربات جوية ضد موقع لتنظيم الدولة في جنوب سوريا بعد هجوم على كنيسة؛ تباينت حصيلة القتلى بين الروايتين الأردنية والسورية.", "en": "Jordan conducted airstrikes against an Islamic State site in southern Syria following a church attack; Jordanian and Syrian accounts of the death toll differed.", "source": "Reuters / Al Jazeera" },
+        { "date": "2026-08", "ar": "استُكمل دمج مؤسسات الإدارة الذاتية المدنية في الدولة السورية وحُلّت قوات سوريا الديمقراطية.", "en": "Integration of the self-administration's civil institutions into the Syrian state was completed and the Syrian Democratic Forces were dissolved.", "source": "Transitional government announcements" }
+      ],
+      "confidence": "verified",
+      "sourceRefs": ["icg", "unhcr", "ocha-hdx"]
+    },
+    {
+      "id": "lebanon-israel",
+      "name": { "ar": "لبنان وحزب الله وإسرائيل", "en": "Lebanon, Hezbollah and Israel" },
+      "coords": [35.5, 33.3],
+      "countries": ["LBN", "ISR"],
+      "severity": "armed-conflict",
+      "started": "1978",
+      "currentPhaseStarted": "2026-03-02",
+      "dimensions": ["territorial", "political", "ideological", "identity"],
+      "dimensionNote": {
+        "ar": "نزاع حدودي وسياسي مرتبط ببنية النظام اللبناني الطائفي وبسلاح فاعل غير حكومي. البعد المذهبي يفسّر قاعدة حزب الله الاجتماعية لا أسباب المواجهة مع إسرائيل، التي تتعلّق بالأرض والردع والارتباط بإيران.",
+        "en": "A border and political conflict tied to Lebanon's confessional system and to an armed non-state actor. The sectarian dimension explains Hezbollah's social base rather than the causes of confrontation with Israel, which concern territory, deterrence and the link to Iran."
+      },
+      "parties": {
+        "ar": ["إسرائيل", "حزب الله", "الدولة اللبنانية", "الجيش اللبناني"],
+        "en": ["Israel", "Hezbollah", "the Lebanese state", "Lebanese Armed Forces"]
+      },
+      "ethnoReligious": {
+        "ar": "لبنان دولة متعددة الطوائف يوزّع نظامها السلطة بين المسلمين السنّة والشيعة والمسيحيين المارونيين والأرثوذكس والدروز. حزب الله حزب شيعي مسلّح نشأ في بيئة الجنوب والبقاع وضاحية بيروت الجنوبية.",
+        "en": "Lebanon is a multi-confessional state whose system distributes power among Sunni and Shia Muslims, Maronite and Orthodox Christians and Druze. Hezbollah is an armed Shia party rooted in the south, the Beqaa and Beirut's southern suburbs."
+      },
+      "history": {
+        "ar": "اجتاحت إسرائيل لبنان في 1978 و1982، واحتلّت الجنوب حتى 2000، وخاضت حرب 2006 مع حزب الله. فتح حزب الله جبهةً إسنادية في 8 أكتوبر 2023، فتصاعدت المواجهة إلى حرب 2024 انتهت بوقف نار في نوفمبر 2024 ظلّت إسرائيل تضرب خلاله بحجّة خروقات. أفاد اليونيفيل في نوفمبر 2025 بعدم وجود دليل على إعادة بناء حزب الله لقدراته.",
+        "en": "Israel invaded Lebanon in 1978 and 1982, occupied the south until 2000, and fought the 2006 war with Hezbollah. Hezbollah opened a supporting front on 8 October 2023; the confrontation escalated into the 2024 war, ending in a November 2024 ceasefire during which Israel continued striking, citing violations. In November 2025 UNIFIL reported no evidence that Hezbollah was rebuilding its capabilities."
+      },
+      "politicalCauses": {
+        "ar": "سلاح حزب الله خارج سلطة الدولة، ترسيم الحدود البرية، سيادة الدولة اللبنانية على جنوب الليطاني، وربط المواجهة بالملف الإيراني الأوسع.",
+        "en": "Hezbollah's arms outside state authority, land border demarcation, Lebanese state sovereignty south of the Litani, and the linkage of the confrontation to the wider Iranian file."
+      },
+      "territorialClaims": {
+        "ar": "تحتل إسرائيل أجزاءً من جنوب لبنان وتضمّ مزارع شبعا منذ 1967. ترسيم الحدود البرية غير مكتمل على نقاط عديدة على الخط الأزرق.",
+        "en": "Israel occupies parts of southern Lebanon and has annexed the Shebaa Farms since 1967. Land border demarcation remains incomplete at numerous points along the Blue Line."
+      },
+      "strategicInterests": {
+        "ar": "حقول الغاز في المنطقة الاقتصادية البحرية شرق المتوسط، مياه نهر الليطاني والحاصباني، وعمق أمني شمال إسرائيل. ولبنان نفسه ممرّ نفوذ إيراني نحو المتوسط.",
+        "en": "Gas fields in the eastern Mediterranean exclusive economic zone, the waters of the Litani and Hasbani rivers, and security depth north of Israel. Lebanon is itself a corridor of Iranian influence toward the Mediterranean."
+      },
+      "externalPowers": [
+        { "iso3": "USA", "role": { "ar": "وسيط وقف النار وراعي الإطار الثلاثي", "en": "Ceasefire mediator and sponsor of the trilateral framework" }, "kind": "treaty" },
+        { "iso3": "IRN", "role": { "ar": "الممول والمورّد الرئيسي لحزب الله", "en": "Hezbollah's principal funder and supplier" }, "kind": "assessed" },
+        { "iso3": "FRA", "role": { "ar": "دور دبلوماسي تاريخي ومساهمة في اليونيفيل", "en": "Historic diplomatic role and UNIFIL contribution" }, "kind": "treaty" }
+      ],
+      "status": {
+        "ar": "وقف نار قانوني قائم منذ 16 أبريل 2026 مع استمرار الضربات الجوية الإسرائيلية. في يونيو 2026 أنشأت لبنان وإسرائيل والولايات المتحدة إطاراً ثلاثياً ينصّ على نزع سلاح حزب الله ودخول الجيش اللبناني إلى المناطق التي كان يسيطر عليها وانسحاب إسرائيلي من الجنوب. وصفت إسرائيل الإطار بأنه «قائم على الأداء» وأعلن وزير دفاعها في 24 يونيو 2026 أن قواتها لن تنسحب ما دام حزب الله يمثّل تهديداً. حظرت الدولة اللبنانية النشاط العسكري لحزب الله.",
+        "en": "A de jure ceasefire has been in force since 16 April 2026 alongside continuing Israeli airstrikes. In June 2026 Lebanon, Israel and the United States established a trilateral framework providing for Hezbollah's disarmament, the Lebanese Armed Forces' entry into areas it formerly controlled, and Israeli withdrawal from southern Lebanon. Israel described the framework as 'performance-based', and its defence minister stated on 24 June 2026 that its forces would not withdraw while Hezbollah remains a threat. The Lebanese state banned Hezbollah's military activity."
+      },
+      "statusAsOf": "2026-10-30",
+      "recent": [
+        { "date": "2026-10-27", "ar": "ذكرت تقارير من بيروت ودمشق أن لا تغيّر متوقّعاً في السياسة الإسرائيلية بعد الانتخابات الإسرائيلية.", "en": "Reporting from Beirut and Damascus indicated no expected change in Israeli policy following the Israeli election.", "source": "Al Jazeera" },
+        { "date": "2026-06-24", "ar": "أعلن وزير الدفاع الإسرائيلي أن القوات لن تنسحب من جنوب لبنان ولو تحقّقت شروط الإطار.", "en": "Israel's defence minister said forces would not withdraw from southern Lebanon even if the framework's conditions were met.", "source": "Israeli MoD statements" },
+        { "date": "2026-06-03", "ar": "اتفاق بين إسرائيل ولبنان بوساطة أمريكية؛ رفضه حزب الله في اليوم التالي وطالب بوقف نار كامل وانسحاب كامل.", "en": "An Israel–Lebanon agreement was reached with US facilitation; Hezbollah rejected it the next day, demanding a full ceasefire and complete withdrawal.", "source": "House of Commons Library briefing" }
+      ],
+      "confidence": "verified",
+      "sourceRefs": ["icg", "acled"]
+    },
+    {
+      "id": "yemen",
+      "name": { "ar": "اليمن وباب المندب", "en": "Yemen and Bab al-Mandab" },
+      "coords": [44.2, 15.3],
+      "countries": ["YEM", "SAU", "ARE", "IRN"],
+      "severity": "war",
+      "started": "2014-09",
+      "dimensions": ["political", "identity", "economic", "territorial"],
+      "dimensionNote": {
+        "ar": "نزاع على السلطة والدولة تداخل فيه بعد مذهبي زيدي/سنّي وبعد مناطقي شمالي/جنوبي، لكن محرّكه الأساسي هو انهيار عملية انتقال سياسي وتدخّل إقليمي. البعد الاقتصادي صار محورياً مع تحوّل السيطرة على الممرات البحرية إلى ورقة تفاوض.",
+        "en": "A conflict over power and the state, overlaid with a Zaydi/Sunni sectarian dimension and a northern/southern regional one, but driven principally by the collapse of a political transition and regional intervention. The economic dimension has become central as control of maritime corridors turned into a bargaining instrument."
+      },
+      "parties": {
+        "ar": ["الحوثيون (أنصار الله)", "مجلس القيادة الرئاسي", "السعودية", "الإمارات", "المجلس الانتقالي الجنوبي"],
+        "en": ["Houthis (Ansar Allah)", "Presidential Leadership Council", "Saudi Arabia", "United Arab Emirates", "Southern Transitional Council"]
+      },
+      "ethnoReligious": {
+        "ar": "الحوثيون حركة زيدية من شمال اليمن، والزيدية مذهب شيعي يختلف عقدياً عن الاثني عشرية الإيرانية. أغلبية سكان الجنوب والسواحل سنّة شوافع. الانقسام الزيدي/الشافعي لم يكن تاريخياً مصدر عنف منظّم في اليمن قبل تسييسه خلال العقدين الأخيرين.",
+        "en": "The Houthis are a Zaydi movement from northern Yemen; Zaydism is a Shia school doctrinally distinct from Iranian Twelver Shiism. The south and coastal populations are predominantly Shafi'i Sunni. The Zaydi/Shafi'i divide was not historically a source of organised violence in Yemen before its politicisation over the past two decades."
+      },
+      "history": {
+        "ar": "كان اليمن دولتين حتى الوحدة في 1990، وشهد حرباً انفصالية في 1994. أطاحت احتجاجات 2011 بعلي عبد الله صالح وأعقبها انتقال سياسي متعثّر. سيطر الحوثيون على صنعاء في سبتمبر 2014 ثم تقدّموا جنوباً، فتدخّل تحالف بقيادة سعودية في مارس 2015. تحوّلت الحرب إلى استنزاف طويل ترافق مع واحدة من أسوأ الأزمات الإنسانية في العالم.",
+        "en": "Yemen was two states until unification in 1990 and saw a secessionist war in 1994. Protests in 2011 unseated Ali Abdullah Saleh and were followed by a faltering transition. The Houthis took Sanaa in September 2014 and advanced south, prompting a Saudi-led coalition intervention in March 2015. The war became a long attrition accompanied by one of the world's worst humanitarian crises."
+      },
+      "politicalCauses": {
+        "ar": "فشل مخرجات الحوار الوطني وصيغة الأقاليم الستة، تهميش مناطقي وقبلي، تنازع على الشرعية والموارد النفطية، ومطالب انفصالية جنوبية لم تُحَل.",
+        "en": "Failure of the National Dialogue outcomes and the six-region federal formula, regional and tribal marginalisation, contested legitimacy and oil revenues, and unresolved southern secessionist demands."
+      },
+      "territorialClaims": {
+        "ar": "خلاف داخلي على السلطة لا على حدود دولية، إضافةً إلى مطلب انفصال الجنوب بحدود ما قبل 1990، وجزر استراتيجية في البحر الأحمر (ميون/بريم، وجزر حنيش).",
+        "en": "An internal dispute over power rather than international borders, plus a southern secession claim on pre-1990 lines, and strategic Red Sea islands (Mayyun/Perim and the Hanish islands)."
+      },
+      "strategicInterests": {
+        "ar": "مضيق باب المندب هو المدخل الجنوبي للبحر الأحمر وقناة السويس، والسيطرة على ضفّته الشرقية تمنح نفوذاً على التجارة بين آسيا وأوروبا وعلى طريق تصدير النفط السعودي البديل لهرمز عبر ينبُع.",
+        "en": "Bab al-Mandab is the southern gateway to the Red Sea and the Suez Canal; control of its eastern shore confers leverage over Asia–Europe trade and over Saudi Arabia's alternative oil export route to Hormuz via Yanbu."
+      },
+      "externalPowers": [
+        { "iso3": "SAU", "role": { "ar": "قائدة التحالف وهدف لهجمات حوثية على منشآت الطاقة والشحن", "en": "Coalition leader and target of Houthi attacks on energy and shipping assets" }, "kind": "treaty" },
+        { "iso3": "IRN", "role": { "ar": "دعم عسكري وتدريبي للحوثيين؛ أُفيد بوجود ضباط من الحرس الثوري في اليمن", "en": "Military and training support to the Houthis; IRGC officers have been reported present in Yemen" }, "kind": "assessed" },
+        { "iso3": "ARE", "role": { "ar": "دعم قوى جنوبية ومنها المجلس الانتقالي الجنوبي", "en": "Support to southern forces including the Southern Transitional Council" }, "kind": "assessed" },
+        { "iso3": "USA", "role": { "ar": "عمليات بحرية لحماية الملاحة وضربات ضد قدرات حوثية", "en": "Naval operations to protect shipping and strikes against Houthi capabilities" }, "kind": "assessed" }
+      ],
+      "status": {
+        "ar": "تصاعد حادّ مرتبط بحرب إيران. بدأ الحوثيون في 13 يوليو 2026 استئناف الهجمات على السعودية وأعلنوا في 20 يوليو حصاراً على الموانئ والسفن السعودية في باب المندب. وفي سبتمبر 2026 سيطروا على كامل الساحل اليمني على البحر الأحمر وجزيرة ميون/بريم وجزر حنيش، ما منحهم سيطرة استراتيجية على المضيق. في 5 أكتوبر 2026 أعلنت وسائل إعلام يمنية استعادة مجلس القيادة الرئاسي لمدينة المخا وتأمين الوصول إلى المضيق، وهو ما يجعل خطّ السيطرة الفعلي على الضفة الشرقية متحرّكاً ومتنازعاً عليه.",
+        "en": "A sharp escalation tied to the Iran war. On 13 July 2026 the Houthis resumed attacks on Saudi Arabia and on 20 July announced a blockade of Saudi ports and vessels in Bab al-Mandab. In September 2026 they took Yemen's entire Red Sea coastline, Mayyun/Perim Island and the Hanish Islands, giving them strategic control of the strait. On 5 October 2026 Yemeni media reported that the Presidential Leadership Council had retaken Mokha and resecured access to the strait, leaving the effective line of control on the eastern shore mobile and contested."
+      },
+      "statusAsOf": "2026-10-30",
+      "recent": [
+        { "date": "2026-10-01", "ar": "تقرير ACLED: مكاسب الحوثيين حول باب المندب والمواجهة المتجدّدة مع السعودية ترفع المخاطر على الشحن في البحر الأحمر وأسواق النفط العالمية.", "en": "ACLED reported that Houthi gains around Bab al-Mandab and renewed confrontation with Saudi Arabia raise risks to Red Sea shipping and global oil markets.", "source": "ACLED" },
+        { "date": "2026-09-11", "ar": "استكمل الحوثيون السيطرة على الساحل اليمني للبحر الأحمر واستولوا على جزيرة بريم، ما جعل مواقعهم على مسافة نحو 130 كم من قاعدة كامب ليمونييه الأمريكية في جيبوتي.", "en": "The Houthis completed control of Yemen's Red Sea coastline and seized Perim Island, placing their positions some 130 km from the US Camp Lemonnier base in Djibouti.", "source": "Reuters / NBC News / Al Jazeera" },
+        { "date": "2026-08-12", "ar": "هجوم على سفينة الشحن «تهامة» المملوكة مصرياً في باب المندب أدّى إلى مقتل ستة أشخاص على الأقل.", "en": "An attack on the Egyptian-owned cargo vessel Tihamah in Bab al-Mandab killed at least six people.", "source": "Al Jazeera" }
+      ],
+      "confidence": "verified",
+      "sourceRefs": ["acled", "eia", "ocha-hdx"]
+    },
+    {
+      "id": "iraq-kurdistan",
+      "name": { "ar": "العراق وإقليم كردستان", "en": "Iraq and the Kurdistan Region" },
+      "coords": [44.0, 35.5],
+      "countries": ["IRQ"],
+      "severity": "high-tension",
+      "started": "1991",
+      "dimensions": ["political", "economic", "territorial", "identity"],
+      "dimensionNote": {
+        "ar": "الخلاف الرئيسي اليوم اقتصادي ودستوري: من يملك حقّ تصدير النفط ومن يدفع رواتب الإقليم وكيف تُدار المناطق المتنازع عليها. البعد الهوياتي أسّس للمطلب الكردي تاريخياً لكنه ليس محلّ النزاع اليومي الحالي.",
+        "en": "The principal dispute today is economic and constitutional: who holds the right to export oil, who pays the region's salaries, and how the disputed territories are administered. The identity dimension founded the Kurdish claim historically but is not the substance of the current day-to-day dispute."
+      },
+      "parties": {
+        "ar": ["الحكومة الفيدرالية العراقية", "حكومة إقليم كردستان", "الاتحاد الوطني الكردستاني والحزب الديمقراطي الكردستاني", "فصائل مسلحة عراقية"],
+        "en": ["Iraqi federal government", "Kurdistan Regional Government", "PUK and KDP", "Iraqi armed factions"]
+      },
+      "ethnoReligious": {
+        "ar": "العراق أغلبية عربية شيعية مع عرب سنّة وكرد (سنّة في معظمهم) وتركمان وآشوريين وكلدان ويزيديين وشبك وصابئة مندائيين. تضرّر اليزيديون في سنجار بشدّة من هجوم تنظيم الدولة في 2014.",
+        "en": "Iraq has a Shia Arab majority alongside Sunni Arabs, Kurds (mostly Sunni), Turkmen, Assyrians, Chaldeans, Yazidis, Shabak and Mandaeans. Yazidis in Sinjar were severely harmed by the Islamic State's 2014 assault."
+      },
+      "history": {
+        "ar": "قاوم الكرد الحكم المركزي منذ تأسيس الدولة العراقية، وتعرّضوا لحملة الأنفال وضرب حلبجة بالكيمياوي في 1988. أنشئت منطقة حظر جوي شمالية بعد 1991 مكّنت من حكم ذاتي فعلي، وثبّت دستور 2005 الإقليم كوحدة فيدرالية. أجرى الإقليم استفتاء استقلال في 2017 رفضته بغداد وأعقبته استعادة فيدرالية لكركوك.",
+        "en": "Kurds resisted central rule from the Iraqi state's founding and suffered the Anfal campaign and the 1988 chemical attack on Halabja. A northern no-fly zone after 1991 enabled de facto self-rule, and the 2005 constitution established the region as a federal unit. The region held an independence referendum in 2017 which Baghdad rejected, followed by a federal recovery of Kirkuk."
+      },
+      "politicalCauses": {
+        "ar": "تقاسم إيرادات النفط وحصّة الإقليم في الموازنة، تطبيق المادة 140 بشأن المناطق المتنازع عليها، سلاح الفصائل خارج الدولة، والانقسام الكردي الداخلي بين أربيل والسليمانية.",
+        "en": "Division of oil revenues and the region's budget share, implementation of Article 140 on the disputed territories, armed factions outside state control, and the internal Kurdish split between Erbil and Sulaymaniyah."
+      },
+      "territorialClaims": {
+        "ar": "كركوك وسنجار وسهل نينوى وأجزاء من ديالى وصلاح الدين مناطق متنازع عليها بين بغداد وأربيل، ولم تُحَل عبر المادة 140 من الدستور.",
+        "en": "Kirkuk, Sinjar, the Nineveh Plains and parts of Diyala and Salah al-Din are territories disputed between Baghdad and Erbil, unresolved through Article 140 of the constitution."
+      },
+      "strategicInterests": {
+        "ar": "حقول كركوك وخورمالا وخور مور، خط الأنابيب العراقي التركي إلى جيهان، ومعابر إبراهيم الخليل وفيشخابور التجارية.",
+        "en": "The Kirkuk, Khurmala and Khor Mor fields, the Iraq–Türkiye pipeline to Ceyhan, and the Ibrahim Khalil and Fishkhabour trade crossings."
+      },
+      "externalPowers": [
+        { "iso3": "IRN", "role": { "ar": "نفوذ واسع عبر أحزاب وفصائل شيعية وعلاقات مع السليمانية", "en": "Broad influence through Shia parties and factions and ties to Sulaymaniyah" }, "kind": "assessed" },
+        { "iso3": "TUR", "role": { "ar": "عمليات عسكرية ضد حزب العمال الكردستاني في شمال العراق وعلاقة اقتصادية مع أربيل", "en": "Military operations against the PKK in northern Iraq and an economic relationship with Erbil" }, "kind": "assessed" },
+        { "iso3": "USA", "role": { "ar": "شراكة أمنية وحضور تدريبي ضمن التحالف ضد تنظيم الدولة", "en": "Security partnership and training presence within the anti-Islamic State coalition" }, "kind": "treaty" }
+      ],
+      "status": {
+        "ar": "توتّر سياسي واقتصادي مستمر دون قتال واسع بين بغداد وأربيل. الخلاف على تصدير النفط والرواتب متكرّر، وملف المناطق المتنازع عليها مجمّد، ويستمرّ نشاط خلايا لتنظيم الدولة في مناطق متفرّقة.",
+        "en": "Continuing political and economic tension without large-scale fighting between Baghdad and Erbil. The dispute over oil exports and salaries recurs, the disputed-territories file is frozen, and Islamic State cell activity persists in scattered areas."
+      },
+      "statusAsOf": "2026-10-30",
+      "recent": [
+        { "date": "2026-10-28", "ar": "زار رئيس الوزراء العراقي علي فالح الزيدي دمشق والتقى الرئيس السوري، في مؤشر على إعادة ترتيب العلاقات الإقليمية.", "en": "Iraqi Prime Minister Ali Faleh al-Zaidi visited Damascus and met Syria's president, signalling a realignment of regional relations.", "source": "Al Jazeera / Syria TV" }
+      ],
+      "confidence": "partial",
+      "sourceRefs": ["icg", "mrg"]
+    },
+    {
+      "id": "turkey-kurdish",
+      "name": { "ar": "تركيا والحركات الكردية", "en": "Türkiye and Kurdish movements" },
+      "coords": [40.2, 37.9],
+      "countries": ["TUR", "IRQ", "SYR"],
+      "severity": "high-tension",
+      "started": "1984",
+      "dimensions": ["identity", "political", "territorial"],
+      "dimensionNote": {
+        "ar": "نزاع هوياتي وسياسي في المقام الأول: حقوق لغوية وثقافية وتمثيل سياسي، لا نزاع ديني — فالطرفان مسلمان سنّة في أغلبهما. البعد الإقليمي يتعلّق بالحكم الذاتي لا بالانفصال في الطرح الحالي لحزب العمال الكردستاني.",
+        "en": "Primarily an identity and political conflict over linguistic and cultural rights and political representation, not a religious one — both sides are predominantly Sunni Muslim. The territorial dimension concerns autonomy rather than secession in the PKK's current platform."
+      },
+      "parties": {
+        "ar": ["الدولة التركية", "حزب العمال الكردستاني", "أحزاب كردية سياسية في تركيا"],
+        "en": ["Turkish state", "Kurdistan Workers' Party (PKK)", "Kurdish political parties in Türkiye"]
+      },
+      "ethnoReligious": {
+        "ar": "الكرد أكبر أقلية عرقية في تركيا ويتمركزون في الجنوب الشرقي والأناضول الشرقي، وأغلبهم مسلمون سنّة مع أقلية علوية كردية (قزلباش). النزاع عرقي سياسي لا مذهبي.",
+        "en": "Kurds are Türkiye's largest ethnic minority, concentrated in the south-east and eastern Anatolia, mostly Sunni Muslim with a Kurdish Alevi minority. The conflict is ethno-political rather than sectarian."
+      },
+      "history": {
+        "ar": "قامت الجمهورية التركية على مبدأ القومية الواحدة، وقُمعت الهوية الكردية واللغة الكردية لعقود. بدأ حزب العمال الكردستاني كفاحاً مسلحاً في 1984 أدّى إلى عشرات الآلاف من القتلى. جرت عملية سلام بين 2013 و2015 انهارت، وأُعلن عن مسار جديد لحلّ المسألة في 2025 تضمّن خطوات لحلّ التنظيم.",
+        "en": "The Turkish republic was founded on a single-nation principle, and Kurdish identity and language were suppressed for decades. The PKK began an armed campaign in 1984 that cost tens of thousands of lives. A peace process ran from 2013 to 2015 and collapsed; a new track toward resolving the question was announced in 2025 including steps toward the organisation's dissolution."
+      },
+      "politicalCauses": {
+        "ar": "حقوق لغوية وثقافية ولامركزية إدارية، شرعية التمثيل السياسي الكردي ومصير البلديات المعزولة، ووضع السجناء السياسيين. ويرتبط الملف الداخلي بتطوّرات الشمال السوري ارتباطاً مباشراً.",
+        "en": "Linguistic and cultural rights and administrative decentralisation, the legitimacy of Kurdish political representation and the fate of removed municipalities, and the status of political prisoners. The domestic file is directly linked to developments in northern Syria."
+      },
+      "territorialClaims": {
+        "ar": "لا مطالبة بتغيير حدود دولية في الطرح الحالي. الطرح يقوم على حكم ذاتي ديمقراطي داخل الدولة التركية. وتنفّذ تركيا عمليات عبر الحدود في شمال العراق وشمال سوريا.",
+        "en": "No claim to change international borders in the current platform, which rests on democratic autonomy within the Turkish state. Türkiye conducts cross-border operations in northern Iraq and northern Syria."
+      },
+      "strategicInterests": {
+        "ar": "مشاريع مياه جنوب شرق الأناضول وسدود دجلة والفرات، ممرات الطاقة من العراق وأذربيجان، والعمق الأمني على الحدود الجنوبية.",
+        "en": "The south-eastern Anatolia water projects and Tigris–Euphrates dams, energy corridors from Iraq and Azerbaijan, and security depth along the southern border."
+      },
+      "externalPowers": [
+        { "iso3": "USA", "role": { "ar": "حليف في الناتو، وعلاقته السابقة بقوات سوريا الديمقراطية كانت مصدر خلاف مزمن مع أنقرة", "en": "NATO ally whose former relationship with the Syrian Democratic Forces was a chronic source of friction with Ankara" }, "kind": "treaty" },
+        { "iso3": "SYR", "role": { "ar": "ساحة مباشرة للملف عبر الشمال الشرقي", "en": "A direct arena for the file through the north-east" }, "kind": "assessed" }
+      ],
+      "status": {
+        "ar": "مسار تفاوضي قائم مع استمرار عمليات عسكرية تركية عبر الحدود. المتغيّر الأهم في 2026 هو حلّ قوات سوريا الديمقراطية في أغسطس ودمج مؤسسات الشمال السوري الشرقي في الدولة السورية، ما غيّر معطيات الملف الإقليمي.",
+        "en": "A negotiating track is under way alongside continuing Turkish cross-border military operations. The most significant change in 2026 was the dissolution of the Syrian Democratic Forces in August and the integration of north-east Syria's institutions into the Syrian state, which altered the regional parameters of the file."
+      },
+      "statusAsOf": "2026-10-30",
+      "recent": [
+        { "date": "2026-01", "ar": "أصدر الرئيس السوري مرسوماً يعترف بالكرد جزءاً أصيلاً من سوريا ويعترف باللغة الكردية وعيد نوروز، بعد مواجهات حلب.", "en": "Syria's president issued a decree recognising Kurds as an integral part of Syria and recognising the Kurdish language and Nowruz, following the Aleppo clashes.", "source": "Syrian presidency" }
+      ],
+      "confidence": "partial",
+      "sourceRefs": ["icg", "mrg"]
+    },
+    {
+      "id": "gulf-security",
+      "name": { "ar": "أمن الخليج ومضيق هرمز", "en": "Gulf security and the Strait of Hormuz" },
+      "coords": [52.0, 26.5],
+      "countries": ["SAU", "ARE", "QAT", "KWT", "BHR", "OMN", "IRN"],
+      "severity": "high-tension",
+      "started": "1979",
+      "dimensions": ["economic", "political", "territorial"],
+      "dimensionNote": {
+        "ar": "ملف أمني واقتصادي بالدرجة الأولى: حماية صادرات الطاقة والبنية التحتية الحيوية وحرية الملاحة. يُقدَّم أحياناً كصراع سنّي شيعي، وهو تأطير يصطدم بالوقائع: قطر وعُمان تحافظان على علاقات عمل مع طهران، وباكستان السنّية توسّطت لصالح وقف النار.",
+        "en": "Primarily a security and economic file: protecting energy exports, critical infrastructure and freedom of navigation. It is sometimes framed as a Sunni–Shia struggle, a framing the facts resist: Qatar and Oman maintain working relations with Tehran, and Sunni Pakistan mediated in favour of the ceasefire."
+      },
+      "parties": {
+        "ar": ["دول مجلس التعاون الخليجي", "إيران", "الولايات المتحدة"],
+        "en": ["Gulf Cooperation Council states", "Iran", "United States"]
+      },
+      "ethnoReligious": {
+        "ar": "دول الخليج ذات أغلبية سنّية مع أقليات شيعية كبيرة في البحرين والمنطقة الشرقية السعودية والكويت، ونسب عالية من العمالة الوافدة تصل إلى أغلبية السكان في بعض الدول.",
+        "en": "Gulf states are Sunni-majority with substantial Shia minorities in Bahrain, Saudi Arabia's Eastern Province and Kuwait, and high proportions of expatriate labour reaching a majority of the population in some states."
+      },
+      "history": {
+        "ar": "أعادت الثورة الإيرانية 1979 تشكيل الأمن الإقليمي، وتلتها الحرب العراقية الإيرانية 1980–1988 وحرب تحرير الكويت 1991. شهد العقد الأخير هجمات على منشآت نفطية وناقلات، وأزمة حصار قطر 2017–2021، ثم تقارباً سعودياً إيرانياً بوساطة صينية في 2023.",
+        "en": "The 1979 Iranian revolution reshaped regional security, followed by the Iran–Iraq War of 1980–1988 and the 1991 liberation of Kuwait. The past decade saw attacks on oil facilities and tankers, the 2017–2021 blockade of Qatar, and then a Chinese-brokered Saudi–Iranian rapprochement in 2023."
+      },
+      "politicalCauses": {
+        "ar": "ميزان القوة الإقليمي، البرنامج النووي الإيراني، شبكات الوكلاء، وضمانات الحماية الأمريكية ومدى موثوقيتها. وتسعى دول الخليج إلى تنويع شراكاتها الأمنية والاقتصادية.",
+        "en": "The regional balance of power, Iran's nuclear programme, proxy networks, and the scope and reliability of American protection guarantees. Gulf states are seeking to diversify their security and economic partnerships."
+      },
+      "territorialClaims": {
+        "ar": "جزر طنب الكبرى وطنب الصغرى وأبو موسى متنازع عليها بين الإمارات وإيران وتسيطر عليها إيران منذ 1971. وهناك خلافات حدودية بحرية وحقول غاز مشتركة، أبرزها حقل الشمال/بارس الجنوبي بين قطر وإيران.",
+        "en": "Greater Tunb, Lesser Tunb and Abu Musa are disputed between the UAE and Iran and have been under Iranian control since 1971. Maritime boundary disagreements and shared gas fields exist, most notably the North Field/South Pars between Qatar and Iran."
+      },
+      "strategicInterests": {
+        "ar": "يمرّ عبر مضيق هرمز الجزء الأكبر من صادرات النفط المنقولة بحراً في العالم، إضافةً إلى معظم صادرات الغاز المسال القطرية. وتمثّل خطوط الأنابيب البديلة — شرق غرب السعودي إلى ينبُع، وخط حبشان الإماراتي إلى الفجيرة — تحوّطاً جزئياً فقط.",
+        "en": "The Strait of Hormuz carries the largest share of the world's seaborne oil exports plus most of Qatar's LNG. Alternative pipelines — Saudi Arabia's East–West line to Yanbu and the UAE's Habshan line to Fujairah — provide only partial hedging."
+      },
+      "externalPowers": [
+        { "iso3": "USA", "role": { "ar": "ضامن أمني رئيسي بقواعد في البحرين وقطر والكويت", "en": "Principal security guarantor with bases in Bahrain, Qatar and Kuwait" }, "kind": "treaty" },
+        { "iso3": "CHN", "role": { "ar": "أكبر مشترٍ للنفط الخليجي ووسيط التقارب السعودي الإيراني 2023", "en": "Largest buyer of Gulf oil and broker of the 2023 Saudi–Iranian rapprochement" }, "kind": "assessed" }
+      ],
+      "status": {
+        "ar": "أعلى حالة توتّر منذ 1991، نتيجة مباشرة لحرب إيران. مضيق هرمز خضع لإغلاق وتلغيم وحصار بحري متبادل خلال 2026، واستُهدفت منشآت طاقة وموانئ خليجية، ومنها هجوم بطائرة مسيّرة على مطار الكويت الدولي في 3 يونيو 2026. وتعرّض خطّ أنابيب سعودي رئيسي للتوقّف بفعل ضربات في سبتمبر 2026.",
+        "en": "The highest state of tension since 1991, a direct result of the Iran war. The Strait of Hormuz was subject to closure, mining and reciprocal naval blockade through 2026, and Gulf energy facilities and ports were targeted, including a drone attack on Kuwait International Airport on 3 June 2026. A major Saudi pipeline was shut down by strikes in September 2026."
+      },
+      "statusAsOf": "2026-10-30",
+      "recent": [
+        { "date": "2026-10-19", "ar": "استأنفت حركة الملاحة في هرمز بشكل جزئي ومتقطّع، وبقيت أقلّ بكثير من مستويات ما قبل الحرب.", "en": "Navigation through Hormuz resumed partially and intermittently, remaining far below pre-war levels.", "source": "Maritime trackers" },
+        { "date": "2026-09-11", "ar": "أوقفت ضربات خطّ أنابيب سعودياً رئيسياً بينما شدّد الحوثيون سيطرتهم على باب المندب.", "en": "Strikes shut down a major Saudi pipeline as the Houthis tightened their grip on Bab al-Mandab.", "source": "NBC News" }
+      ],
+      "confidence": "verified",
+      "sourceRefs": ["eia", "icg", "acled"]
+    }
+  ]
+}

@@ -1,0 +1,1057 @@
+{
+  "datasetId": "atlas-religion",
+  "coverageNote": {
+    "ar": "يغطّي هذا الملفّ مجموعة فرعية من الدول. غياب دولة يعني غياب تقدير موثّق في هذه النسخة لا غياب تعدّد ديني فيها. كل سجل يحمل سنة البيانات وجهة التقدير، ولم يُجرِ الأطلس أي استقراء أو تعديل على النسب.",
+    "en": "This file covers a subset of states. A country's absence means no documented estimate in this release, not an absence of religious plurality there. Every record carries the data year and estimating body, and the atlas has performed no interpolation or adjustment on the percentages."
+  },
+  "methodNote": {
+    "ar": "تُقاس النسب بطرق متباينة بين الدول: تعداد رسمي، أو مسح تمثيلي، أو تقدير إداري. بعض الدول لا تجمع هذه البيانات أصلاً. تقديرات الانقسام السني/الشيعي حسّاسة سياسياً ومتنازع عليها في عدّة دول، ولذلك تُسجَّل كمدى لا كرقم واحد حيث يلزم، ويحمل السجل علامة contested.",
+    "en": "Percentages are measured differently across states: official census, representative survey, or administrative estimate. Some states do not collect the data at all. Sunni/Shia split estimates are politically sensitive and contested in several countries, so they are recorded as a range rather than a single figure where appropriate, and the record carries a contested flag."
+  },
+  "traditions": [
+    {
+      "id": "sunni",
+      "ar": "الإسلام السنّي",
+      "en": "Sunni Islam",
+      "parent": "islam",
+      "color": "#2e8b74"
+    },
+    {
+      "id": "shia",
+      "ar": "الإسلام الشيعي",
+      "en": "Shia Islam",
+      "parent": "islam",
+      "color": "#7cc4ae"
+    },
+    {
+      "id": "islam_other",
+      "ar": "طوائف إسلامية أخرى",
+      "en": "Other Islamic traditions",
+      "parent": "islam",
+      "color": "#4ea58f"
+    },
+    {
+      "id": "catholic",
+      "ar": "المسيحية الكاثوليكية",
+      "en": "Catholic Christianity",
+      "parent": "christianity",
+      "color": "#5b7fc7"
+    },
+    {
+      "id": "orthodox",
+      "ar": "المسيحية الأرثوذكسية",
+      "en": "Orthodox Christianity",
+      "parent": "christianity",
+      "color": "#8aa8e0"
+    },
+    {
+      "id": "protestant",
+      "ar": "المسيحية البروتستانتية",
+      "en": "Protestant Christianity",
+      "parent": "christianity",
+      "color": "#3f5f9e"
+    },
+    {
+      "id": "christian_other",
+      "ar": "مسيحية أخرى",
+      "en": "Other Christianity",
+      "parent": "christianity",
+      "color": "#6b8fd4"
+    },
+    {
+      "id": "jewish",
+      "ar": "اليهودية",
+      "en": "Judaism",
+      "parent": null,
+      "color": "#c9a227"
+    },
+    {
+      "id": "hindu",
+      "ar": "الهندوسية",
+      "en": "Hinduism",
+      "parent": null,
+      "color": "#d4793a"
+    },
+    {
+      "id": "buddhist",
+      "ar": "البوذية",
+      "en": "Buddhism",
+      "parent": null,
+      "color": "#c99b3a"
+    },
+    {
+      "id": "sikh",
+      "ar": "السيخية",
+      "en": "Sikhism",
+      "parent": null,
+      "color": "#d9b44a"
+    },
+    {
+      "id": "druze",
+      "ar": "الدرزية",
+      "en": "Druze",
+      "parent": null,
+      "color": "#9b7fb5"
+    },
+    {
+      "id": "yazidi",
+      "ar": "اليزيدية",
+      "en": "Yazidism",
+      "parent": null,
+      "color": "#b58fa8"
+    },
+    {
+      "id": "traditional_african",
+      "ar": "الديانات الأفريقية التقليدية",
+      "en": "African traditional religions",
+      "parent": null,
+      "color": "#a3743f"
+    },
+    {
+      "id": "indigenous_other",
+      "ar": "ديانات أصلية أخرى",
+      "en": "Other indigenous religions",
+      "parent": null,
+      "color": "#8a6b45"
+    },
+    {
+      "id": "folk",
+      "ar": "الديانات الشعبية والتقاليد الصينية",
+      "en": "Folk religion and Chinese traditions",
+      "parent": null,
+      "color": "#b0893f"
+    },
+    {
+      "id": "nonreligious",
+      "ar": "غير المتديّنين",
+      "en": "Non-religious",
+      "parent": null,
+      "color": "#7d8894"
+    },
+    {
+      "id": "other",
+      "ar": "أخرى أو غير محدّد",
+      "en": "Other or unspecified",
+      "parent": null,
+      "color": "#5f6871"
+    }
+  ],
+  "countries": {
+    "SAU": {
+      "year": 2020,
+      "source": "ciawf",
+      "note": {
+        "ar": "لا تجمع المملكة بيانات انتماء ديني رسمية؛ التقديرات تخصّ المواطنين ولا تشمل العمالة الوافدة الكبيرة غير المسلمة.",
+        "en": "The kingdom does not collect official affiliation data; estimates concern citizens and exclude the large non-Muslim expatriate workforce."
+      },
+      "groups": {
+        "sunni": 88,
+        "shia": 11,
+        "other": 1
+      },
+      "contested": true
+    },
+    "IRN": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "shia": 90,
+        "sunni": 9,
+        "other": 1
+      },
+      "note": {
+        "ar": "الأقليات السنّية مركّزة بين البلوش والكرد والتركمان والعرب.",
+        "en": "Sunni minorities are concentrated among Baloch, Kurds, Turkmen and Arabs."
+      }
+    },
+    "IRQ": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "shia": 62,
+        "sunni": 34,
+        "christian_other": 1,
+        "yazidi": 1,
+        "other": 2
+      },
+      "contested": true,
+      "note": {
+        "ar": "لم يُجرَ تعداد ديني شامل منذ 1987، وتقديرات النسب محلّ خلاف سياسي حادّ.",
+        "en": "No comprehensive religious census since 1987, and the proportions are a matter of sharp political dispute."
+      }
+    },
+    "SYR": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "sunni": 74,
+        "islam_other": 13,
+        "christian_other": 10,
+        "druze": 3
+      },
+      "contested": true,
+      "note": {
+        "ar": "تشمل «طوائف إسلامية أخرى» العلويين والإسماعيليين. تغيّرت الأوزان السكانية بشدّة بفعل التهجير بعد 2011.",
+        "en": "Other Islamic traditions includes Alawites and Ismailis. Demographic weights have shifted sharply through displacement since 2011."
+      }
+    },
+    "LBN": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "sunni": 31,
+        "shia": 31,
+        "christian_other": 33,
+        "druze": 5
+      },
+      "contested": true,
+      "note": {
+        "ar": "لم يُجرِ لبنان تعداداً رسمياً منذ 1932 لأن نتائجه ستمسّ صيغة تقاسم السلطة الطائفية.",
+        "en": "Lebanon has held no official census since 1932 because the results would bear on the confessional power-sharing formula."
+      }
+    },
+    "JOR": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "sunni": 94,
+        "christian_other": 2,
+        "other": 4
+      }
+    },
+    "ISR": {
+      "year": 2022,
+      "source": "undata",
+      "groups": {
+        "jewish": 74,
+        "sunni": 18,
+        "christian_other": 2,
+        "druze": 2,
+        "other": 4
+      }
+    },
+    "PSE": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "sunni": 93,
+        "christian_other": 1,
+        "other": 6
+      }
+    },
+    "EGY": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "sunni": 90,
+        "orthodox": 9,
+        "other": 1
+      },
+      "contested": true,
+      "note": {
+        "ar": "تقديرات نسبة الأقباط محلّ خلاف بين المصادر الرسمية والكنسية.",
+        "en": "Estimates of the Coptic share are disputed between official and church sources."
+      }
+    },
+    "TUR": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "sunni": 78,
+        "islam_other": 17,
+        "other": 3,
+        "christian_other": 1,
+        "nonreligious": 1
+      },
+      "contested": true,
+      "note": {
+        "ar": "تشمل «طوائف إسلامية أخرى» العلويين (قزلباش) وتقديراتهم متباينة بشدّة بين المصادر.",
+        "en": "Other Islamic traditions includes Alevis, whose estimates vary widely between sources."
+      }
+    },
+    "YEM": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "sunni": 60,
+        "shia": 38,
+        "other": 2
+      },
+      "contested": true,
+      "note": {
+        "ar": "الشيعة هنا زيديون في معظمهم، وهو مذهب يختلف عقدياً عن الاثني عشرية.",
+        "en": "The Shia here are predominantly Zaydi, a school doctrinally distinct from Twelver Shiism."
+      }
+    },
+    "OMN": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "islam_other": 45,
+        "sunni": 45,
+        "shia": 5,
+        "other": 5
+      },
+      "contested": true,
+      "note": {
+        "ar": "الإباضية هي المذهب الرسمي وهي مدرسة مستقلّة عن السنّة والشيعة؛ تُسجَّل هنا ضمن «طوائف إسلامية أخرى».",
+        "en": "Ibadism is the official school and is independent of both Sunni and Shia Islam; it is recorded here under other Islamic traditions."
+      }
+    },
+    "BHR": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "shia": 55,
+        "sunni": 25,
+        "christian_other": 10,
+        "hindu": 7,
+        "other": 3
+      },
+      "contested": true
+    },
+    "KWT": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "sunni": 60,
+        "shia": 25,
+        "christian_other": 10,
+        "other": 5
+      },
+      "contested": true
+    },
+    "ARE": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "sunni": 60,
+        "shia": 16,
+        "christian_other": 13,
+        "hindu": 7,
+        "other": 4
+      },
+      "note": {
+        "ar": "أغلبية السكان من العمالة الوافدة، ولذلك يختلف تركيب السكان المقيمين اختلافاً كبيراً عن تركيب المواطنين.",
+        "en": "Expatriate workers form the majority of the population, so the resident composition differs greatly from that of citizens."
+      }
+    },
+    "QAT": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "sunni": 60,
+        "shia": 6,
+        "christian_other": 14,
+        "hindu": 14,
+        "buddhist": 3,
+        "other": 3
+      },
+      "note": {
+        "ar": "كما في الإمارات، أغلبية المقيمين من العمالة الوافدة.",
+        "en": "As in the UAE, the majority of residents are expatriate workers."
+      }
+    },
+    "AFG": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "sunni": 85,
+        "shia": 14,
+        "other": 1
+      },
+      "note": {
+        "ar": "الشيعة هنا في معظمهم من الهزارة، وقد تعرّضوا لهجمات متكرّرة من تنظيم الدولة.",
+        "en": "The Shia here are predominantly Hazara and have been repeatedly targeted by Islamic State attacks."
+      }
+    },
+    "PAK": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "sunni": 85,
+        "shia": 11,
+        "hindu": 2,
+        "christian_other": 2
+      },
+      "contested": true
+    },
+    "IND": {
+      "year": 2011,
+      "source": "undata",
+      "note": {
+        "ar": "من التعداد الوطني لعام 2011؛ لم يُنشر تعداد أحدث حتى تاريخ هذه النسخة.",
+        "en": "From the 2011 national census; no more recent census had been published as of this release."
+      },
+      "groups": {
+        "hindu": 79.8,
+        "sunni": 14.2,
+        "christian_other": 2.3,
+        "sikh": 1.7,
+        "buddhist": 0.7,
+        "other": 1.3
+      }
+    },
+    "BGD": {
+      "year": 2022,
+      "source": "undata",
+      "groups": {
+        "sunni": 91,
+        "hindu": 8,
+        "buddhist": 0.6,
+        "christian_other": 0.4
+      }
+    },
+    "IDN": {
+      "year": 2022,
+      "source": "undata",
+      "groups": {
+        "sunni": 87,
+        "protestant": 7,
+        "catholic": 3,
+        "hindu": 2,
+        "buddhist": 1
+      },
+      "note": {
+        "ar": "أكبر دولة مسلمة سكانياً في العالم، وبالي ذات أغلبية هندوسية.",
+        "en": "The world's most populous Muslim country; Bali is Hindu-majority."
+      }
+    },
+    "MYS": {
+      "year": 2020,
+      "source": "undata",
+      "groups": {
+        "sunni": 64,
+        "buddhist": 19,
+        "christian_other": 9,
+        "hindu": 6,
+        "other": 2
+      }
+    },
+    "LKA": {
+      "year": 2012,
+      "source": "undata",
+      "groups": {
+        "buddhist": 70,
+        "hindu": 13,
+        "sunni": 10,
+        "christian_other": 7
+      }
+    },
+    "MMR": {
+      "year": 2014,
+      "source": "undata",
+      "groups": {
+        "buddhist": 88,
+        "christian_other": 6,
+        "sunni": 4,
+        "other": 2
+      },
+      "note": {
+        "ar": "لم يُحتسب نحو مليون روهينغي في تعداد 2014 لأنهم لم يُسمح لهم بتسجيل هويتهم.",
+        "en": "Around one million Rohingya were not counted in the 2014 census because they were not permitted to register their identity."
+      }
+    },
+    "CHN": {
+      "year": 2020,
+      "source": "pew",
+      "groups": {
+        "nonreligious": 52,
+        "folk": 22,
+        "buddhist": 18,
+        "christian_other": 5,
+        "sunni": 2,
+        "other": 1
+      },
+      "contested": true,
+      "note": {
+        "ar": "تقدير الانتماء الديني في الصين صعب منهجياً: كثير من الممارسات الشعبية والبوذية والطاوية متراكبة ولا تُعدّ انتماءً حصرياً.",
+        "en": "Estimating religious affiliation in China is methodologically difficult: many folk, Buddhist and Taoist practices overlap and are not treated as exclusive affiliation."
+      }
+    },
+    "JPN": {
+      "year": 2020,
+      "source": "pew",
+      "groups": {
+        "nonreligious": 57,
+        "buddhist": 36,
+        "folk": 4,
+        "christian_other": 2,
+        "other": 1
+      },
+      "note": {
+        "ar": "الممارسة الشنتوية والبوذية متوازية في اليابان، فكثير من اليابانيين يشاركون في طقوس الاثنين دون اعتبار ذلك انتماءً.",
+        "en": "Shinto and Buddhist practice run in parallel in Japan; many Japanese take part in both sets of rites without regarding it as affiliation."
+      }
+    },
+    "KOR": {
+      "year": 2021,
+      "source": "undata",
+      "groups": {
+        "nonreligious": 56,
+        "protestant": 20,
+        "buddhist": 15,
+        "catholic": 8,
+        "other": 1
+      }
+    },
+    "THA": {
+      "year": 2020,
+      "source": "undata",
+      "groups": {
+        "buddhist": 93,
+        "sunni": 5,
+        "christian_other": 1,
+        "other": 1
+      },
+      "note": {
+        "ar": "الأقلية المسلمة مركّزة في المحافظات الجنوبية حيث يوجد تمرّد انفصالي منخفض الحدّة.",
+        "en": "The Muslim minority is concentrated in the southern provinces, where a low-intensity separatist insurgency exists."
+      }
+    },
+    "VNM": {
+      "year": 2020,
+      "source": "pew",
+      "groups": {
+        "nonreligious": 30,
+        "folk": 45,
+        "buddhist": 16,
+        "catholic": 7,
+        "other": 2
+      }
+    },
+    "PHL": {
+      "year": 2020,
+      "source": "undata",
+      "groups": {
+        "catholic": 79,
+        "sunni": 6,
+        "protestant": 9,
+        "christian_other": 5,
+        "other": 1
+      },
+      "note": {
+        "ar": "الأقلية المسلمة مركّزة في مينداناو حيث أُنشئت منطقة بانغسامورو ذات الحكم الذاتي.",
+        "en": "The Muslim minority is concentrated in Mindanao, where the autonomous Bangsamoro region was established."
+      }
+    },
+    "RUS": {
+      "year": 2020,
+      "source": "pew",
+      "groups": {
+        "orthodox": 71,
+        "nonreligious": 15,
+        "sunni": 10,
+        "other": 4
+      },
+      "note": {
+        "ar": "المسلمون مركّزون في شمال القوقاز وتتارستان وباشكورتوستان.",
+        "en": "Muslims are concentrated in the North Caucasus, Tatarstan and Bashkortostan."
+      }
+    },
+    "UKR": {
+      "year": 2020,
+      "source": "pew",
+      "groups": {
+        "orthodox": 78,
+        "catholic": 10,
+        "nonreligious": 8,
+        "other": 4
+      },
+      "note": {
+        "ar": "الكاثوليك هنا في معظمهم كاثوليك روم أوكرانيون في الغرب. انفصلت كنيسة أوكرانيا الأرثوذكسية عن بطريركية موسكو في 2019.",
+        "en": "The Catholics here are mostly Ukrainian Greek Catholics in the west. The Orthodox Church of Ukraine separated from the Moscow Patriarchate in 2019."
+      }
+    },
+    "SRB": {
+      "year": 2022,
+      "source": "undata",
+      "groups": {
+        "orthodox": 81,
+        "catholic": 4,
+        "sunni": 4,
+        "nonreligious": 6,
+        "other": 5
+      }
+    },
+    "BIH": {
+      "year": 2013,
+      "source": "undata",
+      "groups": {
+        "sunni": 51,
+        "orthodox": 31,
+        "catholic": 15,
+        "other": 3
+      },
+      "note": {
+        "ar": "من تعداد 2013، وهو أول تعداد بعد الحرب وكانت نتائجه محلّ خلاف سياسي.",
+        "en": "From the 2013 census, the first post-war count, whose results were politically contested."
+      }
+    },
+    "ALB": {
+      "year": 2023,
+      "source": "undata",
+      "groups": {
+        "sunni": 45,
+        "islam_other": 5,
+        "catholic": 8,
+        "orthodox": 7,
+        "nonreligious": 15,
+        "other": 20
+      },
+      "contested": true,
+      "note": {
+        "ar": "تشمل «طوائف إسلامية أخرى» البكتاشية. نسبة غير المعلنين مرتفعة في التعدادات الألبانية.",
+        "en": "Other Islamic traditions includes Bektashism. The share of non-declarants is high in Albanian censuses."
+      }
+    },
+    "XKX": {
+      "year": 2011,
+      "source": "undata",
+      "groups": {
+        "sunni": 95,
+        "catholic": 2,
+        "orthodox": 1,
+        "other": 2
+      }
+    },
+    "POL": {
+      "year": 2021,
+      "source": "undata",
+      "groups": {
+        "catholic": 71,
+        "nonreligious": 7,
+        "orthodox": 1,
+        "other": 21
+      }
+    },
+    "DEU": {
+      "year": 2022,
+      "source": "undata",
+      "groups": {
+        "nonreligious": 44,
+        "catholic": 25,
+        "protestant": 23,
+        "sunni": 5,
+        "orthodox": 2,
+        "other": 1
+      }
+    },
+    "FRA": {
+      "year": 2020,
+      "source": "pew",
+      "groups": {
+        "nonreligious": 40,
+        "catholic": 47,
+        "sunni": 8,
+        "protestant": 2,
+        "jewish": 1,
+        "other": 2
+      },
+      "contested": true,
+      "note": {
+        "ar": "لا تجمع فرنسا بيانات دينية في إحصاءاتها الرسمية بموجب مبدأ العلمانية، فالتقديرات مسحية.",
+        "en": "France does not collect religious data in official statistics under the principle of laïcité, so estimates are survey-based."
+      }
+    },
+    "GBR": {
+      "year": 2021,
+      "source": "undata",
+      "groups": {
+        "christian_other": 46,
+        "nonreligious": 37,
+        "sunni": 6,
+        "hindu": 2,
+        "sikh": 1,
+        "other": 8
+      },
+      "note": {
+        "ar": "من تعداد إنجلترا وويلز 2021، وهو أول تعداد تقلّ فيه نسبة المسيحيين عن النصف.",
+        "en": "From the 2021 England and Wales census, the first in which Christians fell below half."
+      }
+    },
+    "ESP": {
+      "year": 2022,
+      "source": "undata",
+      "groups": {
+        "catholic": 56,
+        "nonreligious": 38,
+        "sunni": 4,
+        "other": 2
+      }
+    },
+    "ITA": {
+      "year": 2020,
+      "source": "pew",
+      "groups": {
+        "catholic": 78,
+        "nonreligious": 14,
+        "sunni": 4,
+        "orthodox": 3,
+        "other": 1
+      }
+    },
+    "GRC": {
+      "year": 2020,
+      "source": "pew",
+      "groups": {
+        "orthodox": 90,
+        "sunni": 2,
+        "nonreligious": 6,
+        "other": 2
+      }
+    },
+    "ARM": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "orthodox": 93,
+        "other": 7
+      },
+      "note": {
+        "ar": "الكنيسة الأرمنية الرسولية كنيسة أرثوذكسية شرقية مستقلّة عن الأرثوذكسية الخلقيدونية.",
+        "en": "The Armenian Apostolic Church is an Oriental Orthodox church independent of Chalcedonian Orthodoxy."
+      }
+    },
+    "AZE": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "shia": 65,
+        "sunni": 30,
+        "other": 5
+      },
+      "contested": true,
+      "note": {
+        "ar": "أذربيجان دولة علمانية بأغلبية شيعية، وتحافظ في الوقت ذاته على علاقات وثيقة مع إسرائيل وتركيا.",
+        "en": "Azerbaijan is a secular, Shia-majority state that simultaneously maintains close relations with Israel and Türkiye."
+      }
+    },
+    "GEO": {
+      "year": 2014,
+      "source": "undata",
+      "groups": {
+        "orthodox": 83,
+        "sunni": 11,
+        "other": 6
+      }
+    },
+    "NGA": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "sunni": 51,
+        "christian_other": 47,
+        "traditional_african": 2
+      },
+      "contested": true,
+      "note": {
+        "ar": "التوازن بين المسلمين والمسيحيين في نيجيريا متقارب ومتنازع عليه سياسياً، ولا يُجمع في التعداد الرسمي منعاً للاحتكاك.",
+        "en": "The Muslim–Christian balance in Nigeria is close and politically contested, and is not collected in the official census to avoid friction."
+      }
+    },
+    "ETH": {
+      "year": 2016,
+      "source": "undata",
+      "groups": {
+        "orthodox": 43,
+        "sunni": 31,
+        "protestant": 23,
+        "traditional_african": 2,
+        "catholic": 1
+      },
+      "note": {
+        "ar": "الأرثوذكسية التوحيدية الإثيوبية كنيسة شرقية مستقلّة. التوزيع الديني يتقاطع عبر الخطوط العرقية ولا يتوازى معها.",
+        "en": "Ethiopian Orthodox Tewahedo is an independent Oriental church. The religious distribution cuts across rather than parallels ethnic lines."
+      }
+    },
+    "SDN": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "sunni": 91,
+        "christian_other": 5,
+        "traditional_african": 4
+      },
+      "note": {
+        "ar": "تغيّر التركيب جوهرياً بعد انفصال جنوب السودان في 2011 الذي أخذ معه معظم السكان المسيحيين.",
+        "en": "The composition changed fundamentally after South Sudan's 2011 secession, which took most of the Christian population with it."
+      }
+    },
+    "SSD": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "christian_other": 60,
+        "traditional_african": 33,
+        "sunni": 6,
+        "other": 1
+      }
+    },
+    "SOM": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "sunni": 99,
+        "other": 1
+      },
+      "note": {
+        "ar": "من أكثر دول العالم تماثلاً دينياً، وهو ما يبيّن أن نزاعها ليس دينياً.",
+        "en": "Among the world's most religiously homogeneous states, which shows its conflict is not religious."
+      }
+    },
+    "COD": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "catholic": 29,
+        "protestant": 27,
+        "christian_other": 36,
+        "sunni": 2,
+        "traditional_african": 6
+      }
+    },
+    "RWA": {
+      "year": 2022,
+      "source": "undata",
+      "groups": {
+        "catholic": 40,
+        "protestant": 49,
+        "sunni": 2,
+        "other": 9
+      },
+      "note": {
+        "ar": "الهوتو والتوتسي يتشاركان الديانة المسيحية نفسها، وهو ما ينفي البعد الديني عن إبادة 1994.",
+        "en": "Hutu and Tutsi share the same Christian religion, which rules out a religious dimension in the 1994 genocide."
+      }
+    },
+    "MLI": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "sunni": 94,
+        "christian_other": 2,
+        "traditional_african": 2,
+        "other": 2
+      },
+      "note": {
+        "ar": "السكان والجماعات الجهادية مسلمون سنّة مالكيون، وهو ما ينفي قراءة نزاع الساحل كنزاع بين أديان.",
+        "en": "Populations and jihadist groups alike are Maliki Sunni Muslims, which rules out reading the Sahel conflict as one between religions."
+      }
+    },
+    "BFA": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "sunni": 61,
+        "catholic": 23,
+        "protestant": 7,
+        "traditional_african": 8,
+        "other": 1
+      }
+    },
+    "NER": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "sunni": 99,
+        "christian_other": 1
+      }
+    },
+    "MAR": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "sunni": 99,
+        "other": 1
+      }
+    },
+    "DZA": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "sunni": 99,
+        "other": 1
+      }
+    },
+    "TUN": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "sunni": 99,
+        "other": 1
+      }
+    },
+    "LBY": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "sunni": 97,
+        "other": 3
+      }
+    },
+    "ZAF": {
+      "year": 2016,
+      "source": "undata",
+      "groups": {
+        "christian_other": 78,
+        "nonreligious": 11,
+        "traditional_african": 5,
+        "sunni": 2,
+        "hindu": 1,
+        "other": 3
+      }
+    },
+    "USA": {
+      "year": 2023,
+      "source": "pew",
+      "groups": {
+        "protestant": 40,
+        "catholic": 20,
+        "nonreligious": 28,
+        "jewish": 2,
+        "sunni": 1,
+        "other": 9
+      }
+    },
+    "BRA": {
+      "year": 2022,
+      "source": "undata",
+      "groups": {
+        "catholic": 57,
+        "protestant": 27,
+        "nonreligious": 10,
+        "other": 6
+      }
+    },
+    "MEX": {
+      "year": 2020,
+      "source": "undata",
+      "groups": {
+        "catholic": 78,
+        "protestant": 11,
+        "nonreligious": 8,
+        "other": 3
+      }
+    },
+    "VEN": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "catholic": 74,
+        "protestant": 17,
+        "nonreligious": 7,
+        "other": 2
+      }
+    },
+    "HTI": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "catholic": 55,
+        "protestant": 29,
+        "nonreligious": 10,
+        "indigenous_other": 2,
+        "other": 4
+      },
+      "note": {
+        "ar": "ممارسة الفودو متراكبة مع الانتماء المسيحي عند كثير من الهايتيين، فلا تُقاس كانتماء حصري.",
+        "en": "Vodou practice overlaps with Christian affiliation for many Haitians and is not measured as exclusive affiliation."
+      }
+    },
+    "COL": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "catholic": 73,
+        "protestant": 14,
+        "nonreligious": 11,
+        "other": 2
+      }
+    },
+    "GUY": {
+      "year": 2012,
+      "source": "undata",
+      "groups": {
+        "protestant": 34,
+        "hindu": 25,
+        "catholic": 7,
+        "sunni": 7,
+        "christian_other": 20,
+        "other": 7
+      }
+    },
+    "TWN": {
+      "year": 2020,
+      "source": "pew",
+      "groups": {
+        "folk": 44,
+        "buddhist": 21,
+        "nonreligious": 24,
+        "christian_other": 6,
+        "other": 5
+      }
+    },
+    "PRK": {
+      "year": 2020,
+      "source": "pew",
+      "groups": {
+        "nonreligious": 71,
+        "folk": 13,
+        "buddhist": 2,
+        "christian_other": 2,
+        "other": 12
+      },
+      "contested": true,
+      "note": {
+        "ar": "لا توجد ممارسة دينية مستقلّة قابلة للقياس، وأي تقدير لكوريا الشمالية غير قابل للتحقّق المستقلّ.",
+        "en": "No measurable independent religious practice exists, and any estimate for North Korea cannot be independently verified."
+      }
+    },
+    "NPL": {
+      "year": 2021,
+      "source": "undata",
+      "groups": {
+        "hindu": 81,
+        "buddhist": 9,
+        "sunni": 5,
+        "other": 5
+      }
+    },
+    "BTN": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "buddhist": 75,
+        "hindu": 22,
+        "other": 3
+      }
+    },
+    "MDV": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "sunni": 98,
+        "other": 2
+      }
+    },
+    "MRT": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "sunni": 100
+      }
+    },
+    "TCD": {
+      "year": 2020,
+      "source": "ciawf",
+      "groups": {
+        "sunni": 52,
+        "protestant": 24,
+        "catholic": 20,
+        "traditional_african": 2,
+        "other": 2
+      }
+    }
+  }
+}

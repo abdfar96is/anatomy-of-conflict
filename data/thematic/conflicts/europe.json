@@ -1,0 +1,792 @@
+{
+  "region": "europe",
+  "regionName": {
+    "ar": "أوروبا وأوراسيا",
+    "en": "Europe and Eurasia"
+  },
+  "statusAsOf": "2026-10-30",
+  "conflicts": [
+    {
+      "id": "russia-ukraine",
+      "name": {
+        "ar": "روسيا وأوكرانيا",
+        "en": "Russia and Ukraine"
+      },
+      "coords": [
+        37.0,
+        48.3
+      ],
+      "countries": [
+        "RUS",
+        "UKR"
+      ],
+      "severity": "war",
+      "started": "2014-02",
+      "currentPhaseStarted": "2022-02-24",
+      "dimensions": [
+        "territorial",
+        "political",
+        "ideological",
+        "economic"
+      ],
+      "dimensionNote": {
+        "ar": "حرب بين دولتين على الأرض والسيادة وتوجّه أوكرانيا الاستراتيجي. البعد اللغوي والهوياتي استُخدم مبرّراً سياسياً، لكنه ليس المحرّك: مدن ذات أغلبية ناطقة بالروسية مثل خاركيف وماريوبول قاومت الاحتلال، وهو ما يقوّض تفسير الحرب كنزاع إثني.",
+        "en": "An interstate war over land, sovereignty and Ukraine's strategic orientation. The linguistic and identity dimension was used as political justification but is not the driver: Russian-speaking-majority cities such as Kharkiv and Mariupol resisted occupation, which undercuts reading the war as an ethnic conflict."
+      },
+      "parties": {
+        "ar": [
+          "روسيا",
+          "أوكرانيا"
+        ],
+        "en": [
+          "Russia",
+          "Ukraine"
+        ]
+      },
+      "ethnoReligious": {
+        "ar": "الأوكرانيون والروس شعبان سلافيان شرقيان يغلب عليهما المسيحية الأرثوذكسية. انفصلت كنيسة أوكرانيا الأرثوذكسية عن بطريركية موسكو في 2019، وهو انفصال مؤسسي ذو دلالة سياسية. وتوجد أقليات تتارية في القرم وهنغارية ورومانية في الغرب.",
+        "en": "Ukrainians and Russians are East Slavic peoples predominantly Orthodox Christian. The Orthodox Church of Ukraine separated from the Moscow Patriarchate in 2019, an institutional split with political significance. Crimean Tatar, Hungarian and Romanian minorities are also present."
+      },
+      "history": {
+        "ar": "استقلّت أوكرانيا عن الاتحاد السوفييتي في 1991 وتخلّت عن ترسانتها النووية بموجب مذكّرة بودابست 1994 مقابل ضمانات لسلامة أراضيها. أدّت احتجاجات الميدان 2013–2014 إلى سقوط الرئيس يانوكوفيتش، فضمّت روسيا القرم في مارس 2014 وأشعلت حرباً في الدونباس. غزت روسيا أوكرانيا على نطاق كامل في 24 فبراير 2022.",
+        "en": "Ukraine became independent from the Soviet Union in 1991 and gave up its nuclear arsenal under the 1994 Budapest Memorandum in exchange for assurances of territorial integrity. The Maidan protests of 2013–2014 brought down President Yanukovych; Russia annexed Crimea in March 2014 and ignited a war in the Donbas. Russia launched a full-scale invasion on 24 February 2022."
+      },
+      "politicalCauses": {
+        "ar": "رفض روسي لتوسّع الناتو وللتوجّه الأوروبي الأوكراني، ونزع روسي لشرعية الدولة الأوكرانية المستقلة، ومسألة ضمانات الأمن لأوكرانيا بعد أي وقف نار.",
+        "en": "Russian rejection of NATO expansion and of Ukraine's European orientation, Russian denial of the legitimacy of an independent Ukrainian state, and the question of security guarantees for Ukraine after any ceasefire."
+      },
+      "territorialClaims": {
+        "ar": "تطالب روسيا بالقرم وبمقاطعات دونيتسك ولوهانسك وزاپوريجيا وخيرسون التي أعلنت ضمّها في 2022 دون سيطرة كاملة عليها. تطالب أوكرانيا بحدود 1991. وبحلول أكتوبر 2025 كانت روسيا تسيطر على نحو 90٪ من الدونباس، بما يشمل نحو 99٪ من لوهانسك و80٪ من دونيتسك.",
+        "en": "Russia claims Crimea and the Donetsk, Luhansk, Zaporizhzhia and Kherson oblasts, whose annexation it declared in 2022 without full control of them. Ukraine claims its 1991 borders. By October 2025 Russia controlled around 90% of the Donbas, including some 99% of Luhansk and 80% of Donetsk."
+      },
+      "strategicInterests": {
+        "ar": "موانئ البحر الأسود وممرّ تصدير الحبوب، مناجم الفحم والليثيوم في الشرق، الأراضي الزراعية التي تجعل أوكرانيا مورّداً عالمياً للحبوب، وممرّ بري يصل روسيا بالقرم. وللبنية التحتية للطاقة أهمية حاسمة لأنها الهدف الأكثر تكراراً في حملات القصف.",
+        "en": "Black Sea ports and the grain export corridor, coal and lithium deposits in the east, farmland that makes Ukraine a global grain supplier, and a land corridor linking Russia to Crimea. Energy infrastructure is critically important as the most frequently targeted asset in bombing campaigns."
+      },
+      "externalPowers": [
+        {
+          "iso3": "USA",
+          "role": {
+            "ar": "أكبر مورّد عسكري لأوكرانيا، ودوره تفاوضي متصاعد في 2026 مع إعلان وقف نار للطاقة والسعي إلى قمة ثلاثية",
+            "en": "Ukraine's largest military supplier, with an increasingly central negotiating role in 2026 including declaring an energy ceasefire and pursuing a trilateral summit"
+          },
+          "kind": "treaty"
+        },
+        {
+          "iso3": "DEU",
+          "role": {
+            "ar": "أكبر داعم أوروبي مالياً وعسكرياً",
+            "en": "Largest European financial and military backer"
+          },
+          "kind": "treaty"
+        },
+        {
+          "iso3": "PRK",
+          "role": {
+            "ar": "أُفيد بتقديم ذخائر وقوات لروسيا",
+            "en": "Reported to have supplied munitions and troops to Russia"
+          },
+          "kind": "assessed"
+        },
+        {
+          "iso3": "IRN",
+          "role": {
+            "ar": "أُفيد بتوريد طائرات مسيّرة لروسيا",
+            "en": "Reported to have supplied drones to Russia"
+          },
+          "kind": "assessed"
+        },
+        {
+          "iso3": "CHN",
+          "role": {
+            "ar": "شريك اقتصادي لروسيا يخفّف أثر العقوبات",
+            "en": "Economic partner to Russia, softening the impact of sanctions"
+          },
+          "kind": "assessed"
+        }
+      ],
+      "status": {
+        "ar": "حرب مستمرة بجبهة شبه ثابتة ومعارك استنزاف. أعلنت أوكرانيا في أكتوبر 2026 أنها استعادت من الأرض أكثر مما استولت عليه روسيا خلال العام، وبقيت مكاسب روسيا الإقليمية لعام 2026 قريبة من الصفر. سقطت بوكروفسك في أواخر يناير 2026، ومعركة كوستيانتينيفكا مستمرة منذ أكتوبر 2025. الحملة الروسية تركّز على البنية التحتية للطاقة والجسور، والحملة الأوكرانية على المصافي ومراكز البيانات واللوجستيات في العمق الروسي. أعلن الرئيس الأمريكي وقف نار للطاقة في 11 أكتوبر 2026 لم يُحترم. وأكّد الرئيس الأوكراني في 21 أكتوبر انفتاحه على تجميد خطّ الجبهة الحالي مقابل ضمانات أمنية.",
+        "en": "An ongoing war with a near-static front and attritional battles. Ukraine stated in October 2026 that it had recovered more territory than Russia had seized over the year, and Russia's 2026 territorial gains have been close to nil. Pokrovsk fell in late January 2026, and the battle for Kostiantynivka has continued since October 2025. The Russian campaign focuses on energy infrastructure and bridges; the Ukrainian campaign on refineries, data centres and logistics deep inside Russia. The US president declared an energy ceasefire on 11 October 2026 which was not observed. Ukraine's president reaffirmed on 21 October that he is open to freezing the current front line in exchange for security guarantees."
+      },
+      "statusAsOf": "2026-10-30",
+      "recent": [
+        {
+          "date": "2026-10-29",
+          "ar": "سُجّل 211 اشتباكاً على خطّ الجبهة، وأعنف القتال في محاور كوستيانتينيفكا وبوكروفسك وهولياي پولي.",
+          "en": "211 combat engagements were recorded along the front line, with the heaviest fighting in the Kostiantynivka, Pokrovsk and Huliaipole sectors.",
+          "source": "Ukrainian General Staff via Ukrinform"
+        },
+        {
+          "date": "2026-10-23",
+          "ar": "استخدمت روسيا قنابل عنقودية وضربت عشرات من منشآت الطاقة الأوكرانية رغم إعلان وقف نار للطاقة.",
+          "en": "Russia used cluster munitions and struck dozens of Ukrainian energy facilities despite the declared energy ceasefire.",
+          "source": "Reuters / Al Jazeera"
+        },
+        {
+          "date": "2026-10-21",
+          "ar": "أعاد الرئيس الأوكراني تأكيد انفتاحه على تجميد الجبهة الحالية للوصول إلى وقف نار فوري مع طلب ضمانات أمنية من الولايات المتحدة وأوروبا.",
+          "en": "Ukraine's president reiterated openness to freezing the current front line for an immediate ceasefire, while seeking security guarantees from the United States and Europe.",
+          "source": "ISW"
+        }
+      ],
+      "confidence": "verified",
+      "sourceRefs": [
+        "acled",
+        "ucdp",
+        "unhcr"
+      ]
+    },
+    {
+      "id": "armenia-azerbaijan",
+      "name": {
+        "ar": "أرمينيا وأذربيجان",
+        "en": "Armenia and Azerbaijan"
+      },
+      "coords": [
+        46.3,
+        39.9
+      ],
+      "countries": [
+        "ARM",
+        "AZE"
+      ],
+      "severity": "frozen",
+      "started": "1988",
+      "dimensions": [
+        "territorial",
+        "identity",
+        "political",
+        "economic"
+      ],
+      "dimensionNote": {
+        "ar": "نزاع إقليمي وهوياتي بامتياز حول السيادة على ناغورنو قره باغ، تضاعف بثقل الذاكرة التاريخية. الخلاف الحالي تحوّل إلى خلاف قانوني ودستوري ولوجستي حول نصّ المعاهدة وممرّ المرور، وهو تحوّل نوعي عن مرحلة القتال.",
+        "en": "Pre-eminently a territorial and identity conflict over sovereignty in Nagorno-Karabakh, compounded by the weight of historical memory. The current disagreement has shifted to legal, constitutional and logistical questions about the treaty text and the transit corridor — a qualitative change from the fighting phase."
+      },
+      "parties": {
+        "ar": [
+          "أرمينيا",
+          "أذربيجان"
+        ],
+        "en": [
+          "Armenia",
+          "Azerbaijan"
+        ]
+      },
+      "ethnoReligious": {
+        "ar": "الأرمن شعب مسيحي أرثوذكسي شرقي (الكنيسة الأرمنية الرسولية)، والأذريون شعب تركي مسلم بأغلبية شيعية. وجود مذهب شيعي في أذربيجان وعلاقتها الوثيقة بإسرائيل وتركيا في الوقت نفسه يوضّح أن المذهب لا يحدّد التحالفات هنا.",
+        "en": "Armenians are Oriental Orthodox Christians (Armenian Apostolic Church); Azerbaijanis are a Turkic, Shia-majority Muslim people. Azerbaijan's Shia majority alongside its close relations with both Israel and Türkiye illustrates that sect does not determine alignments here."
+      },
+      "history": {
+        "ar": "بدأ النزاع المعاصر في 1988 بمطالبة إقليم ناغورنو قره باغ ذي الأغلبية الأرمنية بالانضمام إلى أرمينيا، وتحوّل إلى حرب 1992–1994 انتهت بسيطرة أرمنية على الإقليم وأراضٍ محيطة وتهجير مئات الآلاف من الأذريين. استعادت أذربيجان معظم تلك الأراضي في حرب 2020، ثم سيطرت على كامل الإقليم في سبتمبر 2023 فنزح نحو مئة ألف من أرمن قره باغ. ويعود الخلاف التاريخي الأعمق إلى الإبادة الأرمنية في الدولة العثمانية 1915–1917.",
+        "en": "The modern conflict began in 1988 when the Armenian-majority Nagorno-Karabakh region sought union with Armenia, becoming the 1992–1994 war that ended with Armenian control of the region and surrounding districts and the displacement of hundreds of thousands of Azerbaijanis. Azerbaijan recovered most of that territory in the 2020 war and took the entire region in September 2023, displacing around 100,000 Karabakh Armenians. The deeper historical dispute reaches back to the Armenian genocide in the Ottoman Empire, 1915–1917."
+      },
+      "politicalCauses": {
+        "ar": "الشرط الأذربيجاني بتعديل الدستور الأرمني قبل التوقيع بحجّة أنه يحتوي مطالبات إقليمية، وهو ما تنفيه يريفان. ويعقّد الأمر الجدول الانتخابي الأرمني وضعف الحاضنة السياسية الداخلية لأي تنازل.",
+        "en": "Azerbaijan's condition that Armenia amend its constitution before signing, on the grounds that it contains territorial claims — which Yerevan denies. Armenia's electoral calendar and the weak domestic constituency for any concession complicate matters further."
+      },
+      "territorialClaims": {
+        "ar": "استعادت أذربيجان كامل ناغورنو قره باغ. وتبقى مسألة ترسيم وتخطيط الحدود بين الدولتين قائمة، إضافةً إلى احتلال أذربيجان لمقاطع من أراضٍ أرمينية معترف بها دولياً في سيونيك منذ 2021، وإلى وضع ممرّ المرور إلى ناختشيفان.",
+        "en": "Azerbaijan has recovered all of Nagorno-Karabakh. Delimitation and demarcation of the interstate border remain outstanding, alongside Azerbaijan's occupation since 2021 of sections of internationally recognised Armenian territory in Syunik, and the status of the transit corridor to Nakhchivan."
+      },
+      "strategicInterests": {
+        "ar": "ممرّ المرور عبر سيونيك — المعروف بممرّ زنغزور وفي الصيغة الجديدة بطريق ترامب للسلام والازدهار الدولي — يربط أذربيجان بناختشيفان ومنها بتركيا، ويفتح طريق عبور بين آسيا وأوروبا يتجاوز روسيا وإيران. نصّ الإطار على أن المسار يبقى أرضاً أرمينية ذات سيادة.",
+        "en": "The transit route through Syunik — known as the Zangezur corridor and in the new formulation as the Trump Route for International Peace and Prosperity — links Azerbaijan to Nakhchivan and thence Türkiye, opening an Asia–Europe transit route bypassing Russia and Iran. The framework stipulates that the route remains sovereign Armenian territory."
+      },
+      "externalPowers": [
+        {
+          "iso3": "USA",
+          "role": {
+            "ar": "وسيط اتفاق أغسطس 2025 وشريك في ترتيبات الممرّ",
+            "en": "Mediator of the August 2025 agreement and partner in the corridor arrangements"
+          },
+          "kind": "treaty"
+        },
+        {
+          "iso3": "TUR",
+          "role": {
+            "ar": "حليف وثيق لأذربيجان، وتطبيعها مع أرمينيا مرتبط صراحةً بنتيجة المعاهدة",
+            "en": "Close ally of Azerbaijan, with its own normalisation with Armenia explicitly tied to the treaty outcome"
+          },
+          "kind": "treaty"
+        },
+        {
+          "iso3": "RUS",
+          "role": {
+            "ar": "الوسيط التاريخي الذي تراجع دوره، ولديه دافع لإعاقة مسار يقصيه",
+            "en": "The historic broker whose role has receded and which has an incentive to obstruct a process that excludes it"
+          },
+          "kind": "assessed"
+        },
+        {
+          "iso3": "IRN",
+          "role": {
+            "ar": "تعارض أي ترتيب يقطع حدودها البرية مع أرمينيا",
+            "en": "Opposes any arrangement that severs its land border with Armenia"
+          },
+          "kind": "assessed"
+        }
+      ],
+      "status": {
+        "ar": "سلام فعلي دون معاهدة موقّعة. جرى التوقيع بالأحرف الأولى على نصّ «اتفاق السلام وإقامة العلاقات بين الدولتين» بوساطة أمريكية في أغسطس 2025، ونشرت أرمينيا النصّ الكامل بالاتفاق المتبادل في 11 أغسطس. التجارة ونقل البضائع بين البلدين قائمة. تصرّ باكو على تعديل الدستور الأرمني قبل التوقيع النهائي، وتعلن يريفان جهوزيتها للتوقيع. التقديرات المعلنة لموعد التوقيع تتباين: وزير الخارجية الأرمني تحدّث في 28 أكتوبر 2026 عن نهاية 2026 أو 2027، ورئيس الوزراء تحدّث في 22 أكتوبر عن 2027–2028.",
+        "en": "De facto peace without a signed treaty. The text of the 'Agreement on Peace and the Establishment of Interstate Relations' was initialled under US mediation in August 2025, and Armenia published the full text by mutual agreement on 11 August. Trade and cargo transport between the two states are operating. Baku insists on amending Armenia's constitution before final signature; Yerevan states its readiness to sign. Stated estimates of the signing date diverge: Armenia's foreign minister spoke on 28 October 2026 of end-2026 or 2027, while the prime minister spoke on 22 October of 2027–2028."
+      },
+      "statusAsOf": "2026-10-30",
+      "recent": [
+        {
+          "date": "2026-10-30",
+          "ar": "صرّح وزير الخارجية الأذربيجاني في قمة منظمة الدول التركية بأن باكو تنتظر خطوات سياسية وقانونية أرمينية للتوقيع، وأن السلام الفعلي قائم في المنطقة.",
+          "en": "Azerbaijan's foreign minister said at the Organization of Turkic States summit that Baku awaits Armenian political and legal steps to sign, and that de facto peace prevails in the region.",
+          "source": "Report.az"
+        },
+        {
+          "date": "2026-10-28",
+          "ar": "أكّد وزير الخارجية الأرمني جهوزية أرمينيا للتوقيع، وقال إن «السلام لا يمكن تأجيله لأنه قائم أصلاً» مستشهداً بالتجارة ونقل البضائع.",
+          "en": "Armenia's foreign minister affirmed Armenia's readiness to sign, saying peace cannot be delayed because it already exists, citing trade and cargo transport.",
+          "source": "Public Radio of Armenia"
+        }
+      ],
+      "confidence": "verified",
+      "sourceRefs": [
+        "icg",
+        "mrg"
+      ]
+    },
+    {
+      "id": "kosovo-serbia",
+      "name": {
+        "ar": "كوسوفو وصربيا",
+        "en": "Kosovo and Serbia"
+      },
+      "coords": [
+        20.9,
+        42.6
+      ],
+      "countries": [
+        "SRB",
+        "XKX"
+      ],
+      "severity": "high-tension",
+      "started": "1989",
+      "dimensions": [
+        "territorial",
+        "identity",
+        "political"
+      ],
+      "dimensionNote": {
+        "ar": "نزاع إقليمي وهوياتي حول وضع كيان وشرعية استقلاله، والبعد الديني (أرثوذكس في مقابل مسلمين) ثانوي ويعمل كعلامة هوية لا كسبب عقدي.",
+        "en": "A territorial and identity conflict over an entity's status and the legitimacy of its independence; the religious dimension (Orthodox and Muslim) is secondary and functions as an identity marker rather than a doctrinal cause."
+      },
+      "parties": {
+        "ar": [
+          "صربيا",
+          "كوسوفو",
+          "صرب شمال كوسوفو"
+        ],
+        "en": [
+          "Serbia",
+          "Kosovo",
+          "Serbs of northern Kosovo"
+        ]
+      },
+      "ethnoReligious": {
+        "ar": "أغلبية ألبانية مسلمة سنّية في كوسوفو مع أقلية صربية أرثوذكسية مركّزة في الشمال حول ميتروفيتسا. تضمّ كوسوفو أديرة أرثوذكسية صربية مدرجة على قائمة التراث العالمي، وهي عنصر مركزي في الرواية الوطنية الصربية.",
+        "en": "Kosovo has a Sunni Muslim Albanian majority with an Orthodox Serb minority concentrated in the north around Mitrovica. Kosovo contains Serbian Orthodox monasteries on the World Heritage list, a central element of the Serbian national narrative."
+      },
+      "history": {
+        "ar": "ألغى ميلوشيفيتش الحكم الذاتي لكوسوفو في 1989، وتصاعد القمع إلى حرب 1998–1999 وتهجير جماعي للألبان، فتدخّل الناتو جوّاً في 1999 دون تفويض من مجلس الأمن، وخضعت كوسوفو لإدارة أممية بقرار 1244. أعلنت كوسوفو الاستقلال في 2008 واعترفت بها نحو مئة دولة، ولم تعترف بها صربيا ولا روسيا والصين وخمس دول في الاتحاد الأوروبي.",
+        "en": "Milošević revoked Kosovo's autonomy in 1989; repression escalated into the 1998–1999 war and mass displacement of Albanians, prompting NATO air intervention in 1999 without Security Council authorisation, after which Kosovo came under UN administration by Resolution 1244. Kosovo declared independence in 2008 and has been recognised by around one hundred states; Serbia has not recognised it, nor have Russia, China and five EU member states."
+      },
+      "politicalCauses": {
+        "ar": "الاعتراف المتبادل، وضع رابطة البلديات ذات الأغلبية الصربية، لوحات السيارات والعملة والمؤسسات الموازية، واشتراط الاتحاد الأوروبي تطبيع العلاقات لتقدّم مسار العضوية للطرفين.",
+        "en": "Mutual recognition, the status of the association of Serb-majority municipalities, car plates, currency and parallel institutions, and the EU's conditioning of both parties' accession progress on normalisation."
+      },
+      "territorialClaims": {
+        "ar": "تعتبر صربيا كوسوفو إقليماً صربياً جنوبياً. وتطرح أفكار لتبادل أراضٍ بين شمال كوسوفو ووادي بريشيفو ذي الأغلبية الألبانية في صربيا، وترفضها أطراف أوروبية خوفاً من سابقة حدودية في البلقان.",
+        "en": "Serbia regards Kosovo as its southern province. Ideas have circulated for a land swap between northern Kosovo and the Albanian-majority Preševo Valley in Serbia; European actors reject them for fear of setting a Balkan border precedent."
+      },
+      "strategicInterests": {
+        "ar": "مجمّع تريبتشا للرصاص والزنك والفحم في الشمال، وموقع كوسوفو على ممرّ النقل بين وسط أوروبا والبحر الأدرياتيكي.",
+        "en": "The Trepča lead, zinc and coal complex in the north, and Kosovo's position on the transport corridor between central Europe and the Adriatic."
+      },
+      "externalPowers": [
+        {
+          "iso3": "USA",
+          "role": {
+            "ar": "داعم رئيسي لاستقلال كوسوفو ولها قاعدة بوندستيل",
+            "en": "Principal backer of Kosovo's independence, with Camp Bondsteel on its territory"
+          },
+          "kind": "treaty"
+        },
+        {
+          "iso3": "RUS",
+          "role": {
+            "ar": "داعمة للموقف الصربي ومانعة لعضوية كوسوفو في الأمم المتحدة",
+            "en": "Supports Serbia's position and blocks Kosovo's UN membership"
+          },
+          "kind": "assessed"
+        },
+        {
+          "iso3": "CHN",
+          "role": {
+            "ar": "ترفض الاعتراف استناداً إلى مبدأ عدم الانفصال",
+            "en": "Declines recognition on non-secession grounds"
+          },
+          "kind": "assessed"
+        }
+      ],
+      "status": {
+        "ar": "توتّر سياسي مزمن بلا قتال واسع، مع حوادث أمنية متفرّقة في الشمال وحوار متقطّع برعاية الاتحاد الأوروبي لم يُنتج اعترافاً متبادلاً. تبقى قوة كفور التابعة للناتو منتشرة.",
+        "en": "Chronic political tension without large-scale fighting, with scattered security incidents in the north and intermittent EU-facilitated dialogue that has not produced mutual recognition. NATO's KFOR remains deployed."
+      },
+      "statusAsOf": "2026-10-30",
+      "recent": [],
+      "confidence": "partial",
+      "sourceRefs": [
+        "icg",
+        "mrg"
+      ]
+    },
+    {
+      "id": "bosnia",
+      "name": {
+        "ar": "البوسنة والهرسك",
+        "en": "Bosnia and Herzegovina"
+      },
+      "coords": [
+        17.8,
+        44.1
+      ],
+      "countries": [
+        "BIH"
+      ],
+      "severity": "high-tension",
+      "started": "1992",
+      "dimensions": [
+        "political",
+        "identity",
+        "territorial"
+      ],
+      "dimensionNote": {
+        "ar": "أزمة دستورية وسياسية ناتجة عن بنية دولة بُنيت على تمثيل ثلاث جماعات قومية، أكثر من كونها نزاعاً دينياً نشطاً. الهوية الدينية تعمل كعلامة قومية في البوسنة أكثر من كونها خلافاً عقدياً.",
+        "en": "A constitutional and political crisis arising from a state structure built on representation of three constituent national groups, rather than an active religious conflict. Religious identity in Bosnia functions as a national marker more than a doctrinal disagreement."
+      },
+      "parties": {
+        "ar": [
+          "البوشناق",
+          "الصرب البوسنيون",
+          "الكروات البوسنيون"
+        ],
+        "en": [
+          "Bosniaks",
+          "Bosnian Serbs",
+          "Bosnian Croats"
+        ]
+      },
+      "ethnoReligious": {
+        "ar": "ثلاث جماعات قومية: بوشناق مسلمون سنّة، وصرب أرثوذكس، وكروات كاثوليك. الجماعات الثلاث تتشارك اللغة ذاتها بفروق لهجوية، وهو ما يجعل الدين العلامة الفارقة الرئيسية بينها.",
+        "en": "Three constituent groups: Sunni Muslim Bosniaks, Orthodox Serbs and Catholic Croats. All three share the same language with dialectal differences, which makes religion the principal distinguishing marker between them."
+      },
+      "history": {
+        "ar": "انفصلت البوسنة عن يوغوسلافيا في 1992 فاندلعت حرب حتى 1995 راح فيها نحو مئة ألف شخص وشهدت حصار سراييفو وإبادة سربرينيتسا في يوليو 1995 التي قضت بها المحكمة الدولية. أنهت اتفاقية دايتون الحرب وأنشأت دولة من كيانين: اتحاد البوسنة والهرسك وجمهورية صرب البوسنة، مع رئاسة ثلاثية ومفوّض سامٍ دولي.",
+        "en": "Bosnia seceded from Yugoslavia in 1992, triggering a war until 1995 that killed around 100,000 people and included the siege of Sarajevo and the July 1995 Srebrenica genocide, as adjudicated by international courts. The Dayton Agreement ended the war and created a state of two entities — the Federation of Bosnia and Herzegovina and Republika Srpska — with a tripartite presidency and an international High Representative."
+      },
+      "politicalCauses": {
+        "ar": "جمود دستوري بنيوي ومحاولات متكرّرة من قيادة جمهورية صرب البوسنة لسحب الصلاحيات من المؤسسات المركزية والتلويح بالانفصال، إضافةً إلى خلاف حول قانون الانتخاب وتمثيل الكروات.",
+        "en": "Structural constitutional deadlock and repeated attempts by Republika Srpska's leadership to withdraw competences from central institutions and threaten secession, alongside disagreement over electoral law and Croat representation."
+      },
+      "territorialClaims": {
+        "ar": "لا مطالبات حدودية خارجية نشطة، لكن تهديدات الانفصال من جمهورية صرب البوسنة تمسّ وحدة الدولة. منطقة برتشكو ذات وضع إداري خاص.",
+        "en": "No active external border claims, but secession threats from Republika Srpska bear on the state's unity. The Brčko District holds a special administrative status."
+      },
+      "strategicInterests": {
+        "ar": "موقع على ممرّ النقل الأدرياتيكي، وقطاع طاقة ومناجم، وأهمية رمزية في التنافس بين الاتحاد الأوروبي وروسيا على البلقان.",
+        "en": "Position on the Adriatic transport corridor, an energy and mining sector, and symbolic importance in the EU–Russia competition over the Balkans."
+      },
+      "externalPowers": [
+        {
+          "iso3": "HRV",
+          "role": {
+            "ar": "داعمة للكروات البوسنيين وعضو في الاتحاد الأوروبي والناتو",
+            "en": "Supports Bosnian Croats and is an EU and NATO member"
+          },
+          "kind": "assessed"
+        },
+        {
+          "iso3": "SRB",
+          "role": {
+            "ar": "علاقة خاصة مع جمهورية صرب البوسنة",
+            "en": "Special relationship with Republika Srpska"
+          },
+          "kind": "assessed"
+        },
+        {
+          "iso3": "RUS",
+          "role": {
+            "ar": "دعم سياسي لقيادة صرب البوسنة ومعارضة لتوسيع صلاحيات المفوّض السامي",
+            "en": "Political support to the Bosnian Serb leadership and opposition to expanding the High Representative's powers"
+          },
+          "kind": "assessed"
+        }
+      ],
+      "status": {
+        "ar": "أزمة سياسية ودستورية متكرّرة دون عودة إلى القتال. تبقى قوة يوفور الأوروبية منتشرة ومكتب المفوّض السامي قائماً، ومسار عضوية الاتحاد الأوروبي معلّق على إصلاحات بنيوية.",
+        "en": "A recurring political and constitutional crisis without a return to fighting. The EU's EUFOR force remains deployed and the Office of the High Representative continues, with the EU accession path contingent on structural reforms."
+      },
+      "statusAsOf": "2026-10-30",
+      "recent": [],
+      "confidence": "partial",
+      "sourceRefs": [
+        "icg",
+        "mrg"
+      ]
+    },
+    {
+      "id": "transnistria",
+      "name": {
+        "ar": "ترانسنيستريا ومولدوفا",
+        "en": "Transnistria and Moldova"
+      },
+      "coords": [
+        29.6,
+        46.8
+      ],
+      "countries": [
+        "MDA",
+        "UKR"
+      ],
+      "severity": "frozen",
+      "started": "1990",
+      "dimensions": [
+        "territorial",
+        "political",
+        "economic"
+      ],
+      "dimensionNote": {
+        "ar": "نزاع إقليمي مجمّد سببه سياسي واقتصادي: مصير كيان انفصالي يعتمد كلياً على دعم خارجي وعلى الطاقة المدعومة، وليس نزاعاً إثنياً فالتركيب السكاني في الكيان مختلط.",
+        "en": "A frozen territorial conflict with political and economic causes: the fate of a breakaway entity wholly dependent on external support and subsidised energy. It is not an ethnic conflict, as the entity's population is mixed."
+      },
+      "parties": {
+        "ar": [
+          "مولدوفا",
+          "سلطات ترانسنيستريا",
+          "روسيا"
+        ],
+        "en": [
+          "Moldova",
+          "Transnistrian authorities",
+          "Russia"
+        ]
+      },
+      "ethnoReligious": {
+        "ar": "سكان ترانسنيستريا موزّعون بنسب متقاربة بين المولدوفيين والروس والأوكرانيين، والأرثوذكسية هي الديانة الغالبة على الجانبين. هذا التركيب المختلط يقوّض أي قراءة إثنية للنزاع.",
+        "en": "Transnistria's population is divided in roughly comparable shares among Moldovans, Russians and Ukrainians, with Orthodoxy predominant on both sides. This mixed composition undercuts any ethnic reading of the conflict."
+      },
+      "history": {
+        "ar": "أعلنت ترانسنيستريا الانفصال عن مولدوفا في 1990 مع تفكّك الاتحاد السوفييتي، واندلع قتال قصير في 1992 انتهى بوقف نار بوجود قوة روسية. لم تعترف أي دولة بالكيان، وبقي الوضع مجمّداً ثلاثة عقود.",
+        "en": "Transnistria declared separation from Moldova in 1990 as the Soviet Union disintegrated, and brief fighting in 1992 ended in a ceasefire with a Russian force present. No state has recognised the entity, and the situation has remained frozen for three decades."
+      },
+      "politicalCauses": {
+        "ar": "وجود قوات روسية ومخزون ذخائر في كوباسنا، التوجّه الأوروبي لمولدوفا، ومسألة الحكم الذاتي ضمن دولة موحّدة. تغيّرت معطيات الملف جوهرياً بفعل الحرب في أوكرانيا التي عزلت الكيان لوجستياً.",
+        "en": "The presence of Russian troops and an ammunition depot at Cobasna, Moldova's European orientation, and the question of autonomy within a unified state. The file's parameters changed fundamentally with the war in Ukraine, which isolated the entity logistically."
+      },
+      "territorialClaims": {
+        "ar": "تطالب مولدوفا بسيادتها على الضفة الشرقية لنهر دنيستر. لا تطالب ترانسنيستريا بأراضٍ خارجها بل بالاستقلال أو الانضمام إلى روسيا. ولمنطقة غاغاوزيا جنوباً وضع حكم ذاتي منفصل.",
+        "en": "Moldova claims sovereignty over the east bank of the Dniester. Transnistria claims no territory beyond itself, seeking independence or union with Russia. The Gagauzia region to the south holds a separate autonomous status."
+      },
+      "strategicInterests": {
+        "ar": "محطة كوتشورغان الكهربائية التي تغذّي جزءاً من مولدوفا، ومجمّع صناعي ثقيل من الحقبة السوفييتية، وموقع متاخم لجنوب غرب أوكرانيا.",
+        "en": "The Cuciurgan power station which supplies part of Moldova, a Soviet-era heavy industrial complex, and a position adjacent to south-western Ukraine."
+      },
+      "externalPowers": [
+        {
+          "iso3": "RUS",
+          "role": {
+            "ar": "ضامن الكيان عسكرياً واقتصادياً عبر الغاز المدعوم",
+            "en": "The entity's military and economic guarantor through subsidised gas"
+          },
+          "kind": "assessed"
+        },
+        {
+          "iso3": "UKR",
+          "role": {
+            "ar": "تتحكّم بمعابر الكيان الشرقية وأغلقتها بعد 2022",
+            "en": "Controls the entity's eastern crossings and closed them after 2022"
+          },
+          "kind": "assessed"
+        },
+        {
+          "iso3": "ROU",
+          "role": {
+            "ar": "داعمة لمولدوفا وتمنح جنسيتها لمولدوفيين",
+            "en": "Supports Moldova and grants its citizenship to Moldovans"
+          },
+          "kind": "treaty"
+        }
+      ],
+      "status": {
+        "ar": "نزاع مجمّد تحت ضغط اقتصادي غير مسبوق. فقدان الكيان لإمدادات الغاز المدعوم وإغلاق المعابر الأوكرانية جعله أكثر اعتماداً على تفاهمات مع كيشيناو، دون تغيير في الوضع القانوني أو عسكرة للخطّ الفاصل.",
+        "en": "A frozen conflict under unprecedented economic pressure. The entity's loss of subsidised gas supplies and the closure of Ukrainian crossings have made it more dependent on understandings with Chișinău, without change to the legal status or militarisation of the separation line."
+      },
+      "statusAsOf": "2026-10-30",
+      "recent": [],
+      "confidence": "partial",
+      "sourceRefs": [
+        "icg"
+      ]
+    },
+    {
+      "id": "georgia-breakaway",
+      "name": {
+        "ar": "جورجيا وأبخازيا وأوسيتيا الجنوبية",
+        "en": "Georgia, Abkhazia and South Ossetia"
+      },
+      "coords": [
+        42.7,
+        42.6
+      ],
+      "countries": [
+        "GEO",
+        "RUS"
+      ],
+      "severity": "frozen",
+      "started": "1991",
+      "dimensions": [
+        "territorial",
+        "identity",
+        "political"
+      ],
+      "dimensionNote": {
+        "ar": "نزاعان إقليميان بجذور هوياتية حقيقية (الأبخاز والأوسيتيون شعبان متمايزان لغوياً عن الجورجيين)، لكن استمرار الانفصال اليوم يعتمد على الاعتراف والحماية الروسية أكثر من أي عامل داخلي.",
+        "en": "Two territorial conflicts with genuine identity roots (Abkhaz and Ossetians are linguistically distinct from Georgians), but the persistence of separation today rests on Russian recognition and protection more than on any internal factor."
+      },
+      "parties": {
+        "ar": [
+          "جورجيا",
+          "أبخازيا",
+          "أوسيتيا الجنوبية",
+          "روسيا"
+        ],
+        "en": [
+          "Georgia",
+          "Abkhazia",
+          "South Ossetia",
+          "Russia"
+        ]
+      },
+      "ethnoReligious": {
+        "ar": "الأبخاز شعب قوقازي شمالي غربي بلغة خاصة، والأوسيتيون شعب إيراني اللغة. الأرثوذكسية غالبة على الجورجيين والأوسيتيين، وبين الأبخاز مزيج من الأرثوذكسية والإسلام والمعتقدات التقليدية.",
+        "en": "Abkhaz are a north-west Caucasian people with their own language; Ossetians are Iranian-speaking. Orthodoxy predominates among Georgians and Ossetians, while Abkhaz combine Orthodoxy, Islam and traditional beliefs."
+      },
+      "history": {
+        "ar": "انفصلت أوسيتيا الجنوبية بحرب 1991–1992 وأبخازيا بحرب 1992–1993 التي هُجّر فيها نحو ربع مليون جورجي من أبخازيا. اندلعت حرب الأيام الخمسة في أغسطس 2008 بين جورجيا وروسيا، وبعدها اعترفت روسيا باستقلال الإقليمين، ولم تحذُ حذوها سوى دول قليلة.",
+        "en": "South Ossetia separated through the 1991–1992 war and Abkhazia through the 1992–1993 war, in which around a quarter of a million Georgians were displaced from Abkhazia. The five-day war between Georgia and Russia erupted in August 2008, after which Russia recognised both regions' independence, followed by only a handful of states."
+      },
+      "politicalCauses": {
+        "ar": "الوجود العسكري الروسي، سياسة «وضع الحدود» بتثبيت أسلاك على خطّ التماس، حقّ عودة المهجّرين الجورجيين، والتوجّه الأوروبي الأطلسي لجورجيا.",
+        "en": "The Russian military presence, the 'borderisation' practice of installing fencing along the administrative line, the right of return for displaced Georgians, and Georgia's Euro-Atlantic orientation."
+      },
+      "territorialClaims": {
+        "ar": "تطالب جورجيا بسيادتها على الإقليمين وتصنّفهما أراضيَ محتلة. وتُسجَّل حوادث تحرّك متكرّر لخطّ التماس في أوسيتيا الجنوبية نحو الداخل الجورجي.",
+        "en": "Georgia claims sovereignty over both regions and designates them occupied territories. Incidents of the administrative line in South Ossetia being moved toward Georgian-controlled areas are recorded repeatedly."
+      },
+      "strategicInterests": {
+        "ar": "ممرّ الطاقة بين بحر قزوين وتركيا عبر جورجيا (خطّ باكو تبليسي جيهان)، وسواحل أبخازيا على البحر الأسود، ونفق روكي الذي يربط أوسيتيا الجنوبية بروسيا.",
+        "en": "The Caspian–Türkiye energy corridor through Georgia (the Baku–Tbilisi–Ceyhan pipeline), Abkhazia's Black Sea coastline, and the Roki tunnel linking South Ossetia to Russia."
+      },
+      "externalPowers": [
+        {
+          "iso3": "RUS",
+          "role": {
+            "ar": "تعترف بالإقليمين وتنشر قوات فيهما",
+            "en": "Recognises both regions and deploys forces in them"
+          },
+          "kind": "assessed"
+        },
+        {
+          "iso3": "TUR",
+          "role": {
+            "ar": "شريك اقتصادي رئيسي لجورجيا وممرّ طاقتها",
+            "en": "Georgia's principal economic partner and energy outlet"
+          },
+          "kind": "treaty"
+        }
+      ],
+      "status": {
+        "ar": "نزاعان مجمّدان مع وجود عسكري روسي مستقرّ وبعثة مراقبة أوروبية على الجانب الجورجي. لا مفاوضات وضع نهائي جارية، وتتكرّر حوادث محلّية على خطوط التماس.",
+        "en": "Two frozen conflicts with an established Russian military presence and an EU monitoring mission on the Georgian side. No final-status negotiations are under way, and local incidents recur along the administrative lines."
+      },
+      "statusAsOf": "2026-10-30",
+      "recent": [],
+      "confidence": "partial",
+      "sourceRefs": [
+        "icg",
+        "unhcr"
+      ]
+    },
+    {
+      "id": "basque-catalonia",
+      "name": {
+        "ar": "القومية الكاتالونية والباسكية في إسبانيا",
+        "en": "Catalan and Basque nationalism in Spain"
+      },
+      "coords": [
+        1.5,
+        41.6
+      ],
+      "countries": [
+        "ESP",
+        "FRA"
+      ],
+      "severity": "political",
+      "started": "1979",
+      "dimensions": [
+        "identity",
+        "political",
+        "economic"
+      ],
+      "dimensionNote": {
+        "ar": "نزاع هوياتي وسياسي وضريبي يُدار بالكامل داخل المؤسسات الدستورية والقضائية والانتخابية. أُدرج هنا لأنه نموذج لحركة انفصالية غير مسلحة، وهو تمييز ضروري حتى لا تُقرأ كل حركة انفصالية كنزاع عنيف.",
+        "en": "An identity, political and fiscal dispute conducted entirely within constitutional, judicial and electoral institutions. Included here as a model of an unarmed secessionist movement — a necessary distinction so that not every secessionist movement is read as violent conflict."
+      },
+      "parties": {
+        "ar": [
+          "الدولة الإسبانية",
+          "حكومة كاتالونيا",
+          "حكومة إقليم الباسك"
+        ],
+        "en": [
+          "Spanish state",
+          "Government of Catalonia",
+          "Basque regional government"
+        ]
+      },
+      "ethnoReligious": {
+        "ar": "الكاتالونية والباسكية هويتان قوميتان لغويتان لا دينيتان. الباسكية لغة معزولة لا تنتمي إلى العائلة الهندوأوروبية، والكاتالونية لغة رومانسية. الكاثوليكية هي الخلفية الدينية المشتركة مع إسبانيا كلها.",
+        "en": "Catalan and Basque identities are national and linguistic, not religious. Basque is a language isolate outside the Indo-European family; Catalan is a Romance language. Catholicism is the shared religious background with Spain as a whole."
+      },
+      "history": {
+        "ar": "قمع نظام فرانكو اللغتين والهويتين، ومنح دستور 1978 ونظام الحكم الذاتي صلاحيات واسعة للإقليمين. خاضت منظمة إيتا كفاحاً مسلحاً من 1968 حتى إعلان وقف العمل المسلح في 2011 وحلّ نفسها في 2018. أجرت كاتالونيا استفتاءً للاستقلال في أكتوبر 2017 اعتبرته المحكمة الدستورية غير قانونياً، وتبعته ملاحقات قضائية ثم قانون عفو.",
+        "en": "The Franco regime suppressed both languages and identities; the 1978 constitution and the autonomous-communities system granted both regions broad powers. ETA waged an armed campaign from 1968 until declaring an end to armed action in 2011 and dissolving in 2018. Catalonia held an independence referendum in October 2017 which the Constitutional Court held unlawful, followed by prosecutions and later an amnesty law."
+      },
+      "politicalCauses": {
+        "ar": "حدود الحكم الذاتي، التمويل الإقليمي والمساهمة في الموازنة المركزية، اللغة في التعليم، والخلاف حول حقّ تقرير المصير داخل الدستور الإسباني.",
+        "en": "The limits of autonomy, regional financing and contribution to the central budget, language in education, and disagreement over a right of self-determination within the Spanish constitution."
+      },
+      "territorialClaims": {
+        "ar": "تطرح الحركة الباسكية فكرة إقليم يشمل نافارا وأقاليم باسكية في جنوب فرنسا، وتطرح أطراف كاتالونية فكرة البلدان الكاتالونية الممتدة إلى روسيون الفرنسية وبلنسية. كلّ ذلك في إطار سياسي لا عسكري.",
+        "en": "The Basque movement advances the idea of a territory including Navarre and Basque areas of southern France, and some Catalan actors advance the idea of the Catalan Countries extending to French Roussillon and Valencia. All of it within a political rather than military frame."
+      },
+      "strategicInterests": {
+        "ar": "كاتالونيا وإقليم الباسك من أغنى أقاليم إسبانيا وأكثرها تصنيعاً، وميناء برشلونة وبلباو مركزان لوجستيان رئيسيان على المتوسط والأطلسي.",
+        "en": "Catalonia and the Basque Country are among Spain's wealthiest and most industrialised regions, and the ports of Barcelona and Bilbao are major logistics hubs on the Mediterranean and Atlantic."
+      },
+      "externalPowers": [
+        {
+          "iso3": "FRA",
+          "role": {
+            "ar": "تضمّ أقاليم باسكية وكاتالونية وترفض أي طرح حدودي",
+            "en": "Contains Basque and Catalan areas and rejects any border claim"
+          },
+          "kind": "treaty"
+        }
+      ],
+      "status": {
+        "ar": "ملف سياسي وقضائي بلا عنف منظّم. انتهى العمل المسلح الباسكي نهائياً، والمسار الكاتالوني يُدار عبر الانتخابات والتفاوض على التمويل والعفو. يُصنّف هذا السجل كـ political لا كنزاع مسلح.",
+        "en": "A political and judicial file without organised violence. Basque armed action has definitively ended, and the Catalan track is managed through elections and negotiation over financing and amnesty. This record is classified as political, not armed conflict."
+      },
+      "statusAsOf": "2026-10-30",
+      "recent": [],
+      "confidence": "partial",
+      "sourceRefs": [
+        "mrg"
+      ]
+    },
+    {
+      "id": "northern-ireland",
+      "name": {
+        "ar": "أيرلندا الشمالية",
+        "en": "Northern Ireland"
+      },
+      "coords": [
+        -6.5,
+        54.6
+      ],
+      "countries": [
+        "GBR",
+        "IRL"
+      ],
+      "severity": "political",
+      "started": "1968",
+      "dimensions": [
+        "identity",
+        "political",
+        "territorial"
+      ],
+      "dimensionNote": {
+        "ar": "نزاع حول السيادة والانتماء القومي استُخدمت فيه الكاثوليكية والبروتستانتية كعلامتَي هوية للجماعتين القومية والوحدوية. التسمية الدينية دقيقة وصفياً ومضلّلة تفسيرياً: الخلاف لم يكن يوماً عقدياً.",
+        "en": "A conflict over sovereignty and national belonging in which Catholicism and Protestantism served as identity markers for the nationalist and unionist communities. The religious labelling is descriptively accurate and interpretively misleading: the dispute was never doctrinal."
+      },
+      "parties": {
+        "ar": [
+          "المملكة المتحدة",
+          "القوميون الأيرلنديون",
+          "الوحدويون"
+        ],
+        "en": [
+          "United Kingdom",
+          "Irish nationalists",
+          "Unionists"
+        ]
+      },
+      "ethnoReligious": {
+        "ar": "جماعة قومية كاثوليكية تميل إلى الوحدة مع جمهورية أيرلندا، وجماعة وحدوية بروتستانتية تميل إلى البقاء في المملكة المتحدة. التركيب السكاني تغيّر تدريجياً وفقد الوحدويون الأغلبية العددية المطلقة.",
+        "en": "A Catholic nationalist community inclined toward unity with the Republic of Ireland and a Protestant unionist community inclined to remain in the United Kingdom. The demographic composition has shifted gradually and unionists no longer hold an absolute numerical majority."
+      },
+      "history": {
+        "ar": "قُسّمت أيرلندا في 1921 وبقي الشمال في المملكة المتحدة. اندلعت الاضطرابات في 1968 واستمرّت ثلاثة عقود راح فيها نحو 3,500 شخص. أنهت اتفاقية الجمعة العظيمة 1998 النزاع المسلح وأنشأت حكماً تشاركياً ونصّت على أن تغيير وضع الإقليم يحتاج موافقة أغلبية سكانه.",
+        "en": "Ireland was partitioned in 1921 and the north remained in the United Kingdom. The Troubles began in 1968 and lasted three decades, killing around 3,500 people. The 1998 Good Friday Agreement ended the armed conflict, established power-sharing and provided that any change to the region's status requires the consent of a majority of its people."
+      },
+      "politicalCauses": {
+        "ar": "استدامة الحكم التشاركي وتعطّله المتكرّر، وترتيبات ما بعد بريكست وبروتوكول أيرلندا الشمالية وإطار وندسور، والتعامل مع إرث الماضي والملاحقات.",
+        "en": "The sustainability of power-sharing and its repeated suspension, post-Brexit arrangements including the Northern Ireland Protocol and the Windsor Framework, and dealing with the legacy of the past and prosecutions."
+      },
+      "territorialClaims": {
+        "ar": "لا مطالبة قسرية. تنصّ الاتفاقية على مبدأ الموافقة: وحدة الجزيرة ممكنة فقط باستفتاء يوافق عليه سكان الشمال.",
+        "en": "No coercive claim. The agreement enshrines the consent principle: unification of the island is possible only by a referendum approved by the population of the north."
+      },
+      "strategicInterests": {
+        "ar": "الحدود البرية الوحيدة بين المملكة المتحدة والاتحاد الأوروبي، وهي العقدة التي جعلت ترتيبات بريكست التجارية بالغة التعقيد.",
+        "en": "The only land border between the United Kingdom and the European Union, the knot that made Brexit's trade arrangements exceptionally complex."
+      },
+      "externalPowers": [
+        {
+          "iso3": "IRL",
+          "role": {
+            "ar": "طرف ضامن في اتفاقية الجمعة العظيمة",
+            "en": "A guarantor party to the Good Friday Agreement"
+          },
+          "kind": "treaty"
+        },
+        {
+          "iso3": "USA",
+          "role": {
+            "ar": "دور وساطة تاريخي في التوصّل إلى الاتفاقية",
+            "en": "Historic mediating role in reaching the agreement"
+          },
+          "kind": "treaty"
+        }
+      ],
+      "status": {
+        "ar": "سلام مستقرّ منذ 1998 مع توتّر سياسي دوري حول الترتيبات التجارية وعمل المؤسسات. العنف المنظّم منتهٍ ويُصنّف هذا السجل كـ political.",
+        "en": "A settled peace since 1998 with periodic political tension over trade arrangements and the functioning of institutions. Organised violence has ended and this record is classified as political."
+      },
+      "statusAsOf": "2026-10-30",
+      "recent": [],
+      "confidence": "partial",
+      "sourceRefs": [
+        "mrg"
+      ]
+    }
+  ]
+}

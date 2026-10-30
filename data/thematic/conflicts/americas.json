@@ -1,0 +1,268 @@
+{
+  "region": "americas",
+  "regionName": { "ar": "الأمريكتان", "en": "The Americas" },
+  "statusAsOf": "2026-10-30",
+  "conflicts": [
+    {
+      "id": "venezuela",
+      "name": { "ar": "فنزويلا والتدخّل الأمريكي", "en": "Venezuela and the US intervention" },
+      "coords": [-66.9, 9.5],
+      "countries": ["VEN", "USA", "CUB"],
+      "severity": "armed-conflict",
+      "started": "2019",
+      "currentPhaseStarted": "2026-01-03",
+      "dimensions": ["political", "economic", "ideological"],
+      "dimensionNote": {
+        "ar": "نزاع سياسي واقتصادي على الشرعية والسلطة وعلى موارد النفط، بلا أي بعد عرقي أو ديني. استُخدمت مكافحة تهريب المخدّرات أساساً قانونياً للعمل العسكري، وهو تأطير محلّ خلاف قانوني واسع.",
+        "en": "A political and economic conflict over legitimacy, power and oil resources, with no ethnic or religious dimension. Counter-narcotics was used as the legal basis for military action, a framing that is widely legally contested."
+      },
+      "parties": {
+        "ar": ["الولايات المتحدة", "حكومة فنزويلا الانتقالية", "المعارضة الفنزويلية", "كوبا"],
+        "en": ["United States", "Venezuela's interim government", "Venezuelan opposition", "Cuba"]
+      },
+      "ethnoReligious": null,
+      "ethnoReligiousNote": {
+        "ar": "لا يوجد بعد عرقي أو ديني لهذا النزاع. فنزويلا مجتمع مختلط عرقياً وذو أغلبية كاثوليكية، والانقسام الفاعل سياسي واقتصادي بالكامل.",
+        "en": "This conflict has no ethnic or religious dimension. Venezuela is an ethnically mixed, Catholic-majority society, and the operative division is entirely political and economic."
+      },
+      "history": {
+        "ar": "حكم هوغو تشافيز من 1999 حتى 2013 وتلاه نيكولاس مادورو. أدّى انهيار أسعار النفط والإدارة الاقتصادية والعقوبات إلى انكماش اقتصادي حادّ وهجرة أكثر من سبعة ملايين فنزويلي. تنازعت الشرعية بعد انتخابات 2018 و2024، وأعلنت المعارضة فوز إدموندو غونزاليس أورّوتيا. نفّذت الولايات المتحدة ضربات على سفن قالت إنها تنقل مخدّرات، ثم نفّذت عملية عسكرية في 3 يناير 2026 اعتقلت فيها مادورو وزوجته سيليا فلوريس ونقلتهما إلى نيويورك لمحاكمتهما بتهم تتعلّق بالإرهاب المخدّر وتهريب المخدّرات والأسلحة.",
+        "en": "Hugo Chávez governed from 1999 to 2013, succeeded by Nicolás Maduro. Collapsing oil prices, economic management and sanctions produced a severe contraction and the emigration of more than seven million Venezuelans. Legitimacy was contested after the 2018 and 2024 elections, with the opposition declaring Edmundo González Urrutia the winner. The United States struck vessels it said were carrying narcotics, then conducted a military operation on 3 January 2026 in which it captured Maduro and his wife Cilia Flores and transferred them to New York to face narco-terrorism, drug trafficking and weapons charges."
+      },
+      "politicalCauses": {
+        "ar": "الخلاف على شرعية السلطة وعلى موعد انتخابات رئاسية جديدة، وتوزيع السلطة بين الحكومة الانتقالية والمعارضة، والجدل القانوني حول تصنيف الولايات المتحدة علاقتها بالكارتلات نزاعاً مسلحاً غير دولي.",
+        "en": "Dispute over the legitimacy of power and the timing of a new presidential election, the distribution of power between the interim government and the opposition, and the legal controversy over the United States classifying its relationship with the cartels as a non-international armed conflict."
+      },
+      "territorialClaims": {
+        "ar": "تطالب فنزويلا بمنطقة إيسيكيبو التي تمثّل نحو ثلثي أراضي غيانا، ويُفصَّل هذا الملفّ في سجلّ مستقلّ.",
+        "en": "Venezuela claims the Essequibo region comprising around two-thirds of Guyana's territory; that file is detailed in a separate record."
+      },
+      "strategicInterests": {
+        "ar": "تملك فنزويلا أكبر احتياطي نفطي مؤكّد في العالم، معظمه نفط ثقيل في حوض أورينوكو. وأشار مسؤولون أمريكيون صراحةً إلى نيّة تطوير هذه الاحتياطيات بمشاركة أمريكية. وهناك ذهب ومعادن في إيسيكيبو وفي قوس أورينوكو.",
+        "en": "Venezuela holds the world's largest proven oil reserves, mostly heavy crude in the Orinoco Belt. US officials explicitly indicated an intention to develop those reserves with American participation. Gold and minerals are present in Essequibo and the Orinoco Mining Arc."
+      },
+      "externalPowers": [
+        { "iso3": "USA", "role": { "ar": "نفّذت العمل العسكري وتعمل مع الحكومة الانتقالية وترعى المفاوضات مع المعارضة", "en": "Conducted the military action, works with the interim government and sponsors negotiations with the opposition" }, "kind": "assessed" },
+        { "iso3": "CUB", "role": { "ar": "فقدت أفراداً أمنيين في العملية ولها علاقة تاريخية بكاراكاس", "en": "Lost security personnel in the operation and has a historic relationship with Caracas" }, "kind": "assessed" },
+        { "iso3": "BRA", "role": { "ar": "جار رئيسي ومتأثّر بموجات الهجرة", "en": "A principal neighbour affected by migration flows" }, "kind": "assessed" }
+      ],
+      "status": {
+        "ar": "مرحلة انتقالية متنازع عليها تحت رعاية أمريكية. تتولّى ديلسي رودريغيز الرئاسة بالوكالة، واعترفت واشنطن بحكومتها، وتدعم مفاوضات بينها وبين فصيل من المعارضة. عُقدت ثلاث جولات محادثات منذ أغسطس 2026 بدأت أحدثها في 14 أكتوبر. لم يُعلَن موعد لانتخابات رئاسية: تطالب ماريا كورينا ماتشادو والمعارضة بـ 24 يوليو 2027 بينما تشير تقارير إلى أن خطّة واشنطن تتحدّث عن 2028. خرجت احتجاجات في كاراكاس ومدن أخرى في 22 أكتوبر 2026 تطالب بانتخابات 2027 وبعودة ماتشادو. وتفكّك العقوبات تدريجياً باستثناءات فردية.",
+        "en": "A contested transition under American sponsorship. Delcy Rodríguez serves as acting president, Washington recognises her government and backs negotiations between it and an opposition faction. Three rounds of talks have taken place since August 2026, the latest opening on 14 October. No presidential election date has been announced: María Corina Machado and the opposition demand 24 July 2027, while reporting indicates Washington's plan points to 2028. Protests took place in Caracas and other cities on 22 October 2026 demanding a 2027 vote and Machado's return. Sanctions are being unwound gradually through individual delistings."
+      },
+      "statusAsOf": "2026-10-30",
+      "recent": [
+        { "date": "2026-10-22", "ar": "احتجاجات في كاراكاس ومدن أخرى تطالب بانتخابات رئاسية في 2027 وبعودة ماريا كورينا ماتشادو.", "en": "Protests in Caracas and other cities demanded a presidential election in 2027 and María Corina Machado's return.", "source": "Rio Times" },
+        { "date": "2026-10-14", "ar": "بدأت الجولة الثالثة من المحادثات بين الحكومة الانتقالية وممثّلي المعارضة برعاية أمريكية.", "en": "A third round of talks between the interim government and opposition representatives opened under American sponsorship.", "source": "Rio Times" },
+        { "date": "2026-10", "ar": "أبلغت الإدارة الأمريكية الكونغرس أن القوات الأمريكية في «نزاع مسلح غير دولي» مع كارتلات المخدّرات في فنزويلا وخارجها.", "en": "The US administration informed Congress that American forces are in a non-international armed conflict with drug cartels in Venezuela and beyond.", "source": "Congressional Research Service" }
+      ],
+      "confidence": "verified",
+      "sourceRefs": ["icg", "unhcr"]
+    },
+    {
+      "id": "essequibo",
+      "name": { "ar": "إيسيكيبو — فنزويلا وغيانا", "en": "Essequibo — Venezuela and Guyana" },
+      "coords": [-59.0, 5.5],
+      "countries": ["VEN", "GUY"],
+      "severity": "high-tension",
+      "started": "1841",
+      "currentPhaseStarted": "2023-12",
+      "dimensions": ["territorial", "economic", "political"],
+      "dimensionNote": {
+        "ar": "نزاع حدودي قانوني محض تحوّل إلى ملفّ اقتصادي حارّ بعد اكتشافات النفط البحرية الضخمة قبالة غيانا. لا بعد عرقي ولا ديني؛ المحرّك هو قيمة ما تحت الأرض والماء.",
+        "en": "A purely legal boundary dispute that became an urgent economic file after very large offshore oil discoveries off Guyana. No ethnic or religious dimension; the driver is the value of what lies beneath the ground and the water."
+      },
+      "parties": { "ar": ["فنزويلا", "غيانا"], "en": ["Venezuela", "Guyana"] },
+      "ethnoReligious": null,
+      "ethnoReligiousNote": {
+        "ar": "لا بعد عرقي للنزاع بين الدولتين. غيانا نفسها مجتمع متعدّد بين أصول هندية وأفريقية وشعوب أصلية، لكن هذا التعدّد شأن داخلي لا علاقة له بالخلاف الحدودي.",
+        "en": "The dispute between the two states has no ethnic dimension. Guyana is itself a plural society of Indian and African descent and indigenous peoples, but that plurality is a domestic matter unrelated to the boundary disagreement."
+      },
+      "history": {
+        "ar": "نشأ الخلاف في القرن التاسع عشر حول حدود غيانا البريطانية، وأصدرت هيئة تحكيم في باريس في 1899 قراراً رسم الحدود لصالح بريطانيا. أعلنت فنزويلا في 1962 أن القرار باطل، ووقّع الطرفان اتفاق جنيف في 1966 لإيجاد تسوية. أحالت الأمم المتحدة الملفّ إلى محكمة العدل الدولية في 2018 ولا تعترف فنزويلا باختصاصها. أجرت فنزويلا استفتاءً في ديسمبر 2023 أعلنت بعده المنطقة ولاية تابعة لها.",
+        "en": "The dispute arose in the nineteenth century over British Guiana's boundaries, and a Paris arbitral tribunal issued an award in 1899 drawing the border in Britain's favour. Venezuela declared the award null in 1962, and the parties signed the 1966 Geneva Agreement to seek a settlement. The United Nations referred the file to the International Court of Justice in 2018; Venezuela does not accept its jurisdiction. Venezuela held a referendum in December 2023 after which it declared the region one of its states."
+      },
+      "politicalCauses": {
+        "ar": "صلاحية قرار 1899 ومدى إلزامه، اختصاص محكمة العدل الدولية، واستخدام الملفّ الوطني في السياسة الداخلية الفنزويلية.",
+        "en": "The validity and binding force of the 1899 award, the International Court of Justice's jurisdiction, and the use of the national file in Venezuelan domestic politics."
+      },
+      "territorialClaims": {
+        "ar": "تطالب فنزويلا بكامل الأراضي غرب نهر إيسيكيبو وهي نحو ثلثي مساحة غيانا ويسكنها نحو مئة وخمسين ألف شخص يحملون جنسية غيانا ويخضعون لإدارتها. وتعدّ غيانا سندها القانوني محكماً. ولبرازيل سابقاً مطالبات في المنطقة لم تُفعّل.",
+        "en": "Venezuela claims all territory west of the Essequibo River, around two-thirds of Guyana's area, inhabited by some 150,000 people who hold Guyanese citizenship and live under its administration. Guyana regards its legal title as sound. Brazil historically had claims in the area that it has not pursued."
+      },
+      "strategicInterests": {
+        "ar": "حوض ستابروك البحري قبالة إيسيكيبو حيث أُعلنت اكتشافات نفطية ضخمة حوّلت غيانا إلى واحدة من أسرع الاقتصادات نمواً في العالم، إضافةً إلى الذهب والبوكسيت والأخشاب في المنطقة البرّية.",
+        "en": "The offshore Stabroek block off Essequibo, where very large oil discoveries have turned Guyana into one of the world's fastest-growing economies, plus gold, bauxite and timber onshore."
+      },
+      "externalPowers": [
+        { "iso3": "BRA", "role": { "ar": "عزّزت وجودها العسكري على حدودها الشمالية وتدعو إلى حلّ سلمي", "en": "Reinforced its military presence on its northern border and calls for a peaceful resolution" }, "kind": "assessed" },
+        { "iso3": "USA", "role": { "ar": "دعمت سيادة غيانا ونفّذت تدريبات مشتركة معها", "en": "Supported Guyana's sovereignty and conducted joint exercises with it" }, "kind": "assessed" },
+        { "iso3": "GBR", "role": { "ar": "أرسلت سفينة دورية في 2023 خلال تصاعد التوتّر", "en": "Sent a patrol vessel in 2023 during the escalation" }, "kind": "assessed" }
+      ],
+      "status": {
+        "ar": "توتّر حدودي مستمر مع حوادث مسلحة محدودة. سُجّلت هجمات مسلحة على جنود من قوة دفاع غيانا في دوريات على نهر كويوني — ثلاث حوادث منفصلة في أربع وعشرين ساعة في إحدى الفترات — وقالت القوة إنها ردّت بشكل محسوب دون إصابات في صفوفها. وربط وزير الدفاع الفنزويلي السابق في تصريحاته بين السعي الأمريكي لتغيير النظام وبين إيسيكيبو. القضية لا تزال منظورة أمام محكمة العدل الدولية.",
+        "en": "Continuing border tension with limited armed incidents. Armed attacks on Guyana Defence Force soldiers on patrol along the Cuyuní River have been recorded — three separate incidents within twenty-four hours in one period — with the force stating it responded in measured fashion without casualties. Venezuela's former defence minister publicly linked American regime-change efforts to Essequibo. The case remains before the International Court of Justice."
+      },
+      "statusAsOf": "2026-10-30",
+      "recent": [
+        { "date": "2026-10", "ar": "سلسلة هجمات مسلحة على دوريات لقوة دفاع غيانا على نهر كويوني قرب الحدود المتنازع عليها.", "en": "A series of armed attacks on Guyana Defence Force patrols along the Cuyuní River near the disputed border.", "source": "Guyana Defence Force statements" }
+      ],
+      "confidence": "verified",
+      "sourceRefs": ["icg"]
+    },
+    {
+      "id": "haiti",
+      "name": { "ar": "هايتي", "en": "Haiti" },
+      "coords": [-72.3, 18.6],
+      "countries": ["HTI", "DOM"],
+      "severity": "state-collapse",
+      "started": "2021-07",
+      "dimensions": ["political", "economic"],
+      "dimensionNote": {
+        "ar": "ليس نزاعاً إثنياً ولا دينياً ولا حرباً أهلية بين مشاريع سياسية، بل انهيار دولة وفراغ سلطة تملؤه عصابات مسلحة بدوافع اقتصادية. صُنّف state-collapse لأن تصنيفه حرباً أهلية يفترض أطرافاً سياسية متنافسة وهو افتراض لا يصف الواقع.",
+        "en": "Neither an ethnic nor religious conflict nor a civil war between political projects, but state collapse and a power vacuum filled by economically motivated armed gangs. Coded state-collapse because classing it as civil war presumes competing political parties, a presumption that does not describe the reality."
+      },
+      "parties": {
+        "ar": ["الحكومة الانتقالية الهايتية", "تحالفات عصابات مسلحة", "الشرطة الوطنية الهايتية", "قوة قمع العصابات المأذونة أمميّاً"],
+        "en": ["Haitian transitional government", "armed gang coalitions", "Haitian National Police", "the UN-authorised Gang Suppression Force"]
+      },
+      "ethnoReligious": null,
+      "ethnoReligiousNote": {
+        "ar": "لا بعد عرقي أو ديني. هايتي متماثلة عرقياً، وديانتها الكاثوليكية والبروتستانتية مع حضور الفودو، ولا يشكّل أيّ من ذلك خطّ انقسام في الأزمة.",
+        "en": "No ethnic or religious dimension. Haiti is ethnically homogeneous, its religion Catholic and Protestant with a Vodou presence, and none of this forms a line of division in the crisis."
+      },
+      "history": {
+        "ar": "نالت هايتي استقلالها في 1804 كأول جمهورية سوداء بعد ثورة العبيد، وأثقلت بتعويضات لفرنسا شكّلت عبئاً اقتصادياً قرنياً. مرّت بديكتاتورية دوفالييه وانقلابات متعدّدة وتدخّلات أجنبية وبعثات أممية. ضربها زلزال 2010 المدمّر. اغتيل الرئيس جوفينيل مويز في يوليو 2021 فانهارت المؤسسات ولم تُجرِ البلاد انتخابات منذ ذلك الحين، وتوسّعت العصابات لتملأ الفراغ.",
+        "en": "Haiti won independence in 1804 as the first Black republic after a slave revolution, burdened with indemnity payments to France that formed a century-long economic weight. It passed through the Duvalier dictatorship, repeated coups, foreign interventions and UN missions, and was struck by the devastating 2010 earthquake. President Jovenel Moïse was assassinated in July 2021, institutions collapsed, no elections have been held since, and gangs expanded to fill the vacuum."
+      },
+      "politicalCauses": {
+        "ar": "غياب سلطة منتخبة وانعدام شرعية المؤسسات الانتقالية، انهيار الشرطة، تدفّق الأسلحة من الخارج، وتشابك شبكات العصابات مع نخب اقتصادية وسياسية.",
+        "en": "The absence of elected authority and the illegitimacy of transitional institutions, police collapse, inbound weapons flows, and the entanglement of gang networks with economic and political elites."
+      },
+      "territorialClaims": {
+        "ar": "لا نزاع حدودي. الخلاف مع الدومينيكان يتعلّق بالهجرة والترحيل وإدارة الحدود لا بخطّ الحدود نفسه.",
+        "en": "No border dispute. The disagreement with the Dominican Republic concerns migration, deportation and border management rather than the boundary line itself."
+      },
+      "strategicInterests": {
+        "ar": "موقع على ممرّ المخدّرات والهجرة في الكاريبي، وميناء بورت أو برنس الذي تتحكّم العصابات بالوصول إليه، وهو ما جعل السيطرة على الطرق سلاحاً اقتصادياً.",
+        "en": "Position on the Caribbean narcotics and migration corridor, and the port of Port-au-Prince whose access gangs control — which has made control of roads an economic weapon."
+      },
+      "externalPowers": [
+        { "iso3": "USA", "role": { "ar": "دعم لوجستي للقوة الدولية ومصدر رئيسي للأسلحة المتسرّبة", "en": "Logistical support to the international force and the principal source of trafficked weapons" }, "kind": "assessed" },
+        { "iso3": "SLV", "role": { "ar": "نشرت قوات في إطار قوة قمع العصابات", "en": "Deployed troops within the Gang Suppression Force" }, "kind": "treaty" },
+        { "iso3": "KEN", "role": { "ar": "قادت البعثة الأمنية الدولية السابقة", "en": "Led the earlier international security mission" }, "kind": "treaty" },
+        { "iso3": "DOM", "role": { "ar": "تشدّد الحدود وتنفّذ عمليات ترحيل واسعة", "en": "Tightens the border and conducts large-scale deportations" }, "kind": "assessed" }
+      ],
+      "status": {
+        "ar": "انهيار أمني مستمر مع نشر قوة دولية جديدة. تسيطر العصابات على ما يصل إلى 90٪ من بورت أو برنس بحسب تقديرات أممية، وتمتدّ إلى الأرياف. سجّل مكتب الأمم المتحدة المتكامل في هايتي 81 عملية اختطاف بين أبريل ويونيو 2026 ارتفاعاً من 57 في الربع الأول. بدأت قوة قمع العصابات المأذونة أمميّاً عملياتها، وتعرّضت لأول هجوم كبير في 25 أكتوبر 2026 في كروا دي بوكي حين فتحت عصابات النار على مدرّعة فُقد على إثرها أربعة جنود سلفادوريين، ونشرت السلفادور قوات لمحاولة استعادتهم. وفي سبتمبر 2026 سلّمت هايتي ثمانية عشر مشتبهاً في قضية مويز إلى الولايات المتحدة للمحاكمة.",
+        "en": "Continuing security collapse alongside the deployment of a new international force. Gangs control up to 90% of Port-au-Prince by UN estimates and are extending into rural areas. The UN Integrated Office in Haiti recorded 81 kidnappings between April and June 2026, up from 57 in the first quarter. The UN-authorised Gang Suppression Force has begun operations and suffered its first major attack on 25 October 2026 at Croix-des-Bouquets, when gangs opened fire on an armoured vehicle after which four Salvadoran soldiers went missing; El Salvador deployed troops to attempt their recovery. In September 2026 Haiti transferred eighteen suspects in the Moïse case to the United States for trial."
+      },
+      "statusAsOf": "2026-10-30",
+      "recent": [
+        { "date": "2026-10-25", "ar": "أول هجوم كبير على القوة الدولية منذ بدء عملياتها: عصابات تفتح النار على مدرّعة في كروا دي بوكي ويُفقد أربعة جنود سلفادوريين.", "en": "The first major attack on the international force since it began operations: gangs opened fire on an armoured vehicle at Croix-des-Bouquets and four Salvadoran soldiers went missing.", "source": "AP / Gang Suppression Force spokesperson" },
+        { "date": "2026-09", "ar": "سلّمت هايتي ثمانية عشر مشتبهاً في قضية اغتيال الرئيس مويز إلى الولايات المتحدة.", "en": "Haiti transferred eighteen suspects in the Moïse assassination case to the United States.", "source": "Rio Times" }
+      ],
+      "confidence": "verified",
+      "sourceRefs": ["ocha-hdx", "unhcr", "acled"]
+    },
+    {
+      "id": "colombia",
+      "name": { "ar": "كولومبيا بعد اتفاق السلام", "en": "Colombia after the peace accord" },
+      "coords": [-74.5, 3.5],
+      "countries": ["COL", "VEN", "ECU"],
+      "severity": "armed-conflict",
+      "started": "1964",
+      "dimensions": ["economic", "political", "ideological", "territorial"],
+      "dimensionNote": {
+        "ar": "نزاع بدأ أيديولوجياً حول الأرض والتمثيل السياسي، وتحوّل بعد اتفاق 2016 إلى نزاع اقتصادي أساساً على اقتصادات الكوكا والتعدين غير المشروع. البعد الأيديولوجي تراجع لصالح البعد الاقتصادي، وهذا التحوّل هو مفتاح فهم المرحلة الحالية.",
+        "en": "A conflict that began ideologically over land and political representation, and after the 2016 accord became primarily an economic conflict over coca and illegal mining economies. The ideological dimension receded in favour of the economic one, and that shift is the key to understanding the present phase."
+      },
+      "parties": {
+        "ar": ["كولومبيا", "جيش التحرير الوطني", "منشقّون عن القوات المسلحة الثورية", "جماعات إجرامية منظّمة"],
+        "en": ["Colombia", "National Liberation Army (ELN)", "FARC dissidents", "organised criminal groups"]
+      },
+      "ethnoReligious": {
+        "ar": "ليس النزاع إثنياً، لكن أثره يتوزّع بشكل غير متكافئ: المجتمعات الأفرو كولومبية في تشوكو والساحل الهادئ والشعوب الأصلية في كاوكا ونارينيو تتحمّل حصّة غير متناسبة من العنف والتهجير بسبب موقعها على ممرّات التهريب.",
+        "en": "The conflict is not ethnic, but its effects are unevenly distributed: Afro-Colombian communities in Chocó and along the Pacific coast and indigenous peoples in Cauca and Nariño bear a disproportionate share of the violence and displacement because of their position on trafficking corridors."
+      },
+      "history": {
+        "ar": "نشأت القوات المسلحة الثورية الكولومبية وجيش التحرير الوطني في الستينيات في سياق عنف ريفي وصراع على الأرض، واستمرّت الحرب نحو ستة عقود راح فيها أكثر من مئتي ألف شخص وهُجّر الملايين داخلياً. وُقّع اتفاق سلام مع القوات المسلحة الثورية في 2016 ونزع سلاح معظم مقاتليها، لكن فصائل منشقّة رفضته واستمرّت. ولم يُنجَز اتفاق مع جيش التحرير الوطني.",
+        "en": "The FARC and the ELN emerged in the 1960s amid rural violence and struggle over land, and the war ran for some six decades, killing more than two hundred thousand people and internally displacing millions. A peace accord with the FARC was signed in 2016 and most of its fighters disarmed, but dissident factions rejected it and continued. No agreement with the ELN has been concluded."
+      },
+      "politicalCauses": {
+        "ar": "تنفيذ بنود اتفاق 2016 المتعلّقة بالإصلاح الزراعي وإحلال المحاصيل، حماية قادة المجتمعات المحلّية والمسرّحين، وتعثّر مسار التفاوض مع جيش التحرير الوطني.",
+        "en": "Implementation of the 2016 accord's provisions on land reform and crop substitution, protection of community leaders and demobilised fighters, and the stalling of the negotiating track with the ELN."
+      },
+      "territorialClaims": {
+        "ar": "لا نزاع حدودي دولي. محلّ النزاع هو السيطرة على ممرّات التهريب ومناطق الزراعة والتعدين، وخصوصاً على الحدود مع فنزويلا والإكوادور وفي كاتاتومبو وتشوكو ونارينيو.",
+        "en": "No international border dispute. What is contested is control of trafficking corridors and cultivation and mining areas, especially on the borders with Venezuela and Ecuador and in Catatumbo, Chocó and Nariño."
+      },
+      "strategicInterests": {
+        "ar": "اقتصاد الكوكا والكوكايين، التعدين غير المشروع للذهب، النفط في كاتاتومبو وأراوكا، وممرّات الوصول إلى المحيطين الهادئ والأطلسي وهي ما يجعل الجغرافيا الكولومبية ذات قيمة تهريبية فريدة.",
+        "en": "The coca and cocaine economy, illegal gold mining, oil in Catatumbo and Arauca, and access corridors to both the Pacific and Atlantic, which give Colombian geography a unique trafficking value."
+      },
+      "externalPowers": [
+        { "iso3": "USA", "role": { "ar": "شراكة طويلة في مكافحة المخدّرات، ومصدر توتّر دوري مع بوغوتا حول سياسة الرشّ والإحلال", "en": "A long counter-narcotics partnership and a periodic source of tension with Bogotá over spraying and substitution policy" }, "kind": "treaty" },
+        { "iso3": "VEN", "role": { "ar": "حدود يعمل عبرها جيش التحرير الوطني والمنشقّون", "en": "A border across which the ELN and dissidents operate" }, "kind": "assessed" }
+      ],
+      "status": {
+        "ar": "عنف مسلح مستمر منخفض ومتوسّط الحدّة في مناطق محدّدة بعد انهيار وقف النار مع جيش التحرير الوطني، مع استهداف متكرّر لقادة المجتمعات المحلّية والناشطين البيئيين، وتهجير داخلي متجدّد. الدولة قائمة ومؤسساتها تعمل، والنزاع محصور جغرافياً.",
+        "en": "Continuing low-to-medium intensity armed violence in specific regions after the collapse of the ceasefire with the ELN, with recurring targeting of community leaders and environmental activists and renewed internal displacement. The state functions and the conflict is geographically contained."
+      },
+      "statusAsOf": "2026-10-30",
+      "recent": [],
+      "confidence": "partial",
+      "sourceRefs": ["acled", "unhcr", "icg"]
+    },
+    {
+      "id": "mexico-cartels",
+      "name": { "ar": "المكسيك والكارتلات", "en": "Mexico and the cartels" },
+      "coords": [-102.5, 23.5],
+      "countries": ["MEX", "USA"],
+      "severity": "armed-conflict",
+      "started": "2006-12",
+      "dimensions": ["economic", "political"],
+      "dimensionNote": {
+        "ar": "عنف مسلح واسع بدافع اقتصادي بحت: السيطرة على أسواق المخدّرات وطرق التهريب والاقتصادات غير المشروعة. لا بعد أيديولوجي ولا إثني ولا ديني، وهو ما يميّزه عن معظم ما يُدرج في أطالس النزاعات.",
+        "en": "Large-scale armed violence with a purely economic driver: control of drug markets, trafficking routes and illicit economies. It has no ideological, ethnic or religious dimension, which distinguishes it from most of what conflict atlases record."
+      },
+      "parties": {
+        "ar": ["الدولة المكسيكية", "كارتل سينالوا", "كارتل خاليسكو الجديد", "تنظيمات إجرامية أخرى"],
+        "en": ["Mexican state", "Sinaloa Cartel", "Jalisco New Generation Cartel", "other criminal organisations"]
+      },
+      "ethnoReligious": null,
+      "ethnoReligiousNote": {
+        "ar": "لا بعد إثني أو ديني للنزاع. المجتمعات الأصلية في تشياباس وغيريرو وأواخاكا تتأثّر بالعنف وبنزاعات أراضٍ منفصلة، لكن ذلك ملفّ مختلف عن نزاع الكارتلات.",
+        "en": "The conflict has no ethnic or religious dimension. Indigenous communities in Chiapas, Guerrero and Oaxaca are affected by the violence and by separate land disputes, but that is a different file from the cartel conflict."
+      },
+      "history": {
+        "ar": "أعلنت الحكومة المكسيكية في ديسمبر 2006 نشر الجيش لمواجهة الكارتلات، فتصاعد العنف بشكل حادّ. أدّت استراتيجية استهداف القيادات إلى تفتّت التنظيمات الكبرى إلى جماعات أصغر وأكثر عنفاً. وتجاوز عدد القتلى في العقدين الأخيرين عدداً يُقارن بنزاعات مسلحة كبرى، مع أكثر من مئة ألف مفقود مسجّل.",
+        "en": "In December 2006 the Mexican government announced the deployment of the army against the cartels, and violence escalated sharply. The strategy of targeting leaders fragmented the large organisations into smaller, more violent groups. Deaths over the past two decades have reached a scale comparable to major armed conflicts, with more than one hundred thousand registered disappearances."
+      },
+      "politicalCauses": {
+        "ar": "ضعف مؤسسات العدالة ومعدّلات الإفلات من العقاب، اختراق الكارتلات للشرطة والبلديات، الخلاف على عسكرة الأمن الداخلي، والاحتكاك مع واشنطن حول تصنيف الكارتلات والعمل عبر الحدود.",
+        "en": "Weak justice institutions and impunity rates, cartel penetration of police and municipalities, disagreement over the militarisation of internal security, and friction with Washington over designating the cartels and cross-border action."
+      },
+      "territorialClaims": {
+        "ar": "لا نزاع حدودي دولي. محلّ النزاع هو السيطرة على الممرّات والمعابر الحدودية والموانئ ومناطق الإنتاج.",
+        "en": "No international border dispute. What is contested is control of corridors, border crossings, ports and production areas."
+      },
+      "strategicInterests": {
+        "ar": "طرق تهريب الفنتانيل والميثامفيتامين والكوكايين إلى الولايات المتحدة، ومعابر تيخوانا وسيوداد خواريز ونويفو لاريدو، وموانئ مانزانيو ولازارو كارديناس التي تدخل عبرها السلائف الكيميائية، إضافةً إلى اقتصادات الأفوكادو والليمون والتعدين التي تخضع للإتاوات.",
+        "en": "Trafficking routes for fentanyl, methamphetamine and cocaine into the United States; the Tijuana, Ciudad Juárez and Nuevo Laredo crossings; the ports of Manzanillo and Lázaro Cárdenas through which chemical precursors enter; plus the avocado, lime and mining economies subject to extortion."
+      },
+      "externalPowers": [
+        { "iso3": "USA", "role": { "ar": "سوق الاستهلاك الرئيسية ومصدر الأسلحة المتسرّبة جنوباً، وشريك في التعاون الأمني مع خلاف متكرّر على حدوده", "en": "The principal consumption market and the source of weapons trafficked south, and a security cooperation partner with recurring disagreement over its limits" }, "kind": "treaty" },
+        { "iso3": "CHN", "role": { "ar": "مصدر رئيسي للسلائف الكيميائية بحسب تقييمات أمريكية", "en": "A principal source of chemical precursors according to American assessments" }, "kind": "assessed" }
+      ],
+      "status": {
+        "ar": "عنف مسلح مرتفع ومستمر بتوزيع جغرافي متباين بين الولايات، مع عمليات أمنية واسعة وتصاعد الضغط الأمريكي. الدولة قائمة ومؤسساتها تعمل، والعنف لا يستهدف إسقاط النظام بل حماية الأسواق.",
+        "en": "High and continuing armed violence with an uneven geographic distribution across states, met by broad security operations amid rising American pressure. The state functions, and the violence aims not to topple the government but to protect markets."
+      },
+      "statusAsOf": "2026-10-30",
+      "recent": [],
+      "confidence": "partial",
+      "sourceRefs": ["acled"]
+    }
+  ]
+}

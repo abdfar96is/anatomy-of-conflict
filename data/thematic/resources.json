@@ -1,0 +1,1000 @@
+{
+  "datasetId": "atlas-resources",
+  "note": {
+    "ar": "حصص الإنتاج والاحتياطيات من تقارير منشورة، وسنة الأساس مذكورة في كل سجل. بيانات الاحتياطيات معلنة ذاتياً من الدول في كثير من الحالات ويصعب مراجعتها مستقلّاً، خاصة في منطقة الخليج.",
+    "en": "Production and reserve shares are from published reports with the baseline year stated per record. Reserve data is in many cases self-declared by states and hard to audit independently, particularly in the Gulf."
+  },
+  "types": [
+    {
+      "id": "oil",
+      "ar": "النفط",
+      "en": "Oil",
+      "color": "#2b2b2b"
+    },
+    {
+      "id": "gas",
+      "ar": "الغاز الطبيعي",
+      "en": "Natural gas",
+      "color": "#45C0BE"
+    },
+    {
+      "id": "rare-earths",
+      "ar": "العناصر الأرضية النادرة",
+      "en": "Rare earth elements",
+      "color": "#A48F50"
+    },
+    {
+      "id": "cobalt",
+      "ar": "الكوبالت",
+      "en": "Cobalt",
+      "color": "#007A9B"
+    },
+    {
+      "id": "coltan",
+      "ar": "الكولتان والتنتالوم",
+      "en": "Coltan and tantalum",
+      "color": "#606368"
+    },
+    {
+      "id": "lithium",
+      "ar": "الليثيوم",
+      "en": "Lithium",
+      "color": "#CFB771"
+    },
+    {
+      "id": "uranium",
+      "ar": "اليورانيوم",
+      "en": "Uranium",
+      "color": "#249F75"
+    },
+    {
+      "id": "phosphate",
+      "ar": "الفوسفات",
+      "en": "Phosphate",
+      "color": "#A1682D"
+    },
+    {
+      "id": "gold",
+      "ar": "الذهب",
+      "en": "Gold",
+      "color": "#d4af37"
+    },
+    {
+      "id": "copper",
+      "ar": "النحاس",
+      "en": "Copper",
+      "color": "#b87333"
+    },
+    {
+      "id": "semiconductors",
+      "ar": "أشباه الموصلات",
+      "en": "Semiconductors",
+      "color": "#127456"
+    },
+    {
+      "id": "water",
+      "ar": "المياه العابرة للحدود",
+      "en": "Transboundary water",
+      "color": "#38777E"
+    },
+    {
+      "id": "grain",
+      "ar": "الحبوب",
+      "en": "Grain",
+      "color": "#E8D777"
+    },
+    {
+      "id": "potash",
+      "ar": "البوتاس",
+      "en": "Potash",
+      "color": "#C77B4E"
+    },
+    {
+      "id": "oil-shale",
+      "ar": "الصخر الزيتي",
+      "en": "Oil shale",
+      "color": "#6E6A5A"
+    },
+    {
+      "id": "bromine",
+      "ar": "البروم",
+      "en": "Bromine",
+      "color": "#9B5DA6"
+    },
+    {
+      "id": "nickel",
+      "ar": "النيكل",
+      "en": "Nickel",
+      "color": "#7F93A8"
+    }
+  ],
+  "entries": [
+    {
+      "iso3": "AUS",
+      "type": "lithium",
+      "year": 2024,
+      "source": "undata",
+      "rank": 1,
+      "ar": "أكبر منتج لليثيوم الصخري في العالم، لكن معالجته وتكريره يتمركزان في الصين.",
+      "en": "The world's largest producer of hard-rock lithium, though its processing and refining are concentrated in China."
+    },
+    {
+      "iso3": "AZE",
+      "type": "oil",
+      "year": 2023,
+      "source": "eia",
+      "ar": "نفط وغاز قزوين يُصدَّران عبر خطّ باكو تبليسي جيهان الذي يتجاوز روسيا وإيران.",
+      "en": "Caspian oil and gas are exported through the Baku–Tbilisi–Ceyhan pipeline, bypassing Russia and Iran.",
+      "conflictIds": [
+        "armenia-azerbaijan"
+      ]
+    },
+    {
+      "iso3": "BLR",
+      "type": "potash",
+      "year": 2025,
+      "source": "usgs",
+      "rank": 4,
+      "ar": "رابع أكبر منتج للبوتاس: 6 ملايين طن في 2025، وصادراته حبيسة اليابسة وتعتمد على موانئ الجوار، وهو ما جعلها نقطة ضغط جيوسياسية.",
+      "en": "The fourth-largest potash producer: 6 million tonnes in 2025. Its exports are landlocked and depend on neighbouring ports, which has made them a point of geopolitical leverage."
+    },
+    {
+      "iso3": "CAN",
+      "type": "potash",
+      "year": 2025,
+      "source": "usgs",
+      "rank": 1,
+      "ar": "أكبر منتج للبوتاس في العالم بفارق واسع: 15 مليون طن مكافئ أكسيد البوتاسيوم في 2025، معظمها من ساسكاتشوان.",
+      "en": "The world's largest potash producer by a wide margin: 15 million tonnes of K₂O equivalent in 2025, mostly from Saskatchewan."
+    },
+    {
+      "iso3": "CHL",
+      "type": "copper",
+      "year": 2024,
+      "source": "undata",
+      "rank": 1,
+      "ar": "أكبر منتج للنحاس في العالم، والنحاس أساس صادراتها وإيراداتها العامة.",
+      "en": "The world's largest copper producer, with copper the basis of its exports and public revenues."
+    },
+    {
+      "iso3": "CHL",
+      "type": "lithium",
+      "year": 2024,
+      "source": "undata",
+      "rank": 2,
+      "ar": "ثاني أكبر منتج لليثيوم، من مسطّحات أتاكاما الملحية ضمن «مثلّث الليثيوم» مع الأرجنتين وبوليفيا.",
+      "en": "The second-largest lithium producer, from the Atacama salt flats within the lithium triangle shared with Argentina and Bolivia."
+    },
+    {
+      "iso3": "CHN",
+      "type": "lithium",
+      "year": 2023,
+      "source": "undata",
+      "ar": "معالجة وتكرير الليثيوم العالمي يتمركزان في الصين وإن كان التعدين موزّعاً على أستراليا وأمريكا الجنوبية.",
+      "en": "Global lithium processing and refining are concentrated in China even though mining is spread across Australia and South America."
+    },
+    {
+      "iso3": "CHN",
+      "type": "phosphate",
+      "year": 2025,
+      "source": "usgs",
+      "rank": 1,
+      "ar": "أكبر منتج للفوسفات عالمياً: نحو 110 مليون طن في 2025، أي 44٪ من الإنتاج العالمي وأكثر من مجموع المنتجين الأربعة التالين.",
+      "en": "The world's largest phosphate producer: around 110 million tonnes in 2025, 44% of global output and more than the next four producers combined."
+    },
+    {
+      "iso3": "CHN",
+      "type": "rare-earths",
+      "year": 2023,
+      "source": "undata",
+      "rank": 1,
+      "ar": "تهيمن على معالجة العناصر الأرضية النادرة أكثر من تعدينها، وهو ما يجعل ضوابط التصدير أداة ضغط فعّالة.",
+      "en": "Dominates the processing of rare earths more than their mining, which makes export controls an effective instrument of pressure.",
+      "conflictIds": [
+        "taiwan-strait",
+        "xinjiang"
+      ]
+    },
+    {
+      "iso3": "CHN",
+      "type": "water",
+      "year": 2024,
+      "source": "undata",
+      "ar": "هضبة التبت منبع السند وبراهماپوترا والميكونغ واليانغتسي والنهر الأصفر، فالسيطرة عليها مسألة مياه لنصف سكّان آسيا.",
+      "en": "The Tibetan plateau is the source of the Indus, Brahmaputra, Mekong, Yangtze and Yellow rivers, so control of it is a water question for half of Asia's population.",
+      "conflictIds": [
+        "tibet"
+      ]
+    },
+    {
+      "iso3": "COD",
+      "type": "cobalt",
+      "year": 2023,
+      "source": "undata",
+      "rank": 1,
+      "ar": "تنتج الحصّة الأكبر عالمياً من الكوبالت، وهو مدخل أساسي في بطاريات السيارات الكهربائية.",
+      "en": "Produces the largest global share of cobalt, a core input in electric vehicle batteries.",
+      "conflictIds": [
+        "drc-east"
+      ]
+    },
+    {
+      "iso3": "COD",
+      "type": "coltan",
+      "year": 2023,
+      "source": "undata",
+      "ar": "الكولتان في كيفو الشمالية والجنوبية يدخل في كل هاتف وحاسوب، والسيطرة على مناجمه وشبكات تصديره محرّك اقتصادي رئيسي للنزاع.",
+      "en": "Coltan in North and South Kivu goes into every phone and computer, and control of its mines and export networks is a principal economic driver of the conflict.",
+      "conflictIds": [
+        "drc-east"
+      ]
+    },
+    {
+      "iso3": "DZA",
+      "type": "gas",
+      "year": 2023,
+      "source": "eia",
+      "ar": "مورّد غاز رئيسي لأوروبا عبر خطّي ميدغاز وترانسميد، واكتسب وزناً إضافياً بعد تراجع الغاز الروسي.",
+      "en": "A principal gas supplier to Europe through the Medgaz and Transmed lines, which gained additional weight after the decline of Russian gas."
+    },
+    {
+      "iso3": "EGY",
+      "type": "gas",
+      "year": 2026,
+      "source": "eia",
+      "ar": "تحوّلت مصر من الاكتفاء الذاتي في 2018 إلى مستورد صافٍ للغاز في 2024. هبط الإنتاج من ذروته عند 71 مليار متر مكعب في 2021 إلى نحو 45 ملياراً في 2024، ومرجع ذلك أساساً تراجع حقل ظُهر من ذروة 3.2 مليار قدم مكعبة يومياً في 2019 إلى نحو 1.2 مليار. غطّت الواردات نحو 38٪ من إجمالي المعروض في الربع الأول من 2026، وكان الغاز المسال 72٪ منها.",
+      "en": "Egypt moved from self-sufficiency in 2018 to net gas importer in 2024. Output fell from a 2021 peak of 71 billion cubic metres to around 45 billion in 2024, chiefly through the decline of the Zohr field from a 2019 peak of 3.2 billion cubic feet per day to around 1.2 billion. Imports covered around 38% of total supply in the first quarter of 2026, LNG making up 72% of them.",
+      "conflictIds": [
+        "israel-palestine",
+        "gulf-security"
+      ]
+    },
+    {
+      "iso3": "EGY",
+      "type": "gold",
+      "year": 2025,
+      "source": "undata",
+      "ar": "منجم السكري في الصحراء الشرقية هو المنجم الذهبي الرئيسي في مصر وأحد أكبر المناجم العاملة في أفريقيا، وتسعى الدولة إلى توسيع التنقيب في درع الصحراء الشرقية.",
+      "en": "The Sukari mine in the Eastern Desert is Egypt's principal gold mine and one of Africa's largest operating mines; the state is seeking to expand exploration across the Eastern Desert shield."
+    },
+    {
+      "iso3": "EGY",
+      "type": "phosphate",
+      "year": 2025,
+      "source": "usgs",
+      "rank": 7,
+      "ar": "سابع أكبر منتج للفوسفات: نحو 5.5 مليون طن في 2025.",
+      "en": "The seventh-largest phosphate producer: around 5.5 million tonnes in 2025."
+    },
+    {
+      "iso3": "EGY",
+      "type": "water",
+      "year": 2024,
+      "source": "undata",
+      "ar": "تعتمد مصر على النيل في معظم مياهها العذبة، وهو ما يجعل أي تغيير في تدفّقه مسألة أمن وجودي بالنسبة لها.",
+      "en": "Egypt depends on the Nile for most of its fresh water, which makes any change in its flow an existential security matter for it.",
+      "conflictIds": [
+        "ethiopia"
+      ]
+    },
+    {
+      "iso3": "ETH",
+      "type": "water",
+      "year": 2024,
+      "source": "undata",
+      "ar": "سدّ النهضة على النيل الأزرق أكبر محطة كهرومائية في أفريقيا، وهو جوهر الخلاف مع مصر والسودان.",
+      "en": "The Grand Ethiopian Renaissance Dam on the Blue Nile is Africa's largest hydroelectric plant and the core of the dispute with Egypt and Sudan.",
+      "conflictIds": [
+        "ethiopia"
+      ]
+    },
+    {
+      "iso3": "GUY",
+      "type": "oil",
+      "year": 2024,
+      "source": "eia",
+      "ar": "اكتشافات حوض ستابروك البحري حوّلت غيانا إلى واحدة من أسرع الاقتصادات نمواً في العالم، وأعادت إحياء مطالبة فنزويلا بإيسيكيبو.",
+      "en": "The offshore Stabroek block discoveries turned Guyana into one of the world's fastest-growing economies and revived Venezuela's Essequibo claim.",
+      "conflictIds": [
+        "essequibo"
+      ]
+    },
+    {
+      "iso3": "IDN",
+      "type": "nickel",
+      "year": 2024,
+      "source": "undata",
+      "rank": 1,
+      "ar": "أكبر منتج للنيكل في العالم، وحظر تصدير الخام منذ 2020 حوّل البلاد إلى مركز معالجة، بتمويل صيني في معظمه.",
+      "en": "The world's largest nickel producer; its raw-ore export ban since 2020 turned the country into a processing hub, largely with Chinese financing."
+    },
+    {
+      "iso3": "IND",
+      "type": "water",
+      "year": 2024,
+      "source": "undata",
+      "ar": "معاهدة مياه السند 1960 نظّمت تقاسم النهر مع باكستان؛ علّقت الهند مشاركتها في 2025 وحكمت محكمة التحكيم الدائمة في 31 أغسطس 2026 بأنها تبقى ملزمة بالكامل.",
+      "en": "The 1960 Indus Waters Treaty governed river sharing with Pakistan; India suspended its participation in 2025 and the Permanent Court of Arbitration ruled on 31 August 2026 that it remains fully binding.",
+      "conflictIds": [
+        "kashmir"
+      ]
+    },
+    {
+      "iso3": "IRN",
+      "type": "gas",
+      "year": 2023,
+      "source": "eia",
+      "rank": 2,
+      "ar": "ثاني أكبر احتياطي غاز في العالم، ويتشارك حقل بارس الجنوبي مع حقل الشمال القطري.",
+      "en": "The world's second-largest gas reserves, sharing the South Pars field with Qatar's North Field.",
+      "conflictIds": [
+        "iran-us-israel",
+        "gulf-security"
+      ]
+    },
+    {
+      "iso3": "IRQ",
+      "type": "oil",
+      "year": 2023,
+      "source": "eia",
+      "rank": 5,
+      "ar": "احتياطيات كبيرة في الجنوب وكركوك، والخلاف على حقّ التصدير جوهر النزاع بين بغداد وأربيل.",
+      "en": "Large reserves in the south and at Kirkuk, with the dispute over export rights at the core of the Baghdad–Erbil conflict.",
+      "conflictIds": [
+        "iraq-kurdistan"
+      ]
+    },
+    {
+      "iso3": "ISR",
+      "type": "potash",
+      "year": 2025,
+      "source": "usgs",
+      "rank": 7,
+      "ar": "سابع أكبر منتج للبوتاس: 2 مليون طن في 2025، من أملاح البحر الميت، وهو المورد المشترك مع الأردن.",
+      "en": "The seventh-largest potash producer: 2 million tonnes in 2025, from Dead Sea brines — the resource shared with Jordan."
+    },
+    {
+      "iso3": "JOR",
+      "type": "bromine",
+      "year": 2024,
+      "source": "usgs",
+      "rank": 2,
+      "ar": "ثاني أكبر منتج للبروم في العالم بعد إسرائيل، بنحو 26٪ من الإنتاج العالمي، ومصدره كذلك أملاح البحر الميت. البحر الميت مورد مشترك بين الأردن وإسرائيل وفلسطين، وانحسار منسوبه يمثّل قيداً بيئياً وإنتاجياً طويل الأمد على الجانبين.",
+      "en": "The world's second-largest bromine producer after Israel, at around 26% of global output, also from Dead Sea brines. The Dead Sea is a resource shared between Jordan, Israel and Palestine, and its falling level is a long-term environmental and production constraint on both sides."
+    },
+    {
+      "iso3": "JOR",
+      "type": "oil-shale",
+      "year": 2025,
+      "source": "undata",
+      "ar": "من أكبر احتياطيات الصخر الزيتي في العالم، وتضعه وزارة الطاقة والثروة المعدنية في المرتبة الرابعة عالمياً بتقدير يتراوح بين 40 و70 مليار طن موزّعة على 18 موقعاً. المدى الواسع بين التقديرين يعكس اختلاف منهجيات التقدير وليس دقّةً معروفة. محطة عطارات أم الغدران هي المحطة الوحيدة العاملة، وأسهمت بـ16.7٪ من مشتريات شركة الكهرباء الوطنية في 2025 مقابل نحو 16٪ في 2024.",
+      "en": "Among the world's largest oil shale reserves; Jordan's energy ministry ranks it fourth globally at an estimated 40 to 70 billion tonnes across 18 sites. The wide range between the two figures reflects differing estimation methodologies rather than a known precision. The Attarat Umm Ghudran plant is the only one operating, supplying 16.7% of the national electricity company's purchases in 2025, against around 16% in 2024."
+    },
+    {
+      "iso3": "JOR",
+      "type": "phosphate",
+      "year": 2025,
+      "source": "usgs",
+      "rank": 5,
+      "ar": "خامس أكبر منتج للفوسفات في العالم: 12 مليون طن في 2025، نحو 4.8٪ من الإنتاج العالمي، باحتياطي يقدّره مسح الولايات المتحدة الجيولوجي بـ820 مليون طن. المنتج الوحيد هو شركة مناجم الفوسفات الأردنية، وتصدّر إلى الصين والهند وإندونيسيا.",
+      "en": "The world's fifth-largest phosphate rock producer: 12 million tonnes in 2025, around 4.8% of global output, with reserves the US Geological Survey puts at 820 million tonnes. The sole producer is the Jordan Phosphate Mines Company, exporting to China, India and Indonesia."
+    },
+    {
+      "iso3": "JOR",
+      "type": "potash",
+      "year": 2025,
+      "source": "usgs",
+      "rank": 8,
+      "ar": "ثامن أكبر منتج للبوتاس عالمياً: 1.8 مليون طن مكافئ أكسيد البوتاسيوم في 2025، نحو 3.7٪ من الإنتاج العالمي، ومصدره استخلاص أملاح البحر الميت. شركة البوتاس العربية هي المنتج الوحيد في المنطقة العربية، وبلغ إنتاجها في 2024 رقماً قياسياً عند 2.84 مليون طن من المنتج الخام.",
+      "en": "The world's eighth-largest potash producer: 1.8 million tonnes of K₂O equivalent in 2025, around 3.7% of global output, extracted from Dead Sea brines. The Arab Potash Company is the Arab region's only producer, and its 2024 output reached a company record of 2.84 million tonnes of product."
+    },
+    {
+      "iso3": "JOR",
+      "type": "uranium",
+      "year": 2026,
+      "source": "undata",
+      "ar": "أعلنت هيئة الطاقة الذرية الأردنية في يونيو 2026 احتياطياً قدره 42 ألف طن من أكسيد اليورانيوم في وسط الأردن مصنّفاً وفق معايير JORC. لم يبدأ الإنتاج التجاري بعد، والاحتياطي غير مستغلّ. تقديرات أقدم تحدّثت عن 65 ألف طن، والفارق بين الرقمين فارق في معايير التصنيف لا في الكمية المكتشفة.",
+      "en": "In June 2026 the Jordan Atomic Energy Commission declared a reserve of 42,000 tonnes of uranium oxide in central Jordan, classified to JORC standards. Commercial production has not begun and the reserve is undeveloped. Older estimates cited 65,000 tonnes; the difference between the two figures is one of classification standard rather than quantity discovered."
+    },
+    {
+      "iso3": "KAZ",
+      "type": "uranium",
+      "year": 2024,
+      "source": "undata",
+      "rank": 1,
+      "ar": "أكبر منتج لليورانيوم في العالم بفارق واسع، ويصدّر جزءاً من إنتاجه عبر ممرّات روسية وأخرى عابرة لبحر قزوين.",
+      "en": "The world's largest uranium producer by a wide margin, exporting part of its output through Russian routes and others across the Caspian."
+    },
+    {
+      "iso3": "LBN",
+      "type": "gas",
+      "year": 2023,
+      "source": "eia",
+      "ar": "حقول غاز محتملة في المنطقة الاقتصادية البحرية شرق المتوسط، ورُسمت الحدود البحرية مع إسرائيل باتفاق 2022.",
+      "en": "Potential gas fields in the eastern Mediterranean exclusive economic zone; the maritime boundary with Israel was delimited by a 2022 agreement.",
+      "conflictIds": [
+        "lebanon-israel"
+      ]
+    },
+    {
+      "iso3": "LBY",
+      "type": "gas",
+      "year": 2026,
+      "source": "eia",
+      "ar": "احتياطي غاز يقدّر بنحو 53 تريليون قدم مكعبة، الخامس في أفريقيا بعد نيجيريا والجزائر وموزمبيق ومصر، ويُصدَّر جزء منه إلى إيطاليا عبر خطّ غرين ستريم البحري.",
+      "en": "Gas reserves estimated at around 53 trillion cubic feet, fifth in Africa after Nigeria, Algeria, Mozambique and Egypt, part of it exported to Italy through the subsea Greenstream pipeline."
+    },
+    {
+      "iso3": "LBY",
+      "type": "oil",
+      "year": 2026,
+      "source": "eia",
+      "rank": 9,
+      "ar": "أكبر احتياطي نفطي مؤكد في أفريقيا: نحو 48 مليار برميل، أي 41٪ من احتياطي القارة والمرتبة التاسعة عالمياً. بلغ الإنتاج 1.5 مليون برميل يومياً في 21 يونيو 2026، وهو أعلى مستوى منذ 2013 بعد أن كان نحو 1.7 مليون قبل 2011. الغالبية العظمى من الاحتياطيات القابلة للاستخراج في حوض سرت بحسب إدارة معلومات الطاقة الأمريكية. الإنتاج عرضة للتوقّف المتكرّر بفعل الإغلاقات المسلحة والاحتجاجات لا بفعل قيود جيولوجية.",
+      "en": "Africa's largest proven oil reserves: around 48 billion barrels, 41% of the continent's total and ninth globally. Output reached 1.5 million barrels per day on 21 June 2026, the highest since 2013, against around 1.7 million before 2011. The large majority of recoverable reserves lie in the Sirte basin according to the US Energy Information Administration. Production is subject to repeated shutdowns through armed closures and protests rather than geological constraints."
+    },
+    {
+      "iso3": "MAR",
+      "type": "phosphate",
+      "year": 2023,
+      "source": "undata",
+      "rank": 1,
+      "ar": "تسيطر على الحصّة الأكبر من احتياطيات الفوسفات العالمية، ومنها فوسفات بوكراع في الصحراء الغربية.",
+      "en": "Holds the largest share of global phosphate reserves, including the Bou Craa deposit in Western Sahara.",
+      "conflictIds": [
+        "western-sahara"
+      ]
+    },
+    {
+      "iso3": "MLI",
+      "type": "gold",
+      "year": 2023,
+      "source": "undata",
+      "ar": "من أكبر منتجي الذهب في أفريقيا، والتعدين الحرفي مصدر تمويل لأطراف النزاع.",
+      "en": "Among Africa's largest gold producers, with artisanal mining a funding source for parties to the conflict.",
+      "conflictIds": [
+        "sahel"
+      ]
+    },
+    {
+      "iso3": "MMR",
+      "type": "rare-earths",
+      "year": 2024,
+      "source": "undata",
+      "ar": "مصدر متنامٍ للمعادن النادرة يُعدَّن في مناطق خارج سيطرة المجلس العسكري، وصار محلّ تفاوض دولي مباشر في 2026.",
+      "en": "A growing source of rare earths mined in areas outside junta control, and the subject of direct international negotiation in 2026.",
+      "conflictIds": [
+        "myanmar"
+      ]
+    },
+    {
+      "iso3": "NER",
+      "type": "uranium",
+      "year": 2023,
+      "source": "undata",
+      "ar": "من أهم منتجي اليورانيوم في أفريقيا، وكان مورّداً رئيسياً لمحطات الطاقة الفرنسية قبل التحوّلات السياسية.",
+      "en": "Among Africa's most important uranium producers and a principal supplier to French power plants before the political changes.",
+      "conflictIds": [
+        "sahel"
+      ]
+    },
+    {
+      "iso3": "NGA",
+      "type": "oil",
+      "year": 2023,
+      "source": "eia",
+      "ar": "نفط دلتا النيجر أساس الإيرادات الاتحادية، وتوزيع عوائده من محرّكات الخلاف الفيدرالي.",
+      "en": "Niger Delta oil underpins federal revenues, and the distribution of its proceeds is among the drivers of federal dispute.",
+      "conflictIds": [
+        "nigeria"
+      ]
+    },
+    {
+      "iso3": "PAK",
+      "type": "copper",
+      "year": 2024,
+      "source": "undata",
+      "ar": "منجم ريكو ديك في بلوشستان من أكبر رواسب النحاس والذهب غير المستغلّة في العالم.",
+      "en": "The Reko Diq deposit in Balochistan is among the world's largest undeveloped copper and gold resources.",
+      "conflictIds": [
+        "balochistan"
+      ]
+    },
+    {
+      "iso3": "QAT",
+      "type": "gas",
+      "year": 2023,
+      "source": "eia",
+      "rank": 3,
+      "ar": "من أكبر مصدّري الغاز المسال، وتعتمد صادراتها على المرور عبر مضيق هرمز.",
+      "en": "Among the largest LNG exporters, with exports dependent on transit through the Strait of Hormuz.",
+      "conflictIds": [
+        "gulf-security"
+      ]
+    },
+    {
+      "iso3": "RUS",
+      "type": "gas",
+      "year": 2023,
+      "source": "eia",
+      "rank": 1,
+      "ar": "أكبر احتياطي غاز في العالم؛ أعادت العقوبات توجيه صادراتها شرقاً نحو الصين.",
+      "en": "The world's largest gas reserves; sanctions redirected exports eastward toward China.",
+      "conflictIds": [
+        "russia-ukraine"
+      ]
+    },
+    {
+      "iso3": "RUS",
+      "type": "potash",
+      "year": 2025,
+      "source": "usgs",
+      "rank": 2,
+      "ar": "ثاني أكبر منتج للبوتاس: 10 ملايين طن في 2025. تمركُز إنتاج البوتاس في روسيا وبيلاروسيا جعل العقوبات على الأخيرة صدمةً في أسواق الأسمدة العالمية.",
+      "en": "The second-largest potash producer: 10 million tonnes in 2025. The concentration of potash output in Russia and Belarus made sanctions on the latter a shock to global fertiliser markets."
+    },
+    {
+      "iso3": "SAU",
+      "type": "oil",
+      "year": 2023,
+      "source": "eia",
+      "rank": 2,
+      "ar": "أكبر مُصدِّر للنفط الخام، ولديها طاقة إنتاج احتياطية تمنحها دوراً في استقرار الأسواق.",
+      "en": "The largest crude oil exporter, with spare production capacity that gives it a role in market stabilisation.",
+      "conflictIds": [
+        "gulf-security",
+        "yemen"
+      ]
+    },
+    {
+      "iso3": "SAU",
+      "type": "phosphate",
+      "year": 2025,
+      "source": "usgs",
+      "rank": 6,
+      "ar": "سادس أكبر منتج للفوسفات: نحو 10 ملايين طن في 2025، ومركزه مدينة وعد الشمال الصناعية.",
+      "en": "The sixth-largest phosphate producer: around 10 million tonnes in 2025, centred on the Wa'ad Al Shamal industrial city."
+    },
+    {
+      "iso3": "SDN",
+      "type": "gold",
+      "year": 2023,
+      "source": "undata",
+      "ar": "مناجم الذهب في دارفور وشمال كردفان هي مصدر تمويل الحرب الرئيسي لقوات الدعم السريع.",
+      "en": "Gold mines in Darfur and North Kordofan are the Rapid Support Forces' principal war funding source.",
+      "conflictIds": [
+        "sudan"
+      ]
+    },
+    {
+      "iso3": "SDN",
+      "type": "oil",
+      "year": 2024,
+      "source": "eia",
+      "ar": "فقد السودان معظم حقوله النفطية بانفصال الجنوب في 2011، لكنه احتفظ بخطّ الأنابيب الوحيد ومصفاة ومحطة تصدير بورتسودان. فأصبح دخله النفطي رسوم عبور للخام الجنوبي أكثر منه إنتاجاً، وهو ما يربط اقتصاد الدولتين ربطاً قسرياً رغم خلافاتهما.",
+      "en": "Sudan lost most of its oil fields with the south's secession in 2011 but retained the only pipeline, a refinery and the Port Sudan export terminal. Its oil income is therefore transit fees on southern crude more than production, which binds the two economies together despite their disputes.",
+      "conflictIds": [
+        "sudan",
+        "south-sudan"
+      ]
+    },
+    {
+      "iso3": "SSD",
+      "type": "oil",
+      "year": 2023,
+      "source": "eia",
+      "ar": "حقول الوحدة وأعالي النيل تمثّل نحو كلّ إيرادات الدولة، وتُصدَّر عبر خطّ أنابيب يمرّ في السودان.",
+      "en": "The Unity and Upper Nile fields account for virtually all state revenue and are exported through a pipeline running across Sudan.",
+      "conflictIds": [
+        "south-sudan",
+        "sudan"
+      ]
+    },
+    {
+      "iso3": "SYR",
+      "type": "oil",
+      "year": 2023,
+      "source": "eia",
+      "ar": "حقول النفط والغاز في الشمال الشرقي كانت خارج سيطرة دمشق لسنوات، ودُمجت إدارتها في الدولة بعد ترتيبات 2026.",
+      "en": "Oil and gas fields in the north-east lay outside Damascus's control for years, and their administration was integrated into the state after the 2026 arrangements.",
+      "conflictIds": [
+        "syria-transition"
+      ]
+    },
+    {
+      "iso3": "TUN",
+      "type": "phosphate",
+      "year": 2025,
+      "source": "usgs",
+      "rank": 10,
+      "ar": "عاشر أكبر منتج للفوسفات: نحو 3.3 مليون طن في 2025، وإنتاجه متقلّب بفعل الاضطرابات العمالية والاجتماعية في حوض قفصة.",
+      "en": "The tenth-largest phosphate producer: around 3.3 million tonnes in 2025, with output volatile owing to labour and social unrest in the Gafsa basin."
+    },
+    {
+      "iso3": "TUR",
+      "type": "water",
+      "year": 2024,
+      "source": "undata",
+      "ar": "سدود دجلة والفرات في جنوب شرق الأناضول تمنح تركيا تأثيراً على تدفّق المياه إلى سوريا والعراق.",
+      "en": "The Tigris and Euphrates dams in south-eastern Anatolia give Türkiye influence over water flows into Syria and Iraq.",
+      "conflictIds": [
+        "turkey-kurdish",
+        "syria-transition"
+      ]
+    },
+    {
+      "iso3": "TWN",
+      "type": "semiconductors",
+      "year": 2024,
+      "source": "undata",
+      "rank": 1,
+      "ar": "تنتج الحصّة الأكبر عالمياً من أشباه الموصلات المتقدّمة، وهو ما يجعل أي اضطراب في الجزيرة أزمة اقتصادية عالمية فورية.",
+      "en": "Produces the largest global share of advanced semiconductors, which makes any disruption on the island an immediate global economic crisis.",
+      "conflictIds": [
+        "taiwan-strait"
+      ]
+    },
+    {
+      "iso3": "UKR",
+      "type": "grain",
+      "year": 2023,
+      "source": "worldbank",
+      "ar": "من أكبر مصدّري الحبوب والزيوت النباتية، وتعتمد صادراتها على ممرّ البحر الأسود والمضائق التركية.",
+      "en": "Among the largest exporters of grain and vegetable oils, with exports dependent on the Black Sea corridor and the Turkish straits.",
+      "conflictIds": [
+        "russia-ukraine"
+      ]
+    },
+    {
+      "iso3": "UKR",
+      "type": "lithium",
+      "year": 2023,
+      "source": "undata",
+      "ar": "رواسب ليثيوم في الشرق والوسط، بعضها في مناطق خضعت للاحتلال، وقد دخلت في مفاوضات اقتصادية دولية.",
+      "en": "Lithium deposits in the east and centre, some in occupied areas, which have entered international economic negotiations.",
+      "conflictIds": [
+        "russia-ukraine"
+      ]
+    },
+    {
+      "iso3": "USA",
+      "type": "oil",
+      "year": 2024,
+      "source": "eia",
+      "rank": 1,
+      "ar": "أكبر منتج للنفط الخام في العالم منذ 2018، وصادراتها من الغاز المسال تمرّ جزئياً عبر قناة بنما.",
+      "en": "The world's largest crude oil producer since 2018, with part of its LNG exports transiting the Panama Canal."
+    },
+    {
+      "iso3": "VEN",
+      "type": "oil",
+      "year": 2023,
+      "source": "eia",
+      "rank": 1,
+      "ar": "أكبر احتياطي نفطي مؤكّد في العالم، معظمه نفط ثقيل في حوض أورينوكو يحتاج استثماراً كبيراً للاستخراج.",
+      "en": "The world's largest proven oil reserves, mostly heavy crude in the Orinoco Belt requiring heavy investment to extract.",
+      "conflictIds": [
+        "venezuela",
+        "essequibo"
+      ]
+    }
+  ],
+  "sites": [
+    {
+      "id": "ghawar",
+      "ar": "حقل الغوار",
+      "en": "Ghawar field",
+      "coords": [
+        49.2,
+        25.4
+      ],
+      "type": "oil",
+      "iso3": "SAU",
+      "noteAr": "أكبر حقل نفط تقليدي في العالم.",
+      "noteEn": "The world's largest conventional oil field."
+    },
+    {
+      "id": "south-pars",
+      "ar": "حقل بارس الجنوبي / الشمال",
+      "en": "South Pars / North Field",
+      "coords": [
+        52.0,
+        26.6
+      ],
+      "type": "gas",
+      "iso3": "IRN",
+      "noteAr": "أكبر حقل غاز في العالم، مشترك بين إيران وقطر.",
+      "noteEn": "The world's largest gas field, shared between Iran and Qatar."
+    },
+    {
+      "id": "stabroek",
+      "ar": "حوض ستابروك",
+      "en": "Stabroek block",
+      "coords": [
+        -57.2,
+        8.6
+      ],
+      "type": "oil",
+      "iso3": "GUY",
+      "noteAr": "قبالة سواحل إيسيكيبو المتنازع عليها.",
+      "noteEn": "Offshore the disputed Essequibo coast."
+    },
+    {
+      "id": "katanga",
+      "ar": "حزام كاتانغا للنحاس والكوبالت",
+      "en": "Katanga copper-cobalt belt",
+      "coords": [
+        26.5,
+        -10.8
+      ],
+      "type": "cobalt",
+      "iso3": "COD",
+      "noteAr": "جنوب الكونغو، منفصل جغرافياً عن نزاع كيفو.",
+      "noteEn": "In southern Congo, geographically separate from the Kivu conflict."
+    },
+    {
+      "id": "reko-diq",
+      "ar": "منجم ريكو ديك",
+      "en": "Reko Diq",
+      "coords": [
+        62.2,
+        29.0
+      ],
+      "type": "copper",
+      "iso3": "PAK",
+      "noteAr": "في بلوشستان، ومحلّ خلاف حول توزيع العوائد.",
+      "noteEn": "In Balochistan, and contested over revenue distribution."
+    },
+    {
+      "id": "bou-craa",
+      "ar": "فوسفات بوكراع",
+      "en": "Bou Craa phosphate",
+      "coords": [
+        -12.85,
+        26.33
+      ],
+      "type": "phosphate",
+      "iso3": "MAR",
+      "noteAr": "في الصحراء الغربية، وأحد مرتكزات البعد الاقتصادي للنزاع.",
+      "noteEn": "In Western Sahara, and one of the economic anchors of the dispute."
+    },
+    {
+      "id": "gerd",
+      "ar": "سدّ النهضة الإثيوبي",
+      "en": "Grand Ethiopian Renaissance Dam",
+      "coords": [
+        35.09,
+        11.21
+      ],
+      "type": "water",
+      "iso3": "ETH",
+      "noteAr": "على النيل الأزرق قرب الحدود السودانية.",
+      "noteEn": "On the Blue Nile near the Sudanese border."
+    },
+    {
+      "id": "kirkuk",
+      "ar": "حقل كركوك",
+      "en": "Kirkuk field",
+      "coords": [
+        44.4,
+        35.47
+      ],
+      "type": "oil",
+      "iso3": "IRQ",
+      "noteAr": "في منطقة متنازع عليها بين بغداد وأربيل بموجب المادة 140.",
+      "noteEn": "In territory disputed between Baghdad and Erbil under Article 140."
+    },
+    {
+      "id": "sui",
+      "ar": "حقل غاز سوي",
+      "en": "Sui gas field",
+      "coords": [
+        69.2,
+        28.6
+      ],
+      "type": "gas",
+      "iso3": "PAK",
+      "noteAr": "في بلوشستان، ومطلب توزيع عوائده من أقدم مطالب الإقليم.",
+      "noteEn": "In Balochistan, where the demand to share its revenues is among the region's oldest."
+    },
+    {
+      "id": "hsinchu",
+      "ar": "حدائق هسينشو للعلوم",
+      "en": "Hsinchu Science Park",
+      "coords": [
+        121.0,
+        24.78
+      ],
+      "type": "semiconductors",
+      "iso3": "TWN",
+      "noteAr": "مركز صناعة أشباه الموصلات المتقدّمة في تايوان.",
+      "noteEn": "The centre of Taiwan's advanced semiconductor industry."
+    },
+    {
+      "id": "hpakant",
+      "ar": "مناجم هباكانت لليشم",
+      "en": "Hpakant jade mines",
+      "coords": [
+        96.3,
+        25.6
+      ],
+      "type": "gold",
+      "iso3": "MMR",
+      "noteAr": "في كاتشين، ومن أبرز موارد اقتصاد الحرب في ميانمار.",
+      "noteEn": "In Kachin, among the most prominent resources of Myanmar's war economy."
+    },
+    {
+      "id": "orinoco",
+      "ar": "قوس أورينوكو النفطي",
+      "en": "Orinoco Belt",
+      "coords": [
+        -64.5,
+        8.8
+      ],
+      "type": "oil",
+      "iso3": "VEN",
+      "noteAr": "أكبر تجمّع للنفط الثقيل في العالم.",
+      "noteEn": "The world's largest concentration of heavy oil."
+    },
+    {
+      "id": "eshidiya",
+      "ar": "منجم الشيدية للفوسفات",
+      "en": "Eshidiya phosphate mine",
+      "coords": [
+        36.33,
+        29.82
+      ],
+      "type": "phosphate",
+      "iso3": "JOR",
+      "noteAr": "أكبر مناجم الفوسفات الأردنية، جنوب شرق معان، ويُصدَّر إنتاجه عبر ميناء العقبة.",
+      "noteEn": "Jordan's largest phosphate mine, south-east of Ma'an, with output exported through Aqaba."
+    },
+    {
+      "id": "arab-potash",
+      "ar": "شركة البوتاس العربية — غور الصافي",
+      "en": "Arab Potash Company — Ghor al-Safi",
+      "coords": [
+        35.5,
+        31.05
+      ],
+      "type": "potash",
+      "iso3": "JOR",
+      "noteAr": "جنوب البحر الميت، وتستخلص البوتاس والبروم من الأملاح بالتبخير الشمسي.",
+      "noteEn": "South of the Dead Sea, extracting potash and bromine from brines by solar evaporation."
+    },
+    {
+      "id": "attarat",
+      "ar": "محطة عطارات أم الغدران للصخر الزيتي",
+      "en": "Attarat Umm Ghudran oil shale plant",
+      "coords": [
+        36.25,
+        31.3
+      ],
+      "type": "oil-shale",
+      "iso3": "JOR",
+      "noteAr": "وسط الأردن، المحطة الوحيدة العاملة بالصخر الزيتي، وأسهمت بـ16.7٪ من مزيج الكهرباء في 2025.",
+      "noteEn": "In central Jordan, the only operating oil shale plant, supplying 16.7% of the electricity mix in 2025."
+    },
+    {
+      "id": "jordan-uranium",
+      "ar": "مشروع اليورانيوم في وسط الأردن",
+      "en": "Central Jordan uranium project",
+      "coords": [
+        36.18,
+        31.22
+      ],
+      "type": "uranium",
+      "iso3": "JOR",
+      "noteAr": "منطقة سواقة وما حولها. احتياطي معلن 42 ألف طن وفق معايير JORC، وغير مستغلّ تجارياً حتى الآن. الموقع تمثيلي للمنطقة لا لحدّ امتياز.",
+      "noteEn": "The Siwaqa area and its surroundings. A declared reserve of 42,000 tonnes to JORC standards, not yet commercially developed. The point represents the area, not a concession boundary."
+    },
+    {
+      "id": "khouribga",
+      "ar": "حوض خريبكة للفوسفات",
+      "en": "Khouribga phosphate basin",
+      "coords": [
+        -6.9,
+        32.88
+      ],
+      "type": "phosphate",
+      "iso3": "MAR",
+      "noteAr": "أكبر مجمّع فوسفات عامل في العالم.",
+      "noteEn": "The world's largest operating phosphate complex."
+    },
+    {
+      "id": "saskatchewan-potash",
+      "ar": "حوض ساسكاتشوان للبوتاس",
+      "en": "Saskatchewan potash basin",
+      "coords": [
+        -105.5,
+        51.5
+      ],
+      "type": "potash",
+      "iso3": "CAN",
+      "noteAr": "مصدر الحصّة الأكبر من البوتاس العالمي.",
+      "noteEn": "Source of the largest share of global potash."
+    },
+    {
+      "id": "atacama",
+      "ar": "مسطّح أتاكاما الملحي",
+      "en": "Salar de Atacama",
+      "coords": [
+        -68.3,
+        -23.5
+      ],
+      "type": "lithium",
+      "iso3": "CHL",
+      "noteAr": "ضمن «مثلّث الليثيوم» بين تشيلي والأرجنتين وبوليفيا.",
+      "noteEn": "Within the lithium triangle between Chile, Argentina and Bolivia."
+    },
+    {
+      "id": "sharara",
+      "ar": "حقل الشرارة النفطي",
+      "en": "El Sharara oil field",
+      "coords": [
+        12.6,
+        27.6
+      ],
+      "type": "oil",
+      "iso3": "LBY",
+      "noteAr": "أكبر حقول ليبيا في حوض مرزق، بطاقة نحو 300 ألف برميل يومياً، وتكرّر توقّفه بالإغلاقات المسلحة — آخرها إغلاق صمّام رئيسي في 21 سبتمبر 2026.",
+      "noteEn": "Libya's largest field, in the Murzuq basin, with capacity of around 300,000 barrels per day, repeatedly halted by armed closures — most recently a main valve shut on 21 September 2026."
+    },
+    {
+      "id": "sirte-basin",
+      "ar": "حوض سرت",
+      "en": "Sirte basin",
+      "coords": [
+        18.5,
+        29.0
+      ],
+      "type": "oil",
+      "iso3": "LBY",
+      "noteAr": "يضمّ الغالبية العظمى من احتياطيات ليبيا القابلة للاستخراج وأغلب طاقتها الإنتاجية. النقطة تمثّل الحوض لا حدّ امتياز.",
+      "noteEn": "Holds the large majority of Libya's recoverable reserves and most of its production capacity. The point represents the basin, not a concession boundary."
+    },
+    {
+      "id": "zohr",
+      "ar": "حقل ظُهر للغاز",
+      "en": "Zohr gas field",
+      "coords": [
+        32.3,
+        33.1
+      ],
+      "type": "gas",
+      "iso3": "EGY",
+      "noteAr": "أكبر حقول غاز شرق المتوسط، بدأ الإنتاج في ديسمبر 2017 وتراجع من ذروة 3.2 مليار قدم مكعبة يومياً في 2019 إلى نحو 1.2 مليار.",
+      "noteEn": "The eastern Mediterranean's largest gas field, in production since December 2017, down from a 2019 peak of 3.2 billion cubic feet per day to around 1.2 billion."
+    },
+    {
+      "id": "sukari",
+      "ar": "منجم السكري للذهب",
+      "en": "Sukari gold mine",
+      "coords": [
+        34.72,
+        24.95
+      ],
+      "type": "gold",
+      "iso3": "EGY",
+      "noteAr": "في الصحراء الشرقية قرب البحر الأحمر، المنجم الذهبي الرئيسي في مصر.",
+      "noteEn": "In the Eastern Desert near the Red Sea, Egypt's principal gold mine."
+    },
+    {
+      "id": "port-sudan",
+      "ar": "محطة بورتسودان لتصدير النفط",
+      "en": "Port Sudan oil export terminal",
+      "coords": [
+        37.22,
+        19.62
+      ],
+      "type": "oil",
+      "iso3": "SDN",
+      "noteAr": "منفذ التصدير الوحيد للخام السوداني والجنوب سوداني على البحر الأحمر.",
+      "noteEn": "The only export outlet on the Red Sea for Sudanese and South Sudanese crude."
+    }
+  ],
+  "coverageNote": {
+    "ar": "التغطية ليست شاملة. تشمل هذه النسخة الدول ذات المكانة العالمية الموثّقة في المورد المعني، ولا تشمل كل منتج لكل مورد. غياب دولة من هذه الطبقة يعني غياب سجلّ موثّق في هذه النسخة، لا غياب الموارد فيها. ملفّ الدولة يذكر ذلك صراحةً عند فتح أي دولة غير مغطّاة.",
+    "en": "Coverage is not exhaustive. This release includes states with a documented global standing in the resource concerned, not every producer of every resource. A country's absence from this layer means no documented record in this release, not an absence of resources there. The country panel states this explicitly when an uncovered country is opened."
+  }
+}
