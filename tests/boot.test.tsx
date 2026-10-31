@@ -22,6 +22,14 @@ describe('Boot', () => {
     expect(document.documentElement.lang).toBe('ar');
   });
 
+  test('fills the timeline category filter with every category once loaded', async () => {
+    vi.stubGlobal('fetch', vi.fn(fromDisk));
+    render(<Boot><p>atlas ready</p></Boot>);
+    await screen.findByText('atlas ready');
+    const cats = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'curated/timeline.json'), 'utf8')).categories.map((c: { id: string }) => c.id);
+    expect([...(atlas.get().filters.timelineCats ?? [])]).toEqual(cats);
+  });
+
   test('switching to English flips direction and title', async () => {
     vi.stubGlobal('fetch', vi.fn(fromDisk));
     render(<Boot><p>atlas ready</p></Boot>);

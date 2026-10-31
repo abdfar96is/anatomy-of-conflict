@@ -39,4 +39,21 @@ describe('check-data', () => {
 
     test('does not break the model build', () => expect(() => build(readRaw(dir))).not.toThrow());
   });
+
+  test('a hand-edited file still gets its link errors reported', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'atlas-check-'));
+    try {
+      fs.cpSync(DATA_DIR, dir, { recursive: true });
+      const tf = path.join(dir, 'curated/timeline.json');
+      const tl = JSON.parse(fs.readFileSync(tf, 'utf8'));
+      const k = tl.events.findIndex((e: { id: string }) => e.id === 'halabja');
+      tl.events[k].countries = ['IRX'];
+      fs.writeFileSync(tf, JSON.stringify(tl, null, 2));
+      const lines = checkData(dir).map((p) => `${p.file} › ${p.path} › ${p.message}`);
+      expect(lines).toContain('timeline.json ›  › not in the canonical layout; run npm run format-data');
+      expect(lines).toContain(`timeline.json › events[${k}].countries[0] › unknown country code`);
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
 });

@@ -4,7 +4,7 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import { emit } from '../../app/events';
 import { startHashSync } from '../../app/hash';
-import { useAtlas } from '../../app/store';
+import { atlas, useAtlas } from '../../app/store';
 import { DbContext, useT } from '../../app/useT';
 import { loadAll } from '../../data/load';
 import type { DB } from '../../data/types';
@@ -47,6 +47,8 @@ export function Boot({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (!db) return;
+    // The timeline filter starts with every category shown (null only means "not loaded yet").
+    atlas.setFilter('timelineCats', new Set(db.timeline.categories.map((c) => c.id)));
     const stop = startHashSync(db);
     emit('ready', db);
     const fade = setTimeout(() => setLoaderGone(true), 600);

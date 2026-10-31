@@ -21,6 +21,7 @@ const at = (obj: unknown, parts: readonly PropertyKey[]): unknown =>
 export function checkData(dataDir: string): Problem[] {
   const curated = path.join(dataDir, 'curated');
   const problems: Problem[] = [];
+  const layout: Problem[] = []; // reported, but never hides the other checks (web-editor edits rarely match the layout)
   const files: Record<string, unknown> = {};
 
   // 1. Each file parses, is in the canonical layout, and has the expected shape.
@@ -30,13 +31,13 @@ export function checkData(dataDir: string): Problem[] {
     let data: unknown;
     try { data = JSON.parse(text); } catch (err) { problems.push({ file, path: '', message: `not valid JSON: ${(err as Error).message}` }); continue; }
     files[file] = data;
-    if (text !== formatJson(data)) problems.push({ file, path: '', message: 'not in the canonical layout; run npm run format-data' });
+    if (text !== formatJson(data)) layout.push({ file, path: '', message: 'not in the canonical layout; run npm run format-data' });
     const schema = file.startsWith('conflicts/') ? conflictFile : SCHEMAS[file];
     if (!schema) { problems.push({ file, path: '', message: 'unknown file; add a schema in scripts/schema.ts' }); continue; }
     const res = schema.safeParse(data);
     if (!res.success) for (const issue of res.error.issues) problems.push({ file, path: pathOf(issue.path), message: issue.message, value: at(data, issue.path) });
   }
-  if (problems.length) return problems; // links are only meaningful once the shapes are right
+  if (problems.length) return [...layout, ...problems]; // links are only meaningful once the shapes are right
 
   // 2. Links between records.
   type Rec = Record<string, unknown>;
@@ -104,7 +105,7 @@ export function checkData(dataDir: string): Problem[] {
   dupes('chokepoints.json', (files['chokepoints.json'] as { points: Rec[] }).points, 'points');
   dupes('relations.json', rel.blocs, 'blocs');
   dupes('resources.json', resources.sites, 'sites');
-  return problems;
+  return [...layout, ...problems];
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
