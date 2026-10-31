@@ -22,9 +22,11 @@ export interface Palette {
   status: { good: string; warn: string; critical: string };
 }
 
-let cache: Palette | null = null;
-useAtlas.subscribe((s, prev) => { if (s.theme !== prev.theme) cache = null; });
-if (typeof matchMedia === 'function') matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change', () => { cache = null; });
+// The cache is keyed on the theme the page shows (data-theme + OS scheme), not on the store: Boot mirrors
+// the store onto <html> after render, so a component that reads pal() in that render must not pin the old theme.
+let cache: (Palette & { key: string }) | null = null;
+const osDark = () => typeof matchMedia === 'function' && matchMedia('(prefers-color-scheme: dark)').matches;
+const pageThemeKey = () => `${document.documentElement.dataset.theme ?? 'system'}|${osDark()}`;
 
 /** CSS var reference for a categorical slot (0 = neutral). */
 export const catVar = (slot?: number) => (slot ? `var(--cat-${slot})` : 'var(--cat-0)');
@@ -43,7 +45,8 @@ export function isDark(): boolean {
 
 /** Resolved colours for canvas drawing. */
 export function pal(): Palette {
-  if (cache) return cache;
+  const key = pageThemeKey();
+  if (cache?.key === key) return cache;
   const v = cssVar;
   const cat = Array.from({ length: 9 }, (_, i) => v(`--cat-${i}`));
   const tradition: Record<string, string> = {};
@@ -55,8 +58,10 @@ export function pal(): Palette {
       tradition[m] = d3.lab(base.l + step, base.a, base.b).formatHex();
     });
   }
+  const shown = document.documentElement.dataset.theme;
   cache = {
-    dark: isDark(),
+    key,
+    dark: shown === 'dark' || (shown !== 'light' && osDark()),
     ocean: v('--ocean'), land: v('--land'), landHover: v('--land-2'), landMuted: v('--land-muted'),
     border: v('--geo-border'), coast: v('--geo-coast'), graticule: v('--graticule'),
     fg: v('--fg'), fg2: v('--fg-2'), fg3: v('--fg-3'), halo: v('--label-halo'),

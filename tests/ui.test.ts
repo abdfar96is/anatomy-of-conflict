@@ -21,11 +21,19 @@ describe('palette', () => {
     expect(catVar(3)).toBe('var(--cat-3)');
     expect(edgeVar('alliance')).toBe('var(--cat-3)');
   });
-  test('the canvas palette is rebuilt after a theme change', () => {
+  test('the canvas palette is rebuilt when the page theme changes', () => {
     const a = pal();
     expect(pal()).toBe(a);
-    atlas.set({ theme: 'light' });
+    document.documentElement.dataset.theme = 'light';
     expect(pal()).not.toBe(a);
+    delete document.documentElement.dataset.theme;
+  });
+  test('a palette read during the render before the page flips is not kept', () => {
+    atlas.set({ theme: 'dark', lang: 'en' }); // store first; Boot mirrors data-theme after render
+    const early = pal();
+    document.documentElement.dataset.theme = 'dark';
+    expect(pal()).not.toBe(early);
+    delete document.documentElement.dataset.theme;
   });
 });
 
