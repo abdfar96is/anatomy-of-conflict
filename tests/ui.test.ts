@@ -1,4 +1,4 @@
-import { afterEach, describe, expect, test } from 'vitest';
+import { afterEach, describe, expect, test, vi } from 'vitest';
 import { esc, icon } from '../src/ui/dom';
 import { initTips } from '../src/ui/tooltip';
 import { catVar, edgeVar, pal } from '../src/ui/palette';
@@ -45,6 +45,20 @@ describe('state-change bridge', () => {
     atlas.toggleInSet('severity', 'war');
     off();
     expect(seen).toEqual([['lens'], ['filters']]);
+  });
+});
+
+describe('state-change bridge isolation', () => {
+  test('a throwing listener neither stops later listeners nor escapes atlas.set', () => {
+    const errors = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const seen: string[] = [];
+    const off1 = onStateChange(() => { throw new Error('draw failed'); });
+    const off2 = onStateChange((keys) => seen.push(...(keys as string[])));
+    expect(() => atlas.set({ projection: 'flat' })).not.toThrow();
+    off1(); off2();
+    expect(seen).toEqual(['projection']);
+    expect(errors).toHaveBeenCalled();
+    errors.mockRestore();
   });
 });
 

@@ -390,3 +390,15 @@ describe('pure helpers', () => {
     expect(stepsLabel(1, 'en')).toBe('1 stop');
   });
 });
+
+describe('review fixes', () => {
+  test('clearing the selection from the crumb keeps keyboard focus in the top bar', () => {
+    renderShell();
+    act(() => { atlas.select('country', 'SAU', { fly: false }); });
+    const x = document.querySelector<HTMLElement>('#topbar [data-k="crumb-clear"]')!;
+    x.focus();
+    fireEvent.click(x);
+    expect(atlas.get().selection).toBeNull();
+    expect(document.activeElement).toBe(document.querySelector('#topbar [data-k="search"]'));
+  });
+});

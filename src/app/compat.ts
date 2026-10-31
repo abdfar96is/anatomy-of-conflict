@@ -7,6 +7,8 @@ import { useAtlas, type AtlasState } from './store';
 export function onStateChange(fn: (keys: (keyof AtlasState)[], s: AtlasState) => void): () => void {
   return useAtlas.subscribe((s, prev) => {
     const keys = (Object.keys(s) as (keyof AtlasState)[]).filter((k) => s[k] !== prev[k]);
-    if (keys.length) fn(keys, s);
+    if (!keys.length) return;
+    // Zustand does not isolate listeners: one failing draw must not stop the hash writer or other features.
+    try { fn(keys, s); } catch (err) { console.error('[atlas] state listener failed', err); }
   });
 }
