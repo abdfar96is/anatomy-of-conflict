@@ -3,3 +3,5 @@ dist
 coverage
 .vercel
 .omc/
+test-results
+playwright-report
