@@ -66,7 +66,7 @@
         }
       ],
       "status": {
-        "ar": "ضغط رمادي اللون متصاعد دون صدام مسلح. كثّفت الصين في 2026 الضغط البحري بنشر أعداد قياسية من سفن خفر السواحل وسفن المسح حول الجزيرة، وبدأت دوريات إنفاذ قانون شرق تايوان في يونيو 2026. وقع حادث استخدام تايوان لخراطيم المياه ضد قارب صيني قرب برَتاس في 1 أكتوبر 2026، وأبعدت تايوان في 18 أكتوبر ستة عشر سفينة صينية وصفتها بحملة تحريش منسّقة. لم تُجرِ الصين تدريبات حول الجزيرة ردّاً على خطاب العيد الوطني التايواني هذا العام خلافاً للمعتاد.",
+        "ar": "ضغط متصاعد في «المنطقة الرمادية» دون صدام مسلح. كثّفت الصين في 2026 الضغط البحري بنشر أعداد قياسية من سفن خفر السواحل وسفن المسح حول الجزيرة، وبدأت دوريات إنفاذ قانون شرق تايوان في يونيو 2026. وقع حادث استخدام تايوان لخراطيم المياه ضد قارب صيني قرب برَتاس في 1 أكتوبر 2026، وأبعدت تايوان في 18 أكتوبر ستة عشر سفينة صينية وصفتها بحملة مضايقة منسّقة. لم تُجرِ الصين تدريبات حول الجزيرة ردّاً على خطاب العيد الوطني التايواني هذا العام خلافاً للمعتاد.",
         "en": "Escalating grey-zone pressure without armed clash. In 2026 China intensified maritime pressure by deploying record numbers of coast guard and survey vessels around the island, and began law-enforcement patrols east of Taiwan in June 2026. Taiwan used water cannon against a Chinese boat near Pratas on 1 October 2026, and on 18 October warded off sixteen Chinese vessels it described as a coordinated harassment campaign. Unlike previous years, China did not conduct exercises around the island in response to Taiwan's National Day address."
       },
       "statusAsOf": "2026-10-30",
@@ -91,7 +91,8 @@
         }
       ],
       "confidence": "verified",
-      "sourceRefs": ["icg", "acled"]
+      "sourceRefs": ["icg", "acled"],
+      "unverified": true
     },
     {
       "id": "south-china-sea",
@@ -173,7 +174,8 @@
         }
       ],
       "confidence": "verified",
-      "sourceRefs": ["icg", "eia"]
+      "sourceRefs": ["icg", "eia"],
+      "unverified": true
     },
     {
       "id": "kashmir",
@@ -249,7 +251,8 @@
         }
       ],
       "confidence": "verified",
-      "sourceRefs": ["icg", "acled", "mrg"]
+      "sourceRefs": ["icg", "acled", "mrg"],
+      "unverified": true
     },
     {
       "id": "afghanistan-pakistan",
@@ -342,7 +345,8 @@
         }
       ],
       "confidence": "verified",
-      "sourceRefs": ["icg", "unhcr", "acled"]
+      "sourceRefs": ["icg", "unhcr", "acled"],
+      "unverified": true
     },
     {
       "id": "myanmar",
@@ -453,7 +457,8 @@
         }
       ],
       "confidence": "verified",
-      "sourceRefs": ["acled", "unhcr", "mrg"]
+      "sourceRefs": ["acled", "unhcr", "mrg"],
+      "unverified": true
     },
     {
       "id": "xinjiang",
@@ -464,7 +469,7 @@
       "started": "1949",
       "dimensions": ["identity", "political", "ideological", "economic"],
       "dimensionNote": {
-        "ar": "ليس نزاعاً مسلحاً نشطاً بل ملفّ قمع دولة لمجموعة عرقية ودينية، ولذلك صُنّف severity بقيمة repression لا بقيمة حرب. تصنيفه حرباً يشوّه طبيعته، وتصنيفه خلافاً سياسياً عادياً يقلّل من حجمه.",
+        "ar": "ليس نزاعاً مسلحاً نشطاً بل ملفّ قمع دولة لمجموعة عرقية ودينية، ولذلك صُنّفت شدّته «قمع دولة» لا «حرباً». تصنيفه حرباً يشوّه طبيعته، وتصنيفه خلافاً سياسياً عادياً يقلّل من حجمه.",
         "en": "Not an active armed conflict but a file of state repression of an ethnic and religious group, which is why severity is coded repression rather than war. Classing it as war distorts its nature; classing it as ordinary political disagreement understates its scale."
       },
       "parties": {
@@ -724,7 +729,7 @@
       "started": "1983",
       "dimensions": ["identity", "political", "territorial"],
       "dimensionNote": {
-        "ar": "نزاع هوياتي انتهى عسكرياً في 2009 وبقي سياسياً: لامركزية ومحاسبة وحقّ عودة. أُدرج بوصفه post-conflict لا نزاعاً نشطاً، لأن إدراجه حرباً جارية يشوّه الواقع الحالي.",
+        "ar": "نزاع هوياتي انتهى عسكرياً في 2009 وبقي سياسياً: لامركزية ومحاسبة وحقّ عودة. أُدرج بوصفه ملفّ «ما بعد النزاع» لا نزاعاً نشطاً، لأن إدراجه حرباً جارية يشوّه الواقع الحالي.",
         "en": "An identity conflict that ended militarily in 2009 and persists politically: devolution, accountability and the right of return. Recorded as post-conflict rather than active, since listing it as an ongoing war would distort the present reality."
       },
       "parties": {

@@ -116,7 +116,8 @@
         }
       ],
       "confidence": "verified",
-      "sourceRefs": ["ocha-hdx", "unhcr", "acled", "iom"]
+      "sourceRefs": ["ocha-hdx", "unhcr", "acled", "iom"],
+      "unverified": true
     },
     {
       "id": "ethiopia",
@@ -218,8 +219,9 @@
           "source": "Human Rights Watch"
         }
       ],
-      "confidence": "verified",
-      "sourceRefs": ["acled", "unhcr", "ocha-hdx"]
+      "confidence": "partial",
+      "sourceRefs": ["acled", "unhcr", "ocha-hdx"],
+      "unverified": true
     },
     {
       "id": "sahel",
@@ -320,8 +322,9 @@
           "source": "France 24"
         }
       ],
-      "confidence": "verified",
-      "sourceRefs": ["acled", "icg", "ocha-hdx"]
+      "confidence": "partial",
+      "sourceRefs": ["acled", "icg", "ocha-hdx"],
+      "unverified": true
     },
     {
       "id": "drc-east",
@@ -437,7 +440,8 @@
         }
       ],
       "confidence": "verified",
-      "sourceRefs": ["acled", "unhcr", "ocha-hdx", "mrg"]
+      "sourceRefs": ["acled", "unhcr", "ocha-hdx", "mrg"],
+      "unverified": true
     },
     {
       "id": "somalia",
@@ -598,7 +602,8 @@
         }
       ],
       "confidence": "verified",
-      "sourceRefs": ["ocha-hdx", "unhcr", "acled"]
+      "sourceRefs": ["ocha-hdx", "unhcr", "acled"],
+      "unverified": true
     },
     {
       "id": "western-sahara",
@@ -804,7 +809,7 @@
         }
       ],
       "status": {
-        "ar": "لا عنف جماعي منظّم في رواندا أو بوروندي. أُدرج الملفّ بوصفه post-conflict لأنه يفسّر دوافع ما يجري في شرق الكونغو، لا لأنه نزاع نشط في البلدين. التوتّر بين كيغالي وبوجومبورا قائم ويتقاطع مع ملفّ شرق الكونغو.",
+        "ar": "لا عنف جماعي منظّم في رواندا أو بوروندي. أُدرج الملفّ بوصفه ملفّ «ما بعد النزاع» لأنه يفسّر دوافع ما يجري في شرق الكونغو، لا لأنه نزاع نشط في البلدين. التوتّر بين كيغالي وبوجومبورا قائم ويتقاطع مع ملفّ شرق الكونغو.",
         "en": "No organised mass violence in Rwanda or Burundi. The file is recorded as post-conflict because it explains the drivers of what is happening in eastern Congo, not because it is an active conflict in those countries. Tension between Kigali and Bujumbura persists and intersects with the eastern Congo file."
       },
       "statusAsOf": "2026-10-30",

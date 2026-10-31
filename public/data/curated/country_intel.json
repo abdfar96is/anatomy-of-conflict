@@ -56,10 +56,6 @@
         {
           "ar": "المناطق المتنازع عليها بموجب المادة 140 ومنها كركوك وسنجار",
           "en": "Article 140 disputed territories including Kirkuk and Sinjar"
-        },
-        {
-          "ar": "مثلّث حلايب مع مصر غير معني؛ الفشقة مع إثيوبيا تخصّ السودان",
-          "en": "Not a party to the Hala'ib or al-Fashaga files"
         }
       ],
       "blocs": ["arab-league"]
@@ -82,7 +78,8 @@
           "en": "The Golan Heights occupied since 1967 and expanded territory in the south occupied since December 2024"
         }
       ],
-      "blocs": ["arab-league"]
+      "blocs": ["arab-league"],
+      "unverified": true
     },
     "LBN": {
       "system": {
@@ -243,8 +240,8 @@
       "separatists": [],
       "disputes": [
         {
-          "ar": "ترسيم الحدود مع أذربيجان، ومقاطع من سيونيك محتلّة منذ 2021",
-          "en": "Border delimitation with Azerbaijan, and sections of Syunik occupied since 2021"
+          "ar": "ترسيم الحدود مع أذربيجان، ومقاطع من سيونيك تقول أرمينيا إنها محتلّة منذ 2021",
+          "en": "Border delimitation with Azerbaijan, and sections of Syunik Armenia says have been occupied since 2021"
         }
       ],
       "blocs": ["csto"]
@@ -489,7 +486,8 @@
         }
       ],
       "disputes": [],
-      "blocs": []
+      "blocs": [],
+      "unverified": true
     },
     "PRK": {
       "system": {
@@ -619,7 +617,8 @@
           "en": "Western Tigray internally, al-Fashaga with Sudan, and a sea-outlet demand that Eritrea rejects"
         }
       ],
-      "blocs": ["brics"]
+      "blocs": ["brics"],
+      "unverified": true
     },
     "SOM": {
       "system": {
@@ -773,7 +772,8 @@
           "en": "Essequibo with Guyana; the case is before the International Court of Justice"
         }
       ],
-      "blocs": []
+      "blocs": [],
+      "unverified": true
     },
     "GUY": {
       "system": { "ar": "جمهورية برلمانية", "en": "Parliamentary republic" },
@@ -798,7 +798,8 @@
       "langs": { "ar": ["الكريولية الهايتية", "الفرنسية"], "en": ["Haitian Creole", "French"] },
       "separatists": [],
       "disputes": [],
-      "blocs": []
+      "blocs": [],
+      "unverified": true
     },
     "COL": {
       "system": { "ar": "جمهورية رئاسية", "en": "Presidential republic" },

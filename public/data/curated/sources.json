@@ -90,7 +90,7 @@
     },
     {
       "id": "atlas-conflicts",
-      "file": "thematic/conflicts.json",
+      "file": "thematic/conflicts/*.json",
       "title": { "ar": "ملفات النزاعات ونقاط الاشتعال", "en": "Conflict and flashpoint dossiers" },
       "publisher": {
         "ar": "تجميع تحريري لهذا الأطلس",

@@ -18,6 +18,7 @@ export const FILES = {
   cAsia: 'curated/conflicts/asia.json',
   cEurope: 'curated/conflicts/europe.json',
   cMideast: 'curated/conflicts/middle-east.json',
+  corrections: 'curated/corrections.json',
 } as const;
 
 export type FileKey = keyof typeof FILES;

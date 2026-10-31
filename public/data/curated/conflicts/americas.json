@@ -93,7 +93,8 @@
         }
       ],
       "confidence": "verified",
-      "sourceRefs": ["icg", "unhcr"]
+      "sourceRefs": ["icg", "unhcr"],
+      "unverified": true
     },
     {
       "id": "essequibo",
@@ -170,7 +171,8 @@
         }
       ],
       "confidence": "verified",
-      "sourceRefs": ["icg"]
+      "sourceRefs": ["icg"],
+      "unverified": true
     },
     {
       "id": "haiti",
@@ -181,7 +183,7 @@
       "started": "2021-07",
       "dimensions": ["political", "economic"],
       "dimensionNote": {
-        "ar": "ليس نزاعاً إثنياً ولا دينياً ولا حرباً أهلية بين مشاريع سياسية، بل انهيار دولة وفراغ سلطة تملؤه عصابات مسلحة بدوافع اقتصادية. صُنّف state-collapse لأن تصنيفه حرباً أهلية يفترض أطرافاً سياسية متنافسة وهو افتراض لا يصف الواقع.",
+        "ar": "ليس نزاعاً إثنياً ولا دينياً ولا حرباً أهلية بين مشاريع سياسية، بل انهيار دولة وفراغ سلطة تملؤه عصابات مسلحة بدوافع اقتصادية. صُنّف «انهيار دولة» لأن تصنيفه حرباً أهلية يفترض أطرافاً سياسية متنافسة وهو افتراض لا يصف الواقع.",
         "en": "Neither an ethnic nor religious conflict nor a civil war between political projects, but state collapse and a power vacuum filled by economically motivated armed gangs. Coded state-collapse because classing it as civil war presumes competing political parties, a presumption that does not describe the reality."
       },
       "parties": {
@@ -273,7 +275,8 @@
         }
       ],
       "confidence": "verified",
-      "sourceRefs": ["ocha-hdx", "unhcr", "acled"]
+      "sourceRefs": ["ocha-hdx", "unhcr", "acled"],
+      "unverified": true
     },
     {
       "id": "colombia",

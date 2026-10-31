@@ -387,8 +387,8 @@
       "countries": ["IRQ"],
       "ar": "حلبجة وحملة الأنفال",
       "en": "Halabja and the Anfal campaign",
-      "sumAr": "هجوم كيميائي على مدينة حلبجة الكردية ضمن حملة الأنفال التي قُتل فيها عشرات الآلاف، وصُنّفت لاحقاً إبادة جماعية في عدّة قضاءات.",
-      "sumEn": "A chemical attack on the Kurdish city of Halabja within the Anfal campaign, which killed tens of thousands and was later classified as genocide in several jurisdictions.",
+      "sumAr": "هجوم كيميائي على مدينة حلبجة الكردية ضمن حملة الأنفال. قُتل في الهجوم نحو 3,200 إلى 5,000 شخص، وفي الحملة كلها عشرات الآلاف، وصُنّفت الحملة لاحقاً إبادة جماعية في عدّة قضاءات.",
+      "sumEn": "A chemical attack on the Kurdish city of Halabja within the Anfal campaign. The attack killed some 3,200–5,000 people; the wider campaign killed tens of thousands and was later classified as genocide in several jurisdictions.",
       "conflictIds": ["iraq-kurdistan"]
     },
     {
@@ -543,8 +543,8 @@
       "countries": ["SDN", "TCD"],
       "ar": "حرب دارفور",
       "en": "The Darfur war",
-      "sumAr": "نزاع بين الدولة وحركات دارفورية استخدمت فيه الخرطوم ميليشيات الجنجويد التي صارت لاحقاً قوات الدعم السريع، وصنّفت أطراف دولية الحملة إبادة جماعية.",
-      "sumEn": "A conflict between the state and Darfuri movements in which Khartoum used the Janjaweed militias that later became the Rapid Support Forces; international actors classified the campaign as genocide.",
+      "sumAr": "نزاع بين الدولة وحركات دارفورية استخدمت فيه الخرطوم ميليشيات الجنجويد التي صارت لاحقاً قوات الدعم السريع، ووصفت الحكومة الأمريكية والمحكمة الجنائية الدولية الحملة بالإبادة الجماعية، بينما لم تصل لجنة تحقيق أممية في 2005 إلى هذا الاستنتاج.",
+      "sumEn": "A conflict between the state and Darfuri movements in which Khartoum used the Janjaweed militias that later became the Rapid Support Forces; the US government and the International Criminal Court described the campaign as genocide, while a 2005 UN commission of inquiry did not reach that finding.",
       "conflictIds": ["sudan"]
     },
     {
@@ -735,8 +735,8 @@
       "countries": ["MMR"],
       "ar": "انقلاب ميانمار",
       "en": "The Myanmar coup",
-      "sumAr": "استولى الجيش على السلطة واعتقل أونغ سان سو تشي، فتحوّل الحراك السلمي إلى مقاومة مسلحة واسعة وأكثر النزاعات تفتّتاً في العالم.",
-      "sumEn": "The military seized power and detained Aung San Suu Kyi, turning peaceful protest into broad armed resistance and the world's most fragmented conflict.",
+      "sumAr": "استولى الجيش على السلطة واعتقل أونغ سان سو تشي، فتحوّل الحراك السلمي إلى مقاومة مسلحة واسعة وما يصفه محلّلون بأنه أكثر النزاعات تفتّتاً في العالم.",
+      "sumEn": "The military seized power and detained Aung San Suu Kyi, turning peaceful protest into broad armed resistance and what analysts describe as the world's most fragmented conflict.",
       "conflictIds": ["myanmar"]
     },
     {
@@ -761,7 +761,8 @@
       "en": "The Pretoria Agreement",
       "sumAr": "أوقفت الاتفاقية حرب تيغراي ونصّت على نزع سلاح جبهة تحرير شعب تيغراي، وانهارت فعلياً في سبتمبر 2026.",
       "sumEn": "The agreement halted the Tigray war and provided for the TPLF's disarmament; it effectively collapsed in September 2026.",
-      "conflictIds": ["ethiopia"]
+      "conflictIds": ["ethiopia"],
+      "unverified": true
     },
     {
       "id": "ukraine-invasion",
@@ -903,8 +904,8 @@
       "countries": ["ISR", "PSE", "USA", "EGY", "QAT"],
       "ar": "وقف النار في غزة",
       "en": "The Gaza ceasefire",
-      "sumAr": "بدأ سريان المرحلة الأولى من خطة سلام مدعومة أمريكياً وأُطلق المحتجزون الإسرائيليون المتبقّون، لكن الضربات والعمليات استمرّت خلاله.",
-      "sumEn": "The first phase of a US-backed peace plan took effect and the remaining Israeli hostages were released, but strikes and operations continued throughout it.",
+      "sumAr": "بدأ سريان المرحلة الأولى من خطة سلام مدعومة أمريكياً وأُطلق المحتجزون الإسرائيليون الأحياء المتبقّون، وسُلّمت الرفات لاحقاً، لكن الضربات والعمليات استمرّت خلاله.",
+      "sumEn": "The first phase of a US-backed peace plan took effect and the remaining living Israeli hostages were released, with remains returned later, but strikes and operations continued throughout it.",
       "conflictIds": ["israel-palestine"]
     },
     {
@@ -941,7 +942,8 @@
       "en": "The US intervention in Venezuela",
       "sumAr": "ضربات أمريكية واسعة انتهت باعتقال الرئيس نيكولاس مادورو وزوجته ونقلهما إلى نيويورك، وبدء مرحلة انتقالية برعاية أمريكية.",
       "sumEn": "Extensive American strikes culminated in the capture of President Nicolás Maduro and his wife and their transfer to New York, and the start of a US-sponsored transition.",
-      "conflictIds": ["venezuela"]
+      "conflictIds": ["venezuela"],
+      "unverified": true
     },
     {
       "id": "pokrovsk",
@@ -953,7 +955,8 @@
       "en": "The fall of Pokrovsk",
       "sumAr": "استولت روسيا على المدينة في أواخر يناير 2026 بعد هجوم بدأ في يوليو 2024، ومع ذلك بقيت مكاسبها الإقليمية لعام 2026 قريبة من الصفر.",
       "sumEn": "Russia took the city in late January 2026 after an offensive begun in July 2024; even so, its territorial gains for 2026 remained close to nil.",
-      "conflictIds": ["russia-ukraine"]
+      "conflictIds": ["russia-ukraine"],
+      "unverified": true
     },
     {
       "id": "aleppo-sdf-deal",
@@ -965,7 +968,8 @@
       "en": "The end of the Aleppo clashes and recognition of the Kurds",
       "sumAr": "انتهت مواجهات حلب بسيطرة الجيش السوري على الأحياء، وأصدر الرئيس مرسوماً يعترف بالكرد جزءاً أصيلاً من سوريا ويعترف باللغة الكردية وعيد نوروز.",
       "sumEn": "The Aleppo clashes ended with the Syrian army taking the neighbourhoods, and the president issued a decree recognising Kurds as an integral part of Syria and recognising the Kurdish language and Nowruz.",
-      "conflictIds": ["syria-transition", "turkey-kurdish"]
+      "conflictIds": ["syria-transition", "turkey-kurdish"],
+      "unverified": true
     },
     {
       "id": "iran-war-2026",
@@ -977,7 +981,8 @@
       "en": "The start of the 2026 Iran war",
       "sumAr": "هجوم جوي أمريكي إسرائيلي مشترك على إيران قُتل فيه المرشد الأعلى ومسؤولون آخرون، وردّت إيران بتلغيم مضيق هرمز وإغلاقه فامتدّت المواجهة إلى لبنان واليمن والخليج.",
       "sumEn": "A joint American–Israeli air campaign against Iran killed the Supreme Leader and other officials; Iran responded by mining and closing the Strait of Hormuz, extending the confrontation into Lebanon, Yemen and the Gulf.",
-      "conflictIds": ["iran-us-israel", "lebanon-israel", "yemen", "gulf-security"]
+      "conflictIds": ["iran-us-israel", "lebanon-israel", "yemen", "gulf-security"],
+      "unverified": true
     },
     {
       "id": "afpak-open-war",
@@ -989,7 +994,8 @@
       "en": "Open Afghan–Pakistani confrontation",
       "sumAr": "بعد هجوم أفغاني على مواقع حدودية في 26 فبراير نفّذت باكستان ضربات على كابول وقندهار ومواقع أخرى وأعلنت ما سمّته حرباً مفتوحة، وتعاقبت وساطات قطرية وتركية وسعودية وصينية.",
       "sumEn": "After an Afghan attack on border posts on 26 February, Pakistan struck Kabul, Kandahar and other locations and declared what it called open war; successive Qatari, Turkish, Saudi and Chinese mediations followed.",
-      "conflictIds": ["afghanistan-pakistan"]
+      "conflictIds": ["afghanistan-pakistan"],
+      "unverified": true
     },
     {
       "id": "lebanon-war-2026",
@@ -1001,7 +1007,8 @@
       "en": "The 2026 Lebanon war",
       "sumAr": "أطلق حزب الله صواريخ على إسرائيل رداً على الحرب على إيران ومقتل المرشد الأعلى، فاستأنفت إسرائيل الضربات على نطاق أوسع وبدأت عمليات برية في 16 مارس.",
       "sumEn": "Hezbollah fired rockets at Israel in response to the war on Iran and the Supreme Leader's killing; Israel resumed strikes on a larger scale and began ground operations on 16 March.",
-      "conflictIds": ["lebanon-israel", "iran-us-israel"]
+      "conflictIds": ["lebanon-israel", "iran-us-israel"],
+      "unverified": true
     },
     {
       "id": "bamako-blockade",
@@ -1013,7 +1020,8 @@
       "en": "The blockade of Bamako",
       "sumAr": "أعلنت جماعة نصرة الإسلام والمسلمين حصاراً شاملاً على طرق العاصمة المالية بعد حصار للوقود بدأ في سبتمبر 2025، وهو تحوّل من الهجوم العسكري إلى الخناق الاقتصادي.",
       "sumEn": "JNIM declared a comprehensive blockade of the Malian capital's roads after a fuel blockade begun in September 2025 — a shift from military assault to economic strangulation.",
-      "conflictIds": ["sahel"]
+      "conflictIds": ["sahel"],
+      "unverified": true
     },
     {
       "id": "islamabad-memorandum",
@@ -1025,7 +1033,8 @@
       "en": "The Islamabad Memorandum",
       "sumAr": "اتفاق من أربع عشرة نقطة بين الولايات المتحدة وإيران بوساطة باكستانية مع قطر وعُمان رفع الحصار المزدوج، وانهار في 8 يوليو 2026.",
       "sumEn": "A fourteen-point agreement between the United States and Iran mediated by Pakistan with Qatar and Oman that lifted the dual blockade, and collapsed on 8 July 2026.",
-      "conflictIds": ["iran-us-israel"]
+      "conflictIds": ["iran-us-israel"],
+      "unverified": true
     },
     {
       "id": "sdf-dissolution",
@@ -1037,7 +1046,8 @@
       "en": "Dissolution of the Syrian Democratic Forces",
       "sumAr": "استُكمل دمج مؤسسات الإدارة الذاتية المدنية في الدولة السورية وحُلّت القوات، وهو تحوّل جوهري في معطيات الملفّ الكردي الإقليمي.",
       "sumEn": "Integration of the self-administration's civil institutions into the Syrian state was completed and the forces were dissolved — a fundamental shift in the regional Kurdish file.",
-      "conflictIds": ["syria-transition", "turkey-kurdish"]
+      "conflictIds": ["syria-transition", "turkey-kurdish"],
+      "unverified": true
     },
     {
       "id": "bab-al-mandab-2026",
@@ -1049,7 +1059,8 @@
       "en": "The Houthi takeover of Bab al-Mandab",
       "sumAr": "استكمل الحوثيون السيطرة على كامل الساحل اليمني للبحر الأحمر وجزيرتي بريم وحنيش، وأعلنت وسائل إعلام يمنية في 5 أكتوبر استعادة المخا فبقي خطّ السيطرة متنازعاً عليه.",
       "sumEn": "The Houthis completed control of Yemen's entire Red Sea coastline and the Perim and Hanish islands; Yemeni media reported the recapture of Mokha on 5 October, leaving the line of control contested.",
-      "conflictIds": ["yemen", "gulf-security"]
+      "conflictIds": ["yemen", "gulf-security"],
+      "unverified": true
     },
     {
       "id": "ethiopia-2026",
@@ -1061,7 +1072,8 @@
       "en": "The return of war to Ethiopia",
       "sumAr": "أطلقت جبهة تحرير شعب تيغراي ما وصفته بحرب دفاعية لإزاحة رئيس الوزراء، وأُعلن تحالف من سبع جماعات متمرّدة، وتبعه في أكتوبر تدخّل عسكري إريتري وقطع للعلاقات.",
       "sumEn": "The TPLF launched what it called a defensive war to remove the prime minister, an alliance of seven rebel groups was announced, and an Eritrean military intervention and severance of relations followed in October.",
-      "conflictIds": ["ethiopia"]
+      "conflictIds": ["ethiopia"],
+      "unverified": true
     },
     {
       "id": "gaza-ceasefire-year",
@@ -1073,7 +1085,8 @@
       "en": "One year of the Gaza ceasefire",
       "sumAr": "أعلنت أكثر من مئة منظمة إنسانية وحقوقية أن وقف النار «قائم بالاسم فقط»، وخلصت لجنة التحقيق الأممية في 26 أكتوبر إلى أنه لم يوقف ما وصفته بأفعال الإبادة الجماعية، ووسّعت إسرائيل سيطرتها الميدانية من نحو 53٪ إلى ما لا يقلّ عن 60٪ من القطاع.",
       "sumEn": "More than one hundred humanitarian and human rights organisations said the ceasefire exists in name only; the UN commission of inquiry concluded on 26 October that it had not stopped what it described as genocidal acts, and Israel expanded its ground control from around 53% to at least 60% of the Strip.",
-      "conflictIds": ["israel-palestine"]
+      "conflictIds": ["israel-palestine"],
+      "unverified": true
     }
   ]
 }

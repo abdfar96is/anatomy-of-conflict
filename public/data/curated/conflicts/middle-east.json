@@ -100,7 +100,8 @@
         }
       ],
       "confidence": "verified",
-      "sourceRefs": ["icg", "ocha-hdx", "acled"]
+      "sourceRefs": ["icg", "ocha-hdx", "acled"],
+      "unverified": true
     },
     {
       "id": "iran-us-israel",
@@ -199,7 +200,8 @@
         }
       ],
       "confidence": "verified",
-      "sourceRefs": ["icg", "eia", "acled"]
+      "sourceRefs": ["icg", "eia", "acled"],
+      "unverified": true
     },
     {
       "id": "syria-transition",
@@ -318,7 +320,8 @@
         }
       ],
       "confidence": "verified",
-      "sourceRefs": ["icg", "unhcr", "ocha-hdx"]
+      "sourceRefs": ["icg", "unhcr", "ocha-hdx"],
+      "unverified": true
     },
     {
       "id": "lebanon-israel",
@@ -350,8 +353,8 @@
         "en": "Hezbollah's arms outside state authority, land border demarcation, Lebanese state sovereignty south of the Litani, and the linkage of the confrontation to the wider Iranian file."
       },
       "territorialClaims": {
-        "ar": "تحتل إسرائيل أجزاءً من جنوب لبنان وتضمّ مزارع شبعا منذ 1967. ترسيم الحدود البرية غير مكتمل على نقاط عديدة على الخط الأزرق.",
-        "en": "Israel occupies parts of southern Lebanon and has annexed the Shebaa Farms since 1967. Land border demarcation remains incomplete at numerous points along the Blue Line."
+        "ar": "تحتل إسرائيل أجزاءً من جنوب لبنان وتسيطر على مزارع شبعا منذ 1967. ترسيم الحدود البرية غير مكتمل على نقاط عديدة على الخط الأزرق.",
+        "en": "Israel occupies parts of southern Lebanon and has held the Shebaa Farms since 1967. Land border demarcation remains incomplete at numerous points along the Blue Line."
       },
       "strategicInterests": {
         "ar": "حقول الغاز في المنطقة الاقتصادية البحرية شرق المتوسط، مياه نهر الليطاني والحاصباني، وعمق أمني شمال إسرائيل. ولبنان نفسه ممرّ نفوذ إيراني نحو المتوسط.",
@@ -409,7 +412,8 @@
         }
       ],
       "confidence": "verified",
-      "sourceRefs": ["icg", "acled"]
+      "sourceRefs": ["icg", "acled"],
+      "unverified": true
     },
     {
       "id": "yemen",
@@ -519,7 +523,8 @@
         }
       ],
       "confidence": "verified",
-      "sourceRefs": ["acled", "eia", "ocha-hdx"]
+      "sourceRefs": ["acled", "eia", "ocha-hdx"],
+      "unverified": true
     },
     {
       "id": "iraq-kurdistan",
@@ -598,16 +603,10 @@
         "en": "Continuing political and economic tension without large-scale fighting between Baghdad and Erbil. The dispute over oil exports and salaries recurs, the disputed-territories file is frozen, and Islamic State cell activity persists in scattered areas."
       },
       "statusAsOf": "2026-10-30",
-      "recent": [
-        {
-          "date": "2026-10-28",
-          "ar": "زار رئيس الوزراء العراقي علي فالح الزيدي دمشق والتقى الرئيس السوري، في مؤشر على إعادة ترتيب العلاقات الإقليمية.",
-          "en": "Iraqi Prime Minister Ali Faleh al-Zaidi visited Damascus and met Syria's president, signalling a realignment of regional relations.",
-          "source": "Al Jazeera / Syria TV"
-        }
-      ],
+      "recent": [],
       "confidence": "partial",
-      "sourceRefs": ["icg", "mrg"]
+      "sourceRefs": ["icg", "mrg"],
+      "unverified": true
     },
     {
       "id": "turkey-kurdish",
@@ -681,7 +680,8 @@
         }
       ],
       "confidence": "partial",
-      "sourceRefs": ["icg", "mrg"]
+      "sourceRefs": ["icg", "mrg"],
+      "unverified": true
     },
     {
       "id": "gulf-security",
@@ -757,7 +757,8 @@
         }
       ],
       "confidence": "verified",
-      "sourceRefs": ["eia", "icg", "acled"]
+      "sourceRefs": ["eia", "icg", "acled"],
+      "unverified": true
     }
   ]
 }

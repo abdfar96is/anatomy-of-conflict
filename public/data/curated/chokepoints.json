@@ -22,7 +22,8 @@
       "riskAr": "خضع لإغلاق وتلغيم وحصار بحري متبادل خلال 2026، وأعلنت إيران في 21 أكتوبر 2026 أنه يبقى مغلقاً حتى قبول شروطها.",
       "riskEn": "Subject to closure, mining and reciprocal naval blockade through 2026; Iran stated on 21 October 2026 that it remains closed until its conditions are accepted.",
       "conflictIds": ["iran-us-israel", "gulf-security"],
-      "status": "crisis"
+      "status": "crisis",
+      "unverified": true
     },
     {
       "id": "bab-al-mandab",
@@ -41,7 +42,8 @@
       "riskAr": "سيطر الحوثيون في سبتمبر 2026 على كامل الساحل اليمني وجزيرتي بريم وحنيش، وأعلنت وسائل إعلام يمنية في 5 أكتوبر 2026 استعادة المخا؛ خطّ السيطرة على الضفّة الشرقية متحرّك ومتنازع عليه.",
       "riskEn": "In September 2026 the Houthis took Yemen's entire coastline and the Perim and Hanish islands; Yemeni media reported the recapture of Mokha on 5 October 2026. The line of control on the eastern shore is mobile and contested.",
       "conflictIds": ["yemen", "iran-us-israel"],
-      "status": "crisis"
+      "status": "crisis",
+      "unverified": true
     },
     {
       "id": "suez",
@@ -98,7 +100,8 @@
       "riskAr": "ضغط رمادي اللون متصاعد في 2026 بنشر قياسي لسفن خفر السواحل والمسح حول الجزيرة.",
       "riskEn": "Escalating grey-zone pressure in 2026 with a record deployment of coast guard and survey vessels around the island.",
       "conflictIds": ["taiwan-strait"],
-      "status": "elevated"
+      "status": "elevated",
+      "unverified": true
     },
     {
       "id": "bosphorus",
@@ -197,7 +200,7 @@
     },
     {
       "id": "turkish-caspian",
-      "ar": "ممرّ وسط آسيا الأوسط",
+      "ar": "الممر الأوسط (عبر قزوين)",
       "en": "Middle Corridor (Trans-Caspian)",
       "coords": [51, 42],
       "widthKmAr": "ممرّ لوجستي متعدّد الوسائط لا مضيق",

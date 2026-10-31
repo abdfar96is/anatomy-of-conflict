@@ -9,7 +9,5 @@ export const DATA_DIR = path.resolve(__dirname, '../../public/data');
 export function readRaw(dir = DATA_DIR): RawData {
   const out: Record<string, unknown> = {};
   for (const [k, f] of Object.entries(FILES)) out[k] = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8'));
-  const corr = path.join(dir, 'curated/corrections.json');
-  if (fs.existsSync(corr)) out.corrections = JSON.parse(fs.readFileSync(corr, 'utf8'));
   return out as unknown as RawData;
 }

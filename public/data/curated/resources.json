@@ -31,7 +31,8 @@
     { "id": "potash", "ar": "البوتاس", "en": "Potash", "color": "#C77B4E" },
     { "id": "oil-shale", "ar": "الصخر الزيتي", "en": "Oil shale", "color": "#6E6A5A" },
     { "id": "bromine", "ar": "البروم", "en": "Bromine", "color": "#9B5DA6" },
-    { "id": "nickel", "ar": "النيكل", "en": "Nickel", "color": "#7F93A8" }
+    { "id": "nickel", "ar": "النيكل", "en": "Nickel", "color": "#7F93A8" },
+    { "id": "jade", "ar": "اليشم", "en": "Jade", "color": "#4f9a72" }
   ],
   "entries": [
     {
@@ -640,7 +641,7 @@
       "ar": "مناجم هباكانت لليشم",
       "en": "Hpakant jade mines",
       "coords": [96.3, 25.6],
-      "type": "gold",
+      "type": "jade",
       "iso3": "MMR",
       "noteAr": "في كاتشين، ومن أبرز موارد اقتصاد الحرب في ميانمار.",
       "noteEn": "In Kachin, among the most prominent resources of Myanmar's war economy."

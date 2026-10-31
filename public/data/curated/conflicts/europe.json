@@ -105,7 +105,8 @@
         }
       ],
       "confidence": "verified",
-      "sourceRefs": ["acled", "ucdp", "unhcr"]
+      "sourceRefs": ["acled", "ucdp", "unhcr"],
+      "unverified": true
     },
     {
       "id": "armenia-azerbaijan",
@@ -133,8 +134,8 @@
         "en": "Azerbaijan's condition that Armenia amend its constitution before signing, on the grounds that it contains territorial claims — which Yerevan denies. Armenia's electoral calendar and the weak domestic constituency for any concession complicate matters further."
       },
       "territorialClaims": {
-        "ar": "استعادت أذربيجان كامل ناغورنو قره باغ. وتبقى مسألة ترسيم وتخطيط الحدود بين الدولتين قائمة، إضافةً إلى احتلال أذربيجان لمقاطع من أراضٍ أرمينية معترف بها دولياً في سيونيك منذ 2021، وإلى وضع ممرّ المرور إلى ناختشيفان.",
-        "en": "Azerbaijan has recovered all of Nagorno-Karabakh. Delimitation and demarcation of the interstate border remain outstanding, alongside Azerbaijan's occupation since 2021 of sections of internationally recognised Armenian territory in Syunik, and the status of the transit corridor to Nakhchivan."
+        "ar": "استعادت أذربيجان كامل ناغورنو قره باغ. وتبقى مسألة ترسيم وتخطيط الحدود بين الدولتين قائمة، إضافةً إلى ما تصفه أرمينيا باحتلال أذربيجان (وهو وصف ترفضه أذربيجان) لمقاطع من أراضٍ أرمينية معترف بها دولياً في سيونيك منذ 2021، وإلى وضع ممرّ المرور إلى ناختشيفان.",
+        "en": "Azerbaijan has recovered all of Nagorno-Karabakh. Delimitation and demarcation of the interstate border remain outstanding, alongside what Armenia describes as Azerbaijan's occupation since 2021 (a term Azerbaijan rejects) of sections of internationally recognised Armenian territory in Syunik, and the status of the transit corridor to Nakhchivan."
       },
       "strategicInterests": {
         "ar": "ممرّ المرور عبر سيونيك — المعروف بممرّ زنغزور وفي الصيغة الجديدة بطريق ترامب للسلام والازدهار الدولي — يربط أذربيجان بناختشيفان ومنها بتركيا، ويفتح طريق عبور بين آسيا وأوروبا يتجاوز روسيا وإيران. نصّ الإطار على أن المسار يبقى أرضاً أرمينية ذات سيادة.",
@@ -194,7 +195,8 @@
         }
       ],
       "confidence": "verified",
-      "sourceRefs": ["icg", "mrg"]
+      "sourceRefs": ["icg", "mrg"],
+      "unverified": true
     },
     {
       "id": "kosovo-serbia",
@@ -205,7 +207,7 @@
       "started": "1989",
       "dimensions": ["territorial", "identity", "political"],
       "dimensionNote": {
-        "ar": "نزاع إقليمي وهوياتي حول وضع كيان وشرعية استقلاله، والبعد الديني (أرثوذكس في مقابل مسلمين) ثانوي ويعمل كعلامة هوية لا كسبب عقدي.",
+        "ar": "نزاع إقليمي وهوياتي حول وضع إقليم وشرعية استقلاله، والبعد الديني (أرثوذكس في مقابل مسلمين) ثانوي ويعمل كعلامة هوية لا كسبب عقدي.",
         "en": "A territorial and identity conflict over an entity's status and the legitimacy of its independence; the religious dimension (Orthodox and Muslim) is secondary and functions as an identity marker rather than a doctrinal cause."
       },
       "parties": {
@@ -347,7 +349,7 @@
       "started": "1990",
       "dimensions": ["territorial", "political", "economic"],
       "dimensionNote": {
-        "ar": "نزاع إقليمي مجمّد سببه سياسي واقتصادي: مصير كيان انفصالي يعتمد كلياً على دعم خارجي وعلى الطاقة المدعومة، وليس نزاعاً إثنياً فالتركيب السكاني في الكيان مختلط.",
+        "ar": "نزاع إقليمي مجمّد سببه سياسي واقتصادي: مصير إقليم انفصالي يعتمد كلياً على دعم خارجي وعلى الطاقة المدعومة، وليس نزاعاً إثنياً فالتركيب السكاني في الإقليم مختلط.",
         "en": "A frozen territorial conflict with political and economic causes: the fate of a breakaway entity wholly dependent on external support and subsidised energy. It is not an ethnic conflict, as the entity's population is mixed."
       },
       "parties": {
@@ -359,11 +361,11 @@
         "en": "Transnistria's population is divided in roughly comparable shares among Moldovans, Russians and Ukrainians, with Orthodoxy predominant on both sides. This mixed composition undercuts any ethnic reading of the conflict."
       },
       "history": {
-        "ar": "أعلنت ترانسنيستريا الانفصال عن مولدوفا في 1990 مع تفكّك الاتحاد السوفييتي، واندلع قتال قصير في 1992 انتهى بوقف نار بوجود قوة روسية. لم تعترف أي دولة بالكيان، وبقي الوضع مجمّداً ثلاثة عقود.",
+        "ar": "أعلنت ترانسنيستريا الانفصال عن مولدوفا في 1990 مع تفكّك الاتحاد السوفييتي، واندلع قتال قصير في 1992 انتهى بوقف نار بوجود قوة روسية. لم تعترف أي دولة بالإقليم، وبقي الوضع مجمّداً ثلاثة عقود.",
         "en": "Transnistria declared separation from Moldova in 1990 as the Soviet Union disintegrated, and brief fighting in 1992 ended in a ceasefire with a Russian force present. No state has recognised the entity, and the situation has remained frozen for three decades."
       },
       "politicalCauses": {
-        "ar": "وجود قوات روسية ومخزون ذخائر في كوباسنا، التوجّه الأوروبي لمولدوفا، ومسألة الحكم الذاتي ضمن دولة موحّدة. تغيّرت معطيات الملف جوهرياً بفعل الحرب في أوكرانيا التي عزلت الكيان لوجستياً.",
+        "ar": "وجود قوات روسية ومخزون ذخائر في كوباسنا، التوجّه الأوروبي لمولدوفا، ومسألة الحكم الذاتي ضمن دولة موحّدة. تغيّرت معطيات الملف جوهرياً بفعل الحرب في أوكرانيا التي عزلت الإقليم لوجستياً.",
         "en": "The presence of Russian troops and an ammunition depot at Cobasna, Moldova's European orientation, and the question of autonomy within a unified state. The file's parameters changed fundamentally with the war in Ukraine, which isolated the entity logistically."
       },
       "territorialClaims": {
@@ -378,7 +380,7 @@
         {
           "iso3": "RUS",
           "role": {
-            "ar": "ضامن الكيان عسكرياً واقتصادياً عبر الغاز المدعوم",
+            "ar": "ضامن الإقليم عسكرياً واقتصادياً عبر الغاز المدعوم",
             "en": "The entity's military and economic guarantor through subsidised gas"
           },
           "kind": "assessed"
@@ -386,7 +388,7 @@
         {
           "iso3": "UKR",
           "role": {
-            "ar": "تتحكّم بمعابر الكيان الشرقية وأغلقتها بعد 2022",
+            "ar": "تتحكّم بمعابر الإقليم الشرقية وأغلقتها بعد 2022",
             "en": "Controls the entity's eastern crossings and closed them after 2022"
           },
           "kind": "assessed"
@@ -401,7 +403,7 @@
         }
       ],
       "status": {
-        "ar": "نزاع مجمّد تحت ضغط اقتصادي غير مسبوق. فقدان الكيان لإمدادات الغاز المدعوم وإغلاق المعابر الأوكرانية جعله أكثر اعتماداً على تفاهمات مع كيشيناو، دون تغيير في الوضع القانوني أو عسكرة للخطّ الفاصل.",
+        "ar": "نزاع مجمّد تحت ضغط اقتصادي غير مسبوق. فقدان الإقليم لإمدادات الغاز المدعوم وإغلاق المعابر الأوكرانية جعله أكثر اعتماداً على تفاهمات مع كيشيناو، دون تغيير في الوضع القانوني أو عسكرة للخطّ الفاصل.",
         "en": "A frozen conflict under unprecedented economic pressure. The entity's loss of subsidised gas supplies and the closure of Ukrainian crossings have made it more dependent on understandings with Chișinău, without change to the legal status or militarisation of the separation line."
       },
       "statusAsOf": "2026-10-30",
@@ -525,7 +527,7 @@
         }
       ],
       "status": {
-        "ar": "ملف سياسي وقضائي بلا عنف منظّم. انتهى العمل المسلح الباسكي نهائياً، والمسار الكاتالوني يُدار عبر الانتخابات والتفاوض على التمويل والعفو. يُصنّف هذا السجل كـ political لا كنزاع مسلح.",
+        "ar": "ملف سياسي وقضائي بلا عنف منظّم. انتهى العمل المسلح الباسكي نهائياً، والمسار الكاتالوني يُدار عبر الانتخابات والتفاوض على التمويل والعفو. يُصنّف هذا السجل ملفّاً سياسياً بلا عنف لا نزاعاً مسلحاً.",
         "en": "A political and judicial file without organised violence. Basque armed action has definitively ended, and the Catalan track is managed through elections and negotiation over financing and amnesty. This record is classified as political, not armed conflict."
       },
       "statusAsOf": "2026-10-30",
@@ -588,7 +590,7 @@
         }
       ],
       "status": {
-        "ar": "سلام مستقرّ منذ 1998 مع توتّر سياسي دوري حول الترتيبات التجارية وعمل المؤسسات. العنف المنظّم منتهٍ ويُصنّف هذا السجل كـ political.",
+        "ar": "سلام مستقرّ منذ 1998 مع توتّر سياسي دوري حول الترتيبات التجارية وعمل المؤسسات. العنف المنظّم منتهٍ ويُصنّف هذا السجل ملفّاً سياسياً بلا عنف.",
         "en": "A settled peace since 1998 with periodic political tension over trade arrangements and the functioning of institutions. Organised violence has ended and this record is classified as political."
       },
       "statusAsOf": "2026-10-30",

@@ -1,0 +1,172 @@
+[
+  {
+    "id": "shebaa",
+    "where": {
+      "ar": "نزاع لبنان وإسرائيل — المطالب الإقليمية",
+      "en": "Lebanon–Israel conflict — territorial claims"
+    },
+    "what": {
+      "ar": "إسرائيل تسيطر على مزارع شبعا منذ 1967 ولم تضمّها في ذلك العام.",
+      "en": "Israel has held the Shebaa Farms since 1967; it did not annex them that year."
+    }
+  },
+  {
+    "id": "chechen-wars",
+    "where": { "ar": "المجموعات العرقية — الشيشان", "en": "Ethnic groups — Chechens" },
+    "what": {
+      "ar": "الحرب الثانية امتدّت من 1999 إلى 2009، لا داخل التسعينيات فقط.",
+      "en": "The second war ran from 1999 to 2009, not only within the 1990s."
+    }
+  },
+  {
+    "id": "zulu-languages",
+    "where": { "ar": "المجموعات العرقية — الزولو", "en": "Ethnic groups — Zulu" },
+    "what": {
+      "ar": "لجنوب أفريقيا اثنتا عشرة لغة رسمية منذ إضافة لغة الإشارة عام 2023.",
+      "en": "South Africa has had twelve official languages since sign language was added in 2023."
+    }
+  },
+  {
+    "id": "halabja-toll",
+    "where": {
+      "ar": "الخط الزمني — حلبجة وحملة الأنفال",
+      "en": "Timeline — Halabja and the Anfal campaign"
+    },
+    "what": {
+      "ar": "فُصل عدد ضحايا هجوم حلبجة (نحو 3,200 إلى 5,000) عن حصيلة حملة الأنفال (عشرات الآلاف).",
+      "en": "Separated the Halabja attack toll (about 3,200–5,000) from the Anfal campaign toll (tens of thousands)."
+    }
+  },
+  {
+    "id": "gaza-hostages",
+    "where": { "ar": "الخط الزمني — وقف النار في غزة 2025", "en": "Timeline — Gaza ceasefire 2025" },
+    "what": {
+      "ar": "أُطلق المحتجزون الأحياء، وسُلّمت الرفات لاحقاً.",
+      "en": "The living hostages were released; remains were returned later."
+    }
+  },
+  {
+    "id": "darfur-genocide",
+    "where": { "ar": "الخط الزمني — دارفور 2003", "en": "Timeline — Darfur 2003" },
+    "what": {
+      "ar": "نُسب وصف الإبادة إلى أصحابه: الحكومة الأمريكية والمحكمة الجنائية الدولية، بينما لم تصل لجنة أممية في 2005 إلى هذا الاستنتاج.",
+      "en": "Attributed the genocide finding: the US government and the ICC; a 2005 UN commission did not reach it."
+    }
+  },
+  {
+    "id": "syunik-attribution",
+    "where": {
+      "ar": "أرمينيا وأذربيجان — المطالب الإقليمية وملف أرمينيا",
+      "en": "Armenia–Azerbaijan — territorial claims and the Armenia file"
+    },
+    "what": {
+      "ar": "نُسب وصف «الاحتلال» في سيونيك إلى أرمينيا، وتعترض أذربيجان عليه.",
+      "en": "Attributed the \"occupation\" in Syunik to Armenia; Azerbaijan rejects the term."
+    }
+  },
+  {
+    "id": "iraq-disputes",
+    "where": { "ar": "ملف العراق — الخلافات الإقليمية", "en": "Iraq file — territorial disputes" },
+    "what": {
+      "ar": "حُذف سطر عن حلايب والفشقة لا يخصّ العراق.",
+      "en": "Removed a line about Hala'ib and al-Fashaga that does not concern Iraq."
+    }
+  },
+  {
+    "id": "brics-indonesia",
+    "where": { "ar": "التكتلات — بريكس", "en": "Blocs — BRICS" },
+    "what": {
+      "ar": "أُضيفت إندونيسيا (عضو كامل منذ يناير 2025). عضوية السعودية غير مؤكّدة رسمياً: دُعيت في 2023.",
+      "en": "Added Indonesia (full member since January 2025). Saudi Arabia's membership is not formally confirmed: it was invited in 2023."
+    }
+  },
+  {
+    "id": "arabic-enum-labels",
+    "where": {
+      "ar": "نصوص عربية في عدّة ملفّات نزاع",
+      "en": "Arabic text in several conflict files"
+    },
+    "what": {
+      "ar": "استُبدلت رموز تصنيف إنجليزية ظهرت داخل النص العربي بتسمياتها العربية.",
+      "en": "Replaced English classification codes left inside Arabic text with their Arabic labels."
+    }
+  },
+  {
+    "id": "taiwan-arabic",
+    "where": {
+      "ar": "مضيق تايوان — الوضع الحالي (العربية)",
+      "en": "Taiwan Strait — current status (Arabic)"
+    },
+    "what": {
+      "ar": "«ضغط رمادي اللون» صار «ضغط المنطقة الرمادية»، و«تحريش» صار «مضايقة».",
+      "en": "Arabic wording fixed: \"grey-zone pressure\" and \"harassment\" were mistranslated."
+    }
+  },
+  {
+    "id": "kian-wording",
+    "where": { "ar": "ترانسنيستريا وكوسوفو (العربية)", "en": "Transnistria and Kosovo (Arabic)" },
+    "what": {
+      "ar": "استُبدلت كلمة «كيان» بـ«إقليم» لأنها مشحونة سياسياً في العربية.",
+      "en": "Replaced the politically loaded Arabic word for \"entity\" with \"territory\"."
+    }
+  },
+  {
+    "id": "middle-corridor-name",
+    "where": { "ar": "المضائق — الممر الأوسط", "en": "Chokepoints — Middle Corridor" },
+    "what": {
+      "ar": "صُحّح الاسم العربي إلى «الممر الأوسط (عبر قزوين)».",
+      "en": "Corrected the Arabic name to «الممر الأوسط (عبر قزوين)»."
+    }
+  },
+  {
+    "id": "myanmar-superlative",
+    "where": { "ar": "الخط الزمني — انقلاب ميانمار", "en": "Timeline — Myanmar coup" },
+    "what": {
+      "ar": "نُسب وصف «أكثر النزاعات تفتّتاً» إلى المحلّلين.",
+      "en": "Attributed \"the world's most fragmented conflict\" to analysts."
+    }
+  },
+  {
+    "id": "hpakant-jade",
+    "where": { "ar": "مواقع الموارد — مناجم هباكانت", "en": "Resource sites — Hpakant mines" },
+    "what": { "ar": "نوع المورد «يشم» لا «ذهب».", "en": "Resource type is jade, not gold." }
+  },
+  {
+    "id": "confidence-compiled",
+    "where": {
+      "ar": "إثيوبيا والساحل — درجة التحقّق",
+      "en": "Ethiopia and the Sahel — verification badge"
+    },
+    "what": {
+      "ar": "خُفّضت إلى «يحتاج تحديثاً» لأن مصدر أحدث تطوّر «تقارير مجمّعة» بلا جهة محدّدة.",
+      "en": "Lowered to \"needs update\": the latest item cites unnamed \"compiled reporting\"."
+    }
+  },
+  {
+    "id": "iraq-kurdistan-offtopic",
+    "where": {
+      "ar": "العراق وإقليم كردستان — أحدث التطوّرات",
+      "en": "Iraq and the Kurdistan Region — latest developments"
+    },
+    "what": {
+      "ar": "حُذف بند عن زيارة دمشق لا يخصّ ملفّ بغداد وأربيل (وارد في ملفّ سوريا).",
+      "en": "Removed an item about a Damascus visit that belongs to the Syria file, not Baghdad–Erbil."
+    }
+  },
+  {
+    "id": "territorial-edges-kind",
+    "where": {
+      "ar": "شبكة العلاقات — روسيا/أوكرانيا، باكستان/الهند، أرمينيا/أذربيجان",
+      "en": "Relations — Russia/Ukraine, Pakistan/India, Armenia/Azerbaijan"
+    },
+    "what": {
+      "ar": "خلافات إقليمية لا تستند إلى معاهدة، فلم تعد تُرسم كخطوط التزام رسمي.",
+      "en": "Territorial disputes are not treaty commitments, so they no longer draw as treaty lines."
+    }
+  },
+  {
+    "id": "sources-path",
+    "where": { "ar": "سجلّ المصادر", "en": "Source register" },
+    "what": { "ar": "صُحّح مسار ملفّ النزاعات.", "en": "Corrected the conflicts file path." }
+  }
+]

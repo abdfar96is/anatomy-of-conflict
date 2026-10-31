@@ -304,8 +304,8 @@
         "langAr": "الشيشانية",
         "langEn": "Chechen",
         "countries": ["RUS", "TUR", "JOR", "KAZ", "GEO"],
-        "noteAr": "شعب قوقازي شمالي مسلم سنّي، خاض حربين مع روسيا في التسعينيات، ولديه شتات قديم في الأردن وتركيا.",
-        "noteEn": "A North Caucasian Sunni Muslim people that fought two wars with Russia in the 1990s, with an old diaspora in Jordan and Türkiye.",
+        "noteAr": "شعب قوقازي شمالي مسلم سنّي، خاض حربين مع روسيا (1994–1996 و1999–2009)، ولديه شتات قديم في الأردن وتركيا.",
+        "noteEn": "A North Caucasian Sunni Muslim people that fought two wars with Russia (1994–1996 and 1999–2009), with an old diaspora in Jordan and Türkiye.",
         "representation": "indicative-core-extent"
       },
       "geometry": {
@@ -931,8 +931,8 @@
         "langAr": "الزولوية",
         "langEn": "Zulu",
         "countries": ["ZAF", "ZWE", "MOZ", "LSO", "SWZ"],
-        "noteAr": "أكبر مجموعة لغوية في جنوب أفريقيا، والزولوية إحدى اللغات الرسمية الإحدى عشرة للبلاد.",
-        "noteEn": "South Africa's largest linguistic group; Zulu is one of the country's eleven official languages.",
+        "noteAr": "أكبر مجموعة لغوية في جنوب أفريقيا، والزولوية إحدى اللغات الرسمية الاثنتي عشرة للبلاد.",
+        "noteEn": "South Africa's largest linguistic group; Zulu is one of the country's twelve official languages.",
         "representation": "indicative-core-extent"
       },
       "geometry": {

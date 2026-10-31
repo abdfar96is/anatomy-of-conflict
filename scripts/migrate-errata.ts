@@ -7,6 +7,7 @@ import { build } from '../src/data/build';
 import { CONFLICT_FILES, FILES, type FileKey } from '../src/data/files';
 import type { DB, Kind, RawData } from '../src/data/types';
 import { applyErrata, UNVERIFIED } from './legacy-errata';
+import { formatJson } from './format-json';
 
 const DIR = path.resolve(import.meta.dirname, '../public/data');
 const read = (f: string) => JSON.parse(fs.readFileSync(path.join(DIR, f), 'utf8'));
@@ -56,12 +57,12 @@ for (const key of listed) {
 // Write only the files that changed, plus corrections.json.
 const written: string[] = [];
 for (const [k, f] of Object.entries(FILES) as [FileKey, string][]) {
-  const next = JSON.stringify(after[k as keyof RawData], null, 2) + '\n';
+  const next = formatJson(after[k as keyof RawData]);
   if (JSON.stringify(after[k as keyof RawData]) === JSON.stringify(raw[k as keyof RawData])) continue;
   fs.writeFileSync(path.join(DIR, f), next);
   written.push(f);
 }
-fs.writeFileSync(path.join(DIR, 'curated/corrections.json'), JSON.stringify(after.corrections, null, 2) + '\n');
+fs.writeFileSync(path.join(DIR, 'curated/corrections.json'), formatJson(after.corrections));
 written.push('curated/corrections.json');
 console.log('models identical; unverified flags:', listed.size);
 console.log('written:\n  ' + written.join('\n  '));

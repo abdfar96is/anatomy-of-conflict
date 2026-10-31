@@ -130,7 +130,11 @@
       "ar": "بريكس",
       "en": "BRICS",
       "kind": "treaty",
-      "members": ["BRA", "RUS", "IND", "CHN", "ZAF", "EGY", "ETH", "IRN", "ARE", "SAU"]
+      "members": ["BRA", "RUS", "IND", "CHN", "ZAF", "EGY", "ETH", "IRN", "ARE", "SAU", "IDN"],
+      "note": {
+        "ar": "عضوية السعودية غير مؤكّدة رسمياً: دُعيت في 2023 ولم تُعلن انضمامها الكامل.",
+        "en": "Saudi Arabia was invited in 2023 and has not formally confirmed full membership."
+      }
     },
     {
       "id": "csto",
@@ -360,7 +364,7 @@
       "a": "RUS",
       "b": "UKR",
       "type": "territorial",
-      "kind": "treaty",
+      "kind": "assessed",
       "weight": 5,
       "ar": "حرب بين دولتين على الأرض والسيادة منذ 2014 وبشكل كامل منذ 2022",
       "en": "An interstate war over land and sovereignty since 2014 and in full since 2022"
@@ -785,7 +789,7 @@
       "a": "PAK",
       "b": "IND",
       "type": "territorial",
-      "kind": "treaty",
+      "kind": "assessed",
       "weight": 5,
       "ar": "تنازع على كشمير وخلاف حادّ على معاهدة مياه السند بعد تعليق الهند مشاركتها",
       "en": "Competing claims over Kashmir and a sharp dispute over the Indus Waters Treaty after India suspended its participation"
@@ -903,7 +907,7 @@
       "a": "ARM",
       "b": "AZE",
       "type": "territorial",
-      "kind": "treaty",
+      "kind": "assessed",
       "weight": 4,
       "ar": "نصّ معاهدة سلام موقّع بالأحرف الأولى في أغسطس 2025 لم يُوقَّع نهائياً بسبب شرط تعديل الدستور الأرمني",
       "en": "A peace treaty text initialled in August 2025 but not finally signed, owing to the condition of amending Armenia's constitution"
