@@ -1,35 +1,52 @@
 # أطلس خطوط الصدع — Fault Lines Atlas
 
-أطلس تفاعلي يربط الجغرافيا بالعرق والدين والنزاعات والموارد والتحالفات.
-موقع ثابت (HTML + CSS + JavaScript modules + بيانات JSON) بلا خطوة build.
+An open-source, bilingual (Arabic / English) interactive atlas that links geography to ethnicity, religion, conflicts, resources and alliances.
+أطلس تفاعلي مفتوح المصدر يربط الجغرافيا بالعرق والدين والنزاعات والموارد والتحالفات، بالعربية والإنجليزية.
 
-## التشغيل على الجهاز
+**Live:** https://fault-lines-atlas.vercel.app
 
-الملفات تُحمَّل بـ `fetch` و ES modules، فلا تعمل بفتح `index.html` مباشرة. شغّل أي خادم ثابت من داخل المجلد:
+## Run it locally / التشغيل على الجهاز
+
+Requires Node 22 or newer.
+
+```bash
+npm ci
+npm run dev        # http://localhost:5173
+```
+
+| Command | What it does |
+|---|---|
+| `npm run dev` | Development server |
+| `npm run build` | Type-check and build to `dist/` |
+| `npm test` | Unit tests (Vitest) |
+| `npm run test:e2e` | Browser smoke tests (Playwright; uses your installed Edge locally) |
+| `npm run lint` / `npm run typecheck` | ESLint / TypeScript |
+| `npm run check-data` | Validates every curated data file: shapes, links between records, unique ids, layout |
+| `npm run format-data` | Rewrites curated JSON in the one canonical layout |
+
+## How it is built / البنية
+
+React 19 + TypeScript + Vite. The map is a canvas engine on d3-geo (globe and flat projections); state lives in one Zustand store and the URL hash holds a share link such as `#country-SAU`, `#conflict-sudan` or `#compare-USA-CHN`.
 
 ```
-npx serve .
+src/app        state, share links, preferences, event bus
+src/data       data types and the linked model built from the JSON files
+src/features   map, shell (top bar, rail, search), dossier, views, timeline, tours
+src/ui         shared helpers, icons, charts, colour palette
+public/data    geo/ (Natural Earth) and curated/ (the atlas content)
+scripts        data checks and formatting
+docs           design and plans
 ```
 
-ثم افتح الرابط الذي يظهر (عادة `http://localhost:3000`).
+## Fixing or adding data / تصحيح البيانات
 
-## النشر على Vercel
+The atlas content is plain JSON in `public/data/curated/`. Edit the file, then run `npm run format-data` and `npm run check-data`; CI runs the same check on every pull request. Every claim needs a source and a date, disputed things are described as disputed, and developments that this edition has not verified carry `"unverified": true`.
 
-المستودع مربوط بمشروع Vercel: كل `git push` على الفرع `main` ينشر نسخة جديدة تلقائياً.
-إعدادات المشروع: Framework Preset = Other، بلا Build Command، و Output Directory = جذر المستودع.
+## Deploying / النشر
 
-## المكتبات والخطوط
+Vercel builds the `main` branch automatically (settings in `vercel.json`: Vite, `npm run build`, output `dist`). Other branches get preview links.
 
-- d3 7.9.0 من cdnjs.
-- خطوط IBM Plex Sans Arabic و IBM Plex Mono و Reem Kufi من Google Fonts.
+## Licence / الترخيص
 
-## البيانات والترخيص
-
-- البيانات منقولة من «الأطلس الجيوسياسي والعرقي الديني العالمي» (تجميع مرخّص CC-BY-4.0)، وحدود الدول من Natural Earth (ملكية عامة).
-- التصحيحات على البيانات لا تُكتب في ملفات JSON، بل في `js/errata.js`، وتظهر في صفحة «المصادر».
-- الادعاءات اللاحقة لمنتصف 2026 تُعلَّم «غير موثّق» من `js/errata.js` أيضاً.
-- يجب أن تبقى صفحة «المصادر» ظاهرة في الموقع المنشور، لأن الترخيص CC-BY-4.0 يشترط ذكر المصدر.
-
-## ملاحظة
-
-لوحة «اسأل Claude» تعمل فقط عند فتح الأطلس داخل claude.ai، وتختفي تلقائياً في أي استضافة أخرى.
+- Code: MIT — see [LICENSE](LICENSE).
+- Data: see [public/data/README.md](public/data/README.md). The curated content is a CC BY 4.0 compilation adapted from «الأطلس الجيوسياسي والعرقي الديني العالمي»; corrections made by this project are listed on the Sources page. Country shapes are from Natural Earth (public domain).
