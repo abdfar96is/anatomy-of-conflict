@@ -1,48 +1,22 @@
 {
   "region": "europe",
-  "regionName": {
-    "ar": "أوروبا وأوراسيا",
-    "en": "Europe and Eurasia"
-  },
+  "regionName": { "ar": "أوروبا وأوراسيا", "en": "Europe and Eurasia" },
   "statusAsOf": "2026-10-30",
   "conflicts": [
     {
       "id": "russia-ukraine",
-      "name": {
-        "ar": "روسيا وأوكرانيا",
-        "en": "Russia and Ukraine"
-      },
-      "coords": [
-        37.0,
-        48.3
-      ],
-      "countries": [
-        "RUS",
-        "UKR"
-      ],
+      "name": { "ar": "روسيا وأوكرانيا", "en": "Russia and Ukraine" },
+      "coords": [37, 48.3],
+      "countries": ["RUS", "UKR"],
       "severity": "war",
       "started": "2014-02",
       "currentPhaseStarted": "2022-02-24",
-      "dimensions": [
-        "territorial",
-        "political",
-        "ideological",
-        "economic"
-      ],
+      "dimensions": ["territorial", "political", "ideological", "economic"],
       "dimensionNote": {
         "ar": "حرب بين دولتين على الأرض والسيادة وتوجّه أوكرانيا الاستراتيجي. البعد اللغوي والهوياتي استُخدم مبرّراً سياسياً، لكنه ليس المحرّك: مدن ذات أغلبية ناطقة بالروسية مثل خاركيف وماريوبول قاومت الاحتلال، وهو ما يقوّض تفسير الحرب كنزاع إثني.",
         "en": "An interstate war over land, sovereignty and Ukraine's strategic orientation. The linguistic and identity dimension was used as political justification but is not the driver: Russian-speaking-majority cities such as Kharkiv and Mariupol resisted occupation, which undercuts reading the war as an ethnic conflict."
       },
-      "parties": {
-        "ar": [
-          "روسيا",
-          "أوكرانيا"
-        ],
-        "en": [
-          "Russia",
-          "Ukraine"
-        ]
-      },
+      "parties": { "ar": ["روسيا", "أوكرانيا"], "en": ["Russia", "Ukraine"] },
       "ethnoReligious": {
         "ar": "الأوكرانيون والروس شعبان سلافيان شرقيان يغلب عليهما المسيحية الأرثوذكسية. انفصلت كنيسة أوكرانيا الأرثوذكسية عن بطريركية موسكو في 2019، وهو انفصال مؤسسي ذو دلالة سياسية. وتوجد أقليات تتارية في القرم وهنغارية ورومانية في الغرب.",
         "en": "Ukrainians and Russians are East Slavic peoples predominantly Orthodox Christian. The Orthodox Church of Ukraine separated from the Moscow Patriarchate in 2019, an institutional split with political significance. Crimean Tatar, Hungarian and Romanian minorities are also present."
@@ -131,48 +105,21 @@
         }
       ],
       "confidence": "verified",
-      "sourceRefs": [
-        "acled",
-        "ucdp",
-        "unhcr"
-      ]
+      "sourceRefs": ["acled", "ucdp", "unhcr"]
     },
     {
       "id": "armenia-azerbaijan",
-      "name": {
-        "ar": "أرمينيا وأذربيجان",
-        "en": "Armenia and Azerbaijan"
-      },
-      "coords": [
-        46.3,
-        39.9
-      ],
-      "countries": [
-        "ARM",
-        "AZE"
-      ],
+      "name": { "ar": "أرمينيا وأذربيجان", "en": "Armenia and Azerbaijan" },
+      "coords": [46.3, 39.9],
+      "countries": ["ARM", "AZE"],
       "severity": "frozen",
       "started": "1988",
-      "dimensions": [
-        "territorial",
-        "identity",
-        "political",
-        "economic"
-      ],
+      "dimensions": ["territorial", "identity", "political", "economic"],
       "dimensionNote": {
         "ar": "نزاع إقليمي وهوياتي بامتياز حول السيادة على ناغورنو قره باغ، تضاعف بثقل الذاكرة التاريخية. الخلاف الحالي تحوّل إلى خلاف قانوني ودستوري ولوجستي حول نصّ المعاهدة وممرّ المرور، وهو تحوّل نوعي عن مرحلة القتال.",
         "en": "Pre-eminently a territorial and identity conflict over sovereignty in Nagorno-Karabakh, compounded by the weight of historical memory. The current disagreement has shifted to legal, constitutional and logistical questions about the treaty text and the transit corridor — a qualitative change from the fighting phase."
       },
-      "parties": {
-        "ar": [
-          "أرمينيا",
-          "أذربيجان"
-        ],
-        "en": [
-          "Armenia",
-          "Azerbaijan"
-        ]
-      },
+      "parties": { "ar": ["أرمينيا", "أذربيجان"], "en": ["Armenia", "Azerbaijan"] },
       "ethnoReligious": {
         "ar": "الأرمن شعب مسيحي أرثوذكسي شرقي (الكنيسة الأرمنية الرسولية)، والأذريون شعب تركي مسلم بأغلبية شيعية. وجود مذهب شيعي في أذربيجان وعلاقتها الوثيقة بإسرائيل وتركيا في الوقت نفسه يوضّح أن المذهب لا يحدّد التحالفات هنا.",
         "en": "Armenians are Oriental Orthodox Christians (Armenian Apostolic Church); Azerbaijanis are a Turkic, Shia-majority Muslim people. Azerbaijan's Shia majority alongside its close relations with both Israel and Türkiye illustrates that sect does not determine alignments here."
@@ -247,47 +194,23 @@
         }
       ],
       "confidence": "verified",
-      "sourceRefs": [
-        "icg",
-        "mrg"
-      ]
+      "sourceRefs": ["icg", "mrg"]
     },
     {
       "id": "kosovo-serbia",
-      "name": {
-        "ar": "كوسوفو وصربيا",
-        "en": "Kosovo and Serbia"
-      },
-      "coords": [
-        20.9,
-        42.6
-      ],
-      "countries": [
-        "SRB",
-        "XKX"
-      ],
+      "name": { "ar": "كوسوفو وصربيا", "en": "Kosovo and Serbia" },
+      "coords": [20.9, 42.6],
+      "countries": ["SRB", "XKX"],
       "severity": "high-tension",
       "started": "1989",
-      "dimensions": [
-        "territorial",
-        "identity",
-        "political"
-      ],
+      "dimensions": ["territorial", "identity", "political"],
       "dimensionNote": {
         "ar": "نزاع إقليمي وهوياتي حول وضع كيان وشرعية استقلاله، والبعد الديني (أرثوذكس في مقابل مسلمين) ثانوي ويعمل كعلامة هوية لا كسبب عقدي.",
         "en": "A territorial and identity conflict over an entity's status and the legitimacy of its independence; the religious dimension (Orthodox and Muslim) is secondary and functions as an identity marker rather than a doctrinal cause."
       },
       "parties": {
-        "ar": [
-          "صربيا",
-          "كوسوفو",
-          "صرب شمال كوسوفو"
-        ],
-        "en": [
-          "Serbia",
-          "Kosovo",
-          "Serbs of northern Kosovo"
-        ]
+        "ar": ["صربيا", "كوسوفو", "صرب شمال كوسوفو"],
+        "en": ["Serbia", "Kosovo", "Serbs of northern Kosovo"]
       },
       "ethnoReligious": {
         "ar": "أغلبية ألبانية مسلمة سنّية في كوسوفو مع أقلية صربية أرثوذكسية مركّزة في الشمال حول ميتروفيتسا. تضمّ كوسوفو أديرة أرثوذكسية صربية مدرجة على قائمة التراث العالمي، وهي عنصر مركزي في الرواية الوطنية الصربية.",
@@ -342,46 +265,23 @@
       "statusAsOf": "2026-10-30",
       "recent": [],
       "confidence": "partial",
-      "sourceRefs": [
-        "icg",
-        "mrg"
-      ]
+      "sourceRefs": ["icg", "mrg"]
     },
     {
       "id": "bosnia",
-      "name": {
-        "ar": "البوسنة والهرسك",
-        "en": "Bosnia and Herzegovina"
-      },
-      "coords": [
-        17.8,
-        44.1
-      ],
-      "countries": [
-        "BIH"
-      ],
+      "name": { "ar": "البوسنة والهرسك", "en": "Bosnia and Herzegovina" },
+      "coords": [17.8, 44.1],
+      "countries": ["BIH"],
       "severity": "high-tension",
       "started": "1992",
-      "dimensions": [
-        "political",
-        "identity",
-        "territorial"
-      ],
+      "dimensions": ["political", "identity", "territorial"],
       "dimensionNote": {
         "ar": "أزمة دستورية وسياسية ناتجة عن بنية دولة بُنيت على تمثيل ثلاث جماعات قومية، أكثر من كونها نزاعاً دينياً نشطاً. الهوية الدينية تعمل كعلامة قومية في البوسنة أكثر من كونها خلافاً عقدياً.",
         "en": "A constitutional and political crisis arising from a state structure built on representation of three constituent national groups, rather than an active religious conflict. Religious identity in Bosnia functions as a national marker more than a doctrinal disagreement."
       },
       "parties": {
-        "ar": [
-          "البوشناق",
-          "الصرب البوسنيون",
-          "الكروات البوسنيون"
-        ],
-        "en": [
-          "Bosniaks",
-          "Bosnian Serbs",
-          "Bosnian Croats"
-        ]
+        "ar": ["البوشناق", "الصرب البوسنيون", "الكروات البوسنيون"],
+        "en": ["Bosniaks", "Bosnian Serbs", "Bosnian Croats"]
       },
       "ethnoReligious": {
         "ar": "ثلاث جماعات قومية: بوشناق مسلمون سنّة، وصرب أرثوذكس، وكروات كاثوليك. الجماعات الثلاث تتشارك اللغة ذاتها بفروق لهجوية، وهو ما يجعل الدين العلامة الفارقة الرئيسية بينها.",
@@ -436,47 +336,23 @@
       "statusAsOf": "2026-10-30",
       "recent": [],
       "confidence": "partial",
-      "sourceRefs": [
-        "icg",
-        "mrg"
-      ]
+      "sourceRefs": ["icg", "mrg"]
     },
     {
       "id": "transnistria",
-      "name": {
-        "ar": "ترانسنيستريا ومولدوفا",
-        "en": "Transnistria and Moldova"
-      },
-      "coords": [
-        29.6,
-        46.8
-      ],
-      "countries": [
-        "MDA",
-        "UKR"
-      ],
+      "name": { "ar": "ترانسنيستريا ومولدوفا", "en": "Transnistria and Moldova" },
+      "coords": [29.6, 46.8],
+      "countries": ["MDA", "UKR"],
       "severity": "frozen",
       "started": "1990",
-      "dimensions": [
-        "territorial",
-        "political",
-        "economic"
-      ],
+      "dimensions": ["territorial", "political", "economic"],
       "dimensionNote": {
         "ar": "نزاع إقليمي مجمّد سببه سياسي واقتصادي: مصير كيان انفصالي يعتمد كلياً على دعم خارجي وعلى الطاقة المدعومة، وليس نزاعاً إثنياً فالتركيب السكاني في الكيان مختلط.",
         "en": "A frozen territorial conflict with political and economic causes: the fate of a breakaway entity wholly dependent on external support and subsidised energy. It is not an ethnic conflict, as the entity's population is mixed."
       },
       "parties": {
-        "ar": [
-          "مولدوفا",
-          "سلطات ترانسنيستريا",
-          "روسيا"
-        ],
-        "en": [
-          "Moldova",
-          "Transnistrian authorities",
-          "Russia"
-        ]
+        "ar": ["مولدوفا", "سلطات ترانسنيستريا", "روسيا"],
+        "en": ["Moldova", "Transnistrian authorities", "Russia"]
       },
       "ethnoReligious": {
         "ar": "سكان ترانسنيستريا موزّعون بنسب متقاربة بين المولدوفيين والروس والأوكرانيين، والأرثوذكسية هي الديانة الغالبة على الجانبين. هذا التركيب المختلط يقوّض أي قراءة إثنية للنزاع.",
@@ -531,9 +407,7 @@
       "statusAsOf": "2026-10-30",
       "recent": [],
       "confidence": "partial",
-      "sourceRefs": [
-        "icg"
-      ]
+      "sourceRefs": ["icg"]
     },
     {
       "id": "georgia-breakaway",
@@ -541,38 +415,18 @@
         "ar": "جورجيا وأبخازيا وأوسيتيا الجنوبية",
         "en": "Georgia, Abkhazia and South Ossetia"
       },
-      "coords": [
-        42.7,
-        42.6
-      ],
-      "countries": [
-        "GEO",
-        "RUS"
-      ],
+      "coords": [42.7, 42.6],
+      "countries": ["GEO", "RUS"],
       "severity": "frozen",
       "started": "1991",
-      "dimensions": [
-        "territorial",
-        "identity",
-        "political"
-      ],
+      "dimensions": ["territorial", "identity", "political"],
       "dimensionNote": {
         "ar": "نزاعان إقليميان بجذور هوياتية حقيقية (الأبخاز والأوسيتيون شعبان متمايزان لغوياً عن الجورجيين)، لكن استمرار الانفصال اليوم يعتمد على الاعتراف والحماية الروسية أكثر من أي عامل داخلي.",
         "en": "Two territorial conflicts with genuine identity roots (Abkhaz and Ossetians are linguistically distinct from Georgians), but the persistence of separation today rests on Russian recognition and protection more than on any internal factor."
       },
       "parties": {
-        "ar": [
-          "جورجيا",
-          "أبخازيا",
-          "أوسيتيا الجنوبية",
-          "روسيا"
-        ],
-        "en": [
-          "Georgia",
-          "Abkhazia",
-          "South Ossetia",
-          "Russia"
-        ]
+        "ar": ["جورجيا", "أبخازيا", "أوسيتيا الجنوبية", "روسيا"],
+        "en": ["Georgia", "Abkhazia", "South Ossetia", "Russia"]
       },
       "ethnoReligious": {
         "ar": "الأبخاز شعب قوقازي شمالي غربي بلغة خاصة، والأوسيتيون شعب إيراني اللغة. الأرثوذكسية غالبة على الجورجيين والأوسيتيين، وبين الأبخاز مزيج من الأرثوذكسية والإسلام والمعتقدات التقليدية.",
@@ -619,10 +473,7 @@
       "statusAsOf": "2026-10-30",
       "recent": [],
       "confidence": "partial",
-      "sourceRefs": [
-        "icg",
-        "unhcr"
-      ]
+      "sourceRefs": ["icg", "unhcr"]
     },
     {
       "id": "basque-catalonia",
@@ -630,36 +481,18 @@
         "ar": "القومية الكاتالونية والباسكية في إسبانيا",
         "en": "Catalan and Basque nationalism in Spain"
       },
-      "coords": [
-        1.5,
-        41.6
-      ],
-      "countries": [
-        "ESP",
-        "FRA"
-      ],
+      "coords": [1.5, 41.6],
+      "countries": ["ESP", "FRA"],
       "severity": "political",
       "started": "1979",
-      "dimensions": [
-        "identity",
-        "political",
-        "economic"
-      ],
+      "dimensions": ["identity", "political", "economic"],
       "dimensionNote": {
         "ar": "نزاع هوياتي وسياسي وضريبي يُدار بالكامل داخل المؤسسات الدستورية والقضائية والانتخابية. أُدرج هنا لأنه نموذج لحركة انفصالية غير مسلحة، وهو تمييز ضروري حتى لا تُقرأ كل حركة انفصالية كنزاع عنيف.",
         "en": "An identity, political and fiscal dispute conducted entirely within constitutional, judicial and electoral institutions. Included here as a model of an unarmed secessionist movement — a necessary distinction so that not every secessionist movement is read as violent conflict."
       },
       "parties": {
-        "ar": [
-          "الدولة الإسبانية",
-          "حكومة كاتالونيا",
-          "حكومة إقليم الباسك"
-        ],
-        "en": [
-          "Spanish state",
-          "Government of Catalonia",
-          "Basque regional government"
-        ]
+        "ar": ["الدولة الإسبانية", "حكومة كاتالونيا", "حكومة إقليم الباسك"],
+        "en": ["Spanish state", "Government of Catalonia", "Basque regional government"]
       },
       "ethnoReligious": {
         "ar": "الكاتالونية والباسكية هويتان قوميتان لغويتان لا دينيتان. الباسكية لغة معزولة لا تنتمي إلى العائلة الهندوأوروبية، والكاتالونية لغة رومانسية. الكاثوليكية هي الخلفية الدينية المشتركة مع إسبانيا كلها.",
@@ -698,46 +531,23 @@
       "statusAsOf": "2026-10-30",
       "recent": [],
       "confidence": "partial",
-      "sourceRefs": [
-        "mrg"
-      ]
+      "sourceRefs": ["mrg"]
     },
     {
       "id": "northern-ireland",
-      "name": {
-        "ar": "أيرلندا الشمالية",
-        "en": "Northern Ireland"
-      },
-      "coords": [
-        -6.5,
-        54.6
-      ],
-      "countries": [
-        "GBR",
-        "IRL"
-      ],
+      "name": { "ar": "أيرلندا الشمالية", "en": "Northern Ireland" },
+      "coords": [-6.5, 54.6],
+      "countries": ["GBR", "IRL"],
       "severity": "political",
       "started": "1968",
-      "dimensions": [
-        "identity",
-        "political",
-        "territorial"
-      ],
+      "dimensions": ["identity", "political", "territorial"],
       "dimensionNote": {
         "ar": "نزاع حول السيادة والانتماء القومي استُخدمت فيه الكاثوليكية والبروتستانتية كعلامتَي هوية للجماعتين القومية والوحدوية. التسمية الدينية دقيقة وصفياً ومضلّلة تفسيرياً: الخلاف لم يكن يوماً عقدياً.",
         "en": "A conflict over sovereignty and national belonging in which Catholicism and Protestantism served as identity markers for the nationalist and unionist communities. The religious labelling is descriptively accurate and interpretively misleading: the dispute was never doctrinal."
       },
       "parties": {
-        "ar": [
-          "المملكة المتحدة",
-          "القوميون الأيرلنديون",
-          "الوحدويون"
-        ],
-        "en": [
-          "United Kingdom",
-          "Irish nationalists",
-          "Unionists"
-        ]
+        "ar": ["المملكة المتحدة", "القوميون الأيرلنديون", "الوحدويون"],
+        "en": ["United Kingdom", "Irish nationalists", "Unionists"]
       },
       "ethnoReligious": {
         "ar": "جماعة قومية كاثوليكية تميل إلى الوحدة مع جمهورية أيرلندا، وجماعة وحدوية بروتستانتية تميل إلى البقاء في المملكة المتحدة. التركيب السكاني تغيّر تدريجياً وفقد الوحدويون الأغلبية العددية المطلقة.",
@@ -784,9 +594,7 @@
       "statusAsOf": "2026-10-30",
       "recent": [],
       "confidence": "partial",
-      "sourceRefs": [
-        "mrg"
-      ]
+      "sourceRefs": ["mrg"]
     }
   ]
 }

@@ -6,7 +6,7 @@
     {
       "id": "taiwan-strait",
       "name": { "ar": "مضيق تايوان", "en": "The Taiwan Strait" },
-      "coords": [120.0, 23.8],
+      "coords": [120, 23.8],
       "countries": ["TWN", "CHN"],
       "severity": "high-tension",
       "started": "1949",
@@ -40,9 +40,30 @@
         "en": "Taiwan produces the world's largest share of advanced semiconductors, making any disruption there an immediate global economic crisis. Its position forms a node in the First Island Chain that constrains Chinese naval access to the Pacific."
       },
       "externalPowers": [
-        { "iso3": "USA", "role": { "ar": "مورّد أسلحة رئيسي بموجب قانون العلاقات مع تايوان، وتجري عمليات حرية ملاحة في المضيق وبحر الصين الجنوبي", "en": "Principal arms supplier under the Taiwan Relations Act, and conducts freedom-of-navigation operations in the strait and the South China Sea" }, "kind": "treaty" },
-        { "iso3": "JPN", "role": { "ar": "تنشر مع مشاة البحرية الأمريكية صواريخ مضادة للسفن في جزيرة يوناغوني على نحو 110 كم من تايوان", "en": "Deploys anti-ship missiles with the US Marine Corps on Yonaguni Island, around 110 km from Taiwan" }, "kind": "treaty" },
-        { "iso3": "PHL", "role": { "ar": "تتعرّض لضغط بحري صيني متزايد وتمنح الولايات المتحدة وصولاً إلى قواعدها", "en": "Faces growing Chinese maritime pressure and grants the United States access to its bases" }, "kind": "treaty" }
+        {
+          "iso3": "USA",
+          "role": {
+            "ar": "مورّد أسلحة رئيسي بموجب قانون العلاقات مع تايوان، وتجري عمليات حرية ملاحة في المضيق وبحر الصين الجنوبي",
+            "en": "Principal arms supplier under the Taiwan Relations Act, and conducts freedom-of-navigation operations in the strait and the South China Sea"
+          },
+          "kind": "treaty"
+        },
+        {
+          "iso3": "JPN",
+          "role": {
+            "ar": "تنشر مع مشاة البحرية الأمريكية صواريخ مضادة للسفن في جزيرة يوناغوني على نحو 110 كم من تايوان",
+            "en": "Deploys anti-ship missiles with the US Marine Corps on Yonaguni Island, around 110 km from Taiwan"
+          },
+          "kind": "treaty"
+        },
+        {
+          "iso3": "PHL",
+          "role": {
+            "ar": "تتعرّض لضغط بحري صيني متزايد وتمنح الولايات المتحدة وصولاً إلى قواعدها",
+            "en": "Faces growing Chinese maritime pressure and grants the United States access to its bases"
+          },
+          "kind": "treaty"
+        }
       ],
       "status": {
         "ar": "ضغط رمادي اللون متصاعد دون صدام مسلح. كثّفت الصين في 2026 الضغط البحري بنشر أعداد قياسية من سفن خفر السواحل وسفن المسح حول الجزيرة، وبدأت دوريات إنفاذ قانون شرق تايوان في يونيو 2026. وقع حادث استخدام تايوان لخراطيم المياه ضد قارب صيني قرب برَتاس في 1 أكتوبر 2026، وأبعدت تايوان في 18 أكتوبر ستة عشر سفينة صينية وصفتها بحملة تحريش منسّقة. لم تُجرِ الصين تدريبات حول الجزيرة ردّاً على خطاب العيد الوطني التايواني هذا العام خلافاً للمعتاد.",
@@ -50,9 +71,24 @@
       },
       "statusAsOf": "2026-10-30",
       "recent": [
-        { "date": "2026-10-20", "ar": "أرسل خفر السواحل التايواني سفينة لإبعاد سفينة خفر سواحل صينية دخلت منطقة محظورة حول جزر برَتاس، وأعلنت الصين إرسال قوات بحرية لمراقبة سفينة حربية أمريكية قرب سابينا شول.", "en": "Taiwan's coast guard sent a ship to ward off a Chinese coast guard vessel that entered a restricted area around the Pratas Islands, and China announced it had dispatched naval forces to shadow a US warship near Sabina Shoal.", "source": "Reuters / USA Today via CFR" },
-        { "date": "2026-10-19", "ar": "جرى نشر صواريخ مضادة للسفن أمريكية ويابانية في جزيرة يوناغوني خلال تدريبات «كين سورد» الممتدة حتى 29 أكتوبر.", "en": "US and Japanese anti-ship missiles were deployed on Yonaguni Island during the Keen Sword exercises running to 29 October.", "source": "ISW / AEI" },
-        { "date": "2026-10-14", "ar": "حذّرت بكين تايوان من «تحمّل العواقب» بعد حادثة خراطيم المياه قرب برَتاس وأكّدت ما وصفته بسيادتها غير القابلة للجدل على الجزر.", "en": "Beijing warned Taiwan it must bear the consequences of the Pratas water-cannon incident and asserted what it called indisputable sovereignty over the islands.", "source": "China Taiwan Affairs Office statements" }
+        {
+          "date": "2026-10-20",
+          "ar": "أرسل خفر السواحل التايواني سفينة لإبعاد سفينة خفر سواحل صينية دخلت منطقة محظورة حول جزر برَتاس، وأعلنت الصين إرسال قوات بحرية لمراقبة سفينة حربية أمريكية قرب سابينا شول.",
+          "en": "Taiwan's coast guard sent a ship to ward off a Chinese coast guard vessel that entered a restricted area around the Pratas Islands, and China announced it had dispatched naval forces to shadow a US warship near Sabina Shoal.",
+          "source": "Reuters / USA Today via CFR"
+        },
+        {
+          "date": "2026-10-19",
+          "ar": "جرى نشر صواريخ مضادة للسفن أمريكية ويابانية في جزيرة يوناغوني خلال تدريبات «كين سورد» الممتدة حتى 29 أكتوبر.",
+          "en": "US and Japanese anti-ship missiles were deployed on Yonaguni Island during the Keen Sword exercises running to 29 October.",
+          "source": "ISW / AEI"
+        },
+        {
+          "date": "2026-10-14",
+          "ar": "حذّرت بكين تايوان من «تحمّل العواقب» بعد حادثة خراطيم المياه قرب برَتاس وأكّدت ما وصفته بسيادتها غير القابلة للجدل على الجزر.",
+          "en": "Beijing warned Taiwan it must bear the consequences of the Pratas water-cannon incident and asserted what it called indisputable sovereignty over the islands.",
+          "source": "China Taiwan Affairs Office statements"
+        }
       ],
       "confidence": "verified",
       "sourceRefs": ["icg", "acled"]
@@ -95,9 +131,27 @@
         "en": "A large share of global seaborne trade passes through the sea, which also holds fisheries feeding hundreds of millions and oil and gas reserves of uncertain size. It has military importance as a basin from which China's nuclear submarines operate."
       },
       "externalPowers": [
-        { "iso3": "USA", "role": { "ar": "عمليات حرية ملاحة وتحالف دفاعي مع الفلبين", "en": "Freedom-of-navigation operations and a defence alliance with the Philippines" }, "kind": "treaty" },
-        { "iso3": "JPN", "role": { "ar": "دعم قدرات خفر السواحل لدول مطالبة", "en": "Support for claimant states' coast guard capabilities" }, "kind": "assessed" },
-        { "iso3": "AUS", "role": { "ar": "دوريات بحرية مشتركة", "en": "Joint maritime patrols" }, "kind": "treaty" }
+        {
+          "iso3": "USA",
+          "role": {
+            "ar": "عمليات حرية ملاحة وتحالف دفاعي مع الفلبين",
+            "en": "Freedom-of-navigation operations and a defence alliance with the Philippines"
+          },
+          "kind": "treaty"
+        },
+        {
+          "iso3": "JPN",
+          "role": {
+            "ar": "دعم قدرات خفر السواحل لدول مطالبة",
+            "en": "Support for claimant states' coast guard capabilities"
+          },
+          "kind": "assessed"
+        },
+        {
+          "iso3": "AUS",
+          "role": { "ar": "دوريات بحرية مشتركة", "en": "Joint maritime patrols" },
+          "kind": "treaty"
+        }
       ],
       "status": {
         "ar": "مواجهات متكرّرة بين سفن مدنية وخفر سواحل دون قتال بين قوات نظامية. تكثّف الصين في أكتوبر 2026 الضغط الخطابي والبحري على الفلبين بهدف تقليص حضورها البحري، ووصفت دورياتها قرب سكاربورو شول بالاستفزازات. وجرت مواجهة بحرية أمريكية صينية قرب سابينا شول في 20 أكتوبر 2026.",
@@ -105,8 +159,18 @@
       },
       "statusAsOf": "2026-10-30",
       "recent": [
-        { "date": "2026-10-20", "ar": "أعلنت القيادة الجنوبية الصينية إرسال قوات بحرية لتتبّع سفينة حربية أمريكية كانت تنفّذ عملية حرية ملاحة قرب سابينا شول.", "en": "China's Southern Theatre Command announced it had dispatched naval forces to track a US warship conducting a freedom-of-navigation operation near Sabina Shoal.", "source": "CFR Global Conflict Tracker" },
-        { "date": "2026-10-16", "ar": "تصاعد خلاف دبلوماسي بين مانيلا وبكين بعد تصريحات للسفير الصيني، واستدعى الرئيس الفلبيني السفير لمناقشة مباشرة.", "en": "A diplomatic row escalated between Manila and Beijing after remarks by China's ambassador, and the Philippine president summoned the ambassador for a direct discussion.", "source": "ISW / AEI" }
+        {
+          "date": "2026-10-20",
+          "ar": "أعلنت القيادة الجنوبية الصينية إرسال قوات بحرية لتتبّع سفينة حربية أمريكية كانت تنفّذ عملية حرية ملاحة قرب سابينا شول.",
+          "en": "China's Southern Theatre Command announced it had dispatched naval forces to track a US warship conducting a freedom-of-navigation operation near Sabina Shoal.",
+          "source": "CFR Global Conflict Tracker"
+        },
+        {
+          "date": "2026-10-16",
+          "ar": "تصاعد خلاف دبلوماسي بين مانيلا وبكين بعد تصريحات للسفير الصيني، واستدعى الرئيس الفلبيني السفير لمناقشة مباشرة.",
+          "en": "A diplomatic row escalated between Manila and Beijing after remarks by China's ambassador, and the Philippine president summoned the ambassador for a direct discussion.",
+          "source": "ISW / AEI"
+        }
       ],
       "confidence": "verified",
       "sourceRefs": ["icg", "eia"]
@@ -114,7 +178,7 @@
     {
       "id": "kashmir",
       "name": { "ar": "كشمير والهند وباكستان", "en": "Kashmir, India and Pakistan" },
-      "coords": [75.0, 34.0],
+      "coords": [75, 34],
       "countries": ["IND", "PAK", "CHN"],
       "severity": "armed-conflict",
       "started": "1947",
@@ -148,8 +212,22 @@
         "en": "The headwaters of the Indus and its tributaries, on which Pakistani agriculture depends entirely; the China–Pakistan Economic Corridor's passage through Gilgit-Baltistan; and the mountain positions overlooking the Line of Control and the Siachen Glacier."
       },
       "externalPowers": [
-        { "iso3": "CHN", "role": { "ar": "طرف مطالب بأكساي تشين وشريك استراتيجي لباكستان", "en": "A claimant to Aksai Chin and Pakistan's strategic partner" }, "kind": "assessed" },
-        { "iso3": "USA", "role": { "ar": "علاقة متنامية مع الهند، وتصريحات سفيرها في 2026 بوصف الإقليم جزءاً مهمّاً من الهند خرجت عن سياسة الحياد الأمريكية التقليدية", "en": "A deepening relationship with India; its ambassador's 2026 description of the region as an important part of India departed from traditional American neutrality" }, "kind": "assessed" }
+        {
+          "iso3": "CHN",
+          "role": {
+            "ar": "طرف مطالب بأكساي تشين وشريك استراتيجي لباكستان",
+            "en": "A claimant to Aksai Chin and Pakistan's strategic partner"
+          },
+          "kind": "assessed"
+        },
+        {
+          "iso3": "USA",
+          "role": {
+            "ar": "علاقة متنامية مع الهند، وتصريحات سفيرها في 2026 بوصف الإقليم جزءاً مهمّاً من الهند خرجت عن سياسة الحياد الأمريكية التقليدية",
+            "en": "A deepening relationship with India; its ambassador's 2026 description of the region as an important part of India departed from traditional American neutrality"
+          },
+          "kind": "assessed"
+        }
       ],
       "status": {
         "ar": "تمرّد منخفض الحدّة وتوتّر ثنائي حادّ دون حرب مفتوحة. أبرز ملفّات 2026 هي أزمة المياه: حكمت محكمة التحكيم الدائمة في 31 أغسطس 2026 بأن معاهدة مياه السند تبقى ملزمة بالكامل للطرفين وبوقف العمل في محطة كهرومائية في كشمير حتى تقييم خبير محيّد، فرحّبت إسلام آباد بالحكم ورفضته نيودلهي. وجرت انتخابات محلّية في كشمير الباكستانية في أغسطس 2026 تأجّلت في عدد من الدوائر بسبب العنف.",
@@ -157,8 +235,18 @@
       },
       "statusAsOf": "2026-10-30",
       "recent": [
-        { "date": "2026-10-02", "ar": "أطلقت قوات الحدود الهندية النار على ثلاثة مدنيين باكستانيين في قطاع بيديان على الحدود الدولية فقتلت اثنين وجرحت واحداً، وتبادل الطرفان استدعاء القائمين بالأعمال مع تباين الروايات.", "en": "India's Border Security Force shot three unarmed Pakistani civilians in the Bedian sector of the international border, killing two and injuring one; the two sides disputed each other's accounts and summoned each other's chargés d'affaires.", "source": "AP via CFR" },
-        { "date": "2026-08-31", "ar": "حكمت محكمة التحكيم الدائمة بأن معاهدة مياه السند تبقى ملزمة بالكامل رغم إعلان الهند تعليق مشاركتها فيها.", "en": "The Permanent Court of Arbitration ruled that the Indus Waters Treaty remains fully binding despite India placing its participation in abeyance.", "source": "Permanent Court of Arbitration via ICG" }
+        {
+          "date": "2026-10-02",
+          "ar": "أطلقت قوات الحدود الهندية النار على ثلاثة مدنيين باكستانيين في قطاع بيديان على الحدود الدولية فقتلت اثنين وجرحت واحداً، وتبادل الطرفان استدعاء القائمين بالأعمال مع تباين الروايات.",
+          "en": "India's Border Security Force shot three unarmed Pakistani civilians in the Bedian sector of the international border, killing two and injuring one; the two sides disputed each other's accounts and summoned each other's chargés d'affaires.",
+          "source": "AP via CFR"
+        },
+        {
+          "date": "2026-08-31",
+          "ar": "حكمت محكمة التحكيم الدائمة بأن معاهدة مياه السند تبقى ملزمة بالكامل رغم إعلان الهند تعليق مشاركتها فيها.",
+          "en": "The Permanent Court of Arbitration ruled that the Indus Waters Treaty remains fully binding despite India placing its participation in abeyance.",
+          "source": "Permanent Court of Arbitration via ICG"
+        }
       ],
       "confidence": "verified",
       "sourceRefs": ["icg", "acled", "mrg"]
@@ -201,10 +289,38 @@
         "en": "The Torkham and Chaman trade crossings, transit routes toward Central Asia, and Afghanistan's unexploited minerals. Pakistan has an interest in avoiding simultaneously hostile eastern and western fronts."
       },
       "externalPowers": [
-        { "iso3": "QAT", "role": { "ar": "وسيط في وقف نار أكتوبر 2025 ومارس 2026", "en": "Mediator in the October 2025 and March 2026 ceasefires" }, "kind": "treaty" },
-        { "iso3": "TUR", "role": { "ar": "وسيط مشارك في مسار الدوحة وإسطنبول", "en": "Co-mediator in the Doha and Istanbul track" }, "kind": "treaty" },
-        { "iso3": "SAU", "role": { "ar": "وسيط في هدنة عيد الفطر مارس 2026", "en": "Mediator in the Eid al-Fitr truce of March 2026" }, "kind": "treaty" },
-        { "iso3": "CHN", "role": { "ar": "وسيط في محادثات أورومتشي أبريل 2026 ووقف النار الذي تلاها", "en": "Mediator in the Urumqi talks of April 2026 and the ceasefire that followed" }, "kind": "treaty" }
+        {
+          "iso3": "QAT",
+          "role": {
+            "ar": "وسيط في وقف نار أكتوبر 2025 ومارس 2026",
+            "en": "Mediator in the October 2025 and March 2026 ceasefires"
+          },
+          "kind": "treaty"
+        },
+        {
+          "iso3": "TUR",
+          "role": {
+            "ar": "وسيط مشارك في مسار الدوحة وإسطنبول",
+            "en": "Co-mediator in the Doha and Istanbul track"
+          },
+          "kind": "treaty"
+        },
+        {
+          "iso3": "SAU",
+          "role": {
+            "ar": "وسيط في هدنة عيد الفطر مارس 2026",
+            "en": "Mediator in the Eid al-Fitr truce of March 2026"
+          },
+          "kind": "treaty"
+        },
+        {
+          "iso3": "CHN",
+          "role": {
+            "ar": "وسيط في محادثات أورومتشي أبريل 2026 ووقف النار الذي تلاها",
+            "en": "Mediator in the Urumqi talks of April 2026 and the ceasefire that followed"
+          },
+          "kind": "treaty"
+        }
       ],
       "status": {
         "ar": "وقف نار هشّ متكرّر الانهيار. بدأت المواجهة بضربة باكستانية في كابول في أكتوبر 2025، وتصاعدت في 26–27 فبراير 2026 إلى ما وصفته إسلام آباد بالحرب المفتوحة مع ضربات على كابول وقندهار. أفادت الأمم المتحدة بمقتل 372 مدنياً أفغانياً على الأقل وجرح 397 في الربع الأول من 2026، وبتهجير أكثر من 115 ألفاً. جرت هدنة بوساطة سعودية وقطرية وتركية في مارس ثم وقف نار بوساطة صينية في أبريل، وشهد يونيو 2026 ضربات أفغانية على مواقع في بلوشستان وخيبر پختونخوا. الاشتباكات المحدودة مستمرة.",
@@ -212,8 +328,18 @@
       },
       "statusAsOf": "2026-10-30",
       "recent": [
-        { "date": "2026-06-19", "ar": "أعلنت كابول تنفيذ ضربات جوية على ما وصفتها بمخابئ لجماعات مسلحة في بلوشستان وخيبر پختونخوا، في تهديد جديد لوقف النار.", "en": "Kabul announced airstrikes on what it called armed-group hideouts in Balochistan and Khyber Pakhtunkhwa, a fresh threat to the ceasefire.", "source": "Al Jazeera" },
-        { "date": "2026-03-24", "ar": "دعا خبراء أمميون الطرفين إلى وقف نار دائم بعد انهيار وقف نار أكتوبر 2025 واندلاع القتال في فبراير.", "en": "UN experts urged both parties to declare a permanent ceasefire after the collapse of the October 2025 ceasefire and the February outbreak of fighting.", "source": "OHCHR" }
+        {
+          "date": "2026-06-19",
+          "ar": "أعلنت كابول تنفيذ ضربات جوية على ما وصفتها بمخابئ لجماعات مسلحة في بلوشستان وخيبر پختونخوا، في تهديد جديد لوقف النار.",
+          "en": "Kabul announced airstrikes on what it called armed-group hideouts in Balochistan and Khyber Pakhtunkhwa, a fresh threat to the ceasefire.",
+          "source": "Al Jazeera"
+        },
+        {
+          "date": "2026-03-24",
+          "ar": "دعا خبراء أمميون الطرفين إلى وقف نار دائم بعد انهيار وقف نار أكتوبر 2025 واندلاع القتال في فبراير.",
+          "en": "UN experts urged both parties to declare a permanent ceasefire after the collapse of the October 2025 ceasefire and the February outbreak of fighting.",
+          "source": "OHCHR"
+        }
       ],
       "confidence": "verified",
       "sourceRefs": ["icg", "unhcr", "acled"]
@@ -221,7 +347,7 @@
     {
       "id": "myanmar",
       "name": { "ar": "ميانمار والنزاعات العرقية", "en": "Myanmar and its ethnic conflicts" },
-      "coords": [96.5, 21.0],
+      "coords": [96.5, 21],
       "countries": ["MMR", "BGD", "THA"],
       "severity": "war",
       "started": "1948",
@@ -232,8 +358,20 @@
         "en": "A compound conflict combining a political struggle over legitimacy after a coup, the world's longest-running ethnic wars over autonomy, and a war economy resting on minerals, narcotics and cyber-scam centres. The economic dimension has become an independent driver rather than merely a consequence."
       },
       "parties": {
-        "ar": ["المجلس العسكري", "حكومة الوحدة الوطنية وقوات الدفاع الشعبي", "تحالف الأخوة الثلاثة", "جيش أراكان", "جيوش عرقية أخرى"],
-        "en": ["State Administration Council (junta)", "National Unity Government and People's Defence Forces", "Three Brotherhood Alliance", "Arakan Army", "Other ethnic armed organisations"]
+        "ar": [
+          "المجلس العسكري",
+          "حكومة الوحدة الوطنية وقوات الدفاع الشعبي",
+          "تحالف الأخوة الثلاثة",
+          "جيش أراكان",
+          "جيوش عرقية أخرى"
+        ],
+        "en": [
+          "State Administration Council (junta)",
+          "National Unity Government and People's Defence Forces",
+          "Three Brotherhood Alliance",
+          "Arakan Army",
+          "Other ethnic armed organisations"
+        ]
       },
       "ethnoReligious": {
         "ar": "البامار أغلبية بوذية، مع شان وكارين وكاتشين (مسيحيون بنسبة كبيرة) وتشين ومون وراخين ووا. الروهينغيا مسلمون في راخين جرّدتهم ميانمار من الجنسية بقانون 1982، وطُرد نحو 700 ألف منهم إلى بنغلاديش في 2017. يسيطر جيش أراكان على معظم راخين ولم يعترف بهوية الروهينغيا العرقية ولم يوفّر لهم حمايةً متكافئة.",
@@ -256,10 +394,38 @@
         "en": "Jade and gemstones in Kachin and rare earths, the oil and gas pipeline from Kyaukphyu port to Yunnan which gives China an outlet bypassing the Strait of Malacca, teak, and the border cyber-scam centres that have become a major funding source."
       },
       "externalPowers": [
-        { "iso3": "CHN", "role": { "ar": "تدعم المجلس العسكري مادياً ودبلوماسياً وتحافظ في الوقت ذاته على قنوات مع جماعات المقاومة لحماية مصالحها", "en": "Provides material and diplomatic backing to the junta while maintaining channels with resistance groups to protect its interests" }, "kind": "assessed" },
-        { "iso3": "RUS", "role": { "ar": "مورّد أسلحة رئيسي للمجلس العسكري", "en": "Principal arms supplier to the junta" }, "kind": "assessed" },
-        { "iso3": "THA", "role": { "ar": "حدود طويلة ومستضيفة للاجئين وطرق تجارة", "en": "A long border, host to refugees and trade routes" }, "kind": "assessed" },
-        { "iso3": "BGD", "role": { "ar": "تستضيف نحو مليون لاجئ روهينغي في كوكس بازار", "en": "Hosts around one million Rohingya refugees in Cox's Bazar" }, "kind": "assessed" }
+        {
+          "iso3": "CHN",
+          "role": {
+            "ar": "تدعم المجلس العسكري مادياً ودبلوماسياً وتحافظ في الوقت ذاته على قنوات مع جماعات المقاومة لحماية مصالحها",
+            "en": "Provides material and diplomatic backing to the junta while maintaining channels with resistance groups to protect its interests"
+          },
+          "kind": "assessed"
+        },
+        {
+          "iso3": "RUS",
+          "role": {
+            "ar": "مورّد أسلحة رئيسي للمجلس العسكري",
+            "en": "Principal arms supplier to the junta"
+          },
+          "kind": "assessed"
+        },
+        {
+          "iso3": "THA",
+          "role": {
+            "ar": "حدود طويلة ومستضيفة للاجئين وطرق تجارة",
+            "en": "A long border, host to refugees and trade routes"
+          },
+          "kind": "assessed"
+        },
+        {
+          "iso3": "BGD",
+          "role": {
+            "ar": "تستضيف نحو مليون لاجئ روهينغي في كوكس بازار",
+            "en": "Hosts around one million Rohingya refugees in Cox's Bazar"
+          },
+          "kind": "assessed"
+        }
       ],
       "status": {
         "ar": "حرب أهلية متصاعدة ومجزّأة، وصفها المقرّر الأممي في 29 أكتوبر 2026 بحالة حقوقية كارثية لا نهاية لها في الأفق. تجاوزت حصيلة القتلى منذ الانقلاب مئة ألف بحسب إفادات أممية في أكتوبر 2026، ويقدّر المقرّر الأممي مقتل 8,384 مدنياً على يد الجيش حتى 15 سبتمبر 2026، كما سجّلت جمعية مساعدة السجناء السياسيين 32,046 اعتقالاً سياسياً و8,477 قتيلاً حتى نهاية سبتمبر 2026. تقديرات السيطرة تتباين: نحو 21٪ للمجلس العسكري بحسب تقديرات معتمدة على بيانات ACLED، ونحو 42٪ لقوى المقاومة والجيوش العرقية بحسب CFR. كرّست انتخابات أبريل 2026 سلطة قائد الجيش عبر برلمان موالٍ.",
@@ -267,9 +433,24 @@
       },
       "statusAsOf": "2026-10-30",
       "recent": [
-        { "date": "2026-10-29", "ar": "تقرير للمقرّرة الأممية الخاصة يربط اقتصاد ميانمار غير المشروع بتصاعد العنف، ويذكر أن شبكات إجرام عابرة للحدود تشكّل العمود الفقري لمعظم المشاريع الإجرامية في البلاد.", "en": "A UN special rapporteur report linked Myanmar's illicit economy to escalating violence, noting that transnational criminal networks form the backbone of most criminal enterprises in the country.", "source": "UN News / OHCHR" },
-        { "date": "2026-10-27", "ar": "أُبلغت اللجنة الثالثة للجمعية العامة بتجاوز حصيلة القتلى مئة ألف منذ انقلاب 2021، ورفض الاتحاد الأوروبي شرعية انتخابات الجيش.", "en": "The General Assembly's Third Committee was told the death toll had passed 100,000 since the 2021 coup, and the European Union rejected the legitimacy of the military's elections.", "source": "UN Press" },
-        { "date": "2026-10-16", "ar": "عقد مسؤولون أمريكيون لقاءً مع ممثّلين عن الحكومة المدعومة عسكرياً في طوكيو، وهو اللقاء الثاني في شهر، بشأن مراكز الاحتيال والمعادن النادرة.", "en": "US officials met representatives of the military-backed government in Tokyo, their second meeting in a month, on scam centres and rare-earth minerals.", "source": "Reuters via CFR" }
+        {
+          "date": "2026-10-29",
+          "ar": "تقرير للمقرّرة الأممية الخاصة يربط اقتصاد ميانمار غير المشروع بتصاعد العنف، ويذكر أن شبكات إجرام عابرة للحدود تشكّل العمود الفقري لمعظم المشاريع الإجرامية في البلاد.",
+          "en": "A UN special rapporteur report linked Myanmar's illicit economy to escalating violence, noting that transnational criminal networks form the backbone of most criminal enterprises in the country.",
+          "source": "UN News / OHCHR"
+        },
+        {
+          "date": "2026-10-27",
+          "ar": "أُبلغت اللجنة الثالثة للجمعية العامة بتجاوز حصيلة القتلى مئة ألف منذ انقلاب 2021، ورفض الاتحاد الأوروبي شرعية انتخابات الجيش.",
+          "en": "The General Assembly's Third Committee was told the death toll had passed 100,000 since the 2021 coup, and the European Union rejected the legitimacy of the military's elections.",
+          "source": "UN Press"
+        },
+        {
+          "date": "2026-10-16",
+          "ar": "عقد مسؤولون أمريكيون لقاءً مع ممثّلين عن الحكومة المدعومة عسكرياً في طوكيو، وهو اللقاء الثاني في شهر، بشأن مراكز الاحتيال والمعادن النادرة.",
+          "en": "US officials met representatives of the military-backed government in Tokyo, their second meeting in a month, on scam centres and rare-earth minerals.",
+          "source": "Reuters via CFR"
+        }
       ],
       "confidence": "verified",
       "sourceRefs": ["acled", "unhcr", "mrg"]
@@ -286,7 +467,10 @@
         "ar": "ليس نزاعاً مسلحاً نشطاً بل ملفّ قمع دولة لمجموعة عرقية ودينية، ولذلك صُنّف severity بقيمة repression لا بقيمة حرب. تصنيفه حرباً يشوّه طبيعته، وتصنيفه خلافاً سياسياً عادياً يقلّل من حجمه.",
         "en": "Not an active armed conflict but a file of state repression of an ethnic and religious group, which is why severity is coded repression rather than war. Classing it as war distorts its nature; classing it as ordinary political disagreement understates its scale."
       },
-      "parties": { "ar": ["الدولة الصينية", "الأويغور", "منظمات أويغورية في المنفى"], "en": ["Chinese state", "Uyghurs", "Uyghur diaspora organisations"] },
+      "parties": {
+        "ar": ["الدولة الصينية", "الأويغور", "منظمات أويغورية في المنفى"],
+        "en": ["Chinese state", "Uyghurs", "Uyghur diaspora organisations"]
+      },
       "ethnoReligious": {
         "ar": "الأويغور شعب تركي مسلم سنّي بلغة تركية، ويشاركهم الإقليم الكازاخ والقرغيز والهوي (مسلمون صينيون) والهان الذين ارتفعت نسبتهم بشدّة عبر سياسات الاستيطان الداخلي.",
         "en": "Uyghurs are a Turkic, Sunni Muslim people with a Turkic language, sharing the region with Kazakhs, Kyrgyz, Hui (Chinese Muslims) and Han, whose share has risen sharply through internal settlement policies."
@@ -308,8 +492,22 @@
         "en": "The region produces a large share of China's cotton and of the polysilicon used in solar panels, contains oil, gas and coal, and is the overland corridor of the Belt and Road Initiative toward Central Asia and Europe and toward Pakistan."
       },
       "externalPowers": [
-        { "iso3": "TUR", "role": { "ar": "تستضيف أكبر شتات أويغوري وتوازن بين القرابة الثقافية والعلاقة الاقتصادية مع بكين", "en": "Hosts the largest Uyghur diaspora and balances cultural kinship against its economic relationship with Beijing" }, "kind": "assessed" },
-        { "iso3": "USA", "role": { "ar": "فرضت قيوداً تجارية مرتبطة بالعمل القسري", "en": "Imposed trade restrictions tied to forced labour" }, "kind": "assessed" }
+        {
+          "iso3": "TUR",
+          "role": {
+            "ar": "تستضيف أكبر شتات أويغوري وتوازن بين القرابة الثقافية والعلاقة الاقتصادية مع بكين",
+            "en": "Hosts the largest Uyghur diaspora and balances cultural kinship against its economic relationship with Beijing"
+          },
+          "kind": "assessed"
+        },
+        {
+          "iso3": "USA",
+          "role": {
+            "ar": "فرضت قيوداً تجارية مرتبطة بالعمل القسري",
+            "en": "Imposed trade restrictions tied to forced labour"
+          },
+          "kind": "assessed"
+        }
       ],
       "status": {
         "ar": "لا قتال مسلح. الملف قائم كقضية حقوق إنسان دولية وكنقطة احتكاك تجاري ودبلوماسي، مع استمرار نظام المراقبة والقيود على الممارسة الدينية والثقافية بحسب تقارير حقوقية. تنفي الصين الاتهامات وتصف السياسات بأنها تدريب مهني ومكافحة تطرّف.",
@@ -323,7 +521,7 @@
     {
       "id": "tibet",
       "name": { "ar": "التبت", "en": "Tibet" },
-      "coords": [89.0, 31.5],
+      "coords": [89, 31.5],
       "countries": ["CHN", "IND"],
       "severity": "repression",
       "started": "1950",
@@ -332,7 +530,10 @@
         "ar": "ملفّ هوية وحكم ذاتي ديني وثقافي، أُدرج كملفّ قمع لا كنزاع مسلح. البعد الديني هنا حقيقي ومؤسسي: الخلاف حول من يسمّي التجسيدات الدينية هو خلاف على السلطة الروحية والسياسية في الوقت ذاته.",
         "en": "A file of identity and religious and cultural autonomy, recorded as repression rather than armed conflict. The religious dimension here is real and institutional: the dispute over who names religious reincarnations is simultaneously a dispute over spiritual and political authority."
       },
-      "parties": { "ar": ["الدولة الصينية", "الإدارة التبتية المركزية في المنفى", "الدلاي لاما"], "en": ["Chinese state", "Central Tibetan Administration in exile", "the Dalai Lama"] },
+      "parties": {
+        "ar": ["الدولة الصينية", "الإدارة التبتية المركزية في المنفى", "الدلاي لاما"],
+        "en": ["Chinese state", "Central Tibetan Administration in exile", "the Dalai Lama"]
+      },
       "ethnoReligious": {
         "ar": "التبتيون شعب بلغة تبتية بورمية وبوذية تبتية مؤسسية عميقة الجذور. يعيش تبتيون أيضاً في مقاطعات تشينغهاي وسيتشوان وقانسو ويونان خارج إقليم التبت الإداري، وفي لاداخ الهندية وأروناشال براديش ونيبال وبوتان.",
         "en": "Tibetans are a Tibeto-Burman–speaking people with a deeply rooted institutional Tibetan Buddhism. Tibetans also live in Qinghai, Sichuan, Gansu and Yunnan provinces outside the administrative Tibet region, and in Indian Ladakh and Arunachal Pradesh, Nepal and Bhutan."
@@ -354,8 +555,22 @@
         "en": "The Tibetan plateau is the source of Asia's great rivers — the Indus, Brahmaputra, Mekong, Yangtze and Yellow — making control of it a water question for half of Asia's population. It holds minerals, lithium and copper, and a commanding elevation over the Indian subcontinent."
       },
       "externalPowers": [
-        { "iso3": "IND", "role": { "ar": "تستضيف الإدارة التبتية في المنفى في دارامسالا", "en": "Hosts the Tibetan administration in exile at Dharamsala" }, "kind": "assessed" },
-        { "iso3": "USA", "role": { "ar": "تشريعات تتعلّق بالتبت وبالخلافة الدينية", "en": "Legislation concerning Tibet and the religious succession" }, "kind": "assessed" }
+        {
+          "iso3": "IND",
+          "role": {
+            "ar": "تستضيف الإدارة التبتية في المنفى في دارامسالا",
+            "en": "Hosts the Tibetan administration in exile at Dharamsala"
+          },
+          "kind": "assessed"
+        },
+        {
+          "iso3": "USA",
+          "role": {
+            "ar": "تشريعات تتعلّق بالتبت وبالخلافة الدينية",
+            "en": "Legislation concerning Tibet and the religious succession"
+          },
+          "kind": "assessed"
+        }
       ],
       "status": {
         "ar": "لا قتال مسلح. ملفّ حقوقي وثقافي مستمر، وتزداد مركزية مسألة الخلافة كلّما تقدّم الدلاي لاما في العمر، وهي النقطة الأكثر احتمالاً لتوليد أزمة مقبلة.",
@@ -369,7 +584,7 @@
     {
       "id": "korean-peninsula",
       "name": { "ar": "شبه الجزيرة الكورية", "en": "Korean Peninsula" },
-      "coords": [127.0, 38.3],
+      "coords": [127, 38.3],
       "countries": ["PRK", "KOR"],
       "severity": "frozen",
       "started": "1945",
@@ -378,7 +593,10 @@
         "ar": "نزاع أيديولوجي وسياسي بين نظامين على شعب واحد متماثل عرقياً ولغوياً بالكامل. لا بعد عرقي ولا ديني، وهو مثال على أن التماثل الهوياتي المطلق لا يمنع أحد أخطر النزاعات في العالم.",
         "en": "An ideological and political conflict between two systems over a single people entirely homogeneous in ethnicity and language. It has no ethnic or religious dimension, and exemplifies how total identity homogeneity does not prevent one of the world's most dangerous conflicts."
       },
-      "parties": { "ar": ["كوريا الشمالية", "كوريا الجنوبية", "الولايات المتحدة"], "en": ["North Korea", "South Korea", "United States"] },
+      "parties": {
+        "ar": ["كوريا الشمالية", "كوريا الجنوبية", "الولايات المتحدة"],
+        "en": ["North Korea", "South Korea", "United States"]
+      },
       "ethnoReligious": {
         "ar": "شعب كوري واحد بلغة واحدة. كوريا الجنوبية متعدّدة دينياً بين البوذية والمسيحية ونسبة كبيرة غير متديّنة، وكوريا الشمالية لا تتيح ممارسة دينية مستقلة وتقوم أيديولوجيتها على الجوتشيه وعبادة القيادة.",
         "en": "A single Korean people with one language. South Korea is religiously plural between Buddhism, Christianity and a large non-religious share; North Korea permits no independent religious practice and bases its ideology on Juche and leader veneration."
@@ -400,9 +618,30 @@
         "en": "The peninsula's position at the heart of US–China competition, South Korea's economy as a global centre for semiconductors and shipbuilding, and North Korea's unexploited minerals."
       },
       "externalPowers": [
-        { "iso3": "USA", "role": { "ar": "تحالف دفاعي مع سيول ونحو 28 ألف جندي", "en": "Defence alliance with Seoul and around 28,000 troops" }, "kind": "treaty" },
-        { "iso3": "CHN", "role": { "ar": "الحليف الوحيد لبيونغ يانغ بمعاهدة والشريك التجاري الأكبر", "en": "Pyongyang's only treaty ally and largest trading partner" }, "kind": "treaty" },
-        { "iso3": "RUS", "role": { "ar": "علاقة عسكرية متعمّقة مع بيونغ يانغ على خلفية حرب أوكرانيا", "en": "A deepening military relationship with Pyongyang against the backdrop of the Ukraine war" }, "kind": "assessed" }
+        {
+          "iso3": "USA",
+          "role": {
+            "ar": "تحالف دفاعي مع سيول ونحو 28 ألف جندي",
+            "en": "Defence alliance with Seoul and around 28,000 troops"
+          },
+          "kind": "treaty"
+        },
+        {
+          "iso3": "CHN",
+          "role": {
+            "ar": "الحليف الوحيد لبيونغ يانغ بمعاهدة والشريك التجاري الأكبر",
+            "en": "Pyongyang's only treaty ally and largest trading partner"
+          },
+          "kind": "treaty"
+        },
+        {
+          "iso3": "RUS",
+          "role": {
+            "ar": "علاقة عسكرية متعمّقة مع بيونغ يانغ على خلفية حرب أوكرانيا",
+            "en": "A deepening military relationship with Pyongyang against the backdrop of the Ukraine war"
+          },
+          "kind": "assessed"
+        }
       ],
       "status": {
         "ar": "نزاع مجمّد بموجب هدنة 1953 دون معاهدة سلام. لا مفاوضات نووية جارية، والعلاقات بين الكوريتين في أدنى مستوياتها، مع استمرار تجارب صاروخية وتدريبات عسكرية متقابلة.",
@@ -450,8 +689,22 @@
         "en": "The Sui gas field, Gwadar port as the maritime outlet of the China–Pakistan Economic Corridor on the Arabian Sea near the approaches to Hormuz, the Reko Diq copper and gold deposit, and a proposed corridor for an Iranian gas pipeline."
       },
       "externalPowers": [
-        { "iso3": "CHN", "role": { "ar": "مستثمر رئيسي في غوادر والممرّ الاقتصادي، وعمالها هدف متكرّر للهجمات", "en": "Principal investor in Gwadar and the economic corridor, with its workers a recurring target of attacks" }, "kind": "assessed" },
-        { "iso3": "IRN", "role": { "ar": "طرف في الملف على جانب حدودها وتبادلت ضربات مع باكستان في 2024", "en": "A party to the file on its side of the border, and exchanged strikes with Pakistan in 2024" }, "kind": "assessed" }
+        {
+          "iso3": "CHN",
+          "role": {
+            "ar": "مستثمر رئيسي في غوادر والممرّ الاقتصادي، وعمالها هدف متكرّر للهجمات",
+            "en": "Principal investor in Gwadar and the economic corridor, with its workers a recurring target of attacks"
+          },
+          "kind": "assessed"
+        },
+        {
+          "iso3": "IRN",
+          "role": {
+            "ar": "طرف في الملف على جانب حدودها وتبادلت ضربات مع باكستان في 2024",
+            "en": "A party to the file on its side of the border, and exchanged strikes with Pakistan in 2024"
+          },
+          "kind": "assessed"
+        }
       ],
       "status": {
         "ar": "تمرّد مسلح منخفض ومتوسّط الحدّة مستمر بهجمات على قوات الأمن والبنية التحتية ومشاريع صينية، وبعمليات أمنية واسعة في المقابل. الملف يتفاعل مع المواجهة الأفغانية الباكستانية إذ شملت الضربات المتبادلة في 2026 أهدافاً في بلوشستان.",
@@ -474,7 +727,10 @@
         "ar": "نزاع هوياتي انتهى عسكرياً في 2009 وبقي سياسياً: لامركزية ومحاسبة وحقّ عودة. أُدرج بوصفه post-conflict لا نزاعاً نشطاً، لأن إدراجه حرباً جارية يشوّه الواقع الحالي.",
         "en": "An identity conflict that ended militarily in 2009 and persists politically: devolution, accountability and the right of return. Recorded as post-conflict rather than active, since listing it as an ongoing war would distort the present reality."
       },
-      "parties": { "ar": ["الدولة السريلانكية", "التاميل", "أحزاب تاميلية"], "en": ["Sri Lankan state", "Tamils", "Tamil political parties"] },
+      "parties": {
+        "ar": ["الدولة السريلانكية", "التاميل", "أحزاب تاميلية"],
+        "en": ["Sri Lankan state", "Tamils", "Tamil political parties"]
+      },
       "ethnoReligious": {
         "ar": "أغلبية سنهالية بوذية، وأقلية تاميلية هندوسية في الشمال والشرق، وتاميل مسلمون يعرّفون أنفسهم كجماعة متمايزة، وتاميل الهضاب الذين جاءوا في الحقبة الاستعمارية. البعد الديني واللغوي متلازمان في هذا الملف.",
         "en": "A Sinhalese Buddhist majority, a Hindu Tamil minority in the north and east, Muslim Tamils who identify as a distinct community, and Up-Country Tamils brought in during the colonial period. The religious and linguistic dimensions are intertwined in this file."
@@ -496,8 +752,22 @@
         "en": "Sri Lanka's position on the sea lane between the Gulf and East Asia, and Hambantota port leased to a Chinese company, which has made the island an arena of India–China competition."
       },
       "externalPowers": [
-        { "iso3": "IND", "role": { "ar": "لها علاقة خاصة بالملف بفعل ولاية تاميل نادو، وتدخّلت عسكرياً في 1987–1990", "en": "Has a special relationship to the file through Tamil Nadu, and intervened militarily in 1987–1990" }, "kind": "assessed" },
-        { "iso3": "CHN", "role": { "ar": "مستثمر رئيسي في الموانئ والبنية التحتية", "en": "Principal investor in ports and infrastructure" }, "kind": "assessed" }
+        {
+          "iso3": "IND",
+          "role": {
+            "ar": "لها علاقة خاصة بالملف بفعل ولاية تاميل نادو، وتدخّلت عسكرياً في 1987–1990",
+            "en": "Has a special relationship to the file through Tamil Nadu, and intervened militarily in 1987–1990"
+          },
+          "kind": "assessed"
+        },
+        {
+          "iso3": "CHN",
+          "role": {
+            "ar": "مستثمر رئيسي في الموانئ والبنية التحتية",
+            "en": "Principal investor in ports and infrastructure"
+          },
+          "kind": "assessed"
+        }
       ],
       "status": {
         "ar": "لا قتال. ملفّ سياسي وحقوقي مستمر حول اللامركزية والمحاسبة، ويخضع لمتابعة دورية في مجلس حقوق الإنسان الأممي.",

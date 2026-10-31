@@ -5,59 +5,864 @@
     "en": "A supplementary file covering a subset of states relevant to the tracked conflicts. Uncovered states display Natural Earth's quantitative fields only, with a clear notice that no supplementary profile exists. The political-system description characterises the constitutional structure and is not an assessment of governance quality."
   },
   "countries": {
-    "SAU": { "system": { "ar": "ملكية مطلقة", "en": "Absolute monarchy" }, "langs": { "ar": ["العربية"], "en": ["Arabic"] }, "separatists": [], "disputes": [{ "ar": "خلافات حدودية بحرية في الخليج", "en": "Maritime boundary disagreements in the Gulf" }], "blocs": ["gcc", "arab-league", "brics"] },
-    "IRN": { "system": { "ar": "جمهورية إسلامية بولاية الفقيه، سلطة المرشد الأعلى فوق المؤسسات المنتخبة", "en": "Islamic republic under clerical guardianship, with the Supreme Leader's authority above elected institutions" }, "langs": { "ar": ["الفارسية", "الأذرية", "الكردية", "العربية", "البلوشية"], "en": ["Persian", "Azerbaijani", "Kurdish", "Arabic", "Balochi"] }, "separatists": [{ "ar": "جماعات كردية وبلوشية وعربية أحوازية", "en": "Kurdish, Baloch and Ahwazi Arab groups" }], "disputes": [{ "ar": "جزر طنب الكبرى والصغرى وأبو موسى مع الإمارات", "en": "Greater and Lesser Tunb and Abu Musa with the UAE" }], "blocs": ["sco", "brics"] },
-    "IRQ": { "system": { "ar": "جمهورية برلمانية فيدرالية مع إقليم كردستان كوحدة فيدرالية", "en": "Federal parliamentary republic with the Kurdistan Region as a federal unit" }, "langs": { "ar": ["العربية", "الكردية"], "en": ["Arabic", "Kurdish"] }, "separatists": [{ "ar": "تيارات استقلالية كردية بعد استفتاء 2017", "en": "Kurdish independence currents following the 2017 referendum" }], "disputes": [{ "ar": "المناطق المتنازع عليها بموجب المادة 140 ومنها كركوك وسنجار", "en": "Article 140 disputed territories including Kirkuk and Sinjar" }, { "ar": "مثلّث حلايب مع مصر غير معني؛ الفشقة مع إثيوبيا تخصّ السودان", "en": "Not a party to the Hala'ib or al-Fashaga files" }], "blocs": ["arab-league"] },
-    "SYR": { "system": { "ar": "حكومة انتقالية ضمن مرحلة انتقالية مدّتها خمس سنوات، برلمان مُنتخب في أكتوبر 2025", "en": "Transitional government within a five-year transition, with a parliament elected in October 2025" }, "langs": { "ar": ["العربية", "الكردية"], "en": ["Arabic", "Kurdish"] }, "separatists": [{ "ar": "مطالب درزية بإدارة محلّية في السويداء؛ مؤسسات الإدارة الذاتية في الشمال الشرقي دُمجت في الدولة في أغسطس 2026", "en": "Druze demands for local administration in Suwayda; the north-east self-administration's institutions were integrated into the state in August 2026" }], "disputes": [{ "ar": "الجولان المحتل منذ 1967 وأراضٍ موسّعة في الجنوب محتلّة منذ ديسمبر 2024", "en": "The Golan Heights occupied since 1967 and expanded territory in the south occupied since December 2024" }], "blocs": ["arab-league"] },
-    "LBN": { "system": { "ar": "جمهورية برلمانية بصيغة تقاسم طائفي للسلطة", "en": "Parliamentary republic with confessional power-sharing" }, "langs": { "ar": ["العربية", "الفرنسية"], "en": ["Arabic", "French"] }, "separatists": [], "disputes": [{ "ar": "مزارع شبعا وأجزاء من الجنوب المحتل، وترسيم الحدود البرية غير مكتمل على الخطّ الأزرق", "en": "The Shebaa Farms and parts of the occupied south, with land demarcation incomplete along the Blue Line" }], "blocs": ["arab-league"] },
-    "ISR": { "system": { "ar": "ديمقراطية برلمانية بنظام تمثيل نسبي دون دستور مكتوب موحّد", "en": "Parliamentary democracy with proportional representation and no single written constitution" }, "langs": { "ar": ["العبرية", "العربية"], "en": ["Hebrew", "Arabic"] }, "separatists": [], "disputes": [{ "ar": "الضفة الغربية وغزة والقدس الشرقية والجولان وأراضٍ في جنوب لبنان وسوريا", "en": "The West Bank, Gaza, East Jerusalem, the Golan, and territory in southern Lebanon and Syria" }], "blocs": [] },
-    "TUR": { "system": { "ar": "جمهورية رئاسية بعد تعديلات 2017", "en": "Presidential republic following the 2017 amendments" }, "langs": { "ar": ["التركية", "الكردية"], "en": ["Turkish", "Kurdish"] }, "separatists": [{ "ar": "حزب العمال الكردستاني، ومسار تفاوضي أُعلن في 2025 لحلّ المسألة", "en": "The PKK, with a negotiating track announced in 2025 to resolve the question" }], "disputes": [{ "ar": "الجرف القاري والمجال الجوي في إيجه مع اليونان، وشمال قبرص", "en": "Continental shelf and airspace in the Aegean with Greece, and northern Cyprus" }], "blocs": ["nato", "turkic"] },
-    "YEM": { "system": { "ar": "سلطتان متنازعتان: مجلس القيادة الرئاسي المعترف به دولياً وسلطة الحوثيين في صنعاء", "en": "Two contesting authorities: the internationally recognised Presidential Leadership Council and the Houthi authority in Sanaa" }, "langs": { "ar": ["العربية"], "en": ["Arabic"] }, "separatists": [{ "ar": "المجلس الانتقالي الجنوبي ويطالب بانفصال الجنوب بحدود ما قبل 1990", "en": "The Southern Transitional Council, seeking southern secession on pre-1990 lines" }], "disputes": [{ "ar": "جزر ميون/بريم وحنيش الاستراتيجية في البحر الأحمر", "en": "The strategic Mayyun/Perim and Hanish islands in the Red Sea" }], "blocs": ["arab-league"] },
-    "ARE": { "system": { "ar": "اتحاد فيدرالي من سبع إمارات بمجلس أعلى للحكّام", "en": "A federation of seven emirates with a Supreme Council of Rulers" }, "langs": { "ar": ["العربية"], "en": ["Arabic"] }, "separatists": [], "disputes": [{ "ar": "جزر طنب الكبرى والصغرى وأبو موسى مع إيران", "en": "Greater and Lesser Tunb and Abu Musa with Iran" }], "blocs": ["gcc", "arab-league", "brics"] },
-    "QAT": { "system": { "ar": "ملكية دستورية بمجلس شورى جزئي الانتخاب", "en": "Constitutional monarchy with a partly elected Shura Council" }, "langs": { "ar": ["العربية"], "en": ["Arabic"] }, "separatists": [], "disputes": [], "blocs": ["gcc", "arab-league"] },
-    "OMN": { "system": { "ar": "سلطنة بنظام ملكي وراثي ومجلس عمان", "en": "A sultanate with hereditary monarchy and the Council of Oman" }, "langs": { "ar": ["العربية"], "en": ["Arabic"] }, "separatists": [], "disputes": [], "blocs": ["gcc", "arab-league"] },
-    "EGY": { "system": { "ar": "جمهورية رئاسية", "en": "Presidential republic" }, "langs": { "ar": ["العربية"], "en": ["Arabic"] }, "separatists": [], "disputes": [{ "ar": "مثلّث حلايب مع السودان، وحصّة مياه النيل مع إثيوبيا", "en": "The Hala'ib Triangle with Sudan, and Nile water shares with Ethiopia" }], "blocs": ["arab-league", "brics"] },
-    "JOR": { "system": { "ar": "ملكية دستورية برلمانية", "en": "Constitutional parliamentary monarchy" }, "langs": { "ar": ["العربية"], "en": ["Arabic"] }, "separatists": [], "disputes": [], "blocs": ["arab-league"] },
-    "RUS": { "system": { "ar": "جمهورية فيدرالية رئاسية", "en": "Federal presidential republic" }, "langs": { "ar": ["الروسية", "التتارية", "الشيشانية"], "en": ["Russian", "Tatar", "Chechen"] }, "separatists": [{ "ar": "تيارات انفصالية في شمال القوقاز وتتارستان، مقيّدة بشدّة", "en": "Separatist currents in the North Caucasus and Tatarstan, heavily constrained" }], "disputes": [{ "ar": "القرم وأربع مقاطعات أوكرانية معلنة الضمّ، وجزر الكوريل مع اليابان", "en": "Crimea and four Ukrainian oblasts whose annexation it declared, and the Kuril Islands with Japan" }], "blocs": ["csto", "sco", "brics"] },
-    "UKR": { "system": { "ar": "جمهورية نصف رئاسية موحّدة", "en": "Unitary semi-presidential republic" }, "langs": { "ar": ["الأوكرانية", "الروسية"], "en": ["Ukrainian", "Russian"] }, "separatists": [], "disputes": [{ "ar": "القرم والدونباس وزاپوريجيا وخيرسون تحت احتلال جزئي أو كامل", "en": "Crimea, the Donbas, Zaporizhzhia and Kherson under partial or full occupation" }], "blocs": [] },
-    "ARM": { "system": { "ar": "جمهورية برلمانية", "en": "Parliamentary republic" }, "langs": { "ar": ["الأرمنية"], "en": ["Armenian"] }, "separatists": [], "disputes": [{ "ar": "ترسيم الحدود مع أذربيجان، ومقاطع من سيونيك محتلّة منذ 2021", "en": "Border delimitation with Azerbaijan, and sections of Syunik occupied since 2021" }], "blocs": ["csto"] },
-    "AZE": { "system": { "ar": "جمهورية رئاسية", "en": "Presidential republic" }, "langs": { "ar": ["الأذرية"], "en": ["Azerbaijani"] }, "separatists": [], "disputes": [{ "ar": "ترسيم الحدود مع أرمينيا، وممرّ المرور إلى ناختشيفان، وجزر الخليج مع إيران", "en": "Border delimitation with Armenia, the transit route to Nakhchivan, and the Gulf islands with Iran" }], "blocs": ["turkic"] },
-    "GEO": { "system": { "ar": "جمهورية برلمانية", "en": "Parliamentary republic" }, "langs": { "ar": ["الجورجية", "الأبخازية"], "en": ["Georgian", "Abkhaz"] }, "separatists": [{ "ar": "أبخازيا وأوسيتيا الجنوبية، تعترف بهما روسيا وقليل من الدول", "en": "Abkhazia and South Ossetia, recognised by Russia and a handful of states" }], "disputes": [{ "ar": "أبخازيا وأوسيتيا الجنوبية تصنّفهما جورجيا أراضيَ محتلة", "en": "Abkhazia and South Ossetia, which Georgia designates occupied territories" }], "blocs": [] },
-    "SRB": { "system": { "ar": "جمهورية برلمانية", "en": "Parliamentary republic" }, "langs": { "ar": ["الصربية"], "en": ["Serbian"] }, "separatists": [{ "ar": "وادي بريشيفو ذو الأغلبية الألبانية", "en": "The Albanian-majority Preševo Valley" }], "disputes": [{ "ar": "كوسوفو، لا تعترف صربيا باستقلالها", "en": "Kosovo, whose independence Serbia does not recognise" }], "blocs": [] },
-    "BIH": { "system": { "ar": "دولة من كيانين برئاسة ثلاثية ومفوّض سامٍ دولي بموجب اتفاقية دايتون", "en": "A state of two entities with a tripartite presidency and an international High Representative under the Dayton Agreement" }, "langs": { "ar": ["البوسنوية", "الصربية", "الكرواتية"], "en": ["Bosnian", "Serbian", "Croatian"] }, "separatists": [{ "ar": "تهديدات انفصال متكرّرة من قيادة جمهورية صرب البوسنة", "en": "Recurring secession threats from Republika Srpska's leadership" }], "disputes": [], "blocs": [] },
-    "MDA": { "system": { "ar": "جمهورية برلمانية", "en": "Parliamentary republic" }, "langs": { "ar": ["الرومانية", "الروسية", "الغاغاوزية"], "en": ["Romanian", "Russian", "Gagauz"] }, "separatists": [{ "ar": "ترانسنيستريا غير المعترف بها من أي دولة، وحكم ذاتي في غاغاوزيا", "en": "Transnistria, recognised by no state, and autonomy in Gagauzia" }], "disputes": [], "blocs": [] },
-    "ESP": { "system": { "ar": "ملكية دستورية برلمانية بنظام أقاليم ذات حكم ذاتي", "en": "Constitutional parliamentary monarchy with a system of autonomous communities" }, "langs": { "ar": ["الإسبانية", "الكاتالونية", "الباسكية", "الغاليسية"], "en": ["Spanish", "Catalan", "Basque", "Galician"] }, "separatists": [{ "ar": "حركات كاتالونية وباسكية سياسية غير مسلحة؛ حلّت إيتا نفسها في 2018", "en": "Unarmed political Catalan and Basque movements; ETA dissolved itself in 2018" }], "disputes": [{ "ar": "جبل طارق مع المملكة المتحدة، والصحراء الغربية بوصفها القوة الاستعمارية السابقة", "en": "Gibraltar with the United Kingdom, and Western Sahara as the former colonial power" }], "blocs": ["nato", "eu"] },
-    "GBR": { "system": { "ar": "ملكية دستورية برلمانية مع تفويض صلاحيات لأسكتلندا وويلز وأيرلندا الشمالية", "en": "Constitutional parliamentary monarchy with devolution to Scotland, Wales and Northern Ireland" }, "langs": { "ar": ["الإنجليزية", "الويلزية", "الغيلية الأسكتلندية"], "en": ["English", "Welsh", "Scottish Gaelic"] }, "separatists": [{ "ar": "القومية الأسكتلندية، وتيار الوحدة الأيرلندية في أيرلندا الشمالية — كلاهما سياسي بالكامل", "en": "Scottish nationalism, and the Irish unity current in Northern Ireland — both entirely political" }], "disputes": [{ "ar": "جبل طارق مع إسبانيا، وجزر فوكلاند/مالفيناس مع الأرجنتين", "en": "Gibraltar with Spain, and the Falklands/Malvinas with Argentina" }], "blocs": ["nato"] },
-    "CHN": { "system": { "ar": "جمهورية اشتراكية بحكم الحزب الواحد", "en": "Socialist republic under single-party rule" }, "langs": { "ar": ["الماندرين", "الكانتونية", "الأويغورية", "التبتية", "المنغولية"], "en": ["Mandarin", "Cantonese", "Uyghur", "Tibetan", "Mongolian"] }, "separatists": [{ "ar": "تيارات أويغورية وتبتية في المنفى، بلا حضور ميداني", "en": "Uyghur and Tibetan currents in exile, with no presence on the ground" }], "disputes": [{ "ar": "تايوان، وبحر الصين الجنوبي، وجزر سينكاكو/دياويو، وأكساي تشين وأروناشال براديش", "en": "Taiwan, the South China Sea, the Senkaku/Diaoyu islands, and Aksai Chin and Arunachal Pradesh" }], "blocs": ["sco", "brics"] },
-    "TWN": { "system": { "ar": "جمهورية نصف رئاسية ديمقراطية، أول انتخابات رئاسية مباشرة في 1996", "en": "Democratic semi-presidential republic, with its first direct presidential election in 1996" }, "langs": { "ar": ["الماندرين", "الهوكلو", "الهاكا", "لغات أصلية أسترونيزية"], "en": ["Mandarin", "Hokkien", "Hakka", "Austronesian indigenous languages"] }, "separatists": [], "disputes": [{ "ar": "تطالب بها بكين؛ وتدير تايوان كينمن وماتسو وبرَتاس وتايپينغ", "en": "Claimed by Beijing; Taiwan administers Kinmen, Matsu, Pratas and Taiping" }], "blocs": [] },
-    "IND": { "system": { "ar": "جمهورية برلمانية فيدرالية", "en": "Federal parliamentary republic" }, "langs": { "ar": ["الهندية", "الإنجليزية", "البنغالية", "التاميلية", "الپنجابية", "و22 لغة مُدرجة"], "en": ["Hindi", "English", "Bengali", "Tamil", "Punjabi", "and 22 scheduled languages"] }, "separatists": [{ "ar": "جماعات في كشمير وماني پور وناغالاند؛ وحركة خالستان السيخية في الشتات أساساً", "en": "Groups in Kashmir, Manipur and Nagaland; and the Sikh Khalistan movement, primarily in the diaspora" }], "disputes": [{ "ar": "كشمير مع باكستان، وأكساي تشين وأروناشال براديش مع الصين", "en": "Kashmir with Pakistan, and Aksai Chin and Arunachal Pradesh with China" }], "blocs": ["sco", "brics"] },
-    "PAK": { "system": { "ar": "جمهورية برلمانية فيدرالية بوزن مؤسسي كبير للجيش", "en": "Federal parliamentary republic with substantial institutional weight for the military" }, "langs": { "ar": ["الأردية", "الإنجليزية", "الپنجابية", "الپشتو", "السندية", "البلوشية"], "en": ["Urdu", "English", "Punjabi", "Pashto", "Sindhi", "Balochi"] }, "separatists": [{ "ar": "جماعات بلوشية مسلحة، وتيارات سندية سياسية", "en": "Baloch armed groups, and political Sindhi currents" }], "disputes": [{ "ar": "كشمير مع الهند، وخطّ ديوراند مع أفغانستان، ومعاهدة مياه السند", "en": "Kashmir with India, the Durand Line with Afghanistan, and the Indus Waters Treaty" }], "blocs": ["sco"] },
-    "AFG": { "system": { "ar": "إمارة إسلامية بحكم طالبان، غير معترف بها على نطاق واسع", "en": "Islamic emirate under Taliban rule, not widely recognised" }, "langs": { "ar": ["الپشتو", "الدارية", "الأوزبكية", "التركمانية"], "en": ["Pashto", "Dari", "Uzbek", "Turkmen"] }, "separatists": [], "disputes": [{ "ar": "لا تعترف بخطّ ديوراند حدّاً دولياً مع باكستان", "en": "Does not recognise the Durand Line as an international border with Pakistan" }], "blocs": [] },
-    "MMR": { "system": { "ar": "حكم عسكري بغطاء مدني بعد انتخابات 2025–2026 التي رفض الاتحاد الأوروبي والمقرّر الأممي شرعيتها", "en": "Military rule under civilian cover following the 2025–2026 elections, whose legitimacy the European Union and the UN special rapporteur rejected" }, "langs": { "ar": ["البورمية", "الشان", "الكارين", "الكاتشين", "الراخين"], "en": ["Burmese", "Shan", "Karen", "Kachin", "Rakhine"] }, "separatists": [{ "ar": "جيوش عرقية متعدّدة تطالب بالفيدرالية أو الحكم الذاتي، ومنها جيش أراكان وجيوش تحالف الأخوة الثلاثة", "en": "Numerous ethnic armies seeking federalism or autonomy, including the Arakan Army and the Three Brotherhood Alliance armies" }], "disputes": [], "blocs": [] },
-    "PRK": { "system": { "ar": "دولة الحزب الواحد بقيادة أسرية متوارثة", "en": "Single-party state under hereditary family leadership" }, "langs": { "ar": ["الكورية"], "en": ["Korean"] }, "separatists": [], "disputes": [{ "ar": "تطالب دستورياً بكامل شبه الجزيرة، والخطّ الشمالي الفاصل في البحر الأصفر", "en": "Constitutionally claims the whole peninsula, plus the Northern Limit Line in the Yellow Sea" }], "blocs": [] },
-    "KOR": { "system": { "ar": "جمهورية رئاسية ديمقراطية", "en": "Democratic presidential republic" }, "langs": { "ar": ["الكورية"], "en": ["Korean"] }, "separatists": [], "disputes": [{ "ar": "تطالب دستورياً بكامل شبه الجزيرة، وصخور ليانكور/دوكدو مع اليابان", "en": "Constitutionally claims the whole peninsula, plus the Liancourt Rocks/Dokdo with Japan" }], "blocs": [] },
-    "PHL": { "system": { "ar": "جمهورية رئاسية", "en": "Presidential republic" }, "langs": { "ar": ["الفلبينية", "الإنجليزية"], "en": ["Filipino", "English"] }, "separatists": [{ "ar": "حركات في مينداناو، وأُنشئت منطقة بانغسامورو ذات الحكم الذاتي بموجب اتفاق سلام", "en": "Movements in Mindanao, where the autonomous Bangsamoro region was established under a peace agreement" }], "disputes": [{ "ar": "سكاربورو شول وسكند توماس شول ومنطقتها الاقتصادية الخالصة مع الصين", "en": "Scarborough Shoal, Second Thomas Shoal and its exclusive economic zone with China" }], "blocs": [] },
-    "LKA": { "system": { "ar": "جمهورية نصف رئاسية موحّدة", "en": "Unitary semi-presidential republic" }, "langs": { "ar": ["السنهالية", "التاميلية", "الإنجليزية"], "en": ["Sinhala", "Tamil", "English"] }, "separatists": [{ "ar": "انتهى المطلب الانفصالي المسلح في 2009؛ المطالب الحالية سياسية حول اللامركزية", "en": "The armed secessionist demand ended in 2009; current demands are political and concern devolution" }], "disputes": [], "blocs": [] },
-    "BGD": { "system": { "ar": "جمهورية برلمانية", "en": "Parliamentary republic" }, "langs": { "ar": ["البنغالية"], "en": ["Bengali"] }, "separatists": [], "disputes": [], "blocs": [] },
-    "SDN": { "system": { "ar": "سلطتان متنازعتان عسكرياً بلا حكم مدني", "en": "Two militarily contesting authorities without civilian government" }, "langs": { "ar": ["العربية", "الإنجليزية", "لغات نوبية ودارفورية"], "en": ["Arabic", "English", "Nubian and Darfuri languages"] }, "separatists": [{ "ar": "الحركة الشعبية لتحرير السودان شمال في جنوب كردفان والنيل الأزرق، وتيارات في الشرق", "en": "SPLM-North in South Kordofan and Blue Nile, and currents in the east" }], "disputes": [{ "ar": "أبيي مع جنوب السودان، ومثلّث حلايب مع مصر، والفشقة مع إثيوبيا", "en": "Abyei with South Sudan, the Hala'ib Triangle with Egypt, and al-Fashaga with Ethiopia" }], "blocs": ["arab-league"] },
-    "SSD": { "system": { "ar": "حكومة وحدة انتقالية بموجب اتفاق 2018 المنشّط، لم تُجرِ انتخابات بعد", "en": "A transitional unity government under the 2018 revitalised agreement, with no elections yet held" }, "langs": { "ar": ["الإنجليزية", "العربية الجوبية", "الدينكا", "النوير"], "en": ["English", "Juba Arabic", "Dinka", "Nuer"] }, "separatists": [], "disputes": [{ "ar": "أبيي مع السودان وخلافات على مقاطع من خطّ الحدود", "en": "Abyei with Sudan and disagreements over sections of the border line" }], "blocs": [] },
-    "ETH": { "system": { "ar": "جمهورية فيدرالية بأساس عرقي للولايات", "en": "Federal republic with ethnically based regional states" }, "langs": { "ar": ["الأمهرية", "الأورومية", "التيغرينية", "الصومالية", "العفرية"], "en": ["Amharic", "Oromo", "Tigrinya", "Somali", "Afar"] }, "separatists": [{ "ar": "جبهة تحرير شعب تيغراي، وجيش تحرير أورومو، وجبهة تحرير أوغادين الوطنية؛ وتحالف من سبع جماعات أُعلن في سبتمبر 2026", "en": "The TPLF, the Oromo Liberation Army, and the Ogaden National Liberation Front; plus an alliance of seven groups announced in September 2026" }], "disputes": [{ "ar": "غربي تيغراي داخلياً، والفشقة مع السودان، ومطلب منفذ بحري ترفضه إريتريا", "en": "Western Tigray internally, al-Fashaga with Sudan, and a sea-outlet demand that Eritrea rejects" }], "blocs": ["brics"] },
-    "SOM": { "system": { "ar": "جمهورية فيدرالية برلمانية بنظام انتخاب غير مباشر عشائري", "en": "Federal parliamentary republic with an indirect clan-based electoral system" }, "langs": { "ar": ["الصومالية", "العربية"], "en": ["Somali", "Arabic"] }, "separatists": [{ "ar": "أرض الصومال أعلنت الاستقلال في 1991 ولم تُعترف بها دولياً؛ وبونتلاند تطالب بحكم ذاتي موسّع", "en": "Somaliland declared independence in 1991 and is not internationally recognised; Puntland seeks expanded autonomy" }], "disputes": [{ "ar": "سول وسناج بين أرض الصومال وبونتلاند، ومذكّرة إثيوبيا وأرض الصومال حول منفذ بحري", "en": "Sool and Sanaag between Somaliland and Puntland, and the Ethiopia–Somaliland memorandum on a sea outlet" }], "blocs": ["arab-league"] },
-    "COD": { "system": { "ar": "جمهورية نصف رئاسية موحّدة بمقاطعات لا مركزية", "en": "Unitary semi-presidential republic with decentralised provinces" }, "langs": { "ar": ["الفرنسية", "اللينغالا", "السواحيلية", "الكيكونغو", "التشيلوبا"], "en": ["French", "Lingala", "Swahili", "Kikongo", "Tshiluba"] }, "separatists": [{ "ar": "تحالف نهر الكونغو وحركة 23 مارس يسيطران على مناطق في كيفو؛ وتيارات في كاتانغا", "en": "The AFC and M23 control areas in the Kivus; plus currents in Katanga" }], "disputes": [{ "ar": "خلافات حدودية مع رواندا وأوغندا على بحيرة إدوارد ومناطق متفرّقة", "en": "Border disagreements with Rwanda and Uganda over Lake Edward and scattered areas" }], "blocs": [] },
-    "RWA": { "system": { "ar": "جمهورية رئاسية", "en": "Presidential republic" }, "langs": { "ar": ["الكينيارواندا", "الإنجليزية", "الفرنسية", "السواحيلية"], "en": ["Kinyarwanda", "English", "French", "Swahili"] }, "separatists": [], "disputes": [], "blocs": [] },
-    "NGA": { "system": { "ar": "جمهورية رئاسية فيدرالية من 36 ولاية", "en": "Federal presidential republic of 36 states" }, "langs": { "ar": ["الإنجليزية", "الهوسا", "اليوروبا", "الإيغبو", "الفولفولدية"], "en": ["English", "Hausa", "Yoruba", "Igbo", "Fula"] }, "separatists": [{ "ar": "فصائل من حركة بيافرا في الجنوب الشرقي، ومطلب محدود النطاق", "en": "Factions of the Biafra movement in the south-east, a demand of limited scope" }], "disputes": [], "blocs": [] },
-    "MLI": { "system": { "ar": "مجلس عسكري حاكم منذ انقلاب 2020", "en": "Ruling military council since the 2020 coup" }, "langs": { "ar": ["الفرنسية", "البامبارا", "الفولفولدية", "الطوارقية"], "en": ["French", "Bambara", "Fula", "Tamasheq"] }, "separatists": [{ "ar": "جبهة تحرير أزواد وتطالب بحكم ذاتي أو استقلال لشمال مالي", "en": "The Azawad Liberation Front, seeking autonomy or independence for northern Mali" }], "disputes": [], "blocs": ["aes"] },
-    "BFA": { "system": { "ar": "مجلس عسكري حاكم منذ انقلابي 2022", "en": "Ruling military council since the 2022 coups" }, "langs": { "ar": ["الفرنسية", "الموري", "الدِيولا", "الفولفولدية"], "en": ["French", "Mooré", "Dyula", "Fula"] }, "separatists": [], "disputes": [], "blocs": ["aes"] },
-    "NER": { "system": { "ar": "مجلس عسكري حاكم منذ انقلاب 2023", "en": "Ruling military council since the 2023 coup" }, "langs": { "ar": ["الفرنسية", "الهوسا", "الزرمة", "الطوارقية"], "en": ["French", "Hausa", "Zarma", "Tamasheq"] }, "separatists": [], "disputes": [], "blocs": ["aes"] },
-    "MAR": { "system": { "ar": "ملكية دستورية برلمانية", "en": "Constitutional parliamentary monarchy" }, "langs": { "ar": ["العربية", "الأمازيغية"], "en": ["Arabic", "Tamazight"] }, "separatists": [], "disputes": [{ "ar": "الصحراء الغربية؛ وسبتة ومليلية مع إسبانيا", "en": "Western Sahara; and Ceuta and Melilla with Spain" }], "blocs": ["arab-league"] },
-    "DZA": { "system": { "ar": "جمهورية رئاسية", "en": "Presidential republic" }, "langs": { "ar": ["العربية", "الأمازيغية"], "en": ["Arabic", "Tamazight"] }, "separatists": [{ "ar": "تيارات قبائلية سياسية", "en": "Political Kabyle currents" }], "disputes": [{ "ar": "الصحراء الغربية بدعم البوليساريو، والحدود مع المغرب مغلقة", "en": "Western Sahara through support for Polisario, with the border with Morocco closed" }], "blocs": ["arab-league"] },
-    "VEN": { "system": { "ar": "رئاسة بالوكالة ومرحلة انتقالية متنازع عليها برعاية أمريكية، دون موعد معلن لانتخابات رئاسية", "en": "An acting presidency and a contested, US-sponsored transition, with no announced presidential election date" }, "langs": { "ar": ["الإسبانية", "لغات أصلية"], "en": ["Spanish", "indigenous languages"] }, "separatists": [], "disputes": [{ "ar": "إيسيكيبو مع غيانا؛ القضية منظورة أمام محكمة العدل الدولية", "en": "Essequibo with Guyana; the case is before the International Court of Justice" }], "blocs": [] },
-    "GUY": { "system": { "ar": "جمهورية برلمانية", "en": "Parliamentary republic" }, "langs": { "ar": ["الإنجليزية", "الكريولية الغيانية", "لغات هندية ولغات أصلية"], "en": ["English", "Guyanese Creole", "Indian and indigenous languages"] }, "separatists": [], "disputes": [{ "ar": "إيسيكيبو مع فنزويلا، ومنطقة تاكوتو مع سورينام", "en": "Essequibo with Venezuela, and the Tigri/New River area with Suriname" }], "blocs": [] },
-    "HTI": { "system": { "ar": "حكومة انتقالية بلا انتخابات منذ 2016، وسلطة الدولة الفعلية منهارة في معظم العاصمة", "en": "A transitional government with no elections since 2016, and effective state authority collapsed across most of the capital" }, "langs": { "ar": ["الكريولية الهايتية", "الفرنسية"], "en": ["Haitian Creole", "French"] }, "separatists": [], "disputes": [], "blocs": [] },
-    "COL": { "system": { "ar": "جمهورية رئاسية", "en": "Presidential republic" }, "langs": { "ar": ["الإسبانية", "لغات أصلية"], "en": ["Spanish", "indigenous languages"] }, "separatists": [], "disputes": [], "blocs": [] },
-    "MEX": { "system": { "ar": "جمهورية رئاسية فيدرالية", "en": "Federal presidential republic" }, "langs": { "ar": ["الإسبانية", "لغات أصلية معترف بها"], "en": ["Spanish", "recognised indigenous languages"] }, "separatists": [], "disputes": [], "blocs": [] },
-    "USA": { "system": { "ar": "جمهورية رئاسية فيدرالية", "en": "Federal presidential republic" }, "langs": { "ar": ["الإنجليزية", "الإسبانية"], "en": ["English", "Spanish"] }, "separatists": [], "disputes": [], "blocs": ["nato"] },
-    "XKX": { "system": { "ar": "جمهورية برلمانية، اعترفت بها نحو مئة دولة", "en": "Parliamentary republic recognised by around one hundred states" }, "langs": { "ar": ["الألبانية", "الصربية"], "en": ["Albanian", "Serbian"] }, "separatists": [{ "ar": "بلديات صربية في الشمال ترفض سلطة بريشتينا", "en": "Serb municipalities in the north that reject Pristina's authority" }], "disputes": [{ "ar": "لا تعترف صربيا باستقلالها، وروسيا والصين وخمس دول في الاتحاد الأوروبي كذلك", "en": "Serbia does not recognise its independence, nor do Russia, China and five EU member states" }], "blocs": [] },
-    "ESH": { "system": { "ar": "إقليم غير متمتّع بالحكم الذاتي بتصنيف الأمم المتحدة؛ يضمّه المغرب فعلياً وتسيطر البوليساريو على شريط شرقي", "en": "A Non-Self-Governing Territory in UN terms; effectively annexed by Morocco, with Polisario controlling an eastern strip" }, "langs": { "ar": ["العربية الحسّانية", "الإسبانية"], "en": ["Hassaniya Arabic", "Spanish"] }, "separatists": [{ "ar": "جبهة البوليساريو التي أعلنت الجمهورية العربية الصحراوية الديمقراطية في 1976", "en": "The Polisario Front, which declared the Sahrawi Arab Democratic Republic in 1976" }], "disputes": [{ "ar": "لم تُنفّذ خطة الاستفتاء التي نصّ عليها وقف نار 1991", "en": "The referendum plan provided for in the 1991 ceasefire has never been implemented" }], "blocs": [] }
+    "SAU": {
+      "system": { "ar": "ملكية مطلقة", "en": "Absolute monarchy" },
+      "langs": { "ar": ["العربية"], "en": ["Arabic"] },
+      "separatists": [],
+      "disputes": [
+        {
+          "ar": "خلافات حدودية بحرية في الخليج",
+          "en": "Maritime boundary disagreements in the Gulf"
+        }
+      ],
+      "blocs": ["gcc", "arab-league", "brics"]
+    },
+    "IRN": {
+      "system": {
+        "ar": "جمهورية إسلامية بولاية الفقيه، سلطة المرشد الأعلى فوق المؤسسات المنتخبة",
+        "en": "Islamic republic under clerical guardianship, with the Supreme Leader's authority above elected institutions"
+      },
+      "langs": {
+        "ar": ["الفارسية", "الأذرية", "الكردية", "العربية", "البلوشية"],
+        "en": ["Persian", "Azerbaijani", "Kurdish", "Arabic", "Balochi"]
+      },
+      "separatists": [
+        {
+          "ar": "جماعات كردية وبلوشية وعربية أحوازية",
+          "en": "Kurdish, Baloch and Ahwazi Arab groups"
+        }
+      ],
+      "disputes": [
+        {
+          "ar": "جزر طنب الكبرى والصغرى وأبو موسى مع الإمارات",
+          "en": "Greater and Lesser Tunb and Abu Musa with the UAE"
+        }
+      ],
+      "blocs": ["sco", "brics"]
+    },
+    "IRQ": {
+      "system": {
+        "ar": "جمهورية برلمانية فيدرالية مع إقليم كردستان كوحدة فيدرالية",
+        "en": "Federal parliamentary republic with the Kurdistan Region as a federal unit"
+      },
+      "langs": { "ar": ["العربية", "الكردية"], "en": ["Arabic", "Kurdish"] },
+      "separatists": [
+        {
+          "ar": "تيارات استقلالية كردية بعد استفتاء 2017",
+          "en": "Kurdish independence currents following the 2017 referendum"
+        }
+      ],
+      "disputes": [
+        {
+          "ar": "المناطق المتنازع عليها بموجب المادة 140 ومنها كركوك وسنجار",
+          "en": "Article 140 disputed territories including Kirkuk and Sinjar"
+        },
+        {
+          "ar": "مثلّث حلايب مع مصر غير معني؛ الفشقة مع إثيوبيا تخصّ السودان",
+          "en": "Not a party to the Hala'ib or al-Fashaga files"
+        }
+      ],
+      "blocs": ["arab-league"]
+    },
+    "SYR": {
+      "system": {
+        "ar": "حكومة انتقالية ضمن مرحلة انتقالية مدّتها خمس سنوات، برلمان مُنتخب في أكتوبر 2025",
+        "en": "Transitional government within a five-year transition, with a parliament elected in October 2025"
+      },
+      "langs": { "ar": ["العربية", "الكردية"], "en": ["Arabic", "Kurdish"] },
+      "separatists": [
+        {
+          "ar": "مطالب درزية بإدارة محلّية في السويداء؛ مؤسسات الإدارة الذاتية في الشمال الشرقي دُمجت في الدولة في أغسطس 2026",
+          "en": "Druze demands for local administration in Suwayda; the north-east self-administration's institutions were integrated into the state in August 2026"
+        }
+      ],
+      "disputes": [
+        {
+          "ar": "الجولان المحتل منذ 1967 وأراضٍ موسّعة في الجنوب محتلّة منذ ديسمبر 2024",
+          "en": "The Golan Heights occupied since 1967 and expanded territory in the south occupied since December 2024"
+        }
+      ],
+      "blocs": ["arab-league"]
+    },
+    "LBN": {
+      "system": {
+        "ar": "جمهورية برلمانية بصيغة تقاسم طائفي للسلطة",
+        "en": "Parliamentary republic with confessional power-sharing"
+      },
+      "langs": { "ar": ["العربية", "الفرنسية"], "en": ["Arabic", "French"] },
+      "separatists": [],
+      "disputes": [
+        {
+          "ar": "مزارع شبعا وأجزاء من الجنوب المحتل، وترسيم الحدود البرية غير مكتمل على الخطّ الأزرق",
+          "en": "The Shebaa Farms and parts of the occupied south, with land demarcation incomplete along the Blue Line"
+        }
+      ],
+      "blocs": ["arab-league"]
+    },
+    "ISR": {
+      "system": {
+        "ar": "ديمقراطية برلمانية بنظام تمثيل نسبي دون دستور مكتوب موحّد",
+        "en": "Parliamentary democracy with proportional representation and no single written constitution"
+      },
+      "langs": { "ar": ["العبرية", "العربية"], "en": ["Hebrew", "Arabic"] },
+      "separatists": [],
+      "disputes": [
+        {
+          "ar": "الضفة الغربية وغزة والقدس الشرقية والجولان وأراضٍ في جنوب لبنان وسوريا",
+          "en": "The West Bank, Gaza, East Jerusalem, the Golan, and territory in southern Lebanon and Syria"
+        }
+      ],
+      "blocs": []
+    },
+    "TUR": {
+      "system": {
+        "ar": "جمهورية رئاسية بعد تعديلات 2017",
+        "en": "Presidential republic following the 2017 amendments"
+      },
+      "langs": { "ar": ["التركية", "الكردية"], "en": ["Turkish", "Kurdish"] },
+      "separatists": [
+        {
+          "ar": "حزب العمال الكردستاني، ومسار تفاوضي أُعلن في 2025 لحلّ المسألة",
+          "en": "The PKK, with a negotiating track announced in 2025 to resolve the question"
+        }
+      ],
+      "disputes": [
+        {
+          "ar": "الجرف القاري والمجال الجوي في إيجه مع اليونان، وشمال قبرص",
+          "en": "Continental shelf and airspace in the Aegean with Greece, and northern Cyprus"
+        }
+      ],
+      "blocs": ["nato", "turkic"]
+    },
+    "YEM": {
+      "system": {
+        "ar": "سلطتان متنازعتان: مجلس القيادة الرئاسي المعترف به دولياً وسلطة الحوثيين في صنعاء",
+        "en": "Two contesting authorities: the internationally recognised Presidential Leadership Council and the Houthi authority in Sanaa"
+      },
+      "langs": { "ar": ["العربية"], "en": ["Arabic"] },
+      "separatists": [
+        {
+          "ar": "المجلس الانتقالي الجنوبي ويطالب بانفصال الجنوب بحدود ما قبل 1990",
+          "en": "The Southern Transitional Council, seeking southern secession on pre-1990 lines"
+        }
+      ],
+      "disputes": [
+        {
+          "ar": "جزر ميون/بريم وحنيش الاستراتيجية في البحر الأحمر",
+          "en": "The strategic Mayyun/Perim and Hanish islands in the Red Sea"
+        }
+      ],
+      "blocs": ["arab-league"]
+    },
+    "ARE": {
+      "system": {
+        "ar": "اتحاد فيدرالي من سبع إمارات بمجلس أعلى للحكّام",
+        "en": "A federation of seven emirates with a Supreme Council of Rulers"
+      },
+      "langs": { "ar": ["العربية"], "en": ["Arabic"] },
+      "separatists": [],
+      "disputes": [
+        {
+          "ar": "جزر طنب الكبرى والصغرى وأبو موسى مع إيران",
+          "en": "Greater and Lesser Tunb and Abu Musa with Iran"
+        }
+      ],
+      "blocs": ["gcc", "arab-league", "brics"]
+    },
+    "QAT": {
+      "system": {
+        "ar": "ملكية دستورية بمجلس شورى جزئي الانتخاب",
+        "en": "Constitutional monarchy with a partly elected Shura Council"
+      },
+      "langs": { "ar": ["العربية"], "en": ["Arabic"] },
+      "separatists": [],
+      "disputes": [],
+      "blocs": ["gcc", "arab-league"]
+    },
+    "OMN": {
+      "system": {
+        "ar": "سلطنة بنظام ملكي وراثي ومجلس عمان",
+        "en": "A sultanate with hereditary monarchy and the Council of Oman"
+      },
+      "langs": { "ar": ["العربية"], "en": ["Arabic"] },
+      "separatists": [],
+      "disputes": [],
+      "blocs": ["gcc", "arab-league"]
+    },
+    "EGY": {
+      "system": { "ar": "جمهورية رئاسية", "en": "Presidential republic" },
+      "langs": { "ar": ["العربية"], "en": ["Arabic"] },
+      "separatists": [],
+      "disputes": [
+        {
+          "ar": "مثلّث حلايب مع السودان، وحصّة مياه النيل مع إثيوبيا",
+          "en": "The Hala'ib Triangle with Sudan, and Nile water shares with Ethiopia"
+        }
+      ],
+      "blocs": ["arab-league", "brics"]
+    },
+    "JOR": {
+      "system": { "ar": "ملكية دستورية برلمانية", "en": "Constitutional parliamentary monarchy" },
+      "langs": { "ar": ["العربية"], "en": ["Arabic"] },
+      "separatists": [],
+      "disputes": [],
+      "blocs": ["arab-league"]
+    },
+    "RUS": {
+      "system": { "ar": "جمهورية فيدرالية رئاسية", "en": "Federal presidential republic" },
+      "langs": { "ar": ["الروسية", "التتارية", "الشيشانية"], "en": ["Russian", "Tatar", "Chechen"] },
+      "separatists": [
+        {
+          "ar": "تيارات انفصالية في شمال القوقاز وتتارستان، مقيّدة بشدّة",
+          "en": "Separatist currents in the North Caucasus and Tatarstan, heavily constrained"
+        }
+      ],
+      "disputes": [
+        {
+          "ar": "القرم وأربع مقاطعات أوكرانية معلنة الضمّ، وجزر الكوريل مع اليابان",
+          "en": "Crimea and four Ukrainian oblasts whose annexation it declared, and the Kuril Islands with Japan"
+        }
+      ],
+      "blocs": ["csto", "sco", "brics"]
+    },
+    "UKR": {
+      "system": { "ar": "جمهورية نصف رئاسية موحّدة", "en": "Unitary semi-presidential republic" },
+      "langs": { "ar": ["الأوكرانية", "الروسية"], "en": ["Ukrainian", "Russian"] },
+      "separatists": [],
+      "disputes": [
+        {
+          "ar": "القرم والدونباس وزاپوريجيا وخيرسون تحت احتلال جزئي أو كامل",
+          "en": "Crimea, the Donbas, Zaporizhzhia and Kherson under partial or full occupation"
+        }
+      ],
+      "blocs": []
+    },
+    "ARM": {
+      "system": { "ar": "جمهورية برلمانية", "en": "Parliamentary republic" },
+      "langs": { "ar": ["الأرمنية"], "en": ["Armenian"] },
+      "separatists": [],
+      "disputes": [
+        {
+          "ar": "ترسيم الحدود مع أذربيجان، ومقاطع من سيونيك محتلّة منذ 2021",
+          "en": "Border delimitation with Azerbaijan, and sections of Syunik occupied since 2021"
+        }
+      ],
+      "blocs": ["csto"]
+    },
+    "AZE": {
+      "system": { "ar": "جمهورية رئاسية", "en": "Presidential republic" },
+      "langs": { "ar": ["الأذرية"], "en": ["Azerbaijani"] },
+      "separatists": [],
+      "disputes": [
+        {
+          "ar": "ترسيم الحدود مع أرمينيا، وممرّ المرور إلى ناختشيفان، وجزر الخليج مع إيران",
+          "en": "Border delimitation with Armenia, the transit route to Nakhchivan, and the Gulf islands with Iran"
+        }
+      ],
+      "blocs": ["turkic"]
+    },
+    "GEO": {
+      "system": { "ar": "جمهورية برلمانية", "en": "Parliamentary republic" },
+      "langs": { "ar": ["الجورجية", "الأبخازية"], "en": ["Georgian", "Abkhaz"] },
+      "separatists": [
+        {
+          "ar": "أبخازيا وأوسيتيا الجنوبية، تعترف بهما روسيا وقليل من الدول",
+          "en": "Abkhazia and South Ossetia, recognised by Russia and a handful of states"
+        }
+      ],
+      "disputes": [
+        {
+          "ar": "أبخازيا وأوسيتيا الجنوبية تصنّفهما جورجيا أراضيَ محتلة",
+          "en": "Abkhazia and South Ossetia, which Georgia designates occupied territories"
+        }
+      ],
+      "blocs": []
+    },
+    "SRB": {
+      "system": { "ar": "جمهورية برلمانية", "en": "Parliamentary republic" },
+      "langs": { "ar": ["الصربية"], "en": ["Serbian"] },
+      "separatists": [
+        { "ar": "وادي بريشيفو ذو الأغلبية الألبانية", "en": "The Albanian-majority Preševo Valley" }
+      ],
+      "disputes": [
+        {
+          "ar": "كوسوفو، لا تعترف صربيا باستقلالها",
+          "en": "Kosovo, whose independence Serbia does not recognise"
+        }
+      ],
+      "blocs": []
+    },
+    "BIH": {
+      "system": {
+        "ar": "دولة من كيانين برئاسة ثلاثية ومفوّض سامٍ دولي بموجب اتفاقية دايتون",
+        "en": "A state of two entities with a tripartite presidency and an international High Representative under the Dayton Agreement"
+      },
+      "langs": {
+        "ar": ["البوسنوية", "الصربية", "الكرواتية"],
+        "en": ["Bosnian", "Serbian", "Croatian"]
+      },
+      "separatists": [
+        {
+          "ar": "تهديدات انفصال متكرّرة من قيادة جمهورية صرب البوسنة",
+          "en": "Recurring secession threats from Republika Srpska's leadership"
+        }
+      ],
+      "disputes": [],
+      "blocs": []
+    },
+    "MDA": {
+      "system": { "ar": "جمهورية برلمانية", "en": "Parliamentary republic" },
+      "langs": {
+        "ar": ["الرومانية", "الروسية", "الغاغاوزية"],
+        "en": ["Romanian", "Russian", "Gagauz"]
+      },
+      "separatists": [
+        {
+          "ar": "ترانسنيستريا غير المعترف بها من أي دولة، وحكم ذاتي في غاغاوزيا",
+          "en": "Transnistria, recognised by no state, and autonomy in Gagauzia"
+        }
+      ],
+      "disputes": [],
+      "blocs": []
+    },
+    "ESP": {
+      "system": {
+        "ar": "ملكية دستورية برلمانية بنظام أقاليم ذات حكم ذاتي",
+        "en": "Constitutional parliamentary monarchy with a system of autonomous communities"
+      },
+      "langs": {
+        "ar": ["الإسبانية", "الكاتالونية", "الباسكية", "الغاليسية"],
+        "en": ["Spanish", "Catalan", "Basque", "Galician"]
+      },
+      "separatists": [
+        {
+          "ar": "حركات كاتالونية وباسكية سياسية غير مسلحة؛ حلّت إيتا نفسها في 2018",
+          "en": "Unarmed political Catalan and Basque movements; ETA dissolved itself in 2018"
+        }
+      ],
+      "disputes": [
+        {
+          "ar": "جبل طارق مع المملكة المتحدة، والصحراء الغربية بوصفها القوة الاستعمارية السابقة",
+          "en": "Gibraltar with the United Kingdom, and Western Sahara as the former colonial power"
+        }
+      ],
+      "blocs": ["nato", "eu"]
+    },
+    "GBR": {
+      "system": {
+        "ar": "ملكية دستورية برلمانية مع تفويض صلاحيات لأسكتلندا وويلز وأيرلندا الشمالية",
+        "en": "Constitutional parliamentary monarchy with devolution to Scotland, Wales and Northern Ireland"
+      },
+      "langs": {
+        "ar": ["الإنجليزية", "الويلزية", "الغيلية الأسكتلندية"],
+        "en": ["English", "Welsh", "Scottish Gaelic"]
+      },
+      "separatists": [
+        {
+          "ar": "القومية الأسكتلندية، وتيار الوحدة الأيرلندية في أيرلندا الشمالية — كلاهما سياسي بالكامل",
+          "en": "Scottish nationalism, and the Irish unity current in Northern Ireland — both entirely political"
+        }
+      ],
+      "disputes": [
+        {
+          "ar": "جبل طارق مع إسبانيا، وجزر فوكلاند/مالفيناس مع الأرجنتين",
+          "en": "Gibraltar with Spain, and the Falklands/Malvinas with Argentina"
+        }
+      ],
+      "blocs": ["nato"]
+    },
+    "CHN": {
+      "system": {
+        "ar": "جمهورية اشتراكية بحكم الحزب الواحد",
+        "en": "Socialist republic under single-party rule"
+      },
+      "langs": {
+        "ar": ["الماندرين", "الكانتونية", "الأويغورية", "التبتية", "المنغولية"],
+        "en": ["Mandarin", "Cantonese", "Uyghur", "Tibetan", "Mongolian"]
+      },
+      "separatists": [
+        {
+          "ar": "تيارات أويغورية وتبتية في المنفى، بلا حضور ميداني",
+          "en": "Uyghur and Tibetan currents in exile, with no presence on the ground"
+        }
+      ],
+      "disputes": [
+        {
+          "ar": "تايوان، وبحر الصين الجنوبي، وجزر سينكاكو/دياويو، وأكساي تشين وأروناشال براديش",
+          "en": "Taiwan, the South China Sea, the Senkaku/Diaoyu islands, and Aksai Chin and Arunachal Pradesh"
+        }
+      ],
+      "blocs": ["sco", "brics"]
+    },
+    "TWN": {
+      "system": {
+        "ar": "جمهورية نصف رئاسية ديمقراطية، أول انتخابات رئاسية مباشرة في 1996",
+        "en": "Democratic semi-presidential republic, with its first direct presidential election in 1996"
+      },
+      "langs": {
+        "ar": ["الماندرين", "الهوكلو", "الهاكا", "لغات أصلية أسترونيزية"],
+        "en": ["Mandarin", "Hokkien", "Hakka", "Austronesian indigenous languages"]
+      },
+      "separatists": [],
+      "disputes": [
+        {
+          "ar": "تطالب بها بكين؛ وتدير تايوان كينمن وماتسو وبرَتاس وتايپينغ",
+          "en": "Claimed by Beijing; Taiwan administers Kinmen, Matsu, Pratas and Taiping"
+        }
+      ],
+      "blocs": []
+    },
+    "IND": {
+      "system": { "ar": "جمهورية برلمانية فيدرالية", "en": "Federal parliamentary republic" },
+      "langs": {
+        "ar": ["الهندية", "الإنجليزية", "البنغالية", "التاميلية", "الپنجابية", "و22 لغة مُدرجة"],
+        "en": ["Hindi", "English", "Bengali", "Tamil", "Punjabi", "and 22 scheduled languages"]
+      },
+      "separatists": [
+        {
+          "ar": "جماعات في كشمير وماني پور وناغالاند؛ وحركة خالستان السيخية في الشتات أساساً",
+          "en": "Groups in Kashmir, Manipur and Nagaland; and the Sikh Khalistan movement, primarily in the diaspora"
+        }
+      ],
+      "disputes": [
+        {
+          "ar": "كشمير مع باكستان، وأكساي تشين وأروناشال براديش مع الصين",
+          "en": "Kashmir with Pakistan, and Aksai Chin and Arunachal Pradesh with China"
+        }
+      ],
+      "blocs": ["sco", "brics"]
+    },
+    "PAK": {
+      "system": {
+        "ar": "جمهورية برلمانية فيدرالية بوزن مؤسسي كبير للجيش",
+        "en": "Federal parliamentary republic with substantial institutional weight for the military"
+      },
+      "langs": {
+        "ar": ["الأردية", "الإنجليزية", "الپنجابية", "الپشتو", "السندية", "البلوشية"],
+        "en": ["Urdu", "English", "Punjabi", "Pashto", "Sindhi", "Balochi"]
+      },
+      "separatists": [
+        {
+          "ar": "جماعات بلوشية مسلحة، وتيارات سندية سياسية",
+          "en": "Baloch armed groups, and political Sindhi currents"
+        }
+      ],
+      "disputes": [
+        {
+          "ar": "كشمير مع الهند، وخطّ ديوراند مع أفغانستان، ومعاهدة مياه السند",
+          "en": "Kashmir with India, the Durand Line with Afghanistan, and the Indus Waters Treaty"
+        }
+      ],
+      "blocs": ["sco"]
+    },
+    "AFG": {
+      "system": {
+        "ar": "إمارة إسلامية بحكم طالبان، غير معترف بها على نطاق واسع",
+        "en": "Islamic emirate under Taliban rule, not widely recognised"
+      },
+      "langs": {
+        "ar": ["الپشتو", "الدارية", "الأوزبكية", "التركمانية"],
+        "en": ["Pashto", "Dari", "Uzbek", "Turkmen"]
+      },
+      "separatists": [],
+      "disputes": [
+        {
+          "ar": "لا تعترف بخطّ ديوراند حدّاً دولياً مع باكستان",
+          "en": "Does not recognise the Durand Line as an international border with Pakistan"
+        }
+      ],
+      "blocs": []
+    },
+    "MMR": {
+      "system": {
+        "ar": "حكم عسكري بغطاء مدني بعد انتخابات 2025–2026 التي رفض الاتحاد الأوروبي والمقرّر الأممي شرعيتها",
+        "en": "Military rule under civilian cover following the 2025–2026 elections, whose legitimacy the European Union and the UN special rapporteur rejected"
+      },
+      "langs": {
+        "ar": ["البورمية", "الشان", "الكارين", "الكاتشين", "الراخين"],
+        "en": ["Burmese", "Shan", "Karen", "Kachin", "Rakhine"]
+      },
+      "separatists": [
+        {
+          "ar": "جيوش عرقية متعدّدة تطالب بالفيدرالية أو الحكم الذاتي، ومنها جيش أراكان وجيوش تحالف الأخوة الثلاثة",
+          "en": "Numerous ethnic armies seeking federalism or autonomy, including the Arakan Army and the Three Brotherhood Alliance armies"
+        }
+      ],
+      "disputes": [],
+      "blocs": []
+    },
+    "PRK": {
+      "system": {
+        "ar": "دولة الحزب الواحد بقيادة أسرية متوارثة",
+        "en": "Single-party state under hereditary family leadership"
+      },
+      "langs": { "ar": ["الكورية"], "en": ["Korean"] },
+      "separatists": [],
+      "disputes": [
+        {
+          "ar": "تطالب دستورياً بكامل شبه الجزيرة، والخطّ الشمالي الفاصل في البحر الأصفر",
+          "en": "Constitutionally claims the whole peninsula, plus the Northern Limit Line in the Yellow Sea"
+        }
+      ],
+      "blocs": []
+    },
+    "KOR": {
+      "system": { "ar": "جمهورية رئاسية ديمقراطية", "en": "Democratic presidential republic" },
+      "langs": { "ar": ["الكورية"], "en": ["Korean"] },
+      "separatists": [],
+      "disputes": [
+        {
+          "ar": "تطالب دستورياً بكامل شبه الجزيرة، وصخور ليانكور/دوكدو مع اليابان",
+          "en": "Constitutionally claims the whole peninsula, plus the Liancourt Rocks/Dokdo with Japan"
+        }
+      ],
+      "blocs": []
+    },
+    "PHL": {
+      "system": { "ar": "جمهورية رئاسية", "en": "Presidential republic" },
+      "langs": { "ar": ["الفلبينية", "الإنجليزية"], "en": ["Filipino", "English"] },
+      "separatists": [
+        {
+          "ar": "حركات في مينداناو، وأُنشئت منطقة بانغسامورو ذات الحكم الذاتي بموجب اتفاق سلام",
+          "en": "Movements in Mindanao, where the autonomous Bangsamoro region was established under a peace agreement"
+        }
+      ],
+      "disputes": [
+        {
+          "ar": "سكاربورو شول وسكند توماس شول ومنطقتها الاقتصادية الخالصة مع الصين",
+          "en": "Scarborough Shoal, Second Thomas Shoal and its exclusive economic zone with China"
+        }
+      ],
+      "blocs": []
+    },
+    "LKA": {
+      "system": { "ar": "جمهورية نصف رئاسية موحّدة", "en": "Unitary semi-presidential republic" },
+      "langs": {
+        "ar": ["السنهالية", "التاميلية", "الإنجليزية"],
+        "en": ["Sinhala", "Tamil", "English"]
+      },
+      "separatists": [
+        {
+          "ar": "انتهى المطلب الانفصالي المسلح في 2009؛ المطالب الحالية سياسية حول اللامركزية",
+          "en": "The armed secessionist demand ended in 2009; current demands are political and concern devolution"
+        }
+      ],
+      "disputes": [],
+      "blocs": []
+    },
+    "BGD": {
+      "system": { "ar": "جمهورية برلمانية", "en": "Parliamentary republic" },
+      "langs": { "ar": ["البنغالية"], "en": ["Bengali"] },
+      "separatists": [],
+      "disputes": [],
+      "blocs": []
+    },
+    "SDN": {
+      "system": {
+        "ar": "سلطتان متنازعتان عسكرياً بلا حكم مدني",
+        "en": "Two militarily contesting authorities without civilian government"
+      },
+      "langs": {
+        "ar": ["العربية", "الإنجليزية", "لغات نوبية ودارفورية"],
+        "en": ["Arabic", "English", "Nubian and Darfuri languages"]
+      },
+      "separatists": [
+        {
+          "ar": "الحركة الشعبية لتحرير السودان شمال في جنوب كردفان والنيل الأزرق، وتيارات في الشرق",
+          "en": "SPLM-North in South Kordofan and Blue Nile, and currents in the east"
+        }
+      ],
+      "disputes": [
+        {
+          "ar": "أبيي مع جنوب السودان، ومثلّث حلايب مع مصر، والفشقة مع إثيوبيا",
+          "en": "Abyei with South Sudan, the Hala'ib Triangle with Egypt, and al-Fashaga with Ethiopia"
+        }
+      ],
+      "blocs": ["arab-league"]
+    },
+    "SSD": {
+      "system": {
+        "ar": "حكومة وحدة انتقالية بموجب اتفاق 2018 المنشّط، لم تُجرِ انتخابات بعد",
+        "en": "A transitional unity government under the 2018 revitalised agreement, with no elections yet held"
+      },
+      "langs": {
+        "ar": ["الإنجليزية", "العربية الجوبية", "الدينكا", "النوير"],
+        "en": ["English", "Juba Arabic", "Dinka", "Nuer"]
+      },
+      "separatists": [],
+      "disputes": [
+        {
+          "ar": "أبيي مع السودان وخلافات على مقاطع من خطّ الحدود",
+          "en": "Abyei with Sudan and disagreements over sections of the border line"
+        }
+      ],
+      "blocs": []
+    },
+    "ETH": {
+      "system": {
+        "ar": "جمهورية فيدرالية بأساس عرقي للولايات",
+        "en": "Federal republic with ethnically based regional states"
+      },
+      "langs": {
+        "ar": ["الأمهرية", "الأورومية", "التيغرينية", "الصومالية", "العفرية"],
+        "en": ["Amharic", "Oromo", "Tigrinya", "Somali", "Afar"]
+      },
+      "separatists": [
+        {
+          "ar": "جبهة تحرير شعب تيغراي، وجيش تحرير أورومو، وجبهة تحرير أوغادين الوطنية؛ وتحالف من سبع جماعات أُعلن في سبتمبر 2026",
+          "en": "The TPLF, the Oromo Liberation Army, and the Ogaden National Liberation Front; plus an alliance of seven groups announced in September 2026"
+        }
+      ],
+      "disputes": [
+        {
+          "ar": "غربي تيغراي داخلياً، والفشقة مع السودان، ومطلب منفذ بحري ترفضه إريتريا",
+          "en": "Western Tigray internally, al-Fashaga with Sudan, and a sea-outlet demand that Eritrea rejects"
+        }
+      ],
+      "blocs": ["brics"]
+    },
+    "SOM": {
+      "system": {
+        "ar": "جمهورية فيدرالية برلمانية بنظام انتخاب غير مباشر عشائري",
+        "en": "Federal parliamentary republic with an indirect clan-based electoral system"
+      },
+      "langs": { "ar": ["الصومالية", "العربية"], "en": ["Somali", "Arabic"] },
+      "separatists": [
+        {
+          "ar": "أرض الصومال أعلنت الاستقلال في 1991 ولم تُعترف بها دولياً؛ وبونتلاند تطالب بحكم ذاتي موسّع",
+          "en": "Somaliland declared independence in 1991 and is not internationally recognised; Puntland seeks expanded autonomy"
+        }
+      ],
+      "disputes": [
+        {
+          "ar": "سول وسناج بين أرض الصومال وبونتلاند، ومذكّرة إثيوبيا وأرض الصومال حول منفذ بحري",
+          "en": "Sool and Sanaag between Somaliland and Puntland, and the Ethiopia–Somaliland memorandum on a sea outlet"
+        }
+      ],
+      "blocs": ["arab-league"]
+    },
+    "COD": {
+      "system": {
+        "ar": "جمهورية نصف رئاسية موحّدة بمقاطعات لا مركزية",
+        "en": "Unitary semi-presidential republic with decentralised provinces"
+      },
+      "langs": {
+        "ar": ["الفرنسية", "اللينغالا", "السواحيلية", "الكيكونغو", "التشيلوبا"],
+        "en": ["French", "Lingala", "Swahili", "Kikongo", "Tshiluba"]
+      },
+      "separatists": [
+        {
+          "ar": "تحالف نهر الكونغو وحركة 23 مارس يسيطران على مناطق في كيفو؛ وتيارات في كاتانغا",
+          "en": "The AFC and M23 control areas in the Kivus; plus currents in Katanga"
+        }
+      ],
+      "disputes": [
+        {
+          "ar": "خلافات حدودية مع رواندا وأوغندا على بحيرة إدوارد ومناطق متفرّقة",
+          "en": "Border disagreements with Rwanda and Uganda over Lake Edward and scattered areas"
+        }
+      ],
+      "blocs": []
+    },
+    "RWA": {
+      "system": { "ar": "جمهورية رئاسية", "en": "Presidential republic" },
+      "langs": {
+        "ar": ["الكينيارواندا", "الإنجليزية", "الفرنسية", "السواحيلية"],
+        "en": ["Kinyarwanda", "English", "French", "Swahili"]
+      },
+      "separatists": [],
+      "disputes": [],
+      "blocs": []
+    },
+    "NGA": {
+      "system": {
+        "ar": "جمهورية رئاسية فيدرالية من 36 ولاية",
+        "en": "Federal presidential republic of 36 states"
+      },
+      "langs": {
+        "ar": ["الإنجليزية", "الهوسا", "اليوروبا", "الإيغبو", "الفولفولدية"],
+        "en": ["English", "Hausa", "Yoruba", "Igbo", "Fula"]
+      },
+      "separatists": [
+        {
+          "ar": "فصائل من حركة بيافرا في الجنوب الشرقي، ومطلب محدود النطاق",
+          "en": "Factions of the Biafra movement in the south-east, a demand of limited scope"
+        }
+      ],
+      "disputes": [],
+      "blocs": []
+    },
+    "MLI": {
+      "system": {
+        "ar": "مجلس عسكري حاكم منذ انقلاب 2020",
+        "en": "Ruling military council since the 2020 coup"
+      },
+      "langs": {
+        "ar": ["الفرنسية", "البامبارا", "الفولفولدية", "الطوارقية"],
+        "en": ["French", "Bambara", "Fula", "Tamasheq"]
+      },
+      "separatists": [
+        {
+          "ar": "جبهة تحرير أزواد وتطالب بحكم ذاتي أو استقلال لشمال مالي",
+          "en": "The Azawad Liberation Front, seeking autonomy or independence for northern Mali"
+        }
+      ],
+      "disputes": [],
+      "blocs": ["aes"]
+    },
+    "BFA": {
+      "system": {
+        "ar": "مجلس عسكري حاكم منذ انقلابي 2022",
+        "en": "Ruling military council since the 2022 coups"
+      },
+      "langs": {
+        "ar": ["الفرنسية", "الموري", "الدِيولا", "الفولفولدية"],
+        "en": ["French", "Mooré", "Dyula", "Fula"]
+      },
+      "separatists": [],
+      "disputes": [],
+      "blocs": ["aes"]
+    },
+    "NER": {
+      "system": {
+        "ar": "مجلس عسكري حاكم منذ انقلاب 2023",
+        "en": "Ruling military council since the 2023 coup"
+      },
+      "langs": {
+        "ar": ["الفرنسية", "الهوسا", "الزرمة", "الطوارقية"],
+        "en": ["French", "Hausa", "Zarma", "Tamasheq"]
+      },
+      "separatists": [],
+      "disputes": [],
+      "blocs": ["aes"]
+    },
+    "MAR": {
+      "system": { "ar": "ملكية دستورية برلمانية", "en": "Constitutional parliamentary monarchy" },
+      "langs": { "ar": ["العربية", "الأمازيغية"], "en": ["Arabic", "Tamazight"] },
+      "separatists": [],
+      "disputes": [
+        {
+          "ar": "الصحراء الغربية؛ وسبتة ومليلية مع إسبانيا",
+          "en": "Western Sahara; and Ceuta and Melilla with Spain"
+        }
+      ],
+      "blocs": ["arab-league"]
+    },
+    "DZA": {
+      "system": { "ar": "جمهورية رئاسية", "en": "Presidential republic" },
+      "langs": { "ar": ["العربية", "الأمازيغية"], "en": ["Arabic", "Tamazight"] },
+      "separatists": [{ "ar": "تيارات قبائلية سياسية", "en": "Political Kabyle currents" }],
+      "disputes": [
+        {
+          "ar": "الصحراء الغربية بدعم البوليساريو، والحدود مع المغرب مغلقة",
+          "en": "Western Sahara through support for Polisario, with the border with Morocco closed"
+        }
+      ],
+      "blocs": ["arab-league"]
+    },
+    "VEN": {
+      "system": {
+        "ar": "رئاسة بالوكالة ومرحلة انتقالية متنازع عليها برعاية أمريكية، دون موعد معلن لانتخابات رئاسية",
+        "en": "An acting presidency and a contested, US-sponsored transition, with no announced presidential election date"
+      },
+      "langs": { "ar": ["الإسبانية", "لغات أصلية"], "en": ["Spanish", "indigenous languages"] },
+      "separatists": [],
+      "disputes": [
+        {
+          "ar": "إيسيكيبو مع غيانا؛ القضية منظورة أمام محكمة العدل الدولية",
+          "en": "Essequibo with Guyana; the case is before the International Court of Justice"
+        }
+      ],
+      "blocs": []
+    },
+    "GUY": {
+      "system": { "ar": "جمهورية برلمانية", "en": "Parliamentary republic" },
+      "langs": {
+        "ar": ["الإنجليزية", "الكريولية الغيانية", "لغات هندية ولغات أصلية"],
+        "en": ["English", "Guyanese Creole", "Indian and indigenous languages"]
+      },
+      "separatists": [],
+      "disputes": [
+        {
+          "ar": "إيسيكيبو مع فنزويلا، ومنطقة تاكوتو مع سورينام",
+          "en": "Essequibo with Venezuela, and the Tigri/New River area with Suriname"
+        }
+      ],
+      "blocs": []
+    },
+    "HTI": {
+      "system": {
+        "ar": "حكومة انتقالية بلا انتخابات منذ 2016، وسلطة الدولة الفعلية منهارة في معظم العاصمة",
+        "en": "A transitional government with no elections since 2016, and effective state authority collapsed across most of the capital"
+      },
+      "langs": { "ar": ["الكريولية الهايتية", "الفرنسية"], "en": ["Haitian Creole", "French"] },
+      "separatists": [],
+      "disputes": [],
+      "blocs": []
+    },
+    "COL": {
+      "system": { "ar": "جمهورية رئاسية", "en": "Presidential republic" },
+      "langs": { "ar": ["الإسبانية", "لغات أصلية"], "en": ["Spanish", "indigenous languages"] },
+      "separatists": [],
+      "disputes": [],
+      "blocs": []
+    },
+    "MEX": {
+      "system": { "ar": "جمهورية رئاسية فيدرالية", "en": "Federal presidential republic" },
+      "langs": {
+        "ar": ["الإسبانية", "لغات أصلية معترف بها"],
+        "en": ["Spanish", "recognised indigenous languages"]
+      },
+      "separatists": [],
+      "disputes": [],
+      "blocs": []
+    },
+    "USA": {
+      "system": { "ar": "جمهورية رئاسية فيدرالية", "en": "Federal presidential republic" },
+      "langs": { "ar": ["الإنجليزية", "الإسبانية"], "en": ["English", "Spanish"] },
+      "separatists": [],
+      "disputes": [],
+      "blocs": ["nato"]
+    },
+    "XKX": {
+      "system": {
+        "ar": "جمهورية برلمانية، اعترفت بها نحو مئة دولة",
+        "en": "Parliamentary republic recognised by around one hundred states"
+      },
+      "langs": { "ar": ["الألبانية", "الصربية"], "en": ["Albanian", "Serbian"] },
+      "separatists": [
+        {
+          "ar": "بلديات صربية في الشمال ترفض سلطة بريشتينا",
+          "en": "Serb municipalities in the north that reject Pristina's authority"
+        }
+      ],
+      "disputes": [
+        {
+          "ar": "لا تعترف صربيا باستقلالها، وروسيا والصين وخمس دول في الاتحاد الأوروبي كذلك",
+          "en": "Serbia does not recognise its independence, nor do Russia, China and five EU member states"
+        }
+      ],
+      "blocs": []
+    },
+    "ESH": {
+      "system": {
+        "ar": "إقليم غير متمتّع بالحكم الذاتي بتصنيف الأمم المتحدة؛ يضمّه المغرب فعلياً وتسيطر البوليساريو على شريط شرقي",
+        "en": "A Non-Self-Governing Territory in UN terms; effectively annexed by Morocco, with Polisario controlling an eastern strip"
+      },
+      "langs": { "ar": ["العربية الحسّانية", "الإسبانية"], "en": ["Hassaniya Arabic", "Spanish"] },
+      "separatists": [
+        {
+          "ar": "جبهة البوليساريو التي أعلنت الجمهورية العربية الصحراوية الديمقراطية في 1976",
+          "en": "The Polisario Front, which declared the Sahrawi Arab Democratic Republic in 1976"
+        }
+      ],
+      "disputes": [
+        {
+          "ar": "لم تُنفّذ خطة الاستفتاء التي نصّ عليها وقف نار 1991",
+          "en": "The referendum plan provided for in the 1991 ceasefire has never been implemented"
+        }
+      ],
+      "blocs": []
+    }
   }
 }

@@ -16,8 +16,18 @@
         "en": "At root a power struggle between two generals over command of the state and the economy, not an ethnic conflict. Its execution in Darfur, however, took explicitly ethnic form: a UN fact-finding mission concluded in February 2026 that the El Fasher massacre bore the hallmarks of genocide against the Zaghawa and Fur. Distinguishing the war's cause from the form of its execution is essential to understanding it."
       },
       "parties": {
-        "ar": ["القوات المسلحة السودانية", "قوات الدعم السريع", "الحركة الشعبية لتحرير السودان شمال", "حركات دارفورية مسلحة"],
-        "en": ["Sudanese Armed Forces", "Rapid Support Forces", "SPLM-North", "Darfuri armed movements"]
+        "ar": [
+          "القوات المسلحة السودانية",
+          "قوات الدعم السريع",
+          "الحركة الشعبية لتحرير السودان شمال",
+          "حركات دارفورية مسلحة"
+        ],
+        "en": [
+          "Sudanese Armed Forces",
+          "Rapid Support Forces",
+          "SPLM-North",
+          "Darfuri armed movements"
+        ]
       },
       "ethnoReligious": {
         "ar": "أغلبية مسلمة سنّية في كلّ أنحاء الشمال، وهو ما يعني أن الدين لا يفسّر خطوط هذه الحرب. الانقسام الفاعل عرقي ومناطقي: جماعات عربية رعوية في مقابل جماعات غير عربية مستقرّة في دارفور (الفور والزغاوة والمساليت والبرتي)، ونوبة في جنوب كردفان، وبجا في الشرق.",
@@ -40,11 +50,45 @@
         "en": "Gold mines in Darfur and North Kordofan, the war's principal funding source; Port Sudan on the Red Sea; farmland in Gezira and Blue Nile; and Nile waters and dams. Its Red Sea position makes Sudan an arena of regional competition for maritime influence."
       },
       "externalPowers": [
-        { "iso3": "ARE", "role": { "ar": "تُتهم بدعم قوات الدعم السريع وتنفي ذلك", "en": "Accused of supporting the Rapid Support Forces, which it denies" }, "kind": "assessed", "contested": true },
-        { "iso3": "EGY", "role": { "ar": "علاقة قوية بالقوات المسلحة السودانية", "en": "A strong relationship with the Sudanese Armed Forces" }, "kind": "assessed" },
-        { "iso3": "SAU", "role": { "ar": "استضافت مسار جدة التفاوضي", "en": "Hosted the Jeddah negotiating track" }, "kind": "treaty" },
-        { "iso3": "TCD", "role": { "ar": "معبر رئيسي وممرّ إمداد نحو دارفور ومستضيفة لمئات الآلاف من اللاجئين", "en": "A principal crossing and supply route toward Darfur and host to hundreds of thousands of refugees" }, "kind": "assessed" },
-        { "iso3": "ETH", "role": { "ar": "أُشير إلى دعم إثيوبي لقوات الدعم السريع خلال حملة النيل الأزرق", "en": "Ethiopian support to the Rapid Support Forces during the Blue Nile campaign has been reported" }, "kind": "assessed", "contested": true }
+        {
+          "iso3": "ARE",
+          "role": {
+            "ar": "تُتهم بدعم قوات الدعم السريع وتنفي ذلك",
+            "en": "Accused of supporting the Rapid Support Forces, which it denies"
+          },
+          "kind": "assessed",
+          "contested": true
+        },
+        {
+          "iso3": "EGY",
+          "role": {
+            "ar": "علاقة قوية بالقوات المسلحة السودانية",
+            "en": "A strong relationship with the Sudanese Armed Forces"
+          },
+          "kind": "assessed"
+        },
+        {
+          "iso3": "SAU",
+          "role": { "ar": "استضافت مسار جدة التفاوضي", "en": "Hosted the Jeddah negotiating track" },
+          "kind": "treaty"
+        },
+        {
+          "iso3": "TCD",
+          "role": {
+            "ar": "معبر رئيسي وممرّ إمداد نحو دارفور ومستضيفة لمئات الآلاف من اللاجئين",
+            "en": "A principal crossing and supply route toward Darfur and host to hundreds of thousands of refugees"
+          },
+          "kind": "assessed"
+        },
+        {
+          "iso3": "ETH",
+          "role": {
+            "ar": "أُشير إلى دعم إثيوبي لقوات الدعم السريع خلال حملة النيل الأزرق",
+            "en": "Ethiopian support to the Rapid Support Forces during the Blue Nile campaign has been reported"
+          },
+          "kind": "assessed",
+          "contested": true
+        }
       ],
       "status": {
         "ar": "حرب مستمرة وواحدة من أكبر أزمات التهجير في العالم. سقطت الفاشر — آخر معاقل الجيش في دارفور — بيد قوات الدعم السريع في 26 أكتوبر 2025 بعد حصار دام نحو ثلاثين شهراً، وتلتها مجزرة وثّق مكتب حقوق الإنسان الأممي مقتل أكثر من ستة آلاف شخص خلال ثلاثة أيام منها، منهم 4,400 داخل المدينة وأكثر من 1,600 على طرق الفرار. تسيطر قوات الدعم السريع على دارفور بكاملها تقريباً، وتواجه مع الحركة الشعبية شمال انتكاسات في النيل الأزرق منذ صيف 2026. انخفض عدد سكان الفاشر من أكثر من مليون قبل الحرب إلى أقلّ من سبعين ألفاً.",
@@ -52,9 +96,24 @@
       },
       "statusAsOf": "2026-10-30",
       "recent": [
-        { "date": "2026-10-27", "ar": "في الذكرى الأولى لسقوط الفاشر أفادت منظمة العفو الدولية باستمرار الاحتجاز التعسفي والتعذيب والقتل غير المشروع وتقييد الوصول الإنساني، وبأن مدارس تُستخدم مراكز احتجاز ومراقبة. وأعلنت المملكة المتحدة عقوبات على قادة من قوات الدعم السريع والجيش.", "en": "On the first anniversary of El Fasher's fall, Amnesty International reported continuing arbitrary detention, torture, unlawful killings and restricted humanitarian access, and that schools are being used as detention and surveillance centres. The United Kingdom announced sanctions on RSF and army commanders.", "source": "Amnesty International via Arab News" },
-        { "date": "2026-02-19", "ar": "خلصت بعثة تقصّي الحقائق الأممية إلى أن قوات الدعم السريع تصرّفت بنيّة تدمير جماعتي الزغاوة والفور في الفاشر، وأن الجرائم المرتكبة تحمل سمات الإبادة الجماعية.", "en": "The UN fact-finding mission concluded that the Rapid Support Forces acted with intent to destroy the Zaghawa and Fur communities in El Fasher, and that the crimes committed bore the hallmarks of genocide.", "source": "UN Fact-Finding Mission / OHCHR" },
-        { "date": "2026-02-13", "ar": "تقرير لمكتب حقوق الإنسان الأممي وثّق أكثر من ستة آلاف قتيل في الأيام الثلاثة الأولى لهجوم الفاشر، ووثّق عشر منشآت احتجاز، ومنها مستشفى الأطفال.", "en": "A UN human rights office report documented more than six thousand killed in the first three days of the El Fasher offensive and ten detention facilities including the children's hospital.", "source": "OHCHR" }
+        {
+          "date": "2026-10-27",
+          "ar": "في الذكرى الأولى لسقوط الفاشر أفادت منظمة العفو الدولية باستمرار الاحتجاز التعسفي والتعذيب والقتل غير المشروع وتقييد الوصول الإنساني، وبأن مدارس تُستخدم مراكز احتجاز ومراقبة. وأعلنت المملكة المتحدة عقوبات على قادة من قوات الدعم السريع والجيش.",
+          "en": "On the first anniversary of El Fasher's fall, Amnesty International reported continuing arbitrary detention, torture, unlawful killings and restricted humanitarian access, and that schools are being used as detention and surveillance centres. The United Kingdom announced sanctions on RSF and army commanders.",
+          "source": "Amnesty International via Arab News"
+        },
+        {
+          "date": "2026-02-19",
+          "ar": "خلصت بعثة تقصّي الحقائق الأممية إلى أن قوات الدعم السريع تصرّفت بنيّة تدمير جماعتي الزغاوة والفور في الفاشر، وأن الجرائم المرتكبة تحمل سمات الإبادة الجماعية.",
+          "en": "The UN fact-finding mission concluded that the Rapid Support Forces acted with intent to destroy the Zaghawa and Fur communities in El Fasher, and that the crimes committed bore the hallmarks of genocide.",
+          "source": "UN Fact-Finding Mission / OHCHR"
+        },
+        {
+          "date": "2026-02-13",
+          "ar": "تقرير لمكتب حقوق الإنسان الأممي وثّق أكثر من ستة آلاف قتيل في الأيام الثلاثة الأولى لهجوم الفاشر، ووثّق عشر منشآت احتجاز، ومنها مستشفى الأطفال.",
+          "en": "A UN human rights office report documented more than six thousand killed in the first three days of the El Fasher offensive and ten detention facilities including the children's hospital.",
+          "source": "OHCHR"
+        }
       ],
       "confidence": "verified",
       "sourceRefs": ["ocha-hdx", "unhcr", "acled", "iom"]
@@ -73,8 +132,20 @@
         "en": "A struggle over the structure of the ethnic federal state and over central power. The identity dimension is structural in Ethiopia because federalism itself is built on ethnic lines, but the immediate driver is political: who governs Addis Ababa and under what constitutional formula. The religious dimension is nearly absent: Orthodoxy is shared by the warring Tigrayans and Amhara."
       },
       "parties": {
-        "ar": ["الحكومة الفيدرالية الإثيوبية", "جبهة تحرير شعب تيغراي", "فانو الأمهرية", "جيش تحرير أورومو", "إريتريا"],
-        "en": ["Ethiopian federal government", "Tigray People's Liberation Front", "Amhara Fano", "Oromo Liberation Army", "Eritrea"]
+        "ar": [
+          "الحكومة الفيدرالية الإثيوبية",
+          "جبهة تحرير شعب تيغراي",
+          "فانو الأمهرية",
+          "جيش تحرير أورومو",
+          "إريتريا"
+        ],
+        "en": [
+          "Ethiopian federal government",
+          "Tigray People's Liberation Front",
+          "Amhara Fano",
+          "Oromo Liberation Army",
+          "Eritrea"
+        ]
       },
       "ethnoReligious": {
         "ar": "أكبر المجموعات هي الأورومو والأمهرة والصومال والتيغراي والسيداما. الأرثوذكسية التوحيدية الإثيوبية والإسلام والبروتستانتية هي الديانات الرئيسية، وتتوزّع عبر الخطوط العرقية لا بالتوازي معها، وهو ما يفسّر غياب البعد الديني عن خطوط القتال.",
@@ -97,9 +168,30 @@
         "en": "The Grand Ethiopian Renaissance Dam on the Blue Nile, a source of dispute with Egypt and Sudan; fertile farmland in Western Tigray and al-Fashaga; the Eritrean port of Assab which Ethiopia seeks access to; and the trade corridor to Djibouti through which most of its external trade passes."
       },
       "externalPowers": [
-        { "iso3": "ERI", "role": { "ar": "قاتلت مع الحكومة الفيدرالية في حرب 2020–2022، وفي أكتوبر 2026 أُفيد بتدخّل عسكري إريتري ضدّها بعد تدهور العلاقة", "en": "Fought alongside the federal government in the 2020–2022 war; in October 2026 an Eritrean military intervention against it was reported after the relationship deteriorated" }, "kind": "assessed" },
-        { "iso3": "EGY", "role": { "ar": "خلاف حول سدّ النهضة ومياه النيل", "en": "In dispute over the Renaissance Dam and Nile waters" }, "kind": "assessed" },
-        { "iso3": "ARE", "role": { "ar": "شريك اقتصادي وأمني رئيسي لأديس أبابا", "en": "A principal economic and security partner of Addis Ababa" }, "kind": "assessed" }
+        {
+          "iso3": "ERI",
+          "role": {
+            "ar": "قاتلت مع الحكومة الفيدرالية في حرب 2020–2022، وفي أكتوبر 2026 أُفيد بتدخّل عسكري إريتري ضدّها بعد تدهور العلاقة",
+            "en": "Fought alongside the federal government in the 2020–2022 war; in October 2026 an Eritrean military intervention against it was reported after the relationship deteriorated"
+          },
+          "kind": "assessed"
+        },
+        {
+          "iso3": "EGY",
+          "role": {
+            "ar": "خلاف حول سدّ النهضة ومياه النيل",
+            "en": "In dispute over the Renaissance Dam and Nile waters"
+          },
+          "kind": "assessed"
+        },
+        {
+          "iso3": "ARE",
+          "role": {
+            "ar": "شريك اقتصادي وأمني رئيسي لأديس أبابا",
+            "en": "A principal economic and security partner of Addis Ababa"
+          },
+          "kind": "assessed"
+        }
       ],
       "status": {
         "ar": "عودة إلى الحرب الأهلية. انهارت اتفاقية بريتوريا فعلياً في سبتمبر 2026 حين أطلقت جبهة تحرير شعب تيغراي ما وصفته بحرب دفاعية لإزاحة آبي أحمد، وأُعلن عن تحالف من سبع جماعات متمرّدة بدأ هجوماً على الحكم الفيدرالي. امتدّ القتال على عدّة جبهات في تيغراي وأمهرة وعفار. أعلنت قوة سلام تيغراي السيطرة على ألاماتا — نقطة إمداد استراتيجية جنوب ميكيلي بنحو 120 كم — في 28 سبتمبر 2026، وأعلنت الحكومة وحلفاؤها السيطرة على بلدة استراتيجية تفتح الطريق نحو ميكيلي. الاتصالات والإنترنت مقطوعة في تيغراي. وفي أكتوبر 2026 سُجّل تدخّل عسكري إريتري، وقطعت إريتريا علاقاتها الدبلوماسية مع إثيوبيا.",
@@ -107,9 +199,24 @@
       },
       "statusAsOf": "2026-10-30",
       "recent": [
-        { "date": "2026-10", "ar": "تدخّل عسكري إريتري في إثيوبيا وقطع إريتريا علاقاتها الدبلوماسية مع أديس أبابا على خلفية القتال في تيغراي.", "en": "An Eritrean military intervention in Ethiopia, and Eritrea's severing of diplomatic relations with Addis Ababa against the backdrop of the fighting in Tigray.", "source": "Compiled reporting" },
-        { "date": "2026-09-28", "ar": "أعلنت قوة سلام تيغراي السيطرة على ألاماتا، ومثّل ذلك تمدّداً للقتال إلى الحدود الجنوبية لتيغراي مع أمهرة.", "en": "The Tigray Peace Force announced the capture of Alamata, extending the fighting to Tigray's southern boundary with Amhara.", "source": "Al Jazeera" },
-        { "date": "2026-04-22", "ar": "تقرير لهيومن رايتس ووتش عن استمرار استهداف التيغراي وعن استغلال الأطراف لوضع غربي تيغراي غير المحسوم على حساب مئات الآلاف من المهجّرين.", "en": "A Human Rights Watch report on the continuing targeting of Tigrayans and on the parties exploiting Western Tigray's unresolved status at the expense of hundreds of thousands of displaced people.", "source": "Human Rights Watch" }
+        {
+          "date": "2026-10",
+          "ar": "تدخّل عسكري إريتري في إثيوبيا وقطع إريتريا علاقاتها الدبلوماسية مع أديس أبابا على خلفية القتال في تيغراي.",
+          "en": "An Eritrean military intervention in Ethiopia, and Eritrea's severing of diplomatic relations with Addis Ababa against the backdrop of the fighting in Tigray.",
+          "source": "Compiled reporting"
+        },
+        {
+          "date": "2026-09-28",
+          "ar": "أعلنت قوة سلام تيغراي السيطرة على ألاماتا، ومثّل ذلك تمدّداً للقتال إلى الحدود الجنوبية لتيغراي مع أمهرة.",
+          "en": "The Tigray Peace Force announced the capture of Alamata, extending the fighting to Tigray's southern boundary with Amhara.",
+          "source": "Al Jazeera"
+        },
+        {
+          "date": "2026-04-22",
+          "ar": "تقرير لهيومن رايتس ووتش عن استمرار استهداف التيغراي وعن استغلال الأطراف لوضع غربي تيغراي غير المحسوم على حساب مئات الآلاف من المهجّرين.",
+          "en": "A Human Rights Watch report on the continuing targeting of Tigrayans and on the parties exploiting Western Tigray's unresolved status at the expense of hundreds of thousands of displaced people.",
+          "source": "Human Rights Watch"
+        }
       ],
       "confidence": "verified",
       "sourceRefs": ["acled", "unhcr", "ocha-hdx"]
@@ -127,8 +234,20 @@
         "en": "A conflict in which armed jihadist ideology intersects with the collapse of local governance, economic marginalisation, climate pressure and pastoralist–farmer competition over land and water. Islam is not the line of division — populations and militants alike are Muslim — and the dispute is over local authority, justice and resources."
       },
       "parties": {
-        "ar": ["جماعة نصرة الإسلام والمسلمين", "تنظيم الدولة في الساحل", "جبهة تحرير أزواد", "تحالف دول الساحل (مالي وبوركينا فاسو والنيجر)", "روسيا — فيلق أفريقيا"],
-        "en": ["Jama'at Nusrat al-Islam wal-Muslimin (JNIM)", "Islamic State Sahel Province", "Azawad Liberation Front", "Alliance of Sahel States (Mali, Burkina Faso, Niger)", "Russia — Africa Corps"]
+        "ar": [
+          "جماعة نصرة الإسلام والمسلمين",
+          "تنظيم الدولة في الساحل",
+          "جبهة تحرير أزواد",
+          "تحالف دول الساحل (مالي وبوركينا فاسو والنيجر)",
+          "روسيا — فيلق أفريقيا"
+        ],
+        "en": [
+          "Jama'at Nusrat al-Islam wal-Muslimin (JNIM)",
+          "Islamic State Sahel Province",
+          "Azawad Liberation Front",
+          "Alliance of Sahel States (Mali, Burkina Faso, Niger)",
+          "Russia — Africa Corps"
+        ]
       },
       "ethnoReligious": {
         "ar": "الطوارق والعرب في الشمال، والفولاني الرعاة الممتدّون عبر المنطقة كلها، والبامبارا والسونغاي والدوغون والموسي والهوسا. الإسلام السنّي المالكي هو الديانة الغالبة على جميع الأطراف. استُهدف الفولاني جماعياً بتهمة التعاون مع الجماعات المسلحة، وهو ما حوّل التجنيد إلى حلقة انتقام عرقية.",
@@ -151,9 +270,30 @@
         "en": "Gold in Mali and Burkina Faso, uranium in Niger, smuggling and migration corridors toward North Africa, and overland access to the ports of Abidjan, Dakar, Conakry and Lomé on which the landlocked states depend entirely. Targeting these routes is the conflict's principal economic weapon."
       },
       "externalPowers": [
-        { "iso3": "RUS", "role": { "ar": "فيلق أفريقيا يقاتل إلى جانب الجيوش المحلّية بعد أن حلّ محلّ القوات الفرنسية، ووصفت وزارة الدفاع الروسية الوضع في مالي في 2026 بـ«الصعب»", "en": "The Africa Corps fights alongside local armies having replaced French forces; Russia's defence ministry described the situation in Mali in 2026 as difficult" }, "kind": "treaty" },
-        { "iso3": "FRA", "role": { "ar": "انسحبت قواتها وتراجع نفوذها بشكل حادّ", "en": "Its forces withdrew and its influence receded sharply" }, "kind": "assessed" },
-        { "iso3": "MAR", "role": { "ar": "تطرح مبادرة لمنح دول الساحل منفذاً إلى الأطلسي", "en": "Advances an initiative to give Sahel states an Atlantic outlet" }, "kind": "assessed" }
+        {
+          "iso3": "RUS",
+          "role": {
+            "ar": "فيلق أفريقيا يقاتل إلى جانب الجيوش المحلّية بعد أن حلّ محلّ القوات الفرنسية، ووصفت وزارة الدفاع الروسية الوضع في مالي في 2026 بـ«الصعب»",
+            "en": "The Africa Corps fights alongside local armies having replaced French forces; Russia's defence ministry described the situation in Mali in 2026 as difficult"
+          },
+          "kind": "treaty"
+        },
+        {
+          "iso3": "FRA",
+          "role": {
+            "ar": "انسحبت قواتها وتراجع نفوذها بشكل حادّ",
+            "en": "Its forces withdrew and its influence receded sharply"
+          },
+          "kind": "assessed"
+        },
+        {
+          "iso3": "MAR",
+          "role": {
+            "ar": "تطرح مبادرة لمنح دول الساحل منفذاً إلى الأطلسي",
+            "en": "Advances an initiative to give Sahel states an Atlantic outlet"
+          },
+          "kind": "assessed"
+        }
       ],
       "status": {
         "ar": "أخطر مراحل النزاع حتى الآن، مع تحوّل استراتيجي من الهجوم العسكري إلى الحصار الاقتصادي. فرضت جماعة نصرة الإسلام والمسلمين حصاراً على وقود باماكو منذ سبتمبر 2025 أحرقت فيه مئات الصهاريج، وأعلنت في 28 أبريل 2026 حصاراً شاملاً على طرق العاصمة ثم بدأته في 30 أبريل، فتوقّفت مئات الشاحنات على مداخل المدينة على طرق كوناكري وأبيدجان وداكار. لم تسقط باماكو، لكن الحصار خنق الاقتصاد وأدّى إلى تقنين الوقود وتعطيل المدارس. تراجعت جبهة تحرير أزواد عن كيدال في أكتوبر 2026 واستعادها الجيش المالي. وفي بوركينا فاسو تفيد تقديرات بأن أكثر من 60٪ من الأراضي خارج سيطرة الحكومة، وتتوسّع الجماعات نحو شمال بنين وتوغو ودول الساحل الساحلية.",
@@ -161,9 +301,24 @@
       },
       "statusAsOf": "2026-10-30",
       "recent": [
-        { "date": "2026-10", "ar": "انسحبت جبهة تحرير أزواد من كيدال وعادت المدينة إلى سيطرة الجيش المالي.", "en": "The Azawad Liberation Front withdrew from Kidal and the city returned to Malian army control.", "source": "Compiled reporting" },
-        { "date": "2026-05-01", "ar": "بدأ الحصار الفعلي على طرق باماكو مع توقّف مئات المركبات على المداخل، وسُجّلت حوادث عنيفة على طريق سيكاسو نحو الموانئ الإيفوارية.", "en": "The effective blockade of Bamako's roads began with hundreds of vehicles stranded at the entrances, and violent incidents were reported on the Sikasso road toward Ivorian ports.", "source": "AFP / France 24 / The Defense Post" },
-        { "date": "2026-04-26", "ar": "هجوم على قاعدة كاتي العسكرية قرب باماكو، وتشييع وزير الدفاع المالي الذي اغتيل في أجواء أمنية مشدّدة.", "en": "An attack on the Kati military base near Bamako, and a funeral under tight security for Mali's assassinated defence minister.", "source": "France 24" }
+        {
+          "date": "2026-10",
+          "ar": "انسحبت جبهة تحرير أزواد من كيدال وعادت المدينة إلى سيطرة الجيش المالي.",
+          "en": "The Azawad Liberation Front withdrew from Kidal and the city returned to Malian army control.",
+          "source": "Compiled reporting"
+        },
+        {
+          "date": "2026-05-01",
+          "ar": "بدأ الحصار الفعلي على طرق باماكو مع توقّف مئات المركبات على المداخل، وسُجّلت حوادث عنيفة على طريق سيكاسو نحو الموانئ الإيفوارية.",
+          "en": "The effective blockade of Bamako's roads began with hundreds of vehicles stranded at the entrances, and violent incidents were reported on the Sikasso road toward Ivorian ports.",
+          "source": "AFP / France 24 / The Defense Post"
+        },
+        {
+          "date": "2026-04-26",
+          "ar": "هجوم على قاعدة كاتي العسكرية قرب باماكو، وتشييع وزير الدفاع المالي الذي اغتيل في أجواء أمنية مشدّدة.",
+          "en": "An attack on the Kati military base near Bamako, and a funeral under tight security for Mali's assassinated defence minister.",
+          "source": "France 24"
+        }
       ],
       "confidence": "verified",
       "sourceRefs": ["acled", "icg", "ocha-hdx"]
@@ -171,7 +326,7 @@
     {
       "id": "drc-east",
       "name": { "ar": "شرق الكونغو الديمقراطية", "en": "Eastern Democratic Republic of the Congo" },
-      "coords": [29.0, -1.8],
+      "coords": [29, -1.8],
       "countries": ["COD", "RWA", "UGA", "BDI"],
       "severity": "war",
       "started": "1996",
@@ -182,8 +337,22 @@
         "en": "A conflict in which the economic driver predominates: control of tin, tantalum, tungsten and gold mines and their export networks. The identity dimension is real, rooted in the legacy of the 1994 Rwandan genocide and the status of Kinyarwanda-speaking groups, but it also serves as a wrapper for extractive interests."
       },
       "parties": {
-        "ar": ["جمهورية الكونغو الديمقراطية", "تحالف نهر الكونغو وحركة 23 مارس", "رواندا", "القوات الديمقراطية لتحرير رواندا", "قوات الحلفاء الديمقراطية", "ميليشيات محلّية"],
-        "en": ["Democratic Republic of the Congo", "Congo River Alliance and M23", "Rwanda", "Democratic Forces for the Liberation of Rwanda (FDLR)", "Allied Democratic Forces", "local militias"]
+        "ar": [
+          "جمهورية الكونغو الديمقراطية",
+          "تحالف نهر الكونغو وحركة 23 مارس",
+          "رواندا",
+          "القوات الديمقراطية لتحرير رواندا",
+          "قوات الحلفاء الديمقراطية",
+          "ميليشيات محلّية"
+        ],
+        "en": [
+          "Democratic Republic of the Congo",
+          "Congo River Alliance and M23",
+          "Rwanda",
+          "Democratic Forces for the Liberation of Rwanda (FDLR)",
+          "Allied Democratic Forces",
+          "local militias"
+        ]
       },
       "ethnoReligious": {
         "ar": "تنوّع عرقي كبير في كيفو الشمالية والجنوبية، ومحور الخلاف وضع الجماعات الناطقة بالكينيارواندا ومنهم التوتسي الكونغوليون (البانيامولينغي) والهوتو. قسّمت الإبادة الرواندية 1994 المنطقة حين فرّت ميليشيات الهوتو إلى شرق زائير وشكّلت نواة ما صار القوات الديمقراطية لتحرير رواندا، وهو ما أسّس الذريعة الأمنية الرواندية للتدخّل.",
@@ -206,11 +375,47 @@
         "en": "Coltan (tantalum), of which the region produces a large global share and which goes into every phone and computer; tin, tungsten and gold; cobalt and copper in Katanga to the south; and fertile volcanic farmland. Recent American agreements explicitly linked peace to a regional economic integration framework and mineral investment."
       },
       "externalPowers": [
-        { "iso3": "RWA", "role": { "ar": "خلص خبراء أمميون إلى أنها تمارس القيادة والسيطرة على حركة 23 مارس، وكيغالي تنفي ذلك", "en": "UN experts concluded it exercises command and control over M23; Kigali denies this" }, "kind": "assessed", "contested": true },
-        { "iso3": "USA", "role": { "ar": "راعية اتفاق واشنطن يونيو 2025 واتفاقات واشنطن ديسمبر 2025", "en": "Sponsor of the June 2025 Washington agreement and the December 2025 Washington Accords" }, "kind": "treaty" },
-        { "iso3": "QAT", "role": { "ar": "وسيط مسار الدوحة بين كينشاسا وحركة 23 مارس", "en": "Mediator of the Doha track between Kinshasa and M23" }, "kind": "treaty" },
-        { "iso3": "UGA", "role": { "ar": "عمليات عسكرية في شرق الكونغو ومصالح اقتصادية", "en": "Military operations in eastern Congo and economic interests" }, "kind": "assessed" },
-        { "iso3": "BDI", "role": { "ar": "قوات تقاتل إلى جانب الجيش الكونغولي", "en": "Forces fighting alongside the Congolese army" }, "kind": "assessed" }
+        {
+          "iso3": "RWA",
+          "role": {
+            "ar": "خلص خبراء أمميون إلى أنها تمارس القيادة والسيطرة على حركة 23 مارس، وكيغالي تنفي ذلك",
+            "en": "UN experts concluded it exercises command and control over M23; Kigali denies this"
+          },
+          "kind": "assessed",
+          "contested": true
+        },
+        {
+          "iso3": "USA",
+          "role": {
+            "ar": "راعية اتفاق واشنطن يونيو 2025 واتفاقات واشنطن ديسمبر 2025",
+            "en": "Sponsor of the June 2025 Washington agreement and the December 2025 Washington Accords"
+          },
+          "kind": "treaty"
+        },
+        {
+          "iso3": "QAT",
+          "role": {
+            "ar": "وسيط مسار الدوحة بين كينشاسا وحركة 23 مارس",
+            "en": "Mediator of the Doha track between Kinshasa and M23"
+          },
+          "kind": "treaty"
+        },
+        {
+          "iso3": "UGA",
+          "role": {
+            "ar": "عمليات عسكرية في شرق الكونغو ومصالح اقتصادية",
+            "en": "Military operations in eastern Congo and economic interests"
+          },
+          "kind": "assessed"
+        },
+        {
+          "iso3": "BDI",
+          "role": {
+            "ar": "قوات تقاتل إلى جانب الجيش الكونغولي",
+            "en": "Forces fighting alongside the Congolese army"
+          },
+          "kind": "assessed"
+        }
       ],
       "status": {
         "ar": "قتال مستمر رغم تراكم الاتفاقات. وُقّع اتفاق سلام بين الكونغو ورواندا في واشنطن في 27 يونيو 2025، ثم اتفاقات واشنطن في 4 ديسمبر 2025 التي أعادت تأكيد الالتزام به، ووُقّع إطار الدوحة للسلام بين كينشاسا وتحالف نهر الكونغو/حركة 23 مارس في 15 نوفمبر 2025. لكن وفد الحركة وصف الإطار بأنه بلا بنود ملزمة ولن يغيّر الواقع الميداني، واستولت الحركة على أوفيرا بعد أسبوع واحد من اتفاق ديسمبر. في 23 أغسطس 2026 اتُّفق في سويسرا على خريطة طريق بخطوات متسلسلة للمفاوضات وعلى آلية لمراجعة التنفيذ، وفي 15 سبتمبر 2026 عُقدت محادثات جنيف لاختبار اتفاق واشنطن. حركة 23 مارس ليست طرفاً في اتفاق واشنطن لكنها محورية في أي حلّ.",
@@ -218,8 +423,18 @@
       },
       "statusAsOf": "2026-10-30",
       "recent": [
-        { "date": "2026-09-15", "ar": "محادثات جنيف اختبرت اتفاق السلام بين رواندا والكونغو؛ خلاف حول ما إذا كان يجب تحييد القوات الديمقراطية لتحرير رواندا أو التفاوض معها.", "en": "Geneva talks tested the Rwanda–DRC peace deal, with disagreement over whether the FDLR must be neutralised or negotiated with.", "source": "Al Jazeera" },
-        { "date": "2026-08-23", "ar": "اتفقت الكونغو وتحالف نهر الكونغو/حركة 23 مارس على خريطة طريق للمفاوضات بوساطة سويسرية، مع آلية لمراجعة التنفيذ.", "en": "The DRC and the AFC/M23 agreed a negotiating roadmap under Swiss mediation, with a mechanism to review implementation.", "source": "France 24" }
+        {
+          "date": "2026-09-15",
+          "ar": "محادثات جنيف اختبرت اتفاق السلام بين رواندا والكونغو؛ خلاف حول ما إذا كان يجب تحييد القوات الديمقراطية لتحرير رواندا أو التفاوض معها.",
+          "en": "Geneva talks tested the Rwanda–DRC peace deal, with disagreement over whether the FDLR must be neutralised or negotiated with.",
+          "source": "Al Jazeera"
+        },
+        {
+          "date": "2026-08-23",
+          "ar": "اتفقت الكونغو وتحالف نهر الكونغو/حركة 23 مارس على خريطة طريق للمفاوضات بوساطة سويسرية، مع آلية لمراجعة التنفيذ.",
+          "en": "The DRC and the AFC/M23 agreed a negotiating roadmap under Swiss mediation, with a mechanism to review implementation.",
+          "source": "France 24"
+        }
       ],
       "confidence": "verified",
       "sourceRefs": ["acled", "unhcr", "ocha-hdx", "mrg"]
@@ -237,8 +452,20 @@
         "en": "State collapse and a struggle over rebuilding it, interleaving clan structure, jihadist insurgency and federal dispute. The religious dimension is not a line of division between groups — Somalia is among the world's most religiously, ethnically and linguistically homogeneous states — but a dispute over the state's political ideology."
       },
       "parties": {
-        "ar": ["الحكومة الفيدرالية الصومالية", "حركة الشباب", "تنظيم الدولة في الصومال", "ولايات فيدرالية (جوبالاند وبونتلاند)", "أرض الصومال"],
-        "en": ["Somali Federal Government", "Al-Shabaab", "Islamic State in Somalia", "federal member states (Jubaland, Puntland)", "Somaliland"]
+        "ar": [
+          "الحكومة الفيدرالية الصومالية",
+          "حركة الشباب",
+          "تنظيم الدولة في الصومال",
+          "ولايات فيدرالية (جوبالاند وبونتلاند)",
+          "أرض الصومال"
+        ],
+        "en": [
+          "Somali Federal Government",
+          "Al-Shabaab",
+          "Islamic State in Somalia",
+          "federal member states (Jubaland, Puntland)",
+          "Somaliland"
+        ]
       },
       "ethnoReligious": {
         "ar": "الصومال من أكثر دول أفريقيا تماثلاً: شعب صومالي واحد بلغة واحدة ومذهب سنّي شافعي واحد. الانقسام الفاعل عشائري (الدارود والهوية والدير والإسحاق والرحنوين) ومناطقي، وهذا دليل حاسم على أن غياب التعدد الديني أو العرقي لا يمنع نزاعاً طويلاً.",
@@ -261,10 +488,38 @@
         "en": "Africa's longest coastline, on the Gulf of Aden and Indian Ocean near Bab al-Mandab; rich fisheries; unexploited offshore oil reserves; and the ports of Berbera, Bosaso and Mogadishu. Neighbouring Djibouti hosts Africa's largest concentration of foreign military bases."
       },
       "externalPowers": [
-        { "iso3": "ETH", "role": { "ar": "قوات في الصومال ومذكّرة تفاهم مع أرض الصومال أثارت أزمة مع مقديشو", "en": "Forces in Somalia and a memorandum with Somaliland that triggered a crisis with Mogadishu" }, "kind": "assessed" },
-        { "iso3": "TUR", "role": { "ar": "أكبر قاعدة تدريب عسكرية تركية في الخارج ووسيط في الأزمة الإثيوبية الصومالية", "en": "Türkiye's largest overseas military training base and mediator in the Ethiopia–Somalia crisis" }, "kind": "treaty" },
-        { "iso3": "USA", "role": { "ar": "ضربات جوية ضد حركة الشباب وتنظيم الدولة", "en": "Airstrikes against Al-Shabaab and Islamic State" }, "kind": "assessed" },
-        { "iso3": "ARE", "role": { "ar": "استثمارات في الموانئ ودعم لقوات محلّية", "en": "Port investments and support to local forces" }, "kind": "assessed" }
+        {
+          "iso3": "ETH",
+          "role": {
+            "ar": "قوات في الصومال ومذكّرة تفاهم مع أرض الصومال أثارت أزمة مع مقديشو",
+            "en": "Forces in Somalia and a memorandum with Somaliland that triggered a crisis with Mogadishu"
+          },
+          "kind": "assessed"
+        },
+        {
+          "iso3": "TUR",
+          "role": {
+            "ar": "أكبر قاعدة تدريب عسكرية تركية في الخارج ووسيط في الأزمة الإثيوبية الصومالية",
+            "en": "Türkiye's largest overseas military training base and mediator in the Ethiopia–Somalia crisis"
+          },
+          "kind": "treaty"
+        },
+        {
+          "iso3": "USA",
+          "role": {
+            "ar": "ضربات جوية ضد حركة الشباب وتنظيم الدولة",
+            "en": "Airstrikes against Al-Shabaab and Islamic State"
+          },
+          "kind": "assessed"
+        },
+        {
+          "iso3": "ARE",
+          "role": {
+            "ar": "استثمارات في الموانئ ودعم لقوات محلّية",
+            "en": "Port investments and support to local forces"
+          },
+          "kind": "assessed"
+        }
       ],
       "status": {
         "ar": "تمرّد مستمر لحركة الشباب التي تحتفظ بقدرة على تنفيذ هجمات كبرى في مقديشو وعلى مناطق ريفية واسعة، مع عمليات حكومية وأفريقية ضدّها وخلافات فيدرالية داخلية تعيق جهد موحّد. أرض الصومال تواصل حكمها الذاتي الفعلي دون اعتراف دولي.",
@@ -312,8 +567,22 @@
         "en": "Oil fields in Unity and Upper Nile accounting for virtually all state revenue, dependent on a pipeline running through Sudan to Port Sudan, which ties the two states economically despite their disputes. The Sudd wetlands are a vast water resource."
       },
       "externalPowers": [
-        { "iso3": "UGA", "role": { "ar": "دعم عسكري للرئاسة في محطّات حرجة", "en": "Military support to the presidency at critical junctures" }, "kind": "assessed" },
-        { "iso3": "SDN", "role": { "ar": "ممرّ تصدير النفط الوحيد ومصدر تأثير متبادل", "en": "The only oil export route and a source of mutual leverage" }, "kind": "assessed" }
+        {
+          "iso3": "UGA",
+          "role": {
+            "ar": "دعم عسكري للرئاسة في محطّات حرجة",
+            "en": "Military support to the presidency at critical junctures"
+          },
+          "kind": "assessed"
+        },
+        {
+          "iso3": "SDN",
+          "role": {
+            "ar": "ممرّ تصدير النفط الوحيد ومصدر تأثير متبادل",
+            "en": "The only oil export route and a source of mutual leverage"
+          },
+          "kind": "assessed"
+        }
       ],
       "status": {
         "ar": "سلام هشّ مع عنف محلّي متكرّر وأزمة اقتصادية حادّة. حذّر تحقيق أممي في أكتوبر 2026 من أن الانتخابات المقبلة تهدّد بإشعال حرب جديدة، وهو التقييم المرجعي الأحدث لحالة البلد.",
@@ -321,7 +590,12 @@
       },
       "statusAsOf": "2026-10-30",
       "recent": [
-        { "date": "2026-10-27", "ar": "أبلغ محقّقون أمميون اللجنة الثالثة للجمعية العامة بأن الانتخابات المقبلة في جنوب السودان تنذر بإشعال حرب جديدة.", "en": "UN investigators told the General Assembly's Third Committee that South Sudan's approaching elections risk triggering another war.", "source": "UN Press" }
+        {
+          "date": "2026-10-27",
+          "ar": "أبلغ محقّقون أمميون اللجنة الثالثة للجمعية العامة بأن الانتخابات المقبلة في جنوب السودان تنذر بإشعال حرب جديدة.",
+          "en": "UN investigators told the General Assembly's Third Committee that South Sudan's approaching elections risk triggering another war.",
+          "source": "UN Press"
+        }
       ],
       "confidence": "verified",
       "sourceRefs": ["ocha-hdx", "unhcr", "acled"]
@@ -329,7 +603,7 @@
     {
       "id": "western-sahara",
       "name": { "ar": "الصحراء الغربية", "en": "Western Sahara" },
-      "coords": [-13.0, 24.5],
+      "coords": [-13, 24.5],
       "countries": ["MAR", "DZA", "MRT", "ESH"],
       "severity": "frozen",
       "started": "1975",
@@ -363,9 +637,30 @@
         "en": "Phosphates at Bou Craa, rich Atlantic fisheries, potential offshore oil reserves, and a position linking Morocco to the African Sahel and its Atlantic ports."
       },
       "externalPowers": [
-        { "iso3": "DZA", "role": { "ar": "تستضيف مخيمات اللاجئين الصحراويين في تندوف وتدعم البوليساريو سياسياً", "en": "Hosts Sahrawi refugee camps at Tindouf and supports Polisario politically" }, "kind": "assessed" },
-        { "iso3": "USA", "role": { "ar": "اعترفت بالسيادة المغربية على الإقليم في 2020", "en": "Recognised Moroccan sovereignty over the territory in 2020" }, "kind": "assessed" },
-        { "iso3": "ESP", "role": { "ar": "القوة الاستعمارية السابقة ومسؤولة بموجب قوائم الأمم المتحدة", "en": "The former colonial power and responsible party under the UN listings" }, "kind": "assessed" }
+        {
+          "iso3": "DZA",
+          "role": {
+            "ar": "تستضيف مخيمات اللاجئين الصحراويين في تندوف وتدعم البوليساريو سياسياً",
+            "en": "Hosts Sahrawi refugee camps at Tindouf and supports Polisario politically"
+          },
+          "kind": "assessed"
+        },
+        {
+          "iso3": "USA",
+          "role": {
+            "ar": "اعترفت بالسيادة المغربية على الإقليم في 2020",
+            "en": "Recognised Moroccan sovereignty over the territory in 2020"
+          },
+          "kind": "assessed"
+        },
+        {
+          "iso3": "ESP",
+          "role": {
+            "ar": "القوة الاستعمارية السابقة ومسؤولة بموجب قوائم الأمم المتحدة",
+            "en": "The former colonial power and responsible party under the UN listings"
+          },
+          "kind": "assessed"
+        }
       ],
       "status": {
         "ar": "نزاع مجمّد مع عمليات محدودة. انسحبت البوليساريو من وقف نار 1991 في نوفمبر 2020 بعد حادثة الكركرات واستأنفت عمليات محدودة على الجدار الرملي. تبقى بعثة المينورسو الأممية منتشرة دون أن تنجح في تنظيم الاستفتاء، وقد توسّع الاعتراف الدولي بالموقف المغربي تدريجياً دون حسم الملف قانونياً.",
@@ -378,7 +673,10 @@
     },
     {
       "id": "nigeria",
-      "name": { "ar": "نيجيريا — الشمال الشرقي والحزام الأوسط", "en": "Nigeria — north-east and Middle Belt" },
+      "name": {
+        "ar": "نيجيريا — الشمال الشرقي والحزام الأوسط",
+        "en": "Nigeria — north-east and Middle Belt"
+      },
       "coords": [10.5, 10.5],
       "countries": ["NGA", "NER", "TCD", "CMR"],
       "severity": "armed-conflict",
@@ -389,8 +687,20 @@
         "en": "Two distinct files are wrongly merged: an ideologically driven jihadist insurgency in the north-east, and a pastoralist–farmer conflict in the Middle Belt driven principally by competition over land and water amid advancing desertification, even though it takes religious form because the herders are Muslim Fulani and many farmers are Christian. Merging the two into a single 'religious war' narrative obscures their different causes."
       },
       "parties": {
-        "ar": ["نيجيريا", "بوكو حرام", "تنظيم الدولة في غرب أفريقيا", "جماعات رعوية وزراعية مسلحة", "جماعات اختطاف منظّمة"],
-        "en": ["Nigeria", "Boko Haram", "Islamic State West Africa Province", "armed pastoralist and farmer groups", "organised kidnapping gangs"]
+        "ar": [
+          "نيجيريا",
+          "بوكو حرام",
+          "تنظيم الدولة في غرب أفريقيا",
+          "جماعات رعوية وزراعية مسلحة",
+          "جماعات اختطاف منظّمة"
+        ],
+        "en": [
+          "Nigeria",
+          "Boko Haram",
+          "Islamic State West Africa Province",
+          "armed pastoralist and farmer groups",
+          "organised kidnapping gangs"
+        ]
       },
       "ethnoReligious": {
         "ar": "الهوسا والفولاني في الشمال المسلم، واليوروبا في الجنوب الغربي وهم منقسمون بين الإسلام والمسيحية، والإيغبو في الجنوب الشرقي وأغلبهم مسيحيون، مع مئات المجموعات الأصغر في الحزام الأوسط. التوازن الديني الوطني متقارب بين المسلمين والمسيحيين، وهو ما يجعل الدين عاملاً سياسياً بنيوياً في نيجيريا.",
@@ -413,9 +723,27 @@
         "en": "Niger Delta oil in the south, Middle Belt farmland, the Lake Chad basin whose area has shrunk severely and so intensified competition over water and pasture, and Nigeria itself as Africa's largest economy and population."
       },
       "externalPowers": [
-        { "iso3": "TCD", "role": { "ar": "شريك في القوة المشتركة لحوض بحيرة تشاد", "en": "Partner in the Lake Chad Basin Multinational Joint Task Force" }, "kind": "treaty" },
-        { "iso3": "NER", "role": { "ar": "شريك في القوة المشتركة، وتأثّر التعاون بالتحوّلات السياسية في نيامي", "en": "Partner in the joint task force, with cooperation affected by political change in Niamey" }, "kind": "treaty" },
-        { "iso3": "CMR", "role": { "ar": "شريك في القوة المشتركة", "en": "Partner in the joint task force" }, "kind": "treaty" }
+        {
+          "iso3": "TCD",
+          "role": {
+            "ar": "شريك في القوة المشتركة لحوض بحيرة تشاد",
+            "en": "Partner in the Lake Chad Basin Multinational Joint Task Force"
+          },
+          "kind": "treaty"
+        },
+        {
+          "iso3": "NER",
+          "role": {
+            "ar": "شريك في القوة المشتركة، وتأثّر التعاون بالتحوّلات السياسية في نيامي",
+            "en": "Partner in the joint task force, with cooperation affected by political change in Niamey"
+          },
+          "kind": "treaty"
+        },
+        {
+          "iso3": "CMR",
+          "role": { "ar": "شريك في القوة المشتركة", "en": "Partner in the joint task force" },
+          "kind": "treaty"
+        }
       ],
       "status": {
         "ar": "ثلاثة ملفّات أمنية متوازية مستمرة: تمرّد جهادي في بورنو ويوبي وحوض بحيرة تشاد، وعنف رعوي زراعي في الحزام الأوسط، واختطاف منظّم واسع في الشمال الغربي. العنف مستمر دون انهيار الدولة ودون سيطرة إقليمية واسعة للجماعات المسلحة.",
@@ -428,7 +756,10 @@
     },
     {
       "id": "rwanda-burundi-great-lakes",
-      "name": { "ar": "إرث الهوتو والتوتسي في البحيرات الكبرى", "en": "The Hutu–Tutsi legacy in the Great Lakes" },
+      "name": {
+        "ar": "إرث الهوتو والتوتسي في البحيرات الكبرى",
+        "en": "The Hutu–Tutsi legacy in the Great Lakes"
+      },
       "coords": [29.9, -2.6],
       "countries": ["RWA", "BDI", "COD"],
       "severity": "post-conflict",
@@ -438,7 +769,10 @@
         "ar": "ملفّ هوياتي بُني تاريخياً على تصنيف اجتماعي ومهني ثبّته الاستعمار البلجيكي ببطاقات هوية إثنية، ما حوّل تمايزاً طبقياً مرناً إلى انقسام جامد. الهوتو والتوتسي يتشاركون اللغة والدين والأرض، وهو ما يجعل هذا الملفّ المثال الأوضح على أن الهويات العرقية قابلة للبناء السياسي.",
         "en": "An identity file built historically on a social and occupational classification that Belgian colonial rule hardened through ethnic identity cards, converting a flexible status distinction into a rigid division. Hutu and Tutsi share language, religion and land, which makes this file the clearest example of ethnic identities being politically constructed."
       },
-      "parties": { "ar": ["رواندا", "بوروندي", "جماعات مسلحة في شرق الكونغو"], "en": ["Rwanda", "Burundi", "armed groups in eastern Congo"] },
+      "parties": {
+        "ar": ["رواندا", "بوروندي", "جماعات مسلحة في شرق الكونغو"],
+        "en": ["Rwanda", "Burundi", "armed groups in eastern Congo"]
+      },
       "ethnoReligious": {
         "ar": "الهوتو والتوتسي والتوا يتشاركون اللغة ذاتها (الكينيارواندا في رواندا والكيروندي في بوروندي) والديانة المسيحية الغالبة والأرض ذاتها. لا يوجد فارق لغوي ولا ديني بينهم، والتصنيف تاريخياً مرتبط بالمكانة الاقتصادية وتربية الماشية قبل أن يُثبّته الاستعمار إدارياً.",
         "en": "Hutu, Tutsi and Twa share the same language (Kinyarwanda in Rwanda, Kirundi in Burundi), the predominant Christian religion and the same land. No linguistic or religious difference separates them; the classification was historically tied to economic standing and cattle-keeping before colonial administration fixed it."
@@ -460,7 +794,14 @@
         "en": "Among Africa's highest population densities on limited land, making farmland a structural object of competition. Rwanda exports minerals whose origin is partly disputed between domestic production and smuggling from Congo."
       },
       "externalPowers": [
-        { "iso3": "COD", "role": { "ar": "الساحة التي ينتقل إليها الملفّ عبر الجماعات المسلحة", "en": "The arena into which the file transfers through armed groups" }, "kind": "assessed" }
+        {
+          "iso3": "COD",
+          "role": {
+            "ar": "الساحة التي ينتقل إليها الملفّ عبر الجماعات المسلحة",
+            "en": "The arena into which the file transfers through armed groups"
+          },
+          "kind": "assessed"
+        }
       ],
       "status": {
         "ar": "لا عنف جماعي منظّم في رواندا أو بوروندي. أُدرج الملفّ بوصفه post-conflict لأنه يفسّر دوافع ما يجري في شرق الكونغو، لا لأنه نزاع نشط في البلدين. التوتّر بين كيغالي وبوجومبورا قائم ويتقاطع مع ملفّ شرق الكونغو.",

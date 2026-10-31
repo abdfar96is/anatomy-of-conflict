@@ -5,108 +5,33 @@
     "en": "Production and reserve shares are from published reports with the baseline year stated per record. Reserve data is in many cases self-declared by states and hard to audit independently, particularly in the Gulf."
   },
   "types": [
-    {
-      "id": "oil",
-      "ar": "النفط",
-      "en": "Oil",
-      "color": "#2b2b2b"
-    },
-    {
-      "id": "gas",
-      "ar": "الغاز الطبيعي",
-      "en": "Natural gas",
-      "color": "#45C0BE"
-    },
+    { "id": "oil", "ar": "النفط", "en": "Oil", "color": "#2b2b2b" },
+    { "id": "gas", "ar": "الغاز الطبيعي", "en": "Natural gas", "color": "#45C0BE" },
     {
       "id": "rare-earths",
       "ar": "العناصر الأرضية النادرة",
       "en": "Rare earth elements",
       "color": "#A48F50"
     },
-    {
-      "id": "cobalt",
-      "ar": "الكوبالت",
-      "en": "Cobalt",
-      "color": "#007A9B"
-    },
-    {
-      "id": "coltan",
-      "ar": "الكولتان والتنتالوم",
-      "en": "Coltan and tantalum",
-      "color": "#606368"
-    },
-    {
-      "id": "lithium",
-      "ar": "الليثيوم",
-      "en": "Lithium",
-      "color": "#CFB771"
-    },
-    {
-      "id": "uranium",
-      "ar": "اليورانيوم",
-      "en": "Uranium",
-      "color": "#249F75"
-    },
-    {
-      "id": "phosphate",
-      "ar": "الفوسفات",
-      "en": "Phosphate",
-      "color": "#A1682D"
-    },
-    {
-      "id": "gold",
-      "ar": "الذهب",
-      "en": "Gold",
-      "color": "#d4af37"
-    },
-    {
-      "id": "copper",
-      "ar": "النحاس",
-      "en": "Copper",
-      "color": "#b87333"
-    },
-    {
-      "id": "semiconductors",
-      "ar": "أشباه الموصلات",
-      "en": "Semiconductors",
-      "color": "#127456"
-    },
+    { "id": "cobalt", "ar": "الكوبالت", "en": "Cobalt", "color": "#007A9B" },
+    { "id": "coltan", "ar": "الكولتان والتنتالوم", "en": "Coltan and tantalum", "color": "#606368" },
+    { "id": "lithium", "ar": "الليثيوم", "en": "Lithium", "color": "#CFB771" },
+    { "id": "uranium", "ar": "اليورانيوم", "en": "Uranium", "color": "#249F75" },
+    { "id": "phosphate", "ar": "الفوسفات", "en": "Phosphate", "color": "#A1682D" },
+    { "id": "gold", "ar": "الذهب", "en": "Gold", "color": "#d4af37" },
+    { "id": "copper", "ar": "النحاس", "en": "Copper", "color": "#b87333" },
+    { "id": "semiconductors", "ar": "أشباه الموصلات", "en": "Semiconductors", "color": "#127456" },
     {
       "id": "water",
       "ar": "المياه العابرة للحدود",
       "en": "Transboundary water",
       "color": "#38777E"
     },
-    {
-      "id": "grain",
-      "ar": "الحبوب",
-      "en": "Grain",
-      "color": "#E8D777"
-    },
-    {
-      "id": "potash",
-      "ar": "البوتاس",
-      "en": "Potash",
-      "color": "#C77B4E"
-    },
-    {
-      "id": "oil-shale",
-      "ar": "الصخر الزيتي",
-      "en": "Oil shale",
-      "color": "#6E6A5A"
-    },
-    {
-      "id": "bromine",
-      "ar": "البروم",
-      "en": "Bromine",
-      "color": "#9B5DA6"
-    },
-    {
-      "id": "nickel",
-      "ar": "النيكل",
-      "en": "Nickel",
-      "color": "#7F93A8"
-    }
+    { "id": "grain", "ar": "الحبوب", "en": "Grain", "color": "#E8D777" },
+    { "id": "potash", "ar": "البوتاس", "en": "Potash", "color": "#C77B4E" },
+    { "id": "oil-shale", "ar": "الصخر الزيتي", "en": "Oil shale", "color": "#6E6A5A" },
+    { "id": "bromine", "ar": "البروم", "en": "Bromine", "color": "#9B5DA6" },
+    { "id": "nickel", "ar": "النيكل", "en": "Nickel", "color": "#7F93A8" }
   ],
   "entries": [
     {
@@ -125,9 +50,7 @@
       "source": "eia",
       "ar": "نفط وغاز قزوين يُصدَّران عبر خطّ باكو تبليسي جيهان الذي يتجاوز روسيا وإيران.",
       "en": "Caspian oil and gas are exported through the Baku–Tbilisi–Ceyhan pipeline, bypassing Russia and Iran.",
-      "conflictIds": [
-        "armenia-azerbaijan"
-      ]
+      "conflictIds": ["armenia-azerbaijan"]
     },
     {
       "iso3": "BLR",
@@ -190,10 +113,7 @@
       "rank": 1,
       "ar": "تهيمن على معالجة العناصر الأرضية النادرة أكثر من تعدينها، وهو ما يجعل ضوابط التصدير أداة ضغط فعّالة.",
       "en": "Dominates the processing of rare earths more than their mining, which makes export controls an effective instrument of pressure.",
-      "conflictIds": [
-        "taiwan-strait",
-        "xinjiang"
-      ]
+      "conflictIds": ["taiwan-strait", "xinjiang"]
     },
     {
       "iso3": "CHN",
@@ -202,9 +122,7 @@
       "source": "undata",
       "ar": "هضبة التبت منبع السند وبراهماپوترا والميكونغ واليانغتسي والنهر الأصفر، فالسيطرة عليها مسألة مياه لنصف سكّان آسيا.",
       "en": "The Tibetan plateau is the source of the Indus, Brahmaputra, Mekong, Yangtze and Yellow rivers, so control of it is a water question for half of Asia's population.",
-      "conflictIds": [
-        "tibet"
-      ]
+      "conflictIds": ["tibet"]
     },
     {
       "iso3": "COD",
@@ -214,9 +132,7 @@
       "rank": 1,
       "ar": "تنتج الحصّة الأكبر عالمياً من الكوبالت، وهو مدخل أساسي في بطاريات السيارات الكهربائية.",
       "en": "Produces the largest global share of cobalt, a core input in electric vehicle batteries.",
-      "conflictIds": [
-        "drc-east"
-      ]
+      "conflictIds": ["drc-east"]
     },
     {
       "iso3": "COD",
@@ -225,9 +141,7 @@
       "source": "undata",
       "ar": "الكولتان في كيفو الشمالية والجنوبية يدخل في كل هاتف وحاسوب، والسيطرة على مناجمه وشبكات تصديره محرّك اقتصادي رئيسي للنزاع.",
       "en": "Coltan in North and South Kivu goes into every phone and computer, and control of its mines and export networks is a principal economic driver of the conflict.",
-      "conflictIds": [
-        "drc-east"
-      ]
+      "conflictIds": ["drc-east"]
     },
     {
       "iso3": "DZA",
@@ -244,10 +158,7 @@
       "source": "eia",
       "ar": "تحوّلت مصر من الاكتفاء الذاتي في 2018 إلى مستورد صافٍ للغاز في 2024. هبط الإنتاج من ذروته عند 71 مليار متر مكعب في 2021 إلى نحو 45 ملياراً في 2024، ومرجع ذلك أساساً تراجع حقل ظُهر من ذروة 3.2 مليار قدم مكعبة يومياً في 2019 إلى نحو 1.2 مليار. غطّت الواردات نحو 38٪ من إجمالي المعروض في الربع الأول من 2026، وكان الغاز المسال 72٪ منها.",
       "en": "Egypt moved from self-sufficiency in 2018 to net gas importer in 2024. Output fell from a 2021 peak of 71 billion cubic metres to around 45 billion in 2024, chiefly through the decline of the Zohr field from a 2019 peak of 3.2 billion cubic feet per day to around 1.2 billion. Imports covered around 38% of total supply in the first quarter of 2026, LNG making up 72% of them.",
-      "conflictIds": [
-        "israel-palestine",
-        "gulf-security"
-      ]
+      "conflictIds": ["israel-palestine", "gulf-security"]
     },
     {
       "iso3": "EGY",
@@ -273,9 +184,7 @@
       "source": "undata",
       "ar": "تعتمد مصر على النيل في معظم مياهها العذبة، وهو ما يجعل أي تغيير في تدفّقه مسألة أمن وجودي بالنسبة لها.",
       "en": "Egypt depends on the Nile for most of its fresh water, which makes any change in its flow an existential security matter for it.",
-      "conflictIds": [
-        "ethiopia"
-      ]
+      "conflictIds": ["ethiopia"]
     },
     {
       "iso3": "ETH",
@@ -284,9 +193,7 @@
       "source": "undata",
       "ar": "سدّ النهضة على النيل الأزرق أكبر محطة كهرومائية في أفريقيا، وهو جوهر الخلاف مع مصر والسودان.",
       "en": "The Grand Ethiopian Renaissance Dam on the Blue Nile is Africa's largest hydroelectric plant and the core of the dispute with Egypt and Sudan.",
-      "conflictIds": [
-        "ethiopia"
-      ]
+      "conflictIds": ["ethiopia"]
     },
     {
       "iso3": "GUY",
@@ -295,9 +202,7 @@
       "source": "eia",
       "ar": "اكتشافات حوض ستابروك البحري حوّلت غيانا إلى واحدة من أسرع الاقتصادات نمواً في العالم، وأعادت إحياء مطالبة فنزويلا بإيسيكيبو.",
       "en": "The offshore Stabroek block discoveries turned Guyana into one of the world's fastest-growing economies and revived Venezuela's Essequibo claim.",
-      "conflictIds": [
-        "essequibo"
-      ]
+      "conflictIds": ["essequibo"]
     },
     {
       "iso3": "IDN",
@@ -315,9 +220,7 @@
       "source": "undata",
       "ar": "معاهدة مياه السند 1960 نظّمت تقاسم النهر مع باكستان؛ علّقت الهند مشاركتها في 2025 وحكمت محكمة التحكيم الدائمة في 31 أغسطس 2026 بأنها تبقى ملزمة بالكامل.",
       "en": "The 1960 Indus Waters Treaty governed river sharing with Pakistan; India suspended its participation in 2025 and the Permanent Court of Arbitration ruled on 31 August 2026 that it remains fully binding.",
-      "conflictIds": [
-        "kashmir"
-      ]
+      "conflictIds": ["kashmir"]
     },
     {
       "iso3": "IRN",
@@ -327,10 +230,7 @@
       "rank": 2,
       "ar": "ثاني أكبر احتياطي غاز في العالم، ويتشارك حقل بارس الجنوبي مع حقل الشمال القطري.",
       "en": "The world's second-largest gas reserves, sharing the South Pars field with Qatar's North Field.",
-      "conflictIds": [
-        "iran-us-israel",
-        "gulf-security"
-      ]
+      "conflictIds": ["iran-us-israel", "gulf-security"]
     },
     {
       "iso3": "IRQ",
@@ -340,9 +240,7 @@
       "rank": 5,
       "ar": "احتياطيات كبيرة في الجنوب وكركوك، والخلاف على حقّ التصدير جوهر النزاع بين بغداد وأربيل.",
       "en": "Large reserves in the south and at Kirkuk, with the dispute over export rights at the core of the Baghdad–Erbil conflict.",
-      "conflictIds": [
-        "iraq-kurdistan"
-      ]
+      "conflictIds": ["iraq-kurdistan"]
     },
     {
       "iso3": "ISR",
@@ -412,9 +310,7 @@
       "source": "eia",
       "ar": "حقول غاز محتملة في المنطقة الاقتصادية البحرية شرق المتوسط، ورُسمت الحدود البحرية مع إسرائيل باتفاق 2022.",
       "en": "Potential gas fields in the eastern Mediterranean exclusive economic zone; the maritime boundary with Israel was delimited by a 2022 agreement.",
-      "conflictIds": [
-        "lebanon-israel"
-      ]
+      "conflictIds": ["lebanon-israel"]
     },
     {
       "iso3": "LBY",
@@ -441,9 +337,7 @@
       "rank": 1,
       "ar": "تسيطر على الحصّة الأكبر من احتياطيات الفوسفات العالمية، ومنها فوسفات بوكراع في الصحراء الغربية.",
       "en": "Holds the largest share of global phosphate reserves, including the Bou Craa deposit in Western Sahara.",
-      "conflictIds": [
-        "western-sahara"
-      ]
+      "conflictIds": ["western-sahara"]
     },
     {
       "iso3": "MLI",
@@ -452,9 +346,7 @@
       "source": "undata",
       "ar": "من أكبر منتجي الذهب في أفريقيا، والتعدين الحرفي مصدر تمويل لأطراف النزاع.",
       "en": "Among Africa's largest gold producers, with artisanal mining a funding source for parties to the conflict.",
-      "conflictIds": [
-        "sahel"
-      ]
+      "conflictIds": ["sahel"]
     },
     {
       "iso3": "MMR",
@@ -463,9 +355,7 @@
       "source": "undata",
       "ar": "مصدر متنامٍ للمعادن النادرة يُعدَّن في مناطق خارج سيطرة المجلس العسكري، وصار محلّ تفاوض دولي مباشر في 2026.",
       "en": "A growing source of rare earths mined in areas outside junta control, and the subject of direct international negotiation in 2026.",
-      "conflictIds": [
-        "myanmar"
-      ]
+      "conflictIds": ["myanmar"]
     },
     {
       "iso3": "NER",
@@ -474,9 +364,7 @@
       "source": "undata",
       "ar": "من أهم منتجي اليورانيوم في أفريقيا، وكان مورّداً رئيسياً لمحطات الطاقة الفرنسية قبل التحوّلات السياسية.",
       "en": "Among Africa's most important uranium producers and a principal supplier to French power plants before the political changes.",
-      "conflictIds": [
-        "sahel"
-      ]
+      "conflictIds": ["sahel"]
     },
     {
       "iso3": "NGA",
@@ -485,9 +373,7 @@
       "source": "eia",
       "ar": "نفط دلتا النيجر أساس الإيرادات الاتحادية، وتوزيع عوائده من محرّكات الخلاف الفيدرالي.",
       "en": "Niger Delta oil underpins federal revenues, and the distribution of its proceeds is among the drivers of federal dispute.",
-      "conflictIds": [
-        "nigeria"
-      ]
+      "conflictIds": ["nigeria"]
     },
     {
       "iso3": "PAK",
@@ -496,9 +382,7 @@
       "source": "undata",
       "ar": "منجم ريكو ديك في بلوشستان من أكبر رواسب النحاس والذهب غير المستغلّة في العالم.",
       "en": "The Reko Diq deposit in Balochistan is among the world's largest undeveloped copper and gold resources.",
-      "conflictIds": [
-        "balochistan"
-      ]
+      "conflictIds": ["balochistan"]
     },
     {
       "iso3": "QAT",
@@ -508,9 +392,7 @@
       "rank": 3,
       "ar": "من أكبر مصدّري الغاز المسال، وتعتمد صادراتها على المرور عبر مضيق هرمز.",
       "en": "Among the largest LNG exporters, with exports dependent on transit through the Strait of Hormuz.",
-      "conflictIds": [
-        "gulf-security"
-      ]
+      "conflictIds": ["gulf-security"]
     },
     {
       "iso3": "RUS",
@@ -520,9 +402,7 @@
       "rank": 1,
       "ar": "أكبر احتياطي غاز في العالم؛ أعادت العقوبات توجيه صادراتها شرقاً نحو الصين.",
       "en": "The world's largest gas reserves; sanctions redirected exports eastward toward China.",
-      "conflictIds": [
-        "russia-ukraine"
-      ]
+      "conflictIds": ["russia-ukraine"]
     },
     {
       "iso3": "RUS",
@@ -541,10 +421,7 @@
       "rank": 2,
       "ar": "أكبر مُصدِّر للنفط الخام، ولديها طاقة إنتاج احتياطية تمنحها دوراً في استقرار الأسواق.",
       "en": "The largest crude oil exporter, with spare production capacity that gives it a role in market stabilisation.",
-      "conflictIds": [
-        "gulf-security",
-        "yemen"
-      ]
+      "conflictIds": ["gulf-security", "yemen"]
     },
     {
       "iso3": "SAU",
@@ -562,9 +439,7 @@
       "source": "undata",
       "ar": "مناجم الذهب في دارفور وشمال كردفان هي مصدر تمويل الحرب الرئيسي لقوات الدعم السريع.",
       "en": "Gold mines in Darfur and North Kordofan are the Rapid Support Forces' principal war funding source.",
-      "conflictIds": [
-        "sudan"
-      ]
+      "conflictIds": ["sudan"]
     },
     {
       "iso3": "SDN",
@@ -573,10 +448,7 @@
       "source": "eia",
       "ar": "فقد السودان معظم حقوله النفطية بانفصال الجنوب في 2011، لكنه احتفظ بخطّ الأنابيب الوحيد ومصفاة ومحطة تصدير بورتسودان. فأصبح دخله النفطي رسوم عبور للخام الجنوبي أكثر منه إنتاجاً، وهو ما يربط اقتصاد الدولتين ربطاً قسرياً رغم خلافاتهما.",
       "en": "Sudan lost most of its oil fields with the south's secession in 2011 but retained the only pipeline, a refinery and the Port Sudan export terminal. Its oil income is therefore transit fees on southern crude more than production, which binds the two economies together despite their disputes.",
-      "conflictIds": [
-        "sudan",
-        "south-sudan"
-      ]
+      "conflictIds": ["sudan", "south-sudan"]
     },
     {
       "iso3": "SSD",
@@ -585,10 +457,7 @@
       "source": "eia",
       "ar": "حقول الوحدة وأعالي النيل تمثّل نحو كلّ إيرادات الدولة، وتُصدَّر عبر خطّ أنابيب يمرّ في السودان.",
       "en": "The Unity and Upper Nile fields account for virtually all state revenue and are exported through a pipeline running across Sudan.",
-      "conflictIds": [
-        "south-sudan",
-        "sudan"
-      ]
+      "conflictIds": ["south-sudan", "sudan"]
     },
     {
       "iso3": "SYR",
@@ -597,9 +466,7 @@
       "source": "eia",
       "ar": "حقول النفط والغاز في الشمال الشرقي كانت خارج سيطرة دمشق لسنوات، ودُمجت إدارتها في الدولة بعد ترتيبات 2026.",
       "en": "Oil and gas fields in the north-east lay outside Damascus's control for years, and their administration was integrated into the state after the 2026 arrangements.",
-      "conflictIds": [
-        "syria-transition"
-      ]
+      "conflictIds": ["syria-transition"]
     },
     {
       "iso3": "TUN",
@@ -617,10 +484,7 @@
       "source": "undata",
       "ar": "سدود دجلة والفرات في جنوب شرق الأناضول تمنح تركيا تأثيراً على تدفّق المياه إلى سوريا والعراق.",
       "en": "The Tigris and Euphrates dams in south-eastern Anatolia give Türkiye influence over water flows into Syria and Iraq.",
-      "conflictIds": [
-        "turkey-kurdish",
-        "syria-transition"
-      ]
+      "conflictIds": ["turkey-kurdish", "syria-transition"]
     },
     {
       "iso3": "TWN",
@@ -630,9 +494,7 @@
       "rank": 1,
       "ar": "تنتج الحصّة الأكبر عالمياً من أشباه الموصلات المتقدّمة، وهو ما يجعل أي اضطراب في الجزيرة أزمة اقتصادية عالمية فورية.",
       "en": "Produces the largest global share of advanced semiconductors, which makes any disruption on the island an immediate global economic crisis.",
-      "conflictIds": [
-        "taiwan-strait"
-      ]
+      "conflictIds": ["taiwan-strait"]
     },
     {
       "iso3": "UKR",
@@ -641,9 +503,7 @@
       "source": "worldbank",
       "ar": "من أكبر مصدّري الحبوب والزيوت النباتية، وتعتمد صادراتها على ممرّ البحر الأسود والمضائق التركية.",
       "en": "Among the largest exporters of grain and vegetable oils, with exports dependent on the Black Sea corridor and the Turkish straits.",
-      "conflictIds": [
-        "russia-ukraine"
-      ]
+      "conflictIds": ["russia-ukraine"]
     },
     {
       "iso3": "UKR",
@@ -652,9 +512,7 @@
       "source": "undata",
       "ar": "رواسب ليثيوم في الشرق والوسط، بعضها في مناطق خضعت للاحتلال، وقد دخلت في مفاوضات اقتصادية دولية.",
       "en": "Lithium deposits in the east and centre, some in occupied areas, which have entered international economic negotiations.",
-      "conflictIds": [
-        "russia-ukraine"
-      ]
+      "conflictIds": ["russia-ukraine"]
     },
     {
       "iso3": "USA",
@@ -673,10 +531,7 @@
       "rank": 1,
       "ar": "أكبر احتياطي نفطي مؤكّد في العالم، معظمه نفط ثقيل في حوض أورينوكو يحتاج استثماراً كبيراً للاستخراج.",
       "en": "The world's largest proven oil reserves, mostly heavy crude in the Orinoco Belt requiring heavy investment to extract.",
-      "conflictIds": [
-        "venezuela",
-        "essequibo"
-      ]
+      "conflictIds": ["venezuela", "essequibo"]
     }
   ],
   "sites": [
@@ -684,10 +539,7 @@
       "id": "ghawar",
       "ar": "حقل الغوار",
       "en": "Ghawar field",
-      "coords": [
-        49.2,
-        25.4
-      ],
+      "coords": [49.2, 25.4],
       "type": "oil",
       "iso3": "SAU",
       "noteAr": "أكبر حقل نفط تقليدي في العالم.",
@@ -697,10 +549,7 @@
       "id": "south-pars",
       "ar": "حقل بارس الجنوبي / الشمال",
       "en": "South Pars / North Field",
-      "coords": [
-        52.0,
-        26.6
-      ],
+      "coords": [52, 26.6],
       "type": "gas",
       "iso3": "IRN",
       "noteAr": "أكبر حقل غاز في العالم، مشترك بين إيران وقطر.",
@@ -710,10 +559,7 @@
       "id": "stabroek",
       "ar": "حوض ستابروك",
       "en": "Stabroek block",
-      "coords": [
-        -57.2,
-        8.6
-      ],
+      "coords": [-57.2, 8.6],
       "type": "oil",
       "iso3": "GUY",
       "noteAr": "قبالة سواحل إيسيكيبو المتنازع عليها.",
@@ -723,10 +569,7 @@
       "id": "katanga",
       "ar": "حزام كاتانغا للنحاس والكوبالت",
       "en": "Katanga copper-cobalt belt",
-      "coords": [
-        26.5,
-        -10.8
-      ],
+      "coords": [26.5, -10.8],
       "type": "cobalt",
       "iso3": "COD",
       "noteAr": "جنوب الكونغو، منفصل جغرافياً عن نزاع كيفو.",
@@ -736,10 +579,7 @@
       "id": "reko-diq",
       "ar": "منجم ريكو ديك",
       "en": "Reko Diq",
-      "coords": [
-        62.2,
-        29.0
-      ],
+      "coords": [62.2, 29],
       "type": "copper",
       "iso3": "PAK",
       "noteAr": "في بلوشستان، ومحلّ خلاف حول توزيع العوائد.",
@@ -749,10 +589,7 @@
       "id": "bou-craa",
       "ar": "فوسفات بوكراع",
       "en": "Bou Craa phosphate",
-      "coords": [
-        -12.85,
-        26.33
-      ],
+      "coords": [-12.85, 26.33],
       "type": "phosphate",
       "iso3": "MAR",
       "noteAr": "في الصحراء الغربية، وأحد مرتكزات البعد الاقتصادي للنزاع.",
@@ -762,10 +599,7 @@
       "id": "gerd",
       "ar": "سدّ النهضة الإثيوبي",
       "en": "Grand Ethiopian Renaissance Dam",
-      "coords": [
-        35.09,
-        11.21
-      ],
+      "coords": [35.09, 11.21],
       "type": "water",
       "iso3": "ETH",
       "noteAr": "على النيل الأزرق قرب الحدود السودانية.",
@@ -775,10 +609,7 @@
       "id": "kirkuk",
       "ar": "حقل كركوك",
       "en": "Kirkuk field",
-      "coords": [
-        44.4,
-        35.47
-      ],
+      "coords": [44.4, 35.47],
       "type": "oil",
       "iso3": "IRQ",
       "noteAr": "في منطقة متنازع عليها بين بغداد وأربيل بموجب المادة 140.",
@@ -788,10 +619,7 @@
       "id": "sui",
       "ar": "حقل غاز سوي",
       "en": "Sui gas field",
-      "coords": [
-        69.2,
-        28.6
-      ],
+      "coords": [69.2, 28.6],
       "type": "gas",
       "iso3": "PAK",
       "noteAr": "في بلوشستان، ومطلب توزيع عوائده من أقدم مطالب الإقليم.",
@@ -801,10 +629,7 @@
       "id": "hsinchu",
       "ar": "حدائق هسينشو للعلوم",
       "en": "Hsinchu Science Park",
-      "coords": [
-        121.0,
-        24.78
-      ],
+      "coords": [121, 24.78],
       "type": "semiconductors",
       "iso3": "TWN",
       "noteAr": "مركز صناعة أشباه الموصلات المتقدّمة في تايوان.",
@@ -814,10 +639,7 @@
       "id": "hpakant",
       "ar": "مناجم هباكانت لليشم",
       "en": "Hpakant jade mines",
-      "coords": [
-        96.3,
-        25.6
-      ],
+      "coords": [96.3, 25.6],
       "type": "gold",
       "iso3": "MMR",
       "noteAr": "في كاتشين، ومن أبرز موارد اقتصاد الحرب في ميانمار.",
@@ -827,10 +649,7 @@
       "id": "orinoco",
       "ar": "قوس أورينوكو النفطي",
       "en": "Orinoco Belt",
-      "coords": [
-        -64.5,
-        8.8
-      ],
+      "coords": [-64.5, 8.8],
       "type": "oil",
       "iso3": "VEN",
       "noteAr": "أكبر تجمّع للنفط الثقيل في العالم.",
@@ -840,10 +659,7 @@
       "id": "eshidiya",
       "ar": "منجم الشيدية للفوسفات",
       "en": "Eshidiya phosphate mine",
-      "coords": [
-        36.33,
-        29.82
-      ],
+      "coords": [36.33, 29.82],
       "type": "phosphate",
       "iso3": "JOR",
       "noteAr": "أكبر مناجم الفوسفات الأردنية، جنوب شرق معان، ويُصدَّر إنتاجه عبر ميناء العقبة.",
@@ -853,10 +669,7 @@
       "id": "arab-potash",
       "ar": "شركة البوتاس العربية — غور الصافي",
       "en": "Arab Potash Company — Ghor al-Safi",
-      "coords": [
-        35.5,
-        31.05
-      ],
+      "coords": [35.5, 31.05],
       "type": "potash",
       "iso3": "JOR",
       "noteAr": "جنوب البحر الميت، وتستخلص البوتاس والبروم من الأملاح بالتبخير الشمسي.",
@@ -866,10 +679,7 @@
       "id": "attarat",
       "ar": "محطة عطارات أم الغدران للصخر الزيتي",
       "en": "Attarat Umm Ghudran oil shale plant",
-      "coords": [
-        36.25,
-        31.3
-      ],
+      "coords": [36.25, 31.3],
       "type": "oil-shale",
       "iso3": "JOR",
       "noteAr": "وسط الأردن، المحطة الوحيدة العاملة بالصخر الزيتي، وأسهمت بـ16.7٪ من مزيج الكهرباء في 2025.",
@@ -879,10 +689,7 @@
       "id": "jordan-uranium",
       "ar": "مشروع اليورانيوم في وسط الأردن",
       "en": "Central Jordan uranium project",
-      "coords": [
-        36.18,
-        31.22
-      ],
+      "coords": [36.18, 31.22],
       "type": "uranium",
       "iso3": "JOR",
       "noteAr": "منطقة سواقة وما حولها. احتياطي معلن 42 ألف طن وفق معايير JORC، وغير مستغلّ تجارياً حتى الآن. الموقع تمثيلي للمنطقة لا لحدّ امتياز.",
@@ -892,10 +699,7 @@
       "id": "khouribga",
       "ar": "حوض خريبكة للفوسفات",
       "en": "Khouribga phosphate basin",
-      "coords": [
-        -6.9,
-        32.88
-      ],
+      "coords": [-6.9, 32.88],
       "type": "phosphate",
       "iso3": "MAR",
       "noteAr": "أكبر مجمّع فوسفات عامل في العالم.",
@@ -905,10 +709,7 @@
       "id": "saskatchewan-potash",
       "ar": "حوض ساسكاتشوان للبوتاس",
       "en": "Saskatchewan potash basin",
-      "coords": [
-        -105.5,
-        51.5
-      ],
+      "coords": [-105.5, 51.5],
       "type": "potash",
       "iso3": "CAN",
       "noteAr": "مصدر الحصّة الأكبر من البوتاس العالمي.",
@@ -918,10 +719,7 @@
       "id": "atacama",
       "ar": "مسطّح أتاكاما الملحي",
       "en": "Salar de Atacama",
-      "coords": [
-        -68.3,
-        -23.5
-      ],
+      "coords": [-68.3, -23.5],
       "type": "lithium",
       "iso3": "CHL",
       "noteAr": "ضمن «مثلّث الليثيوم» بين تشيلي والأرجنتين وبوليفيا.",
@@ -931,10 +729,7 @@
       "id": "sharara",
       "ar": "حقل الشرارة النفطي",
       "en": "El Sharara oil field",
-      "coords": [
-        12.6,
-        27.6
-      ],
+      "coords": [12.6, 27.6],
       "type": "oil",
       "iso3": "LBY",
       "noteAr": "أكبر حقول ليبيا في حوض مرزق، بطاقة نحو 300 ألف برميل يومياً، وتكرّر توقّفه بالإغلاقات المسلحة — آخرها إغلاق صمّام رئيسي في 21 سبتمبر 2026.",
@@ -944,10 +739,7 @@
       "id": "sirte-basin",
       "ar": "حوض سرت",
       "en": "Sirte basin",
-      "coords": [
-        18.5,
-        29.0
-      ],
+      "coords": [18.5, 29],
       "type": "oil",
       "iso3": "LBY",
       "noteAr": "يضمّ الغالبية العظمى من احتياطيات ليبيا القابلة للاستخراج وأغلب طاقتها الإنتاجية. النقطة تمثّل الحوض لا حدّ امتياز.",
@@ -957,10 +749,7 @@
       "id": "zohr",
       "ar": "حقل ظُهر للغاز",
       "en": "Zohr gas field",
-      "coords": [
-        32.3,
-        33.1
-      ],
+      "coords": [32.3, 33.1],
       "type": "gas",
       "iso3": "EGY",
       "noteAr": "أكبر حقول غاز شرق المتوسط، بدأ الإنتاج في ديسمبر 2017 وتراجع من ذروة 3.2 مليار قدم مكعبة يومياً في 2019 إلى نحو 1.2 مليار.",
@@ -970,10 +759,7 @@
       "id": "sukari",
       "ar": "منجم السكري للذهب",
       "en": "Sukari gold mine",
-      "coords": [
-        34.72,
-        24.95
-      ],
+      "coords": [34.72, 24.95],
       "type": "gold",
       "iso3": "EGY",
       "noteAr": "في الصحراء الشرقية قرب البحر الأحمر، المنجم الذهبي الرئيسي في مصر.",
@@ -983,10 +769,7 @@
       "id": "port-sudan",
       "ar": "محطة بورتسودان لتصدير النفط",
       "en": "Port Sudan oil export terminal",
-      "coords": [
-        37.22,
-        19.62
-      ],
+      "coords": [37.22, 19.62],
       "type": "oil",
       "iso3": "SDN",
       "noteAr": "منفذ التصدير الوحيد للخام السوداني والجنوب سوداني على البحر الأحمر.",

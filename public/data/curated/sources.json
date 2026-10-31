@@ -56,10 +56,7 @@
       "license": "Public domain",
       "published": "2022-05",
       "lastRetrieved": "2026-10-30",
-      "resolution": {
-        "ar": "1:10,000,000",
-        "en": "1:10,000,000"
-      },
+      "resolution": { "ar": "1:10,000,000", "en": "1:10,000,000" },
       "methodology": {
         "ar": "طبقة منفصلة ترصد المساحات التي تطالب بها أكثر من جهة، مع حقل NOTE_BRK الذي يوثّق طبيعة الخلاف.",
         "en": "Separate layer recording areas claimed by more than one party, with a NOTE_BRK field documenting the nature of the disagreement."
@@ -81,10 +78,7 @@
       "license": "Public domain",
       "published": "2022-05",
       "lastRetrieved": "2026-10-30",
-      "resolution": {
-        "ar": "1:50,000,000",
-        "en": "1:50,000,000"
-      },
+      "resolution": { "ar": "1:50,000,000", "en": "1:50,000,000" },
       "methodology": {
         "ar": "خطوط حدود مصنّفة حسب النوع (حدود دولية، خط هدنة، حدود متنازع عليها، خط إداري).",
         "en": "Boundary lines classified by type (international boundary, line of control, disputed boundary, indefinite administrative line)."
@@ -97,10 +91,7 @@
     {
       "id": "atlas-conflicts",
       "file": "thematic/conflicts.json",
-      "title": {
-        "ar": "ملفات النزاعات ونقاط الاشتعال",
-        "en": "Conflict and flashpoint dossiers"
-      },
+      "title": { "ar": "ملفات النزاعات ونقاط الاشتعال", "en": "Conflict and flashpoint dossiers" },
       "publisher": {
         "ar": "تجميع تحريري لهذا الأطلس",
         "en": "Editorial compilation for this atlas"
@@ -120,12 +111,7 @@
         "ar": "ليس مصدراً أولياً لبيانات الأحداث. للتحليل الكمّي لأحداث العنف استخدم ACLED أو UCDP مباشرة. حقل confidence يوضح مستوى التحقق لكل سجل: verified يعني أن الوضع الحالي تم تدقيقه في تاريخ statusAsOf، وpartial يعني أن الخلفية موثّقة لكن الوضع الحالي يحتاج تحديثاً.",
         "en": "Not a primary event-data source. For quantitative analysis of violent events use ACLED or UCDP directly. The confidence field states each record's verification level: verified means current status was checked on statusAsOf; partial means background is documented but current status needs refresh."
       },
-      "recommendedPrimary": [
-        "ucdp",
-        "acled",
-        "icg",
-        "ocha-hdx"
-      ]
+      "recommendedPrimary": ["ucdp", "acled", "icg", "ocha-hdx"]
     },
     {
       "id": "atlas-ethnic",
@@ -153,11 +139,7 @@
         "ar": "تحذير جوهري: التوزيع العرقي ليس مساحات متجاورة ولا متنافية. هذه المضلّعات توضيحية للعرض الخرائطي فقط، ولا يجوز استخدامها لقياس المساحة أو عدد السكان أو لدعم أي مطالبة إقليمية. للحصول على بيانات إحداثية موثّقة استخدم GREG أو GeoEPR من PRIO أو تعدادات السكان الوطنية.",
         "en": "Material caveat: ethnic distribution is neither contiguous nor mutually exclusive. These polygons are illustrative, for cartographic display only, and must not be used to measure area or population or to support any territorial claim. For documented georeferenced data use GREG, PRIO's GeoEPR, or national censuses."
       },
-      "recommendedPrimary": [
-        "geoepr",
-        "mrg",
-        "ethnologue"
-      ]
+      "recommendedPrimary": ["geoepr", "mrg", "ethnologue"]
     },
     {
       "id": "atlas-religion",
@@ -185,11 +167,7 @@
         "ar": "الانتماء الديني يُقاس بطرق متباينة بين الدول (تعداد، مسح، تقدير إداري)، وبعض الدول لا تجمع هذا البيانات أصلاً. تقديرات الانقسام السني/الشيعي حسّاسة سياسياً وغالباً متنازع عليها. الدول غير المدرجة تعني غياب تقدير موثّق في هذه النسخة، لا غياب تعدد ديني.",
         "en": "Religious affiliation is measured differently across states (census, survey, administrative estimate), and some states do not collect it at all. Sunni/Shia split estimates are politically sensitive and frequently contested. Countries not listed mean no documented estimate in this release, not an absence of religious plurality."
       },
-      "recommendedPrimary": [
-        "pew",
-        "wrd",
-        "ciawf"
-      ]
+      "recommendedPrimary": ["pew", "wrd", "ciawf"]
     },
     {
       "id": "atlas-chokepoints",
@@ -221,10 +199,7 @@
     {
       "id": "atlas-relations",
       "file": "thematic/relations.json",
-      "title": {
-        "ar": "شبكة العلاقات الجيوسياسية",
-        "en": "Geopolitical relationship network"
-      },
+      "title": { "ar": "شبكة العلاقات الجيوسياسية", "en": "Geopolitical relationship network" },
       "publisher": {
         "ar": "تجميع تحريري لهذا الأطلس",
         "en": "Editorial compilation for this atlas"
@@ -271,18 +246,12 @@
         "ar": "قيد صريح مقصود: الخريطة لا تُعيد رسم حدود عام 1914 أو 1945 أو 1991. بناء طبقات حدود تاريخية يتطلّب مجموعات بيانات مثل CShapes أو Euratlas، وهي غير مضمّنة لأن تلفيق حدود تاريخية أسوأ من غيابها. يوضح الأطلس هذا القيد في واجهة الخط الزمني نفسها.",
         "en": "A deliberate, stated limitation: the map does not redraw the borders of 1914, 1945 or 1991. Historical boundary layers require datasets such as CShapes or Euratlas, which are not bundled, because fabricating historical borders is worse than omitting them. The atlas states this limitation in the timeline interface itself."
       },
-      "recommendedPrimary": [
-        "cshapes",
-        "euratlas"
-      ]
+      "recommendedPrimary": ["cshapes", "euratlas"]
     },
     {
       "id": "atlas-resources",
       "file": "thematic/resources.json",
-      "title": {
-        "ar": "الموارد الاستراتيجية",
-        "en": "Strategic resources"
-      },
+      "title": { "ar": "الموارد الاستراتيجية", "en": "Strategic resources" },
       "publisher": {
         "ar": "تجميع تحريري من USGS وEIA وBP/Energy Institute",
         "en": "Editorial compilation from USGS, EIA and the Energy Institute"
@@ -317,10 +286,7 @@
       "license": "CC-BY-4.0 (compilation)",
       "published": "2026-10-30",
       "lastRetrieved": "2026-10-30",
-      "resolution": {
-        "ar": "مستوى الدولة.",
-        "en": "Country level."
-      },
+      "resolution": { "ar": "مستوى الدولة.", "en": "Country level." },
       "methodology": {
         "ar": "يكمّل حقول Natural Earth الكمّية بحقول نوعية: النظام السياسي، اللغات الرسمية، الحركات الانفصالية، الخلافات الإقليمية، التحالفات الإقليمية.",
         "en": "Supplements Natural Earth's quantitative fields with qualitative ones: political system, official languages, separatist movements, territorial disputes, regional alliances."
@@ -334,10 +300,7 @@
   "references": [
     {
       "id": "ne",
-      "name": {
-        "ar": "Natural Earth",
-        "en": "Natural Earth"
-      },
+      "name": { "ar": "Natural Earth", "en": "Natural Earth" },
       "url": "https://www.naturalearthdata.com/",
       "role": {
         "ar": "الحدود والأقاليم المتنازع عليها — مضمّنة",
@@ -346,10 +309,7 @@
     },
     {
       "id": "gadm",
-      "name": {
-        "ar": "GADM",
-        "en": "GADM"
-      },
+      "name": { "ar": "GADM", "en": "GADM" },
       "url": "https://gadm.org/",
       "role": {
         "ar": "الحدود الإدارية الفرعية — غير مضمّنة، الترخيص يقيّد إعادة التوزيع",
@@ -358,22 +318,13 @@
     },
     {
       "id": "geonames",
-      "name": {
-        "ar": "GeoNames",
-        "en": "GeoNames"
-      },
+      "name": { "ar": "GeoNames", "en": "GeoNames" },
       "url": "https://www.geonames.org/",
-      "role": {
-        "ar": "أسماء الأماكن — موصّل اختياري",
-        "en": "Place names — optional connector"
-      }
+      "role": { "ar": "أسماء الأماكن — موصّل اختياري", "en": "Place names — optional connector" }
     },
     {
       "id": "ucdp",
-      "name": {
-        "ar": "برنامج أوبسالا لبيانات النزاعات",
-        "en": "Uppsala Conflict Data Program"
-      },
+      "name": { "ar": "برنامج أوبسالا لبيانات النزاعات", "en": "Uppsala Conflict Data Program" },
       "url": "https://ucdp.uu.se/",
       "role": {
         "ar": "بيانات أحداث النزاع المرجعية — موصّل، يُنصح به للتحليل الكمّي",
@@ -382,10 +333,7 @@
     },
     {
       "id": "acled",
-      "name": {
-        "ar": "ACLED",
-        "en": "ACLED"
-      },
+      "name": { "ar": "ACLED", "en": "ACLED" },
       "url": "https://acleddata.com/",
       "role": {
         "ar": "أحداث العنف المُرمَّزة جغرافياً — موصّل بمفتاح API",
@@ -394,10 +342,7 @@
     },
     {
       "id": "icg",
-      "name": {
-        "ar": "مجموعة الأزمات الدولية",
-        "en": "International Crisis Group"
-      },
+      "name": { "ar": "مجموعة الأزمات الدولية", "en": "International Crisis Group" },
       "url": "https://www.crisisgroup.org/crisiswatch",
       "role": {
         "ar": "تقييم شهري لحالة النزاعات — مرجع للتحقق",
@@ -406,10 +351,7 @@
     },
     {
       "id": "mrg",
-      "name": {
-        "ar": "مجموعة حقوق الأقليات الدولية",
-        "en": "Minority Rights Group International"
-      },
+      "name": { "ar": "مجموعة حقوق الأقليات الدولية", "en": "Minority Rights Group International" },
       "url": "https://minorityrights.org/",
       "role": {
         "ar": "ملفات الأقليات العرقية والدينية — مرجع",
@@ -418,10 +360,7 @@
     },
     {
       "id": "pew",
-      "name": {
-        "ar": "مركز بيو للأبحاث",
-        "en": "Pew Research Center"
-      },
+      "name": { "ar": "مركز بيو للأبحاث", "en": "Pew Research Center" },
       "url": "https://www.pewresearch.org/religion/",
       "role": {
         "ar": "التركيب الديني العالمي — مصدر لطبقة الأديان",
@@ -430,10 +369,7 @@
     },
     {
       "id": "wrd",
-      "name": {
-        "ar": "قاعدة بيانات الأديان العالمية",
-        "en": "World Religion Database"
-      },
+      "name": { "ar": "قاعدة بيانات الأديان العالمية", "en": "World Religion Database" },
       "url": "https://www.worldreligiondatabase.org/",
       "role": {
         "ar": "تقديرات دينية تفصيلية — تتطلّب اشتراكاً",
@@ -442,10 +378,7 @@
     },
     {
       "id": "ethnologue",
-      "name": {
-        "ar": "Ethnologue",
-        "en": "Ethnologue"
-      },
+      "name": { "ar": "Ethnologue", "en": "Ethnologue" },
       "url": "https://www.ethnologue.com/",
       "role": {
         "ar": "التوزيع اللغوي — يتطلّب اشتراكاً",
@@ -454,10 +387,7 @@
     },
     {
       "id": "geoepr",
-      "name": {
-        "ar": "GeoEPR — PRIO",
-        "en": "GeoEPR — PRIO"
-      },
+      "name": { "ar": "GeoEPR — PRIO", "en": "GeoEPR — PRIO" },
       "url": "https://icr.ethz.ch/data/epr/geoepr/",
       "role": {
         "ar": "مواقع المجموعات العرقية ذات الصلة السياسية — البديل الموثّق لطبقة العرقيات التوضيحية",
@@ -466,10 +396,7 @@
     },
     {
       "id": "ocha-hdx",
-      "name": {
-        "ar": "HDX — مكتب تنسيق الشؤون الإنسانية",
-        "en": "HDX — UN OCHA"
-      },
+      "name": { "ar": "HDX — مكتب تنسيق الشؤون الإنسانية", "en": "HDX — UN OCHA" },
       "url": "https://data.humdata.org/",
       "role": {
         "ar": "بيانات إنسانية وحدود إدارية تشغيلية — موصّل",
@@ -478,10 +405,7 @@
     },
     {
       "id": "unhcr",
-      "name": {
-        "ar": "المفوضية السامية للأمم المتحدة للاجئين",
-        "en": "UNHCR"
-      },
+      "name": { "ar": "المفوضية السامية للأمم المتحدة للاجئين", "en": "UNHCR" },
       "url": "https://www.unhcr.org/refugee-statistics/",
       "role": {
         "ar": "إحصاءات اللجوء والتهجير — موصّل",
@@ -490,10 +414,7 @@
     },
     {
       "id": "iom",
-      "name": {
-        "ar": "المنظمة الدولية للهجرة",
-        "en": "IOM"
-      },
+      "name": { "ar": "المنظمة الدولية للهجرة", "en": "IOM" },
       "url": "https://dtm.iom.int/",
       "role": {
         "ar": "مصفوفة تتبّع التهجير — موصّل",
@@ -502,10 +423,7 @@
     },
     {
       "id": "worldbank",
-      "name": {
-        "ar": "البنك الدولي",
-        "en": "World Bank"
-      },
+      "name": { "ar": "البنك الدولي", "en": "World Bank" },
       "url": "https://data.worldbank.org/",
       "role": {
         "ar": "مؤشرات اقتصادية وسكانية — موصّل",
@@ -514,22 +432,13 @@
     },
     {
       "id": "undata",
-      "name": {
-        "ar": "بيانات الأمم المتحدة",
-        "en": "UN Data"
-      },
+      "name": { "ar": "بيانات الأمم المتحدة", "en": "UN Data" },
       "url": "https://data.un.org/",
-      "role": {
-        "ar": "إحصاءات رسمية — موصّل",
-        "en": "Official statistics — connector"
-      }
+      "role": { "ar": "إحصاءات رسمية — موصّل", "en": "Official statistics — connector" }
     },
     {
       "id": "ciawf",
-      "name": {
-        "ar": "كتاب الحقائق العالمي",
-        "en": "The World Factbook"
-      },
+      "name": { "ar": "كتاب الحقائق العالمي", "en": "The World Factbook" },
       "url": "https://www.cia.gov/the-world-factbook/",
       "role": {
         "ar": "التركيب العرقي والديني واللغوي على مستوى الدولة — مصدر مرجعي",
@@ -550,10 +459,7 @@
     },
     {
       "id": "cshapes",
-      "name": {
-        "ar": "CShapes 2.0",
-        "en": "CShapes 2.0"
-      },
+      "name": { "ar": "CShapes 2.0", "en": "CShapes 2.0" },
       "url": "https://icr.ethz.ch/data/cshapes/",
       "role": {
         "ar": "حدود الدول التاريخية 1886–2019 — البديل الموثّق لطبقة الحدود التاريخية الغائبة",
@@ -562,10 +468,7 @@
     },
     {
       "id": "euratlas",
-      "name": {
-        "ar": "Euratlas",
-        "en": "Euratlas"
-      },
+      "name": { "ar": "Euratlas", "en": "Euratlas" },
       "url": "https://www.euratlas.net/",
       "role": {
         "ar": "حدود أوروبا التاريخية — مرجع تجاري",
@@ -574,10 +477,7 @@
     },
     {
       "id": "joshua",
-      "name": {
-        "ar": "Joshua Project",
-        "en": "Joshua Project"
-      },
+      "name": { "ar": "Joshua Project", "en": "Joshua Project" },
       "url": "https://joshuaproject.net/",
       "role": {
         "ar": "غير مستخدَم كمرجع ديموغرافي في هذه النسخة. المشروع ذو غرض تبشيري وتصنيفه للمجموعات مبني على ذلك الغرض، لذا لا يصلح سلطةً ديموغرافية مستقلة.",

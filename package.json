@@ -17,7 +17,8 @@
     "lint": "eslint .",
     "test": "vitest run",
     "check-data": "tsx scripts/check-data.ts",
-    "migrate-errata": "tsx scripts/migrate-errata.ts"
+    "migrate-errata": "tsx scripts/migrate-errata.ts",
+    "format-data": "tsx scripts/format-data.ts"
   },
   "dependencies": {
     "d3-geo": "^3.1.1",

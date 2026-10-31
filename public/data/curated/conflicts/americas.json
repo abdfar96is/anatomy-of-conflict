@@ -42,9 +42,30 @@
         "en": "Venezuela holds the world's largest proven oil reserves, mostly heavy crude in the Orinoco Belt. US officials explicitly indicated an intention to develop those reserves with American participation. Gold and minerals are present in Essequibo and the Orinoco Mining Arc."
       },
       "externalPowers": [
-        { "iso3": "USA", "role": { "ar": "نفّذت العمل العسكري وتعمل مع الحكومة الانتقالية وترعى المفاوضات مع المعارضة", "en": "Conducted the military action, works with the interim government and sponsors negotiations with the opposition" }, "kind": "assessed" },
-        { "iso3": "CUB", "role": { "ar": "فقدت أفراداً أمنيين في العملية ولها علاقة تاريخية بكاراكاس", "en": "Lost security personnel in the operation and has a historic relationship with Caracas" }, "kind": "assessed" },
-        { "iso3": "BRA", "role": { "ar": "جار رئيسي ومتأثّر بموجات الهجرة", "en": "A principal neighbour affected by migration flows" }, "kind": "assessed" }
+        {
+          "iso3": "USA",
+          "role": {
+            "ar": "نفّذت العمل العسكري وتعمل مع الحكومة الانتقالية وترعى المفاوضات مع المعارضة",
+            "en": "Conducted the military action, works with the interim government and sponsors negotiations with the opposition"
+          },
+          "kind": "assessed"
+        },
+        {
+          "iso3": "CUB",
+          "role": {
+            "ar": "فقدت أفراداً أمنيين في العملية ولها علاقة تاريخية بكاراكاس",
+            "en": "Lost security personnel in the operation and has a historic relationship with Caracas"
+          },
+          "kind": "assessed"
+        },
+        {
+          "iso3": "BRA",
+          "role": {
+            "ar": "جار رئيسي ومتأثّر بموجات الهجرة",
+            "en": "A principal neighbour affected by migration flows"
+          },
+          "kind": "assessed"
+        }
       ],
       "status": {
         "ar": "مرحلة انتقالية متنازع عليها تحت رعاية أمريكية. تتولّى ديلسي رودريغيز الرئاسة بالوكالة، واعترفت واشنطن بحكومتها، وتدعم مفاوضات بينها وبين فصيل من المعارضة. عُقدت ثلاث جولات محادثات منذ أغسطس 2026 بدأت أحدثها في 14 أكتوبر. لم يُعلَن موعد لانتخابات رئاسية: تطالب ماريا كورينا ماتشادو والمعارضة بـ 24 يوليو 2027 بينما تشير تقارير إلى أن خطّة واشنطن تتحدّث عن 2028. خرجت احتجاجات في كاراكاس ومدن أخرى في 22 أكتوبر 2026 تطالب بانتخابات 2027 وبعودة ماتشادو. وتفكّك العقوبات تدريجياً باستثناءات فردية.",
@@ -52,9 +73,24 @@
       },
       "statusAsOf": "2026-10-30",
       "recent": [
-        { "date": "2026-10-22", "ar": "احتجاجات في كاراكاس ومدن أخرى تطالب بانتخابات رئاسية في 2027 وبعودة ماريا كورينا ماتشادو.", "en": "Protests in Caracas and other cities demanded a presidential election in 2027 and María Corina Machado's return.", "source": "Rio Times" },
-        { "date": "2026-10-14", "ar": "بدأت الجولة الثالثة من المحادثات بين الحكومة الانتقالية وممثّلي المعارضة برعاية أمريكية.", "en": "A third round of talks between the interim government and opposition representatives opened under American sponsorship.", "source": "Rio Times" },
-        { "date": "2026-10", "ar": "أبلغت الإدارة الأمريكية الكونغرس أن القوات الأمريكية في «نزاع مسلح غير دولي» مع كارتلات المخدّرات في فنزويلا وخارجها.", "en": "The US administration informed Congress that American forces are in a non-international armed conflict with drug cartels in Venezuela and beyond.", "source": "Congressional Research Service" }
+        {
+          "date": "2026-10-22",
+          "ar": "احتجاجات في كاراكاس ومدن أخرى تطالب بانتخابات رئاسية في 2027 وبعودة ماريا كورينا ماتشادو.",
+          "en": "Protests in Caracas and other cities demanded a presidential election in 2027 and María Corina Machado's return.",
+          "source": "Rio Times"
+        },
+        {
+          "date": "2026-10-14",
+          "ar": "بدأت الجولة الثالثة من المحادثات بين الحكومة الانتقالية وممثّلي المعارضة برعاية أمريكية.",
+          "en": "A third round of talks between the interim government and opposition representatives opened under American sponsorship.",
+          "source": "Rio Times"
+        },
+        {
+          "date": "2026-10",
+          "ar": "أبلغت الإدارة الأمريكية الكونغرس أن القوات الأمريكية في «نزاع مسلح غير دولي» مع كارتلات المخدّرات في فنزويلا وخارجها.",
+          "en": "The US administration informed Congress that American forces are in a non-international armed conflict with drug cartels in Venezuela and beyond.",
+          "source": "Congressional Research Service"
+        }
       ],
       "confidence": "verified",
       "sourceRefs": ["icg", "unhcr"]
@@ -62,7 +98,7 @@
     {
       "id": "essequibo",
       "name": { "ar": "إيسيكيبو — فنزويلا وغيانا", "en": "Essequibo — Venezuela and Guyana" },
-      "coords": [-59.0, 5.5],
+      "coords": [-59, 5.5],
       "countries": ["VEN", "GUY"],
       "severity": "high-tension",
       "started": "1841",
@@ -95,9 +131,30 @@
         "en": "The offshore Stabroek block off Essequibo, where very large oil discoveries have turned Guyana into one of the world's fastest-growing economies, plus gold, bauxite and timber onshore."
       },
       "externalPowers": [
-        { "iso3": "BRA", "role": { "ar": "عزّزت وجودها العسكري على حدودها الشمالية وتدعو إلى حلّ سلمي", "en": "Reinforced its military presence on its northern border and calls for a peaceful resolution" }, "kind": "assessed" },
-        { "iso3": "USA", "role": { "ar": "دعمت سيادة غيانا ونفّذت تدريبات مشتركة معها", "en": "Supported Guyana's sovereignty and conducted joint exercises with it" }, "kind": "assessed" },
-        { "iso3": "GBR", "role": { "ar": "أرسلت سفينة دورية في 2023 خلال تصاعد التوتّر", "en": "Sent a patrol vessel in 2023 during the escalation" }, "kind": "assessed" }
+        {
+          "iso3": "BRA",
+          "role": {
+            "ar": "عزّزت وجودها العسكري على حدودها الشمالية وتدعو إلى حلّ سلمي",
+            "en": "Reinforced its military presence on its northern border and calls for a peaceful resolution"
+          },
+          "kind": "assessed"
+        },
+        {
+          "iso3": "USA",
+          "role": {
+            "ar": "دعمت سيادة غيانا ونفّذت تدريبات مشتركة معها",
+            "en": "Supported Guyana's sovereignty and conducted joint exercises with it"
+          },
+          "kind": "assessed"
+        },
+        {
+          "iso3": "GBR",
+          "role": {
+            "ar": "أرسلت سفينة دورية في 2023 خلال تصاعد التوتّر",
+            "en": "Sent a patrol vessel in 2023 during the escalation"
+          },
+          "kind": "assessed"
+        }
       ],
       "status": {
         "ar": "توتّر حدودي مستمر مع حوادث مسلحة محدودة. سُجّلت هجمات مسلحة على جنود من قوة دفاع غيانا في دوريات على نهر كويوني — ثلاث حوادث منفصلة في أربع وعشرين ساعة في إحدى الفترات — وقالت القوة إنها ردّت بشكل محسوب دون إصابات في صفوفها. وربط وزير الدفاع الفنزويلي السابق في تصريحاته بين السعي الأمريكي لتغيير النظام وبين إيسيكيبو. القضية لا تزال منظورة أمام محكمة العدل الدولية.",
@@ -105,7 +162,12 @@
       },
       "statusAsOf": "2026-10-30",
       "recent": [
-        { "date": "2026-10", "ar": "سلسلة هجمات مسلحة على دوريات لقوة دفاع غيانا على نهر كويوني قرب الحدود المتنازع عليها.", "en": "A series of armed attacks on Guyana Defence Force patrols along the Cuyuní River near the disputed border.", "source": "Guyana Defence Force statements" }
+        {
+          "date": "2026-10",
+          "ar": "سلسلة هجمات مسلحة على دوريات لقوة دفاع غيانا على نهر كويوني قرب الحدود المتنازع عليها.",
+          "en": "A series of armed attacks on Guyana Defence Force patrols along the Cuyuní River near the disputed border.",
+          "source": "Guyana Defence Force statements"
+        }
       ],
       "confidence": "verified",
       "sourceRefs": ["icg"]
@@ -123,8 +185,18 @@
         "en": "Neither an ethnic nor religious conflict nor a civil war between political projects, but state collapse and a power vacuum filled by economically motivated armed gangs. Coded state-collapse because classing it as civil war presumes competing political parties, a presumption that does not describe the reality."
       },
       "parties": {
-        "ar": ["الحكومة الانتقالية الهايتية", "تحالفات عصابات مسلحة", "الشرطة الوطنية الهايتية", "قوة قمع العصابات المأذونة أمميّاً"],
-        "en": ["Haitian transitional government", "armed gang coalitions", "Haitian National Police", "the UN-authorised Gang Suppression Force"]
+        "ar": [
+          "الحكومة الانتقالية الهايتية",
+          "تحالفات عصابات مسلحة",
+          "الشرطة الوطنية الهايتية",
+          "قوة قمع العصابات المأذونة أمميّاً"
+        ],
+        "en": [
+          "Haitian transitional government",
+          "armed gang coalitions",
+          "Haitian National Police",
+          "the UN-authorised Gang Suppression Force"
+        ]
       },
       "ethnoReligious": null,
       "ethnoReligiousNote": {
@@ -148,10 +220,38 @@
         "en": "Position on the Caribbean narcotics and migration corridor, and the port of Port-au-Prince whose access gangs control — which has made control of roads an economic weapon."
       },
       "externalPowers": [
-        { "iso3": "USA", "role": { "ar": "دعم لوجستي للقوة الدولية ومصدر رئيسي للأسلحة المتسرّبة", "en": "Logistical support to the international force and the principal source of trafficked weapons" }, "kind": "assessed" },
-        { "iso3": "SLV", "role": { "ar": "نشرت قوات في إطار قوة قمع العصابات", "en": "Deployed troops within the Gang Suppression Force" }, "kind": "treaty" },
-        { "iso3": "KEN", "role": { "ar": "قادت البعثة الأمنية الدولية السابقة", "en": "Led the earlier international security mission" }, "kind": "treaty" },
-        { "iso3": "DOM", "role": { "ar": "تشدّد الحدود وتنفّذ عمليات ترحيل واسعة", "en": "Tightens the border and conducts large-scale deportations" }, "kind": "assessed" }
+        {
+          "iso3": "USA",
+          "role": {
+            "ar": "دعم لوجستي للقوة الدولية ومصدر رئيسي للأسلحة المتسرّبة",
+            "en": "Logistical support to the international force and the principal source of trafficked weapons"
+          },
+          "kind": "assessed"
+        },
+        {
+          "iso3": "SLV",
+          "role": {
+            "ar": "نشرت قوات في إطار قوة قمع العصابات",
+            "en": "Deployed troops within the Gang Suppression Force"
+          },
+          "kind": "treaty"
+        },
+        {
+          "iso3": "KEN",
+          "role": {
+            "ar": "قادت البعثة الأمنية الدولية السابقة",
+            "en": "Led the earlier international security mission"
+          },
+          "kind": "treaty"
+        },
+        {
+          "iso3": "DOM",
+          "role": {
+            "ar": "تشدّد الحدود وتنفّذ عمليات ترحيل واسعة",
+            "en": "Tightens the border and conducts large-scale deportations"
+          },
+          "kind": "assessed"
+        }
       ],
       "status": {
         "ar": "انهيار أمني مستمر مع نشر قوة دولية جديدة. تسيطر العصابات على ما يصل إلى 90٪ من بورت أو برنس بحسب تقديرات أممية، وتمتدّ إلى الأرياف. سجّل مكتب الأمم المتحدة المتكامل في هايتي 81 عملية اختطاف بين أبريل ويونيو 2026 ارتفاعاً من 57 في الربع الأول. بدأت قوة قمع العصابات المأذونة أمميّاً عملياتها، وتعرّضت لأول هجوم كبير في 25 أكتوبر 2026 في كروا دي بوكي حين فتحت عصابات النار على مدرّعة فُقد على إثرها أربعة جنود سلفادوريين، ونشرت السلفادور قوات لمحاولة استعادتهم. وفي سبتمبر 2026 سلّمت هايتي ثمانية عشر مشتبهاً في قضية مويز إلى الولايات المتحدة للمحاكمة.",
@@ -159,8 +259,18 @@
       },
       "statusAsOf": "2026-10-30",
       "recent": [
-        { "date": "2026-10-25", "ar": "أول هجوم كبير على القوة الدولية منذ بدء عملياتها: عصابات تفتح النار على مدرّعة في كروا دي بوكي ويُفقد أربعة جنود سلفادوريين.", "en": "The first major attack on the international force since it began operations: gangs opened fire on an armoured vehicle at Croix-des-Bouquets and four Salvadoran soldiers went missing.", "source": "AP / Gang Suppression Force spokesperson" },
-        { "date": "2026-09", "ar": "سلّمت هايتي ثمانية عشر مشتبهاً في قضية اغتيال الرئيس مويز إلى الولايات المتحدة.", "en": "Haiti transferred eighteen suspects in the Moïse assassination case to the United States.", "source": "Rio Times" }
+        {
+          "date": "2026-10-25",
+          "ar": "أول هجوم كبير على القوة الدولية منذ بدء عملياتها: عصابات تفتح النار على مدرّعة في كروا دي بوكي ويُفقد أربعة جنود سلفادوريين.",
+          "en": "The first major attack on the international force since it began operations: gangs opened fire on an armoured vehicle at Croix-des-Bouquets and four Salvadoran soldiers went missing.",
+          "source": "AP / Gang Suppression Force spokesperson"
+        },
+        {
+          "date": "2026-09",
+          "ar": "سلّمت هايتي ثمانية عشر مشتبهاً في قضية اغتيال الرئيس مويز إلى الولايات المتحدة.",
+          "en": "Haiti transferred eighteen suspects in the Moïse assassination case to the United States.",
+          "source": "Rio Times"
+        }
       ],
       "confidence": "verified",
       "sourceRefs": ["ocha-hdx", "unhcr", "acled"]
@@ -178,8 +288,18 @@
         "en": "A conflict that began ideologically over land and political representation, and after the 2016 accord became primarily an economic conflict over coca and illegal mining economies. The ideological dimension receded in favour of the economic one, and that shift is the key to understanding the present phase."
       },
       "parties": {
-        "ar": ["كولومبيا", "جيش التحرير الوطني", "منشقّون عن القوات المسلحة الثورية", "جماعات إجرامية منظّمة"],
-        "en": ["Colombia", "National Liberation Army (ELN)", "FARC dissidents", "organised criminal groups"]
+        "ar": [
+          "كولومبيا",
+          "جيش التحرير الوطني",
+          "منشقّون عن القوات المسلحة الثورية",
+          "جماعات إجرامية منظّمة"
+        ],
+        "en": [
+          "Colombia",
+          "National Liberation Army (ELN)",
+          "FARC dissidents",
+          "organised criminal groups"
+        ]
       },
       "ethnoReligious": {
         "ar": "ليس النزاع إثنياً، لكن أثره يتوزّع بشكل غير متكافئ: المجتمعات الأفرو كولومبية في تشوكو والساحل الهادئ والشعوب الأصلية في كاوكا ونارينيو تتحمّل حصّة غير متناسبة من العنف والتهجير بسبب موقعها على ممرّات التهريب.",
@@ -202,8 +322,22 @@
         "en": "The coca and cocaine economy, illegal gold mining, oil in Catatumbo and Arauca, and access corridors to both the Pacific and Atlantic, which give Colombian geography a unique trafficking value."
       },
       "externalPowers": [
-        { "iso3": "USA", "role": { "ar": "شراكة طويلة في مكافحة المخدّرات، ومصدر توتّر دوري مع بوغوتا حول سياسة الرشّ والإحلال", "en": "A long counter-narcotics partnership and a periodic source of tension with Bogotá over spraying and substitution policy" }, "kind": "treaty" },
-        { "iso3": "VEN", "role": { "ar": "حدود يعمل عبرها جيش التحرير الوطني والمنشقّون", "en": "A border across which the ELN and dissidents operate" }, "kind": "assessed" }
+        {
+          "iso3": "USA",
+          "role": {
+            "ar": "شراكة طويلة في مكافحة المخدّرات، ومصدر توتّر دوري مع بوغوتا حول سياسة الرشّ والإحلال",
+            "en": "A long counter-narcotics partnership and a periodic source of tension with Bogotá over spraying and substitution policy"
+          },
+          "kind": "treaty"
+        },
+        {
+          "iso3": "VEN",
+          "role": {
+            "ar": "حدود يعمل عبرها جيش التحرير الوطني والمنشقّون",
+            "en": "A border across which the ELN and dissidents operate"
+          },
+          "kind": "assessed"
+        }
       ],
       "status": {
         "ar": "عنف مسلح مستمر منخفض ومتوسّط الحدّة في مناطق محدّدة بعد انهيار وقف النار مع جيش التحرير الوطني، مع استهداف متكرّر لقادة المجتمعات المحلّية والناشطين البيئيين، وتهجير داخلي متجدّد. الدولة قائمة ومؤسساتها تعمل، والنزاع محصور جغرافياً.",
@@ -228,7 +362,12 @@
       },
       "parties": {
         "ar": ["الدولة المكسيكية", "كارتل سينالوا", "كارتل خاليسكو الجديد", "تنظيمات إجرامية أخرى"],
-        "en": ["Mexican state", "Sinaloa Cartel", "Jalisco New Generation Cartel", "other criminal organisations"]
+        "en": [
+          "Mexican state",
+          "Sinaloa Cartel",
+          "Jalisco New Generation Cartel",
+          "other criminal organisations"
+        ]
       },
       "ethnoReligious": null,
       "ethnoReligiousNote": {
@@ -252,8 +391,22 @@
         "en": "Trafficking routes for fentanyl, methamphetamine and cocaine into the United States; the Tijuana, Ciudad Juárez and Nuevo Laredo crossings; the ports of Manzanillo and Lázaro Cárdenas through which chemical precursors enter; plus the avocado, lime and mining economies subject to extortion."
       },
       "externalPowers": [
-        { "iso3": "USA", "role": { "ar": "سوق الاستهلاك الرئيسية ومصدر الأسلحة المتسرّبة جنوباً، وشريك في التعاون الأمني مع خلاف متكرّر على حدوده", "en": "The principal consumption market and the source of weapons trafficked south, and a security cooperation partner with recurring disagreement over its limits" }, "kind": "treaty" },
-        { "iso3": "CHN", "role": { "ar": "مصدر رئيسي للسلائف الكيميائية بحسب تقييمات أمريكية", "en": "A principal source of chemical precursors according to American assessments" }, "kind": "assessed" }
+        {
+          "iso3": "USA",
+          "role": {
+            "ar": "سوق الاستهلاك الرئيسية ومصدر الأسلحة المتسرّبة جنوباً، وشريك في التعاون الأمني مع خلاف متكرّر على حدوده",
+            "en": "The principal consumption market and the source of weapons trafficked south, and a security cooperation partner with recurring disagreement over its limits"
+          },
+          "kind": "treaty"
+        },
+        {
+          "iso3": "CHN",
+          "role": {
+            "ar": "مصدر رئيسي للسلائف الكيميائية بحسب تقييمات أمريكية",
+            "en": "A principal source of chemical precursors according to American assessments"
+          },
+          "kind": "assessed"
+        }
       ],
       "status": {
         "ar": "عنف مسلح مرتفع ومستمر بتوزيع جغرافي متباين بين الولايات، مع عمليات أمنية واسعة وتصاعد الضغط الأمريكي. الدولة قائمة ومؤسساتها تعمل، والعنف لا يستهدف إسقاط النظام بل حماية الأسواق.",
