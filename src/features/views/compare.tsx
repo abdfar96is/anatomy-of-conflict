@@ -10,7 +10,7 @@ import { Pips, StackBar } from '../../ui/charts';
 import { esc } from '../../ui/dom';
 import { Icon } from '../../ui/Icon';
 import { resClassVar, traditionColor } from '../../ui/palette';
-import { SevIcon, UvMark } from './marks';
+import { SevIcon, UvMark } from './timeline/marks';
 import { LineKey } from './network';
 import type { NetEdge } from './networkGraph';
 

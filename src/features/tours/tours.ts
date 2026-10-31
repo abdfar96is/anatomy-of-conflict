@@ -1,11 +1,13 @@
 // Guided tours: short stories stitched from entities that exist in the data.
-// M2 ports only the tour list (for the shell's tours menu and palette); the player that runs a tour is M3.
+// A step sets the lens, selects one entity (the map flies to it) and shows that entity's own text, trimmed.
+// This file holds the tour list (shared with the shell's tours menu and palette) and the player's helpers.
 
 import { atlas } from '../../app/store';
-import type { LensId } from '../../config';
+import { SEVERITY, type LensId } from '../../config';
 import type { DB, Kind } from '../../data/types';
 import type { Bi, Lang } from '../../i18n/format';
 import { registerStrings } from '../../i18n/strings';
+import { sevVar } from '../../ui/palette';
 
 registerStrings({
   ar: {
@@ -132,4 +134,40 @@ export function stepsLabel(n: number, lang: Lang = atlas.get().lang): string {
   if (n === 1) return 'محطة واحدة';
   if (n === 2) return 'محطتان';
   return n >= 3 && n <= 10 ? `${n} محطات` : `${n} محطة`;
+}
+
+/** The step index the player shows for state.tour.step: clamped to the tour's steps. */
+export const stepIndex = (tr: Tour, step: number): number => Math.max(0, Math.min(tr.steps.length - 1, step | 0));
+
+/** Trim to about `max` characters: a whole sentence when one ends late enough, else a word boundary + ellipsis. */
+export function trimCaption(text: string | null | undefined, max = 280): string {
+  const s = String(text || '').replace(/\s+/g, ' ').trim();
+  if (s.length <= max) return s;
+  const head = s.slice(0, max + 1);
+  let end = -1;
+  for (const m of head.matchAll(/[.!?؟؛](?=\s|$)/g)) if (m.index + 1 <= max && m.index + 1 >= max * 0.55) end = m.index + 1;
+  if (end > 0) return s.slice(0, end);
+  const cut = head.lastIndexOf(' ', max);
+  return s.slice(0, cut > max * 0.5 ? cut : max).replace(/[\s,،;؛:–—-]+$/, '') + '…';
+}
+
+export interface MarkPart { tag: 'circle' | 'rect' | 'path'; attrs: Record<string, string | number> }
+
+const C = 'currentColor';
+const MARKS: Record<string, MarkPart[]> = {
+  pulse: [{ tag: 'circle', attrs: { cx: 6, cy: 6, r: 2.4, fill: C } }, { tag: 'circle', attrs: { cx: 6, cy: 6, r: 5, fill: 'none', stroke: C, strokeWidth: 1.2 } }],
+  disc: [{ tag: 'circle', attrs: { cx: 6, cy: 6, r: 4.2, fill: C } }],
+  square: [{ tag: 'rect', attrs: { x: 2, y: 2, width: 8, height: 8, rx: 1, fill: C } }],
+  ring: [{ tag: 'circle', attrs: { cx: 6, cy: 6, r: 3.8, fill: 'none', stroke: C, strokeWidth: 2 } }],
+  diamond: [{ tag: 'path', attrs: { d: 'M6 1.2 10.8 6 6 10.8 1.2 6z', fill: C } }],
+  dashed: [{ tag: 'circle', attrs: { cx: 6, cy: 6, r: 4, fill: 'none', stroke: C, strokeWidth: 1.6, strokeDasharray: '2 1.6' } }],
+  dot: [{ tag: 'circle', attrs: { cx: 6, cy: 6, r: 2.4, fill: C } }],
+  hollow: [{ tag: 'circle', attrs: { cx: 6, cy: 6, r: 4, fill: 'none', stroke: C, strokeWidth: 1.2 } }],
+};
+
+/** Severity marker: the map's shape encoding, in the severity color. The player draws it as <svg class="sev-mk">. */
+export function sevMark(sevId: string): { color: string; parts: MarkPart[] } | null {
+  const shape = SEVERITY.find((s) => s.id === sevId)?.shape;
+  const parts = shape ? MARKS[shape] : undefined;
+  return parts ? { color: sevVar(sevId), parts } : null;
 }
