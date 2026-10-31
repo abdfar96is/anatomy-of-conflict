@@ -1,0 +1,28 @@
+// Transient app events that are not state: pointer hover, map flights, emphasis, toasts, tour starts, boot.
+
+import type { DB, Kind } from '../data/types';
+
+export interface Events {
+  hover: { kind: Kind; id: string; x: number; y: number } | null;
+  flyto: { kind: Kind; id: string } | { lonlat: [number, number]; k?: number } | { iso3: string[] };
+  highlight: { iso3: string[]; lonlat?: [number, number] } | null;
+  toast: string;
+  starttour: string;
+  ready: DB;
+}
+
+type Listener<E extends keyof Events> = (payload: Events[E]) => void;
+const listeners = new Map<keyof Events, Set<Listener<never>>>();
+
+export function on<E extends keyof Events>(evt: E, fn: Listener<E>): () => void {
+  let set = listeners.get(evt);
+  if (!set) listeners.set(evt, (set = new Set()));
+  set.add(fn as Listener<never>);
+  return () => { set.delete(fn as Listener<never>); };
+}
+
+export function emit<E extends keyof Events>(evt: E, payload: Events[E]): void {
+  for (const fn of listeners.get(evt) ?? []) {
+    try { (fn as Listener<E>)(payload); } catch (err) { console.error(`[atlas] listener for "${evt}" failed`, err); }
+  }
+}
