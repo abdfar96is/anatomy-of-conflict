@@ -1,0 +1,2 @@
+/* React mounts the v2 skeleton inside #root, so #root takes the full height that #app expects. */
+#root { height: 100%; }

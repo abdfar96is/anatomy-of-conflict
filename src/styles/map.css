@@ -1,0 +1,159 @@
+/* Map engine chrome: the canvases, map controls (#mapctl, inline-end bottom) and the lens card (#legend, inline-start bottom). */
+
+/* ---------- canvases ---------- */
+#map { touch-action: none; user-select: none; -webkit-user-select: none; -webkit-tap-highlight-color: transparent; }
+#map:focus-visible { outline: 2px solid var(--accent); outline-offset: -3px; border-radius: 0; }
+#map.hot { cursor: pointer; }
+#map.dragging { cursor: grabbing; }
+#map .map-layer, #map .map-ghost { position: absolute; inset: 0 auto auto 0; display: block; transform-origin: 50% 50%; }
+#map .map-layer { transition: opacity .5s var(--ease), transform .6s var(--ease); }
+#map.map-enter .map-layer { opacity: 0; transform: scale(.94); transition: none; }
+#map .map-ghost { pointer-events: none; transition: opacity .42s var(--ease), transform .6s var(--ease); }
+#map .map-ghost.out { opacity: 0; transform: scale(1.05); }
+
+/* ---------- shared insets (both corners use the same gutter so the card can stop short of the controls) ---------- */
+#mapctl, #legend {
+  --map-gap: 12px;
+  --map-safe-x: max(env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
+  --map-safe-b: env(safe-area-inset-bottom, 0px);
+  --ctl-size: 36px;
+}
+@media (pointer: coarse) { #mapctl, #legend { --ctl-size: 44px; } }
+
+/* ---------- map controls ---------- */
+#mapctl {
+  position: absolute; z-index: 12;
+  inset-inline-end: calc(var(--map-gap) + var(--map-safe-x));
+  bottom: calc(var(--map-gap) + var(--map-safe-b));
+  display: flex; flex-direction: column; gap: 8px;
+}
+#mapctl .ctl-stack {
+  display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r-2); box-shadow: var(--shadow-sm); overflow: hidden;
+}
+#mapctl .ctl {
+  width: var(--ctl-size); height: var(--ctl-size); min-height: 0; border: 0; border-radius: 0;
+  background: transparent; color: var(--fg-2);
+}
+#mapctl .ctl + .ctl { border-top: 1px solid var(--line-2); }
+#mapctl .ctl:hover { background: var(--surface-3); color: var(--fg); }
+#mapctl .ctl:focus-visible { outline-offset: -2px; }
+#mapctl .ctl[aria-pressed="true"] { background: var(--accent-soft); color: var(--accent-2); }
+:root[data-theme="light"] #mapctl .ctl[aria-pressed="true"] { color: var(--accent); }
+
+#mapctl .ctl-pop {
+  position: absolute; bottom: 0; inset-inline-end: calc(100% + 8px); width: 212px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-2); box-shadow: var(--shadow);
+  padding: 10px 12px 8px; display: grid; gap: 2px;
+}
+#mapctl .ctl-pop .lc-label { margin-bottom: 4px; }
+#mapctl .ctl-check {
+  display: flex; align-items: center; gap: 10px; min-height: 32px; font-size: var(--fs-sm); color: var(--fg); cursor: pointer;
+}
+#mapctl .ctl-check input { width: 16px; height: 16px; margin: 0; accent-color: var(--accent); flex: none; }
+@media (pointer: coarse) { #mapctl .ctl-check { min-height: 44px; } }
+
+/* ---------- lens card ---------- */
+#legend {
+  position: absolute; z-index: 11;
+  inset-inline-start: calc(var(--map-gap) + var(--map-safe-x));
+  bottom: calc(var(--map-gap) + var(--map-safe-b));
+  width: 312px;
+  /* never reaches the control column on the inline-end side */
+  max-width: calc(100% - 2 * var(--map-gap) - 2 * var(--map-safe-x) - var(--ctl-size) - 14px);
+  max-height: calc(100% - 2 * var(--map-gap) - var(--map-safe-b));
+  display: flex; flex-direction: column;
+  background: var(--surface); color: var(--fg); border: 1px solid var(--line); border-radius: var(--r-3);
+  box-shadow: var(--shadow-sm); overflow: hidden;
+}
+#legend .lc-head {
+  display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 10px;
+  width: 100%; padding: 10px 12px; text-align: start; min-height: 52px; flex: none;
+}
+#legend .lc-head:hover { background: var(--surface-2); }
+#legend .lc-head:focus-visible { outline-offset: -2px; border-radius: var(--r-3); }
+#legend .lc-ico {
+  width: 30px; height: 30px; display: grid; place-items: center; border-radius: var(--r-2);
+  background: var(--accent-soft); color: var(--accent-2);
+}
+:root[data-theme="light"] #legend .lc-ico { color: var(--accent); }
+#legend .lc-tt { display: grid; min-width: 0; line-height: 1.3; }
+#legend .lc-title { font-family: var(--font-display); font-weight: 600; font-size: var(--fs-lg); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#legend .lc-sub { font-size: var(--fs-xs); color: var(--fg-3); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#legend .lc-chev { color: var(--fg-3); transform: rotate(90deg); transition: transform .2s var(--ease); }
+#legend.collapsed .lc-chev { transform: rotate(-90deg); }
+
+#legend .lc-body {
+  display: grid; gap: 14px; align-content: start; padding: 2px 12px 12px; border-top: 1px solid var(--line-2);
+  min-height: 0; overflow-y: auto;
+}
+#legend .lc-body > :first-child { margin-top: 10px; }
+#legend .lc-sec { display: grid; gap: 8px; min-width: 0; }
+.lc-label { font-size: var(--fs-xs); color: var(--fg-3); font-weight: 500; margin: 0; }
+
+#legend .chips { gap: 5px; }
+#legend .chip { min-height: 28px; padding: 0 9px; font-size: var(--fs-xs); gap: 5px; max-width: 100%; }
+#legend .chip > span:not(.n):not(.sw) { overflow: hidden; text-overflow: ellipsis; }
+#legend .chip[aria-pressed="false"] .glyph, #legend .chip[aria-pressed="false"] .sw { opacity: .45; }
+#legend .chip[aria-pressed="true"] .glyph { filter: drop-shadow(0 0 0.5px var(--bg)); }
+@media (pointer: coarse) { #legend .chip { min-height: 36px; } }
+
+#legend .lc-keys { display: grid; gap: 6px; }
+#legend .lc-keys li { display: flex; align-items: center; gap: 8px; font-size: var(--fs-sm); color: var(--fg-2); line-height: 1.35; min-width: 0; }
+#legend .lc-keys .k-l { min-width: 0; }
+#legend .lc-keys .n { margin-inline-start: auto; font-family: var(--font-data); font-size: var(--fs-xs); color: var(--fg-3); }
+
+#legend .sw { width: 12px; height: 12px; border-radius: 3px; }
+#legend .sw-land { box-shadow: inset 0 0 0 1px var(--geo-border); }
+#legend .sw-hatch {
+  background-color: transparent;
+  background-image: repeating-linear-gradient(-45deg, var(--hatch) 0 1.2px, transparent 1.2px 4.2px);
+  box-shadow: inset 0 0 0 1px var(--hatch);
+}
+#legend .sw-nodata { background-color: var(--land-muted); box-shadow: inset 0 0 0 1px var(--geo-border); opacity: .9; }
+#legend .sw-round { border-radius: 50%; }
+#legend .glyph { flex: none; display: block; overflow: visible; }
+#legend .glyph.line { width: 26px; }
+#legend .weights, #legend .sizes { display: inline-flex; align-items: center; gap: 3px; flex: none; }
+#legend .weights .glyph.line { width: 16px; }
+#legend .dot-accent { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex: none; margin-inline: 2.5px; box-shadow: 0 0 0 1.5px var(--label-halo); }
+#legend .bang {
+  width: 14px; height: 14px; border-radius: 50%; flex: none; display: inline-grid; place-items: center;
+  border: 1.2px solid var(--warn); color: var(--warn); background: var(--surface);
+  font: 700 9px/1 var(--font-data);
+}
+#legend .st-ic { display: inline-grid; place-items: center; flex: none; margin-inline-start: -3px; }
+#legend .tone-good { color: var(--good); }
+#legend .tone-warn { color: var(--warn); }
+#legend .tone-critical { color: var(--critical); }
+
+#legend .lc-ramp { display: grid; gap: 4px; }
+#legend .ramp { display: block; height: 8px; border-radius: 4px; box-shadow: inset 0 0 0 1px var(--line-2); }
+#legend .ramp-ends { display: flex; justify-content: space-between; gap: 8px; font-size: var(--fs-xs); color: var(--fg-3); }
+#legend .ramp-ends .num { font-family: var(--font-data); }
+#legend .ramp-ends .num:not(:only-child) { white-space: nowrap; }
+
+#legend .lc-field { display: grid; gap: 6px; }
+#legend .lc-select {
+  width: 100%; min-height: 34px; padding-inline: 8px; border-radius: var(--r-2);
+  background: var(--surface-2); border: 1px solid var(--line); color: var(--fg); font-size: var(--fs-sm);
+}
+#legend .lc-select:hover { border-color: var(--fg-3); }
+#legend .lc-stat { display: grid; gap: 2px; font-size: var(--fs-sm); color: var(--fg); }
+#legend .lc-stat span + span { color: var(--fg-2); }
+#legend .lc-note { font-size: var(--fs-xs); color: var(--fg-3); line-height: 1.55; }
+#legend .lc-caveat { font-size: var(--fs-xs); line-height: 1.55; padding: 8px 10px; }
+#legend .lc-actions { display: flex; }
+#legend .lc-actions .btn { width: 100%; }
+
+@media (max-width: 760px) {
+  #mapctl, #legend { --map-gap: 8px; }
+  #legend { width: 300px; border-radius: var(--r-2); }
+  #legend .lc-head { min-height: 44px; padding: 6px 10px; gap: 8px; }
+  #legend .lc-ico { width: 26px; height: 26px; }
+  #legend .lc-title { font-size: var(--fs-md); }
+  #mapctl { gap: 6px; }
+}
+@media (max-height: 520px) {
+  #legend .lc-sub { display: none; }
+}

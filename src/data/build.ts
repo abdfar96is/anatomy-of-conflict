@@ -1,6 +1,6 @@
 // Builds one linked model (DB) from the raw data files. Pure: the input is cloned, never mutated.
 
-import { geoArea, geoCentroid, geoDistance } from 'd3-geo';
+import { geoArea, geoCentroid, geoDistance } from 'd3';
 import type { Feature, FeatureCollection } from 'geojson';
 import { RELIGION_FAMILIES, RESOURCE_CLASSES, SEVERITY_RANK } from '../config';
 import { normalize, type Lang } from '../i18n/format';
