@@ -27,7 +27,8 @@ export const nextTheme = (theme: Theme = atlas.get().theme): Theme => THEMES[(TH
 export const setLens = (id: LensId) => { atlas.set({ lens: id, view: null }); };
 export const toggleView = (id: ViewId) => (atlas.get().view === id ? atlas.closeView() : atlas.openView(id));
 export const toggleLang = () => { atlas.set({ lang: atlas.get().lang === 'ar' ? 'en' : 'ar' }); };
-export const startTour = (id: string) => { emit('starttour', id); };
+// Started from a menu: the tour card takes focus (v2 sent the same {id, focus} payload).
+export const startTour = (id: string) => { emit('starttour', { id, focus: true }); };
 
 export function cycleTheme(): void {
   const next = nextTheme();

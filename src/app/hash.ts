@@ -44,6 +44,9 @@ function currentToken(): string {
   }
 }
 
+// The start link's map flight waits for the first frame; stop() must be able to cancel it.
+let flyTimer: ReturnType<typeof setTimeout> | undefined;
+
 /** Apply the current hash. Returns false when there is no valid token. */
 export function applyHash(db: DB): boolean {
   const parsed = parseHash(currentToken(), db);
@@ -51,7 +54,7 @@ export function applyHash(db: DB): boolean {
   if (parsed.tour) { emit('starttour', parsed.tour); return true; }
   if (parsed.patch) atlas.set(parsed.patch);
   const fly = parsed.fly;
-  if (fly) setTimeout(() => emit('flyto', fly), 50);
+  if (fly) { clearTimeout(flyTimer); flyTimer = setTimeout(() => emit('flyto', fly), 50); }
   return true;
 }
 
@@ -66,8 +69,12 @@ export function startHashSync(db: DB): () => void {
     const token = hashToken(s);
     if (currentToken() === token) return;
     writing = true;
-    history.replaceState(null, '', '#' + token);
+    try {
+      history.replaceState(null, '', '#' + token);
+    } catch {
+      location.hash = token; // history blocked (sandboxed frame): fall back to a plain hash write
+    }
     setTimeout(() => { writing = false; }, 0);
   });
-  return () => { removeEventListener('hashchange', onHash); unsub(); };
+  return () => { removeEventListener('hashchange', onHash); unsub(); clearTimeout(flyTimer); };
 }

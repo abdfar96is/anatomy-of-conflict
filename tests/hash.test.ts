@@ -1,4 +1,4 @@
-import { afterEach, beforeAll, describe, expect, test } from 'vitest';
+import { afterEach, beforeAll, describe, expect, test, vi } from 'vitest';
 import { atlas, initialState, type AtlasState } from '../src/app/store';
 import { hashToken, parseHash, startHashSync } from '../src/app/hash';
 import { build } from '../src/data/build';
@@ -59,6 +59,30 @@ describe('bad links are ignored', () => {
     expect(atlas.get().selection).toEqual({ kind: 'country', id: 'SAU' });
     atlas.set({ selection: { kind: 'conflict', id: 'sudan' } });
     expect(location.hash).toBe('#conflict-sudan');
+    stop();
+  });
+});
+
+describe('hash sync robustness (M1 review minors)', () => {
+  test('stop() cancels the pending map flight from the start link', async () => {
+    const { on } = await import('../src/app/events');
+    vi.useFakeTimers();
+    const flights: unknown[] = [];
+    const off = on('flyto', (p) => flights.push(p));
+    history.replaceState(null, '', '#conflict-sudan');
+    const stop = startHashSync(db);
+    stop();
+    vi.advanceTimersByTime(200);
+    off();
+    vi.useRealTimers();
+    expect(flights).toEqual([]);
+  });
+  test('a blocked history API does not break state changes', () => {
+    const stop = startHashSync(db);
+    const spy = vi.spyOn(history, 'replaceState').mockImplementation(() => { throw new Error('SecurityError'); });
+    expect(() => atlas.set({ lens: 'religion' })).not.toThrow();
+    expect(location.hash).toBe('#lens-religion');
+    spy.mockRestore();
     stop();
   });
 });

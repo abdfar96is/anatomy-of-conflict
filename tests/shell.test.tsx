@@ -283,8 +283,8 @@ describe('top bar', () => {
 describe('tours menu', () => {
   test('opens the tour list; picking a tour emits starttour and closes it', () => {
     renderShell();
-    const started: string[] = [];
-    const off = on('starttour', (id) => started.push(id));
+    const started: unknown[] = [];
+    const off = on('starttour', (p) => started.push(p));
     const btn = q('#topbar [data-k="tours"]')!;
     expect(btn).toHaveAttribute('aria-expanded', 'false');
     fireEvent.click(btn);
@@ -296,7 +296,7 @@ describe('tours menu', () => {
     expect(pop.querySelectorAll('.tour-row')).toHaveLength(availableTours(db).length);
     fireEvent.click(q('#sh-tours [data-k="pt-europe"]')!);
     off();
-    expect(started).toEqual(['europe']);
+    expect(started).toEqual([{ id: 'europe', focus: true }]);
     expect(q('#sh-tours')!.hidden).toBe(true);
     expect(btn).toHaveAttribute('aria-expanded', 'false');
   });

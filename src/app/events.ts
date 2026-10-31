@@ -7,7 +7,7 @@ export interface Events {
   flyto: { kind: Kind; id: string } | { lonlat: [number, number]; k?: number } | { iso3: string[] };
   highlight: { iso3: string[]; lonlat?: [number, number] } | null;
   toast: string;
-  starttour: string;
+  starttour: string | { id: string; focus?: boolean };
   ready: DB;
 }
 
