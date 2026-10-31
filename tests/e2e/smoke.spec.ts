@@ -41,9 +41,24 @@ test('compare and tour links work from a cold load', async ({ page }) => {
 });
 
 test('phone width has no sideways scroll', async ({ page }) => {
+  const errors = watchErrors(page);
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/#conflict-sudan');
   await expect(page.locator('#dossier')).toBeVisible();
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
   expect(overflow).toBe(false);
+  expect(errors).toEqual([]);
+});
+
+test('on a phone, picking a record while a view is open swaps the view for the dossier sheet', async ({ page }) => {
+  const errors = watchErrors(page);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#view-network');
+  await expect(page.locator('#viewpanel')).toBeVisible();
+  await page.keyboard.press('/');
+  await page.locator('#palette input').fill('السعوديه');
+  await page.keyboard.press('Enter');
+  await expect(page.locator('#dossier')).toBeVisible();
+  await expect(page.locator('#viewpanel')).toBeHidden();
+  expect(errors).toEqual([]);
 });
