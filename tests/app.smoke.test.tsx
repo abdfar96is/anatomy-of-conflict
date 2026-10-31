@@ -1,8 +1,11 @@
 import { render, screen } from '@testing-library/react';
-import { expect, test } from 'vitest';
+import { afterEach, expect, test, vi } from 'vitest';
 import App from '../src/App';
 
-test('renders the app name', () => {
+afterEach(() => { vi.unstubAllGlobals(); });
+
+test('renders the app name while loading', () => {
+  vi.stubGlobal('fetch', vi.fn(() => new Promise(() => {})));
   render(<App />);
   expect(screen.getByText('أطلس خطوط الصدع')).toBeInTheDocument();
 });
