@@ -7,4 +7,4 @@
 
 Changes this project made to the compiled content are listed in `curated/corrections.json` and on the atlas's Sources page, as CC BY 4.0 asks. Each record names its own sources in `sources.json`; those sources keep their own terms.
 
-When you reuse the curated data, credit "Fault Lines Atlas contributors" and the original compilation, link to the licence, and say what you changed.
+When you reuse the curated data, credit "Anatomy of Conflict contributors" and the original compilation, link to the licence, and say what you changed.

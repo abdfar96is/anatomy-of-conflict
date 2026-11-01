@@ -2,7 +2,7 @@
   "name": "fault-lines-atlas",
   "version": "3.0.0-dev",
   "private": true,
-  "description": "Fault Lines Atlas (أطلس خطوط الصدع): an open-source, bilingual atlas of the world's political, ethnic and religious geography",
+  "description": "Anatomy of Conflict (تشريح الصراع): an open-source, bilingual atlas of the world's political, ethnic and religious geography",
   "license": "MIT",
   "type": "module",
   "repository": "github:muradalshorman987/fault-lines-atlas",

@@ -1,4 +1,4 @@
-# أطلس خطوط الصدع — Fault Lines Atlas
+# تشريح الصراع — Anatomy of Conflict
 
 An open-source, bilingual (Arabic / English) interactive atlas that links geography to ethnicity, religion, conflicts, resources and alliances.
 أطلس تفاعلي مفتوح المصدر يربط الجغرافيا بالعرق والدين والنزاعات والموارد والتحالفات، بالعربية والإنجليزية.

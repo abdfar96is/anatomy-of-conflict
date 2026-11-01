@@ -36,7 +36,7 @@ describe('Boot', () => {
     await screen.findByText('atlas ready');
     act(() => { atlas.set({ lang: 'en' }); });
     expect(document.documentElement.dir).toBe('ltr');
-    expect(document.title).toBe('Fault Lines Atlas');
+    expect(document.title).toBe('Anatomy of Conflict');
   });
 
   test('a failed file shows the error and Retry loads again without a page reload', async () => {

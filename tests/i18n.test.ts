@@ -28,7 +28,7 @@ describe('strings', () => {
   });
   test('falls back to the key when no language has it', () => expect(translate('en', 'missing')).toBe('missing'));
   test('fills placeholders', () => expect(translate('ar', 'loadingFile', { name: 'x' })).toBe('تحميل x'));
-  test('core strings exist in both languages', () => expect(translate('en', 'appName')).toBe('Fault Lines Atlas'));
+  test('core strings exist in both languages', () => expect(translate('en', 'appName')).toBe('Anatomy of Conflict'));
   test('pick chooses the language and passes strings through', () => {
     expect(pick('en', { ar: 'أ', en: 'a' })).toBe('a');
     expect(pick('ar', 'plain')).toBe('plain');

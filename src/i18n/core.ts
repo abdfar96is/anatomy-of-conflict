@@ -4,7 +4,7 @@ import { registerStrings } from './strings';
 
 registerStrings({
   ar: {
-    appName: 'أطلس خطوط الصدع',
+    appName: 'تشريح الصراع',
     appTag: 'الجغرافيا السياسية والعرقية والدينية للعالم',
     loading: 'جارٍ تحميل الأطلس…',
     loadingFile: 'تحميل {name}',
@@ -14,7 +14,7 @@ registerStrings({
     close: 'إغلاق',
   },
   en: {
-    appName: 'Fault Lines Atlas',
+    appName: 'Anatomy of Conflict',
     appTag: 'The political, ethnic and religious geography of the world',
     loading: 'Loading the atlas…',
     loadingFile: 'Loading {name}',
