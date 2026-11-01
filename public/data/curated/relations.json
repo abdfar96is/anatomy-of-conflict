@@ -1798,6 +1798,69 @@
       "weight": 2,
       "ar": "أنهت تشاد اتفاق الدفاع لعام 1976 في نوفمبر 2024 وغادرت القوات الفرنسية في يناير 2025، ثم استؤنف تعاون محدود في التدريب والاستخبارات مطلع 2026 دون قواعد دائمة",
       "en": "Chad ended the 1976 defence agreement in November 2024 and French troops left in January 2025; limited cooperation on training and intelligence resumed in early 2026, without permanent bases"
+    },
+    {
+      "a": "GBR",
+      "b": "KEN",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 4,
+      "ar": "وحدة تدريب الجيش البريطاني في كينيا (باتوك) منذ 1964 واتفاقية تعاون دفاعي (2021) ضدّ الشباب؛ تعثّر تجديدها في 2026 بسبب خلاف حول الولاية القضائية على الجنود البريطانيين، ونُقلت مناورة سبتمبر 2026 خارج كينيا",
+      "en": "The British Army Training Unit Kenya (BATUK) since 1964 and a defence cooperation agreement (2021) against al-Shabaab; its renewal stalled in 2026 over jurisdiction over British soldiers, and a September 2026 exercise was moved out of Kenya"
+    },
+    {
+      "a": "GBR",
+      "b": "NGA",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "شراكة أمنية ودفاعية (2018) ضمن شراكة استراتيجية (2024)، وحوار دوري آخره في أبوجا (يونيو 2026) حول مكافحة الإرهاب والأمن البحري وتبادل المعلومات",
+      "en": "A security and defence partnership (2018) within a strategic partnership (2024), with a regular dialogue, most recently in Abuja (June 2026), on counter-terrorism, maritime security and intelligence sharing"
+    },
+    {
+      "a": "GBR",
+      "b": "GHA",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 2,
+      "ar": "حوار أمني ودفاعي (2023) لتوسيع التعاون في العمليات الخاصة، وفرق تدريب بريطانية و70 مركبة مدرّعة لتأمين الحدود الشمالية",
+      "en": "A security and defence dialogue (2023) expanding cooperation in special operations, British training teams, and 70 armoured vehicles for northern border security"
+    },
+    {
+      "a": "GBR",
+      "b": "SLE",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 2,
+      "ar": "تدخّل عسكري بريطاني لإنهاء الحرب الأهلية عام 2000، ثم فريق تدريب عسكري مقيم أعاد بناء الجيش، وتدريب مشترك مستمر",
+      "en": "A British military intervention that helped end the civil war in 2000, followed by a resident military training team that rebuilt the army, and continuing joint training"
+    },
+    {
+      "a": "GBR",
+      "b": "EGY",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 2,
+      "ar": "مذكّرة تفاهم حول المناورات المشتركة (مناورة «أحمس»)، ومشاركة بريطانية في مناورات «النجم الساطع»",
+      "en": "A memorandum of understanding on joint exercises (Exercise Ahmose), and British participation in the Bright Star exercises"
+    },
+    {
+      "a": "GBR",
+      "b": "MAR",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 2,
+      "ar": "حوار استراتيجي (2018) يشمل التعاون الدفاعي والتدريب والمناورات المشتركة واللجنة العسكرية",
+      "en": "A strategic dialogue (2018) covering defence cooperation, training, joint exercises and a military committee"
+    },
+    {
+      "a": "FRA",
+      "b": "KEN",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "اتفاقية تعاون دفاعي (وُقّعت أكتوبر 2025، صدّق عليها البرلمان الكيني في أبريل 2026) تتيح انتشاراً متبادلاً للقوات والتدريب والأمن البحري، وانتقدها معارضون بسبب حصانة الجنود الفرنسيين",
+      "en": "A defence cooperation agreement (signed October 2025, ratified by Kenya's parliament in April 2026) allowing reciprocal deployments, training and maritime security; critics object to the immunity it grants French troops"
     }
   ],
   "bilateral": {
