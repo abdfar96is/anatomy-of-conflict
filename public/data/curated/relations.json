@@ -1551,6 +1551,135 @@
       "weight": 4,
       "ar": "اتفاقات إطارية (2022) لأكبر صفقات تسليح كورية: دبابات K2 ومدافع K9 ومقاتلات FA-50 وراجمات «تشونمو»",
       "en": "Framework agreements (2022) for South Korea's largest arms deals: K2 tanks, K9 howitzers, FA-50 fighters and Chunmoo rocket launchers"
+    },
+    {
+      "a": "RUS",
+      "b": "DZA",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 4,
+      "ar": "أكبر مشترٍ للسلاح الروسي في أفريقيا، وإعلان الشراكة الاستراتيجية المعمّقة (2023)",
+      "en": "The largest buyer of Russian arms in Africa, and the Declaration on Deepened Strategic Partnership (2023)"
+    },
+    {
+      "a": "RUS",
+      "b": "EGY",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "تعاون عسكري تقني ومناورات مشتركة، ومحطة الضبعة النووية التي تبنيها روسيا",
+      "en": "Military-technical cooperation and joint exercises, and the El Dabaa nuclear plant being built by Russia"
+    },
+    {
+      "a": "RUS",
+      "b": "LBY",
+      "type": "military",
+      "kind": "assessed",
+      "weight": 4,
+      "ar": "وجود «الفيلق الأفريقي» في قواعد شرق ليبيا وجنوبها بالتنسيق مع قوات حفتر لا مع حكومة طرابلس المعترف بها، ونقطة ارتكاز لعملياته في الساحل",
+      "en": "The Africa Corps is present at bases in eastern and southern Libya in coordination with Haftar's forces, not the recognised Tripoli government, and uses them as a hub for its Sahel operations"
+    },
+    {
+      "a": "RUS",
+      "b": "SDN",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 2,
+      "ar": "اتفاق 2020 لإنشاء قاعدة بحرية روسية في بورتسودان لمدة 25 عاماً، علّقته الحرب وتراجعه الحكومة السودانية في 2026",
+      "en": "A 2020 agreement for a Russian naval base at Port Sudan for 25 years, stalled by the war and under review by the Sudanese government in 2026",
+      "contested": true
+    },
+    {
+      "a": "RUS",
+      "b": "ETH",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 2,
+      "ar": "اتفاقية تعاون عسكري (يوليو 2021) تركّز على نقل المعرفة والتقنية",
+      "en": "A military cooperation agreement (July 2021) focused on knowledge and technology transfer"
+    },
+    {
+      "a": "RUS",
+      "b": "CMR",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 2,
+      "ar": "اتفاقية تعاون عسكري لخمس سنوات (أبريل 2022) بعد اتفاق 2015 لمواجهة بوكو حرام",
+      "en": "A five-year military cooperation agreement (April 2022) following a 2015 agreement against Boko Haram"
+    },
+    {
+      "a": "RUS",
+      "b": "NGA",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 2,
+      "ar": "اتفاقية تعاون عسكري تقني (أغسطس 2021) لتوريد المعدّات والتدريب، حلّت محلّ اتفاق 2001",
+      "en": "A military-technical cooperation agreement (August 2021) on equipment supply and training, replacing a 2001 pact"
+    },
+    {
+      "a": "RUS",
+      "b": "TGO",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 2,
+      "ar": "اتفاقية تعاون عسكري (2025، صدّق عليها البرلمان الروسي في أكتوبر 2025) تشمل التدريب والمناورات وزيارات السفن الحربية",
+      "en": "A military cooperation agreement (2025, ratified by the Russian parliament in October 2025) covering training, exercises and warship visits"
+    },
+    {
+      "a": "RUS",
+      "b": "GNQ",
+      "type": "military",
+      "kind": "assessed",
+      "weight": 2,
+      "ar": "مدرّبون من «الفيلق الأفريقي» منذ 2024 لحماية الرئاسة وتدريب القوات في مالابو وباتا، دون إعلان رسمي من الحكومة",
+      "en": "Africa Corps instructors since 2024 guarding the presidency and training forces in Malabo and Bata, without official acknowledgement by the government",
+      "contested": true
+    },
+    {
+      "a": "CHN",
+      "b": "TZA",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 4,
+      "ar": "أعمق شراكة عسكرية صينية في أفريقيا: تدريب وتسليح ومنشآت عسكرية بنتها الصين مثل مركز مابينغا وقاعدة كيغامبوني البحرية، ومناورات «وحدة السلام 2024»",
+      "en": "China's deepest military partnership in Africa: training, arms and Chinese-built military facilities such as the Mapinga centre and the Kigamboni naval base, and the Peace Unity 2024 exercises"
+    },
+    {
+      "a": "CHN",
+      "b": "EGY",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "أول مناورة جوية مشتركة «نسور الحضارة 2025» شاركت فيها مقاتلات J-10C وطائرات الإنذار المبكر الصينية، وأول إرسال صيني لتشكيلات جوية إلى أفريقيا",
+      "en": "The first joint air exercise, Eagles of Civilization 2025, with Chinese J-10C fighters and early-warning aircraft, China's first deployment of air force packages to Africa"
+    },
+    {
+      "a": "CHN",
+      "b": "DZA",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "شراكة استراتيجية شاملة (2014)، ومورّد رئيسي للسفن الحربية والمدفعية والمسيّرات بعد روسيا",
+      "en": "A comprehensive strategic partnership (2014), and a major supplier of warships, artillery and drones after Russia"
+    },
+    {
+      "a": "CHN",
+      "b": "MRT",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 2,
+      "ar": "مذكّرتا تفاهم للتعاون العسكري وُقّعتا على هامش منتدى السلام والأمن الصيني الأفريقي في بكين (سبتمبر 2026)",
+      "en": "Two military cooperation memoranda signed on the sidelines of the China–Africa Peace and Security Forum in Beijing (September 2026)"
+    },
+    {
+      "a": "CHN",
+      "b": "GNQ",
+      "type": "military",
+      "kind": "assessed",
+      "weight": 2,
+      "ar": "تقارير عن محادثات لإنشاء قاعدة بحرية صينية على المحيط الأطلسي في باتا، تنفيها الحكومة ولم تُؤكَّد",
+      "en": "Reports of talks on a Chinese Atlantic naval facility at Bata, denied by the government and unconfirmed",
+      "contested": true
     }
   ],
   "bilateral": {
