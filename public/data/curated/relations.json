@@ -417,11 +417,11 @@
     {
       "a": "RUS",
       "b": "CHN",
-      "type": "economic",
+      "type": "military",
       "kind": "treaty",
       "weight": 5,
-      "ar": "شراكة اقتصادية وطاقية تخفّف أثر العقوبات على موسكو، دون معاهدة دفاع متبادل",
-      "en": "An economic and energy partnership softening the impact of sanctions on Moscow, without a mutual defence treaty"
+      "ar": "شراكة «بلا حدود» (2022) ومعاهدة حسن الجوار (2001) دون بند دفاع مشترك، ودوريات قاذفات وبحرية مشتركة قرب اليابان وألاسكا منذ 2019، وشراكة طاقة واقتصاد تخفّف أثر العقوبات على موسكو",
+      "en": "A \"no limits\" partnership (2022) and the Treaty of Good-Neighbourliness (2001) without a mutual defence clause, joint bomber and naval patrols near Japan and Alaska since 2019, and an energy and economic partnership that softens sanctions on Moscow"
     },
     {
       "a": "RUS",
@@ -555,8 +555,8 @@
       "type": "military",
       "kind": "treaty",
       "weight": 5,
-      "ar": "شراكة استراتيجية والممرّ الاقتصادي الصيني الباكستاني وميناء غوادر",
-      "en": "A strategic partnership, the China–Pakistan Economic Corridor and Gwadar port"
+      "ar": "شراكة استراتيجية «في كل الظروف»، والصين مصدر نحو 80% من واردات باكستان من السلاح، واستُخدمت مقاتلات J-10C الصينية في مواجهة مايو 2025 مع الهند، إضافة إلى الممر الاقتصادي وميناء جوادر",
+      "en": "An \"all-weather\" strategic partnership; China supplies about 80% of Pakistan's arms imports, and Chinese J-10C fighters were used in the May 2025 clash with India; plus the Economic Corridor and Gwadar port"
     },
     {
       "a": "CHN",
@@ -1916,6 +1916,42 @@
       "ar": "تقارير عن موافقة ساحل العاج على تمركز مسيّرات أمريكية في بواكيه بعد خسارة القاعدة الأمريكية في النيجر، دون تأكيد رسمي لإنشاء قاعدة",
       "en": "Reports that Côte d'Ivoire agreed to host US drones at Bouaké after the loss of the US base in Niger, without official confirmation of a base",
       "contested": true
+    },
+    {
+      "a": "CHN",
+      "b": "LAO",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "مركز الدعم والتدريب المشترك وأكاديمية الطيران في مطار بان كيون (سبتمبر 2026)، أول منشأة عسكرية صينية معلنة في الخارج تتمحور حول القوة الجوية، والصين أول شريك لاوس في المناورات",
+      "en": "The joint support and training centre and aviation academy at Ban Keun airport (September 2026), China's first acknowledged overseas military facility centred on air power; China is also Laos's top exercise partner"
+    },
+    {
+      "a": "CHN",
+      "b": "TJK",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "اتفاقيات لتمويل مواقع حدودية على الحدود الأفغانية (2016) وقاعدة لوحدة التدخّل السريع الطاجيكية (2021)، وتقارير عن عناصر صينية في مرغاب ينفيها البلدان",
+      "en": "Agreements funding outposts on the Afghan border (2016) and a base for the Tajik rapid reaction unit (2021), and reports of Chinese personnel at Murghab that both countries deny"
+    },
+    {
+      "a": "CHN",
+      "b": "THA",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "عقد حكومي لشراء غواصة S26T (2017، متعثّر)، ودبابات VT-4، ومناورات منتظمة «ضربة» و«الضربة الزرقاء» و«ضربة الصقر» شاركت فيها مقاتلات J-10C عام 2025، رغم أن تايلاند حليف تعاهدي لأمريكا",
+      "en": "A government-to-government contract for an S26T submarine (2017, delayed), VT-4 tanks, and regular Strike, Blue Strike and Falcon Strike exercises, the latter with J-10C fighters in 2025, although Thailand is a US treaty ally"
+    },
+    {
+      "a": "CHN",
+      "b": "BGD",
+      "type": "military",
+      "kind": "assessed",
+      "weight": 3,
+      "ar": "أكبر مورّد سلاح لبنغلاديش بنحو 72% من وارداتها (2019–2023 وفق معهد ستوكهولم)، منها غواصتان وفرقاطات ومقاتلات",
+      "en": "Bangladesh's largest arms supplier, with about 72% of its imports (2019–2023, per SIPRI), including two submarines, frigates and fighters"
     }
   ],
   "bilateral": {
