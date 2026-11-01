@@ -1753,6 +1753,51 @@
       "ar": "تقارير عن تولّي تركيا قاعدة أبشي ونشر مسيّرات ومستشارين بعد الانسحاب الفرنسي عام 2025، دون اتفاق دفاعي رسمي معلن، إضافة إلى صفقات طائرات ومسيّرات تركية",
       "en": "Reports that Türkiye took over the Abéché base and deployed drones and advisers after the French withdrawal in 2025, with no announced formal defence agreement, alongside Turkish aircraft and drone sales",
       "contested": true
+    },
+    {
+      "a": "FRA",
+      "b": "GAB",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "معاهدة شراكة دفاعية (2010)؛ تحوّل معسكر ديغول في ليبرفيل عام 2025 إلى موقع مشترك مع الجيش الغابوني، وبقيت مفرزة اتصال فرنسية من نحو 100 عسكري",
+      "en": "A defence partnership treaty (2010); in 2025 Camp de Gaulle in Libreville became a site shared with the Gabonese army, leaving a French liaison detachment of around 100 personnel"
+    },
+    {
+      "a": "FRA",
+      "b": "CIV",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "معاهدة شراكة دفاعية (2012)؛ سلّمت فرنسا قاعدة بور بويه في فبراير 2025 وأبقت مفرزة اتصال وتدريب من نحو 80 إلى 100 عسكري",
+      "en": "A defence partnership treaty (2012); France handed over the Port-Bouët base in February 2025, keeping a liaison and training detachment of around 80–100 personnel"
+    },
+    {
+      "a": "FRA",
+      "b": "MAR",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "لجنة عسكرية مشتركة منذ عقود، وشراكة في الصناعات الدفاعية (2025) بعد اعتراف فرنسا بالموقف المغربي في الصحراء الغربية عام 2024",
+      "en": "A long-standing joint military committee, and a defence-industry partnership (2025) after France's 2024 endorsement of Morocco's position on Western Sahara"
+    },
+    {
+      "a": "FRA",
+      "b": "EGY",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "شراكة استراتيجية (أبريل 2025)، ومصر أول مشترٍ أجنبي لمقاتلات رافال، إضافة إلى حاملتَي مروحيات «ميسترال»",
+      "en": "A strategic partnership (April 2025); Egypt was the first export customer for the Rafale, and also operates two Mistral helicopter carriers"
+    },
+    {
+      "a": "FRA",
+      "b": "TCD",
+      "type": "military",
+      "kind": "assessed",
+      "weight": 2,
+      "ar": "أنهت تشاد اتفاق الدفاع لعام 1976 في نوفمبر 2024 وغادرت القوات الفرنسية في يناير 2025، ثم استؤنف تعاون محدود في التدريب والاستخبارات مطلع 2026 دون قواعد دائمة",
+      "en": "Chad ended the 1976 defence agreement in November 2024 and French troops left in January 2025; limited cooperation on training and intelligence resumed in early 2026, without permanent bases"
     }
   ],
   "bilateral": {
