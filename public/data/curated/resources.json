@@ -2187,6 +2187,1296 @@
       "iso3": "OMN",
       "noteAr": "مجمّع الغاز المسال العُماني خارج مضيق هرمز.",
       "noteEn": "Oman's LNG complex, outside the Strait of Hormuz."
+    },
+    {
+      "id": "permian",
+      "ar": "حوض برميان",
+      "en": "Permian Basin",
+      "coords": [-102.5, 31.8],
+      "type": "oil",
+      "iso3": "USA",
+      "noteAr": "أكبر حوض نفطي في الولايات المتحدة ومحرّك طفرة النفط الصخري.",
+      "noteEn": "The largest US oil basin and the engine of the shale boom."
+    },
+    {
+      "id": "marcellus",
+      "ar": "تكوين مارسيلوس",
+      "en": "Marcellus Shale",
+      "coords": [-77, 41.5],
+      "type": "gas",
+      "iso3": "USA",
+      "noteAr": "أكبر حقل غاز صخري في أمريكا الشمالية.",
+      "noteEn": "North America's largest shale gas field."
+    },
+    {
+      "id": "mountain-pass",
+      "ar": "منجم ماونتن باس",
+      "en": "Mountain Pass mine",
+      "coords": [-115.53, 35.48],
+      "type": "rare-earths",
+      "iso3": "USA",
+      "noteAr": "المنجم الأمريكي الوحيد العامل للعناصر الأرضية النادرة.",
+      "noteEn": "The only operating US rare earth mine."
+    },
+    {
+      "id": "carajas",
+      "ar": "منجم كاراجاس",
+      "en": "Carajás mine",
+      "coords": [-50.2, -6.07],
+      "type": "iron-ore",
+      "iso3": "BRA",
+      "noteAr": "من أكبر مناجم خام الحديد في العالم.",
+      "noteEn": "Among the world's largest iron ore mines."
+    },
+    {
+      "id": "santos-presalt",
+      "ar": "حقول ما قبل الملح في حوض سانتوس",
+      "en": "Santos Basin pre-salt fields",
+      "coords": [-42.7, -25.4],
+      "type": "oil",
+      "iso3": "BRA",
+      "noteAr": "مصدر معظم إنتاج النفط البرازيلي في المياه العميقة.",
+      "noteEn": "The source of most Brazilian oil output, in deep water."
+    },
+    {
+      "id": "sul-de-minas",
+      "ar": "جنوب ميناس جيرايس",
+      "en": "South Minas Gerais",
+      "coords": [-45.5, -21.5],
+      "type": "coffee",
+      "iso3": "BRA",
+      "noteAr": "أكبر منطقة لإنتاج البن في العالم.",
+      "noteEn": "The world's largest coffee-growing region."
+    },
+    {
+      "id": "fort-mcmurray",
+      "ar": "رمال أثاباسكا النفطية",
+      "en": "Athabasca oil sands",
+      "coords": [-111.38, 56.73],
+      "type": "oil",
+      "iso3": "CAN",
+      "noteAr": "مصدر معظم احتياطيات كندا النفطية.",
+      "noteEn": "The source of most Canadian oil reserves."
+    },
+    {
+      "id": "mcarthur-river",
+      "ar": "منجم ماك آرثر ريفر",
+      "en": "McArthur River mine",
+      "coords": [-105.05, 57.76],
+      "type": "uranium",
+      "iso3": "CAN",
+      "noteAr": "من أغنى رواسب اليورانيوم في العالم.",
+      "noteEn": "Among the world's highest-grade uranium deposits."
+    },
+    {
+      "id": "fresnillo",
+      "ar": "فريسنيو",
+      "en": "Fresnillo",
+      "coords": [-102.87, 23.17],
+      "type": "silver",
+      "iso3": "MEX",
+      "noteAr": "من أكبر مناجم الفضة في العالم.",
+      "noteEn": "Among the world's largest silver mines."
+    },
+    {
+      "id": "cantarell",
+      "ar": "حقل كانتاريل",
+      "en": "Cantarell field",
+      "coords": [-92.2, 19.4],
+      "type": "oil",
+      "iso3": "MEX",
+      "noteAr": "كان أكبر حقول المكسيك قبل تراجعه الحاد.",
+      "noteEn": "Once Mexico's largest field, before its steep decline."
+    },
+    {
+      "id": "escondida",
+      "ar": "منجم إسكونديدا",
+      "en": "Escondida mine",
+      "coords": [-69.07, -24.27],
+      "type": "copper",
+      "iso3": "CHL",
+      "noteAr": "أكبر منجم نحاس في العالم.",
+      "noteEn": "The world's largest copper mine."
+    },
+    {
+      "id": "las-bambas",
+      "ar": "منجم لاس بامباس",
+      "en": "Las Bambas mine",
+      "coords": [-72.3, -14.08],
+      "type": "copper",
+      "iso3": "PER",
+      "noteAr": "منجم نحاس صيني الملكية تتكرّر حوله احتجاجات قطع الطرق.",
+      "noteEn": "A Chinese-owned copper mine repeatedly hit by road-blockade protests."
+    },
+    {
+      "id": "uyuni",
+      "ar": "سهل أويوني الملحي",
+      "en": "Uyuni salt flat",
+      "coords": [-67.5, -20.2],
+      "type": "lithium",
+      "iso3": "BOL",
+      "noteAr": "أكبر موارد ليثيوم معروفة في العالم.",
+      "noteEn": "The world's largest identified lithium resources."
+    },
+    {
+      "id": "vaca-muerta",
+      "ar": "فاكا مويرتا",
+      "en": "Vaca Muerta",
+      "coords": [-69, -38.4],
+      "type": "gas",
+      "iso3": "ARG",
+      "noteAr": "من أكبر تكوينات الغاز والنفط الصخري في العالم.",
+      "noteEn": "One of the world's largest shale gas and oil formations."
+    },
+    {
+      "id": "hombre-muerto",
+      "ar": "سهل أومبري مويرتو الملحي",
+      "en": "Salar del Hombre Muerto",
+      "coords": [-66.9, -25.4],
+      "type": "lithium",
+      "iso3": "ARG",
+      "noteAr": "من أبرز مواقع إنتاج الليثيوم في الأرجنتين.",
+      "noteEn": "One of Argentina's main lithium production sites."
+    },
+    {
+      "id": "cerrejon",
+      "ar": "منجم سيريخون",
+      "en": "Cerrejón mine",
+      "coords": [-72.65, 11.05],
+      "type": "coal",
+      "iso3": "COL",
+      "noteAr": "أكبر منجم فحم مكشوف في أمريكا اللاتينية.",
+      "noteEn": "Latin America's largest open-pit coal mine."
+    },
+    {
+      "id": "eje-cafetero",
+      "ar": "المثلث القهوي",
+      "en": "Coffee Axis",
+      "coords": [-75.6, 4.8],
+      "type": "coffee",
+      "iso3": "COL",
+      "noteAr": "قلب زراعة البن الكولومبي.",
+      "noteEn": "The heart of Colombian coffee growing."
+    },
+    {
+      "id": "yasuni",
+      "ar": "حديقة ياسوني",
+      "en": "Yasuní park",
+      "coords": [-76, -1],
+      "type": "oil",
+      "iso3": "ECU",
+      "noteAr": "موقع الحقل الذي صوّت الإكوادوريون لوقف الحفر فيه.",
+      "noteEn": "Site of the field Ecuadorians voted to stop drilling."
+    },
+    {
+      "id": "itaipu",
+      "ar": "سدّ إيتايبو",
+      "en": "Itaipú dam",
+      "coords": [-54.65, -25.42],
+      "type": "hydropower",
+      "iso3": "PRY",
+      "noteAr": "من أكبر محطات الطاقة الكهرومائية في العالم، مشترك مع البرازيل.",
+      "noteEn": "One of the world's largest hydropower plants, shared with Brazil."
+    },
+    {
+      "id": "granmorgu",
+      "ar": "مشروع غرانمورغو",
+      "en": "GranMorgu project",
+      "coords": [-55.4, 7.3],
+      "type": "oil",
+      "iso3": "SUR",
+      "noteAr": "أول مشروع نفط بحري كبير في سورينام.",
+      "noteEn": "Suriname's first major offshore oil project."
+    },
+    {
+      "id": "cobre-panama",
+      "ar": "منجم كوبري بنما",
+      "en": "Cobre Panamá mine",
+      "coords": [-80.6, 8.83],
+      "type": "copper",
+      "iso3": "PAN",
+      "noteAr": "مغلق منذ أواخر 2023.",
+      "noteEn": "Shut since late 2023."
+    },
+    {
+      "id": "moa",
+      "ar": "مووا",
+      "en": "Moa",
+      "coords": [-74.94, 20.66],
+      "type": "nickel",
+      "iso3": "CUB",
+      "noteAr": "مركز تعدين النيكل والكوبالت الكوبي.",
+      "noteEn": "The centre of Cuban nickel and cobalt mining."
+    },
+    {
+      "id": "pueblo-viejo",
+      "ar": "منجم بويبلو فييخو",
+      "en": "Pueblo Viejo mine",
+      "coords": [-70.15, 18.93],
+      "type": "gold",
+      "iso3": "DOM",
+      "noteAr": "من أكبر مناجم الذهب في العالم.",
+      "noteEn": "Among the world's largest gold mines."
+    },
+    {
+      "id": "st-ann-bauxite",
+      "ar": "مناجم البوكسيت في سانت آن",
+      "en": "St Ann bauxite mines",
+      "coords": [-77.2, 18.35],
+      "type": "bauxite",
+      "iso3": "JAM",
+      "noteAr": "أهم مناطق تعدين البوكسيت الجامايكي.",
+      "noteEn": "Jamaica's main bauxite mining area."
+    },
+    {
+      "id": "point-fortin",
+      "ar": "بوينت فورتين",
+      "en": "Point Fortin",
+      "coords": [-61.68, 10.18],
+      "type": "gas",
+      "iso3": "TTO",
+      "noteAr": "موقع مصنع أتلانتيك للغاز المسال.",
+      "noteEn": "Site of the Atlantic LNG plant."
+    },
+    {
+      "id": "kvanefjeld",
+      "ar": "كفانفيلد",
+      "en": "Kvanefjeld",
+      "coords": [-45.9, 60.97],
+      "type": "rare-earths",
+      "iso3": "GRL",
+      "noteAr": "من أكبر رواسب العناصر الأرضية النادرة في العالم.",
+      "noteEn": "One of the world's largest rare earth deposits."
+    },
+    {
+      "id": "sea-lion",
+      "ar": "حقل سي لايون",
+      "en": "Sea Lion field",
+      "coords": [-59.4, -49.4],
+      "type": "oil",
+      "iso3": "FLK",
+      "noteAr": "حقل نفط بحري في حوض شمال فوكلاند.",
+      "noteEn": "An offshore oil field in the North Falkland Basin."
+    },
+    {
+      "id": "troll",
+      "ar": "حقل ترول",
+      "en": "Troll field",
+      "coords": [3.7, 60.65],
+      "type": "gas",
+      "iso3": "NOR",
+      "noteAr": "أكبر حقل غاز في بحر الشمال.",
+      "noteEn": "The largest gas field in the North Sea."
+    },
+    {
+      "id": "forties",
+      "ar": "حقول بحر الشمال البريطانية",
+      "en": "UK North Sea fields",
+      "coords": [0.97, 57.73],
+      "type": "gas",
+      "iso3": "GBR",
+      "noteAr": "قلب إنتاج النفط والغاز البريطاني المتراجع.",
+      "noteEn": "The heart of declining UK oil and gas output."
+    },
+    {
+      "id": "groningen",
+      "ar": "حقل غرونينغن",
+      "en": "Groningen field",
+      "coords": [6.75, 53.3],
+      "type": "gas",
+      "iso3": "NLD",
+      "noteAr": "أُغلق عام 2024 بسبب الزلازل.",
+      "noteEn": "Closed in 2024 because of earthquakes."
+    },
+    {
+      "id": "veldhoven",
+      "ar": "فيلدهوفن (إيه إس إم إل)",
+      "en": "Veldhoven (ASML)",
+      "coords": [5.4, 51.4],
+      "type": "semiconductors",
+      "iso3": "NLD",
+      "noteAr": "مقرّ الشركة المحتكرة لآلات الطباعة الضوئية المتقدمة.",
+      "noteEn": "Headquarters of the monopoly maker of advanced lithography machines."
+    },
+    {
+      "id": "rhenish-lignite",
+      "ar": "حوض الليغنيت في الراينلاند",
+      "en": "Rhenish lignite basin",
+      "coords": [6.5, 51.05],
+      "type": "coal",
+      "iso3": "DEU",
+      "noteAr": "أكبر منطقة لتعدين الليغنيت في أوروبا.",
+      "noteEn": "Europe's largest lignite mining area."
+    },
+    {
+      "id": "silesia-coal",
+      "ar": "حوض سيليزيا العليا",
+      "en": "Upper Silesian basin",
+      "coords": [19, 50.26],
+      "type": "coal",
+      "iso3": "POL",
+      "noteAr": "قلب صناعة الفحم البولندية.",
+      "noteEn": "The heart of the Polish coal industry."
+    },
+    {
+      "id": "kghm-lubin",
+      "ar": "حزام النحاس في سيليزيا السفلى",
+      "en": "Lower Silesian copper belt",
+      "coords": [16.2, 51.4],
+      "type": "copper",
+      "iso3": "POL",
+      "noteAr": "مناجم كي جي إتش إم للنحاس والفضة.",
+      "noteEn": "KGHM's copper and silver mines."
+    },
+    {
+      "id": "kiruna",
+      "ar": "كيرونا",
+      "en": "Kiruna",
+      "coords": [20.22, 67.85],
+      "type": "iron-ore",
+      "iso3": "SWE",
+      "noteAr": "أكبر منجم خام حديد تحت الأرض في العالم.",
+      "noteEn": "The world's largest underground iron ore mine."
+    },
+    {
+      "id": "kokkola",
+      "ar": "كوكولا",
+      "en": "Kokkola",
+      "coords": [23.13, 63.84],
+      "type": "cobalt",
+      "iso3": "FIN",
+      "noteAr": "من أكبر مصافي الكوبالت خارج الصين.",
+      "noteEn": "Among the largest cobalt refineries outside China."
+    },
+    {
+      "id": "neptun-deep",
+      "ar": "نبتون ديب",
+      "en": "Neptun Deep",
+      "coords": [30.6, 43.8],
+      "type": "gas",
+      "iso3": "ROU",
+      "noteAr": "حقل غاز في البحر الأسود يُنتظر إنتاجه في 2027.",
+      "noteEn": "A Black Sea gas field due to produce in 2027."
+    },
+    {
+      "id": "jadar",
+      "ar": "مشروع جادار",
+      "en": "Jadar project",
+      "coords": [19.22, 44.53],
+      "type": "lithium",
+      "iso3": "SRB",
+      "noteAr": "مشروع ليثيوم لريو تينتو أثار احتجاجات واسعة.",
+      "noteEn": "A Rio Tinto lithium project that sparked mass protests."
+    },
+    {
+      "id": "barroso",
+      "ar": "باروسو",
+      "en": "Barroso",
+      "coords": [-7.75, 41.65],
+      "type": "lithium",
+      "iso3": "PRT",
+      "noteAr": "أكبر مشروع ليثيوم في أوروبا الغربية.",
+      "noteEn": "The largest lithium project in Western Europe."
+    },
+    {
+      "id": "cinovec",
+      "ar": "سينوفيتس",
+      "en": "Cínovec",
+      "coords": [13.77, 50.73],
+      "type": "lithium",
+      "iso3": "CZE",
+      "noteAr": "من أكبر رواسب الليثيوم الصخري في أوروبا.",
+      "noteEn": "Among Europe's largest hard-rock lithium deposits."
+    },
+    {
+      "id": "parnassos-bauxite",
+      "ar": "مناجم بوكسيت بارناسوس",
+      "en": "Parnassos bauxite mines",
+      "coords": [22.7, 38.43],
+      "type": "bauxite",
+      "iso3": "GRC",
+      "noteAr": "أهم مصدر للبوكسيت في الاتحاد الأوروبي.",
+      "noteEn": "The EU's main bauxite source."
+    },
+    {
+      "id": "ida-viru",
+      "ar": "إيدا فيرو",
+      "en": "Ida-Viru",
+      "coords": [27.4, 59.35],
+      "type": "oil-shale",
+      "iso3": "EST",
+      "noteAr": "قلب صناعة الصخر الزيتي الإستونية.",
+      "noteEn": "The heart of Estonia's oil shale industry."
+    },
+    {
+      "id": "hellisheidi",
+      "ar": "محطة هيليشيدي",
+      "en": "Hellisheiði plant",
+      "coords": [-21.4, 64.04],
+      "type": "geothermal",
+      "iso3": "ISL",
+      "noteAr": "من أكبر محطات الطاقة الحرارية الجوفية في العالم.",
+      "noteEn": "Among the world's largest geothermal plants."
+    },
+    {
+      "id": "larderello",
+      "ar": "لارديريلو",
+      "en": "Larderello",
+      "coords": [10.88, 43.24],
+      "type": "geothermal",
+      "iso3": "ITA",
+      "noteAr": "أول محطة كهرباء حرارية جوفية في العالم.",
+      "noteEn": "The world's first geothermal power plant."
+    },
+    {
+      "id": "ticino-refineries",
+      "ar": "مصافي الذهب في تيتشينو",
+      "en": "Ticino gold refineries",
+      "coords": [8.95, 45.87],
+      "type": "gold",
+      "iso3": "CHE",
+      "noteAr": "تتركّز فيها كبرى مصافي الذهب في العالم.",
+      "noteEn": "Home to several of the world's largest gold refineries."
+    },
+    {
+      "id": "antwerp",
+      "ar": "أنتويرب",
+      "en": "Antwerp",
+      "coords": [4.41, 51.22],
+      "type": "diamonds",
+      "iso3": "BEL",
+      "noteAr": "أكبر مركز لتجارة الماس الخام.",
+      "noteEn": "The largest rough diamond trading centre."
+    },
+    {
+      "id": "pirdop",
+      "ar": "بيردوب",
+      "en": "Pirdop",
+      "coords": [24.18, 42.7],
+      "type": "copper",
+      "iso3": "BGR",
+      "noteAr": "من أكبر مصاهر النحاس في أوروبا.",
+      "noteEn": "Among Europe's largest copper smelters."
+    },
+    {
+      "id": "tyra",
+      "ar": "مركز تايرا",
+      "en": "Tyra hub",
+      "coords": [4.75, 55.72],
+      "type": "gas",
+      "iso3": "DNK",
+      "noteAr": "أكبر مركز لإنتاج الغاز الدنماركي.",
+      "noteEn": "Denmark's largest gas production hub."
+    },
+    {
+      "id": "bulqize",
+      "ar": "بولكيزه",
+      "en": "Bulqizë",
+      "coords": [20.25, 41.49],
+      "type": "chromium",
+      "iso3": "ALB",
+      "noteAr": "أكبر مناجم الكروم في ألبانيا.",
+      "noteEn": "Albania's largest chromium mines."
+    },
+    {
+      "id": "soligorsk",
+      "ar": "سوليغورسك (بيلاروس كالي)",
+      "en": "Soligorsk (Belaruskali)",
+      "coords": [27.55, 52.79],
+      "type": "potash",
+      "iso3": "BLR",
+      "noteAr": "مركز إنتاج البوتاس البيلاروسي الخاضع للعقوبات.",
+      "noteEn": "The centre of sanctioned Belarusian potash production."
+    },
+    {
+      "id": "samotlor",
+      "ar": "حقل ساموتلور",
+      "en": "Samotlor field",
+      "coords": [76.7, 61.1],
+      "type": "oil",
+      "iso3": "RUS",
+      "noteAr": "أكبر حقول غرب سيبيريا التي تنتج معظم النفط الروسي.",
+      "noteEn": "The largest of the West Siberian fields that produce most Russian oil."
+    },
+    {
+      "id": "yamal-lng",
+      "ar": "يامال للغاز المسال",
+      "en": "Yamal LNG",
+      "coords": [72.06, 71.27],
+      "type": "gas",
+      "iso3": "RUS",
+      "noteAr": "مشروع الغاز المسال في القطب الشمالي الذي يتجاوز خطوط الأنابيب.",
+      "noteEn": "The Arctic LNG project that bypasses pipelines."
+    },
+    {
+      "id": "norilsk",
+      "ar": "نوريلسك",
+      "en": "Norilsk",
+      "coords": [88.2, 69.35],
+      "type": "platinum",
+      "iso3": "RUS",
+      "noteAr": "أكبر مصدر للبالاديوم في العالم.",
+      "noteEn": "The world's largest source of palladium."
+    },
+    {
+      "id": "mirny",
+      "ar": "ميرني",
+      "en": "Mirny",
+      "coords": [113.95, 62.53],
+      "type": "diamonds",
+      "iso3": "RUS",
+      "noteAr": "مركز تعدين الماس لشركة ألروسا في ياقوتيا.",
+      "noteEn": "Alrosa's diamond mining centre in Yakutia."
+    },
+    {
+      "id": "berezniki",
+      "ar": "بيريزنيكي (أورال كالي)",
+      "en": "Berezniki (Uralkali)",
+      "coords": [56.8, 59.4],
+      "type": "potash",
+      "iso3": "RUS",
+      "noteAr": "مركز إنتاج البوتاس الروسي.",
+      "noteEn": "The centre of Russian potash production."
+    },
+    {
+      "id": "chu-sarysu",
+      "ar": "حوض تشو–ساريسو",
+      "en": "Chu-Sarysu basin",
+      "coords": [68, 45],
+      "type": "uranium",
+      "iso3": "KAZ",
+      "noteAr": "مصدر معظم يورانيوم كازاخستان بطريقة الاستخلاص في الموقع.",
+      "noteEn": "The source of most Kazakh uranium, by in-situ leaching."
+    },
+    {
+      "id": "muruntau",
+      "ar": "منجم مورونتاو",
+      "en": "Muruntau mine",
+      "coords": [64.58, 41.51],
+      "type": "gold",
+      "iso3": "UZB",
+      "noteAr": "من أكبر مناجم الذهب المكشوفة في العالم.",
+      "noteEn": "Among the world's largest open-pit gold mines."
+    },
+    {
+      "id": "kumtor",
+      "ar": "منجم كومتور",
+      "en": "Kumtor mine",
+      "coords": [78.2, 41.86],
+      "type": "gold",
+      "iso3": "KGZ",
+      "noteAr": "أمّمته الحكومة عام 2021.",
+      "noteEn": "Nationalised in 2021."
+    },
+    {
+      "id": "rogun",
+      "ar": "سدّ روغون",
+      "en": "Rogun dam",
+      "coords": [69.78, 38.73],
+      "type": "hydropower",
+      "iso3": "TJK",
+      "noteAr": "سيكون أعلى سدّ في العالم عند اكتماله.",
+      "noteEn": "Set to be the world's tallest dam when complete."
+    },
+    {
+      "id": "galkynysh",
+      "ar": "حقل غالكينيش",
+      "en": "Galkynysh field",
+      "coords": [62.3, 37.3],
+      "type": "gas",
+      "iso3": "TKM",
+      "noteAr": "من أكبر حقول الغاز في العالم.",
+      "noteEn": "Among the world's largest gas fields."
+    },
+    {
+      "id": "oyu-tolgoi",
+      "ar": "أويو تولغوي",
+      "en": "Oyu Tolgoi",
+      "coords": [106.86, 43],
+      "type": "copper",
+      "iso3": "MNG",
+      "noteAr": "من أكبر مناجم النحاس والذهب في العالم.",
+      "noteEn": "Among the world's largest copper and gold mines."
+    },
+    {
+      "id": "tavan-tolgoi",
+      "ar": "تافان تولغوي",
+      "en": "Tavan Tolgoi",
+      "coords": [105.5, 43.6],
+      "type": "coal",
+      "iso3": "MNG",
+      "noteAr": "من أكبر رواسب فحم الكوك في العالم.",
+      "noteEn": "Among the world's largest coking coal deposits."
+    },
+    {
+      "id": "mes-aynak",
+      "ar": "مس عينك",
+      "en": "Mes Aynak",
+      "coords": [69.32, 34.27],
+      "type": "copper",
+      "iso3": "AFG",
+      "noteAr": "رواسب نحاس ضخمة مؤجّرة لشركة صينية.",
+      "noteEn": "A huge copper deposit leased to a Chinese company."
+    },
+    {
+      "id": "chiatura",
+      "ar": "تشياتورا",
+      "en": "Chiatura",
+      "coords": [43.29, 42.29],
+      "type": "manganese",
+      "iso3": "GEO",
+      "noteAr": "من أقدم مناجم المنغنيز في العالم.",
+      "noteEn": "Among the world's oldest manganese mines."
+    },
+    {
+      "id": "kajaran",
+      "ar": "قاجاران",
+      "en": "Kajaran",
+      "coords": [46.15, 39.15],
+      "type": "copper",
+      "iso3": "ARM",
+      "noteAr": "مجمّع زنغزور للنحاس والموليبدنوم.",
+      "noteEn": "The Zangezur copper-molybdenum combine."
+    },
+    {
+      "id": "sangachal",
+      "ar": "سنقاچال",
+      "en": "Sangachal",
+      "coords": [49.45, 40.18],
+      "type": "oil",
+      "iso3": "AZE",
+      "noteAr": "محطة بداية خط باكو–تبليسي–جيهان.",
+      "noteEn": "The starting terminal of the Baku–Tbilisi–Ceyhan pipeline."
+    },
+    {
+      "id": "burgan",
+      "ar": "حقل برقان",
+      "en": "Burgan field",
+      "coords": [47.97, 28.98],
+      "type": "oil",
+      "iso3": "KWT",
+      "noteAr": "ثاني أكبر حقل نفط في العالم.",
+      "noteEn": "The world's second-largest oil field."
+    },
+    {
+      "id": "ras-laffan",
+      "ar": "رأس لفان",
+      "en": "Ras Laffan",
+      "coords": [51.52, 25.85],
+      "type": "gas",
+      "iso3": "QAT",
+      "noteAr": "أكبر مجمّع لتصدير الغاز المسال في العالم.",
+      "noteEn": "The world's largest LNG export complex."
+    },
+    {
+      "id": "rumaila",
+      "ar": "حقل الرميلة",
+      "en": "Rumaila field",
+      "coords": [47.4, 30.3],
+      "type": "oil",
+      "iso3": "IRQ",
+      "noteAr": "أكبر حقول العراق النفطية في الجنوب.",
+      "noteEn": "Iraq's largest oil field, in the south."
+    },
+    {
+      "id": "marib",
+      "ar": "مأرب",
+      "en": "Marib",
+      "coords": [45.3, 15.45],
+      "type": "oil",
+      "iso3": "YEM",
+      "noteAr": "حقول النفط والغاز محور الصراع على الموارد.",
+      "noteEn": "Oil and gas fields at the centre of the struggle over resources."
+    },
+    {
+      "id": "al-omar",
+      "ar": "حقل العمر",
+      "en": "Al-Omar field",
+      "coords": [40.6, 35.07],
+      "type": "oil",
+      "iso3": "SYR",
+      "noteAr": "أكبر حقول النفط السورية في دير الزور.",
+      "noteEn": "Syria's largest oil field, in Deir ez-Zor."
+    },
+    {
+      "id": "ataturk-dam",
+      "ar": "سدّ أتاتورك",
+      "en": "Atatürk dam",
+      "coords": [38.32, 37.48],
+      "type": "water",
+      "iso3": "TUR",
+      "noteAr": "أكبر سدود مشروع جنوب شرق الأناضول على الفرات.",
+      "noteEn": "The largest dam of the Southeastern Anatolia Project on the Euphrates."
+    },
+    {
+      "id": "dead-sea-works",
+      "ar": "مصانع البحر الميت",
+      "en": "Dead Sea Works",
+      "coords": [35.4, 31.05],
+      "type": "potash",
+      "iso3": "ISR",
+      "noteAr": "مصدر البوتاس والبروم الإسرائيلي.",
+      "noteEn": "The source of Israeli potash and bromine."
+    },
+    {
+      "id": "aphrodite",
+      "ar": "حقل أفروديت",
+      "en": "Aphrodite field",
+      "coords": [32.9, 33.7],
+      "type": "gas",
+      "iso3": "CYP",
+      "noteAr": "حقل غاز في المنطقة الاقتصادية الخالصة القبرصية.",
+      "noteEn": "A gas field in the Cypriot exclusive economic zone."
+    },
+    {
+      "id": "jharia",
+      "ar": "حقل جهاريا للفحم",
+      "en": "Jharia coalfield",
+      "coords": [86.4, 23.75],
+      "type": "coal",
+      "iso3": "IND",
+      "noteAr": "من أكبر حقول الفحم في الهند.",
+      "noteEn": "Among India's largest coalfields."
+    },
+    {
+      "id": "bayan-obo",
+      "ar": "بايان أوبو",
+      "en": "Bayan Obo",
+      "coords": [109.97, 41.77],
+      "type": "rare-earths",
+      "iso3": "CHN",
+      "noteAr": "أكبر منجم للعناصر الأرضية النادرة في العالم.",
+      "noteEn": "The world's largest rare earth mine."
+    },
+    {
+      "id": "ordos-coal",
+      "ar": "حوض أوردوس",
+      "en": "Ordos basin",
+      "coords": [109.8, 39.6],
+      "type": "coal",
+      "iso3": "CHN",
+      "noteAr": "قلب إنتاج الفحم الصيني.",
+      "noteEn": "The heart of Chinese coal production."
+    },
+    {
+      "id": "ganzhou",
+      "ar": "غانتشو",
+      "en": "Ganzhou",
+      "coords": [114.93, 25.85],
+      "type": "tungsten",
+      "iso3": "CHN",
+      "noteAr": "عاصمة التنغستن والعناصر النادرة الثقيلة في الصين.",
+      "noteEn": "China's capital of tungsten and heavy rare earths."
+    },
+    {
+      "id": "jixi",
+      "ar": "جيشي",
+      "en": "Jixi",
+      "coords": [130.97, 45.3],
+      "type": "graphite",
+      "iso3": "CHN",
+      "noteAr": "من أكبر مراكز إنتاج الغرافيت في العالم.",
+      "noteEn": "Among the world's largest graphite production centres."
+    },
+    {
+      "id": "kachin-rare-earths",
+      "ar": "مناجم العناصر النادرة في كاتشين",
+      "en": "Kachin rare earth mines",
+      "coords": [98.4, 26.3],
+      "type": "rare-earths",
+      "iso3": "MMR",
+      "noteAr": "مناجم تسيطر عليها جماعات مسلحة ويُصدَّر خامها إلى الصين.",
+      "noteEn": "Mines held by armed groups, with ore exported to China."
+    },
+    {
+      "id": "xayaburi",
+      "ar": "سدّ شيابوري",
+      "en": "Xayaburi dam",
+      "coords": [101.82, 19.25],
+      "type": "hydropower",
+      "iso3": "LAO",
+      "noteAr": "أول سدّ على المجرى الرئيسي للميكونغ السفلي.",
+      "noteEn": "The first dam on the lower Mekong mainstream."
+    },
+    {
+      "id": "central-highlands",
+      "ar": "المرتفعات الوسطى",
+      "en": "Central Highlands",
+      "coords": [108.05, 12.67],
+      "type": "coffee",
+      "iso3": "VNM",
+      "noteAr": "قلب زراعة البن الفيتنامي.",
+      "noteEn": "The heart of Vietnamese coffee growing."
+    },
+    {
+      "id": "penang",
+      "ar": "بينانغ",
+      "en": "Penang",
+      "coords": [100.3, 5.4],
+      "type": "semiconductors",
+      "iso3": "MYS",
+      "noteAr": "مركز تجميع الرقائق واختبارها.",
+      "noteEn": "A chip assembly and test hub."
+    },
+    {
+      "id": "morowali",
+      "ar": "مجمّع موروالي الصناعي",
+      "en": "Morowali industrial park",
+      "coords": [121.9, -2.85],
+      "type": "nickel",
+      "iso3": "IDN",
+      "noteAr": "أكبر مجمّع لمعالجة النيكل في العالم بتمويل صيني.",
+      "noteEn": "The world's largest nickel processing complex, Chinese-financed."
+    },
+    {
+      "id": "east-kalimantan-coal",
+      "ar": "حقول فحم كاليمانتان الشرقية",
+      "en": "East Kalimantan coalfields",
+      "coords": [117.5, 0.5],
+      "type": "coal",
+      "iso3": "IDN",
+      "noteAr": "مصدر معظم صادرات الفحم الإندونيسية.",
+      "noteEn": "The source of most Indonesian coal exports."
+    },
+    {
+      "id": "surigao",
+      "ar": "سوريغاو",
+      "en": "Surigao",
+      "coords": [125.5, 9.5],
+      "type": "nickel",
+      "iso3": "PHL",
+      "noteAr": "قلب تعدين النيكل في الفلبين.",
+      "noteEn": "The heart of Philippine nickel mining."
+    },
+    {
+      "id": "pyeongtaek",
+      "ar": "بيونغتايك",
+      "en": "Pyeongtaek",
+      "coords": [127.05, 37],
+      "type": "semiconductors",
+      "iso3": "KOR",
+      "noteAr": "أكبر مجمّع لتصنيع الرقائق لسامسونغ.",
+      "noteEn": "Samsung's largest chip manufacturing complex."
+    },
+    {
+      "id": "bogala",
+      "ar": "منجم بوغالا",
+      "en": "Bogala mine",
+      "coords": [80.18, 7.2],
+      "type": "graphite",
+      "iso3": "LKA",
+      "noteAr": "من المصادر القليلة للغرافيت العِرقي عالي النقاء.",
+      "noteEn": "One of the few sources of high-purity vein graphite."
+    },
+    {
+      "id": "pilbara",
+      "ar": "بيلبارا",
+      "en": "Pilbara",
+      "coords": [118.6, -22.6],
+      "type": "iron-ore",
+      "iso3": "AUS",
+      "noteAr": "أكبر منطقة لتعدين خام الحديد في العالم.",
+      "noteEn": "The world's largest iron ore mining region."
+    },
+    {
+      "id": "greenbushes",
+      "ar": "منجم غرينبوشز",
+      "en": "Greenbushes mine",
+      "coords": [116.06, -33.86],
+      "type": "lithium",
+      "iso3": "AUS",
+      "noteAr": "أكبر منجم لليثيوم الصخري في العالم.",
+      "noteEn": "The world's largest hard-rock lithium mine."
+    },
+    {
+      "id": "taupo",
+      "ar": "منطقة تاوبو البركانية",
+      "en": "Taupō volcanic zone",
+      "coords": [176.07, -38.68],
+      "type": "geothermal",
+      "iso3": "NZL",
+      "noteAr": "مصدر معظم الطاقة الحرارية الجوفية في نيوزيلندا.",
+      "noteEn": "The source of most New Zealand geothermal power."
+    },
+    {
+      "id": "png-lng",
+      "ar": "مشروع بابوا غينيا الجديدة للغاز المسال (هايدس)",
+      "en": "PNG LNG (Hides)",
+      "coords": [142.82, -5.93],
+      "type": "gas",
+      "iso3": "PNG",
+      "noteAr": "أكبر مشروع طاقة في البلاد.",
+      "noteEn": "The country's largest energy project."
+    },
+    {
+      "id": "doniambo",
+      "ar": "مصهر دونيامبو",
+      "en": "Doniambo smelter",
+      "coords": [166.5, -22.2],
+      "type": "nickel",
+      "iso3": "NCL",
+      "noteAr": "مصهر النيكل التاريخي في نوميا.",
+      "noteEn": "The historic nickel smelter in Nouméa."
+    },
+    {
+      "id": "greater-sunrise",
+      "ar": "حقل الشروق الكبير",
+      "en": "Greater Sunrise field",
+      "coords": [128.3, -9.6],
+      "type": "gas",
+      "iso3": "TLS",
+      "noteAr": "حقل غاز في بحر تيمور.",
+      "noteEn": "A gas field in the Timor Sea."
+    },
+    {
+      "id": "bushveld",
+      "ar": "حزام بوشفيلد (روستنبرغ)",
+      "en": "Bushveld complex (Rustenburg)",
+      "coords": [27.24, -25.67],
+      "type": "platinum",
+      "iso3": "ZAF",
+      "noteAr": "أكبر احتياطي لمعادن مجموعة البلاتين في العالم.",
+      "noteEn": "The world's largest platinum-group metal reserves."
+    },
+    {
+      "id": "kalahari-manganese",
+      "ar": "حقل منغنيز كالاهاري",
+      "en": "Kalahari manganese field",
+      "coords": [22.96, -27.2],
+      "type": "manganese",
+      "iso3": "ZAF",
+      "noteAr": "أكبر احتياطي للمنغنيز في العالم.",
+      "noteEn": "The world's largest manganese reserves."
+    },
+    {
+      "id": "richards-bay",
+      "ar": "ريتشاردز باي",
+      "en": "Richards Bay",
+      "coords": [32.04, -28.78],
+      "type": "coal",
+      "iso3": "ZAF",
+      "noteAr": "من أكبر موانئ تصدير الفحم في العالم.",
+      "noteEn": "Among the world's largest coal export terminals."
+    },
+    {
+      "id": "bikita",
+      "ar": "منجم بيكيتا",
+      "en": "Bikita mine",
+      "coords": [31.3, -20.1],
+      "type": "lithium",
+      "iso3": "ZWE",
+      "noteAr": "من أكبر مناجم الليثيوم في أفريقيا، صيني الملكية.",
+      "noteEn": "Among Africa's largest lithium mines, Chinese-owned."
+    },
+    {
+      "id": "copperbelt",
+      "ar": "حزام النحاس (كيتوي)",
+      "en": "Copperbelt (Kitwe)",
+      "coords": [28.2, -12.8],
+      "type": "copper",
+      "iso3": "ZMB",
+      "noteAr": "قلب صناعة النحاس الزامبية.",
+      "noteEn": "The heart of Zambia's copper industry."
+    },
+    {
+      "id": "rubaya",
+      "ar": "منجم روبايا",
+      "en": "Rubaya mine",
+      "coords": [28.85, -1.55],
+      "type": "coltan",
+      "iso3": "COD",
+      "noteAr": "من أكبر مناجم الكولتان، تحت سيطرة إم23 منذ 2024.",
+      "noteEn": "One of the largest coltan mines, under M23 control since 2024."
+    },
+    {
+      "id": "boke",
+      "ar": "بوكي",
+      "en": "Boké",
+      "coords": [-14.3, 10.9],
+      "type": "bauxite",
+      "iso3": "GIN",
+      "noteAr": "قلب تعدين البوكسيت الغيني.",
+      "noteEn": "The heart of Guinean bauxite mining."
+    },
+    {
+      "id": "simandou",
+      "ar": "سيماندو",
+      "en": "Simandou",
+      "coords": [-8.9, 8.6],
+      "type": "iron-ore",
+      "iso3": "GIN",
+      "noteAr": "أكبر رواسب خام حديد عالي الجودة، بدأ التصدير أواخر 2025.",
+      "noteEn": "The largest high-grade iron ore deposit, exporting since late 2025."
+    },
+    {
+      "id": "obuasi",
+      "ar": "منجم أوبواسي",
+      "en": "Obuasi mine",
+      "coords": [-1.67, 6.2],
+      "type": "gold",
+      "iso3": "GHA",
+      "noteAr": "من أعمق مناجم الذهب وأقدمها في أفريقيا.",
+      "noteEn": "Among Africa's deepest and oldest gold mines."
+    },
+    {
+      "id": "jwaneng",
+      "ar": "منجم جوانينغ",
+      "en": "Jwaneng mine",
+      "coords": [24.73, -24.6],
+      "type": "diamonds",
+      "iso3": "BWA",
+      "noteAr": "أغنى منجم ماس في العالم بالقيمة.",
+      "noteEn": "The world's richest diamond mine by value."
+    },
+    {
+      "id": "catoca",
+      "ar": "منجم كاتوكا",
+      "en": "Catoca mine",
+      "coords": [20.3, -9.42],
+      "type": "diamonds",
+      "iso3": "AGO",
+      "noteAr": "من أكبر مناجم الماس في العالم.",
+      "noteEn": "Among the world's largest diamond mines."
+    },
+    {
+      "id": "husab",
+      "ar": "منجم حوساب",
+      "en": "Husab mine",
+      "coords": [15, -22.6],
+      "type": "uranium",
+      "iso3": "NAM",
+      "noteAr": "من أكبر مناجم اليورانيوم، صيني الملكية.",
+      "noteEn": "Among the largest uranium mines, Chinese-owned."
+    },
+    {
+      "id": "arlit",
+      "ar": "آرليت",
+      "en": "Arlit",
+      "coords": [7.38, 18.74],
+      "type": "uranium",
+      "iso3": "NER",
+      "noteAr": "مناجم اليورانيوم التي فقدت أورانو السيطرة عليها.",
+      "noteEn": "The uranium mines whose control Orano lost."
+    },
+    {
+      "id": "niger-delta",
+      "ar": "دلتا النيجر",
+      "en": "Niger Delta",
+      "coords": [6.5, 4.8],
+      "type": "oil",
+      "iso3": "NGA",
+      "noteAr": "مصدر النفط النيجيري ومسرح التخريب والسرقة.",
+      "noteEn": "The source of Nigerian oil and a theatre of sabotage and theft."
+    },
+    {
+      "id": "hassi-rmel",
+      "ar": "حاسي الرمل",
+      "en": "Hassi R'Mel",
+      "coords": [3.27, 32.93],
+      "type": "gas",
+      "iso3": "DZA",
+      "noteAr": "أكبر حقل غاز في الجزائر.",
+      "noteEn": "Algeria's largest gas field."
+    },
+    {
+      "id": "gafsa",
+      "ar": "حوض قفصة المنجمي",
+      "en": "Gafsa mining basin",
+      "coords": [8.78, 34.42],
+      "type": "phosphate",
+      "iso3": "TUN",
+      "noteAr": "قلب إنتاج الفوسفات التونسي.",
+      "noteEn": "The heart of Tunisian phosphate production."
+    },
+    {
+      "id": "zouerat",
+      "ar": "الزويرات",
+      "en": "Zouérat",
+      "coords": [-12.48, 22.73],
+      "type": "iron-ore",
+      "iso3": "MRT",
+      "noteAr": "مركز تعدين خام الحديد الموريتاني.",
+      "noteEn": "The centre of Mauritanian iron ore mining."
+    },
+    {
+      "id": "sangomar",
+      "ar": "حقل سانغومار",
+      "en": "Sangomar field",
+      "coords": [-17.9, 13.6],
+      "type": "oil",
+      "iso3": "SEN",
+      "noteAr": "أول حقل نفط سنغالي، بدأ الإنتاج 2024.",
+      "noteEn": "Senegal's first oil field, producing since 2024."
+    },
+    {
+      "id": "afungi",
+      "ar": "شبه جزيرة أفونجي (بالما)",
+      "en": "Afungi peninsula (Palma)",
+      "coords": [40.5, -10.8],
+      "type": "gas",
+      "iso3": "MOZ",
+      "noteAr": "موقع مشروع الغاز المسال المتوقف بسبب التمرّد.",
+      "noteEn": "Site of the LNG project halted by the insurgency."
+    },
+    {
+      "id": "balama",
+      "ar": "منجم بالاما",
+      "en": "Balama mine",
+      "coords": [38.6, -13.3],
+      "type": "graphite",
+      "iso3": "MOZ",
+      "noteAr": "من أكبر مناجم الغرافيت خارج الصين.",
+      "noteEn": "Among the largest graphite mines outside China."
+    },
+    {
+      "id": "geita",
+      "ar": "منجم غيتا",
+      "en": "Geita mine",
+      "coords": [32.2, -2.87],
+      "type": "gold",
+      "iso3": "TZA",
+      "noteAr": "أكبر مناجم الذهب في تنزانيا.",
+      "noteEn": "Tanzania's largest gold mine."
+    },
+    {
+      "id": "olkaria",
+      "ar": "أولكاريا",
+      "en": "Olkaria",
+      "coords": [36.3, -0.88],
+      "type": "geothermal",
+      "iso3": "KEN",
+      "noteAr": "أكبر مجمّع للطاقة الحرارية الجوفية في أفريقيا.",
+      "noteEn": "Africa's largest geothermal complex."
+    },
+    {
+      "id": "tilenga",
+      "ar": "حقول تيلينغا قرب بحيرة ألبرت",
+      "en": "Tilenga fields near Lake Albert",
+      "coords": [31.4, 2.1],
+      "type": "oil",
+      "iso3": "UGA",
+      "noteAr": "منبع النفط المخطّط تصديره عبر خط إيكوب.",
+      "noteEn": "The source of the oil to be exported via EACOP."
+    },
+    {
+      "id": "moanda",
+      "ar": "مواندا",
+      "en": "Moanda",
+      "coords": [13.2, -1.57],
+      "type": "manganese",
+      "iso3": "GAB",
+      "noteAr": "ثاني أكبر منجم منغنيز في العالم.",
+      "noteEn": "The world's second-largest manganese mine."
+    },
+    {
+      "id": "katse",
+      "ar": "سدّ كاتسي",
+      "en": "Katse dam",
+      "coords": [28.5, -29.33],
+      "type": "water",
+      "iso3": "LSO",
+      "noteAr": "قلب مشروع مياه مرتفعات ليسوتو.",
+      "noteEn": "The heart of the Lesotho Highlands Water Project."
+    },
+    {
+      "id": "kono",
+      "ar": "كونو",
+      "en": "Kono",
+      "coords": [-10.97, 8.65],
+      "type": "diamonds",
+      "iso3": "SLE",
+      "noteAr": "منطقة الماس التي موّلت الحرب الأهلية.",
+      "noteEn": "The diamond district that funded the civil war."
+    },
+    {
+      "id": "nimba",
+      "ar": "جبال نيمبا (يكيبا)",
+      "en": "Nimba mountains (Yekepa)",
+      "coords": [-8.53, 7.58],
+      "type": "iron-ore",
+      "iso3": "LBR",
+      "noteAr": "مناجم خام الحديد لأرسيلور ميتال.",
+      "noteEn": "ArcelorMittal's iron ore mines."
+    },
+    {
+      "id": "doba",
+      "ar": "حقول دوبا",
+      "en": "Doba fields",
+      "coords": [16.8, 8.65],
+      "type": "oil",
+      "iso3": "TCD",
+      "noteAr": "منبع خط تشاد–الكاميرون.",
+      "noteEn": "The source of the Chad–Cameroon pipeline."
+    },
+    {
+      "id": "kribi",
+      "ar": "كريبي",
+      "en": "Kribi",
+      "coords": [9.9, 2.94],
+      "type": "oil",
+      "iso3": "CMR",
+      "noteAr": "محطة تصدير نفط تشاد على الأطلسي.",
+      "noteEn": "The Atlantic export terminal for Chadian oil."
+    },
+    {
+      "id": "bisha",
+      "ar": "منجم بيشا",
+      "en": "Bisha mine",
+      "coords": [37.6, 15.45],
+      "type": "copper",
+      "iso3": "ERI",
+      "noteAr": "منجم النحاس والزنك لشركة زيجين الصينية.",
+      "noteEn": "Zijin's copper and zinc mine."
+    },
+    {
+      "id": "essakane",
+      "ar": "منجم إيساكان",
+      "en": "Essakane mine",
+      "coords": [-0.08, 14.39],
+      "type": "gold",
+      "iso3": "BFA",
+      "noteAr": "من أكبر مناجم الذهب في بوركينا فاسو.",
+      "noteEn": "Among Burkina Faso's largest gold mines."
+    },
+    {
+      "id": "ambatovy",
+      "ar": "أمباتوفي",
+      "en": "Ambatovy",
+      "coords": [48.3, -18.84],
+      "type": "nickel",
+      "iso3": "MDG",
+      "noteAr": "من أكبر مناجم النيكل والكوبالت اللاتيريتية.",
+      "noteEn": "Among the largest lateritic nickel and cobalt mines."
+    },
+    {
+      "id": "seme",
+      "ar": "سيمي",
+      "en": "Sèmè",
+      "coords": [2.6, 6.42],
+      "type": "oil",
+      "iso3": "BEN",
+      "noteAr": "محطة تصدير نفط النيجر عبر خط النيجر–بنين.",
+      "noteEn": "The export terminal for Nigerien oil via the Niger–Benin pipeline."
+    },
+    {
+      "id": "hahotoe",
+      "ar": "هاهوتويه",
+      "en": "Hahotoé",
+      "coords": [1.43, 6.37],
+      "type": "phosphate",
+      "iso3": "TGO",
+      "noteAr": "حوض الفوسفات التوغولي.",
+      "noteEn": "The Togolese phosphate basin."
+    },
+    {
+      "id": "lake-malawi",
+      "ar": "بحيرة مالاوي (نياسا)",
+      "en": "Lake Malawi (Nyasa)",
+      "coords": [34.6, -12],
+      "type": "water",
+      "iso3": "MWI",
+      "noteAr": "موضع النزاع الحدودي مع تنزانيا.",
+      "noteEn": "The subject of the border dispute with Tanzania."
     }
   ],
   "coverageNote": {
