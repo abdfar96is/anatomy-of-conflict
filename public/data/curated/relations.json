@@ -508,10 +508,10 @@
       "a": "RUS",
       "b": "MMR",
       "type": "military",
-      "kind": "assessed",
-      "weight": 3,
-      "ar": "مورّد أسلحة رئيسي للمجلس العسكري",
-      "en": "Principal arms supplier to the junta"
+      "kind": "treaty",
+      "weight": 4,
+      "ar": "اتفاقية تعاون عسكري لخمس سنوات (فبراير 2026)، وروسيا مورّد رئيسي للمجلس العسكري بالمقاتلات والمروحيات والمدرّعات",
+      "en": "A five-year military cooperation agreement (February 2026), and a principal supplier of fighters, helicopters and armour to the junta"
     },
     {
       "a": "CHN",
@@ -1952,6 +1952,87 @@
       "weight": 3,
       "ar": "أكبر مورّد سلاح لبنغلاديش بنحو 72% من وارداتها (2019–2023 وفق معهد ستوكهولم)، منها غواصتان وفرقاطات ومقاتلات",
       "en": "Bangladesh's largest arms supplier, with about 72% of its imports (2019–2023, per SIPRI), including two submarines, frigates and fighters"
+    },
+    {
+      "a": "RUS",
+      "b": "UZB",
+      "type": "alliance",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "معاهدة العلاقات التحالفية (2005): الاعتداء على أحدهما اعتداء على كليهما، مع أن أوزبكستان خرجت من منظمة معاهدة الأمن الجماعي عام 2012",
+      "en": "The Treaty on Allied Relations (2005): aggression against either is aggression against both, although Uzbekistan left the CSTO in 2012"
+    },
+    {
+      "a": "RUS",
+      "b": "KAZ",
+      "type": "alliance",
+      "kind": "treaty",
+      "weight": 4,
+      "ar": "معاهدة حسن الجوار والتحالف (2013) وإعلان الشراكة الاستراتيجية الشاملة والتحالف (نوفمبر 2025)، إضافة إلى عضوية منظمة الأمن الجماعي وقاعدة بايكونور",
+      "en": "The Treaty on Good-Neighbourliness and Alliance (2013) and the Declaration on Comprehensive Strategic Partnership and Alliance (November 2025), plus CSTO membership and the Baikonur cosmodrome"
+    },
+    {
+      "a": "RUS",
+      "b": "TJK",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 4,
+      "ar": "القاعدة العسكرية 201، أكبر قاعدة روسية خارج البلاد، بموجب اتفاق يمدّد وجودها حتى 2042، إضافة إلى عضوية منظمة الأمن الجماعي",
+      "en": "The 201st military base, Russia's largest base abroad, under an agreement extending its presence to 2042, plus CSTO membership"
+    },
+    {
+      "a": "RUS",
+      "b": "KGZ",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "قاعدة كانت الجوية العاملة تحت مظلة منظمة الأمن الجماعي، باتفاق (2012) يمدّدها حتى 2032 مقابل شطب ديون قرغيزية",
+      "en": "The Kant air base, operating under the CSTO umbrella, under a 2012 agreement extending it to 2032 in exchange for writing off Kyrgyz debt"
+    },
+    {
+      "a": "RUS",
+      "b": "VNM",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "المورّد التاريخي الأول لسلاح فيتنام (أكثر من 80% من وارداتها 1995–2023)، وشراكة استراتيجية شاملة (2012)، وخطة تعاون 2026–2030 تشمل تحديث المنظومات العسكرية والأمن البحري",
+      "en": "Vietnam's main historical arms supplier (over 80% of its imports 1995–2023), a comprehensive strategic partnership (2012), and a 2026–2030 cooperation plan covering upgrades of military systems and maritime security"
+    },
+    {
+      "a": "RUS",
+      "b": "LAO",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 2,
+      "ar": "اتفاقية تعاون عسكري محدّثة، ومناورات «لاروس» السنوية المشتركة منذ 2019",
+      "en": "An updated military cooperation agreement, and the annual joint Laros exercises since 2019"
+    },
+    {
+      "a": "RUS",
+      "b": "AZE",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 2,
+      "ar": "إعلان التعاون التحالفي (فبراير 2022)، توتّرت العلاقة بشدّة بعد إسقاط طائرة الخطوط الأذربيجانية بدفاع جوي روسي (ديسمبر 2024) ثم هدأت جزئياً، وخطة مشاورات 2026–2027",
+      "en": "The Declaration on Allied Interaction (February 2022); relations were sharply strained after Russian air defences downed an Azerbaijan Airlines plane (December 2024), then partly eased, with a 2026–2027 consultation plan"
+    },
+    {
+      "a": "RUS",
+      "b": "MNG",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 2,
+      "ar": "معاهدة العلاقات الودية والشراكة الاستراتيجية الشاملة (2019)، ومناورات «سيلينغا» السنوية منذ 2008 استضافتها منغوليا لأول مرة عام 2024",
+      "en": "The Treaty on Friendly Relations and Comprehensive Strategic Partnership (2019), and the annual Selenga exercises since 2008, hosted by Mongolia for the first time in 2024"
+    },
+    {
+      "a": "RUS",
+      "b": "IDN",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 2,
+      "ar": "أول مناورة بحرية مشتركة «أورودا 2024» في بحر جاوة",
+      "en": "The first joint naval exercise, Orruda 2024, in the Java Sea"
     }
   ],
   "bilateral": {
