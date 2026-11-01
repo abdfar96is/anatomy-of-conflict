@@ -71,10 +71,10 @@ export const EDGE_SLOT: Record<string, number> = { alliance: 3, military: 1, eco
 
 // Resource types roll up to five classes; the class carries color, the type carries the glyph letter.
 export const RESOURCE_CLASSES = [
-  { id: 'energy',   ar: 'الطاقة',          en: 'Energy',            slot: 2, members: ['oil', 'gas', 'oil-shale', 'uranium'] },
-  { id: 'critical', ar: 'المعادن الحرجة',   en: 'Critical minerals', slot: 1, members: ['rare-earths', 'cobalt', 'coltan', 'lithium', 'nickel', 'copper'] },
-  { id: 'precious', ar: 'المعادن والأحجار الثمينة', en: 'Precious metals & stones', slot: 4, members: ['gold', 'jade'] },
-  { id: 'food',     ar: 'الغذاء والماء والأسمدة', en: 'Food, water, fertiliser', slot: 3, members: ['water', 'grain', 'potash', 'phosphate', 'bromine'] },
+  { id: 'energy',   ar: 'الطاقة',          en: 'Energy',            slot: 2, members: ['oil', 'gas', 'oil-shale', 'uranium', 'coal', 'hydropower', 'geothermal'] },
+  { id: 'critical', ar: 'المعادن الحرجة',   en: 'Critical minerals', slot: 1, members: ['rare-earths', 'cobalt', 'coltan', 'lithium', 'nickel', 'copper', 'graphite', 'manganese', 'platinum', 'chromium', 'tungsten', 'bauxite', 'iron-ore'] },
+  { id: 'precious', ar: 'المعادن والأحجار الثمينة', en: 'Precious metals & stones', slot: 4, members: ['gold', 'jade', 'silver', 'diamonds'] },
+  { id: 'food',     ar: 'الغذاء والماء والأسمدة', en: 'Food, water, fertiliser', slot: 3, members: ['water', 'grain', 'potash', 'phosphate', 'bromine', 'cocoa', 'coffee', 'palm-oil', 'fisheries'] },
   { id: 'tech',     ar: 'التقنية',          en: 'Technology',        slot: 7, members: ['semiconductors'] },
 ];
 
