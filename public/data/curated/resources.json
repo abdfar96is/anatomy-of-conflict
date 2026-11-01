@@ -533,6 +533,139 @@
       "ar": "أكبر احتياطي نفطي مؤكّد في العالم، معظمه نفط ثقيل في حوض أورينوكو يحتاج استثماراً كبيراً للاستخراج.",
       "en": "The world's largest proven oil reserves, mostly heavy crude in the Orinoco Belt requiring heavy investment to extract.",
       "conflictIds": ["venezuela", "essequibo"]
+    },
+    {
+      "iso3": "ARE",
+      "type": "oil",
+      "year": 2026,
+      "source": "eia",
+      "ar": "احتياطي نفطي يقارب 113 مليار برميل وفق تحديث أدنوك (2023)، وخط حبشان–الفجيرة (1.5–1.8 مليون برميل يومياً) يتجاوز مضيق هرمز؛ استُهدف طرفاه خلال حرب 2026، ويُسرَّع خط ثانٍ يُنتظر أن يضاعف طاقة التصدير الالتفافية في 2027.",
+      "en": "Oil reserves of around 113 billion barrels according to ADNOC's 2023 update, and the Habshan–Fujairah pipeline (1.5–1.8 million barrels per day) bypasses the Strait of Hormuz; both its ends were struck during the 2026 war, and a second line expected to double bypass export capacity is being fast-tracked for 2027.",
+      "conflictIds": ["gulf-security"]
+    },
+    {
+      "iso3": "ARE",
+      "type": "gas",
+      "year": 2024,
+      "source": "eia",
+      "ar": "احتياطي غاز كبير يقارب 290 تريليون قدم مكعبة معظمه حامض وصعب الاستخراج، لذلك تستورد الإمارات الغاز القطري عبر خط دولفين.",
+      "en": "Large gas reserves of around 290 trillion cubic feet, mostly sour and hard to extract, which is why the UAE imports Qatari gas through the Dolphin pipeline.",
+      "conflictIds": ["gulf-security"]
+    },
+    {
+      "iso3": "OMN",
+      "type": "oil",
+      "year": 2025,
+      "source": "eia",
+      "ar": "نحو مليون برميل يومياً من النفط والمكثفات خارج أوبك، وميناء التصدير الرئيسي ميناء الفحل يقع على بحر عُمان خارج مضيق هرمز، ما يمنح صادراتها ميزة في أزمات المضيق.",
+      "en": "Around one million barrels per day of crude and condensate outside OPEC; the main export terminal, Mina al-Fahal, lies on the Sea of Oman outside the Strait of Hormuz, giving its exports an advantage in Strait crises.",
+      "conflictIds": ["gulf-security"]
+    },
+    {
+      "iso3": "OMN",
+      "type": "gas",
+      "year": 2025,
+      "source": "eia",
+      "ar": "مجمّع عُمان للغاز المسال في قلهات (نحو 11.5 مليون طن سنوياً) على بحر العرب خارج مضيق هرمز، وصادراته تتجه أساساً إلى آسيا.",
+      "en": "The Oman LNG complex at Qalhat (around 11.5 million tonnes a year) on the Arabian Sea, outside the Strait of Hormuz, exporting mainly to Asia.",
+      "conflictIds": ["gulf-security"]
+    },
+    {
+      "iso3": "KWT",
+      "type": "oil",
+      "year": 2024,
+      "source": "eia",
+      "ar": "احتياطي يقارب 101.5 مليار برميل، وكل صادراتها تمرّ عبر مضيق هرمز؛ وكان النزاع على حقل الرميلة من ذرائع الغزو العراقي عام 1990.",
+      "en": "Reserves of around 101.5 billion barrels, with all exports passing through the Strait of Hormuz; the dispute over the Rumaila field was among the pretexts for the Iraqi invasion of 1990.",
+      "conflictIds": ["gulf-security"]
+    },
+    {
+      "iso3": "CAN",
+      "type": "oil",
+      "year": 2024,
+      "source": "eia",
+      "rank": 4,
+      "ar": "رابع أكبر احتياطي نفطي في العالم، معظمه في رمال ألبرتا النفطية، ورابع أكبر منتج، وتذهب الغالبية العظمى من صادراته إلى الولايات المتحدة.",
+      "en": "The world's fourth-largest oil reserves, mostly in the Alberta oil sands, and the fourth-largest producer, with the large majority of exports going to the United States."
+    },
+    {
+      "iso3": "BRA",
+      "type": "oil",
+      "year": 2024,
+      "source": "eia",
+      "ar": "أكبر منتج للنفط في أمريكا اللاتينية بنحو 3.4 مليون برميل يومياً، معظمه من حقول ما قبل الملح البحرية العميقة.",
+      "en": "Latin America's largest oil producer at around 3.4 million barrels per day, most of it from deep-water pre-salt fields."
+    },
+    {
+      "iso3": "NOR",
+      "type": "gas",
+      "year": 2024,
+      "source": "eia",
+      "ar": "أكبر مورّد للغاز إلى أوروبا منذ تراجع الغاز الروسي عام 2022، وخطوط أنابيبه في بحر الشمال صارت بنية تحتية حساسة أمنياً.",
+      "en": "Europe's largest gas supplier since the decline of Russian gas in 2022, its North Sea pipelines having become security-sensitive infrastructure."
+    },
+    {
+      "iso3": "TKM",
+      "type": "gas",
+      "year": 2023,
+      "source": "eia",
+      "rank": 4,
+      "ar": "رابع أكبر احتياطي غاز في العالم، ويتركز في حقل غالكينيش، ويصدّر معظمه إلى الصين عبر خط آسيا الوسطى–الصين.",
+      "en": "The world's fourth-largest gas reserves, concentrated in the Galkynysh field, mostly exported to China through the Central Asia–China pipeline."
+    },
+    {
+      "iso3": "USA",
+      "type": "gas",
+      "year": 2024,
+      "source": "eia",
+      "rank": 1,
+      "ar": "أكبر منتج للغاز في العالم وأكبر مصدّر للغاز المسال منذ 2023، وقد عوّضت صادراته جزءاً كبيراً من الغاز الروسي في أوروبا.",
+      "en": "The world's largest gas producer and largest LNG exporter since 2023, its exports having replaced a large part of Russian gas in Europe."
+    },
+    {
+      "iso3": "PER",
+      "type": "copper",
+      "year": 2024,
+      "source": "usgs",
+      "rank": 3,
+      "ar": "ثالث أكبر منتج للنحاس بعد تشيلي والكونغو الديمقراطية، والاحتجاجات المحلية حول المناجم تعطّل الإنتاج دورياً.",
+      "en": "The third-largest copper producer after Chile and the DR Congo; local protests around mines periodically disrupt output."
+    },
+    {
+      "iso3": "BOL",
+      "type": "lithium",
+      "year": 2024,
+      "source": "usgs",
+      "rank": 1,
+      "ar": "أكبر موارد ليثيوم معروفة في العالم (نحو 23 مليون طن) في سهل أويوني الملحي، لكنها شبه غير مستغلة، وعقود استخراجها مع شركات صينية وروسية موضع جدل.",
+      "en": "The world's largest identified lithium resources (around 23 million tonnes) in the Uyuni salt flat, but they are barely exploited, and extraction contracts with Chinese and Russian firms are contested."
+    },
+    {
+      "iso3": "CAN",
+      "type": "uranium",
+      "year": 2024,
+      "source": "undata",
+      "rank": 2,
+      "ar": "ثاني أكبر منتج لليورانيوم بعد كازاخستان، من مناجم ساسكاتشوان عالية التركيز.",
+      "en": "The second-largest uranium producer after Kazakhstan, from high-grade Saskatchewan mines."
+    },
+    {
+      "iso3": "NAM",
+      "type": "uranium",
+      "year": 2024,
+      "source": "undata",
+      "rank": 3,
+      "ar": "ثالث أكبر منتج لليورانيوم، ومناجمها الكبرى مثل حوساب ورسينغ مملوكة جزئياً لشركات صينية.",
+      "en": "The third-largest uranium producer, with major mines such as Husab and Rössing partly owned by Chinese companies."
+    },
+    {
+      "iso3": "USA",
+      "type": "rare-earths",
+      "year": 2025,
+      "source": "usgs",
+      "rank": 2,
+      "ar": "ثاني أكبر منتج للعناصر الأرضية النادرة من منجم ماونتن باس، مع سعي لبناء قدرة معالجة محلية تقلّل الاعتماد على الصين.",
+      "en": "The second-largest rare earth producer, from the Mountain Pass mine, with a push to build domestic processing capacity to reduce dependence on China."
     }
   ],
   "sites": [
@@ -775,6 +908,26 @@
       "iso3": "SDN",
       "noteAr": "منفذ التصدير الوحيد للخام السوداني والجنوب سوداني على البحر الأحمر.",
       "noteEn": "The only export outlet on the Red Sea for Sudanese and South Sudanese crude."
+    },
+    {
+      "id": "fujairah",
+      "ar": "الفجيرة وخط حبشان–الفجيرة",
+      "en": "Fujairah and the Habshan–Fujairah pipeline",
+      "coords": [56.33, 25.12],
+      "type": "oil",
+      "iso3": "ARE",
+      "noteAr": "منفذ التصدير الإماراتي الذي يتجاوز مضيق هرمز.",
+      "noteEn": "The UAE export outlet that bypasses the Strait of Hormuz."
+    },
+    {
+      "id": "qalhat-lng",
+      "ar": "مجمّع قلهات للغاز المسال",
+      "en": "Qalhat LNG complex",
+      "coords": [59.37, 22.68],
+      "type": "gas",
+      "iso3": "OMN",
+      "noteAr": "مجمّع الغاز المسال العُماني خارج مضيق هرمز.",
+      "noteEn": "Oman's LNG complex, outside the Strait of Hormuz."
     }
   ],
   "coverageNote": {

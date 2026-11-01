@@ -10,7 +10,7 @@ beforeAll(() => { raw = readRaw(); db = build(raw); });
 describe('build() matches the legacy model', () => {
   test('stats', () => expect(db.stats).toEqual({
     countries: 242, conflicts: 40, groups: 41, religionCountries: 75, edges: 204,
-    blocs: 11, events: 86, chokepoints: 11, sites: 24, disputed: 99,
+    blocs: 11, events: 86, chokepoints: 11, sites: 26, disputed: 99,
   }));
 
   test('Saudi Arabia links', () => {
