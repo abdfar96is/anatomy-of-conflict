@@ -1106,9 +1106,9 @@
       "b": "MAR",
       "type": "military",
       "kind": "treaty",
-      "weight": 3,
-      "ar": "حليف رئيسي من خارج الناتو منذ 2004، ومناورات «الأسد الأفريقي» السنوية، واعتراف أمريكي بالسيادة المغربية على الصحراء الغربية منذ 2020",
-      "en": "A major non-NATO ally since 2004, the annual African Lion exercises, and US recognition of Moroccan sovereignty over Western Sahara since 2020"
+      "weight": 4,
+      "ar": "حليف رئيسي من خارج الناتو منذ 2004، وخارطة طريق للتعاون الدفاعي 2026–2036 (أبريل 2026)، ومركز تدريب وتجريب للمسيّرات في طانطان (يوليو 2026)، ومناورات «الأسد الأفريقي» السنوية، واعتراف أمريكي بالسيادة المغربية على الصحراء الغربية منذ 2020",
+      "en": "A major non-NATO ally since 2004, a 2026–2036 defence cooperation roadmap (April 2026), a drone training and experimentation centre at Tan-Tan (July 2026), the annual African Lion exercises, and US recognition of Moroccan sovereignty over Western Sahara since 2020"
     },
     {
       "a": "USA",
@@ -1861,6 +1861,61 @@
       "weight": 3,
       "ar": "اتفاقية تعاون دفاعي (وُقّعت أكتوبر 2025، صدّق عليها البرلمان الكيني في أبريل 2026) تتيح انتشاراً متبادلاً للقوات والتدريب والأمن البحري، وانتقدها معارضون بسبب حصانة الجنود الفرنسيين",
       "en": "A defence cooperation agreement (signed October 2025, ratified by Kenya's parliament in April 2026) allowing reciprocal deployments, training and maritime security; critics object to the immunity it grants French troops"
+    },
+    {
+      "a": "USA",
+      "b": "NGA",
+      "type": "military",
+      "kind": "assessed",
+      "weight": 4,
+      "ar": "تعاون أمني واستخباراتي أعلنته نيجيريا منذ ضربات ديسمبر 2025، ثم نشر قوات ومسيّرات أمريكية (فبراير ومارس 2026) وضربات مشتركة ضد تنظيم الدولة في الشمال الشرقي، دون اتفاق مكتوب منشور",
+      "en": "Security and intelligence cooperation announced by Nigeria since the December 2025 strikes, then US troops and drones deployed (February–March 2026) and joint strikes against ISIS in the northeast, without a published written agreement"
+    },
+    {
+      "a": "USA",
+      "b": "SOM",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 4,
+      "ar": "مذكّرة تفاهم (2024) لبناء قواعد لوحدة «دنب» الصومالية التي تدرّبها الولايات المتحدة، وحملة ضربات جوية قياسية ضد الشباب وتنظيم الدولة بالتنسيق مع الحكومة الفيدرالية",
+      "en": "A memorandum of understanding (2024) to build bases for the US-trained Danab brigade, and a record air campaign against al-Shabaab and ISIS in coordination with the federal government"
+    },
+    {
+      "a": "USA",
+      "b": "GHA",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "اتفاقية تعاون دفاعي (2018) صدّق عليها البرلمان الغاني رغم احتجاجات، تتيح للقوات الأمريكية استخدام مرافق محددة دون إنشاء قاعدة",
+      "en": "A defence cooperation agreement (2018) ratified by Ghana's parliament despite protests, allowing US forces to use agreed facilities without a base"
+    },
+    {
+      "a": "USA",
+      "b": "SEN",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 2,
+      "ar": "اتفاقية تعاون دفاعي (2016) تحدّث اتفاق 2001 وتتيح للقوات الأمريكية الوصول إلى مرافق محددة للاستجابة للأزمات",
+      "en": "A defence cooperation agreement (2016) updating a 2001 accord and giving US forces access to agreed facilities for crisis response"
+    },
+    {
+      "a": "USA",
+      "b": "AGO",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 2,
+      "ar": "لجنة تعاون دفاعي مشتركة (اجتماعها الثاني أغسطس 2026)، وشراكة مع الحرس الوطني لولاية أوهايو، واستضافة مؤتمر رؤساء الأركان الأفارقة 2026",
+      "en": "A joint defence cooperation committee (second meeting August 2026), a partnership with the Ohio National Guard, and hosting of the 2026 African Chiefs of Defense Conference"
+    },
+    {
+      "a": "USA",
+      "b": "CIV",
+      "type": "military",
+      "kind": "assessed",
+      "weight": 2,
+      "ar": "تقارير عن موافقة ساحل العاج على تمركز مسيّرات أمريكية في بواكيه بعد خسارة القاعدة الأمريكية في النيجر، دون تأكيد رسمي لإنشاء قاعدة",
+      "en": "Reports that Côte d'Ivoire agreed to host US drones at Bouaké after the loss of the US base in Niger, without official confirmation of a base",
+      "contested": true
     }
   ],
   "bilateral": {
