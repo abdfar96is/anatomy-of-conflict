@@ -197,6 +197,40 @@
         "ar": "وُقّعت في 7 أغسطس 2026: أي هجوم مسلّح على إحدى الدول الثلاث هجوم عليها جميعاً، دون تفصيل الالتزامات العملية.",
         "en": "Signed on 7 August 2026: an armed attack on any of the three is an attack on all, without detailing practical obligations."
       }
+    },
+    {
+      "id": "mnna",
+      "ar": "الحلفاء الرئيسيون للولايات المتحدة من خارج الناتو",
+      "en": "US major non-NATO allies",
+      "kind": "treaty",
+      "members": [
+        "ISR",
+        "EGY",
+        "JPN",
+        "KOR",
+        "AUS",
+        "JOR",
+        "NZL",
+        "ARG",
+        "BHR",
+        "PHL",
+        "THA",
+        "KWT",
+        "MAR",
+        "PAK",
+        "TUN",
+        "BRA",
+        "COL",
+        "QAT",
+        "KEN",
+        "SAU",
+        "PER",
+        "TWN"
+      ],
+      "note": {
+        "ar": "تصنيف أمريكي يمنح امتيازات في التسليح والتعاون الدفاعي ولا يتضمّن التزاماً بالدفاع عن الدولة. تايوان ليست مصنّفة رسمياً لكن القانون الأمريكي يعاملها بالمثل منذ 2003. أُلغي تصنيف أفغانستان عام 2022.",
+        "en": "A US designation granting privileges in arms transfers and defence cooperation, with no commitment to defend the country. Taiwan is not formally designated but US law has treated it as one since 2003. Afghanistan's designation was revoked in 2022."
+      }
     }
   ],
   "edges": [
@@ -206,8 +240,8 @@
       "type": "alliance",
       "kind": "treaty",
       "weight": 5,
-      "ar": "الحامي العسكري والدبلوماسي الرئيسي، ومورّد أسلحة بموجب مذكّرات تفاهم متعدّدة السنوات",
-      "en": "Principal military and diplomatic protector and arms supplier under multi-year memoranda of understanding"
+      "ar": "الحامي العسكري والدبلوماسي الرئيسي، ومورّد أسلحة بموجب مذكّرات تفاهم متعدّدة السنوات، وحليف رئيسي من خارج الناتو منذ 1987",
+      "en": "Principal military and diplomatic protector and arms supplier under multi-year memoranda of understanding, and a major non-NATO ally since 1987"
     },
     {
       "a": "USA",
@@ -242,8 +276,8 @@
       "type": "military",
       "kind": "treaty",
       "weight": 4,
-      "ar": "مورّد أسلحة رئيسي بموجب قانون العلاقات مع تايوان دون معاهدة دفاع صريحة",
-      "en": "Principal arms supplier under the Taiwan Relations Act without an explicit defence treaty"
+      "ar": "مورّد أسلحة رئيسي بموجب قانون العلاقات مع تايوان دون معاهدة دفاع صريحة، وتُعامَل بموجب القانون الأمريكي معاملة الحليف الرئيسي من خارج الناتو منذ 2003",
+      "en": "Principal arms supplier under the Taiwan Relations Act without an explicit defence treaty, and treated in US law as a major non-NATO ally since 2003"
     },
     {
       "a": "USA",
@@ -251,8 +285,8 @@
       "type": "alliance",
       "kind": "treaty",
       "weight": 5,
-      "ar": "معاهدة التعاون والأمن المتبادل، وأكبر تمركز للقوات الأمريكية في آسيا",
-      "en": "The Treaty of Mutual Cooperation and Security, and the largest American force concentration in Asia"
+      "ar": "معاهدة التعاون والأمن المتبادل، وأكبر تمركز للقوات الأمريكية في آسيا، وحليف رئيسي من خارج الناتو منذ 1987",
+      "en": "The Treaty of Mutual Cooperation and Security, and the largest American force concentration in Asia, and a major non-NATO ally since 1987"
     },
     {
       "a": "USA",
@@ -260,8 +294,8 @@
       "type": "alliance",
       "kind": "treaty",
       "weight": 5,
-      "ar": "معاهدة دفاع متبادل ونحو 28 ألف جندي أمريكي",
-      "en": "A mutual defence treaty and around 28,000 American troops"
+      "ar": "معاهدة دفاع متبادل ونحو 28 ألف جندي أمريكي، وحليف رئيسي من خارج الناتو منذ 1987",
+      "en": "A mutual defence treaty and around 28,000 American troops, and a major non-NATO ally since 1987"
     },
     {
       "a": "USA",
@@ -269,8 +303,8 @@
       "type": "alliance",
       "kind": "treaty",
       "weight": 4,
-      "ar": "معاهدة دفاع متبادل واتفاق وصول موسّع إلى قواعد فلبينية",
-      "en": "A mutual defence treaty and an expanded agreement on access to Philippine bases"
+      "ar": "معاهدة دفاع متبادل واتفاق وصول موسّع إلى قواعد فلبينية، وحليف رئيسي من خارج الناتو منذ 2003",
+      "en": "A mutual defence treaty and an expanded agreement on access to Philippine bases, and a major non-NATO ally since 2003"
     },
     {
       "a": "USA",
@@ -314,8 +348,8 @@
       "type": "diplomatic",
       "kind": "treaty",
       "weight": 3,
-      "ar": "علاقة متقلّبة اكتسبت وزناً في 2026 بفعل الوساطة الباكستانية بين واشنطن وطهران",
-      "en": "A volatile relationship that gained weight in 2026 through Pakistani mediation between Washington and Tehran"
+      "ar": "علاقة متقلّبة اكتسبت وزناً في 2026 بفعل الوساطة الباكستانية بين واشنطن وطهران؛ وهي حليف رئيسي من خارج الناتو منذ 2004",
+      "en": "A volatile relationship that gained weight in 2026 through Pakistani mediation between Washington and Tehran; a major non-NATO ally since 2004"
     },
     {
       "a": "USA",
@@ -1064,8 +1098,8 @@
       "type": "military",
       "kind": "treaty",
       "weight": 4,
-      "ar": "حليف رئيسي من خارج الناتو منذ 1989، ونحو 1.3 مليار دولار مساعدات عسكرية سنوية منذ كامب ديفيد، ومناورات «النجم الساطع»",
-      "en": "A major non-NATO ally since 1989, around $1.3 billion in annual military aid since Camp David, and the Bright Star exercises"
+      "ar": "حليف رئيسي من خارج الناتو منذ 1987، ونحو 1.3 مليار دولار مساعدات عسكرية سنوية منذ كامب ديفيد، ومناورات «النجم الساطع»",
+      "en": "A major non-NATO ally since 1987, around $1.3 billion in annual military aid since Camp David, and the Bright Star exercises"
     },
     {
       "a": "USA",
@@ -1091,8 +1125,8 @@
       "type": "alliance",
       "kind": "treaty",
       "weight": 5,
-      "ar": "معاهدة أنزوس (1951) وشراكة أوكوس (2021) للغواصات النووية والتقنيات المتقدّمة",
-      "en": "The ANZUS Treaty (1951) and the AUKUS partnership (2021) on nuclear-powered submarines and advanced technology"
+      "ar": "معاهدة أنزوس (1951) وشراكة أوكوس (2021) للغواصات النووية والتقنيات المتقدّمة، وحليف رئيسي من خارج الناتو منذ 1987",
+      "en": "The ANZUS Treaty (1951) and the AUKUS partnership (2021) on nuclear-powered submarines and advanced technology, and a major non-NATO ally since 1987"
     },
     {
       "a": "USA",
@@ -1319,6 +1353,51 @@
       "weight": 3,
       "ar": "بروتوكول تعاون دفاعي (أغسطس 2024) وشحنات سلاح مصرية، في سياق التوتّر مع إثيوبيا",
       "en": "A defence cooperation protocol (August 2024) and Egyptian arms shipments, in the context of tension with Ethiopia"
+    },
+    {
+      "a": "USA",
+      "b": "ARG",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "حليف رئيسي من خارج الناتو منذ 1998، وتقارب وثيق في عهد ميلي شمل خطّ مبادلة عملات بقيمة 20 مليار دولار عام 2025",
+      "en": "A major non-NATO ally since 1998, with close alignment under Milei including a $20 billion currency swap line in 2025"
+    },
+    {
+      "a": "USA",
+      "b": "BRA",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 2,
+      "ar": "حليف رئيسي من خارج الناتو منذ 2019، دون وجود عسكري أمريكي، مع توتّر تجاري وسياسي منذ 2025",
+      "en": "A major non-NATO ally since 2019, without a US military presence, and with trade and political tension since 2025"
+    },
+    {
+      "a": "USA",
+      "b": "NZL",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "حليف رئيسي من خارج الناتو منذ 1997 رغم تعليق التزامات أنزوس تجاهها منذ 1986 بسبب حظر السفن النووية، وشريك في تحالف «العيون الخمس» الاستخباري",
+      "en": "A major non-NATO ally since 1997 although US ANZUS obligations toward it have been suspended since 1986 over its nuclear-ship ban, and a partner in the Five Eyes intelligence alliance"
+    },
+    {
+      "a": "USA",
+      "b": "TUN",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 2,
+      "ar": "حليف رئيسي من خارج الناتو منذ 2015، ودعم عسكري لمكافحة الإرهاب وضبط الحدود مع ليبيا",
+      "en": "A major non-NATO ally since 2015, with military support for counter-terrorism and control of the border with Libya"
+    },
+    {
+      "a": "USA",
+      "b": "PER",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "صُنّفت حليفاً رئيسياً من خارج الناتو في يناير 2026 لأول مرة، مع تعاون في مكافحة المخدّرات وموازنة النفوذ الصيني حول ميناء تشانكاي",
+      "en": "Designated a major non-NATO ally for the first time in January 2026, with counter-narcotics cooperation and an effort to balance Chinese influence around the port of Chancay"
     }
   ],
   "bilateral": {
