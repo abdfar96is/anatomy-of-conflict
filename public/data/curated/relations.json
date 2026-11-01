@@ -186,6 +186,17 @@
       "en": "Organization of Turkic States",
       "kind": "treaty",
       "members": ["TUR", "AZE", "KAZ", "KGZ", "UZB", "TKM", "HUN"]
+    },
+    {
+      "id": "mecca",
+      "ar": "اتفاقية مكة للدفاع المشترك",
+      "en": "Mecca Joint Defence Agreement",
+      "kind": "treaty",
+      "members": ["SAU", "TUR", "PAK"],
+      "note": {
+        "ar": "وُقّعت في 7 أغسطس 2026: أي هجوم مسلّح على إحدى الدول الثلاث هجوم عليها جميعاً، دون تفصيل الالتزامات العملية.",
+        "en": "Signed on 7 August 2026: an armed attack on any of the three is an attack on all, without detailing practical obligations."
+      }
     }
   ],
   "edges": [
@@ -203,9 +214,9 @@
       "b": "SAU",
       "type": "military",
       "kind": "treaty",
-      "weight": 4,
-      "ar": "شراكة أمنية وطاقية طويلة مع احتكاك دوري حول النفط وحقوق الإنسان",
-      "en": "A long security and energy partnership with periodic friction over oil and human rights"
+      "weight": 5,
+      "ar": "اتفاقية الدفاع الاستراتيجي (نوفمبر 2025) وتصنيف السعودية حليفاً رئيسياً من خارج الناتو، دون التزام تعاهدي بالدفاع، مع احتكاك دوري حول النفط وحقوق الإنسان",
+      "en": "The Strategic Defense Agreement (November 2025) and designation as a major non-NATO ally, without a treaty defence commitment, with periodic friction over oil and human rights"
     },
     {
       "a": "USA",
@@ -382,19 +393,19 @@
       "a": "RUS",
       "b": "IRN",
       "type": "military",
-      "kind": "assessed",
+      "kind": "treaty",
       "weight": 4,
-      "ar": "تعاون في التسليح والطاقة النووية المدنية، وتبادل طائرات مسيّرة في سياق حرب أوكرانيا",
-      "en": "Cooperation in armaments and civil nuclear energy, and drone transfers in the context of the Ukraine war"
+      "ar": "معاهدة الشراكة الاستراتيجية الشاملة (يناير 2025، نافذة منذ أكتوبر 2025) دون بند دفاع مشترك، تكتفي بعدم مساعدة المعتدي على الآخر؛ وتعاون في التسلّح والطاقة النووية المدنية",
+      "en": "The Comprehensive Strategic Partnership Treaty (January 2025, in force since October 2025), with no mutual defence clause, only a pledge not to help an aggressor against the other; cooperation in armaments and civil nuclear energy"
     },
     {
       "a": "RUS",
       "b": "PRK",
-      "type": "military",
-      "kind": "assessed",
-      "weight": 4,
-      "ar": "علاقة عسكرية متعمّقة؛ أُفيد بتقديم بيونغ يانغ ذخائر وقوات لروسيا",
-      "en": "A deepening military relationship; Pyongyang has been reported to supply munitions and troops to Russia"
+      "type": "alliance",
+      "kind": "treaty",
+      "weight": 5,
+      "ar": "معاهدة الشراكة الاستراتيجية الشاملة (يونيو 2024) تنصّ على المساعدة العسكرية المتبادلة عند الاعتداء، وقاتلت قوات كورية شمالية إلى جانب روسيا في كورسك",
+      "en": "The Comprehensive Strategic Partnership Treaty (June 2024) provides for mutual military assistance in case of aggression, and North Korean troops fought alongside Russia in Kursk"
     },
     {
       "a": "RUS",
@@ -697,11 +708,11 @@
     {
       "a": "SAU",
       "b": "PAK",
-      "type": "military",
+      "type": "alliance",
       "kind": "treaty",
-      "weight": 4,
-      "ar": "علاقة أمنية ومالية قديمة، ووساطة سعودية في ملفّات أفغانية باكستانية",
-      "en": "A long-standing security and financial relationship, and Saudi mediation in Afghan–Pakistani files"
+      "weight": 5,
+      "ar": "اتفاقية الدفاع الاستراتيجي المشترك (سبتمبر 2025): أي اعتداء على أحدهما اعتداء على كليهما، ثم توسّعت باتفاقية مكة مع تركيا في أغسطس 2026",
+      "en": "The Strategic Mutual Defence Agreement (September 2025): an attack on either is an attack on both, later widened by the Mecca agreement with Türkiye in August 2026"
     },
     {
       "a": "ARE",
@@ -992,6 +1003,322 @@
       "weight": 3,
       "ar": "زيارة رئيس الوزراء العراقي إلى دمشق في 28 أكتوبر 2026 وتأكيد على تطوير الروابط الاقتصادية",
       "en": "The Iraqi prime minister's visit to Damascus on 28 October 2026 and an emphasis on developing economic ties"
+    },
+    {
+      "a": "USA",
+      "b": "JOR",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 4,
+      "ar": "اتفاقية تعاون دفاعي منذ يناير 2021 تنظّم وجود القوات الأمريكية في القواعد الأردنية، والأردن حليف رئيسي من خارج الناتو منذ 1996؛ وتفيد تقارير بانتقال مقرّ التحالف إليه بعد الانسحاب الأمريكي من العراق في سبتمبر 2026",
+      "en": "A defence cooperation agreement since January 2021 governing US forces at Jordanian bases, and a major non-NATO ally since 1996; reports say the coalition headquarters moved there after the US withdrawal from Iraq in September 2026"
+    },
+    {
+      "a": "USA",
+      "b": "BHR",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 4,
+      "ar": "اتفاقية التكامل الأمني والازدهار الشاملة (سبتمبر 2023)، ومقرّ الأسطول الخامس الأمريكي في المنامة، وحليف رئيسي من خارج الناتو منذ 2002",
+      "en": "The Comprehensive Security Integration and Prosperity Agreement (September 2023), the US Fifth Fleet headquarters in Manama, and a major non-NATO ally since 2002"
+    },
+    {
+      "a": "USA",
+      "b": "QAT",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 5,
+      "ar": "قاعدة العديد أكبر قاعدة أمريكية في المنطقة، وحليف رئيسي من خارج الناتو منذ 2022، وأمر تنفيذي أمريكي في سبتمبر 2025 يعدّ أي هجوم على قطر تهديداً لأمن الولايات المتحدة، دون التزام تعاهدي",
+      "en": "Al Udeid, the largest US base in the region; a major non-NATO ally since 2022; and a September 2025 US executive order treating an attack on Qatar as a threat to US security, without a treaty commitment"
+    },
+    {
+      "a": "USA",
+      "b": "KWT",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 4,
+      "ar": "اتفاقية تعاون دفاعي منذ تحرير الكويت عام 1991، وحليف رئيسي من خارج الناتو منذ 2004، وقاعدة معسكر عريفجان",
+      "en": "A defence cooperation agreement since the liberation of Kuwait in 1991, a major non-NATO ally since 2004, and Camp Arifjan"
+    },
+    {
+      "a": "USA",
+      "b": "ARE",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 4,
+      "ar": "اتفاقية تعاون دفاعي (2017، نافذة منذ 2019)، وتصنيف «شريك دفاعي رئيسي» في سبتمبر 2024، وقاعدة الظفرة الجوية",
+      "en": "A defence cooperation agreement (2017, in force since 2019), designation as a Major Defense Partner in September 2024, and Al Dhafra Air Base"
+    },
+    {
+      "a": "USA",
+      "b": "OMN",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "اتفاقية الوصول إلى التسهيلات العسكرية منذ 1980، واتفاق إطاري عام 2019 يتيح للقوات الأمريكية استخدام ميناءَي الدقم وصلالة",
+      "en": "A military facilities access agreement since 1980, and a 2019 framework agreement giving US forces use of the ports of Duqm and Salalah"
+    },
+    {
+      "a": "USA",
+      "b": "EGY",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 4,
+      "ar": "حليف رئيسي من خارج الناتو منذ 1989، ونحو 1.3 مليار دولار مساعدات عسكرية سنوية منذ كامب ديفيد، ومناورات «النجم الساطع»",
+      "en": "A major non-NATO ally since 1989, around $1.3 billion in annual military aid since Camp David, and the Bright Star exercises"
+    },
+    {
+      "a": "USA",
+      "b": "MAR",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "حليف رئيسي من خارج الناتو منذ 2004، ومناورات «الأسد الأفريقي» السنوية، واعتراف أمريكي بالسيادة المغربية على الصحراء الغربية منذ 2020",
+      "en": "A major non-NATO ally since 2004, the annual African Lion exercises, and US recognition of Moroccan sovereignty over Western Sahara since 2020"
+    },
+    {
+      "a": "USA",
+      "b": "DJI",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "معسكر ليمونييه، القاعدة العسكرية الأمريكية الدائمة الوحيدة في أفريقيا، قرب مضيق باب المندب",
+      "en": "Camp Lemonnier, the only permanent US military base in Africa, near the Bab al-Mandab strait"
+    },
+    {
+      "a": "USA",
+      "b": "AUS",
+      "type": "alliance",
+      "kind": "treaty",
+      "weight": 5,
+      "ar": "معاهدة أنزوس (1951) وشراكة أوكوس (2021) للغواصات النووية والتقنيات المتقدّمة",
+      "en": "The ANZUS Treaty (1951) and the AUKUS partnership (2021) on nuclear-powered submarines and advanced technology"
+    },
+    {
+      "a": "USA",
+      "b": "CAN",
+      "type": "alliance",
+      "kind": "treaty",
+      "weight": 5,
+      "ar": "قيادة الدفاع الجوي المشتركة لأمريكا الشمالية (نوراد) منذ 1958 إلى جانب عضوية الناتو",
+      "en": "The joint North American Aerospace Defense Command (NORAD) since 1958, alongside NATO membership"
+    },
+    {
+      "a": "USA",
+      "b": "THA",
+      "type": "alliance",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "حليف بموجب ميثاق مانيلا (1954) وبيان ثانات–راسك (1962)، وحليف رئيسي من خارج الناتو منذ 2003، ومناورات «كوبرا غولد»",
+      "en": "An ally under the Manila Pact (1954) and the Thanat–Rusk communiqué (1962), a major non-NATO ally since 2003, and the Cobra Gold exercises"
+    },
+    {
+      "a": "USA",
+      "b": "SGP",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "مذكّرة تفاهم 1990 تتيح الوصول إلى القواعد السنغافورية، واتفاق الإطار الاستراتيجي 2005، دون معاهدة دفاع",
+      "en": "A 1990 memorandum giving access to Singaporean bases and the 2005 Strategic Framework Agreement, without a defence treaty"
+    },
+    {
+      "a": "USA",
+      "b": "COL",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "حليف رئيسي من خارج الناتو منذ 2022 وشراكة طويلة في مكافحة المخدّرات، مع توتّر سياسي حادّ منذ 2025",
+      "en": "A major non-NATO ally since 2022 and a long counter-narcotics partnership, with sharp political tension since 2025"
+    },
+    {
+      "a": "USA",
+      "b": "KEN",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "أول دولة أفريقية جنوب الصحراء تُصنَّف حليفاً رئيسياً من خارج الناتو (2024)، وقاعدة خليج ماندا",
+      "en": "The first sub-Saharan African state designated a major non-NATO ally (2024), and the Manda Bay base"
+    },
+    {
+      "a": "USA",
+      "b": "PAN",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "معاهدة الحياد (1977) تمنح الولايات المتحدة حقّ الدفاع عن حياد القناة، ومذكّرة أمنية في أبريل 2025 لوجود عسكري أمريكي دوري",
+      "en": "The Neutrality Treaty (1977) gives the United States the right to defend the canal's neutrality, and an April 2025 security memorandum allows a rotational US military presence"
+    },
+    {
+      "a": "RUS",
+      "b": "BLR",
+      "type": "alliance",
+      "kind": "treaty",
+      "weight": 5,
+      "ar": "معاهدة الضمانات الأمنية في إطار دولة الاتحاد (وُقّعت ديسمبر 2024، نافذة منذ مارس 2025) تشمل الردع النووي، مع نشر أسلحة نووية تكتيكية روسية في بيلاروس",
+      "en": "The Treaty on Security Guarantees within the Union State (signed December 2024, in force since March 2025) covers nuclear deterrence, with Russian tactical nuclear weapons deployed in Belarus"
+    },
+    {
+      "a": "RUS",
+      "b": "IND",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 4,
+      "ar": "أكبر مورّد سلاح تاريخياً للهند، واتفاقية التبادل المتبادل للدعم اللوجستي (RELOS) الموقّعة في فبراير 2025 والنافذة منذ يناير 2026",
+      "en": "India's largest historical arms supplier, and the Reciprocal Exchange of Logistics Agreement (RELOS) signed in February 2025 and in force since January 2026"
+    },
+    {
+      "a": "RUS",
+      "b": "CAF",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "اتفاقية تعاون عسكري منذ 2018، ومقاتلو فاغنر ثم «الفيلق الأفريقي» يحمون الحكومة في بانغي",
+      "en": "A military cooperation agreement since 2018, with Wagner and then the Africa Corps protecting the government in Bangui"
+    },
+    {
+      "a": "RUS",
+      "b": "NER",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "تعاون عسكري منذ 2024 بعد طرد القوات الفرنسية والأمريكية، ومدرّبون من «الفيلق الأفريقي»",
+      "en": "Military cooperation since 2024 after the expulsion of French and American forces, with Africa Corps instructors"
+    },
+    {
+      "a": "CHN",
+      "b": "DJI",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "أول قاعدة عسكرية صينية خارج البلاد (2017)، قرب مضيق باب المندب",
+      "en": "China's first overseas military base (2017), near the Bab al-Mandab strait"
+    },
+    {
+      "a": "CHN",
+      "b": "SLB",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "اتفاق أمني (2022) يتيح نشر الشرطة الصينية ورسوّ السفن، وكان دافعاً لموجة اتفاقيات الدفاع الأسترالية في المحيط الهادئ",
+      "en": "A security agreement (2022) allowing Chinese police deployment and ship visits, which spurred Australia's wave of Pacific defence treaties"
+    },
+    {
+      "a": "CHN",
+      "b": "KHM",
+      "type": "military",
+      "kind": "assessed",
+      "weight": 3,
+      "ar": "قاعدة ريام البحرية الممولة صينياً، ورسوّ سفن حربية صينية فيها منذ 2023؛ وتنفي كمبوديا منح الصين حقّاً حصرياً",
+      "en": "The Chinese-funded Ream naval base, where Chinese warships have docked since 2023; Cambodia denies granting China exclusive rights",
+      "contested": true
+    },
+    {
+      "a": "AUS",
+      "b": "PNG",
+      "type": "alliance",
+      "kind": "treaty",
+      "weight": 4,
+      "ar": "معاهدة «بوكبوك» للدفاع المشترك (أكتوبر 2025): الهجوم المسلّح على أحدهما يستدعي ردّ الآخر، وتتيح لمواطني بابوا الخدمة في الجيش الأسترالي",
+      "en": "The Pukpuk mutual defence treaty (October 2025): an armed attack on either calls for a response by both, and Papua New Guineans may serve in the Australian Defence Force"
+    },
+    {
+      "a": "AUS",
+      "b": "FJI",
+      "type": "alliance",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "«تحالف محيط السلام» (يوليو 2026): يلتزم البلدان بمواجهة الخطر المشترك إذا تعرّض أحدهما لهجوم، وفق الإجراءات الدستورية لكلٍّ منهما",
+      "en": "The Ocean of Peace Alliance (July 2026): both commit to meet the common danger if either is attacked, through each one's constitutional processes"
+    },
+    {
+      "a": "AUS",
+      "b": "JPN",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 4,
+      "ar": "اتفاقية الوصول المتبادل (نافذة منذ 2023)، واختيار أستراليا الفرقاطات اليابانية من فئة «موغامي» عام 2025",
+      "en": "The Reciprocal Access Agreement (in force since 2023), and Australia's 2025 choice of Japanese Mogami-class frigates"
+    },
+    {
+      "a": "JPN",
+      "b": "PHL",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 4,
+      "ar": "اتفاقية الوصول المتبادل (نافذة منذ سبتمبر 2025) تتيح انتشار قوات كلٍّ منهما على أراضي الآخر للتدريب والعمليات المشتركة",
+      "en": "The Reciprocal Access Agreement (in force since September 2025) lets each country's forces deploy on the other's territory for training and joint operations"
+    },
+    {
+      "a": "TUR",
+      "b": "QAT",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 4,
+      "ar": "اتفاقية تعاون دفاعي (2014) وقاعدة عسكرية تركية في الدوحة",
+      "en": "A defence cooperation agreement (2014) and a Turkish military base in Doha"
+    },
+    {
+      "a": "TUR",
+      "b": "LBY",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "مذكّرة تعاون أمني (2019) مع حكومة طرابلس، ووجود عسكري تركي ومسيّرات حسمت معركة طرابلس 2020",
+      "en": "A security cooperation memorandum (2019) with the Tripoli government, and a Turkish military presence and drones that decided the 2020 battle for Tripoli"
+    },
+    {
+      "a": "FRA",
+      "b": "GRC",
+      "type": "alliance",
+      "kind": "treaty",
+      "weight": 4,
+      "ar": "شراكة استراتيجية (2021) تتضمّن بند مساعدة متبادلة في حال الهجوم المسلّح، إضافة إلى عضوية الناتو والاتحاد الأوروبي",
+      "en": "A strategic partnership (2021) with a mutual assistance clause in case of armed attack, on top of NATO and EU membership"
+    },
+    {
+      "a": "FRA",
+      "b": "ARE",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "اتفاقية دفاعية (2009) وقاعدة فرنسية دائمة في أبوظبي",
+      "en": "A defence agreement (2009) and a permanent French base in Abu Dhabi"
+    },
+    {
+      "a": "FRA",
+      "b": "DJI",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "معاهدة تعاون دفاعي (2011، جُدّدت 2024) وأكبر قاعدة عسكرية فرنسية في أفريقيا",
+      "en": "A defence cooperation treaty (2011, renewed 2024) and the largest French military base in Africa"
+    },
+    {
+      "a": "GBR",
+      "b": "UKR",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 4,
+      "ar": "اتفاقية تعاون أمني (يناير 2024) وشراكة المئة عام (يناير 2025)",
+      "en": "A security cooperation agreement (January 2024) and the 100-year partnership (January 2025)"
+    },
+    {
+      "a": "FRA",
+      "b": "UKR",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 4,
+      "ar": "اتفاقية أمنية ثنائية (فبراير 2024) لعشر سنوات، ودور قيادي في «تحالف الراغبين» لضمانات ما بعد الحرب",
+      "en": "A ten-year bilateral security agreement (February 2024), and a leading role in the coalition of the willing on post-war guarantees"
+    },
+    {
+      "a": "EGY",
+      "b": "SOM",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "بروتوكول تعاون دفاعي (أغسطس 2024) وشحنات سلاح مصرية، في سياق التوتّر مع إثيوبيا",
+      "en": "A defence cooperation protocol (August 2024) and Egyptian arms shipments, in the context of tension with Ethiopia"
     }
   ],
   "bilateral": {
