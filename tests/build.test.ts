@@ -9,7 +9,7 @@ beforeAll(() => { raw = readRaw(); db = build(raw); });
 
 describe('build() matches the legacy model', () => {
   test('stats', () => expect(db.stats).toEqual({
-    countries: 242, conflicts: 40, groups: 41, religionCountries: 75, edges: 129,
+    countries: 242, conflicts: 40, groups: 41, religionCountries: 75, edges: 146,
     blocs: 11, events: 86, chokepoints: 11, sites: 24, disputed: 99,
   }));
 
@@ -17,7 +17,7 @@ describe('build() matches the legacy model', () => {
     const sau = db.countries.get('SAU')!;
     expect(sau.conflicts).toEqual(['yemen', 'gulf-security']);
     expect(sau.blocs).toEqual(['gcc', 'brics', 'arab-league', 'mecca', 'mnna']);
-    expect(sau.edges).toHaveLength(6);
+    expect(sau.edges).toHaveLength(7);
     expect(sau.religion?.majority).toBe('sunni');
     expect(sau.religion?.majorityFamily).toBe('islam');
     expect(sau.neighbors).toEqual(['BHR', 'QAT', 'KWT', 'YEM', 'ARE', 'IRQ']);

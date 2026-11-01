@@ -1398,6 +1398,159 @@
       "weight": 3,
       "ar": "صُنّفت حليفاً رئيسياً من خارج الناتو في يناير 2026 لأول مرة، مع تعاون في مكافحة المخدّرات وموازنة النفوذ الصيني حول ميناء تشانكاي",
       "en": "Designated a major non-NATO ally for the first time in January 2026, with counter-narcotics cooperation and an effort to balance Chinese influence around the port of Chancay"
+    },
+    {
+      "a": "FRA",
+      "b": "DEU",
+      "type": "alliance",
+      "kind": "treaty",
+      "weight": 5,
+      "ar": "معاهدة آخن (2019) تتضمّن التزاماً بالمساعدة المتبادلة بكل الوسائل بما فيها العسكرية في حال الاعتداء المسلّح، وتكمّل معاهدة الإليزيه (1963)",
+      "en": "The Treaty of Aachen (2019) includes a commitment to mutual assistance by all means, including military, in case of armed attack, complementing the Élysée Treaty (1963)"
+    },
+    {
+      "a": "FRA",
+      "b": "POL",
+      "type": "alliance",
+      "kind": "treaty",
+      "weight": 4,
+      "ar": "معاهدة نانسي (مايو 2025): مساعدة متبادلة بما فيها الوسائل العسكرية في حال العدوان المسلّح، وحوار حول دور الردع النووي الفرنسي",
+      "en": "The Treaty of Nancy (May 2025): mutual assistance, including by military means, in case of armed aggression, and a dialogue on the role of French nuclear deterrence"
+    },
+    {
+      "a": "GBR",
+      "b": "DEU",
+      "type": "alliance",
+      "kind": "treaty",
+      "weight": 4,
+      "ar": "معاهدة كنسينغتون (يوليو 2025)، أول معاهدة ثنائية بينهما منذ الحرب العالمية الثانية، تتضمّن التزاماً بالمساعدة العسكرية المتبادلة عند الهجوم المسلّح، بعد اتفاق ترينيتي هاوس الدفاعي (أكتوبر 2024)",
+      "en": "The Kensington Treaty (July 2025), their first bilateral treaty since the Second World War, includes a mutual military assistance commitment in case of armed attack, following the Trinity House defence agreement (October 2024)"
+    },
+    {
+      "a": "GBR",
+      "b": "FRA",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 5,
+      "ar": "معاهدتا لانكستر هاوس (2010) للتعاون الدفاعي والنووي، وإعلان نورثوود (يوليو 2025) لتنسيق الردع النووي للبلدين مع بقائه مستقلاً",
+      "en": "The Lancaster House treaties (2010) on defence and nuclear cooperation, and the Northwood Declaration (July 2025) on coordinating the two countries' independent nuclear deterrents"
+    },
+    {
+      "a": "GBR",
+      "b": "POL",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 4,
+      "ar": "معاهدة الشراكة الأمنية والدفاعية (مايو 2026، لم تدخل حيّز النفاذ بعد) تشمل تطوير صاروخ دفاع جوي مشترك ومناورات واسعة ومواجهة الحرب الهجينة الروسية",
+      "en": "The Security and Defence Partnership Treaty (May 2026, not yet in force), covering a jointly developed air-defence missile, large-scale exercises and countering Russian hybrid warfare"
+    },
+    {
+      "a": "FRA",
+      "b": "ITA",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "معاهدة كويرينالي (2021) للتعاون المعزّز، ومنها التعاون الدفاعي والصناعات العسكرية المشتركة",
+      "en": "The Quirinal Treaty (2021) on enhanced cooperation, including defence and joint defence industry"
+    },
+    {
+      "a": "FRA",
+      "b": "ESP",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "معاهدة برشلونة (2023) للصداقة والتعاون، ومنها التعاون الأمني والدفاعي",
+      "en": "The Treaty of Barcelona (2023) on friendship and cooperation, including security and defence"
+    },
+    {
+      "a": "DEU",
+      "b": "LTU",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 4,
+      "ar": "اتفاق 2023 على تمركز لواء ألماني دائم في ليتوانيا (اللواء المدرّع 45)، أول تمركز دائم للجيش الألماني خارج البلاد منذ الحرب العالمية الثانية",
+      "en": "A 2023 agreement on stationing a permanent German brigade in Lithuania (Panzerbrigade 45), the German army's first permanent deployment abroad since the Second World War"
+    },
+    {
+      "a": "GBR",
+      "b": "JPN",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "اتفاقية الوصول المتبادل (نافذة منذ 2023) وشراكة تطوير المقاتلة المشتركة مع إيطاليا (GCAP)",
+      "en": "The Reciprocal Access Agreement (in force since 2023) and the joint fighter programme with Italy (GCAP)"
+    },
+    {
+      "a": "GBR",
+      "b": "AUS",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 4,
+      "ar": "شراكة أوكوس ومعاهدة جيلونغ (يوليو 2025) لخمسين عاماً حول الغواصات النووية",
+      "en": "The AUKUS partnership and the Geelong Treaty (July 2025), a 50-year agreement on nuclear-powered submarines"
+    },
+    {
+      "a": "GBR",
+      "b": "OMN",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "اتفاقية الدفاع المشترك (2019) وقاعدة الدقم اللوجستية البريطانية",
+      "en": "The Joint Defence Agreement (2019) and the British logistics base at Duqm"
+    },
+    {
+      "a": "FRA",
+      "b": "JOR",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "اتفاقية تعاون دفاعي وُقّعت في باريس (سبتمبر 2026)، وقاعدة الأمير حسن الجوية (H5) التي تستخدمها فرنسا منذ 2014 في عملية «شامال» ضدّ تنظيم الدولة",
+      "en": "A defence cooperation agreement signed in Paris (September 2026), and the Prince Hassan Air Base (H5), used by France since 2014 for Operation Chammal against the Islamic State"
+    },
+    {
+      "a": "POL",
+      "b": "JOR",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 2,
+      "ar": "اتفاقية التعاون في مجال الدفاع (2014) ولجنة عسكرية مشتركة، واتفاقية وضع القوات البولندية في الأردن (2019)، وتعاون في الصناعات الدفاعية",
+      "en": "The defence cooperation agreement (2014) with a joint military commission, the status-of-forces agreement for Polish forces in Jordan (2019), and defence-industry cooperation"
+    },
+    {
+      "a": "GRC",
+      "b": "SAU",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "اتفاقية (2021) لنشر بطارية باتريوت يونانية لحماية منشآت الطاقة السعودية، وافقت اليونان على إبقائها في أكتوبر 2026، ومجلس أعلى للتعاون الاستراتيجي",
+      "en": "An agreement (2021) to deploy a Greek Patriot battery protecting Saudi energy facilities, which Greece agreed to keep in place in October 2026, and a Supreme Council for Strategic Cooperation"
+    },
+    {
+      "a": "GRC",
+      "b": "ARE",
+      "type": "alliance",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "شراكة استراتيجية (2020) تتضمّن بند دفاع متبادل إذا تعرّضت وحدة أراضي أحدهما للخطر، وذخائر دفاع جوي يونانية للإمارات في 2026",
+      "en": "A strategic partnership (2020) with a mutual defence clause if either one's territorial integrity is threatened, and Greek air-defence munitions for the UAE in 2026"
+    },
+    {
+      "a": "FRA",
+      "b": "IND",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 4,
+      "ar": "شراكة استراتيجية منذ 1998 وخارطة «أفق 2047»، وأكبر مورّد غربي للسلاح للهند (مقاتلات رافال وغواصات سكوربين)",
+      "en": "A strategic partnership since 1998 and the Horizon 2047 roadmap, and India's largest Western arms supplier (Rafale fighters and Scorpène submarines)"
+    },
+    {
+      "a": "KOR",
+      "b": "POL",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 4,
+      "ar": "اتفاقات إطارية (2022) لأكبر صفقات تسليح كورية: دبابات K2 ومدافع K9 ومقاتلات FA-50 وراجمات «تشونمو»",
+      "en": "Framework agreements (2022) for South Korea's largest arms deals: K2 tanks, K9 howitzers, FA-50 fighters and Chunmoo rocket launchers"
     }
   ],
   "bilateral": {
