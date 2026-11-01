@@ -62,11 +62,11 @@ describe('buildScene matches the legacy scene', () => {
     expect(counts(share)).toEqual({ fill: 241, hatch: 166, markers: 0, arcs: 0, labels: 0, badges: 17, outlines: 0, polys: 0, under: 99, emph: null });
   });
   test('powers', () => {
-    expect(counts({ ...base, lens: 'powers' })).toEqual({ fill: 0, hatch: 0, markers: 0, arcs: 160, labels: 0, badges: 0, outlines: 0, polys: 0, under: 99, emph: null });
+    expect(counts({ ...base, lens: 'powers' })).toEqual({ fill: 0, hatch: 0, markers: 0, arcs: 168, labels: 0, badges: 0, outlines: 0, polys: 0, under: 99, emph: null });
     const nato = { ...base, lens: 'powers' as const, filters: { ...base.filters, bloc: 'nato' } };
-    expect(counts(nato)).toEqual({ fill: 32, hatch: 0, markers: 0, arcs: 160, labels: 0, badges: 0, outlines: 0, polys: 0, under: 99, emph: null });
+    expect(counts(nato)).toEqual({ fill: 32, hatch: 0, markers: 0, arcs: 168, labels: 0, badges: 0, outlines: 0, polys: 0, under: 99, emph: null });
     const tur = { ...base, lens: 'powers' as const, selection: { kind: 'country' as const, id: 'TUR' } };
-    expect(counts(tur)).toEqual({ fill: 0, hatch: 0, markers: 0, arcs: 8, labels: 0, badges: 0, outlines: 1, polys: 0, under: 99, emph: 1 });
+    expect(counts(tur)).toEqual({ fill: 0, hatch: 0, markers: 0, arcs: 16, labels: 0, badges: 0, outlines: 1, polys: 0, under: 99, emph: 1 });
   });
   test('ethnic labels its groups', () => {
     expect(counts({ ...base, lens: 'ethnic' })).toEqual({ fill: 0, hatch: 0, markers: 0, arcs: 0, labels: 41, badges: 0, outlines: 0, polys: 44, under: 99, emph: null });

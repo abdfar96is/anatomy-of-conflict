@@ -1680,6 +1680,79 @@
       "ar": "تقارير عن محادثات لإنشاء قاعدة بحرية صينية على المحيط الأطلسي في باتا، تنفيها الحكومة ولم تُؤكَّد",
       "en": "Reports of talks on a Chinese Atlantic naval facility at Bata, denied by the government and unconfirmed",
       "contested": true
+    },
+    {
+      "a": "TUR",
+      "b": "ETH",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "اتفاقية إطار عسكري (أغسطس 2021) تشمل التدريب وتبادل المعلومات الاستخباراتية والتسليح، وتقارير عن مسيّرات «بيرقدار» استُخدمت في حرب تيغراي",
+      "en": "A military framework agreement (August 2021) covering training, intelligence sharing and arms, and reports of Bayraktar drones used in the Tigray war"
+    },
+    {
+      "a": "TUR",
+      "b": "NER",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "اتفاقية تعاون في التدريب العسكري (يوليو 2020)، ومسيّرات «بيرقدار TB2»، وتوسيع التعاون الدفاعي والاستخباراتي بعد انقلاب 2023",
+      "en": "A military training cooperation agreement (July 2020), Bayraktar TB2 drones, and expanded defence and intelligence cooperation after the 2023 coup"
+    },
+    {
+      "a": "TUR",
+      "b": "SDN",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "اتفاقيات 2017 لترميم جزيرة سواكن وإنشاء رصيف للسفن المدنية والعسكرية (تعثّرت بعد 2019)، وصفقة مسيّرات «بيرقدار» للجيش السوداني في 2025 مع فنيين أتراك في بورتسودان",
+      "en": "2017 agreements to restore Suakin island and build a dock for civilian and military vessels (stalled after 2019), and a 2025 Bayraktar drone deal for the Sudanese army with Turkish technicians in Port Sudan"
+    },
+    {
+      "a": "TUR",
+      "b": "KEN",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 2,
+      "ar": "اتفاقية تعاون دفاعي (مايو 2026) تشمل التدريب العسكري والصناعات الدفاعية ونقل التقنية",
+      "en": "A defence cooperation agreement (May 2026) covering military training, defence industry and technology transfer"
+    },
+    {
+      "a": "TUR",
+      "b": "NGA",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "بروتوكول تعاون عسكري (يناير 2026) لمكافحة الإرهاب يشمل تدريب القوات الخاصة النيجيرية، ولجنة للتصنيع الدفاعي المشترك",
+      "en": "A military cooperation protocol (January 2026) on counter-terrorism including training Nigerian special forces, and a committee for joint defence manufacturing"
+    },
+    {
+      "a": "TUR",
+      "b": "CMR",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 2,
+      "ar": "اتفاقية تعاون مالي عسكري (يونيو 2026)",
+      "en": "A military financial cooperation agreement (June 2026)"
+    },
+    {
+      "a": "TUR",
+      "b": "MLI",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 2,
+      "ar": "اتفاقية تدريب عسكري، ومسيّرات «بيرقدار TB2» و«أقنجي» يستخدمها الجيش المالي ضدّ الجماعات المسلّحة",
+      "en": "A military training agreement, and Bayraktar TB2 and Akinci drones used by the Malian army against armed groups"
+    },
+    {
+      "a": "TUR",
+      "b": "TCD",
+      "type": "military",
+      "kind": "assessed",
+      "weight": 3,
+      "ar": "تقارير عن تولّي تركيا قاعدة أبشي ونشر مسيّرات ومستشارين بعد الانسحاب الفرنسي عام 2025، دون اتفاق دفاعي رسمي معلن، إضافة إلى صفقات طائرات ومسيّرات تركية",
+      "en": "Reports that Türkiye took over the Abéché base and deployed drones and advisers after the French withdrawal in 2025, with no announced formal defence agreement, alongside Turkish aircraft and drone sales",
+      "contested": true
     }
   ],
   "bilateral": {

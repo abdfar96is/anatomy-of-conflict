@@ -9,7 +9,7 @@ beforeAll(() => { raw = readRaw(); db = build(raw); });
 
 describe('build() matches the legacy model', () => {
   test('stats', () => expect(db.stats).toEqual({
-    countries: 242, conflicts: 40, groups: 41, religionCountries: 75, edges: 160,
+    countries: 242, conflicts: 40, groups: 41, religionCountries: 75, edges: 168,
     blocs: 11, events: 86, chokepoints: 11, sites: 24, disputed: 99,
   }));
 
