@@ -12,7 +12,7 @@ describe('check-data', () => {
 
   describe('a contributor typo', () => {
     let dir: string;
-    let ci: number, cj: number, ek: number;
+    let ci: number, cj: number, ek: number, el: number;
     beforeAll(() => {
       dir = fs.mkdtempSync(path.join(os.tmpdir(), 'atlas-check-'));
       fs.cpSync(DATA_DIR, dir, { recursive: true });
@@ -25,6 +25,9 @@ describe('check-data', () => {
       const tl = JSON.parse(fs.readFileSync(tf, 'utf8'));
       ek = tl.events.findIndex((e: { id: string }) => e.id === 'halabja');
       tl.events[ek].conflictIds = ['nope'];
+      el = tl.events.findIndex((e: { id: string }) => e.id === 'oct-7-gaza');
+      tl.events[el].coords = [44, 24]; // the middle of Saudi Arabia, a bystander
+
       fs.writeFileSync(tf, formatJson(tl));
     });
     afterAll(() => fs.rmSync(dir, { recursive: true, force: true }));
@@ -34,6 +37,7 @@ describe('check-data', () => {
       expect(lines).toEqual([
         `conflicts/africa.json › conflicts[${ci}].countries[${cj}] › "SDX"`,
         `timeline.json › events[${ek}].conflictIds[0] › "nope"`,
+        `timeline.json › events[${el}].coords › [44,24]`,
       ]);
     });
 

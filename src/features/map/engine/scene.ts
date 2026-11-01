@@ -10,7 +10,7 @@ import { fmtCompact, fmtDate, fmtGdp, fmtNum, fmtPct, type Bi, type Lang } from 
 import { pick, pickKey, registerStrings, translate } from '../../../i18n/strings';
 import { esc } from '../../../ui/dom';
 import type { Palette } from '../../../ui/palette';
-import { meanPoint, type LonLat } from './geo';
+import { type LonLat } from './geo';
 
 registerStrings({
   ar: {
@@ -214,10 +214,14 @@ export function disputedArea(d: Disputed): number {
   return a;
 }
 
-/** Pin position of a timeline event: spherical mean of its countries' label points. */
+/**
+ * Pin position of a timeline event: the place it happened (`coords`), else its primary (first) country's label point.
+ * Never the mean of all its countries: for widely spread parties that lands in a bystander state or the sea
+ * (7 October with Israel, Palestine, Lebanon, Iran and Yemen fell in the middle of Saudi Arabia).
+ */
 export function eventAnchor(DB: DB, e: TimelineEvent): LonLat | null {
   if (anchorMemo.has(e)) return anchorMemo.get(e) ?? null;
-  const a = meanPoint((e.countries || []).map((iso) => llOf(DB.countries.get(iso))).filter((p): p is LonLat => !!p));
+  const a = e.coords ?? (e.countries || []).map((iso) => llOf(DB.countries.get(iso))).find((p): p is LonLat => !!p) ?? null;
   anchorMemo.set(e, a);
   return a;
 }

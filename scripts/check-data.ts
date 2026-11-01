@@ -4,6 +4,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { geoContains } from 'd3';
+import type { Feature } from 'geojson';
 import { formatJson } from './format-json';
 import { conflictFile, SCHEMAS } from './schema';
 
@@ -41,8 +43,9 @@ export function checkData(dataDir: string): Problem[] {
 
   // 2. Links between records.
   type Rec = Record<string, unknown>;
-  const geo = JSON.parse(fs.readFileSync(path.join(dataDir, 'geo/countries.json'), 'utf8')) as { features: { properties: { iso3: string } }[] };
+  const geo = JSON.parse(fs.readFileSync(path.join(dataDir, 'geo/countries.json'), 'utf8')) as { features: (Feature & { properties: { iso3: string } })[] };
   const isos = new Set(geo.features.map((f) => f.properties.iso3));
+  const featureOf = new Map(geo.features.map((f) => [f.properties.iso3, f]));
   const conflictFiles = names.filter((f) => f.startsWith('conflicts/'));
   const conflictIds = new Set(conflictFiles.flatMap((f) => (files[f] as { conflicts: Rec[] }).conflicts.map((c) => c.id as string)));
   const sources = files['sources.json'] as { datasets: Rec[]; references: Rec[] };
@@ -81,6 +84,12 @@ export function checkData(dataDir: string): Problem[] {
   (files['timeline.json'] as { events: Rec[] }).events.forEach((e, i) => {
     each('timeline.json', e.countries, `events[${i}].countries`, country);
     each('timeline.json', e.conflictIds, `events[${i}].conflictIds`, conflict);
+    // the pin must sit on land inside one of the event's own countries, not in a bystander state or the sea
+    const inside = ((e.countries as string[] | undefined) ?? []).some((iso) => {
+      const f = featureOf.get(ISO_ALIAS[iso] ?? iso);
+      return !!f && geoContains(f, e.coords as [number, number]);
+    });
+    if (!inside) problems.push({ file: 'timeline.json', path: `events[${i}].coords`, message: 'not inside any of the event\'s countries', value: e.coords });
   });
   resources.entries.forEach((e, i) => {
     country('resources.json', `entries[${i}].iso3`, e.iso3);

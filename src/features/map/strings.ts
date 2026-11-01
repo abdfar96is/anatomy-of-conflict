@@ -64,7 +64,7 @@ registerStrings({
     'map.hs.count': 'الأحداث فيه: {n}',
     'map.hs.ramp': 'عدد الأحداث في الدولة',
     'map.hs.hint': 'حرّك مؤشّر الخط الزمني لتغيير العقد.',
-    'map.hs.event': 'حدث، في متوسّط مواقع الدول المعنية',
+    'map.hs.event': 'حدث، في مكان وقوعه',
   },
   en: {
     'map.ctl': 'Map controls',
@@ -127,6 +127,6 @@ registerStrings({
     'map.hs.count': 'Events in it: {n}',
     'map.hs.ramp': 'Events per state',
     'map.hs.hint': 'Move the timeline cursor to change the decade.',
-    'map.hs.event': 'Event, placed at the middle of the states involved',
+    'map.hs.event': 'Event, placed where it happened',
   },
 });

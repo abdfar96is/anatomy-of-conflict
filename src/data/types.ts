@@ -46,7 +46,7 @@ export interface Chokepoint extends Extra {
 }
 export interface TimelineCategory extends Extra { id: string }
 export interface RawEvent extends Extra {
-  id: string; date: string; ar: string; en: string; countries?: string[]; conflictIds?: string[]; unverified?: boolean;
+  id: string; date: string; ar: string; en: string; countries?: string[]; coords?: [number, number]; conflictIds?: string[]; unverified?: boolean;
 }
 export interface Dataset extends Extra { id: string; file?: string }
 export interface Reference extends Extra { id: string }

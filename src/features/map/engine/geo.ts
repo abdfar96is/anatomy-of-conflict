@@ -261,14 +261,6 @@ export function capOf(geoms: (Geometry | null | undefined)[], points: LonLat[] =
   return { center: c, r };
 }
 
-/** Spherical mean of label points (event pins, multi-country anchors). */
-export function meanPoint(points: LonLat[]): LonLat | null {
-  if (!points.length) return null;
-  if (points.length === 1) return points[0]!;
-  const c = d3.geoCentroid({ type: 'MultiPoint', coordinates: points });
-  return Number.isFinite(c[0]) ? c : points[0]!;
-}
-
 /** Distance from point (px, py) to segment (ax, ay)–(bx, by), in pixels. */
 export function segDist(px: number, py: number, ax: number, ay: number, bx: number, by: number): number {
   const dx = bx - ax, dy = by - ay, len2 = dx * dx + dy * dy;
