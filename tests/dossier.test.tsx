@@ -228,8 +228,8 @@ describe('Dossier links', () => {
 });
 
 describe('Dossier with missing optional fields', () => {
-  // Zambia: no religion estimate, no intel entry, no mapped group, no relation, no event, no resource record.
-  const ISO = 'ZMB';
+  // Malta: no religion estimate, no intel entry, no mapped group, no relation, no event, no resource record.
+  const ISO = 'MLT';
   test('the fixture really lacks the optional data', () => {
     const c = db.countries.get(ISO)!;
     expect(c.religion).toBeNull();

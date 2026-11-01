@@ -32,7 +32,33 @@
     { "id": "oil-shale", "ar": "الصخر الزيتي", "en": "Oil shale", "color": "#6E6A5A" },
     { "id": "bromine", "ar": "البروم", "en": "Bromine", "color": "#9B5DA6" },
     { "id": "nickel", "ar": "النيكل", "en": "Nickel", "color": "#7F93A8" },
-    { "id": "jade", "ar": "اليشم", "en": "Jade", "color": "#4f9a72" }
+    { "id": "jade", "ar": "اليشم", "en": "Jade", "color": "#4f9a72" },
+    { "id": "coal", "ar": "الفحم", "en": "Coal", "color": "#3d3d3d" },
+    { "id": "hydropower", "ar": "الطاقة الكهرومائية", "en": "Hydropower", "color": "#3b82b0" },
+    {
+      "id": "geothermal",
+      "ar": "الطاقة الحرارية الجوفية",
+      "en": "Geothermal energy",
+      "color": "#c4553a"
+    },
+    { "id": "iron-ore", "ar": "خام الحديد", "en": "Iron ore", "color": "#8a4b3a" },
+    { "id": "bauxite", "ar": "البوكسيت", "en": "Bauxite", "color": "#b5654a" },
+    { "id": "manganese", "ar": "المنغنيز", "en": "Manganese", "color": "#7a6f8f" },
+    { "id": "graphite", "ar": "الغرافيت", "en": "Graphite", "color": "#4a4a4a" },
+    {
+      "id": "platinum",
+      "ar": "البلاتين ومجموعته",
+      "en": "Platinum-group metals",
+      "color": "#a9b4be"
+    },
+    { "id": "chromium", "ar": "الكروم", "en": "Chromium", "color": "#6f8f88" },
+    { "id": "tungsten", "ar": "التنغستن", "en": "Tungsten", "color": "#5b6770" },
+    { "id": "diamonds", "ar": "الماس", "en": "Diamonds", "color": "#9fd3e6" },
+    { "id": "silver", "ar": "الفضة", "en": "Silver", "color": "#c0c0c0" },
+    { "id": "cocoa", "ar": "الكاكاو", "en": "Cocoa", "color": "#7b4a2e" },
+    { "id": "coffee", "ar": "البن", "en": "Coffee", "color": "#5a3a22" },
+    { "id": "palm-oil", "ar": "زيت النخيل", "en": "Palm oil", "color": "#c99a2e" },
+    { "id": "fisheries", "ar": "مصائد الأسماك", "en": "Fisheries", "color": "#2f7f9a" }
   ],
   "entries": [
     {
@@ -666,6 +692,1239 @@
       "rank": 2,
       "ar": "ثاني أكبر منتج للعناصر الأرضية النادرة من منجم ماونتن باس، مع سعي لبناء قدرة معالجة محلية تقلّل الاعتماد على الصين.",
       "en": "The second-largest rare earth producer, from the Mountain Pass mine, with a push to build domestic processing capacity to reduce dependence on China."
+    },
+    {
+      "iso3": "ZAF",
+      "type": "platinum",
+      "year": 2025,
+      "source": "usgs",
+      "rank": 1,
+      "ar": "أكبر منتج لمعادن مجموعة البلاتين في العالم من حزام بوشفيلد، وهي مدخل أساسي لمحوّلات السيارات الحفزية والهيدروجين.",
+      "en": "The world's largest producer of platinum-group metals, from the Bushveld complex; they are a key input for catalytic converters and hydrogen."
+    },
+    {
+      "iso3": "ZAF",
+      "type": "manganese",
+      "year": 2025,
+      "source": "usgs",
+      "rank": 1,
+      "ar": "أكبر منتج للمنغنيز في العالم، الضروري لصناعة الصلب وبطاريات الليثيوم.",
+      "en": "The world's largest manganese producer, essential to steelmaking and lithium batteries."
+    },
+    {
+      "iso3": "ZAF",
+      "type": "chromium",
+      "year": 2025,
+      "source": "usgs",
+      "rank": 1,
+      "ar": "أكبر منتج لخام الكروم في العالم، أساس صناعة الفولاذ المقاوم للصدأ.",
+      "en": "The world's largest chromium ore producer, the basis of stainless steel."
+    },
+    {
+      "iso3": "ZAF",
+      "type": "coal",
+      "year": 2024,
+      "source": "eia",
+      "ar": "الفحم يولّد معظم كهرباء البلاد ويُصدَّر عبر ميناء ريتشاردز باي، وأزمة انقطاع الكهرباء في شركة إسكوم جعلته ملفاً سياسياً.",
+      "en": "Coal generates most of the country's electricity and is exported through Richards Bay; Eskom's load-shedding crisis made it a political issue."
+    },
+    {
+      "iso3": "TZA",
+      "type": "gold",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "من أكبر منتجي الذهب في أفريقيا، ومنجم غيتا أبرز مناجمه، والذهب أكبر صادرات البلاد.",
+      "en": "Among Africa's largest gold producers, with Geita its leading mine; gold is the country's largest export."
+    },
+    {
+      "iso3": "TZA",
+      "type": "gas",
+      "year": 2024,
+      "source": "eia",
+      "ar": "احتياطيات غاز بحرية كبيرة في الجنوب، ومشروع للغاز المسال في ليندي ما زال قيد التفاوض.",
+      "en": "Large offshore gas reserves in the south, with an LNG project at Lindi still under negotiation."
+    },
+    {
+      "iso3": "KEN",
+      "type": "geothermal",
+      "year": 2024,
+      "source": "undata",
+      "ar": "حقل أولكاريا في الأخدود الأفريقي يجعل الطاقة الحرارية الجوفية مصدر نحو خُمسَي كهرباء كينيا، من أعلى النسب في العالم.",
+      "en": "The Olkaria field in the Rift Valley makes geothermal the source of around two-fifths of Kenya's electricity, among the highest shares in the world."
+    },
+    {
+      "iso3": "UGA",
+      "type": "oil",
+      "year": 2025,
+      "source": "eia",
+      "ar": "احتياطيات نفطية حول بحيرة ألبرت يُخطَّط لتصديرها عبر خط شرق أفريقيا (إيكوب) إلى ميناء تانغا التنزاني، وسط اعتراضات بيئية دولية.",
+      "en": "Oil reserves around Lake Albert are to be exported through the East African Crude Oil Pipeline (EACOP) to Tanga in Tanzania, amid international environmental objections."
+    },
+    {
+      "iso3": "UGA",
+      "type": "coffee",
+      "year": 2024,
+      "source": "undata",
+      "ar": "أكبر مصدّر للبن في أفريقيا، والبن أهم صادراتها الزراعية.",
+      "en": "Africa's largest coffee exporter, coffee being its leading agricultural export."
+    },
+    {
+      "iso3": "AGO",
+      "type": "oil",
+      "year": 2024,
+      "source": "eia",
+      "ar": "من أكبر منتجي النفط في أفريقيا، وانسحبت من أوبك في يناير 2024 بسبب خلاف على حصص الإنتاج.",
+      "en": "One of Africa's largest oil producers; it left OPEC in January 2024 over a dispute about production quotas."
+    },
+    {
+      "iso3": "AGO",
+      "type": "diamonds",
+      "year": 2024,
+      "source": "usgs",
+      "ar": "من كبار منتجي الماس بالقيمة، ومنجم كاتوكا من أكبر مناجم الماس في العالم.",
+      "en": "A major diamond producer by value; the Catoca mine is among the world's largest diamond mines."
+    },
+    {
+      "iso3": "GHA",
+      "type": "gold",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "أكبر منتج للذهب في أفريقيا، مع أزمة تعدين عشوائي غير قانوني («غالامسي») تلوّث الأنهار.",
+      "en": "Africa's largest gold producer, with an illegal artisanal mining crisis (galamsey) polluting rivers."
+    },
+    {
+      "iso3": "GHA",
+      "type": "cocoa",
+      "year": 2024,
+      "source": "undata",
+      "rank": 2,
+      "ar": "ثاني أكبر منتج للكاكاو في العالم بعد ساحل العاج، والبلدان معاً يوفّران نحو ثلثي الإنتاج العالمي.",
+      "en": "The world's second-largest cocoa producer after Côte d'Ivoire; together they supply around two-thirds of world output."
+    },
+    {
+      "iso3": "MOZ",
+      "type": "gas",
+      "year": 2024,
+      "source": "eia",
+      "ar": "احتياطيات غاز ضخمة في حوض روفوما، وعلّق هجوم المتمرّدين على بالما عام 2021 مشروع توتال إنرجيز للغاز المسال في كابو ديلغادو.",
+      "en": "Huge gas reserves in the Rovuma basin; the 2021 insurgent attack on Palma suspended TotalEnergies' LNG project in Cabo Delgado."
+    },
+    {
+      "iso3": "MOZ",
+      "type": "graphite",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "منجم بالاما من أكبر مناجم الغرافيت خارج الصين، ومورد مهم لأنودات البطاريات.",
+      "en": "The Balama mine is among the largest graphite mines outside China, an important source for battery anodes."
+    },
+    {
+      "iso3": "MDG",
+      "type": "nickel",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "منجم أمباتوفي من أكبر مناجم النيكل والكوبالت اللاتيريتية في العالم.",
+      "en": "The Ambatovy mine is among the world's largest lateritic nickel and cobalt operations."
+    },
+    {
+      "iso3": "MDG",
+      "type": "graphite",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "من أكبر منتجي الغرافيت الطبيعي خارج الصين.",
+      "en": "One of the largest natural graphite producers outside China."
+    },
+    {
+      "iso3": "CMR",
+      "type": "oil",
+      "year": 2024,
+      "source": "eia",
+      "ar": "إنتاج نفطي متراجع، وميناء كريبي محطة تصدير نفط تشاد عبر خط تشاد–الكاميرون.",
+      "en": "Declining oil output; the port of Kribi is the export terminal for Chadian oil via the Chad–Cameroon pipeline."
+    },
+    {
+      "iso3": "CMR",
+      "type": "cocoa",
+      "year": 2024,
+      "source": "undata",
+      "ar": "من أكبر خمسة منتجين للكاكاو في العالم.",
+      "en": "Among the world's five largest cocoa producers."
+    },
+    {
+      "iso3": "CIV",
+      "type": "cocoa",
+      "year": 2024,
+      "source": "undata",
+      "rank": 1,
+      "ar": "أكبر منتج للكاكاو في العالم بنحو 40% من الإنتاج، وتقلّبات محصولها تحرّك الأسعار العالمية.",
+      "en": "The world's largest cocoa producer, at around 40% of output; swings in its harvest move global prices."
+    },
+    {
+      "iso3": "BFA",
+      "type": "gold",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "الذهب أكبر صادرات البلاد، والمجلس العسكري أمّم مناجم وسلّم أخرى لشركات روسية، بينما تهاجم الجماعات الجهادية مواقع التعدين.",
+      "en": "Gold is the largest export; the junta nationalised mines and handed others to Russian firms, while jihadist groups attack mining sites.",
+      "conflictIds": ["sahel"]
+    },
+    {
+      "iso3": "MWI",
+      "type": "water",
+      "year": 2024,
+      "source": "undata",
+      "ar": "نزاع حدودي قديم مع تنزانيا على بحيرة مالاوي (نياسا) تجدّد مع التنقيب عن النفط في البحيرة.",
+      "en": "A long-running border dispute with Tanzania over Lake Malawi (Nyasa), revived by oil exploration in the lake."
+    },
+    {
+      "iso3": "ZMB",
+      "type": "copper",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "ثاني أكبر منتج للنحاس في أفريقيا بعد الكونغو الديمقراطية، وممرّ لوبيتو إلى أنغولا يربط حزام النحاس بالأطلسي.",
+      "en": "Africa's second-largest copper producer after the DR Congo; the Lobito Corridor to Angola links the Copperbelt to the Atlantic."
+    },
+    {
+      "iso3": "SEN",
+      "type": "oil",
+      "year": 2025,
+      "source": "eia",
+      "ar": "بدأ إنتاج حقل سانغومار النفطي في 2024، ومشروع الغاز المسال المشترك مع موريتانيا (السلحفاة الكبرى) صدّر أولى شحناته في 2025.",
+      "en": "The Sangomar oil field began production in 2024, and the Greater Tortue LNG project shared with Mauritania shipped its first cargoes in 2025."
+    },
+    {
+      "iso3": "TCD",
+      "type": "oil",
+      "year": 2024,
+      "source": "eia",
+      "ar": "النفط أهم الصادرات ويُنقل عبر خط تشاد–الكاميرون إلى كريبي، وأمّمت الحكومة أصول إكسون موبيل عام 2023.",
+      "en": "Oil is the main export, carried by the Chad–Cameroon pipeline to Kribi; the government nationalised ExxonMobil's former assets in 2023."
+    },
+    {
+      "iso3": "ZWE",
+      "type": "lithium",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "أكبر منتج لليثيوم في أفريقيا، وحظرت تصدير الخام الخام منذ 2022، ومعظم المناجم مملوكة لشركات صينية.",
+      "en": "Africa's largest lithium producer; it has banned raw ore exports since 2022, and most mines are owned by Chinese companies."
+    },
+    {
+      "iso3": "ZWE",
+      "type": "platinum",
+      "year": 2025,
+      "source": "usgs",
+      "rank": 3,
+      "ar": "ثالث أكبر منتج لمعادن مجموعة البلاتين من حزام الدايك العظيم.",
+      "en": "The third-largest producer of platinum-group metals, from the Great Dyke."
+    },
+    {
+      "iso3": "GIN",
+      "type": "bauxite",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "أكبر احتياطي للبوكسيت في العالم ومن أكبر منتجَيه مع أستراليا، ويغذّي معظم صناعة الألمنيوم الصينية.",
+      "en": "The world's largest bauxite reserves and one of its two largest producers with Australia, feeding most of China's aluminium industry."
+    },
+    {
+      "iso3": "GIN",
+      "type": "iron-ore",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "منجم سيماندو، أكبر رواسب خام حديد عالي الجودة غير مستغلة في العالم، بدأ التصدير أواخر 2025 بشراكة صينية مع ريو تينتو.",
+      "en": "Simandou, the world's largest untapped high-grade iron ore deposit, began exports in late 2025 in a Chinese partnership with Rio Tinto."
+    },
+    {
+      "iso3": "RWA",
+      "type": "coltan",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "مصدّر كبير للكولتان والقصدير والتنغستن، وخبراء الأمم المتحدة يتهمونها بتمرير معادن مهرّبة من شرق الكونغو حيث يسيطر إم23 على منجم روبايا؛ وكيغالي تنفي.",
+      "en": "A large exporter of coltan, tin and tungsten; UN experts accuse it of passing on minerals smuggled from eastern Congo, where M23 holds the Rubaya mine. Kigali denies it.",
+      "conflictIds": ["drc-east"]
+    },
+    {
+      "iso3": "BEN",
+      "type": "oil",
+      "year": 2025,
+      "source": "eia",
+      "ar": "محطة تصدير خط النيجر–بنين لنفط النيجر في سيمي، وأُغلق الخط مؤقتاً عام 2024 بسبب خلاف حدودي بين البلدين.",
+      "en": "Terminal of the Niger–Benin pipeline for Nigerien oil at Sèmè; the line was halted in 2024 by a border dispute between the two countries."
+    },
+    {
+      "iso3": "BDI",
+      "type": "nickel",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "رواسب موسونغاتي من أكبر رواسب النيكل غير المستغلة في العالم، ومنجم غاكارا للعناصر الأرضية النادرة.",
+      "en": "The Musongati deposit is among the world's largest undeveloped nickel deposits, alongside the Gakara rare earth mine."
+    },
+    {
+      "iso3": "SOM",
+      "type": "oil",
+      "year": 2025,
+      "source": "eia",
+      "ar": "اتفاق مع تركيا (2024) للتنقيب عن النفط والغاز في المياه الصومالية، في ظل حرب مع حركة الشباب ونزاع على الصلاحيات مع الولايات.",
+      "en": "A 2024 agreement with Türkiye for oil and gas exploration in Somali waters, amid the war with al-Shabaab and disputes over powers with the federal states.",
+      "conflictIds": ["somalia"]
+    },
+    {
+      "iso3": "TGO",
+      "type": "phosphate",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "الفوسفات من أبرز صادرات البلاد، من حوض هاهوتويه.",
+      "en": "Phosphate, from the Hahotoé basin, is among the country's main exports."
+    },
+    {
+      "iso3": "SLE",
+      "type": "diamonds",
+      "year": 2024,
+      "source": "usgs",
+      "ar": "ماس سيراليون موّل الحرب الأهلية (1991–2002) وكان وراء إطلاق نظام كيمبرلي لإصدار شهادات الماس.",
+      "en": "Sierra Leone's diamonds financed the civil war (1991–2002) and prompted the Kimberley Process certification scheme."
+    },
+    {
+      "iso3": "ERI",
+      "type": "copper",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "منجم بيشا للنحاس والزنك، المملوك لشركة زيجين الصينية، أكبر مصدر للعملة الصعبة.",
+      "en": "The Bisha copper and zinc mine, owned by China's Zijin, is the main source of hard currency."
+    },
+    {
+      "iso3": "COG",
+      "type": "oil",
+      "year": 2024,
+      "source": "eia",
+      "ar": "النفط يمثّل معظم الصادرات والإيرادات الحكومية، ومعظمه بحري قبالة بوانت نوار.",
+      "en": "Oil makes up most exports and government revenue, mostly offshore from Pointe-Noire."
+    },
+    {
+      "iso3": "LBR",
+      "type": "iron-ore",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "خام الحديد من جبال نيمبا تستخرجه أرسيلور ميتال ويُصدَّر عبر بوكانان، وهو أكبر صادرات البلاد مع الذهب.",
+      "en": "Iron ore from the Nimba mountains, mined by ArcelorMittal and shipped from Buchanan, is the largest export alongside gold."
+    },
+    {
+      "iso3": "CAF",
+      "type": "gold",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "الذهب والماس محرّكا الصراع، وامتيازات مرتبطة بفاغنر ثم «الفيلق الأفريقي» تستغلّ منجم نداسيما.",
+      "en": "Gold and diamonds drive the conflict, and concessions linked to Wagner and then the Africa Corps exploit the Ndassima mine."
+    },
+    {
+      "iso3": "MRT",
+      "type": "iron-ore",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "الشركة الوطنية للصناعة والمناجم تصدّر خام الحديد من الزويرات عبر قطار من أطول قطارات الشحن في العالم إلى نواذيبو.",
+      "en": "The national mining company exports iron ore from Zouérat on one of the world's longest freight trains to Nouadhibou."
+    },
+    {
+      "iso3": "MRT",
+      "type": "gas",
+      "year": 2025,
+      "source": "eia",
+      "ar": "شريكة السنغال في مشروع السلحفاة الكبرى للغاز المسال على حدودهما البحرية، الذي صدّر أولى شحناته في 2025.",
+      "en": "Senegal's partner in the Greater Tortue LNG project on their maritime border, which shipped its first cargoes in 2025."
+    },
+    {
+      "iso3": "GMB",
+      "type": "fisheries",
+      "year": 2024,
+      "source": "undata",
+      "ar": "مصائد الأسماك مورد أساسي للغذاء والعمل، ومصانع دقيق السمك الأجنبية تُتّهم باستنزاف المخزون.",
+      "en": "Fisheries are a key source of food and jobs; foreign fishmeal factories are accused of depleting stocks."
+    },
+    {
+      "iso3": "BWA",
+      "type": "diamonds",
+      "year": 2025,
+      "source": "usgs",
+      "rank": 2,
+      "ar": "ثاني أكبر منتج للماس بالكمية بعد روسيا والأكبر بالقيمة غالباً، واتفاق مع دي بيرز (2023) رفع حصتها من الإنتاج.",
+      "en": "The second-largest diamond producer by volume after Russia, and often the largest by value; a 2023 deal with De Beers raised its share of output."
+    },
+    {
+      "iso3": "GAB",
+      "type": "manganese",
+      "year": 2025,
+      "source": "usgs",
+      "rank": 2,
+      "ar": "ثاني أكبر منتج للمنغنيز في العالم بعد جنوب أفريقيا، من منجم مواندا.",
+      "en": "The world's second-largest manganese producer after South Africa, from the Moanda mine."
+    },
+    {
+      "iso3": "GAB",
+      "type": "oil",
+      "year": 2024,
+      "source": "eia",
+      "ar": "النفط يمثّل معظم الصادرات، مع إنتاج متقادم يتراجع ببطء.",
+      "en": "Oil makes up most exports, from mature fields in slow decline."
+    },
+    {
+      "iso3": "LSO",
+      "type": "water",
+      "year": 2024,
+      "source": "undata",
+      "ar": "مشروع مياه مرتفعات ليسوتو يبيع المياه لمنطقة غاوتنغ في جنوب أفريقيا، وهو أهم مصادر دخل البلاد.",
+      "en": "The Lesotho Highlands Water Project sells water to South Africa's Gauteng region and is among the country's main sources of income."
+    },
+    {
+      "iso3": "GNB",
+      "type": "fisheries",
+      "year": 2024,
+      "source": "undata",
+      "ar": "عائدات اتفاقيات الصيد مع الاتحاد الأوروبي والصين من أهم موارد الدولة.",
+      "en": "Revenue from fishing agreements with the EU and China is among the state's main resources."
+    },
+    {
+      "iso3": "GNQ",
+      "type": "oil",
+      "year": 2024,
+      "source": "eia",
+      "ar": "النفط والغاز أساس الاقتصاد منذ التسعينيات، مع إنتاج متراجع وتركّز للثروة في يد الأسرة الحاكمة.",
+      "en": "Oil and gas have been the basis of the economy since the 1990s, with falling output and wealth concentrated in the ruling family."
+    },
+    {
+      "iso3": "BGD",
+      "type": "water",
+      "year": 2026,
+      "source": "undata",
+      "ar": "معاهدة تقاسم مياه الغانج مع الهند (1996) تنتهي في ديسمبر 2026، والخلاف على نهر تيستا لم يُحسم.",
+      "en": "The Ganges water-sharing treaty with India (1996) expires in December 2026, and the dispute over the Teesta river is unresolved."
+    },
+    {
+      "iso3": "JPN",
+      "type": "semiconductors",
+      "year": 2025,
+      "source": "undata",
+      "ar": "فقيرة الموارد لكنها تهيمن على مواد صناعة الرقائق: رقائق السيليكون والمواد المقاومة للضوء ومعدّات التصنيع.",
+      "en": "Resource-poor, but dominant in chipmaking materials: silicon wafers, photoresists and manufacturing equipment."
+    },
+    {
+      "iso3": "PHL",
+      "type": "nickel",
+      "year": 2025,
+      "source": "usgs",
+      "rank": 2,
+      "ar": "ثاني أكبر منتج للنيكل في العالم بعد إندونيسيا، ويُصدَّر معظمه خاماً إلى الصين.",
+      "en": "The world's second-largest nickel producer after Indonesia, mostly exported as ore to China."
+    },
+    {
+      "iso3": "VNM",
+      "type": "coffee",
+      "year": 2024,
+      "source": "undata",
+      "rank": 2,
+      "ar": "ثاني أكبر منتج للبن في العالم بعد البرازيل، ومعظمه من نوع روبوستا.",
+      "en": "The world's second-largest coffee producer after Brazil, mostly robusta."
+    },
+    {
+      "iso3": "VNM",
+      "type": "rare-earths",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "من أكبر احتياطيات العناصر الأرضية النادرة خارج الصين، مع إنتاج ما زال محدوداً.",
+      "en": "Among the largest rare earth reserves outside China, with production still limited."
+    },
+    {
+      "iso3": "THA",
+      "type": "grain",
+      "year": 2024,
+      "source": "undata",
+      "ar": "من أكبر مصدّري الأرز في العالم.",
+      "en": "One of the world's largest rice exporters."
+    },
+    {
+      "iso3": "KOR",
+      "type": "semiconductors",
+      "year": 2025,
+      "source": "undata",
+      "ar": "سامسونغ وإس كيه هاينكس تهيمنان على رقائق الذاكرة العالمية، ومنها ذاكرة HBM اللازمة لرقائق الذكاء الاصطناعي.",
+      "en": "Samsung and SK hynix dominate global memory chips, including the HBM memory needed for AI chips."
+    },
+    {
+      "iso3": "AFG",
+      "type": "copper",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "منجم مس عينك للنحاس، من أكبر الرواسب غير المستغلة في العالم، مؤجَّر لشركة صينية، مع تقديرات واسعة لموارد الليثيوم والعناصر النادرة.",
+      "en": "The Mes Aynak copper deposit, among the world's largest untapped, is leased to a Chinese company, alongside large estimated lithium and rare earth resources."
+    },
+    {
+      "iso3": "UZB",
+      "type": "gold",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "منجم مورونتاو من أكبر مناجم الذهب المكشوفة في العالم، والذهب أكبر صادرات البلاد.",
+      "en": "The Muruntau mine is among the world's largest open-pit gold mines, and gold is the country's largest export."
+    },
+    {
+      "iso3": "UZB",
+      "type": "uranium",
+      "year": 2024,
+      "source": "undata",
+      "ar": "من أكبر منتجي اليورانيوم في العالم.",
+      "en": "One of the world's largest uranium producers."
+    },
+    {
+      "iso3": "MYS",
+      "type": "palm-oil",
+      "year": 2024,
+      "source": "undata",
+      "rank": 2,
+      "ar": "ثاني أكبر منتج لزيت النخيل بعد إندونيسيا، وقانون الاتحاد الأوروبي لمكافحة إزالة الغابات يهدّد صادراتها.",
+      "en": "The second-largest palm oil producer after Indonesia; the EU deforestation regulation threatens its exports."
+    },
+    {
+      "iso3": "MYS",
+      "type": "semiconductors",
+      "year": 2025,
+      "source": "undata",
+      "ar": "مركز عالمي لتجميع الرقائق واختبارها وتغليفها، خاصة في بينانغ.",
+      "en": "A global hub for chip assembly, testing and packaging, especially in Penang."
+    },
+    {
+      "iso3": "YEM",
+      "type": "oil",
+      "year": 2024,
+      "source": "eia",
+      "ar": "توقّفت صادرات النفط منذ أواخر 2022 بعد ضربات حوثية بالمسيّرات على موانئ التصدير، وحقول مأرب وشبوة محور الصراع على الموارد.",
+      "en": "Oil exports stopped in late 2022 after Houthi drone strikes on export terminals, and the Marib and Shabwa fields are at the centre of the struggle over resources.",
+      "conflictIds": ["yemen"]
+    },
+    {
+      "iso3": "NPL",
+      "type": "hydropower",
+      "year": 2024,
+      "source": "undata",
+      "ar": "إمكانات كهرومائية كبيرة في الهيمالايا، وتصدّر الكهرباء إلى الهند وإلى بنغلاديش عبرها منذ 2024.",
+      "en": "Large Himalayan hydropower potential; it exports electricity to India, and through India to Bangladesh since 2024."
+    },
+    {
+      "iso3": "PRK",
+      "type": "coal",
+      "year": 2024,
+      "source": "undata",
+      "ar": "الفحم كان أكبر صادراتها إلى الصين قبل أن يحظره مجلس الأمن عام 2017، وتستمر تقارير عن تهريبه.",
+      "en": "Coal was its largest export to China until the UN Security Council banned it in 2017; reports of smuggling continue.",
+      "conflictIds": ["korean-peninsula"]
+    },
+    {
+      "iso3": "LKA",
+      "type": "graphite",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "من المصادر القليلة في العالم للغرافيت العِرقي عالي النقاء، من مناجم بوغالا وكاهاتاغاها.",
+      "en": "One of the world's few sources of high-purity vein graphite, from the Bogala and Kahatagaha mines."
+    },
+    {
+      "iso3": "KHM",
+      "type": "water",
+      "year": 2025,
+      "source": "undata",
+      "ar": "الاعتماد على نهر الميكونغ وبحيرة تونلي ساب، وقناة فونان تيكو المموّلة صينياً تثير قلق فيتنام على تدفّق النهر.",
+      "en": "Dependence on the Mekong and the Tonlé Sap lake; the Chinese-funded Funan Techo canal worries Vietnam about the river's flow."
+    },
+    {
+      "iso3": "TJK",
+      "type": "hydropower",
+      "year": 2025,
+      "source": "undata",
+      "ar": "سدّ روغون، الأعلى في العالم عند اكتماله، يمنح طاجيكستان نفوذاً على مياه نهر آمو داريا التي تعتمد عليها أوزبكستان.",
+      "en": "The Rogun dam, the world's tallest when complete, gives Tajikistan leverage over Amu Darya water on which Uzbekistan depends."
+    },
+    {
+      "iso3": "LAO",
+      "type": "hydropower",
+      "year": 2025,
+      "source": "undata",
+      "ar": "«بطارية جنوب شرق آسيا»: عشرات السدود على الميكونغ وروافده تصدّر الكهرباء إلى تايلاند، ومعظمها بتمويل صيني رفع الدين العام.",
+      "en": "\"The battery of Southeast Asia\": dozens of dams on the Mekong and its tributaries export power to Thailand, mostly with Chinese financing that has swollen public debt."
+    },
+    {
+      "iso3": "KGZ",
+      "type": "gold",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "منجم كومتور، الذي أمّمته الحكومة عام 2021، أهم مصادر الدخل والصادرات.",
+      "en": "The Kumtor mine, nationalised in 2021, is the main source of income and exports."
+    },
+    {
+      "iso3": "SGP",
+      "type": "semiconductors",
+      "year": 2025,
+      "source": "undata",
+      "ar": "تنتج نحو عُشر رقائق العالم وجزءاً كبيراً من معدّات تصنيعها، إضافة إلى كونها مركزاً عالمياً لتكرير النفط وتجارته.",
+      "en": "Produces around a tenth of the world's chips and a large share of chipmaking equipment, besides being a global oil refining and trading hub."
+    },
+    {
+      "iso3": "GEO",
+      "type": "manganese",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "مناجم تشياتورا للمنغنيز من أقدم المناجم في العالم، وجورجيا ممرّ لأنابيب نفط وغاز قزوين إلى تركيا.",
+      "en": "The Chiatura manganese mines are among the oldest in the world, and Georgia is the corridor for Caspian oil and gas pipelines to Türkiye."
+    },
+    {
+      "iso3": "MNG",
+      "type": "copper",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "منجم أويو تولغوي للنحاس والذهب، الذي تشغّله ريو تينتو، من أكبر المناجم في العالم.",
+      "en": "The Oyu Tolgoi copper and gold mine, operated by Rio Tinto, is among the largest in the world."
+    },
+    {
+      "iso3": "MNG",
+      "type": "coal",
+      "year": 2025,
+      "source": "undata",
+      "ar": "صادرات الفحم إلى الصين من تافان تولغوي أكبر مصدر للعملة الصعبة.",
+      "en": "Coal exports to China from Tavan Tolgoi are the main source of hard currency."
+    },
+    {
+      "iso3": "ARM",
+      "type": "copper",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "مجمّع زنغزور للنحاس والموليبدنوم في سيونيك أكبر دافع للضرائب، والمنطقة نفسها محور ممرّ العبور المتفق عليه مع أذربيجان.",
+      "en": "The Zangezur copper-molybdenum combine in Syunik is the largest taxpayer, and the same province is the focus of the transit corridor agreed with Azerbaijan.",
+      "conflictIds": ["armenia-azerbaijan"]
+    },
+    {
+      "iso3": "BHR",
+      "type": "oil",
+      "year": 2024,
+      "source": "eia",
+      "ar": "إنتاج نفطي محدود، واكتُشف حوض خليج البحرين البحري عام 2018 بموارد كبيرة من النفط المحكم صعب الاستخراج.",
+      "en": "Limited oil output; the offshore Khaleej al-Bahrain basin, discovered in 2018, holds large tight-oil resources that are hard to extract.",
+      "conflictIds": ["gulf-security"]
+    },
+    {
+      "iso3": "TLS",
+      "type": "gas",
+      "year": 2025,
+      "source": "eia",
+      "ar": "حقل الشروق الكبير في بحر تيمور بعد معاهدة الحدود البحرية مع أستراليا (2018)، مع نضوب حقل بايو أوندان الذي موّل الصندوق السيادي.",
+      "en": "The Greater Sunrise field in the Timor Sea following the 2018 maritime boundary treaty with Australia, as the Bayu-Undan field that funded the sovereign fund runs dry."
+    },
+    {
+      "iso3": "CYP",
+      "type": "gas",
+      "year": 2024,
+      "source": "eia",
+      "ar": "حقل أفروديت ضمن منطقتها الاقتصادية الخالصة، وتركيا تعترض على حقوق التنقيب باسم القبارصة الأتراك.",
+      "en": "The Aphrodite field in its exclusive economic zone; Türkiye contests drilling rights on behalf of the Turkish Cypriots."
+    },
+    {
+      "iso3": "BTN",
+      "type": "hydropower",
+      "year": 2024,
+      "source": "undata",
+      "ar": "الكهرباء المولّدة من السدود أكبر صادرات البلاد ومعظمها إلى الهند.",
+      "en": "Hydropower is the country's largest export, mostly to India."
+    },
+    {
+      "iso3": "BRN",
+      "type": "oil",
+      "year": 2024,
+      "source": "eia",
+      "ar": "النفط والغاز المسال يمثّلان معظم الصادرات والإيرادات منذ عقود.",
+      "en": "Oil and LNG have made up most exports and revenue for decades."
+    },
+    {
+      "iso3": "IDN",
+      "type": "palm-oil",
+      "year": 2024,
+      "source": "undata",
+      "rank": 1,
+      "ar": "أكبر منتج لزيت النخيل في العالم.",
+      "en": "The world's largest palm oil producer."
+    },
+    {
+      "iso3": "IDN",
+      "type": "coal",
+      "year": 2024,
+      "source": "eia",
+      "rank": 1,
+      "ar": "أكبر مصدّر للفحم الحراري في العالم، ومعظمه يذهب إلى الصين والهند.",
+      "en": "The world's largest thermal coal exporter, mostly to China and India."
+    },
+    {
+      "iso3": "IND",
+      "type": "coal",
+      "year": 2024,
+      "source": "eia",
+      "rank": 2,
+      "ar": "ثاني أكبر منتج للفحم في العالم، وهو مصدر معظم كهرباء البلاد.",
+      "en": "The world's second-largest coal producer, the source of most of the country's electricity."
+    },
+    {
+      "iso3": "IND",
+      "type": "grain",
+      "year": 2024,
+      "source": "undata",
+      "rank": 1,
+      "ar": "أكبر مصدّر للأرز في العالم، وقيود التصدير التي فرضتها في 2023 هزّت الأسواق.",
+      "en": "The world's largest rice exporter; the export restrictions it imposed in 2023 shook markets."
+    },
+    {
+      "iso3": "CHN",
+      "type": "graphite",
+      "year": 2025,
+      "source": "usgs",
+      "rank": 1,
+      "ar": "أكبر منتج للغرافيت ومعالجه في العالم، وفرضت قيوداً على تصديره منذ 2023.",
+      "en": "The world's largest graphite producer and processor, with export restrictions since 2023."
+    },
+    {
+      "iso3": "CHN",
+      "type": "tungsten",
+      "year": 2025,
+      "source": "usgs",
+      "rank": 1,
+      "ar": "نحو 80% من إنتاج التنغستن العالمي، وقيّدت تصديره في 2025.",
+      "en": "Around 80% of world tungsten output, with export controls imposed in 2025."
+    },
+    {
+      "iso3": "CHN",
+      "type": "coal",
+      "year": 2024,
+      "source": "eia",
+      "rank": 1,
+      "ar": "أكبر منتج ومستهلك للفحم في العالم بنصف الإنتاج العالمي تقريباً.",
+      "en": "The world's largest coal producer and consumer, at around half of global output."
+    },
+    {
+      "iso3": "AUS",
+      "type": "iron-ore",
+      "year": 2025,
+      "source": "usgs",
+      "rank": 1,
+      "ar": "أكبر منتج لخام الحديد في العالم من منطقة بيلبارا، والصين أكبر مشترٍ.",
+      "en": "The world's largest iron ore producer, from the Pilbara, with China the largest buyer."
+    },
+    {
+      "iso3": "BRA",
+      "type": "iron-ore",
+      "year": 2025,
+      "source": "usgs",
+      "rank": 2,
+      "ar": "ثاني أكبر منتج لخام الحديد في العالم، ومنجم كاراجاس من أكبر المناجم.",
+      "en": "The world's second-largest iron ore producer, with Carajás among the largest mines."
+    },
+    {
+      "iso3": "BRA",
+      "type": "coffee",
+      "year": 2024,
+      "source": "undata",
+      "rank": 1,
+      "ar": "أكبر منتج ومصدّر للبن في العالم.",
+      "en": "The world's largest coffee producer and exporter."
+    },
+    {
+      "iso3": "RUS",
+      "type": "diamonds",
+      "year": 2025,
+      "source": "usgs",
+      "rank": 1,
+      "ar": "أكبر منتج للماس بالكمية عبر شركة ألروسا، والماس الروسي خاضع لعقوبات مجموعة السبع منذ 2024.",
+      "en": "The largest diamond producer by volume through Alrosa; Russian diamonds have been under G7 sanctions since 2024."
+    },
+    {
+      "iso3": "RUS",
+      "type": "platinum",
+      "year": 2025,
+      "source": "usgs",
+      "rank": 2,
+      "ar": "أكبر منتج للبالاديوم في العالم وثاني منتج لمجموعة البلاتين، من نوريلسك.",
+      "en": "The world's largest palladium producer and second in platinum-group metals, from Norilsk."
+    },
+    {
+      "iso3": "MEX",
+      "type": "silver",
+      "year": 2025,
+      "source": "usgs",
+      "rank": 1,
+      "ar": "أكبر منتج للفضة في العالم.",
+      "en": "The world's largest silver producer."
+    },
+    {
+      "iso3": "MEX",
+      "type": "oil",
+      "year": 2024,
+      "source": "eia",
+      "ar": "إنتاج شركة بيمكس الحكومية يتراجع منذ عقدين، وديونها من الأعلى بين شركات النفط في العالم.",
+      "en": "Output by state-owned Pemex has declined for two decades, and its debt is among the highest of any oil company."
+    },
+    {
+      "iso3": "DEU",
+      "type": "coal",
+      "year": 2024,
+      "source": "eia",
+      "ar": "من أكبر منتجي فحم الليغنيت في العالم، وتعهّدت بالتخلّي عن الفحم بحلول 2038.",
+      "en": "One of the world's largest lignite producers, committed to phasing out coal by 2038."
+    },
+    {
+      "iso3": "FRA",
+      "type": "uranium",
+      "year": 2025,
+      "source": "undata",
+      "ar": "لا تعدّن اليورانيوم لكن 57 مفاعلاً تولّد معظم كهربائها، وخسرت شركة أورانو السيطرة على منجمها في النيجر بعد انقلاب 2023.",
+      "en": "Mines no uranium, yet 57 reactors generate most of its electricity; Orano lost control of its Niger mine after the 2023 coup."
+    },
+    {
+      "iso3": "GBR",
+      "type": "gas",
+      "year": 2024,
+      "source": "eia",
+      "ar": "نفط وغاز بحر الشمال في تراجع، والحكومة أوقفت منح تراخيص تنقيب جديدة.",
+      "en": "North Sea oil and gas are in decline, and the government has stopped issuing new exploration licences."
+    },
+    {
+      "iso3": "ITA",
+      "type": "geothermal",
+      "year": 2024,
+      "source": "undata",
+      "ar": "حقل لارديريلو في توسكانا كان أول محطة كهرباء حرارية جوفية في العالم، وتعتمد إيطاليا على الغاز الجزائري عبر خط ترانسميد.",
+      "en": "The Larderello field in Tuscany was the world's first geothermal power plant; Italy relies on Algerian gas via the Transmed pipeline."
+    },
+    {
+      "iso3": "ESP",
+      "type": "gas",
+      "year": 2024,
+      "source": "eia",
+      "ar": "أكبر طاقة لاستقبال الغاز المسال وإعادة تغويزه في أوروبا، وتستورد الغاز الجزائري عبر خط ميدغاز.",
+      "en": "The largest LNG import and regasification capacity in Europe, plus Algerian gas via the Medgaz pipeline."
+    },
+    {
+      "iso3": "POL",
+      "type": "coal",
+      "year": 2024,
+      "source": "eia",
+      "ar": "أكبر منتج للفحم الحجري في الاتحاد الأوروبي، والفحم ما زال مصدر معظم كهربائها.",
+      "en": "The EU's largest hard coal producer, with coal still the source of most of its electricity."
+    },
+    {
+      "iso3": "POL",
+      "type": "copper",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "شركة كي جي إتش إم أكبر منتج للنحاس في أوروبا ومن أكبر منتجي الفضة في العالم.",
+      "en": "KGHM is Europe's largest copper producer and one of the world's largest silver producers."
+    },
+    {
+      "iso3": "ROU",
+      "type": "gas",
+      "year": 2025,
+      "source": "eia",
+      "ar": "حقل نبتون ديب في البحر الأسود، المنتظر إنتاجه في 2027، سيجعل رومانيا أكبر منتج للغاز في الاتحاد الأوروبي.",
+      "en": "The Neptun Deep field in the Black Sea, due to produce in 2027, would make Romania the EU's largest gas producer."
+    },
+    {
+      "iso3": "NLD",
+      "type": "semiconductors",
+      "year": 2025,
+      "source": "undata",
+      "ar": "شركة إيه إس إم إل تحتكر آلات الطباعة الضوئية بالأشعة فوق البنفسجية القصوى اللازمة لأحدث الرقائق، وتخضع صادراتها إلى الصين لقيود.",
+      "en": "ASML holds a monopoly on the extreme ultraviolet lithography machines needed for the most advanced chips, and its exports to China are restricted."
+    },
+    {
+      "iso3": "NLD",
+      "type": "gas",
+      "year": 2024,
+      "source": "eia",
+      "ar": "أُغلق حقل غرونينغن، أكبر حقول الغاز في أوروبا الغربية، عام 2024 بسبب الزلازل التي سبّبها الاستخراج.",
+      "en": "Groningen, Western Europe's largest gas field, was closed in 2024 because of the earthquakes extraction caused."
+    },
+    {
+      "iso3": "BEL",
+      "type": "diamonds",
+      "year": 2024,
+      "source": "undata",
+      "ar": "أنتويرب أكبر مركز لتجارة الماس الخام في العالم.",
+      "en": "Antwerp is the world's largest trading centre for rough diamonds."
+    },
+    {
+      "iso3": "GRC",
+      "type": "bauxite",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "أكبر منتج للبوكسيت في الاتحاد الأوروبي.",
+      "en": "The EU's largest bauxite producer."
+    },
+    {
+      "iso3": "CZE",
+      "type": "lithium",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "رواسب سينوفيتس من أكبر رواسب الليثيوم الصخري في أوروبا.",
+      "en": "The Cínovec deposit is among Europe's largest hard-rock lithium deposits."
+    },
+    {
+      "iso3": "SWE",
+      "type": "iron-ore",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "شركة إل كيه إيه بي في كيرونا تنتج معظم خام الحديد في الاتحاد الأوروبي، واكتشفت عام 2023 أكبر رواسب للعناصر النادرة في أوروبا.",
+      "en": "LKAB at Kiruna produces most of the EU's iron ore, and in 2023 found Europe's largest known rare earth deposit."
+    },
+    {
+      "iso3": "PRT",
+      "type": "lithium",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "أكبر احتياطيات الليثيوم في أوروبا الغربية، ومشروع باروسو يواجه معارضة محلية.",
+      "en": "The largest lithium reserves in Western Europe; the Barroso project faces local opposition."
+    },
+    {
+      "iso3": "HUN",
+      "type": "gas",
+      "year": 2025,
+      "source": "eia",
+      "ar": "تعتمد على الغاز الروسي عبر خط ترك ستريم وتعارض خطط الاتحاد الأوروبي لوقف وارداته.",
+      "en": "Depends on Russian gas via TurkStream and opposes EU plans to end its imports."
+    },
+    {
+      "iso3": "AUT",
+      "type": "hydropower",
+      "year": 2024,
+      "source": "undata",
+      "ar": "الطاقة الكهرومائية تولّد نحو 60% من كهرباء النمسا.",
+      "en": "Hydropower generates around 60% of Austria's electricity."
+    },
+    {
+      "iso3": "CHE",
+      "type": "gold",
+      "year": 2024,
+      "source": "undata",
+      "ar": "مصافي الذهب السويسرية تكرّر معظم الذهب في العالم، وهي حلقة أساسية في سلسلة توريده.",
+      "en": "Swiss refineries process most of the world's gold, a central link in its supply chain."
+    },
+    {
+      "iso3": "BGR",
+      "type": "copper",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "مصهر بيردوب من أكبر مصاهر النحاس في أوروبا، وبلغاريا ممرّ لخط ترك ستريم.",
+      "en": "The Pirdop smelter is among Europe's largest copper smelters, and Bulgaria is a transit route for TurkStream."
+    },
+    {
+      "iso3": "SRB",
+      "type": "lithium",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "مشروع جادار لشركة ريو تينتو من أكبر مشاريع الليثيوم في أوروبا، وأثار احتجاجات واسعة في 2024.",
+      "en": "Rio Tinto's Jadar project is among Europe's largest lithium projects, and sparked mass protests in 2024."
+    },
+    {
+      "iso3": "DNK",
+      "type": "gas",
+      "year": 2024,
+      "source": "eia",
+      "ar": "نفط وغاز بحر الشمال، وأُعيد تشغيل مركز تايرا للغاز عام 2024، مع خطة لوقف الإنتاج بحلول 2050.",
+      "en": "North Sea oil and gas; the Tyra gas hub restarted in 2024, with production to end by 2050."
+    },
+    {
+      "iso3": "FIN",
+      "type": "cobalt",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "مصفاة كوكولا من أكبر مصافي الكوبالت خارج الصين، وتنتج فنلندا النيكل والكوبالت للبطاريات.",
+      "en": "The Kokkola refinery is among the largest cobalt refineries outside China, and Finland produces nickel and cobalt for batteries."
+    },
+    {
+      "iso3": "ALB",
+      "type": "chromium",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "من أبرز منتجي الكروم في أوروبا، ولديها أكبر حقل نفط بري في أوروبا (باتوس–مارينزا).",
+      "en": "One of Europe's main chromium producers, and home to Europe's largest onshore oil field (Patos-Marinza)."
+    },
+    {
+      "iso3": "EST",
+      "type": "oil-shale",
+      "year": 2024,
+      "source": "undata",
+      "ar": "أكبر منتج للصخر الزيتي في الاتحاد الأوروبي، وكان أساس كهربائها حتى وقت قريب.",
+      "en": "The EU's largest oil shale producer, which until recently was the basis of its electricity."
+    },
+    {
+      "iso3": "ISL",
+      "type": "geothermal",
+      "year": 2024,
+      "source": "undata",
+      "ar": "الطاقة الحرارية الجوفية والكهرومائية تولّدان كل كهربائها تقريباً وتُدفئ معظم المنازل، وتجذب مصاهر الألمنيوم.",
+      "en": "Geothermal and hydropower generate nearly all its electricity and heat most homes, attracting aluminium smelters."
+    },
+    {
+      "iso3": "CUB",
+      "type": "nickel",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "نيكل وكوبالت مناجم مووا أهم الصادرات المعدنية، بشراكة مع شركة شيريت الكندية.",
+      "en": "Nickel and cobalt from the Moa mines are the main mineral exports, in partnership with Canada's Sherritt."
+    },
+    {
+      "iso3": "DOM",
+      "type": "gold",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "منجم بويبلو فييخو من أكبر مناجم الذهب في العالم.",
+      "en": "The Pueblo Viejo mine is among the largest gold mines in the world."
+    },
+    {
+      "iso3": "GTM",
+      "type": "nickel",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "منجم فينيكس للنيكل، وفرضت الولايات المتحدة عقوبات على مالكته شركة سولواي عام 2022.",
+      "en": "The Fénix nickel mine; the United States sanctioned its owner Solway in 2022."
+    },
+    {
+      "iso3": "HND",
+      "type": "coffee",
+      "year": 2024,
+      "source": "undata",
+      "ar": "أكبر منتج للبن في أمريكا الوسطى، والبن أهم صادراتها الزراعية.",
+      "en": "Central America's largest coffee producer, coffee being its main agricultural export."
+    },
+    {
+      "iso3": "NIC",
+      "type": "gold",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "الذهب أكبر صادرات البلاد، بامتيازات منح كثير منها لشركات صينية.",
+      "en": "Gold is the country's largest export, with many concessions granted to Chinese companies."
+    },
+    {
+      "iso3": "SLV",
+      "type": "gold",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "أصبحت أول دولة تحظر تعدين المعادن عام 2017، ثم ألغى بوكيلي الحظر في ديسمبر 2024.",
+      "en": "It became the first country to ban metal mining in 2017, before Bukele repealed the ban in December 2024."
+    },
+    {
+      "iso3": "PAN",
+      "type": "copper",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "منجم كوبري بنما، نحو 1% من النحاس العالمي، أُغلق أواخر 2023 بعد احتجاجات وحكم المحكمة العليا، ومستقبله موضع تفاوض.",
+      "en": "The Cobre Panamá mine, around 1% of world copper, was shut in late 2023 after protests and a Supreme Court ruling, and its future is under negotiation."
+    },
+    {
+      "iso3": "JAM",
+      "type": "bauxite",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "البوكسيت والألومينا من أهم صادرات البلاد منذ الخمسينيات.",
+      "en": "Bauxite and alumina have been among the main exports since the 1950s."
+    },
+    {
+      "iso3": "TTO",
+      "type": "gas",
+      "year": 2024,
+      "source": "eia",
+      "ar": "مصدّر للغاز المسال منذ 1999، وتسعى لاستغلال حقل دراغون في المياه الفنزويلية.",
+      "en": "An LNG exporter since 1999, seeking to develop the Dragon field in Venezuelan waters.",
+      "conflictIds": ["venezuela"]
+    },
+    {
+      "iso3": "GRL",
+      "type": "rare-earths",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "رواسب تانبريز وكفانفيلد من أكبر رواسب العناصر الأرضية النادرة في العالم، وهي في قلب الاهتمام الأمريكي بالجزيرة.",
+      "en": "The Tanbreez and Kvanefjeld deposits are among the world's largest rare earth deposits, at the heart of US interest in the island."
+    },
+    {
+      "iso3": "COL",
+      "type": "coal",
+      "year": 2024,
+      "source": "eia",
+      "ar": "أكبر منتج ومصدّر للفحم في أمريكا اللاتينية من منجم سيريخون، إضافة إلى النفط.",
+      "en": "Latin America's largest coal producer and exporter, from the Cerrejón mine, alongside oil."
+    },
+    {
+      "iso3": "COL",
+      "type": "coffee",
+      "year": 2024,
+      "source": "undata",
+      "ar": "من أكبر منتجي البن العربي في العالم.",
+      "en": "One of the world's largest producers of arabica coffee."
+    },
+    {
+      "iso3": "ARG",
+      "type": "lithium",
+      "year": 2025,
+      "source": "usgs",
+      "rank": 4,
+      "ar": "رابع أكبر منتج لليثيوم في العالم، ضمن «مثلث الليثيوم» مع تشيلي وبوليفيا.",
+      "en": "The world's fourth-largest lithium producer, part of the \"lithium triangle\" with Chile and Bolivia."
+    },
+    {
+      "iso3": "ARG",
+      "type": "gas",
+      "year": 2024,
+      "source": "eia",
+      "ar": "تكوين فاكا مويرتا من أكبر موارد الغاز والنفط الصخري في العالم، وحوّل الأرجنتين إلى مصدّر للطاقة.",
+      "en": "The Vaca Muerta formation holds some of the world's largest shale gas and oil resources and has turned Argentina into an energy exporter."
+    },
+    {
+      "iso3": "ECU",
+      "type": "oil",
+      "year": 2024,
+      "source": "eia",
+      "ar": "النفط أكبر الصادرات، وصوّت الإكوادوريون في استفتاء 2023 لوقف الحفر في حديقة ياسوني الأمازونية.",
+      "en": "Oil is the largest export; Ecuadorians voted in a 2023 referendum to stop drilling in the Amazonian Yasuní park."
+    },
+    {
+      "iso3": "PRY",
+      "type": "hydropower",
+      "year": 2024,
+      "source": "undata",
+      "ar": "سدّا إيتايبو مع البرازيل وياسيريتا مع الأرجنتين يجعلانها من أكبر مصدّري الكهرباء في العالم، وتبيع معظم حصتها للبرازيل.",
+      "en": "The Itaipú dam with Brazil and Yacyretá with Argentina make it one of the world's largest electricity exporters; it sells most of its share to Brazil."
+    },
+    {
+      "iso3": "SUR",
+      "type": "oil",
+      "year": 2025,
+      "source": "eia",
+      "ar": "اكتشافات نفطية بحرية كبيرة بجوار غيانا، ومشروع غرانمورغو لتوتال إنرجيز يُنتظر إنتاجه في 2028.",
+      "en": "Large offshore oil discoveries next to Guyana; TotalEnergies' GranMorgu project is due to produce in 2028."
+    },
+    {
+      "iso3": "PNG",
+      "type": "gas",
+      "year": 2024,
+      "source": "eia",
+      "ar": "مشروع بابوا غينيا الجديدة للغاز المسال، إضافة إلى مناجم ذهب ونحاس كبيرة مثل بورغيرا وأوك تيدي.",
+      "en": "The PNG LNG project, alongside large gold and copper mines such as Porgera and Ok Tedi."
+    },
+    {
+      "iso3": "NZL",
+      "type": "geothermal",
+      "year": 2024,
+      "source": "undata",
+      "ar": "الطاقة الحرارية الجوفية تولّد نحو خُمس كهرباء البلاد من منطقة تاوبو البركانية.",
+      "en": "Geothermal power generates around a fifth of the country's electricity, from the Taupō volcanic zone."
+    },
+    {
+      "iso3": "KIR",
+      "type": "fisheries",
+      "year": 2024,
+      "source": "undata",
+      "ar": "عضو في اتفاق ناورو الذي تتحكّم دوله بنحو نصف إمدادات تونة السكيبجاك العالمية عبر نظام بيع أيام الصيد، ورسوم الصيد من أهم إيرادات الدولة.",
+      "en": "A member of the Parties to the Nauru Agreement, whose states control around half of the world's skipjack tuna supply through the vessel day scheme; fishing fees are among the state's main revenues."
+    },
+    {
+      "iso3": "FSM",
+      "type": "fisheries",
+      "year": 2024,
+      "source": "undata",
+      "ar": "عضو في اتفاق ناورو الذي تتحكّم دوله بنحو نصف إمدادات تونة السكيبجاك العالمية عبر نظام بيع أيام الصيد، ورسوم الصيد من أهم إيرادات الدولة.",
+      "en": "A member of the Parties to the Nauru Agreement, whose states control around half of the world's skipjack tuna supply through the vessel day scheme; fishing fees are among the state's main revenues."
+    },
+    {
+      "iso3": "MHL",
+      "type": "fisheries",
+      "year": 2024,
+      "source": "undata",
+      "ar": "عضو في اتفاق ناورو الذي تتحكّم دوله بنحو نصف إمدادات تونة السكيبجاك العالمية عبر نظام بيع أيام الصيد، ورسوم الصيد من أهم إيرادات الدولة.",
+      "en": "A member of the Parties to the Nauru Agreement, whose states control around half of the world's skipjack tuna supply through the vessel day scheme; fishing fees are among the state's main revenues."
+    },
+    {
+      "iso3": "TUV",
+      "type": "fisheries",
+      "year": 2024,
+      "source": "undata",
+      "ar": "عضو في اتفاق ناورو الذي تتحكّم دوله بنحو نصف إمدادات تونة السكيبجاك العالمية عبر نظام بيع أيام الصيد، ورسوم الصيد من أهم إيرادات الدولة.",
+      "en": "A member of the Parties to the Nauru Agreement, whose states control around half of the world's skipjack tuna supply through the vessel day scheme; fishing fees are among the state's main revenues."
+    },
+    {
+      "iso3": "PLW",
+      "type": "fisheries",
+      "year": 2024,
+      "source": "undata",
+      "ar": "عضو في اتفاق ناورو الذي تتحكّم دوله بنحو نصف إمدادات تونة السكيبجاك العالمية عبر نظام بيع أيام الصيد، ورسوم الصيد من أهم إيرادات الدولة.",
+      "en": "A member of the Parties to the Nauru Agreement, whose states control around half of the world's skipjack tuna supply through the vessel day scheme; fishing fees are among the state's main revenues."
+    },
+    {
+      "iso3": "SLB",
+      "type": "fisheries",
+      "year": 2024,
+      "source": "undata",
+      "ar": "عضو في اتفاق ناورو الذي تتحكّم دوله بنحو نصف إمدادات تونة السكيبجاك العالمية عبر نظام بيع أيام الصيد، ورسوم الصيد من أهم إيرادات الدولة.",
+      "en": "A member of the Parties to the Nauru Agreement, whose states control around half of the world's skipjack tuna supply through the vessel day scheme; fishing fees are among the state's main revenues."
+    },
+    {
+      "iso3": "PNG",
+      "type": "fisheries",
+      "year": 2024,
+      "source": "undata",
+      "ar": "عضو في اتفاق ناورو الذي تتحكّم دوله بنحو نصف إمدادات تونة السكيبجاك العالمية عبر نظام بيع أيام الصيد، ورسوم الصيد من أهم إيرادات الدولة.",
+      "en": "A member of the Parties to the Nauru Agreement, whose states control around half of the world's skipjack tuna supply through the vessel day scheme; fishing fees are among the state's main revenues."
+    },
+    {
+      "iso3": "NRU",
+      "type": "fisheries",
+      "year": 2024,
+      "source": "undata",
+      "ar": "عضو في اتفاق ناورو الذي تتحكّم دوله بنحو نصف إمدادات تونة السكيبجاك العالمية عبر نظام بيع أيام الصيد، ورسوم الصيد من أهم إيرادات الدولة.",
+      "en": "A member of the Parties to the Nauru Agreement, whose states control around half of the world's skipjack tuna supply through the vessel day scheme; fishing fees are among the state's main revenues."
+    },
+    {
+      "iso3": "NRU",
+      "type": "phosphate",
+      "year": 2024,
+      "source": "undata",
+      "ar": "استُنزف الفوسفات الذي كان مصدر ثروتها خلال القرن العشرين، وترك معظم الجزيرة أرضاً غير صالحة.",
+      "en": "The phosphate that made it rich was exhausted over the twentieth century, leaving most of the island unusable."
+    },
+    {
+      "iso3": "MDV",
+      "type": "fisheries",
+      "year": 2024,
+      "source": "undata",
+      "ar": "صيد التونة بالصنارة أهم الصادرات بعد السياحة.",
+      "en": "Pole-and-line tuna fishing is the main export after tourism."
+    },
+    {
+      "iso3": "SYC",
+      "type": "fisheries",
+      "year": 2024,
+      "source": "undata",
+      "ar": "ميناء فيكتوريا من أنشط موانئ تفريغ التونة في المحيط الهندي.",
+      "en": "Port Victoria is among the busiest tuna landing ports in the Indian Ocean."
+    },
+    {
+      "iso3": "NCL",
+      "type": "nickel",
+      "year": 2025,
+      "source": "usgs",
+      "ar": "من أكبر احتياطيات النيكل في العالم ونحو 6% من إنتاجه، وكان الخلاف على مستقبل الإقليم وصناعة النيكل في خلفية أعمال الشغب عام 2024.",
+      "en": "Among the world's largest nickel reserves and around 6% of output; the dispute over the territory's future and its nickel industry lay behind the 2024 riots."
+    },
+    {
+      "iso3": "FLK",
+      "type": "oil",
+      "year": 2025,
+      "source": "eia",
+      "ar": "اكتشافات نفطية بحرية أبرزها حقل سي لايون، وتطويرها مرتبط بنزاع السيادة مع الأرجنتين.",
+      "en": "Offshore oil discoveries, notably the Sea Lion field, whose development is entangled with the sovereignty dispute with Argentina."
+    },
+    {
+      "iso3": "CRI",
+      "type": "semiconductors",
+      "year": 2025,
+      "source": "undata",
+      "ar": "موقع إنتل لتجميع الرقائق واختبارها جعلها أكبر مصدّر لأشباه الموصلات في أمريكا اللاتينية.",
+      "en": "Intel's chip assembly and test site has made it Latin America's largest semiconductor exporter."
     }
   ],
   "sites": [
@@ -931,7 +2190,7 @@
     }
   ],
   "coverageNote": {
-    "ar": "التغطية ليست شاملة. تشمل هذه النسخة الدول ذات المكانة العالمية الموثّقة في المورد المعني، ولا تشمل كل منتج لكل مورد. غياب دولة من هذه الطبقة يعني غياب سجلّ موثّق في هذه النسخة، لا غياب الموارد فيها. ملفّ الدولة يذكر ذلك صراحةً عند فتح أي دولة غير مغطّاة.",
-    "en": "Coverage is not exhaustive. This release includes states with a documented global standing in the resource concerned, not every producer of every resource. A country's absence from this layer means no documented record in this release, not an absence of resources there. The country panel states this explicitly when an uncovered country is opened."
+    "ar": "تغطي هذه النسخة كل دولة لديها مورد ذو أهمية استراتيجية أو اقتصادية بارزة، بما فيها الطاقة والمعادن والغذاء والمياه، مع إبراز أهم مورد أو موردين لكل دولة لا كل ما تنتجه. الدول الصغيرة والأقاليم التي لا تملك مورداً بارزاً ليس لها سجل، وغياب السجل يعني غياب مورد ذي أهمية استراتيجية لا غياب الموارد كلياً.",
+    "en": "This release covers every state with a resource of notable strategic or economic weight, including energy, minerals, food and water, highlighting each state's one or two most important resources rather than everything it produces. Small states and territories without a notable resource have no record; a missing record means no resource of strategic weight, not an absence of resources altogether."
   }
 }
