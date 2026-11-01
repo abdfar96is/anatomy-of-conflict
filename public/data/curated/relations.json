@@ -357,8 +357,8 @@
       "type": "military",
       "kind": "treaty",
       "weight": 4,
-      "ar": "شراكة دفاعية وتقنية متنامية في إطار الرباعية، مع اختلاف حول روسيا",
-      "en": "A growing defence and technology partnership within the Quad, with divergence over Russia"
+      "ar": "إطار الشراكة الدفاعية الكبرى لعشر سنوات (أكتوبر 2025) بعد إطارَي 2005 و2015، وشراكة دفاعية وتقنية متنامية في إطار الرباعية، مع اختلاف حول روسيا",
+      "en": "A ten-year Framework for the Major Defense Partnership (October 2025), after the 2005 and 2015 frameworks, and a growing defence and technology partnership within the Quad, with divergence over Russia"
     },
     {
       "a": "USA",
@@ -2033,6 +2033,51 @@
       "weight": 2,
       "ar": "أول مناورة بحرية مشتركة «أورودا 2024» في بحر جاوة",
       "en": "The first joint naval exercise, Orruda 2024, in the Java Sea"
+    },
+    {
+      "a": "USA",
+      "b": "IDN",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 4,
+      "ar": "شراكة التعاون الدفاعي الكبرى (أبريل 2026) لتحديث الجيش والتدريب والعمليات المشتركة، ومناورات «درع غارودا الكبرى 2026» بنحو 4,700 عسكري من 13 دولة، مع توازن إندونيسي مع الصين وروسيا",
+      "en": "The Major Defense Cooperation Partnership (April 2026) on military modernisation, training and joint operations, and Super Garuda Shield 2026 with about 4,700 troops from 13 nations, while Indonesia balances ties with China and Russia"
+    },
+    {
+      "a": "USA",
+      "b": "MYS",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 3,
+      "ar": "مذكّرة تفاهم دفاعية (أكتوبر 2025)، أول إطار رسمي للتعاون الدفاعي بين البلدين، وتجديد اتفاقية الدعم اللوجستي المتبادل، ضمن شراكة استراتيجية شاملة",
+      "en": "A defence memorandum of understanding (October 2025), the first formal defence cooperation framework between the two, and a renewed logistics support agreement, within a comprehensive strategic partnership"
+    },
+    {
+      "a": "USA",
+      "b": "VNM",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 2,
+      "ar": "شراكة استراتيجية شاملة (2023)، ومذكّرة لمعالجة إرث الحرب (نوفمبر 2025)، وزيارات حاملات الطائرات إلى دا نانغ، مع تعثّر صفقات السلاح وتوازن فيتنامي مع الصين وروسيا",
+      "en": "A comprehensive strategic partnership (2023), a memorandum on war-legacy remediation (November 2025), and aircraft-carrier visits to Da Nang, with arms deals stalled as Vietnam balances China and Russia"
+    },
+    {
+      "a": "USA",
+      "b": "MNG",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 2,
+      "ar": "شراكة استراتيجية مع «الجار الثالث» (2019)، ومناورات «خان كويست» لحفظ السلام التي تشارك أمريكا في رعايتها منذ 2003",
+      "en": "A strategic partnership with the \"third neighbour\" (2019), and the Khaan Quest peacekeeping exercises co-sponsored by the United States since 2003"
+    },
+    {
+      "a": "USA",
+      "b": "MDV",
+      "type": "military",
+      "kind": "treaty",
+      "weight": 2,
+      "ar": "إطار العلاقة الدفاعية والأمنية (سبتمبر 2020) لأمن المحيط الهندي والوعي البحري وحوار دفاعي منتظم",
+      "en": "The Framework for a Defense and Security Relationship (September 2020) on Indian Ocean security, maritime awareness and a regular defence dialogue"
     }
   ],
   "bilateral": {
