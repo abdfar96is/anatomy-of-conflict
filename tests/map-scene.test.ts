@@ -3,7 +3,7 @@ import { beforeAll, describe, expect, test } from 'vitest';
 import { initialState, type AtlasState } from '../src/app/store';
 import { build } from '../src/data/build';
 import type { DB } from '../src/data/types';
-import { buildScene, tipFor } from '../src/features/map/engine/scene';
+import { buildScene, eventAnchor, tipFor } from '../src/features/map/engine/scene';
 import type { Palette } from '../src/ui/palette';
 import { readRaw } from './helpers/readRaw';
 
@@ -94,5 +94,20 @@ describe('tipFor', () => {
   });
   test('an unknown hit gives no tooltip', () => {
     expect(tipFor({ kind: 'country', id: 'XXX' }, db, base)).toBe('');
+  });
+});
+
+describe('eventAnchor', () => {
+  test('pins every event inside one of its own countries', () => {
+    const misplaced = db.timeline.events.filter((e) => {
+      const a = eventAnchor(db, e);
+      return !a || !(e.countries ?? []).some((iso) => { const c = db.countries.get(iso); return c && d3.geoContains(c.feature, a); });
+    }).map((e) => e.id);
+    expect(misplaced).toEqual([]);
+  });
+  test('the Gaza events sit in the Gaza Strip, not in Saudi Arabia', () => {
+    for (const id of ['oct-7-gaza', 'gaza-ceasefire-2025', 'gaza-ceasefire-year']) {
+      expect(d3.geoContains(db.countries.get('PSE')!.feature, eventAnchor(db, db.eventById.get(id)!)!), id).toBe(true);
+    }
   });
 });

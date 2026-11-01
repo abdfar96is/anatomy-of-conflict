@@ -7,6 +7,7 @@ import { SEVERITY } from '../src/config';
 const bi = z.object({ ar: z.string(), en: z.string() });
 const id = z.string().min(1);
 const iso = z.string().regex(/^[A-Z]{3}$/, 'expected a three-letter ISO code');
+const lonLat = z.tuple([z.number().min(-180).max(180), z.number().min(-90).max(90)]);
 const date = z.string().regex(/^\d{4}(-\d{2}(-\d{2})?)?$/, 'expected YYYY, YYYY-MM or YYYY-MM-DD');
 
 export const conflictFile = z.looseObject({
@@ -58,7 +59,7 @@ export const SCHEMAS: Record<string, z.ZodType> = {
   'timeline.json': z.looseObject({
     categories: z.array(z.looseObject({ id })),
     events: z.array(z.looseObject({
-      id, date, ar: z.string(), en: z.string(), countries: z.array(iso).optional(), conflictIds: z.array(id).optional(),
+      id, date, ar: z.string(), en: z.string(), countries: z.array(iso).optional(), coords: lonLat, conflictIds: z.array(id).optional(),
       unverified: z.boolean().optional(),
     })),
   }),
