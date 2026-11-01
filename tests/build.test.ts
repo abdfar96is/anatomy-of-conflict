@@ -9,14 +9,14 @@ beforeAll(() => { raw = readRaw(); db = build(raw); });
 
 describe('build() matches the legacy model', () => {
   test('stats', () => expect(db.stats).toEqual({
-    countries: 242, conflicts: 40, groups: 41, religionCountries: 75, edges: 89,
-    blocs: 9, events: 86, chokepoints: 11, sites: 24, disputed: 99,
+    countries: 242, conflicts: 40, groups: 41, religionCountries: 75, edges: 124,
+    blocs: 10, events: 86, chokepoints: 11, sites: 24, disputed: 99,
   }));
 
   test('Saudi Arabia links', () => {
     const sau = db.countries.get('SAU')!;
     expect(sau.conflicts).toEqual(['yemen', 'gulf-security']);
-    expect(sau.blocs).toEqual(['gcc', 'brics', 'arab-league']);
+    expect(sau.blocs).toEqual(['gcc', 'brics', 'arab-league', 'mecca']);
     expect(sau.edges).toHaveLength(6);
     expect(sau.religion?.majority).toBe('sunni');
     expect(sau.religion?.majorityFamily).toBe('islam');
