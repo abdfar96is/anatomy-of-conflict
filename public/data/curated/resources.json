@@ -145,7 +145,12 @@
       "year": 2023,
       "source": "undata",
       "ar": "معالجة وتكرير الليثيوم العالمي يتمركزان في الصين وإن كان التعدين موزّعاً على أستراليا وأمريكا الجنوبية.",
-      "en": "Global lithium processing and refining are concentrated in China even though mining is spread across Australia and South America."
+      "en": "Global lithium processing and refining are concentrated in China even though mining is spread across Australia and South America.",
+      "sources": [
+        "https://www.pbs.org/newshour/world/worlds-supply-of-clean-energy-minerals-is-concentrated-in-fewer-countries-report-says",
+        "https://www.mercomindia.com/chinas-dominance-in-critical-minerals-supply-and-refining-continues-iea"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "CHN",
@@ -388,7 +393,11 @@
       "year": 2026,
       "source": "undata",
       "ar": "أعلنت هيئة الطاقة الذرية الأردنية في يونيو 2026 احتياطياً قدره 42 ألف طن من أكسيد اليورانيوم في وسط الأردن مصنّفاً وفق معايير JORC. لم يبدأ الإنتاج التجاري بعد، والاحتياطي غير مستغلّ. تقديرات أقدم تحدّثت عن 65 ألف طن، والفارق بين الرقمين فارق في معايير التصنيف لا في الكمية المكتشفة.",
-      "en": "In June 2026 the Jordan Atomic Energy Commission declared a reserve of 42,000 tonnes of uranium oxide in central Jordan, classified to JORC standards. Commercial production has not begun and the reserve is undeveloped. Older estimates cited 65,000 tonnes; the difference between the two figures is one of classification standard rather than quantity discovered."
+      "en": "In June 2026 the Jordan Atomic Energy Commission declared a reserve of 42,000 tonnes of uranium oxide in central Jordan, classified to JORC standards. Commercial production has not begun and the reserve is undeveloped. Older estimates cited 65,000 tonnes; the difference between the two figures is one of classification standard rather than quantity discovered.",
+      "sources": [
+        "https://jaec.gov.jo/Pages/viewpage?pageID=31",
+        "https://jordantimes.com/news/local/jordan-eyes-sustainable-clean-nuclear-energy-63b-uranium-reserves"
+      ]
     },
     {
       "iso3": "KAZ",
@@ -397,7 +406,11 @@
       "source": "undata",
       "rank": 1,
       "ar": "أكبر منتج لليورانيوم في العالم بفارق واسع، ويصدّر جزءاً من إنتاجه عبر ممرّات روسية وأخرى عابرة لبحر قزوين.",
-      "en": "The world's largest uranium producer by a wide margin, exporting part of its output through Russian routes and others across the Caspian."
+      "en": "The world's largest uranium producer by a wide margin, exporting part of its output through Russian routes and others across the Caspian.",
+      "sources": [
+        "https://world-nuclear.org/information-library/nuclear-fuel-cycle/mining-of-uranium/world-uranium-mining-production",
+        "https://www.bursa.ro/global-uranium-supply-mostly-produced-in-kazakhstan-85212954"
+      ]
     },
     {
       "iso3": "LBN",
@@ -456,7 +469,11 @@
       "source": "undata",
       "ar": "من أكبر منتجي الذهب في أفريقيا، والتعدين الحرفي مصدر تمويل لأطراف النزاع.",
       "en": "Among Africa's largest gold producers, with artisanal mining a funding source for parties to the conflict.",
-      "conflictIds": ["sahel"]
+      "conflictIds": ["sahel"],
+      "sources": [
+        "https://miningmx.com/news/gold/2025-11-24-barrick-agrees-with-mali-to-end-dispute-over-loulo-gounkoto/",
+        "https://www.ecofinagency.com/mining/1604-46643-mali-shuts-barrick-offices-delaying-loulo-gounkoto-reopening"
+      ]
     },
     {
       "iso3": "MMR",
@@ -476,7 +493,11 @@
       "source": "undata",
       "ar": "من أهم منتجي اليورانيوم في أفريقيا، وكان مورّداً رئيسياً لمحطات الطاقة الفرنسية قبل التحوّلات السياسية.",
       "en": "Among Africa's most important uranium producers and a principal supplier to French power plants before the political changes.",
-      "conflictIds": ["sahel"]
+      "conflictIds": ["sahel"],
+      "sources": [
+        "https://www.africanews.com/2025/06/20/niger-to-nationalize-uranium-venture-operated-by-frances-orano/",
+        "https://www.intellinews.com/niger-puts-nationalised-somair-uranium-on-global-market-amid-standoff-with-france-s-orano-414385/"
+      ]
     },
     {
       "iso3": "NGA",
@@ -573,7 +594,12 @@
       "source": "undata",
       "ar": "مناجم الذهب في دارفور وشمال كردفان هي مصدر تمويل الحرب الرئيسي لقوات الدعم السريع.",
       "en": "Gold mines in Darfur and North Kordofan are the Rapid Support Forces' principal war funding source.",
-      "conflictIds": ["sudan"]
+      "conflictIds": ["sudan"],
+      "sources": [
+        "https://thesentry.org/wp-content/uploads/2025/09/SudanRSF-TheSentry-Oct2025.pdf",
+        "https://www.dabangasudan.org/en/all-news/article/new-report-alleges-rsf-conflict-gold-links-to-uae-firm"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "SDN",
@@ -850,7 +876,12 @@
       "source": "undata",
       "rank": 2,
       "ar": "ثاني أكبر منتج لليورانيوم بعد كازاخستان، من مناجم ساسكاتشوان عالية التركيز.",
-      "en": "The second-largest uranium producer after Kazakhstan, from high-grade Saskatchewan mines."
+      "en": "The second-largest uranium producer after Kazakhstan, from high-grade Saskatchewan mines.",
+      "sources": [
+        "https://world-nuclear.org/information-library/nuclear-fuel-cycle/mining-of-uranium/world-uranium-mining-production",
+        "https://www.usthadian.com/kazakhstan-remains-the-worlds-largest-uranium-producer/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "NAM",
@@ -859,7 +890,11 @@
       "source": "undata",
       "rank": 3,
       "ar": "ثالث أكبر منتج لليورانيوم، ومناجمها الكبرى مثل حوساب ورسينغ مملوكة جزئياً لشركات صينية.",
-      "en": "The third-largest uranium producer, with major mines such as Husab and Rössing partly owned by Chinese companies."
+      "en": "The third-largest uranium producer, with major mines such as Husab and Rössing partly owned by Chinese companies.",
+      "sources": [
+        "https://world-nuclear.org/information-library/nuclear-fuel-cycle/mining-of-uranium/world-uranium-mining-production",
+        "https://www.usthadian.com/kazakhstan-remains-the-worlds-largest-uranium-producer/"
+      ]
     },
     {
       "iso3": "USA",
@@ -987,7 +1022,12 @@
       "year": 2024,
       "source": "usgs",
       "ar": "من كبار منتجي الماس بالقيمة، ومنجم كاتوكا من أكبر مناجم الماس في العالم.",
-      "en": "A major diamond producer by value; the Catoca mine is among the world's largest diamond mines."
+      "en": "A major diamond producer by value; the Catoca mine is among the world's largest diamond mines.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Catoca_diamond_mine",
+        "https://www.mining-technology.com/projects/catoca-diamond-mine/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "GHA",
@@ -995,7 +1035,12 @@
       "year": 2025,
       "source": "usgs",
       "ar": "أكبر منتج للذهب في أفريقيا، مع أزمة تعدين عشوائي غير قانوني («غالامسي») تلوّث الأنهار.",
-      "en": "Africa's largest gold producer, with an illegal artisanal mining crisis (galamsey) polluting rivers."
+      "en": "Africa's largest gold producer, with an illegal artisanal mining crisis (galamsey) polluting rivers.",
+      "sources": [
+        "https://www.thinkglobalhealth.org/article/gold-prices-reach-record-high-poisoning-ghanas-land",
+        "https://www.nbcnews.com/news/world/sickness-pollution-money-anger-mounts-ghanas-illegal-gold-mines-rcna174636"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "GHA",
@@ -1075,7 +1120,11 @@
       "source": "usgs",
       "ar": "الذهب أكبر صادرات البلاد، والمجلس العسكري أمّم مناجم وسلّم أخرى لشركات روسية، بينما تهاجم الجماعات الجهادية مواقع التعدين.",
       "en": "Gold is the largest export; the junta nationalised mines and handed others to Russian firms, while jihadist groups attack mining sites.",
-      "conflictIds": ["sahel"]
+      "conflictIds": ["sahel"],
+      "sources": [
+        "https://www.miningweekly.com/article/burkina-faso-to-nationalise-more-industrial-mines-pm-says-2025-04-29",
+        "https://www.mining.com/web/burkina-faso-completes-nationalization-of-five-gold-mining-assets/"
+      ]
     },
     {
       "iso3": "MWI",
@@ -1228,7 +1277,9 @@
       "year": 2024,
       "source": "usgs",
       "ar": "ماس سيراليون موّل الحرب الأهلية (1991–2002) وكان وراء إطلاق نظام كيمبرلي لإصدار شهادات الماس.",
-      "en": "Sierra Leone's diamonds financed the civil war (1991–2002) and prompted the Kimberley Process certification scheme."
+      "en": "Sierra Leone's diamonds financed the civil war (1991–2002) and prompted the Kimberley Process certification scheme.",
+      "sources": ["https://en.wikipedia.org/wiki/Blood_diamond"],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "ERI",
@@ -1263,8 +1314,13 @@
       "type": "gold",
       "year": 2025,
       "source": "usgs",
-      "ar": "الذهب والماس محرّكا الصراع، وامتيازات مرتبطة بفاغنر ثم «الفيلق الأفريقي» تستغلّ منجم نداسيما.",
-      "en": "Gold and diamonds drive the conflict, and concessions linked to Wagner and then the Africa Corps exploit the Ndassima mine."
+      "ar": "الذهب والماس محرّكا الصراع، وتستغلّ شركة «ميداس ريسورس» المرتبطة بفاغنر منجم نداسيما، وقد فرضت عليها واشنطن عقوبات عام 2023.",
+      "en": "Gold and diamonds drive the conflict, and the Wagner-linked Midas Ressources, sanctioned by the United States in 2023, exploits the Ndassima mine.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Ndassima",
+        "https://theglobeandmail.com/business/article-canadian-owned-mine-seized-by-russian-mercenaries-in-africa-is-helping/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "MRT",
@@ -1439,7 +1495,12 @@
       "year": 2024,
       "source": "undata",
       "ar": "من أكبر منتجي اليورانيوم في العالم.",
-      "en": "One of the world's largest uranium producers."
+      "en": "One of the world's largest uranium producers.",
+      "sources": [
+        "https://world-nuclear.org/information-library/nuclear-fuel-cycle/mining-of-uranium/world-uranium-mining-production",
+        "https://kun.uz/en/news/2022/07/07/uzbekistan-among-top-uranium-miners-in-the-world-wna"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "MYS",
@@ -1531,7 +1592,11 @@
       "year": 2025,
       "source": "usgs",
       "ar": "منجم كومتور، الذي أمّمته الحكومة عام 2021، أهم مصادر الدخل والصادرات.",
-      "en": "The Kumtor mine, nationalised in 2021, is the main source of income and exports."
+      "en": "The Kumtor mine, nationalised in 2021, is the main source of income and exports.",
+      "sources": [
+        "https://www.mining.com/centerra-gold-hands-kumtor-mine-to-kyrgyzstan-ending-dispute/",
+        "https://prnewswire.com/news-releases/government-of-the-kyrgyz-republic-announces-global-arrangement-agreement-over-kumtor-gold-mine-301516728.html"
+      ]
     },
     {
       "iso3": "SGP",
@@ -1746,7 +1811,12 @@
       "source": "usgs",
       "rank": 1,
       "ar": "أكبر منتج للماس بالكمية عبر شركة ألروسا، والماس الروسي خاضع لعقوبات مجموعة السبع منذ 2024.",
-      "en": "The largest diamond producer by volume through Alrosa; Russian diamonds have been under G7 sanctions since 2024."
+      "en": "The largest diamond producer by volume through Alrosa; Russian diamonds have been under G7 sanctions since 2024.",
+      "sources": [
+        "https://www.mining.com/web/g7-plans-russian-diamond-imports-ban-by-year-end-belgium-says/",
+        "https://www.mining-technology.com/news/g7-plans-russian-diamond-ban"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "RUS",
@@ -1803,7 +1873,11 @@
       "year": 2025,
       "source": "undata",
       "ar": "لا تعدّن اليورانيوم لكن 57 مفاعلاً تولّد معظم كهربائها، وخسرت شركة أورانو السيطرة على منجمها في النيجر بعد انقلاب 2023.",
-      "en": "Mines no uranium, yet 57 reactors generate most of its electricity; Orano lost control of its Niger mine after the 2023 coup."
+      "en": "Mines no uranium, yet 57 reactors generate most of its electricity; Orano lost control of its Niger mine after the 2023 coup.",
+      "sources": [
+        "https://www.africanews.com/2025/06/20/niger-to-nationalize-uranium-venture-operated-by-frances-orano/",
+        "https://www.mining-technology.com/newsletters/niger-government-nationalise-orano-operated-somair-uranium-jv"
+      ]
     },
     {
       "iso3": "GBR",
@@ -1951,7 +2025,12 @@
       "year": 2024,
       "source": "undata",
       "ar": "مصافي الذهب السويسرية تكرّر معظم الذهب في العالم، وهي حلقة أساسية في سلسلة توريده.",
-      "en": "Swiss refineries process most of the world's gold, a central link in its supply chain."
+      "en": "Swiss refineries process most of the world's gold, a central link in its supply chain.",
+      "sources": [
+        "https://swissinfo.ch/eng/business/switzerland-the-world-s-gold-hub/33706126",
+        "https://www.mining.com/?p=672959"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "BGR",
@@ -2068,7 +2147,12 @@
       "year": 2025,
       "source": "usgs",
       "ar": "أصبحت أول دولة تحظر تعدين المعادن عام 2017، ثم ألغى بوكيلي الحظر في ديسمبر 2024.",
-      "en": "It became the first country to ban metal mining in 2017, before Bukele repealed the ban in December 2024."
+      "en": "It became the first country to ban metal mining in 2017, before Bukele repealed the ban in December 2024.",
+      "sources": [
+        "https://www.semafor.com/article/12/24/2024/el-salvador-mining-ban-rescinded",
+        "https://www.mining.com/web/el-salvador-lawmakers-overturn-national-mining-ban/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "PAN",
@@ -2110,7 +2194,12 @@
       "year": 2025,
       "source": "usgs",
       "ar": "رواسب تانبريز وكفانفيلد من أكبر رواسب العناصر الأرضية النادرة في العالم، وهي في قلب الاهتمام الأمريكي بالجزيرة.",
-      "en": "The Tanbreez and Kvanefjeld deposits are among the world's largest rare earth deposits, at the heart of US interest in the island."
+      "en": "The Tanbreez and Kvanefjeld deposits are among the world's largest rare earth deposits, at the heart of US interest in the island.",
+      "sources": [
+        "https://www.miningweekly.com/article/as-trump-renews-push-for-greenland-mineral-wealth-takes-centre-stage-2025-01-13",
+        "https://www.malaymail.com/amp/news/money/2025/10/06/trump-administration-eyes-stake-in-greenland-rare-earths-firm-to-counter-chinas-mineral-dominance/193483"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "COL",
@@ -2293,7 +2382,12 @@
       "year": 2025,
       "source": "usgs",
       "ar": "من أكبر احتياطيات النيكل في العالم ونحو 6% من إنتاجه، وكان الخلاف على مستقبل الإقليم وصناعة النيكل في خلفية أعمال الشغب عام 2024.",
-      "en": "Among the world's largest nickel reserves and around 6% of output; the dispute over the territory's future and its nickel industry lay behind the 2024 riots."
+      "en": "Among the world's largest nickel reserves and around 6% of output; the dispute over the territory's future and its nickel industry lay behind the 2024 riots.",
+      "sources": [
+        "https://www.pism.pl/webroot/upload/files/Biuletyn/PISM%20Bulletin%20no%20169%20(2477)%2014%20November%202024.pdf",
+        "https://www.mining.com/web/new-caledonia-nickel-industry-at-standstill-amid-unrest/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "FLK",
