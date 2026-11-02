@@ -318,7 +318,13 @@
       "weight": 4,
       "ar": "مورّد أسلحة رئيسي بموجب قانون العلاقات مع تايوان دون معاهدة دفاع صريحة، وتُعامَل بموجب القانون الأمريكي معاملة الحليف الرئيسي من خارج الناتو منذ 2003",
       "en": "Principal arms supplier under the Taiwan Relations Act without an explicit defence treaty, and treated in US law as a major non-NATO ally since 2003",
-      "since": "1979"
+      "since": "1979",
+      "sources": [
+        "https://theprint.in/world/us-approves-largest-ever-arms-package-worth-11-1-billion-for-taiwan/2808122",
+        "https://www.washingtonexaminer.com/news/world/4572079/taiwan-us-ambassador-arms-sale-despite-trump-delay/",
+        "https://aa.com.tr/en/world/explainer-major-non-nato-allies-who-are-they-and-what-does-the-status-mean/3749370"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "USA",
@@ -328,7 +334,12 @@
       "weight": 5,
       "ar": "معاهدة التعاون والأمن المتبادل، وأكبر تمركز للقوات الأمريكية في آسيا، وحليف رئيسي من خارج الناتو منذ 1987",
       "en": "The Treaty of Mutual Cooperation and Security, and the largest American force concentration in Asia, and a major non-NATO ally since 1987",
-      "since": "1960-01-19"
+      "since": "1960-01-19",
+      "sources": [
+        "https://www.everycrsreport.com/files/2026-10-01_IF10199_b38b11178ff986be7053924ac71cbefea9d59e1e.html",
+        "https://aa.com.tr/en/world/explainer-major-non-nato-allies-who-are-they-and-what-does-the-status-mean/3749370"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "USA",
@@ -338,7 +349,13 @@
       "weight": 5,
       "ar": "معاهدة دفاع متبادل ونحو 28 ألف جندي أمريكي، وحليف رئيسي من خارج الناتو منذ 1987",
       "en": "A mutual defence treaty and around 28,000 American troops, and a major non-NATO ally since 1987",
-      "since": "1953-10-01"
+      "since": "1953-10-01",
+      "sources": [
+        "https://www.everycrsreport.com/files/2026-03-16_R48877_73af358da510b04f06425849b1409f526125f269.html",
+        "https://www.koreatimes.co.kr/southkorea/defense/20250930/house-defense-policy-bill-calls-for-maintaining-28500-usfk-troops",
+        "https://aa.com.tr/en/world/explainer-major-non-nato-allies-who-are-they-and-what-does-the-status-mean/3749370"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "USA",
@@ -348,7 +365,13 @@
       "weight": 4,
       "ar": "معاهدة دفاع متبادل واتفاق وصول موسّع إلى قواعد فلبينية، وحليف رئيسي من خارج الناتو منذ 2003",
       "en": "A mutual defence treaty and an expanded agreement on access to Philippine bases, and a major non-NATO ally since 2003",
-      "since": "1951-08-30"
+      "since": "1951-08-30",
+      "sources": [
+        "https://news.usni.org/?p=100674",
+        "https://www.pacom.mil/Media/News/News-Articles/Article/3350502/philippines-us-announce-locations-of-four-new-edca-sites/",
+        "https://aa.com.tr/en/world/explainer-major-non-nato-allies-who-are-they-and-what-does-the-status-mean/3749370"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "USA",
@@ -373,7 +396,12 @@
       "kind": "assessed",
       "weight": 5,
       "ar": "تنافس شامل على التقنية والتجارة والنفوذ البحري مع تداخل اقتصادي عميق في الوقت ذاته",
-      "en": "Comprehensive competition over technology, trade and maritime influence alongside deep economic interdependence"
+      "en": "Comprehensive competition over technology, trade and maritime influence alongside deep economic interdependence",
+      "sources": [
+        "https://www.mayerbrown.com/zh-hans/insights/publications/2026/07/trumps-china-visit-will-likely-extend-trade-truce-while-points-of-friction-remain",
+        "https://www.scmp.com/news/world/united-states-canada/article/3331200/trump-xi-deal-china-suspend-some-rare-earth-curbs-probes-chip-firms-us-says"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "USA",
@@ -400,7 +428,13 @@
       "kind": "treaty",
       "weight": 3,
       "ar": "علاقة متقلّبة اكتسبت وزناً في 2026 بفعل الوساطة الباكستانية بين واشنطن وطهران؛ وهي حليف رئيسي من خارج الناتو منذ 2004",
-      "en": "A volatile relationship that gained weight in 2026 through Pakistani mediation between Washington and Tehran; a major non-NATO ally since 2004"
+      "en": "A volatile relationship that gained weight in 2026 through Pakistani mediation between Washington and Tehran; a major non-NATO ally since 2004",
+      "sources": [
+        "https://www.arabnews.com/node/2637751/amp",
+        "https://www.dawn.com/news/1985741/pakistans-mediation-effort-creates-new-hope-for-us-iran-de-escalation",
+        "https://aa.com.tr/en/world/explainer-major-non-nato-allies-who-are-they-and-what-does-the-status-mean/3749370"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "USA",
@@ -475,7 +509,12 @@
       "kind": "treaty",
       "weight": 5,
       "ar": "شراكة «بلا حدود» (2022) ومعاهدة حسن الجوار (2001) دون بند دفاع مشترك، ودوريات قاذفات وبحرية مشتركة قرب اليابان وألاسكا منذ 2019، وشراكة طاقة واقتصاد تخفّف أثر العقوبات على موسكو",
-      "en": "A \"no limits\" partnership (2022) and the Treaty of Good-Neighbourliness (2001) without a mutual defence clause, joint bomber and naval patrols near Japan and Alaska since 2019, and an energy and economic partnership that softens sanctions on Moscow"
+      "en": "A \"no limits\" partnership (2022) and the Treaty of Good-Neighbourliness (2001) without a mutual defence clause, joint bomber and naval patrols near Japan and Alaska since 2019, and an energy and economic partnership that softens sanctions on Moscow",
+      "sources": [
+        "https://news.usni.org/2025/12/09/russian-chinese-bombers-fly-joint-patrol-near-japan-south-korea",
+        "https://mb.com.ph/2024/7/25/chinese-and-russian-bombers-patrolling-off-alaska-raise-concerns-about-growing-military-cooperation"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "RUS",
@@ -497,7 +536,12 @@
       "weight": 5,
       "ar": "معاهدة الشراكة الاستراتيجية الشاملة (يونيو 2024) تنصّ على المساعدة العسكرية المتبادلة عند الاعتداء، وقاتلت قوات كورية شمالية إلى جانب روسيا في كورسك",
       "en": "The Comprehensive Strategic Partnership Treaty (June 2024) provides for mutual military assistance in case of aggression, and North Korean troops fought alongside Russia in Kursk",
-      "since": "2024-06-19"
+      "since": "2024-06-19",
+      "sources": [
+        "https://www.npr.org/2025/04/28/nx-s1-5379436/north-korea-russia-ukraine-troops-putin-kim",
+        "https://kyivindependent.com/north-korea-ratifies-defense-treaty-with-russia/amp"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "RUS",
@@ -589,7 +633,12 @@
       "kind": "assessed",
       "weight": 5,
       "ar": "مطالبة بالسيادة وضغط بحري وجوي متصاعد دون صدام مسلح",
-      "en": "A sovereignty claim and escalating maritime and air pressure without armed clash"
+      "en": "A sovereignty claim and escalating maritime and air pressure without armed clash",
+      "sources": [
+        "https://jamestown.org/pla-justice-mission-2025-further-rehearses-taiwan-invasion-operations",
+        "https://m.washingtontimes.com/news/2025/dec/29/taiwan-condemns-beijings-provocations-pla-conducts-drills-amphibious/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "CHN",
@@ -598,7 +647,12 @@
       "kind": "assessed",
       "weight": 5,
       "ar": "مواجهات متكرّرة في بحر الصين الجنوبي حول سكاربورو شول وسكند توماس شول",
-      "en": "Recurring confrontations in the South China Sea over Scarborough Shoal and Second Thomas Shoal"
+      "en": "Recurring confrontations in the South China Sea over Scarborough Shoal and Second Thomas Shoal",
+      "sources": [
+        "https://www.thejakartapost.com/world/2026/07/23/china-fires-water-cannon-on-philippine-ship-at-scarborough-shoal-manila-says",
+        "https://www.malaymail.com/amp/news/world/2026/07/23/china-fires-water-cannon-at-philippine-coast-guard-vessels-near-scarborough-shoal/228704"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "CHN",
@@ -607,7 +661,13 @@
       "kind": "assessed",
       "weight": 4,
       "ar": "تنازع على باراسيل وسبراتلي مع تبادل تجاري ضخم في الوقت نفسه",
-      "en": "Competing claims over the Paracels and Spratlys alongside very large bilateral trade"
+      "en": "Competing claims over the Paracels and Spratlys alongside very large bilateral trade",
+      "sources": [
+        "https://theprint.in/world/vietnam-demands-end-to-activity-in-paracels-after-report-of-chinese-construction/3027810/",
+        "https://www.thestar.com.my/aseanplus/aseanplus-news/2026/05/09/vietnam-expands-south-china-sea-outposts-as-beijing-attempts-to-reinforce-competing-territorial-claims",
+        "https://chinaglobalsouth.com/2025/12/26/china-leads-vietnam-trade-2025-turnover-900b/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "CHN",
@@ -616,7 +676,13 @@
       "kind": "assessed",
       "weight": 4,
       "ar": "خلاف حدودي في أكساي تشين وأروناشال براديش مع مواجهات محدودة على خطّ السيطرة الفعلي",
-      "en": "A border dispute in Aksai Chin and Arunachal Pradesh with limited confrontations along the Line of Actual Control"
+      "en": "A border dispute in Aksai Chin and Arunachal Pradesh with limited confrontations along the Line of Actual Control",
+      "sources": [
+        "https://theprint.in/india/india-china-hold-constructive-talks-on-lac-agree-border-peace-key-to-normalising-ties/2943750/",
+        "https://theprint.in/defence/army-chief-says-india-china-carried-out-readjustment-of-troops-trying-to-increase-trust-factor/2826016",
+        "https://www.businesstoday.in/india/story/china-has-never-recognised-beijing-reacts-after-india-rejects-naming-of-places-in-arunachal-525602-2026-04-14"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "CHN",
@@ -641,7 +707,12 @@
       "weight": 4,
       "ar": "الحليف الوحيد لبيونغ يانغ بمعاهدة، والشريك التجاري الأكبر لها",
       "en": "Pyongyang's only treaty ally and its largest trading partner",
-      "since": "1961-07-11"
+      "since": "1961-07-11",
+      "sources": [
+        "https://en.wikipedia.org/wiki/China%E2%80%93North_Korea_relations",
+        "https://www.nationthailand.com/news/world/40068486"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "CHN",
@@ -650,7 +721,12 @@
       "kind": "assessed",
       "weight": 4,
       "ar": "خطّ أنابيب كيوكفيو إلى يونان، ودعم للمجلس العسكري مع الحفاظ على قنوات مع جماعات المقاومة",
-      "en": "The Kyaukphyu–Yunnan pipeline, and backing for the junta while maintaining channels with resistance groups"
+      "en": "The Kyaukphyu–Yunnan pipeline, and backing for the junta while maintaining channels with resistance groups",
+      "sources": [
+        "https://english.dvb.no/work-resumes-on-china-backed-pipelines/",
+        "https://gssr.georgetown.edu/?p=2299"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "CHN",
@@ -683,8 +759,14 @@
       "type": "diplomatic",
       "kind": "treaty",
       "weight": 3,
-      "ar": "وسيط محادثات أورومتشي أبريل 2026 ووقف النار الذي تلاها مع باكستان",
-      "en": "Mediator of the April 2026 Urumqi talks and the subsequent ceasefire with Pakistan"
+      "ar": "وسيط محادثات أورومتشي (أبريل 2026) التي اتفقت فيها كابول وإسلام آباد على عدم التصعيد واستكشاف حلّ شامل",
+      "en": "Mediator of the Urumqi talks (April 2026), where Kabul and Islamabad agreed not to escalate and to explore a comprehensive solution",
+      "sources": [
+        "https://www.arabnews.pk/node/2639285",
+        "https://www.newarab.com/news/pakistan-says-holding-talks-afghan-government-china"
+      ],
+      "verified": "2026-11-02",
+      "since": "2026-04"
     },
     {
       "a": "CHN",
@@ -693,7 +775,12 @@
       "kind": "assessed",
       "weight": 4,
       "ar": "تنازع على جزر سينكاكو/دياويو وأزمة دبلوماسية 2025–2026 حول تصريحات تتعلّق بتايوان",
-      "en": "Competing claims over the Senkaku/Diaoyu islands and a 2025–2026 diplomatic crisis over statements concerning Taiwan"
+      "en": "Competing claims over the Senkaku/Diaoyu islands and a 2025–2026 diplomatic crisis over statements concerning Taiwan",
+      "sources": [
+        "https://foreignpolicy.com/2025/11/25/sanae-takaichi-china-japan-taiwan",
+        "https://www.japantimes.co.jp/news/2025/11/24/japan/politics/takaichi-china-taiwan-g20"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "IRN",
@@ -1004,7 +1091,13 @@
       "kind": "treaty",
       "weight": 4,
       "ar": "وسيط في وقف النار الأفغاني الباكستاني أكتوبر 2025 ومارس 2026، ومستضيف المحادثات",
-      "en": "Mediator in the Afghan–Pakistani ceasefires of October 2025 and March 2026, and host of the talks"
+      "en": "Mediator in the Afghan–Pakistani ceasefires of October 2025 and March 2026, and host of the talks",
+      "sources": [
+        "https://mofa.gov.qa/en/latest-articles/statements/pakistan-and-afghanistan-agree-to-an-immediate-ceasefire-during-a-round-of-negotiations-in-doha",
+        "https://www.washingtontimes.com/news/2026/mar/18/pakistan-afghanistan-agree-temporary-pause-fighting-2-days-deadly/"
+      ],
+      "verified": "2026-11-02",
+      "since": "2025-10-19"
     },
     {
       "a": "QAT",
@@ -1036,7 +1129,12 @@
       "kind": "assessed",
       "weight": 5,
       "ar": "تنازع على كشمير وخلاف حادّ على معاهدة مياه السند بعد تعليق الهند مشاركتها",
-      "en": "Competing claims over Kashmir and a sharp dispute over the Indus Waters Treaty after India suspended its participation"
+      "en": "Competing claims over Kashmir and a sharp dispute over the Indus Waters Treaty after India suspended its participation",
+      "sources": [
+        "https://www.dawn.com/news/2006820/india-actively-working-to-restrict-water-flows-to-pakistan-after-indus-waters-treaty-suspension",
+        "https://www.jurist.org/news/2026/09/pakistan-dispatch-court-of-arbitration-rules-indus-waters-treaty-remains-in-force-but-compliance-remains-the-harder-test/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "PAK",
@@ -1045,7 +1143,12 @@
       "kind": "assessed",
       "weight": 5,
       "ar": "مواجهة مسلحة متكرّرة حول خطّ ديوراند وملاذات حركة طالبان باكستان",
-      "en": "Recurring armed confrontation over the Durand Line and Tehreek-e-Taliban Pakistan safe havens"
+      "en": "Recurring armed confrontation over the Durand Line and Tehreek-e-Taliban Pakistan safe havens",
+      "sources": [
+        "https://www.thenationalnews.com/news/mena/2026/02/27/pakistan-and-afghanistan-at-war-what-happened-and-how-did-we-get-here",
+        "https://www.cacianalyst.org/publications/analytical-articles/item/13937-pakistan-declares-%E2%80%9Copen-war%E2%80%9D-on-afghanistan-implications-for-the-region.html"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "IND",
@@ -1053,8 +1156,14 @@
       "type": "influence",
       "kind": "assessed",
       "weight": 3,
-      "ar": "علاقة خاصة بملفّ التاميل بفعل ولاية تاميل نادو، وتنافس مع الصين على الموانئ",
-      "en": "A special relationship to the Tamil file through Tamil Nadu, and competition with China over ports"
+      "ar": "تؤثّر ولاية تاميل نادو في العلاقة عبر نزاع الصيد وجزيرة كاتشاتيفو، إلى جانب تنافس مع الصين على الموانئ السريلانكية",
+      "en": "Tamil Nadu weighs on the relationship through the fishing dispute and Katchatheevu island, alongside competition with China over Sri Lankan ports",
+      "sources": [
+        "https://organiser.org/2026/10/07/385274/bharat/tamil-nadu-centre-tells-sc-it-does-not-want-to-reopen-katchatheevu-issue-with-sri-lanka/",
+        "https://maritime-executive.com/index.php/article/india-s-adani-to-build-sri-lanka-port-in-competition-to-chinese",
+        "https://indiaseatradenews.com/india-closely-watches-sri-lankas-airport-leasing-move-near-hambantota-port/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "RWA",
@@ -1165,8 +1274,13 @@
       "type": "diplomatic",
       "kind": "assessed",
       "weight": 3,
-      "ar": "تستضيف بنغلاديش نحو مليون لاجئ روهينغي في كوكس بازار",
-      "en": "Bangladesh hosts around one million Rohingya refugees in Cox's Bazar"
+      "ar": "تستضيف بنغلاديش أكثر من مليون لاجئ روهينغي في كوكس بازار، وعودتهم إلى ميانمار متعثّرة",
+      "en": "Bangladesh hosts more than one million Rohingya refugees in Cox's Bazar, and their return to Myanmar has stalled",
+      "sources": [
+        "https://humanitarianaction.info/document/global-humanitarian-overview-2026/article/rohingya-joint-response-plan-jrp-1",
+        "https://www.bnionline.net/en/node/114059"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "JPN",
@@ -1174,8 +1288,14 @@
       "type": "military",
       "kind": "assessed",
       "weight": 3,
-      "ar": "نشر صواريخ مضادة للسفن في يوناغوني على نحو 110 كم من تايوان خلال تدريبات 2026",
-      "en": "Deployment of anti-ship missiles on Yonaguni, around 110 km from Taiwan, during the 2026 exercises"
+      "ar": "خُطّط لنشر صواريخ أمريكية مضادة للسفن (NMESIS) في يوناغوني، على نحو 110 كم من تايوان، خلال تدريبات «كين سورد» في أكتوبر 2026، وتعتزم طوكيو نشر صواريخ دفاع جوي في الجزيرة بحلول 2031",
+      "en": "US anti-ship missiles (NMESIS) were slated for Yonaguni, around 110 km from Taiwan, during the Keen Sword exercise of October 2026, and Tokyo plans to station air-defence missiles on the island by 2031",
+      "sources": [
+        "https://www.defensenews.com/global/asia-pacific/2026/10/05/us-marine-corps-anti-ship-weaponry-to-see-exercise-action-on-remote-japan-island-near-taiwan/",
+        "https://www.thestar.com.my/aseanplus/aseanplus-news/2026/10/20/keen-sword-drill-gets-under-way",
+        "https://www.adaderana.lk/news/118918/japan-to-deploy-missiles-on-island-near-taiwan-by-2031"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "PRK",
@@ -1183,9 +1303,14 @@
       "type": "territorial",
       "kind": "treaty",
       "weight": 5,
-      "ar": "هدنة 1953 دون معاهدة سلام؛ كلّ دولة تطالب دستورياً بكامل شبه الجزيرة",
-      "en": "The 1953 armistice without a peace treaty; each state constitutionally claims the whole peninsula",
-      "since": "1953-07-27"
+      "ar": "هدنة 1953 دون معاهدة سلام؛ وفي 2026 حذفت بيونغ يانغ الوحدة من دستورها وعرّفت الجنوب «دولةً معادية»، فيما يطالب دستور سيول بكامل شبه الجزيرة",
+      "en": "The 1953 armistice without a peace treaty; in 2026 Pyongyang removed unification from its constitution and defined the South as a hostile state, while Seoul's constitution still claims the whole peninsula",
+      "since": "1953-07-27",
+      "sources": [
+        "https://38north.org/2026/05/paving-the-way-for-hostile-coexistence-what-north-koreas-constitutional-revisions-mean-for-inter-korean-ties/",
+        "https://theprint.in/world/north-korea-revises-constitution-to-drop-references-to-unification-of-korean-peninsula/2923464/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "DEU",
@@ -1394,7 +1519,13 @@
       "weight": 5,
       "ar": "معاهدة أنزوس (1951) وشراكة أوكوس (2021) للغواصات النووية والتقنيات المتقدّمة، وحليف رئيسي من خارج الناتو منذ 1987",
       "en": "The ANZUS Treaty (1951) and the AUKUS partnership (2021) on nuclear-powered submarines and advanced technology, and a major non-NATO ally since 1987",
-      "since": "1951-09-01"
+      "since": "1951-09-01",
+      "sources": [
+        "https://en.wikipedia.org/wiki/ANZUS",
+        "https://www.bairdmaritime.com/security/naval/naval-submersibles/pentagons-aukus-review-finds-opportunities-to-put-deal-on-strongest-possible-footing-us-official-says",
+        "https://aa.com.tr/en/world/explainer-major-non-nato-allies-who-are-they-and-what-does-the-status-mean/3749370"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "USA",
@@ -1414,7 +1545,12 @@
       "weight": 3,
       "ar": "حليف بموجب ميثاق مانيلا (1954) وبيان ثانات–راسك (1962)، وحليف رئيسي من خارج الناتو منذ 2003، ومناورات «كوبرا غولد»",
       "en": "An ally under the Manila Pact (1954) and the Thanat–Rusk communiqué (1962), a major non-NATO ally since 2003, and the Cobra Gold exercises",
-      "since": "1954"
+      "since": "1954",
+      "sources": [
+        "https://www.mfa.go.th/en/content/5d5bd1b415e39c30600260a6",
+        "https://www.pacom.mil/Media/News/News-Articles/Article/4428125/exercise-cobra-gold-2026-coming-to-a-close/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "USA",
@@ -1424,7 +1560,13 @@
       "weight": 3,
       "ar": "مذكّرة تفاهم 1990 تتيح الوصول إلى القواعد السنغافورية، واتفاق الإطار الاستراتيجي 2005، دون معاهدة دفاع",
       "en": "A 1990 memorandum giving access to Singaporean bases and the 2005 Strategic Framework Agreement, without a defence treaty",
-      "since": "1990"
+      "since": "1990",
+      "sources": [
+        "https://www.mindef.gov.sg/news-and-events/latest-releases/24sep19_nr/",
+        "https://www.mindef.gov.sg/news-and-events/latest-releases/24sep19_fs/",
+        "https://thediplomat.com/2019/09/whats-in-the-renewed-us-singapore-military-facilities-agreement"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "USA",
@@ -1510,7 +1652,12 @@
       "weight": 3,
       "ar": "أول قاعدة عسكرية صينية خارج البلاد (2017)، قرب مضيق باب المندب",
       "en": "China's first overseas military base (2017), near the Bab al-Mandab strait",
-      "since": "2017"
+      "since": "2017",
+      "sources": [
+        "https://maritime-executive.com/article/chinese-navy-opens-first-overseas-base",
+        "https://www.globalsecurity.org/org/news/2017/170712-china-djibouti.htm"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "CHN",
@@ -1520,7 +1667,13 @@
       "weight": 3,
       "ar": "اتفاق أمني (2022) يتيح نشر الشرطة الصينية ورسوّ السفن، وكان دافعاً لموجة اتفاقيات الدفاع الأسترالية في المحيط الهادئ",
       "en": "A security agreement (2022) allowing Chinese police deployment and ship visits, which spurred Australia's wave of Pacific defence treaties",
-      "since": "2022"
+      "since": "2022",
+      "sources": [
+        "https://www.aljazeera.com/news/2022/4/19/china-says-it-has-signed-security-pact-with-solomon-islands",
+        "https://www.aljazeera.com/news/2023/7/14/solomon-islands-says-china-to-assist-with-policing-cybersecurity",
+        "https://www.thestar.com.my/aseanplus/aseanplus-news/2025/10/06/australia-papua-new-guinea-leaders-sign-defence-alliance"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "CHN",
@@ -1531,7 +1684,13 @@
       "ar": "قاعدة ريام البحرية الممولة صينياً، ورسوّ سفن حربية صينية فيها منذ 2023؛ وتنفي كمبوديا منح الصين حقّاً حصرياً",
       "en": "The Chinese-funded Ream naval base, where Chinese warships have docked since 2023; Cambodia denies granting China exclusive rights",
       "contested": true,
-      "since": "2023"
+      "since": "2023",
+      "sources": [
+        "https://www.benarnews.org/english/news/thai/naval-base-12052023135710.html",
+        "https://rfa.org/english/cambodia/2025/02/18/china-navy-cambodia-ream-naval-base/",
+        "https://english.cambodiadaily.com/?p=164815"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "AUS",
@@ -1567,9 +1726,14 @@
       "type": "military",
       "kind": "treaty",
       "weight": 4,
-      "ar": "اتفاقية الوصول المتبادل (نافذة منذ 2023)، واختيار أستراليا الفرقاطات اليابانية من فئة «موغامي» عام 2025",
-      "en": "The Reciprocal Access Agreement (in force since 2023), and Australia's 2025 choice of Japanese Mogami-class frigates",
-      "since": "2022"
+      "ar": "اتفاقية الوصول المتبادل (نافذة منذ أغسطس 2023)، وعقود أبريل 2026 لأولى فرقاطات «موغامي» المطوّرة لأستراليا بعد اختيارها عام 2025",
+      "en": "The Reciprocal Access Agreement (in force since August 2023), and April 2026 contracts for Australia's first upgraded Mogami-class frigates after their selection in 2025",
+      "since": "2022",
+      "sources": [
+        "https://www.defence.gov.au/defence-activities/programs-initiatives/australia-japan-reciprocal-access-agreement",
+        "https://wtop.com/australia/2026/04/australia-and-japan-seal-6-5b-warship-deal-with-3-mogami-frigates-ordered-first/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "JPN",
@@ -1707,7 +1871,14 @@
       "weight": 3,
       "ar": "حليف رئيسي من خارج الناتو منذ 1997 رغم تعليق التزامات أنزوس تجاهها منذ 1986 بسبب حظر السفن النووية، وشريك في تحالف «العيون الخمس» الاستخباري",
       "en": "A major non-NATO ally since 1997 although US ANZUS obligations toward it have been suspended since 1986 over its nuclear-ship ban, and a partner in the Five Eyes intelligence alliance",
-      "since": "1997"
+      "since": "1997",
+      "sources": [
+        "https://www.teara.govt.nz/en/united-states-and-new-zealand/3",
+        "https://en.wikipedia.org/wiki/ANZUS",
+        "https://www.rnz.co.nz/news/political/588703/nz-spy-agency-providing-iran-war-threat-intelligence",
+        "https://www.deccanherald.com/world/us-terminates-designation-of-afghanistan-as-major-non-nato-ally-1147860.html"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "USA",
@@ -1843,7 +2014,13 @@
       "weight": 3,
       "ar": "اتفاقية الوصول المتبادل (نافذة منذ 2023) وشراكة تطوير المقاتلة المشتركة مع إيطاليا (GCAP)",
       "en": "The Reciprocal Access Agreement (in force since 2023) and the joint fighter programme with Italy (GCAP)",
-      "since": "2023"
+      "since": "2023",
+      "sources": [
+        "https://www.mofa.go.jp/press/release/press4e_003298.html",
+        "https://www.uk.emb-japan.go.jp/itpr_en/231025.html",
+        "https://frontierindia.com/japan-uk-reciprocal-access-agreement-to-be-signed-f-x-fighter-project-to-be-merged-with-british-tempest-under-gcap/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "GBR",
@@ -1853,7 +2030,12 @@
       "weight": 4,
       "ar": "شراكة أوكوس ومعاهدة جيلونغ (يوليو 2025) لخمسين عاماً حول الغواصات النووية",
       "en": "The AUKUS partnership and the Geelong Treaty (July 2025), a 50-year agreement on nuclear-powered submarines",
-      "since": "2021-09"
+      "since": "2021-09",
+      "sources": [
+        "https://www.gov.uk/government/news/joint-statement-on-the-australia-uk-nuclear-powered-submarine-partnership-and-collaboration-treaty",
+        "https://www.navalnews.com/naval-news/2025/07/australia-and-uk-ink-nuclear-powered-submarine-partnership-and-collaboration-treaty/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "GBR",
@@ -1928,9 +2110,14 @@
       "type": "military",
       "kind": "treaty",
       "weight": 4,
-      "ar": "شراكة استراتيجية منذ 1998 وخارطة «أفق 2047»، وأكبر مورّد غربي للسلاح للهند (مقاتلات رافال وغواصات سكوربين)",
-      "en": "A strategic partnership since 1998 and the Horizon 2047 roadmap, and India's largest Western arms supplier (Rafale fighters and Scorpène submarines)",
-      "since": "1998"
+      "ar": "شراكة استراتيجية منذ 1998 وخارطة «أفق 2047»، ومورّد رئيسي للسلاح للهند (مقاتلات رافال وغواصات سكوربين)",
+      "en": "A strategic partnership since 1998 and the Horizon 2047 roadmap, and a major arms supplier to India (Rafale fighters and Scorpène submarines)",
+      "since": "1998",
+      "sources": [
+        "https://india-briefing.com/news/india-france-strategic-partnership-horizon-2047-roadmap-trade-and-investment-28968.html",
+        "https://breakingdefense.com/2023/07/india-france-increase-defense-ties-with-new-rafale-jet-and-submarine-buys"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "KOR",
@@ -1940,7 +2127,12 @@
       "weight": 4,
       "ar": "اتفاقات إطارية (2022) لأكبر صفقات تسليح كورية: دبابات K2 ومدافع K9 ومقاتلات FA-50 وراجمات «تشونمو»",
       "en": "Framework agreements (2022) for South Korea's largest arms deals: K2 tanks, K9 howitzers, FA-50 fighters and Chunmoo rocket launchers",
-      "since": "2022-07"
+      "since": "2022-07",
+      "sources": [
+        "https://www.koreajoongangdaily.com/korea/korea-finalizes-second-deal-with-poland-to-export-180-more-k2-tanks/11999405",
+        "https://www.koreatimes.co.kr/amp/southkorea/defense/20221207/first-batch-of-k2-k9-arrives-in-poland"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "RUS",
