@@ -434,7 +434,13 @@
       "kind": "assessed",
       "weight": 5,
       "ar": "تدخّل عسكري مباشر في 3 يناير 2026 واعتقال الرئيس، ثم رعاية مرحلة انتقالية",
-      "en": "Direct military intervention on 3 January 2026 and the capture of the president, followed by sponsorship of a transition"
+      "en": "Direct military intervention on 3 January 2026 and the capture of the president, followed by sponsorship of a transition",
+      "sources": [
+        "https://www.pbs.org/newshour/world/us-strikes-venezuela-and-says-its-leader-maduro-has-been-captured-and-flown-out-of-the-country",
+        "https://www.fdd.org/analysis/2026/01/03/united-states-strikes-venezuela-captures-president-maduro/"
+      ],
+      "verified": "2026-11-02",
+      "since": "2026-01-03"
     },
     {
       "a": "USA",
@@ -469,8 +475,14 @@
       "type": "military",
       "kind": "assessed",
       "weight": 3,
-      "ar": "دعم سيادة غيانا في ملف إيسيكيبو وتدريبات مشتركة",
-      "en": "Support for Guyana's sovereignty in the Essequibo file and joint exercises"
+      "ar": "دعم سيادة غيانا في ملف إيسيكيبو، واتفاق أمني عام 2025، وتدريبات مشتركة",
+      "en": "Support for Guyana's sovereignty in the Essequibo file, a 2025 security agreement and joint exercises",
+      "sources": [
+        "https://www.oedigital.com/news/524015-attack-on-guyana-exxon-would-be-bad-day-for-venezuela-rubio-warns",
+        "https://cyprus-mail.com/2025/03/27/attack-on-guyana-or-exxon-would-be-bad-day-for-venezuela-rubio-warns",
+        "https://caribbeantimes.com/?p=42669"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "USA",
@@ -479,7 +491,13 @@
       "kind": "treaty",
       "weight": 3,
       "ar": "راعية اتفاق واشنطن 2025 واتفاقات واشنطن، مع ربط صريح بين السلام والاستثمار في المعادن",
-      "en": "Sponsor of the 2025 Washington agreement and the Washington Accords, with an explicit link between peace and mineral investment"
+      "en": "Sponsor of the 2025 Washington agreement and the Washington Accords, with an explicit link between peace and mineral investment",
+      "sources": [
+        "https://en.wikipedia.org/wiki/2025_DRC%E2%80%93Rwanda_peace_agreement",
+        "https://allafrica.com/stories/202512050503.html"
+      ],
+      "verified": "2026-11-02",
+      "since": "2025-06"
     },
     {
       "a": "USA",
@@ -516,8 +534,13 @@
       "type": "economic",
       "kind": "treaty",
       "weight": 5,
-      "ar": "أكبر شريك تجاري متبادل ضمن اتفاقية أمريكا الشمالية، مع احتكاك حول الكارتلات والهجرة",
-      "en": "Each other's largest trading partner under the North American agreement, with friction over cartels and migration"
+      "ar": "أكبر شريك تجاري متبادل ضمن اتفاقية أمريكا الشمالية، مع احتكاك حول الرسوم الجمركية الأمريكية منذ 2026 ومراجعة متعثّرة للاتفاقية",
+      "en": "Each other's largest trading partner under the USMCA, with friction over US tariffs since 2026 and a contentious review of the agreement",
+      "sources": [
+        "https://www.everycrsreport.com/files/2026-08-13_IF11175_366b72c3fd2f3ebe10b28bf3feddca0088251bbb.html",
+        "https://mexiconewsdaily.com/news/mexico-starts-formal-usmca-negotiations-canada/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "RUS",
@@ -582,8 +605,14 @@
       "type": "military",
       "kind": "treaty",
       "weight": 4,
-      "ar": "فيلق أفريقيا يقاتل إلى جانب الجيش المالي بعد انسحاب القوات الفرنسية",
-      "en": "The Africa Corps fights alongside the Malian army following the French withdrawal"
+      "ar": "«الفيلق الأفريقي» الذي خلف فاغنر يدعم الجيش المالي بعد انسحاب القوات الفرنسية، لكنه خسر مواقع في هجوم المتمرّدين شمالاً عام 2026، ومنها كيدال",
+      "en": "The Africa Corps, which took over from Wagner, supports the Malian army after the French withdrawal, but lost ground in the 2026 northern rebel offensive, including Kidal",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Africa_Corps_(Russia)",
+        "https://www.themoscowtimes.com/2026/04/27/early-setbacks-for-russian-mercenaries-as-conflict-flares-in-mali-mt-analysis-shows-a92611/pdf",
+        "https://adf-magazine.com/2026/06/africa-corps-shifts-tactics-in-mali/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "RUS",
@@ -592,7 +621,13 @@
       "kind": "treaty",
       "weight": 3,
       "ar": "تعاون أمني بديل عن الشراكة الغربية السابقة",
-      "en": "Security cooperation replacing the former Western partnership"
+      "en": "Security cooperation replacing the former Western partnership",
+      "sources": [
+        "https://www.spacewar.com/afp/240618210630.mk0uq4i5.html",
+        "https://en.wikipedia.org/wiki/Africa_Corps_(Russia)"
+      ],
+      "verified": "2026-11-02",
+      "since": "2024-06"
     },
     {
       "a": "RUS",
@@ -1080,7 +1115,13 @@
       "kind": "assessed",
       "weight": 3,
       "ar": "شريك اقتصادي وأمني رئيسي لأديس أبابا",
-      "en": "A principal economic and security partner of Addis Ababa"
+      "en": "A principal economic and security partner of Addis Ababa",
+      "sources": [
+        "https://www.aljazeera.com/news/2021/11/25/uae-air-bridge-provides-military-support-to-ethiopia-govt",
+        "https://megatrends-afrika.de/assets/afrika/publications/policybrief/MTA-PB35_UAE_Engagement_in_Ethiopia_Gebru.pdf",
+        "https://hornreview.org/2025/07/13/shared-stakes-reimagining-power-and-partnership-between-ethiopia-and-the-uae/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "EGY",
@@ -1162,7 +1203,12 @@
       "kind": "treaty",
       "weight": 3,
       "ar": "وسيط مسار الدوحة بين كينشاسا وحركة 23 مارس",
-      "en": "Mediator of the Doha track between Kinshasa and M23"
+      "en": "Mediator of the Doha track between Kinshasa and M23",
+      "sources": [
+        "https://www.businessday.co.za/bd/world/africa/2025-07-03-drc-and-m23-agree-to-return-to-qatar-talks-under-trump-pressure/",
+        "https://www.hrw.org/news/2026/02/03/end-to-abuses-still-distant-in-dr-congo"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "PAK",
@@ -1229,7 +1275,12 @@
       "weight": 5,
       "ar": "خلص خبراء أمميون إلى أن رواندا تمارس القيادة والسيطرة على حركة 23 مارس، وكيغالي تنفي",
       "en": "UN experts concluded Rwanda exercises command and control over M23; Kigali denies it",
-      "contested": true
+      "contested": true,
+      "sources": [
+        "https://www.tbsnews.net/worldbiz/africa/rwanda-exercises-command-and-control-over-m23-rebels-un-experts-1179791",
+        "https://www.hrw.org/news/2026/02/03/end-to-abuses-still-distant-in-dr-congo"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "UGA",
@@ -1237,8 +1288,14 @@
       "type": "military",
       "kind": "assessed",
       "weight": 3,
-      "ar": "عمليات عسكرية في شرق الكونغو ومصالح اقتصادية",
-      "en": "Military operations in eastern Congo and economic interests"
+      "ar": "عمليات مشتركة مع الجيش الكونغولي ضدّ «القوات الديمقراطية المتحالفة» في إيتوري وشمال كيفو (عملية «شجاعة» منذ 2021)",
+      "en": "Joint operations with the Congolese army against the ADF in Ituri and North Kivu (Operation Shujaa, since 2021)",
+      "sources": [
+        "https://allafrica.com/stories/202604200193.html",
+        "https://allafrica.com/stories/202608030417.html"
+      ],
+      "verified": "2026-11-02",
+      "since": "2021-11"
     },
     {
       "a": "ERI",
@@ -1246,8 +1303,13 @@
       "type": "rivalry",
       "kind": "assessed",
       "weight": 5,
-      "ar": "تحوّل من التحالف في حرب 2020–2022 إلى التدخّل العسكري المضاد في أكتوبر 2026 وقطع العلاقات",
-      "en": "A shift from alliance in the 2020–2022 war to counter-intervention in October 2026 and severed relations"
+      "ar": "حليفان في حرب تيغراي 2020–2022، قُطعت العلاقات بينهما في 1 أكتوبر 2026 بعد اتهام إثيوبيا لإريتريا بأعمال عدائية ودعم متمرّدي تيغراي، وهو ما تنفيه أسمرة",
+      "en": "Allies in the 2020–2022 Tigray war; relations were severed on 1 October 2026 after Ethiopia accused Eritrea of hostile acts and of backing Tigrayan rebels, which Asmara denies",
+      "sources": [
+        "https://www.aljazeera.com/amp/news/2026/10/1/eritrea-severs-diplomatic-ties-with-ethiopia-in-tit-for-tat-move",
+        "https://theeastafrican.co.ke/tea/news/eastern-africa/eritrea-cuts-ties-with-ethiopia-over-asmara-embassy-closure-5617584"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "TCD",
@@ -1256,7 +1318,13 @@
       "kind": "assessed",
       "weight": 3,
       "ar": "معبر رئيسي وممرّ إمداد نحو دارفور ومستضيفة لمئات الآلاف من اللاجئين",
-      "en": "A principal crossing and supply route toward Darfur and host to hundreds of thousands of refugees"
+      "en": "A principal crossing and supply route toward Darfur and host to hundreds of thousands of refugees",
+      "sources": [
+        "https://www.arabnews.pk/node/2635808",
+        "https://thepeninsulaqatar.com/article/31/12/2025/sudan-extends-3month-opening-of-adre-border-crossing-with-chad-to-deliver-humanitarian-aid",
+        "https://sudantribune.com/article/319317"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "DZA",
@@ -1277,7 +1345,12 @@
       "kind": "treaty",
       "weight": 5,
       "ar": "مطالبة فنزويلا بإيسيكيبو؛ القضية منظورة أمام محكمة العدل الدولية ولا تعترف فنزويلا باختصاصها",
-      "en": "Venezuela's claim to Essequibo; the case is before the International Court of Justice, whose jurisdiction Venezuela does not accept"
+      "en": "Venezuela's claim to Essequibo; the case is before the International Court of Justice, whose jurisdiction Venezuela does not accept",
+      "sources": [
+        "https://www.jamaicaobserver.com/2026/05/05/un-court-hears-case-oil-rich-region-claimed-venezuela-guyana/",
+        "https://aa.com.tr/en/americas/venezuela-to-attend-un-court-s-essequibo-hearings-as-it-rejects-jurisdiction/3925348"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "BRA",
@@ -1286,7 +1359,12 @@
       "kind": "assessed",
       "weight": 3,
       "ar": "عزّزت البرازيل حضورها العسكري على حدودها الشمالية وتدعو إلى حلّ سلمي",
-      "en": "Brazil reinforced its military presence on its northern border and calls for a peaceful resolution"
+      "en": "Brazil reinforced its military presence on its northern border and calls for a peaceful resolution",
+      "sources": [
+        "https://www.thestar.com.my/news/world/2024/02/03/brazil039s-military-reinforces-border-with-venezuela-and-guyana-due-to-esequibo",
+        "https://thestar.com.my/news/world/2023/12/06/brazil-urging-venezuela-to-avoid-force-or-threats-against-guyana-says-lula-aide"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "SLV",
@@ -1294,8 +1372,13 @@
       "type": "military",
       "kind": "treaty",
       "weight": 3,
-      "ar": "نشرت السلفادور قوات في قوة قمع العصابات المأذونة أمميّاً وتعرّضت لأول هجوم كبير في أكتوبر 2026",
-      "en": "El Salvador deployed troops in the UN-authorised Gang Suppression Force and suffered its first major attack in October 2026"
+      "ar": "تشارك السلفادور بطواقم طيران وإخلاء طبي في قوة قمع العصابات المأذونة أمميّاً، وفُقد أربعة من جنودها في أول هجوم كبير على القوة في أكتوبر 2026",
+      "en": "El Salvador contributes aviation and medical-evacuation personnel to the UN-authorised Gang Suppression Force; four of its soldiers went missing in the force's first major attack in October 2026",
+      "sources": [
+        "https://www.click2houston.com/news/world/2026/10/19/gangs-in-haiti-target-foreign-troops-in-biggest-attack-since-new-force-began-operations/",
+        "https://www.news4jax.com/news/world/2026/10/22/el-salvador-deploys-special-forces-to-haiti-to-help-find-4-missing-soldiers-who-came-under-attack/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "COL",
@@ -1304,7 +1387,12 @@
       "kind": "assessed",
       "weight": 3,
       "ar": "حدود يعمل عبرها جيش التحرير الوطني والمنشقّون عن القوات المسلحة الثورية",
-      "en": "A border across which the ELN and FARC dissidents operate"
+      "en": "A border across which the ELN and FARC dissidents operate",
+      "sources": [
+        "https://www.sofx.com/over-80-dead-in-colombia-as-rebel-clashes-force-thousands-to-flee/",
+        "https://cambiocolombia.com/conflicto-armado-en-colombia/articulo/2026/1/las-disidencias-de-las-farc-le-roban-terreno-al-eln-en-el-catatumbo/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "SRB",
@@ -1400,7 +1488,13 @@
       "kind": "assessed",
       "weight": 3,
       "ar": "انسحبت القوات الفرنسية وتراجع النفوذ الفرنسي بشكل حادّ لصالح الشراكة الروسية",
-      "en": "French forces withdrew and French influence receded sharply in favour of the Russian partnership"
+      "en": "French forces withdrew and French influence receded sharply in favour of the Russian partnership",
+      "sources": [
+        "https://www.euronews.com/2022/08/16/france-completes-withdrawal-from-mali-as-last-army-unit-pulls-out",
+        "https://www.csmonitor.com/World/Africa/2022/0217/Au-revoir-France-pulls-troops-from-Mali-Russian-presence-grows"
+      ],
+      "verified": "2026-11-02",
+      "since": "2022-08"
     },
     {
       "a": "GBR",
@@ -1586,7 +1680,12 @@
       "weight": 3,
       "ar": "معسكر ليمونييه، القاعدة العسكرية الأمريكية الدائمة الوحيدة في أفريقيا، قرب مضيق باب المندب",
       "en": "Camp Lemonnier, the only permanent US military base in Africa, near the Bab al-Mandab strait",
-      "since": "2002"
+      "since": "2002",
+      "sources": [
+        "https://www.cbsnews.com/amp/news/us-military-africa-sees-growing-isis-al-qaeda-terror-threat-to-america",
+        "https://www.scmp.com/news/world/united-states-canada/article/2178120/us-fears-china-could-strangle-its-only-permanent"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "USA",
@@ -1612,7 +1711,12 @@
       "weight": 5,
       "ar": "قيادة الدفاع الجوي المشتركة لأمريكا الشمالية (نوراد) منذ 1958 إلى جانب عضوية الناتو",
       "en": "The joint North American Aerospace Defense Command (NORAD) since 1958, alongside NATO membership",
-      "since": "1958"
+      "since": "1958",
+      "sources": [
+        "https://www.canada.ca/en/department-national-defence/news/2022/06/north-american-aerospace-defense-command-norad.html",
+        "https://www.norad.mil/Newsroom/Fact-Sheets/Article-View/Article/578772/norad-agreement"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "USA",
@@ -1653,7 +1757,13 @@
       "weight": 3,
       "ar": "حليف رئيسي من خارج الناتو منذ 2022 وشراكة طويلة في مكافحة المخدّرات، مع توتّر سياسي حادّ منذ 2025",
       "en": "A major non-NATO ally since 2022 and a long counter-narcotics partnership, with sharp political tension since 2025",
-      "since": "2022"
+      "since": "2022",
+      "sources": [
+        "https://latinamericareports.com/?p=12318",
+        "https://en.mercopress.com/2026/02/02/petro-s-high-stakes-trump-meeting-tests-a-strained-u.s.-colombia-partnership",
+        "https://www.deccanherald.com/world/us-terminates-designation-of-afghanistan-as-major-non-nato-ally-1147860.html"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "USA",
@@ -1661,9 +1771,15 @@
       "type": "military",
       "kind": "treaty",
       "weight": 3,
-      "ar": "أول دولة أفريقية جنوب الصحراء تُصنَّف حليفاً رئيسياً من خارج الناتو (2024)، وقاعدة خليج ماندا",
-      "en": "The first sub-Saharan African state designated a major non-NATO ally (2024), and the Manda Bay base",
-      "since": "2024"
+      "ar": "أول دولة أفريقية جنوب الصحراء تُصنَّف حليفاً رئيسياً من خارج الناتو (2024)، وقاعدة خليج ماندا التي بدأ توسيع مدرّجها في يناير 2026",
+      "en": "The first sub-Saharan African state designated a major non-NATO ally (2024), and the Manda Bay base, whose runway expansion began in January 2026",
+      "since": "2024",
+      "sources": [
+        "https://bidenwhitehouse.archives.gov/briefing-room/presidential-actions/2024/05/23/message-to-congress-on-intent-to-designate-kenya-as-a-major-non-nato-ally",
+        "https://www.standardmedia.co.ke/africa/article/2001495714/kenya-designated-major-non-nato-ally-by-the-us",
+        "https://www.the-star.co.ke/news/2026-01-30-us-official-commissions-upgrade-of-lamu-military-base-to-boost-operations"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "USA",
@@ -1673,7 +1789,12 @@
       "weight": 3,
       "ar": "معاهدة الحياد (1977) تمنح الولايات المتحدة حقّ الدفاع عن حياد القناة، ومذكّرة أمنية في أبريل 2025 لوجود عسكري أمريكي دوري",
       "en": "The Neutrality Treaty (1977) gives the United States the right to defend the canal's neutrality, and an April 2025 security memorandum allows a rotational US military presence",
-      "since": "1977"
+      "since": "1977",
+      "sources": [
+        "https://www.globalsecurity.org/military/library/news/2025/04/mil-250409-dodnews01.htm",
+        "https://www.justsecurity.org/110815/ambiguity-is-not-authorization-the-neutrality-treaty-does-not-justify-u-s-military-intervention-in-panama/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "RUS",
@@ -1707,9 +1828,15 @@
       "type": "military",
       "kind": "treaty",
       "weight": 3,
-      "ar": "اتفاقية تعاون عسكري منذ 2018، ومقاتلو فاغنر ثم «الفيلق الأفريقي» يحمون الحكومة في بانغي",
-      "en": "A military cooperation agreement since 2018, with Wagner and then the Africa Corps protecting the government in Bangui",
-      "since": "2018"
+      "ar": "اتفاقية تعاون عسكري منذ 2018، ومقاتلو فاغنر يحمون الحكومة في بانغي، فيما تضغط موسكو لاستبدالهم بـ«الفيلق الأفريقي» التابع للدولة",
+      "en": "A military cooperation agreement since 2018, with Wagner protecting the government in Bangui while Moscow presses to replace it with the state-run Africa Corps",
+      "since": "2018",
+      "sources": [
+        "https://adf-magazine.com/2025/10/russia-pushes-car-to-choose-africa-corps-over-wagner-mercenaries/",
+        "https://www.kyivpost.com/amp/post/66780",
+        "https://www.washingtontimes.com/news/2025/dec/24/know-central-african-republic-ahead-election/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "RUS",
@@ -1719,7 +1846,12 @@
       "weight": 3,
       "ar": "تعاون عسكري منذ 2024 بعد طرد القوات الفرنسية والأمريكية، ومدرّبون من «الفيلق الأفريقي»",
       "en": "Military cooperation since 2024 after the expulsion of French and American forces, with Africa Corps instructors",
-      "since": "2024"
+      "since": "2024",
+      "sources": [
+        "https://www.voanews.com/a/russian-military-trainers-arrive-in-niger-as-relations-with-us-deteriorate/7567478.html",
+        "https://military.africa/2024/04/russian-troops-weapons-arrive-niger"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "CHN",
@@ -1893,7 +2025,9 @@
       "weight": 3,
       "ar": "معاهدة تعاون دفاعي (2011، جُدّدت 2024) وأكبر قاعدة عسكرية فرنسية في أفريقيا",
       "en": "A defence cooperation treaty (2011, renewed 2024) and the largest French military base in Africa",
-      "since": "2011"
+      "since": "2011",
+      "sources": ["https://www.arabnews.com/node/2555906", "https://www.arabnews.pk/node/2583788"],
+      "verified": "2026-11-02"
     },
     {
       "a": "GBR",
@@ -1948,7 +2082,12 @@
       "weight": 3,
       "ar": "حليف رئيسي من خارج الناتو منذ 1998، وتقارب وثيق في عهد ميلي شمل خطّ مبادلة عملات بقيمة 20 مليار دولار عام 2025",
       "en": "A major non-NATO ally since 1998, with close alignment under Milei including a $20 billion currency swap line in 2025",
-      "since": "1998"
+      "since": "1998",
+      "sources": [
+        "https://www.aljazeera.com/economy/2025/10/20/argentinas-central-bank-says-it-signed-20bn-currency-swap-deal-with-us",
+        "https://www.deccanherald.com/world/us-terminates-designation-of-afghanistan-as-major-non-nato-ally-1147860.html"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "USA",
@@ -1958,7 +2097,13 @@
       "weight": 2,
       "ar": "حليف رئيسي من خارج الناتو منذ 2019، دون وجود عسكري أمريكي، مع توتّر تجاري وسياسي منذ 2025",
       "en": "A major non-NATO ally since 2019, without a US military presence, and with trade and political tension since 2025",
-      "since": "2019"
+      "since": "2019",
+      "sources": [
+        "https://www.aljazeera.com/amp/news/2026/6/3/lula-says-brazil-cannot-accept-treatment-after-new-us-tariffs-proposed",
+        "https://en.mercopress.com/2025/11/21/trump-removes-40-tariffs-from-212-brazilian-items",
+        "https://www.deccanherald.com/world/us-terminates-designation-of-afghanistan-as-major-non-nato-ally-1147860.html"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "USA",
