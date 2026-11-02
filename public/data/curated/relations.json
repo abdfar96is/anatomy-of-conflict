@@ -269,7 +269,12 @@
       "kind": "treaty",
       "weight": 5,
       "ar": "الحامي العسكري والدبلوماسي الرئيسي، ومورّد أسلحة بموجب مذكّرات تفاهم متعدّدة السنوات، وحليف رئيسي من خارج الناتو منذ 1987",
-      "en": "Principal military and diplomatic protector and arms supplier under multi-year memoranda of understanding, and a major non-NATO ally since 1987"
+      "en": "Principal military and diplomatic protector and arms supplier under multi-year memoranda of understanding, and a major non-NATO ally since 1987",
+      "sources": [
+        "https://en.wikipedia.org/wiki/2016_U.S.-Israel_Memorandum_of_Understanding",
+        "https://obamawhitehouse.archives.gov/blog/2016/09/14/us-making-historic-investment-protect-security-israel"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "USA",
@@ -352,7 +357,14 @@
       "kind": "assessed",
       "weight": 5,
       "ar": "حرب مباشرة منذ 28 فبراير 2026 ووقف نار هشّ بموجب مذكّرة إسلام آباد",
-      "en": "Direct war since 28 February 2026 and a fragile ceasefire under the Islamabad Memorandum"
+      "en": "Direct war since 28 February 2026 and a fragile ceasefire under the Islamabad Memorandum",
+      "sources": [
+        "https://www.pbs.org/newshour/world/u-s-and-israel-launch-a-major-attack-on-iran-trump-says-supreme-leader-khamenei-killed",
+        "https://arabnews.com/node/2647636/pakistan",
+        "https://www.arabnews.pk/node/2651770/pakistan"
+      ],
+      "verified": "2026-11-02",
+      "since": "2026-02-28"
     },
     {
       "a": "USA",
@@ -511,8 +523,14 @@
       "type": "influence",
       "kind": "assessed",
       "weight": 2,
-      "ar": "حافظت على وجود وعلاقة مع الحكم الجديد بعد سقوط حليفها في ديسمبر 2024",
-      "en": "Retained a presence and a relationship with the new government after its ally's fall in December 2024"
+      "ar": "احتفظت بعلاقة مع الحكومة الجديدة بعد سقوط حليفها في ديسمبر 2024، ومذكّرة تفاهم (أغسطس 2026) تنقل قاعدتي حميميم وطرطوس إلى إدارة سورية مدنية كمواقع تدريب مشتركة، مع استمرار التفاوض على اتفاق نهائي",
+      "en": "Kept a relationship with the new government after its ally's fall in December 2024; an August 2026 memorandum moves the Hmeimim and Tartus bases to Syrian civil administration as joint training sites, with a final deal still under negotiation",
+      "sources": [
+        "https://www.al-monitor.com/originals/2026/08/syria-says-reached-deal-moscow-fate-russian-bases",
+        "https://gulfnews.com/world/mena/russias-military-bases-in-syria-set-for-major-change-under-new-deal-1.500635409",
+        "https://english.enabbaladi.net/archives/2026/10/damascus-moscow-work-on-final-deal-for-russian-bases/amp/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "RUS",
@@ -641,7 +659,10 @@
       "kind": "assessed",
       "weight": 4,
       "ar": "المشتري الأكبر للنفط الإيراني، ومتأثّر مباشرةً بإغلاق هرمز",
-      "en": "Largest buyer of Iranian oil and directly exposed to a Hormuz closure"
+      "en": "Largest buyer of Iranian oil and directly exposed to a Hormuz closure",
+      "sources": [
+        "https://thenationalnews.com/news/gulf/2026/04/15/iran-war-tests-chinas-balancing-act-as-beijing-walks-tightrope-between-tehran-and-gulf/"
+      ]
     },
     {
       "a": "CHN",
@@ -650,7 +671,11 @@
       "kind": "assessed",
       "weight": 4,
       "ar": "المشتري الأكبر للنفط السعودي ووسيط التقارب السعودي الإيراني 2023",
-      "en": "Largest buyer of Saudi oil and broker of the 2023 Saudi–Iranian rapprochement"
+      "en": "Largest buyer of Saudi oil and broker of the 2023 Saudi–Iranian rapprochement",
+      "sources": [
+        "https://www.sbs.com.au/news/article/saudi-arabia-and-iran-restore-ties-in-surprise-deal-analysts-point-to-chinas-key-role/uewa5dv2y",
+        "https://thenationalnews.com/news/gulf/2026/04/15/iran-war-tests-chinas-balancing-act-as-beijing-walks-tightrope-between-tehran-and-gulf/"
+      ]
     },
     {
       "a": "CHN",
@@ -677,7 +702,12 @@
       "kind": "assessed",
       "weight": 5,
       "ar": "مواجهة مباشرة ومتبادلة منذ 2024، وحرب مفتوحة منذ 28 فبراير 2026",
-      "en": "Direct and reciprocal confrontation since 2024, and open war since 28 February 2026"
+      "en": "Direct and reciprocal confrontation since 2024, and open war since 28 February 2026",
+      "sources": [
+        "https://www.pbs.org/newshour/world/u-s-and-israel-launch-a-major-attack-on-iran-trump-says-supreme-leader-khamenei-killed",
+        "https://www.keranews.org/2026-02-28/u-s-and-israel-strike-iran-in-operation-epic-fury-trump-calls-for-regime-overthrow"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "IRN",
@@ -686,7 +716,12 @@
       "kind": "assessed",
       "weight": 5,
       "ar": "الممول والمورّد الرئيسي لحزب الله",
-      "en": "Hezbollah's principal funder and supplier"
+      "en": "Hezbollah's principal funder and supplier",
+      "sources": [
+        "https://www.jpost.com/middle-east/iran-news/article-910270",
+        "https://www.iranintl.news/en/202512229294"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "IRN",
@@ -696,7 +731,12 @@
       "weight": 4,
       "ar": "دعم عسكري وتدريبي للحوثيين؛ أُفيد بوجود ضباط من الحرس الثوري في اليمن",
       "en": "Military and training support to the Houthis; IRGC officers have been reported present in Yemen",
-      "contested": true
+      "contested": true,
+      "sources": [
+        "https://www.axios.com/iran-sees-growing-dividends-from-support-for-yemens-houthis-78687282-b38d-486a-815c-f94f709e0d08.html",
+        "https://english.ahram.org.eg/News/117982.aspx"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "IRN",
@@ -705,7 +745,12 @@
       "kind": "assessed",
       "weight": 4,
       "ar": "نفوذ واسع عبر أحزاب وفصائل شيعية وعلاقات اقتصادية",
-      "en": "Broad influence through Shia parties and factions and economic ties"
+      "en": "Broad influence through Shia parties and factions and economic ties",
+      "sources": [
+        "https://www.arabnews.pk/node/2652749/middle-east",
+        "https://www.thenationalnews.com/news/mena/2026/06/20/iraqi-militia-linked-to-iran-likely-to-integrate-into-state-following-us-deal/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "IRN",
@@ -714,7 +759,13 @@
       "kind": "assessed",
       "weight": 4,
       "ar": "تنافس إقليمي خفّفه تقارب 2023 بوساطة صينية، ثم أعادت حرب 2026 تأزيمه",
-      "en": "Regional rivalry eased by the Chinese-brokered 2023 rapprochement, then re-aggravated by the 2026 war"
+      "en": "Regional rivalry eased by the Chinese-brokered 2023 rapprochement, then re-aggravated by the 2026 war",
+      "sources": [
+        "https://thenationalnews.com/news/gulf/2026/04/15/iran-war-tests-chinas-balancing-act-as-beijing-walks-tightrope-between-tehran-and-gulf/",
+        "https://jpost.com/middle-east/iran-news/article-890810",
+        "https://www.sbs.com.au/news/article/saudi-arabia-and-iran-restore-ties-in-surprise-deal-analysts-point-to-chinas-key-role/uewa5dv2y"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "IRN",
@@ -723,7 +774,13 @@
       "kind": "assessed",
       "weight": 3,
       "ar": "تنازع على جزر طنب الكبرى والصغرى وأبو موسى التي تسيطر عليها إيران منذ 1971",
-      "en": "Competing claims over Greater and Lesser Tunb and Abu Musa, under Iranian control since 1971"
+      "en": "Competing claims over Greater and Lesser Tunb and Abu Musa, under Iranian control since 1971",
+      "sources": [
+        "https://www.thenationalnews.com/news/gulf/2025/12/08/gcc-condemns-iranian-fallacies-about-sovereignty-of-three-occupied-islands",
+        "https://peacepalacelibrary.nl/blog/2013/unresolved-territorial-disputes-tunbs-and-abu-musa-gulf"
+      ],
+      "verified": "2026-11-02",
+      "since": "1971-11-30"
     },
     {
       "a": "IRN",
@@ -732,7 +789,12 @@
       "kind": "assessed",
       "weight": 3,
       "ar": "تعارض إيراني لأي ترتيب يقطع حدودها البرية مع أرمينيا",
-      "en": "Iranian opposition to any arrangement severing its land border with Armenia"
+      "en": "Iranian opposition to any arrangement severing its land border with Armenia",
+      "sources": [
+        "https://www.iranintl.com/en/202508107676",
+        "https://www.aljazeera.com/news/2025/8/18/irans-president-visits-armenia-for-talks-on-us-backed-azerbaijan-corridor"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "TUR",
@@ -741,7 +803,13 @@
       "kind": "treaty",
       "weight": 5,
       "ar": "تحالف وثيق بصيغة «دولة واحدة وأمّتان»، وتطبيع تركي أرمني مرتبط بنتيجة معاهدة السلام",
-      "en": "A close alliance under the 'one nation, two states' formulation, with Turkish–Armenian normalisation tied to the peace treaty's outcome"
+      "en": "A close alliance under the 'one nation, two states' formulation, with Turkish–Armenian normalisation tied to the peace treaty's outcome",
+      "sources": [
+        "https://president.az/en/articles/view/52122",
+        "https://en.wikipedia.org/wiki/Shusha_Declaration"
+      ],
+      "verified": "2026-11-02",
+      "since": "2021-06-15"
     },
     {
       "a": "TUR",
@@ -750,7 +818,13 @@
       "kind": "assessed",
       "weight": 5,
       "ar": "الدولة الأكثر نفوذاً على الحكومة الانتقالية في دمشق",
-      "en": "The state with most influence over the transitional government in Damascus"
+      "en": "The state with most influence over the transitional government in Damascus",
+      "sources": [
+        "https://www.fdd.org/analysis/2026/08/26/5-things-to-know-about-turkeys-relationship-with-syria/",
+        "https://www.middleeasteye.net/opinion/why-2026-crucial-test-syria-new-government"
+      ],
+      "verified": "2026-11-02",
+      "since": "2024-12"
     },
     {
       "a": "TUR",
@@ -759,7 +833,13 @@
       "kind": "assessed",
       "weight": 3,
       "ar": "خلافات على الجرف القاري والمجال الجوي في بحر إيجه وعلى المناطق الاقتصادية شرق المتوسط",
-      "en": "Disagreements over continental shelf and airspace in the Aegean and over eastern Mediterranean economic zones"
+      "en": "Disagreements over continental shelf and airspace in the Aegean and over eastern Mediterranean economic zones",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Aegean_dispute",
+        "https://greekcitytimes.com/2026/09/23/new-turkish-provocation-violates-greek-airspace/",
+        "https://www.arabnews.pk/node/2629564"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "TUR",
@@ -768,7 +848,13 @@
       "kind": "treaty",
       "weight": 4,
       "ar": "أكبر قاعدة تدريب عسكرية تركية في الخارج، ووساطة في الأزمة الإثيوبية الصومالية",
-      "en": "Türkiye's largest overseas military training base, and mediation in the Ethiopia–Somalia crisis"
+      "en": "Türkiye's largest overseas military training base, and mediation in the Ethiopia–Somalia crisis",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Camp_TURKSOM",
+        "https://www.al-monitor.com/originals/2026/04/turkeys-expanding-military-role-somalia-draws-scrutiny-amid-federal-rift"
+      ],
+      "verified": "2026-11-02",
+      "since": "2017-09-30"
     },
     {
       "a": "TUR",
@@ -776,8 +862,13 @@
       "type": "military",
       "kind": "assessed",
       "weight": 3,
-      "ar": "عمليات عسكرية ضد حزب العمال الكردستاني في شمال العراق وعلاقة اقتصادية مع أربيل",
-      "en": "Military operations against the PKK in northern Iraq and an economic relationship with Erbil"
+      "ar": "عمليات عسكرية ضدّ حزب العمال الكردستاني في شمال العراق، واتفاق مع بغداد (سبتمبر 2026) على تسليم قاعدة بعشيقة تدريجياً بعد إخلاء الحزب مواقع إثر حلّه، مع بقاء قواعد تركية أخرى وعلاقة اقتصادية مع أربيل",
+      "en": "Military operations against the PKK in northern Iraq, and a September 2026 agreement with Baghdad to hand over the Bashiqa base gradually after the PKK vacated positions following its dissolution, with other Turkish bases remaining and an economic relationship with Erbil",
+      "sources": [
+        "https://www.khaleejtimes.com/world/mena/turkey-iraq-agree-turkish-forces-turn-over-military-camp",
+        "https://english.ahram.org.eg/News/578776.aspx"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "SAU",
@@ -786,7 +877,13 @@
       "kind": "treaty",
       "weight": 5,
       "ar": "قائدة التحالف الداعم للشرعية، وهدف لهجمات حوثية على الطاقة والشحن",
-      "en": "Leader of the coalition backing the recognised government, and a target of Houthi attacks on energy and shipping"
+      "en": "Leader of the coalition backing the recognised government, and a target of Houthi attacks on energy and shipping",
+      "sources": [
+        "https://www.al-monitor.com/originals/2026/09/houthi-attacks-disrupt-saudi-energy-facilities-wound-73-authorities-say",
+        "https://news.cgtn.com/news/2026-07-25/Houthi-military-sites-hit-as-group-claims-attack-on-Saudi-energy-sites-1P4CPzvZpqE/share_amp.html"
+      ],
+      "verified": "2026-11-02",
+      "since": "2015-03-26"
     },
     {
       "a": "SAU",
@@ -795,7 +892,12 @@
       "kind": "assessed",
       "weight": 3,
       "ar": "ناشطة في إعادة دمج سوريا إقليمياً واستثمارياً",
-      "en": "Active in Syria's regional and investment reintegration"
+      "en": "Active in Syria's regional and investment reintegration",
+      "sources": [
+        "https://www.africanews.com/2025/07/24/syria-and-saudi-arabia-sign-multi-billion-dollar-investment-deals/",
+        "https://www.timesofisrael.com/liveblog_entry/saudi-arabia-announces-6-4-billion-in-syria-investments-as-war-torn-country-looks-to-rebuild/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "SAU",
@@ -820,7 +922,13 @@
       "weight": 4,
       "ar": "اتهامات بدعم قوات الدعم السريع تنفيها أبوظبي",
       "en": "Allegations of support to the Rapid Support Forces, which Abu Dhabi denies",
-      "contested": true
+      "contested": true,
+      "sources": [
+        "https://www.aljazeera.com/news/2024/1/24/uae-denies-sending-weapons-to-sudans-rsf-paramilitary-report",
+        "https://mb.com.ph/2026/05/26/uae-accused-of-training-colombian-mercenaries-for-sudans-war",
+        "https://citizen.digital/news/sudan-to-cut-ties-with-uae-defence-council-says-n362246"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "ARE",
@@ -838,7 +946,12 @@
       "kind": "assessed",
       "weight": 4,
       "ar": "خلاف على سدّ النهضة ومياه النيل",
-      "en": "Dispute over the Renaissance Dam and Nile waters"
+      "en": "Dispute over the Renaissance Dam and Nile waters",
+      "sources": [
+        "https://english.ahram.org.eg/NewsContent/2/8/552690/World/Region/Ethiopia-inaugurates-GERD-despite-strong-objection.aspx",
+        "https://www.dawn.com/news/1940869/ethiopia-inaugurates-africas-biggest-dam"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "EGY",
@@ -847,7 +960,13 @@
       "kind": "assessed",
       "weight": 4,
       "ar": "علاقة قوية بالقوات المسلحة السودانية، وخلاف قديم على مثلّث حلايب",
-      "en": "A strong relationship with the Sudanese Armed Forces, and a long-standing dispute over the Hala'ib Triangle"
+      "en": "A strong relationship with the Sudanese Armed Forces, and a long-standing dispute over the Hala'ib Triangle",
+      "sources": [
+        "https://hornreview.org/2026/04/09/how-deep-is-egypt-in-sudans-war-the-shift-from-support-to-battlefield-involvement/",
+        "https://www.middleeasteye.net/news/egypt-and-turkey-move-support-saf-following-fall-el-fasher",
+        "https://adf-magazine.com/2026/03/could-egypt-be-pulled-into-the-sudanese-civil-war/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "EGY",
@@ -857,7 +976,12 @@
       "weight": 4,
       "ar": "معاهدة سلام 1979، ووسيط رئيسي في ملف غزة ويتحكّم بمعبر رفح",
       "en": "The 1979 peace treaty; a principal mediator in the Gaza file and controls the Rafah crossing",
-      "since": "1979-03-26"
+      "since": "1979-03-26",
+      "sources": [
+        "https://english.ahram.org.eg/News/561571.aspx",
+        "https://www.africanews.com/amp/2026/02/02/gaza-egypt-rafah-crossing-reopens-to-limited-traffic-after-long-closure/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "QAT",
@@ -866,7 +990,12 @@
       "kind": "assessed",
       "weight": 3,
       "ar": "وساطة في ملف غزة واستضافة قيادة حماس السياسية",
-      "en": "Mediation in the Gaza file and hosting Hamas's political leadership"
+      "en": "Mediation in the Gaza file and hosting Hamas's political leadership",
+      "sources": [
+        "https://foreignpolicy.com/2025/09/09/israel-bombs-doha-qatar-hamas-strike/",
+        "https://www.arise.tv/qatari-pm-vows-to-continue-with-israel-hamas-mediation-despite-deadly-attacks-on-doha"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "QAT",
@@ -893,7 +1022,12 @@
       "kind": "treaty",
       "weight": 4,
       "ar": "الوسيط الرئيسي في حرب 2026 وراعي مذكّرة إسلام آباد",
-      "en": "The principal mediator in the 2026 war and sponsor of the Islamabad Memorandum"
+      "en": "The principal mediator in the 2026 war and sponsor of the Islamabad Memorandum",
+      "sources": [
+        "https://tribune.com.pk/story/2613829/pm-shehbaz-signs-islamabad-mou-as-mediator-between-us-and-iran",
+        "https://www.dawn.com/news/2009004"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "PAK",
@@ -966,7 +1100,10 @@
       "kind": "assessed",
       "weight": 5,
       "ar": "خصومة محورها الصحراء الغربية؛ الحدود مغلقة واتحاد المغرب العربي مجمّد",
-      "en": "Rivalry centred on Western Sahara; the border is closed and the Arab Maghreb Union is paralysed"
+      "en": "Rivalry centred on Western Sahara; the border is closed and the Arab Maghreb Union is paralysed",
+      "sources": [
+        "https://en.yabiladi.com/articles/details/192999/algeria-offers-djen-djen-port.html"
+      ]
     },
     {
       "a": "VEN",
@@ -1085,7 +1222,13 @@
       "kind": "assessed",
       "weight": 2,
       "ar": "مبادرة مغربية لمنح دول الساحل الحبيسة منفذاً إلى المحيط الأطلسي",
-      "en": "A Moroccan initiative to give landlocked Sahel states an Atlantic outlet"
+      "en": "A Moroccan initiative to give landlocked Sahel states an Atlantic outlet",
+      "sources": [
+        "https://www.al-monitor.com/originals/2025/06/moroccos-atlantic-gambit-linking-restive-sahel-ocean",
+        "https://english.aawsat.com/arab-world/5137842-sahel-states-back-morocco%E2%80%99s-sea-access-initiative-commit-accelerating-its?page=1"
+      ],
+      "verified": "2026-11-02",
+      "since": "2023-11-06"
     },
     {
       "a": "JOR",
@@ -1094,7 +1237,12 @@
       "kind": "assessed",
       "weight": 3,
       "ar": "أزمة ثنائية حادّة في أكتوبر 2026 بعد ضربات جوية أردنية في ريف درعا، وأُعيد فتح الحدود مع تحقيق جارٍ",
-      "en": "A sharp bilateral crisis in October 2026 after Jordanian airstrikes in the Daraa countryside; the border reopened with an inquiry under way"
+      "en": "A sharp bilateral crisis in October 2026 after Jordanian airstrikes in the Daraa countryside; the border reopened with an inquiry under way",
+      "sources": [
+        "https://www.al-monitor.com/originals/2026/10/syria-slams-jordan-over-crossborder-strikes-denies-coordination-what-know",
+        "https://english.enabbaladi.net/archives/2026/10/jordanian-airstrikes-kill-civilians-in-daraa-damascus-denies-coordination/"
+      ],
+      "since": "2026-10-26"
     },
     {
       "a": "IRQ",
@@ -1103,7 +1251,13 @@
       "kind": "treaty",
       "weight": 3,
       "ar": "زيارة رئيس الوزراء العراقي إلى دمشق في 28 أكتوبر 2026 وتأكيد على تطوير الروابط الاقتصادية",
-      "en": "The Iraqi prime minister's visit to Damascus on 28 October 2026 and an emphasis on developing economic ties"
+      "en": "The Iraqi prime minister's visit to Damascus on 28 October 2026 and an emphasis on developing economic ties",
+      "sources": [
+        "https://www.qatar-tribune.com/article/261466/world/iraqi-pm-ali-al-zaidi-meets-ahmed-al-sharaa-in-historic-syria-visit",
+        "https://www.hurriyetdailynews.com/sharaa-hails-ties-as-iraqi-premier-visits-damascus-228706"
+      ],
+      "verified": "2026-11-02",
+      "since": "2026-10-28"
     },
     {
       "a": "USA",
@@ -1128,7 +1282,12 @@
       "weight": 4,
       "ar": "اتفاقية التكامل الأمني والازدهار الشاملة (سبتمبر 2023)، ومقرّ الأسطول الخامس الأمريكي في المنامة، وحليف رئيسي من خارج الناتو منذ 2002",
       "en": "The Comprehensive Security Integration and Prosperity Agreement (September 2023), the US Fifth Fleet headquarters in Manama, and a major non-NATO ally since 2002",
-      "since": "2023-09-13"
+      "since": "2023-09-13",
+      "sources": [
+        "https://bidenwhitehouse.archives.gov/briefing-room/statements-releases/2023/09/13/fact-sheet-biden-harris-administration-strengthens-partnership-with-kingdom-of-bahrain-and-launches-comprehensive-security-integration-and-prosperity-agreement/",
+        "https://www.washingtoninstitute.org/policy-analysis/us-bahrain-ties-one-year-after-strategic-partnership-agreement"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "USA",
@@ -1150,7 +1309,12 @@
       "weight": 4,
       "ar": "اتفاقية تعاون دفاعي منذ تحرير الكويت عام 1991، وحليف رئيسي من خارج الناتو منذ 2004، وقاعدة معسكر عريفجان",
       "en": "A defence cooperation agreement since the liberation of Kuwait in 1991, a major non-NATO ally since 2004, and Camp Arifjan",
-      "since": "1991"
+      "since": "1991",
+      "sources": [
+        "https://www.globalsecurity.org/military/facility/kuwait.htm",
+        "https://www.globalsecurity.org/military/facility/camp-arifjan.htm"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "USA",
@@ -1160,7 +1324,12 @@
       "weight": 4,
       "ar": "اتفاقية تعاون دفاعي (2017، نافذة منذ 2019)، وتصنيف «شريك دفاعي رئيسي» في سبتمبر 2024، وقاعدة الظفرة الجوية",
       "en": "A defence cooperation agreement (2017, in force since 2019), designation as a Major Defense Partner in September 2024, and Al Dhafra Air Base",
-      "since": "2017"
+      "since": "2017",
+      "sources": [
+        "https://www.everycrsreport.com/reports/RS21852.html",
+        "https://breakingdefense.com/2025/05/us-and-uae-ink-agreement-formalizing-major-defense-partnership/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "USA",
@@ -1170,7 +1339,12 @@
       "weight": 3,
       "ar": "اتفاقية الوصول إلى التسهيلات العسكرية منذ 1980، واتفاق إطاري عام 2019 يتيح للقوات الأمريكية استخدام ميناءَي الدقم وصلالة",
       "en": "A military facilities access agreement since 1980, and a 2019 framework agreement giving US forces use of the ports of Duqm and Salalah",
-      "since": "1980"
+      "since": "1980",
+      "sources": [
+        "https://www.thenationalnews.com/world/mena/oman-signs-agreement-allowing-us-military-to-use-its-ports-1.840991",
+        "https://www.fdd.org/analysis/2019/03/29/u-s-and-oman-sign-strategic-port-agreement/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "USA",
@@ -1180,7 +1354,12 @@
       "weight": 4,
       "ar": "حليف رئيسي من خارج الناتو منذ 1987، ونحو 1.3 مليار دولار مساعدات عسكرية سنوية منذ كامب ديفيد، ومناورات «النجم الساطع»",
       "en": "A major non-NATO ally since 1987, around $1.3 billion in annual military aid since Camp David, and the Bright Star exercises",
-      "since": "1979"
+      "since": "1979",
+      "sources": [
+        "https://english.ahram.org.eg/News/531770.aspx",
+        "https://breakingdefense.com/2025/09/as-beijing-beckons-is-washington-sleepwalking-on-egypt/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "USA",
@@ -1412,7 +1591,12 @@
       "weight": 4,
       "ar": "اتفاقية تعاون دفاعي (2014) وقاعدة عسكرية تركية في الدوحة",
       "en": "A defence cooperation agreement (2014) and a Turkish military base in Doha",
-      "since": "2014"
+      "since": "2014",
+      "sources": [
+        "https://www.globalsecurity.org/military/world/gulf/qatar-forrel-bases.htm",
+        "https://www.aljazeera.com/news/2017/12/171227051912500.html"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "TUR",
@@ -1422,7 +1606,13 @@
       "weight": 3,
       "ar": "مذكّرة تعاون أمني (2019) مع حكومة طرابلس، ووجود عسكري تركي ومسيّرات حسمت معركة طرابلس 2020",
       "en": "A security cooperation memorandum (2019) with the Tripoli government, and a Turkish military presence and drones that decided the 2020 battle for Tripoli",
-      "since": "2019-11"
+      "since": "2019-11",
+      "sources": [
+        "https://www.aljazeera.com/news/2019/11/libya-turkey-sign-deals-security-maritime-jurisdictions-191128070513292.html",
+        "https://www.aljazeera.com/news/2019/12/turkish-parliament-ratifies-security-deal-libya-state-media-191221145918122.html",
+        "https://www.setav.org/en/turkeys-decisive-policy-and-libyas-future"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "FRA",
@@ -1482,7 +1672,12 @@
       "weight": 3,
       "ar": "بروتوكول تعاون دفاعي (أغسطس 2024) وشحنات سلاح مصرية، في سياق التوتّر مع إثيوبيا",
       "en": "A defence cooperation protocol (August 2024) and Egyptian arms shipments, in the context of tension with Ethiopia",
-      "since": "2024-08"
+      "since": "2024-08",
+      "sources": [
+        "https://www.dailynewsegypt.com/2024/08/14/egypt-somalia-sign-defence-pact/",
+        "https://www.aljazeera.com/amp/news/2024/9/23/egypt-delivers-second-stockpile-of-weapons-to-somalia-amid-ethiopia-tension"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "USA",
@@ -1522,7 +1717,12 @@
       "weight": 2,
       "ar": "حليف رئيسي من خارج الناتو منذ 2015، ودعم عسكري لمكافحة الإرهاب وضبط الحدود مع ليبيا",
       "en": "A major non-NATO ally since 2015, with military support for counter-terrorism and control of the border with Libya",
-      "since": "2015"
+      "since": "2015",
+      "sources": [
+        "https://www.atlanticcouncil.org/blogs/menasource/top-news-us-wants-drones-to-combat-islamic-state-in-libya-us-confirms-tunisia-s-non-nato-ally-status/",
+        "https://www.africanews.com/2020/10/01/tunisia-signs-10-year-military-deal-with-us/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "USA",
@@ -1750,7 +1950,12 @@
       "weight": 4,
       "ar": "أكبر مشترٍ للسلاح الروسي في أفريقيا، وإعلان الشراكة الاستراتيجية المعمّقة (2023)",
       "en": "The largest buyer of Russian arms in Africa, and the Declaration on Deepened Strategic Partnership (2023)",
-      "since": "2023"
+      "since": "2023",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Algeria%E2%80%93Russia_relations",
+        "https://www.adaptinstitute.org/algeria-deepens-its-ties-with-moscow-is-it-a-challenge-for-the-european-gas-market/03/07/2023/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "RUS",
@@ -1759,7 +1964,12 @@
       "kind": "treaty",
       "weight": 3,
       "ar": "تعاون عسكري تقني ومناورات مشتركة، ومحطة الضبعة النووية التي تبنيها روسيا",
-      "en": "Military-technical cooperation and joint exercises, and the El Dabaa nuclear plant being built by Russia"
+      "en": "Military-technical cooperation and joint exercises, and the El Dabaa nuclear plant being built by Russia",
+      "sources": [
+        "https://english.ahram.org.eg/News/575373.aspx",
+        "https://www.newarab.com/news/egypts-russia-built-nuclear-power-plant-crosses-major-milestone"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "RUS",
@@ -1769,7 +1979,13 @@
       "weight": 4,
       "ar": "وجود «الفيلق الأفريقي» في قواعد شرق ليبيا وجنوبها بالتنسيق مع قوات حفتر لا مع حكومة طرابلس المعترف بها، ونقطة ارتكاز لعملياته في الساحل",
       "en": "The Africa Corps is present at bases in eastern and southern Libya in coordination with Haftar's forces, not the recognised Tripoli government, and uses them as a hub for its Sahel operations",
-      "since": "2019"
+      "since": "2019",
+      "sources": [
+        "https://adf-magazine.com/2026/08/africa-corps-work-at-libyan-air-bases-raises-concerns/",
+        "https://military.africa/2025/02/russia-shifts-focus-to-libya-following-setbacks-in-syria",
+        "https://www.newarab.com/news/russia-assert-africa-europe-power-libya-airbase-expansion"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "RUS",
@@ -1883,7 +2099,12 @@
       "kind": "treaty",
       "weight": 3,
       "ar": "شراكة استراتيجية شاملة (2014)، ومورّد رئيسي للسفن الحربية والمدفعية والمسيّرات بعد روسيا",
-      "en": "A comprehensive strategic partnership (2014), and a major supplier of warships, artillery and drones after Russia"
+      "en": "A comprehensive strategic partnership (2014), and a major supplier of warships, artillery and drones after Russia",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Algeria%E2%80%93China_relations",
+        "https://www.mei.edu/publications/sino-algerian-relations-path-realizing-their-full-potential"
+      ],
+      "since": "2014"
     },
     {
       "a": "CHN",
