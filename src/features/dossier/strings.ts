@@ -91,6 +91,10 @@ registerStrings({
     'dz.res.rank': 'المرتبة {n} عالمياً',
     'dz.res.sites': 'مواقع على الخريطة',
     'dz.res.chokes': 'مضائق وممرات على سواحلها',
+    'dz.pv.since': 'منذ {d}',
+    'dz.pv.verified': 'آخر تحقّق {d}',
+    'dz.pv.sources': 'المصادر:',
+    'dz.pv.none': 'لا مصدر موثّق لهذا السجل بعد.',
     'dz.res.none': 'لا يوجد سجل موارد استراتيجية لهذه الدولة في هذه النسخة. الملف انتقائي يركّز على الموارد المرتبطة بالنزاع والتنافس، فهذا غياب بيانات لا غياب موارد.',
 
     'dz.h.title': 'أحداث مرتبطة بالدولة',
@@ -243,6 +247,10 @@ registerStrings({
     'dz.res.rank': 'World rank {n}',
     'dz.res.sites': 'Sites on the map',
     'dz.res.chokes': 'Chokepoints on its coasts',
+    'dz.pv.since': 'Since {d}',
+    'dz.pv.verified': 'last checked {d}',
+    'dz.pv.sources': 'Sources:',
+    'dz.pv.none': 'No source documented for this record yet.',
     'dz.res.none': 'There is no strategic-resource record for this state in this edition. The file is selective, focused on resources tied to conflict and competition, so this is an absence of data, not of resources.',
 
     'dz.h.title': 'Events involving this state',

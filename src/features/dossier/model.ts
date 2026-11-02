@@ -4,7 +4,7 @@ import type { ReactNode } from 'react';
 import type { useT } from '../../app/useT';
 import type { Bi } from '../../i18n/format';
 import type {
-  Bloc, Chokepoint, Conflict, DB, Disputed, Group, Kind, ResourceEntry, Site, TimelineCategory, TimelineEvent, Tradition,
+  Bloc, Chokepoint, Conflict, DB, Disputed, Group, Kind, Provenance, ResourceEntry, Site, TimelineCategory, TimelineEvent, Tradition,
 } from '../../data/types';
 
 export type Ctx = ReturnType<typeof useT> & { db: DB };
@@ -23,11 +23,11 @@ export type EventX = TimelineEvent & { cat?: string[] };
 export type BlocX = Bloc & { kind?: string };
 export type ResEntryX = ResourceEntry & { rank?: number; year?: number; source?: string; ar?: string; en?: string };
 export type CatX = TimelineCategory & { ar?: string; en?: string; color?: string };
-export interface EdgeX { id: string; a: string; b: string; type: string; kind: string; weight?: number; contested?: boolean; ar?: string; en?: string }
+export interface EdgeX extends Provenance { id: string; a: string; b: string; type: string; kind: string; weight?: number; contested?: boolean; ar?: string; en?: string }
 export interface IntelX { system?: Bi; langs?: BiList; separatists?: Bi[]; disputes?: Bi[] }
 export interface RefX { name?: Bi; role?: Bi; url?: string }
 export interface DatasetX { title?: Bi; publisher?: string; url?: string }
-export type { Disputed, Group, Site, Tradition };
+export type { Disputed, Group, Provenance, Site, Tradition };
 
 /** The header model of one record: eyebrow region, name, plate items, badges and an optional extra row. */
 export interface Head { region: string; title: string; plate: ReactNode[]; badges: ReactNode[]; extra?: ReactNode }

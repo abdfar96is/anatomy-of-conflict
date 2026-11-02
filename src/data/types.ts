@@ -36,11 +36,13 @@ export interface EthnicProps extends Extra {
   regionAr?: string; regionEn?: string; countries?: string[]; noteAr?: string; noteEn?: string;
 }
 export interface ResourceType extends Extra { id: string; ar: string; en: string; color?: string }
-export interface ResourceEntry extends Extra { iso3: string; type: string; conflictIds?: string[] }
-export interface Site extends Extra { id: string; iso3: string; type: string; ar: string; en: string; coords?: [number, number] }
+export interface ResourceEntry extends Extra, Provenance { iso3: string; type: string; conflictIds?: string[] }
+/** Where a record comes from: start of the relationship, last check against a source, and the source links. */
+export interface Provenance { since?: string; verified?: string; sources?: string[] }
+export interface Site extends Extra, Provenance { id: string; iso3: string; type: string; ar: string; en: string; coords?: [number, number] }
 export interface EdgeType extends Extra { id: string }
-export interface Bloc extends Extra { id: string; ar: string; en: string; members: string[]; note?: Bi }
-export interface RawEdge extends Extra { a: string; b: string; type: string; kind: string }
+export interface Bloc extends Extra, Provenance { id: string; ar: string; en: string; members: string[]; note?: Bi }
+export interface RawEdge extends Extra, Provenance { a: string; b: string; type: string; kind: string }
 export interface Chokepoint extends Extra {
   id: string; ar: string; en: string; borderStates?: string[]; conflictIds?: string[]; coords?: [number, number]; unverified?: boolean;
 }

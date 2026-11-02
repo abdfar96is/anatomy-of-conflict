@@ -177,6 +177,7 @@ function relations(c: Country, k: Kit) {
             {e.weight ? <span className="dz-weight" data-tip={esc(weight)}><Pips n={e.weight} of={5} color={edgeVar(e.type)} /><span className="vh">{weight}</span></span> : null}
           </div>
           {k.prose(L(e), { clamp: false, cls: 'sm' })}
+          {k.provenance(e)}
           {bil ? <div className="dz-bi"><p className="dz-bi-h">{t('dz.r.bilateral')}</p>{k.prose(L(bil), { cls: 'sm' })}</div> : null}
         </div>
       );

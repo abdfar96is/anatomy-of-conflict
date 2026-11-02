@@ -100,6 +100,16 @@ export function checkData(dataDir: string): Problem[] {
   for (const iso of Object.keys((files['country_intel.json'] as { countries: Rec }).countries)) country('country_intel.json', `countries.${iso}`, iso);
   for (const iso of Object.keys((files['religions.json'] as { countries: Rec }).countries)) country('religions.json', `countries.${iso}`, iso);
 
+  // 2b. A last-checked date cannot lie in the future.
+  const today = new Date().toISOString().slice(0, 10);
+  const notFuture = (file: string, list: Rec[], base: string) => list.forEach((r, i) => {
+    if (typeof r.verified === 'string' && r.verified > today) problems.push({ file, path: `${base}[${i}].verified`, message: 'date is in the future', value: r.verified });
+  });
+  notFuture('relations.json', rel.edges, 'edges');
+  notFuture('relations.json', rel.blocs, 'blocs');
+  notFuture('resources.json', resources.entries, 'entries');
+  notFuture('resources.json', resources.sites, 'sites');
+
   // 3. Ids that must be unique.
   const dupes = (file: string, list: Rec[], base: string) => {
     const seen = new Set<string>();
@@ -117,10 +127,34 @@ export function checkData(dataDir: string): Problem[] {
   return [...layout, ...problems];
 }
 
+/** How many relations, blocs, resource records and sites carry source links, and which do not. */
+export function provenanceCoverage(dataDir: string) {
+  const read = (f: string) => JSON.parse(fs.readFileSync(path.join(dataDir, 'curated', f), 'utf8'));
+  const rel = read('relations.json'), res = read('resources.json');
+  type R = { sources?: string[]; verified?: string; [k: string]: unknown };
+  const sets: [string, R[], (r: R) => string][] = [
+    ['relations', rel.edges, (r) => `${r.a}–${r.b}`],
+    ['blocs', rel.blocs, (r) => String(r.id)],
+    ['resources', res.entries, (r) => `${r.iso3}:${r.type}`],
+    ['sites', res.sites, (r) => String(r.id)],
+  ];
+  return sets.map(([name, list, key]) => ({
+    name, total: list.length,
+    sourced: list.filter((r) => r.sources?.length).length,
+    verified: list.filter((r) => r.verified).length,
+    missing: list.filter((r) => !r.sources?.length).map(key),
+  }));
+}
+
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const dir = path.resolve(import.meta.dirname, '../public/data');
   const problems = checkData(dir);
   for (const p of problems) console.log(`${p.file} › ${p.path || '(file)'} › ${p.message}${p.value !== undefined ? ` (got ${JSON.stringify(p.value)})` : ''}`);
   console.log(problems.length ? `\n${problems.length} problem(s) in public/data/curated` : 'public/data/curated: all checks passed');
+  // Source coverage is reported, not enforced: older records predate the provenance fields.
+  for (const c of provenanceCoverage(dir)) {
+    console.log(`  sources: ${c.name} ${c.sourced}/${c.total}, last-checked ${c.verified}/${c.total}`);
+    if (process.argv.includes('--missing')) for (const m of c.missing) console.log(`    no source: ${m}`);
+  }
   process.exit(problems.length ? 1 : 0);
 }
