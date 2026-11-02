@@ -68,7 +68,12 @@
       "source": "undata",
       "rank": 1,
       "ar": "أكبر منتج لليثيوم الصخري في العالم، لكن معالجته وتكريره يتمركزان في الصين.",
-      "en": "The world's largest producer of hard-rock lithium, though its processing and refining are concentrated in China."
+      "en": "The world's largest producer of hard-rock lithium, though its processing and refining are concentrated in China.",
+      "sources": [
+        "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-lithium.pdf",
+        "https://www.nasdaq.com/articles/top-5-largest-lithium-reserves-country"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "AZE",
@@ -86,7 +91,11 @@
       "source": "usgs",
       "rank": 4,
       "ar": "رابع أكبر منتج للبوتاس: 6 ملايين طن في 2025، وصادراته حبيسة اليابسة وتعتمد على موانئ الجوار، وهو ما جعلها نقطة ضغط جيوسياسية.",
-      "en": "The fourth-largest potash producer: 6 million tonnes in 2025. Its exports are landlocked and depend on neighbouring ports, which has made them a point of geopolitical leverage."
+      "en": "The fourth-largest potash producer: 6 million tonnes in 2025. Its exports are landlocked and depend on neighbouring ports, which has made them a point of geopolitical leverage.",
+      "sources": [
+        "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-potash.pdf",
+        "https://nai500.com/blog/2026/05/usgs-2026-potash-report-global-production-reserves-rankings-released/"
+      ]
     },
     {
       "iso3": "CAN",
@@ -95,7 +104,12 @@
       "source": "usgs",
       "rank": 1,
       "ar": "أكبر منتج للبوتاس في العالم بفارق واسع: 15 مليون طن مكافئ أكسيد البوتاسيوم في 2025، معظمها من ساسكاتشوان.",
-      "en": "The world's largest potash producer by a wide margin: 15 million tonnes of K₂O equivalent in 2025, mostly from Saskatchewan."
+      "en": "The world's largest potash producer by a wide margin: 15 million tonnes of K₂O equivalent in 2025, mostly from Saskatchewan.",
+      "sources": [
+        "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-potash.pdf",
+        "https://nai500.com/blog/2026/05/usgs-2026-potash-report-global-production-reserves-rankings-released/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "CHL",
@@ -104,7 +118,12 @@
       "source": "undata",
       "rank": 1,
       "ar": "أكبر منتج للنحاس في العالم، والنحاس أساس صادراتها وإيراداتها العامة.",
-      "en": "The world's largest copper producer, with copper the basis of its exports and public revenues."
+      "en": "The world's largest copper producer, with copper the basis of its exports and public revenues.",
+      "sources": [
+        "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-copper.pdf",
+        "https://www.riotimesonline.com/copper-latin-america-mines-prices-politics-2026/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "CHL",
@@ -113,7 +132,12 @@
       "source": "undata",
       "rank": 2,
       "ar": "ثاني أكبر منتج لليثيوم، من مسطّحات أتاكاما الملحية ضمن «مثلّث الليثيوم» مع الأرجنتين وبوليفيا.",
-      "en": "The second-largest lithium producer, from the Atacama salt flats within the lithium triangle shared with Argentina and Bolivia."
+      "en": "The second-largest lithium producer, from the Atacama salt flats within the lithium triangle shared with Argentina and Bolivia.",
+      "sources": [
+        "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-lithium.pdf",
+        "https://www.nasdaq.com/articles/top-5-largest-lithium-reserves-country"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "CHN",
@@ -130,7 +154,8 @@
       "source": "usgs",
       "rank": 1,
       "ar": "أكبر منتج للفوسفات عالمياً: نحو 110 مليون طن في 2025، أي 44٪ من الإنتاج العالمي وأكثر من مجموع المنتجين الأربعة التالين.",
-      "en": "The world's largest phosphate producer: around 110 million tonnes in 2025, 44% of global output and more than the next four producers combined."
+      "en": "The world's largest phosphate producer: around 110 million tonnes in 2025, 44% of global output and more than the next four producers combined.",
+      "sources": ["https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-phosphate.pdf"]
     },
     {
       "iso3": "CHN",
@@ -161,7 +186,12 @@
       "rank": 1,
       "ar": "تنتج الحصّة الأكبر عالمياً من الكوبالت، وهو مدخل أساسي في بطاريات السيارات الكهربائية.",
       "en": "Produces the largest global share of cobalt, a core input in electric vehicle batteries.",
-      "conflictIds": ["drc-east"]
+      "conflictIds": ["drc-east"],
+      "sources": [
+        "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-cobalt.pdf",
+        "https://www.mining.com/web/congo-to-replace-cobalt-export-ban-with-quotas-from-oct-16"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "COD",
@@ -170,7 +200,9 @@
       "source": "undata",
       "ar": "الكولتان في كيفو الشمالية والجنوبية يدخل في كل هاتف وحاسوب، والسيطرة على مناجمه وشبكات تصديره محرّك اقتصادي رئيسي للنزاع.",
       "en": "Coltan in North and South Kivu goes into every phone and computer, and control of its mines and export networks is a principal economic driver of the conflict.",
-      "conflictIds": ["drc-east"]
+      "conflictIds": ["drc-east"],
+      "sources": ["https://www.hrw.org/news/2026/02/03/end-to-abuses-still-distant-in-dr-congo"],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "DZA",
@@ -204,7 +236,8 @@
       "source": "usgs",
       "rank": 7,
       "ar": "سابع أكبر منتج للفوسفات: نحو 5.5 مليون طن في 2025.",
-      "en": "The seventh-largest phosphate producer: around 5.5 million tonnes in 2025."
+      "en": "The seventh-largest phosphate producer: around 5.5 million tonnes in 2025.",
+      "sources": ["https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-phosphate.pdf"]
     },
     {
       "iso3": "EGY",
@@ -239,8 +272,14 @@
       "year": 2024,
       "source": "undata",
       "rank": 1,
-      "ar": "أكبر منتج للنيكل في العالم، وحظر تصدير الخام منذ 2020 حوّل البلاد إلى مركز معالجة، بتمويل صيني في معظمه.",
-      "en": "The world's largest nickel producer; its raw-ore export ban since 2020 turned the country into a processing hub, largely with Chinese financing."
+      "ar": "أكبر منتج للنيكل في العالم بأكثر من نصف إنتاج المناجم العالمي، وحوّل حظر تصدير الخام البلاد إلى مركز معالجة، بتمويل صيني في معظمه.",
+      "en": "The world's largest nickel producer, with more than half of world mine output; its raw-ore export ban turned the country into a processing hub, largely with Chinese financing.",
+      "sources": [
+        "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-nickel.pdf",
+        "https://fortune.com/asia/2025/03/04/indonesia-nickel-exports-downstreaming-ev-battery/",
+        "https://news.metal.com/newscontent/103369811-current-status-and-outlook-of-philippine-nickel-ore-its-role-in-the-global-supply-chain-and-the-impact-of-export-ban-ind"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "IND",
@@ -278,7 +317,8 @@
       "source": "usgs",
       "rank": 7,
       "ar": "سابع أكبر منتج للبوتاس: 2 مليون طن في 2025، من أملاح البحر الميت، وهو المورد المشترك مع الأردن.",
-      "en": "The seventh-largest potash producer: 2 million tonnes in 2025, from Dead Sea brines — the resource shared with Jordan."
+      "en": "The seventh-largest potash producer: 2 million tonnes in 2025, from Dead Sea brines — the resource shared with Jordan.",
+      "sources": ["https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-potash.pdf"]
     },
     {
       "iso3": "JOR",
@@ -304,7 +344,13 @@
       "source": "usgs",
       "rank": 5,
       "ar": "خامس أكبر منتج للفوسفات في العالم: 12 مليون طن في 2025، نحو 4.8٪ من الإنتاج العالمي، باحتياطي يقدّره مسح الولايات المتحدة الجيولوجي بـ820 مليون طن. المنتج الوحيد هو شركة مناجم الفوسفات الأردنية، وتصدّر إلى الصين والهند وإندونيسيا.",
-      "en": "The world's fifth-largest phosphate rock producer: 12 million tonnes in 2025, around 4.8% of global output, with reserves the US Geological Survey puts at 820 million tonnes. The sole producer is the Jordan Phosphate Mines Company, exporting to China, India and Indonesia."
+      "en": "The world's fifth-largest phosphate rock producer: 12 million tonnes in 2025, around 4.8% of global output, with reserves the US Geological Survey puts at 820 million tonnes. The sole producer is the Jordan Phosphate Mines Company, exporting to China, India and Indonesia.",
+      "sources": [
+        "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-phosphate.pdf",
+        "https://measuredworld.com/countries/jordan/resources/phosphate-rock-production",
+        "https://jpmc.com.jo/en/about-us"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "JOR",
@@ -313,7 +359,8 @@
       "source": "usgs",
       "rank": 8,
       "ar": "ثامن أكبر منتج للبوتاس عالمياً: 1.8 مليون طن مكافئ أكسيد البوتاسيوم في 2025، نحو 3.7٪ من الإنتاج العالمي، ومصدره استخلاص أملاح البحر الميت. شركة البوتاس العربية هي المنتج الوحيد في المنطقة العربية، وبلغ إنتاجها في 2024 رقماً قياسياً عند 2.84 مليون طن من المنتج الخام.",
-      "en": "The world's eighth-largest potash producer: 1.8 million tonnes of K₂O equivalent in 2025, around 3.7% of global output, extracted from Dead Sea brines. The Arab Potash Company is the Arab region's only producer, and its 2024 output reached a company record of 2.84 million tonnes of product."
+      "en": "The world's eighth-largest potash producer: 1.8 million tonnes of K₂O equivalent in 2025, around 3.7% of global output, extracted from Dead Sea brines. The Arab Potash Company is the Arab region's only producer, and its 2024 output reached a company record of 2.84 million tonnes of product.",
+      "sources": ["https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-potash.pdf"]
     },
     {
       "iso3": "JOR",
@@ -366,7 +413,12 @@
       "rank": 1,
       "ar": "تسيطر على الحصّة الأكبر من احتياطيات الفوسفات العالمية، ومنها فوسفات بوكراع في الصحراء الغربية.",
       "en": "Holds the largest share of global phosphate reserves, including the Bou Craa deposit in Western Sahara.",
-      "conflictIds": ["western-sahara"]
+      "conflictIds": ["western-sahara"],
+      "sources": [
+        "https://www.crugroup.com/en/communities/thought-leadership/2023/morocco-a-market-mover-in-phosphates/",
+        "https://en.wikipedia.org/wiki/OCP_Group"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "MLI",
@@ -413,7 +465,12 @@
       "source": "undata",
       "ar": "منجم ريكو ديك في بلوشستان من أكبر رواسب النحاس والذهب غير المستغلّة في العالم.",
       "en": "The Reko Diq deposit in Balochistan is among the world's largest undeveloped copper and gold resources.",
-      "conflictIds": ["balochistan"]
+      "conflictIds": ["balochistan"],
+      "sources": [
+        "https://www.arabnews.pk/node/2637847",
+        "https://www.miningweekly.com/article/reko-diq-coppergold-project-pakistan-update-2026-04-10"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "QAT",
@@ -442,7 +499,12 @@
       "source": "usgs",
       "rank": 2,
       "ar": "ثاني أكبر منتج للبوتاس: 10 ملايين طن في 2025. تمركُز إنتاج البوتاس في روسيا وبيلاروسيا جعل العقوبات على الأخيرة صدمةً في أسواق الأسمدة العالمية.",
-      "en": "The second-largest potash producer: 10 million tonnes in 2025. The concentration of potash output in Russia and Belarus made sanctions on the latter a shock to global fertiliser markets."
+      "en": "The second-largest potash producer: 10 million tonnes in 2025. The concentration of potash output in Russia and Belarus made sanctions on the latter a shock to global fertiliser markets.",
+      "sources": [
+        "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-potash.pdf",
+        "https://nai500.com/blog/2026/05/usgs-2026-potash-report-global-production-reserves-rankings-released/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "SAU",
@@ -461,7 +523,8 @@
       "source": "usgs",
       "rank": 6,
       "ar": "سادس أكبر منتج للفوسفات: نحو 10 ملايين طن في 2025، ومركزه مدينة وعد الشمال الصناعية.",
-      "en": "The sixth-largest phosphate producer: around 10 million tonnes in 2025, centred on the Wa'ad Al Shamal industrial city."
+      "en": "The sixth-largest phosphate producer: around 10 million tonnes in 2025, centred on the Wa'ad Al Shamal industrial city.",
+      "sources": ["https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-phosphate.pdf"]
     },
     {
       "iso3": "SDN",
@@ -506,7 +569,8 @@
       "source": "usgs",
       "rank": 10,
       "ar": "عاشر أكبر منتج للفوسفات: نحو 3.3 مليون طن في 2025، وإنتاجه متقلّب بفعل الاضطرابات العمالية والاجتماعية في حوض قفصة.",
-      "en": "The tenth-largest phosphate producer: around 3.3 million tonnes in 2025, with output volatile owing to labour and social unrest in the Gafsa basin."
+      "en": "The tenth-largest phosphate producer: around 3.3 million tonnes in 2025, with output volatile owing to labour and social unrest in the Gafsa basin.",
+      "sources": ["https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-phosphate.pdf"]
     },
     {
       "iso3": "TUR",
@@ -543,7 +607,12 @@
       "source": "undata",
       "ar": "رواسب ليثيوم في الشرق والوسط، بعضها في مناطق خضعت للاحتلال، وقد دخلت في مفاوضات اقتصادية دولية.",
       "en": "Lithium deposits in the east and centre, some in occupied areas, which have entered international economic negotiations.",
-      "conflictIds": ["russia-ukraine"]
+      "conflictIds": ["russia-ukraine"],
+      "sources": [
+        "https://www.pravda.com.ua/eng/news/2025/06/27/7519044",
+        "https://kyivindependent.com/u-s-ukraine-minerals-agreement-the-main-points-of-the-newly-signed-deal"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "USA",
@@ -672,16 +741,26 @@
       "source": "usgs",
       "rank": 3,
       "ar": "ثالث أكبر منتج للنحاس بعد تشيلي والكونغو الديمقراطية، والاحتجاجات المحلية حول المناجم تعطّل الإنتاج دورياً.",
-      "en": "The third-largest copper producer after Chile and the DR Congo; local protests around mines periodically disrupt output."
+      "en": "The third-largest copper producer after Chile and the DR Congo; local protests around mines periodically disrupt output.",
+      "sources": [
+        "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-copper.pdf",
+        "https://www.riotimesonline.com/copper-latin-america-mines-prices-politics-2026/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "BOL",
       "type": "lithium",
       "year": 2024,
       "source": "usgs",
-      "rank": 1,
-      "ar": "أكبر موارد ليثيوم معروفة في العالم (نحو 23 مليون طن) في سهل أويوني الملحي، لكنها شبه غير مستغلة، وعقود استخراجها مع شركات صينية وروسية موضع جدل.",
-      "en": "The world's largest identified lithium resources (around 23 million tonnes) in the Uyuni salt flat, but they are barely exploited, and extraction contracts with Chinese and Russian firms are contested."
+      "ar": "من أكبر موارد الليثيوم المعروفة في العالم (نحو 23 مليون طن) في سهل أويوني الملحي، لكنها شبه غير مستغلة، وعقود استخراجها مع شركات صينية وروسية معلّقة قضائياً وقيد المراجعة.",
+      "en": "Among the world's largest identified lithium resources (around 23 million tonnes) in the Uyuni salt flat, but they are barely exploited, and extraction contracts with Chinese and Russian firms are suspended by the courts and under review.",
+      "sources": [
+        "https://www.mining.com/?p=1180336",
+        "https://intellinews.com/bolivia-s-lithium-deals-with-russia-china-raise-sovereignty-concerns-as-state-bears-heavy-risks-361149",
+        "https://correodelsur.com/economia/20260226/ylb-reporta-dos-contratos-y-cinco-convenios-sobre-el-litio.html"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "CAN",
@@ -719,7 +798,12 @@
       "source": "usgs",
       "rank": 1,
       "ar": "أكبر منتج لمعادن مجموعة البلاتين في العالم من حزام بوشفيلد، وهي مدخل أساسي لمحوّلات السيارات الحفزية والهيدروجين.",
-      "en": "The world's largest producer of platinum-group metals, from the Bushveld complex; they are a key input for catalytic converters and hydrogen."
+      "en": "The world's largest producer of platinum-group metals, from the Bushveld complex; they are a key input for catalytic converters and hydrogen.",
+      "sources": [
+        "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-platinum-group.pdf",
+        "https://www.heraldonline.co.zw/biggest-platinum-producers/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "ZAF",
@@ -728,7 +812,12 @@
       "source": "usgs",
       "rank": 1,
       "ar": "أكبر منتج للمنغنيز في العالم، الضروري لصناعة الصلب وبطاريات الليثيوم.",
-      "en": "The world's largest manganese producer, essential to steelmaking and lithium batteries."
+      "en": "The world's largest manganese producer, essential to steelmaking and lithium batteries.",
+      "sources": [
+        "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-manganese.pdf",
+        "https://en.wikipedia.org/wiki/List_of_countries_by_manganese_production"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "ZAF",
@@ -737,7 +826,8 @@
       "source": "usgs",
       "rank": 1,
       "ar": "أكبر منتج لخام الكروم في العالم، أساس صناعة الفولاذ المقاوم للصدأ.",
-      "en": "The world's largest chromium ore producer, the basis of stainless steel."
+      "en": "The world's largest chromium ore producer, the basis of stainless steel.",
+      "sources": ["https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-chromium.pdf"]
     },
     {
       "iso3": "ZAF",
@@ -900,7 +990,12 @@
       "year": 2025,
       "source": "usgs",
       "ar": "ثاني أكبر منتج للنحاس في أفريقيا بعد الكونغو الديمقراطية، وممرّ لوبيتو إلى أنغولا يربط حزام النحاس بالأطلسي.",
-      "en": "Africa's second-largest copper producer after the DR Congo; the Lobito Corridor to Angola links the Copperbelt to the Atlantic."
+      "en": "Africa's second-largest copper producer after the DR Congo; the Lobito Corridor to Angola links the Copperbelt to the Atlantic.",
+      "sources": [
+        "https://www.energize.co.za/article/drc-and-zambia-set-to-dominate-global-copper-production",
+        "https://www.businessday.co.za/bd/world/africa/2025-06-24-zambia-angola-push-lobito-corridor-as-financing-talks-advance/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "SEN",
@@ -923,8 +1018,14 @@
       "type": "lithium",
       "year": 2025,
       "source": "usgs",
-      "ar": "أكبر منتج لليثيوم في أفريقيا، وحظرت تصدير الخام الخام منذ 2022، ومعظم المناجم مملوكة لشركات صينية.",
-      "en": "Africa's largest lithium producer; it has banned raw ore exports since 2022, and most mines are owned by Chinese companies."
+      "ar": "أكبر منتج لليثيوم في أفريقيا؛ حظرت تصدير الخام عام 2022، وأوقفت تصدير مركّزات الليثيوم في فبراير 2026 ثم انتقلت إلى نظام الحصص تمهيداً لحظر كامل من 2027، ومعظم المناجم مملوكة لشركات صينية.",
+      "en": "Africa's largest lithium producer; it banned raw ore exports in 2022, suspended lithium concentrate exports in February 2026 before moving to quotas ahead of a full ban from 2027, and most mines are owned by Chinese companies.",
+      "sources": [
+        "https://www.aljazeera.com/amp/news/2026/2/25/zimbabwe-imposes-ban-on-exports-of-all-raw-minerals-and-lithium-concentrate",
+        "https://adf-magazine.com/2026/04/ban-on-mineral-exports-gives-zimbabwe-leverage-with-china/",
+        "https://www.miningmx.com/news/battery-minerals/64977-zimbabwe-sets-conditions-for-lifting-lithium-export-ban/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "ZWE",
@@ -933,7 +1034,12 @@
       "source": "usgs",
       "rank": 3,
       "ar": "ثالث أكبر منتج لمعادن مجموعة البلاتين من حزام الدايك العظيم.",
-      "en": "The third-largest producer of platinum-group metals, from the Great Dyke."
+      "en": "The third-largest producer of platinum-group metals, from the Great Dyke.",
+      "sources": [
+        "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-platinum-group.pdf",
+        "https://www.heraldonline.co.zw/biggest-platinum-producers/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "GIN",
@@ -941,7 +1047,11 @@
       "year": 2025,
       "source": "usgs",
       "ar": "أكبر احتياطي للبوكسيت في العالم ومن أكبر منتجَيه مع أستراليا، ويغذّي معظم صناعة الألمنيوم الصينية.",
-      "en": "The world's largest bauxite reserves and one of its two largest producers with Australia, feeding most of China's aluminium industry."
+      "en": "The world's largest bauxite reserves and one of its two largest producers with Australia, feeding most of China's aluminium industry.",
+      "sources": [
+        "https://www.developmentaid.org/news-stream/post/197368/top-countries-by-bauxite-production",
+        "https://www.alcircle.com/news/from-82-t-to-66-5-t-where-is-australias-bauxite-market-headed-in-2026-120806"
+      ]
     },
     {
       "iso3": "GIN",
@@ -949,7 +1059,12 @@
       "year": 2025,
       "source": "usgs",
       "ar": "منجم سيماندو، أكبر رواسب خام حديد عالي الجودة غير مستغلة في العالم، بدأ التصدير أواخر 2025 بشراكة صينية مع ريو تينتو.",
-      "en": "Simandou, the world's largest untapped high-grade iron ore deposit, began exports in late 2025 in a Chinese partnership with Rio Tinto."
+      "en": "Simandou, the world's largest untapped high-grade iron ore deposit, began exports in late 2025 in a Chinese partnership with Rio Tinto.",
+      "sources": [
+        "https://riotintoguinee.com/en/media/press-release/simandous-first-iron-ore-ship-sails-from-guinea/",
+        "https://www.mining.com/web/rio-tinto-ramps-up-simandou-stockpiles-to-2-million-tonnes-for-first-shipment"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "RWA",
@@ -958,7 +1073,12 @@
       "source": "usgs",
       "ar": "مصدّر كبير للكولتان والقصدير والتنغستن، وخبراء الأمم المتحدة يتهمونها بتمرير معادن مهرّبة من شرق الكونغو حيث يسيطر إم23 على منجم روبايا؛ وكيغالي تنفي.",
       "en": "A large exporter of coltan, tin and tungsten; UN experts accuse it of passing on minerals smuggled from eastern Congo, where M23 holds the Rubaya mine. Kigali denies it.",
-      "conflictIds": ["drc-east"]
+      "conflictIds": ["drc-east"],
+      "sources": [
+        "https://www.hrw.org/news/2026/02/03/end-to-abuses-still-distant-in-dr-congo",
+        "https://www.tbsnews.net/worldbiz/africa/rwanda-exercises-command-and-control-over-m23-rebels-un-experts-1179791"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "BEN",
@@ -1007,7 +1127,11 @@
       "year": 2025,
       "source": "usgs",
       "ar": "منجم بيشا للنحاس والزنك، المملوك لشركة زيجين الصينية، أكبر مصدر للعملة الصعبة.",
-      "en": "The Bisha copper and zinc mine, owned by China's Zijin, is the main source of hard currency."
+      "en": "The Bisha copper and zinc mine, owned by China's Zijin, is the main source of hard currency.",
+      "sources": [
+        "https://miningmx.com/2026-10-16-fuel-shortage-disrupts-zijin-s-eritrea-copper-zinc-mine/",
+        "https://www.mining-technology.com/projects/bisha-project/"
+      ]
     },
     {
       "iso3": "COG",
@@ -1073,7 +1197,12 @@
       "source": "usgs",
       "rank": 2,
       "ar": "ثاني أكبر منتج للمنغنيز في العالم بعد جنوب أفريقيا، من منجم مواندا.",
-      "en": "The world's second-largest manganese producer after South Africa, from the Moanda mine."
+      "en": "The world's second-largest manganese producer after South Africa, from the Moanda mine.",
+      "sources": [
+        "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-manganese.pdf",
+        "https://en.wikipedia.org/wiki/List_of_countries_by_manganese_production"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "GAB",
@@ -1130,7 +1259,12 @@
       "source": "usgs",
       "rank": 2,
       "ar": "ثاني أكبر منتج للنيكل في العالم بعد إندونيسيا، ويُصدَّر معظمه خاماً إلى الصين.",
-      "en": "The world's second-largest nickel producer after Indonesia, mostly exported as ore to China."
+      "en": "The world's second-largest nickel producer after Indonesia, mostly exported as ore to China.",
+      "sources": [
+        "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-nickel.pdf",
+        "https://thedeepdive.ca/philippines-nickel-exports-china-dominance/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "VNM",
@@ -1171,7 +1305,11 @@
       "year": 2025,
       "source": "usgs",
       "ar": "منجم مس عينك للنحاس، من أكبر الرواسب غير المستغلة في العالم، مؤجَّر لشركة صينية، مع تقديرات واسعة لموارد الليثيوم والعناصر النادرة.",
-      "en": "The Mes Aynak copper deposit, among the world's largest untapped, is leased to a Chinese company, alongside large estimated lithium and rare earth resources."
+      "en": "The Mes Aynak copper deposit, among the world's largest untapped, is leased to a Chinese company, alongside large estimated lithium and rare earth resources.",
+      "sources": [
+        "https://tribune.com.pk/story/2482600/chinese-engineers-taliban-break-ground-on-afghanistans-copper-mining-project-after-16-year-delay",
+        "https://www.environmentalpeacebuilding.org/news/show/f8844b7a9c66"
+      ]
     },
     {
       "iso3": "UZB",
@@ -1294,7 +1432,12 @@
       "year": 2025,
       "source": "usgs",
       "ar": "منجم أويو تولغوي للنحاس والذهب، الذي تشغّله ريو تينتو، من أكبر المناجم في العالم.",
-      "en": "The Oyu Tolgoi copper and gold mine, operated by Rio Tinto, is among the largest in the world."
+      "en": "The Oyu Tolgoi copper and gold mine, operated by Rio Tinto, is among the largest in the world.",
+      "sources": [
+        "https://www.riotinto.com/en/mn/news/releases/2026/rio-tinto-and-government-of-mongolia-agree-to-adjust-oyu-tolgoi-shareholder-loan-interest-rate",
+        "https://www.mining.com/web/mongolia-rio-tinto-have-resolved-nearly-all-copper-mine-tax-issues-pm/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "MNG",
@@ -1397,7 +1540,12 @@
       "source": "usgs",
       "rank": 1,
       "ar": "أكبر منتج للغرافيت ومعالجه في العالم، وفرضت قيوداً على تصديره منذ 2023.",
-      "en": "The world's largest graphite producer and processor, with export restrictions since 2023."
+      "en": "The world's largest graphite producer and processor, with export restrictions since 2023.",
+      "sources": [
+        "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-graphite.pdf",
+        "https://www.csis.org/analysis/chinas-use-graphite-export-restrictions-encourages-diversification"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "CHN",
@@ -1406,7 +1554,13 @@
       "source": "usgs",
       "rank": 1,
       "ar": "نحو 80% من إنتاج التنغستن العالمي، وقيّدت تصديره في 2025.",
-      "en": "Around 80% of world tungsten output, with export controls imposed in 2025."
+      "en": "Around 80% of world tungsten output, with export controls imposed in 2025.",
+      "sources": [
+        "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-tungsten.pdf",
+        "https://isvd.or.jp/en/columns/tungsten-china-78-percent",
+        "https://www.digitimes.com/news/a20250227PD210.html"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "CHN",
@@ -1424,7 +1578,8 @@
       "source": "usgs",
       "rank": 1,
       "ar": "أكبر منتج لخام الحديد في العالم من منطقة بيلبارا، والصين أكبر مشترٍ.",
-      "en": "The world's largest iron ore producer, from the Pilbara, with China the largest buyer."
+      "en": "The world's largest iron ore producer, from the Pilbara, with China the largest buyer.",
+      "sources": ["https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-iron-ore.pdf"]
     },
     {
       "iso3": "BRA",
@@ -1433,7 +1588,8 @@
       "source": "usgs",
       "rank": 2,
       "ar": "ثاني أكبر منتج لخام الحديد في العالم، ومنجم كاراجاس من أكبر المناجم.",
-      "en": "The world's second-largest iron ore producer, with Carajás among the largest mines."
+      "en": "The world's second-largest iron ore producer, with Carajás among the largest mines.",
+      "sources": ["https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-iron-ore.pdf"]
     },
     {
       "iso3": "BRA",
@@ -1460,7 +1616,12 @@
       "source": "usgs",
       "rank": 2,
       "ar": "أكبر منتج للبالاديوم في العالم وثاني منتج لمجموعة البلاتين، من نوريلسك.",
-      "en": "The world's largest palladium producer and second in platinum-group metals, from Norilsk."
+      "en": "The world's largest palladium producer and second in platinum-group metals, from Norilsk.",
+      "sources": [
+        "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-platinum-group.pdf",
+        "https://www.heraldonline.co.zw/biggest-platinum-producers/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "MEX",
@@ -1469,7 +1630,12 @@
       "source": "usgs",
       "rank": 1,
       "ar": "أكبر منتج للفضة في العالم.",
-      "en": "The world's largest silver producer."
+      "en": "The world's largest silver producer.",
+      "sources": [
+        "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-silver.pdf",
+        "https://www.miningvisuals.com/post/ranked-the-countries-that-produced-the-most-silver-in-2025"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "MEX",
@@ -1637,7 +1803,12 @@
       "year": 2025,
       "source": "usgs",
       "ar": "مشروع جادار لشركة ريو تينتو من أكبر مشاريع الليثيوم في أوروبا، وأثار احتجاجات واسعة في 2024.",
-      "en": "Rio Tinto's Jadar project is among Europe's largest lithium projects, and sparked mass protests in 2024."
+      "en": "Rio Tinto's Jadar project is among Europe's largest lithium projects, and sparked mass protests in 2024.",
+      "sources": [
+        "https://www.mining.com/thousands-protest-against-rio-tintos-lithium-project-in-serbia/",
+        "https://www.intellinews.com/protests-resume-in-serbia-over-rio-tinto-lithium-project-392906/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "DNK",
@@ -1733,7 +1904,12 @@
       "year": 2025,
       "source": "usgs",
       "ar": "منجم كوبري بنما، نحو 1% من النحاس العالمي، أُغلق أواخر 2023 بعد احتجاجات وحكم المحكمة العليا، ومستقبله موضع تفاوض.",
-      "en": "The Cobre Panamá mine, around 1% of world copper, was shut in late 2023 after protests and a Supreme Court ruling, and its future is under negotiation."
+      "en": "The Cobre Panamá mine, around 1% of world copper, was shut in late 2023 after protests and a Supreme Court ruling, and its future is under negotiation.",
+      "sources": [
+        "https://www.mining.com/?p=1187833",
+        "https://news.metal.com/newscontent/104143112-panama-panel-backs-conditional-cobre-panamá-restart-to-fund-eventual-closure"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "JAM",
@@ -1783,7 +1959,8 @@
       "source": "usgs",
       "rank": 4,
       "ar": "رابع أكبر منتج لليثيوم في العالم، ضمن «مثلث الليثيوم» مع تشيلي وبوليفيا.",
-      "en": "The world's fourth-largest lithium producer, part of the \"lithium triangle\" with Chile and Bolivia."
+      "en": "The world's fourth-largest lithium producer, part of the \"lithium triangle\" with Chile and Bolivia.",
+      "sources": ["https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-lithium.pdf"]
     },
     {
       "iso3": "ARG",
