@@ -297,9 +297,14 @@
       "type": "alliance",
       "kind": "treaty",
       "weight": 3,
-      "ar": "حليفان في الناتو مع خلاف مزمن حول الملف الكردي ومنظومات التسليح الروسية",
-      "en": "NATO allies with chronic disagreement over the Kurdish file and Russian weapons systems",
-      "since": "1952"
+      "ar": "حليفان في الناتو يختلفان حول منظومة S-400 الروسية التي ما زالت تحرم تركيا من مقاتلات F-35، وقد خفّ الخلاف الكردي بعد انتهاء الشراكة الأمريكية مع «قسد» فعلياً في يناير 2026",
+      "en": "NATO allies at odds over Turkey's Russian S-400s, which still bar it from the F-35; the Kurdish dispute eased after the US partnership with the SDF effectively ended in January 2026",
+      "since": "1952",
+      "sources": [
+        "https://www.everycrsreport.com/files/2026-08-20_R44000_5fd5c825150eed9e0d2b7493f99332cfe285fdd5.html",
+        "https://turdef.com/article/us-envoy-signals-s-400-path-keeps-f-35-option-alive"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "USA",
@@ -307,8 +312,13 @@
       "type": "military",
       "kind": "treaty",
       "weight": 5,
-      "ar": "أكبر مورّد عسكري، ودور تفاوضي متصاعد في 2026",
-      "en": "Largest military supplier, with an increasingly central negotiating role in 2026"
+      "ar": "كانت أكبر مورّد عسكري، لكن مساعداتها العسكرية المباشرة توقّفت تقريباً في 2025 وحلّت أوروبا محلّها؛ وتقود واشنطن وساطة سلام متعثّرة",
+      "en": "Formerly the largest military supplier, but direct US military aid nearly stopped in 2025 as Europe took over; Washington leads the stalled peace mediation",
+      "sources": [
+        "https://www.euronews.com/2026/02/11/aid-to-ukraine-largely-stable-as-europe-steps-up-after-us-withdrawal-study-shows",
+        "https://npr.org/2026/09/06/nx-s1-5959657/us-envoys-witkoff-kushner-talks-in-kyiv-putin-moscow"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "USA",
@@ -410,7 +420,12 @@
       "kind": "assessed",
       "weight": 5,
       "ar": "خصومة محورها أوكرانيا، مع قناة تفاوضية مفتوحة في 2026",
-      "en": "Rivalry centred on Ukraine, with an open negotiating channel in 2026"
+      "en": "Rivalry centred on Ukraine, with an open negotiating channel in 2026",
+      "sources": [
+        "https://npr.org/2026/09/06/nx-s1-5959657/us-envoys-witkoff-kushner-talks-in-kyiv-putin-moscow",
+        "https://www.pravda.com.ua/eng/news/2026/09/06/8052094/index.amp"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "USA",
@@ -472,8 +487,14 @@
       "type": "diplomatic",
       "kind": "treaty",
       "weight": 3,
-      "ar": "وسيط اتفاق السلام مع أذربيجان وشريك في ترتيبات ممرّ المرور",
-      "en": "Mediator of the peace agreement with Azerbaijan and partner in the transit-corridor arrangements"
+      "ar": "وسيط اتفاق السلام مع أذربيجان وشريك في ممرّ «ترِب» للعبور (اتفاق إطاري في يونيو 2026، وحصة أمريكية 74% في شركة التطوير)",
+      "en": "Mediator of the peace agreement with Azerbaijan and partner in the TRIPP transit corridor (framework agreement June 2026, with a 74% US stake in the development company)",
+      "sources": [
+        "https://jam-news.net/armenia-begins-ratifying-the-tripp-agreement/",
+        "https://georgiatoday.ge/us-to-hold-74-stake-in-armenias-tripp-company-under-new-agreement/",
+        "https://www.arabnews.com/node/2651101/world"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "USA",
@@ -482,7 +503,12 @@
       "kind": "treaty",
       "weight": 3,
       "ar": "وسيط اتفاق السلام مع أرمينيا",
-      "en": "Mediator of the peace agreement with Armenia"
+      "en": "Mediator of the peace agreement with Armenia",
+      "sources": [
+        "https://www.arabnews.com/node/2651101/world",
+        "https://mirrorspectator.com/2026/01/06/armenia-azerbaijan-still-disagree-on-important-issues/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "USA",
@@ -500,7 +526,14 @@
       "kind": "assessed",
       "weight": 5,
       "ar": "حرب بين دولتين على الأرض والسيادة منذ 2014 وبشكل كامل منذ 2022",
-      "en": "An interstate war over land and sovereignty since 2014 and in full since 2022"
+      "en": "An interstate war over land and sovereignty since 2014 and in full since 2022",
+      "sources": [
+        "https://kyivindependent.com/the-origins-of-the-2014-war-in-donbas/",
+        "https://www.atlanticcouncil.org/blogs/ukrainealert/russia-invaded-ukraine-in-2014-long-before-the-full-scale-war-of-2022/",
+        "https://npr.org/2026/09/06/nx-s1-5959657/us-envoys-witkoff-kushner-talks-in-kyiv-putin-moscow"
+      ],
+      "verified": "2026-11-02",
+      "since": "2014-02"
     },
     {
       "a": "RUS",
@@ -582,8 +615,14 @@
       "type": "alliance",
       "kind": "treaty",
       "weight": 2,
-      "ar": "عضوان في منظمة معاهدة الأمن الجماعي، لكن الدور الروسي تراجع بشدّة لصالح الوساطة الأمريكية",
-      "en": "Both members of the CSTO, but Russia's role has receded sharply in favour of American mediation"
+      "ar": "جمّدت أرمينيا مشاركتها في منظمة معاهدة الأمن الجماعي عام 2024 وتتّجه نحو الاتحاد الأوروبي، فيما تراجع الدور الروسي لصالح الوساطة الأمريكية",
+      "en": "Armenia froze its CSTO participation in 2024 and is moving toward the EU, while Russia's role has receded in favour of American mediation",
+      "sources": [
+        "https://www.arabnews.pk/node/2465132/world",
+        "https://meduza.io/en/news/2026/06/05/we-ll-decide-and-we-ll-leave-armenian-leader-says-of-russian-led-defense-bloc",
+        "https://www.internazionale.it/ultime-notizie-reuters/2026/06/10/russia-says-armenia-s-future-in-post-soviet-military-and-economic-blocs-must-be-settled-soon"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "RUS",
@@ -592,7 +631,13 @@
       "kind": "assessed",
       "weight": 4,
       "ar": "اعتراف روسي بأبخازيا وأوسيتيا الجنوبية ونشر قوات فيهما، وجورجيا تصنّفهما أراضيَ محتلة",
-      "en": "Russian recognition of Abkhazia and South Ossetia and deployment of forces there; Georgia designates both occupied territories"
+      "en": "Russian recognition of Abkhazia and South Ossetia and deployment of forces there; Georgia designates both occupied territories",
+      "sources": [
+        "https://dfwatch.net/russian-general-says-bases-guarantee-stability-in-caucasus-44849-11058",
+        "https://eurasianet.org/russia-is-setting-up-military-bases-in-abkhazia-south-ossetia"
+      ],
+      "verified": "2026-11-02",
+      "since": "2008-08"
     },
     {
       "a": "RUS",
@@ -600,8 +645,14 @@
       "type": "influence",
       "kind": "assessed",
       "weight": 3,
-      "ar": "ضمان ترانسنيستريا عسكرياً واقتصادياً عبر الغاز المدعوم",
-      "en": "Underwriting Transnistria militarily and economically through subsidised gas"
+      "ar": "قوات روسية متمركزة في إقليم ترانسنيستريا الانفصالي، وإمدادات غاز روسية تُستخدم ورقة ضغط، منها قطعها في يناير 2025",
+      "en": "Russian troops stationed in breakaway Transnistria, and Russian gas supplies to the region used as leverage, including the January 2025 cut-off",
+      "sources": [
+        "https://pism.pl/publications/moldova-and-separatist-transnistria-facing-severe-energy-crisis",
+        "https://www.kyivpost.com/post/74088",
+        "https://www.themoscowtimes.com/2026/08/05/transnistria-appeals-to-russia-amid-worsening-energy-crisis"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "RUS",
@@ -610,7 +661,12 @@
       "kind": "assessed",
       "weight": 3,
       "ar": "دعم الموقف الصربي في كوسوفو ومنع عضويتها في الأمم المتحدة",
-      "en": "Support for Serbia's position on Kosovo and blocking its UN membership"
+      "en": "Support for Serbia's position on Kosovo and blocking its UN membership",
+      "sources": [
+        "https://www.washingtontimes.com/news/2020/jun/18/with-us-summit-planned-russia-prefers-eu-kosovo-me/",
+        "https://aa.com.tr/en/europe/russia-supports-acceptable-solution-on-kosovo/1881931"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "RUS",
@@ -1257,7 +1313,13 @@
       "kind": "assessed",
       "weight": 4,
       "ar": "عدم اعتراف صربي باستقلال كوسوفو وحوار متقطّع برعاية الاتحاد الأوروبي",
-      "en": "Serbian non-recognition of Kosovo's independence and intermittent EU-facilitated dialogue"
+      "en": "Serbian non-recognition of Kosovo's independence and intermittent EU-facilitated dialogue",
+      "sources": [
+        "https://atlasinstitute.org/recalibrating-western-policy-toward-serbia-and-kosovo-enlargement-leverage-and-strategic-drift/",
+        "https://ecfr.eu/article/cast-no-shadow-how-the-eu-can-advance-the-kosovo-serbia-dialogue-process/"
+      ],
+      "verified": "2026-11-02",
+      "since": "2008-02-17"
     },
     {
       "a": "ARM",
@@ -1266,7 +1328,12 @@
       "kind": "assessed",
       "weight": 4,
       "ar": "نصّ معاهدة سلام موقّع بالأحرف الأولى في أغسطس 2025 لم يُوقَّع نهائياً بسبب شرط تعديل الدستور الأرمني",
-      "en": "A peace treaty text initialled in August 2025 but not finally signed, owing to the condition of amending Armenia's constitution"
+      "en": "A peace treaty text initialled in August 2025 but not finally signed, owing to the condition of amending Armenia's constitution",
+      "sources": [
+        "https://www.arabnews.com/node/2651101/world",
+        "https://mirrorspectator.com/2026/01/06/armenia-azerbaijan-still-disagree-on-important-issues/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "BGD",
@@ -1318,8 +1385,13 @@
       "type": "military",
       "kind": "treaty",
       "weight": 4,
-      "ar": "أكبر داعم أوروبي مالياً وعسكرياً",
-      "en": "Largest European financial and military backer"
+      "ar": "أكبر داعم عسكري أوروبي لأوكرانيا (نحو 9 مليارات يورو في 2025)",
+      "en": "Largest European military backer of Ukraine (around €9 billion in 2025)",
+      "sources": [
+        "https://www.euronews.com/2026/02/11/aid-to-ukraine-largely-stable-as-europe-steps-up-after-us-withdrawal-study-shows",
+        "https://www.aljazeera.com/news/2025/10/15/germany-pledges-2bn-in-military-aid-for-ukraine-as-kyiv-seeks-more-funds"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "FRA",
@@ -1338,7 +1410,12 @@
       "weight": 4,
       "ar": "طرفان ضامنان في اتفاقية الجمعة العظيمة 1998، مع ترتيبات تجارية معقّدة بعد بريكست",
       "en": "Both guarantor parties to the 1998 Good Friday Agreement, with complex post-Brexit trade arrangements",
-      "since": "1998-04-10"
+      "since": "1998-04-10",
+      "sources": [
+        "https://www.gov.uk/government/news/joint-statement-following-the-meeting-of-the-specialised-committee-on-the-implementation-of-the-windsor-framework-7-may-2026",
+        "https://www.businesspost.ie/news/dublin-london-relationship-back-on-track-but-more-to-be-done-on-northern-ireland-mcgrath-says/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "MAR",
@@ -1784,9 +1861,14 @@
       "type": "alliance",
       "kind": "treaty",
       "weight": 4,
-      "ar": "شراكة استراتيجية (2021) تتضمّن بند مساعدة متبادلة في حال الهجوم المسلّح، إضافة إلى عضوية الناتو والاتحاد الأوروبي",
-      "en": "A strategic partnership (2021) with a mutual assistance clause in case of armed attack, on top of NATO and EU membership",
-      "since": "2021-09-28"
+      "ar": "شراكة استراتيجية (2021) تتضمّن بند مساعدة متبادلة في حال الهجوم المسلّح، جُدّدت لخمس سنوات في أبريل 2026، إضافة إلى عضوية الناتو والاتحاد الأوروبي",
+      "en": "A strategic partnership (2021) with a mutual assistance clause in case of armed attack, renewed for five years in April 2026, on top of NATO and EU membership",
+      "since": "2021-09-28",
+      "sources": [
+        "https://www.al-monitor.com/originals/2026/04/france-and-greece-renew-defence-pact-another-five-years",
+        "https://in.gr/2021/09/28/english-edition/greece-france-sign-mutual-defence-pact-major-arms-procurement-deal"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "FRA",
@@ -1794,9 +1876,14 @@
       "type": "military",
       "kind": "treaty",
       "weight": 3,
-      "ar": "اتفاقية دفاعية (2009) وقاعدة فرنسية دائمة في أبوظبي",
-      "en": "A defence agreement (2009) and a permanent French base in Abu Dhabi",
-      "since": "2009"
+      "ar": "اتفاقية دفاع مشترك (1995) وقاعدة فرنسية دائمة في أبوظبي («معسكر السلام»)، اتُّفق عليها عام 2008 وافتُتحت عام 2009",
+      "en": "A mutual defence agreement (1995) and a permanent French base in Abu Dhabi (Camp de la Paix), agreed in 2008 and opened in 2009",
+      "since": "1995",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Camp_de_la_Paix",
+        "https://dawn.com/news/amp/285044"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "FRA",
@@ -1816,7 +1903,12 @@
       "weight": 4,
       "ar": "اتفاقية تعاون أمني (يناير 2024) وشراكة المئة عام (يناير 2025)",
       "en": "A security cooperation agreement (January 2024) and the 100-year partnership (January 2025)",
-      "since": "2024-01-12"
+      "since": "2024-01-12",
+      "sources": [
+        "https://www.gov.uk/government/news/uk-and-ukraine-sign-landmark-100-year-partnership-to-deepen-security-ties-and-strengthen-partnership-for-future-generations",
+        "https://euromaidanpress.com/2025/01/16/ukraine-and-united-kingdom-sign-historic-agreement-on-100-years-of-partnership/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "FRA",
@@ -1826,7 +1918,12 @@
       "weight": 4,
       "ar": "اتفاقية أمنية ثنائية (فبراير 2024) لعشر سنوات، ودور قيادي في «تحالف الراغبين» لضمانات ما بعد الحرب",
       "en": "A ten-year bilateral security agreement (February 2024), and a leading role in the coalition of the willing on post-war guarantees",
-      "since": "2024-02-16"
+      "since": "2024-02-16",
+      "sources": [
+        "https://kyivindependent.com/zelensky-macron-sign-security-agreement-between-ukraine-france/",
+        "https://www.elysee.fr/en/emmanuel-macron/2026/01/06/robust-security-guarantees-for-a-solid-and-lasting-peace-in-ukraine"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "EGY",
@@ -1917,7 +2014,12 @@
       "weight": 5,
       "ar": "معاهدة آخن (2019) تتضمّن التزاماً بالمساعدة المتبادلة بكل الوسائل بما فيها العسكرية في حال الاعتداء المسلّح، وتكمّل معاهدة الإليزيه (1963)",
       "en": "The Treaty of Aachen (2019) includes a commitment to mutual assistance by all means, including military, in case of armed attack, complementing the Élysée Treaty (1963)",
-      "since": "2019-01-22"
+      "since": "2019-01-22",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Aachen_Treaty",
+        "https://egmontinstitute.be/the-aachen-mutual-defence-clause-a-closer-look-at-the-franco-german-treaty/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "FRA",
@@ -1984,7 +2086,12 @@
       "weight": 3,
       "ar": "معاهدة كويرينالي (2021) للتعاون المعزّز، ومنها التعاون الدفاعي والصناعات العسكرية المشتركة",
       "en": "The Quirinal Treaty (2021) on enhanced cooperation, including defence and joint defence industry",
-      "since": "2021-11-26"
+      "since": "2021-11-26",
+      "sources": [
+        "https://decode39.com/2344/draghi-macron-quirinal-treaty/",
+        "https://finabel.org/wp-content/uploads/2021/12/The-Franco-Italian-Quirinale-Treaty-and-the-post-Merkel-power-balance-what-is-new-for-the-European-security-and-defence-environment.pdf"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "FRA",
@@ -1992,9 +2099,14 @@
       "type": "military",
       "kind": "treaty",
       "weight": 3,
-      "ar": "معاهدة برشلونة (2023) للصداقة والتعاون، ومنها التعاون الأمني والدفاعي",
-      "en": "The Treaty of Barcelona (2023) on friendship and cooperation, including security and defence",
-      "since": "2023-01-19"
+      "ar": "معاهدة برشلونة (2023) للصداقة والتعاون، ومعاهدة منفصلة للتعاون الدفاعي وُقّعت في اليوم نفسه وأنشأت مجلساً فرنسياً-إسبانياً للدفاع والأمن",
+      "en": "The Treaty of Barcelona (2023) on friendship and cooperation, and a separate defence cooperation treaty signed the same day that set up a Franco-Spanish Defence and Security Council",
+      "since": "2023-01-19",
+      "sources": [
+        "https://boe.es/boe/dias/2025/06/11/pdfs/BOE-A-2025-11723.pdf",
+        "https://theobjective.com/espana/2023-01-19/cumbre-hispano-francesa-sanchez-y-macron-firman-un-tratado-para-elevar-las-relaciones-entre-espana-y-francia-al-maximo-nivel/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "DEU",
@@ -2002,9 +2114,14 @@
       "type": "military",
       "kind": "treaty",
       "weight": 4,
-      "ar": "اتفاق 2023 على تمركز لواء ألماني دائم في ليتوانيا (اللواء المدرّع 45)، أول تمركز دائم للجيش الألماني خارج البلاد منذ الحرب العالمية الثانية",
-      "en": "A 2023 agreement on stationing a permanent German brigade in Lithuania (Panzerbrigade 45), the German army's first permanent deployment abroad since the Second World War",
-      "since": "2023-12"
+      "ar": "اتفاق 2023 على تمركز لواء ألماني دائم في ليتوانيا (اللواء المدرّع 45، دخل الخدمة في أبريل 2025)، أول تمركز دائم للجيش الألماني خارج البلاد منذ الحرب العالمية الثانية",
+      "en": "A 2023 agreement on stationing a permanent German brigade in Lithuania (Panzerbrigade 45, commissioned April 2025), the German army's first permanent deployment abroad since the Second World War",
+      "since": "2023-12",
+      "sources": [
+        "https://www.bundeswehr.de/de/meldungen/brigade-litauen-einsatzbereitschaft-5936688",
+        "https://www.irishtimes.com/world/europe/2025/05/22/merz-vows-to-defend-nato-territory-as-german-troops-deploy-in-lithuania"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "GBR",
@@ -2045,7 +2162,12 @@
       "weight": 3,
       "ar": "اتفاقية الدفاع المشترك (2019) وقاعدة الدقم اللوجستية البريطانية",
       "en": "The Joint Defence Agreement (2019) and the British logistics base at Duqm",
-      "since": "2019-02"
+      "since": "2019-02",
+      "sources": [
+        "https://www.gov.uk/government/news/uk-and-oman-sign-historic-joint-defence-agreement",
+        "https://maritime-executive.com/article/uk-secures-naval-base-in-oman"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "a": "FRA",
