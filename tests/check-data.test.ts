@@ -60,4 +60,38 @@ describe('check-data', () => {
       fs.rmSync(dir, { recursive: true, force: true });
     }
   });
+
+  describe('provenance fields', () => {
+    let dir: string;
+    let ei: number;
+    beforeAll(() => {
+      dir = fs.mkdtempSync(path.join(os.tmpdir(), 'atlas-prov-'));
+      fs.cpSync(DATA_DIR, dir, { recursive: true });
+      const rf = path.join(dir, 'curated/relations.json');
+      const rel = JSON.parse(fs.readFileSync(rf, 'utf8'));
+      ei = 0;
+      Object.assign(rel.edges[ei], { since: '2021/01', verified: '2999-01-01', sources: ['http://example.org'] });
+      fs.writeFileSync(rf, formatJson(rel));
+    });
+    afterAll(() => fs.rmSync(dir, { recursive: true, force: true }));
+
+    test('bad dates and non-https links are reported', () => {
+      const paths = checkData(dir).map((p) => `${p.file} › ${p.path}`);
+      expect(paths).toEqual([
+        `relations.json › edges[${ei}].since`,
+        `relations.json › edges[${ei}].sources[0]`,
+      ]);
+    });
+
+    test('a last-checked date in the future is reported', () => {
+      const rf = path.join(dir, 'curated/relations.json');
+      const rel = JSON.parse(fs.readFileSync(rf, 'utf8'));
+      Object.assign(rel.edges[ei], { since: '2021-01', sources: ['https://example.org/'] });
+      fs.writeFileSync(rf, formatJson(rel));
+      expect(checkData(dir).map((p) => `${p.file} › ${p.path} › ${p.message}`)).toEqual([
+        `relations.json › edges[${ei}].verified › date is in the future`,
+      ]);
+    });
+  });
 });
+

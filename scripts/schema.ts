@@ -9,6 +9,10 @@ const id = z.string().min(1);
 const iso = z.string().regex(/^[A-Z]{3}$/, 'expected a three-letter ISO code');
 const lonLat = z.tuple([z.number().min(-180).max(180), z.number().min(-90).max(90)]);
 const date = z.string().regex(/^\d{4}(-\d{2}(-\d{2})?)?$/, 'expected YYYY, YYYY-MM or YYYY-MM-DD');
+const day = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'expected YYYY-MM-DD');
+const url = z.string().regex(/^https:\/\/[^\s]+$/, 'expected an https:// link');
+/** Optional provenance on relations, blocs, resource records and sites. */
+const provenance = { since: date.optional(), verified: day.optional(), sources: z.array(url).min(1).optional() };
 
 export const conflictFile = z.looseObject({
   region: id,
@@ -39,8 +43,8 @@ export const SCHEMAS: Record<string, z.ZodType> = {
   }),
   'relations.json': z.looseObject({
     edgeTypes: z.array(z.looseObject({ id })),
-    blocs: z.array(z.looseObject({ id, ar: z.string(), en: z.string(), members: z.array(iso) })),
-    edges: z.array(z.looseObject({ a: iso, b: iso, type: id, kind: z.enum(['treaty', 'assessed']) })),
+    blocs: z.array(z.looseObject({ id, ar: z.string(), en: z.string(), members: z.array(iso), ...provenance })),
+    edges: z.array(z.looseObject({ a: iso, b: iso, type: id, kind: z.enum(['treaty', 'assessed']), ...provenance })),
     bilateral: z.record(z.string(), z.unknown()),
   }),
   'religions.json': z.looseObject({
@@ -49,8 +53,8 @@ export const SCHEMAS: Record<string, z.ZodType> = {
   }),
   'resources.json': z.looseObject({
     types: z.array(z.looseObject({ id, ar: z.string(), en: z.string() })),
-    entries: z.array(z.looseObject({ iso3: iso, type: id, conflictIds: z.array(id).optional() })),
-    sites: z.array(z.looseObject({ id, iso3: iso, type: id, ar: z.string(), en: z.string() })),
+    entries: z.array(z.looseObject({ iso3: iso, type: id, conflictIds: z.array(id).optional(), ...provenance })),
+    sites: z.array(z.looseObject({ id, iso3: iso, type: id, ar: z.string(), en: z.string(), ...provenance })),
   }),
   'sources.json': z.looseObject({
     datasets: z.array(z.looseObject({ id })),

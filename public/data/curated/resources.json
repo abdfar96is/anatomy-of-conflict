@@ -140,7 +140,9 @@
       "rank": 1,
       "ar": "تهيمن على معالجة العناصر الأرضية النادرة أكثر من تعدينها، وهو ما يجعل ضوابط التصدير أداة ضغط فعّالة.",
       "en": "Dominates the processing of rare earths more than their mining, which makes export controls an effective instrument of pressure.",
-      "conflictIds": ["taiwan-strait", "xinjiang"]
+      "conflictIds": ["taiwan-strait", "xinjiang"],
+      "sources": ["https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-rare-earths.pdf"],
+      "verified": "2026-11-01"
     },
     {
       "iso3": "CHN",
@@ -382,7 +384,9 @@
       "source": "undata",
       "ar": "مصدر متنامٍ للمعادن النادرة يُعدَّن في مناطق خارج سيطرة المجلس العسكري، وصار محلّ تفاوض دولي مباشر في 2026.",
       "en": "A growing source of rare earths mined in areas outside junta control, and the subject of direct international negotiation in 2026.",
-      "conflictIds": ["myanmar"]
+      "conflictIds": ["myanmar"],
+      "sources": ["https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-rare-earths.pdf"],
+      "verified": "2026-11-01"
     },
     {
       "iso3": "NER",
@@ -567,7 +571,12 @@
       "source": "eia",
       "ar": "احتياطي نفطي يقارب 113 مليار برميل وفق تحديث أدنوك (2023)، وخط حبشان–الفجيرة (1.5–1.8 مليون برميل يومياً) يتجاوز مضيق هرمز؛ استُهدف طرفاه خلال حرب 2026، ويُسرَّع خط ثانٍ يُنتظر أن يضاعف طاقة التصدير الالتفافية في 2027.",
       "en": "Oil reserves of around 113 billion barrels according to ADNOC's 2023 update, and the Habshan–Fujairah pipeline (1.5–1.8 million barrels per day) bypasses the Strait of Hormuz; both its ends were struck during the 2026 war, and a second line expected to double bypass export capacity is being fast-tracked for 2027.",
-      "conflictIds": ["gulf-security"]
+      "conflictIds": ["gulf-security"],
+      "sources": [
+        "https://thenationalnews.com/business/energy/2026/05/15/uaes-west-east-pipeline-expansion-to-become-operational-in-2027-doubling-oil-export-capacity/",
+        "https://www.enerdata.net/publications/daily-energy-news/uae-speeds-construction-new-oil-pipelines-bypassing-strait-hormuz.html"
+      ],
+      "verified": "2026-11-01"
     },
     {
       "iso3": "ARE",
@@ -585,7 +594,11 @@
       "source": "eia",
       "ar": "نحو مليون برميل يومياً من النفط والمكثفات خارج أوبك، وميناء التصدير الرئيسي ميناء الفحل يقع على بحر عُمان خارج مضيق هرمز، ما يمنح صادراتها ميزة في أزمات المضيق.",
       "en": "Around one million barrels per day of crude and condensate outside OPEC; the main export terminal, Mina al-Fahal, lies on the Sea of Oman outside the Strait of Hormuz, giving its exports an advantage in Strait crises.",
-      "conflictIds": ["gulf-security"]
+      "conflictIds": ["gulf-security"],
+      "sources": [
+        "https://www.mees.com/2026/7/24/oil-gas/oman-gas-output-smashes-monthly-records-in-1h-2026/85e460f0-8752-11f1-914b-692d052127e1"
+      ],
+      "verified": "2026-11-01"
     },
     {
       "iso3": "OMN",
@@ -594,7 +607,11 @@
       "source": "eia",
       "ar": "مجمّع عُمان للغاز المسال في قلهات (نحو 11.5 مليون طن سنوياً) على بحر العرب خارج مضيق هرمز، وصادراته تتجه أساساً إلى آسيا.",
       "en": "The Oman LNG complex at Qalhat (around 11.5 million tonnes a year) on the Arabian Sea, outside the Strait of Hormuz, exporting mainly to Asia.",
-      "conflictIds": ["gulf-security"]
+      "conflictIds": ["gulf-security"],
+      "sources": [
+        "https://www.omanobserver.om/article/1192704/business/oman-lng-exports-reach-119-million-tonnes"
+      ],
+      "verified": "2026-11-01"
     },
     {
       "iso3": "KWT",
@@ -691,7 +708,9 @@
       "source": "usgs",
       "rank": 2,
       "ar": "ثاني أكبر منتج للعناصر الأرضية النادرة من منجم ماونتن باس، مع سعي لبناء قدرة معالجة محلية تقلّل الاعتماد على الصين.",
-      "en": "The second-largest rare earth producer, from the Mountain Pass mine, with a push to build domestic processing capacity to reduce dependence on China."
+      "en": "The second-largest rare earth producer, from the Mountain Pass mine, with a push to build domestic processing capacity to reduce dependence on China.",
+      "sources": ["https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-rare-earths.pdf"],
+      "verified": "2026-11-01"
     },
     {
       "iso3": "ZAF",

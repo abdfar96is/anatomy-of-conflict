@@ -20,7 +20,7 @@ function body(s: Site, k: Kit) {
       k.fact(t('dz.st.type'), <>{k.sw(k.resColor(s.type))}{k.resTypeName(s.type)}</>, { text: true }),
       k.fact(t('dz.st.country'), k.cchip(s.iso3), { text: true }),
     ]), { cls: 'first' })}
-    {k.sec(t('dz.st.note'), k.prose(Lk(s, 'note'), { clamp: false }))}
+    {k.sec(t('dz.st.note'), [k.prose(Lk(s, 'note'), { clamp: false }), k.provenance(s)])}
     {record.length ? k.sec(t('dz.st.record'), k.rows(record.map((e, i) => k.resourceEntry(e, i)))) : null}
   </>;
 }

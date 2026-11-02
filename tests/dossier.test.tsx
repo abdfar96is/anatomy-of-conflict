@@ -8,6 +8,7 @@ import { build } from '../src/data/build';
 import type { DB, Kind } from '../src/data/types';
 import { Dossier } from '../src/features/dossier';
 import '../src/i18n/core';
+import { fmtDate } from '../src/i18n/format';
 import { translate } from '../src/i18n/strings';
 import { readRaw } from './helpers/readRaw';
 
@@ -257,5 +258,30 @@ describe('Dossier with missing optional fields', () => {
     const [from, to] = db.timeline.range as [number, number];
     expect(panel()).toContain(en('dz.h.none', { n: db.timeline.events.length, from, to }));
     expect(document.querySelectorAll('#dz-panel .dz-empty').length).toBeGreaterThan(0);
+  });
+});
+
+describe('Record provenance', () => {
+  test('a sourced relation shows its dates and source links; an unsourced one says so', () => {
+    atlas.set({ lang: 'en' });
+    withDb(<Dossier />);
+    pick('country', 'JOR');
+    fireEvent.click(screen.getByRole('tab', { name: /Relations/ }));
+    const panel = document.getElementById('dz-panel')!;
+    const link = within(panel).getByRole('link', { name: /state\.gov/ });
+    expect(link).toHaveAttribute('href', 'https://www.state.gov/jordan-21-317');
+    expect(panel.textContent).toContain(en('dz.pv.since', { d: fmtDate('2021-01', 'en') }));
+    expect(panel.textContent).toContain(en('dz.pv.verified', { d: fmtDate('2026-11-01', 'en') }));
+    const unsourced = db.relations.edges.find((e) => (e.a === 'JOR' || e.b === 'JOR') && !e.sources?.length);
+    if (unsourced) expect(panel.textContent).toContain(en('dz.pv.none'));
+  });
+
+  test('a bloc shows its founding date and link', () => {
+    atlas.set({ lang: 'en' });
+    withDb(<Dossier />);
+    pick('bloc', 'nato');
+    const panel = document.getElementById('dz-panel')!;
+    expect(within(panel).getByRole('link', { name: /nato\.int/ })).toHaveAttribute('href', 'https://www.nato.int/');
+    expect(panel.textContent).toContain('1949');
   });
 });

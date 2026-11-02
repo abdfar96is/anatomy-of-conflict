@@ -9,7 +9,7 @@ import type { Kind } from '../../data/types';
 import { esc } from '../../ui/dom';
 import { Icon } from '../../ui/Icon';
 import { resClassVar, sevVar } from '../../ui/palette';
-import type { CatX, ChokeX, ConflictX, Ctx, DatasetX, EventX, Group, RefX, ResEntryX, Site } from './model';
+import type { CatX, ChokeX, ConflictX, Ctx, DatasetX, EventX, Group, Provenance, RefX, ResEntryX, Site } from './model';
 import { FAMILY, NE } from './strings';
 
 const SEV: Record<string, (typeof SEVERITY)[number]> = Object.fromEntries(SEVERITY.map((s) => [s.id, s]));
@@ -33,6 +33,9 @@ const Line = ({ dash }: { dash: boolean }) => (
     <path d="M1 3h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeDasharray={dash ? '2.5 3' : undefined} />
   </svg>
 );
+
+/** The site name of a source link, for a compact label (www. dropped). */
+export const hostOf = (u: string): string => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return u; } };
 
 /** True for what renders nothing: null, false, '' and arrays of those. */
 export const isEmpty = (n: ReactNode): boolean =>
@@ -262,6 +265,22 @@ export function kit(c: Ctx, actions: KitActions) {
       : <span>{name}</span>;
     return <li key={id}>{link}{role ? <span className="dz-ref-r">{role}</span> : null}</li>;
   };
+  /** Provenance line under a record: since and last-checked dates, then source links, or a plain note when it has none. */
+  const provenance = (p: Provenance) => {
+    const meta = [p.since ? t('dz.pv.since', { d: fmt.date(p.since) }) : '', p.verified ? t('dz.pv.verified', { d: fmt.date(p.verified) }) : '']
+      .filter(Boolean).join(' · ');
+    const src = p.sources ?? [];
+    return (
+      <p className="dz-pv">
+        {meta ? <span className="dz-pv-m">{meta}</span> : null}
+        {src.length
+          ? <span className="dz-pv-s">{t('dz.pv.sources')}{' '}{src.map((u, i) => (
+            <Fragment key={u}>{i ? ' · ' : ''}<a href={u} target="_blank" rel="noopener">{hostOf(u)}<Icon name="external" size={11} /></a></Fragment>
+          ))}</span>
+          : <span className="dz-pv-none">{t('dz.pv.none')}</span>}
+      </p>
+    );
+  };
   const resourceEntry = (e: ResEntryX, i: number, { country = false } = {}) => {
     const conf = (e.conflictIds ?? []).map((id) => db.conflictById.get(id) as ConflictX | undefined).filter((x) => !!x);
     return (
@@ -271,6 +290,7 @@ export function kit(c: Ctx, actions: KitActions) {
           {e.rank ? <span className="pill dz-pill">{t('dz.res.rank', { n: e.rank })}</span> : null}
           <span className="dz-res-m"><span className="data">{e.year ?? ''}</span>{e.source ? ` · ${srcName(e.source)}` : null}</span></div>
         {prose(L(e), { cls: 'sm' })}
+        {provenance(e)}
         {conf.length ? <div className="chips dz-chips">{conf.map((x) => kchip('conflict', x.id, L(x.name), { lead: sevGlyph(x.severity, 11), isos: x.countries }))}</div> : null}
       </div>
     );
@@ -300,7 +320,7 @@ export function kit(c: Ctx, actions: KitActions) {
     ...c, ...actions, SEV, hl, sw, listJoin, nameC, tradName, resTypeName, resColor, ne, famName, sevName,
     sevGlyph, sevPill, confPill, unverifiedPill, chokePill, kindPill, coord, numUnit, cchip, cchips, kchip,
     sec, prose, empty, caveat, note, bullets, rows, fact, facts, conflictRow, chokeRow, siteRow, groupRow,
-    catTag, eventList, srcName, refItem, resourceEntry, altSpan, networkBtn, yearBtn, barRowProps,
+    catTag, eventList, srcName, refItem, provenance, resourceEntry, altSpan, networkBtn, yearBtn, barRowProps,
   };
 }
 

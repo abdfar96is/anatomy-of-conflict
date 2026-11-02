@@ -29,6 +29,7 @@ function body(b: BlocX, k: Kit) {
       k.fact(t('dz.b.edges'), <span className="data">{fmt.num(inner)}</span>, { tipText: t('dz.b.edgesTip') }),
     ]), { cls: 'first' })}
     {b.note ? k.sec(null, k.caveat(L(b.note))) : null}
+    {k.sec(null, k.provenance(b))}
     {k.sec(t('dz.b.members'), k.cchips(b.members, { sort: true }), { count: b.members.length })}
     {k.sec(null, k.networkBtn())}
   </>;
