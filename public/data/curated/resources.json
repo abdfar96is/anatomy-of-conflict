@@ -82,7 +82,12 @@
       "source": "eia",
       "ar": "نفط وغاز قزوين يُصدَّران عبر خطّ باكو تبليسي جيهان الذي يتجاوز روسيا وإيران.",
       "en": "Caspian oil and gas are exported through the Baku–Tbilisi–Ceyhan pipeline, bypassing Russia and Iran.",
-      "conflictIds": ["armenia-azerbaijan"]
+      "conflictIds": ["armenia-azerbaijan"],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Baku%E2%80%93Tbilisi%E2%80%93Ceyhan_pipeline",
+        "https://georgianencyclopedia.ge/en/form_eng/410"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "BLR",
@@ -333,7 +338,12 @@
       "rank": 2,
       "ar": "ثاني أكبر احتياطي غاز في العالم، ويتشارك حقل بارس الجنوبي مع حقل الشمال القطري.",
       "en": "The world's second-largest gas reserves, sharing the South Pars field with Qatar's North Field.",
-      "conflictIds": ["iran-us-israel", "gulf-security"]
+      "conflictIds": ["iran-us-israel", "gulf-security"],
+      "sources": [
+        "https://en.wikipedia.org/wiki/South_Pars/North_Dome_Gas-Condensate_field",
+        "https://www.foxnews.com/world/iran-says-its-producing-more-natural-gas-from-giant-field-it-shares-with-qatar"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "IRQ",
@@ -375,7 +385,11 @@
       "year": 2025,
       "source": "undata",
       "ar": "من أكبر احتياطيات الصخر الزيتي في العالم، وتضعه وزارة الطاقة والثروة المعدنية في المرتبة الرابعة عالمياً بتقدير يتراوح بين 40 و70 مليار طن موزّعة على 18 موقعاً. المدى الواسع بين التقديرين يعكس اختلاف منهجيات التقدير وليس دقّةً معروفة. محطة عطارات أم الغدران هي المحطة الوحيدة العاملة، وأسهمت بـ16.7٪ من مشتريات شركة الكهرباء الوطنية في 2025 مقابل نحو 16٪ في 2024.",
-      "en": "Among the world's largest oil shale reserves; Jordan's energy ministry ranks it fourth globally at an estimated 40 to 70 billion tonnes across 18 sites. The wide range between the two figures reflects differing estimation methodologies rather than a known precision. The Attarat Umm Ghudran plant is the only one operating, supplying 16.7% of the national electricity company's purchases in 2025, against around 16% in 2024."
+      "en": "Among the world's largest oil shale reserves; Jordan's energy ministry ranks it fourth globally at an estimated 40 to 70 billion tonnes across 18 sites. The wide range between the two figures reflects differing estimation methodologies rather than a known precision. The Attarat Umm Ghudran plant is the only one operating, supplying 16.7% of the national electricity company's purchases in 2025, against around 16% in 2024.",
+      "sources": [
+        "https://www.memr.gov.jo/EBV4.0/Root_Storage/EN/Project/Oil_Shale.pdf",
+        "https://aziendeaccordi.ice.it/it/news/notizie-dal-mondo/301669"
+      ]
     },
     {
       "iso3": "JOR",
@@ -650,7 +664,12 @@
       "source": "eia",
       "ar": "حقول النفط والغاز في الشمال الشرقي كانت خارج سيطرة دمشق لسنوات، ودُمجت إدارتها في الدولة بعد ترتيبات 2026.",
       "en": "Oil and gas fields in the north-east lay outside Damascus's control for years, and their administration was integrated into the state after the 2026 arrangements.",
-      "conflictIds": ["syria-transition"]
+      "conflictIds": ["syria-transition"],
+      "sources": [
+        "https://www.arabnews.pk/node/2631539",
+        "https://syrianobserver.com/society/oil-fields-transferred-from-sdf-to-syrian-state-control.html"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "TUN",
@@ -869,7 +888,11 @@
       "source": "eia",
       "rank": 1,
       "ar": "أكبر منتج للغاز في العالم وأكبر مصدّر للغاز المسال منذ 2023، وقد عوّضت صادراته جزءاً كبيراً من الغاز الروسي في أوروبا.",
-      "en": "The world's largest gas producer and largest LNG exporter since 2023, its exports having replaced a large part of Russian gas in Europe."
+      "en": "The world's largest gas producer and largest LNG exporter since 2023, its exports having replaced a large part of Russian gas in Europe.",
+      "sources": [
+        "https://www.enerdata.net/publications/daily-energy-news/us-reached-26-share-global-lng-exports-2025-according-eia.html",
+        "https://www.api.org/energy-insights/charts-analysis/27-percent-of-eu-natural-gas"
+      ]
     },
     {
       "iso3": "PER",
@@ -981,7 +1004,12 @@
       "year": 2024,
       "source": "eia",
       "ar": "الفحم يولّد معظم كهرباء البلاد ويُصدَّر عبر ميناء ريتشاردز باي، وأزمة انقطاع الكهرباء في شركة إسكوم جعلته ملفاً سياسياً.",
-      "en": "Coal generates most of the country's electricity and is exported through Richards Bay; Eskom's load-shedding crisis made it a political issue."
+      "en": "Coal generates most of the country's electricity and is exported through Richards Bay; Eskom's load-shedding crisis made it a political issue.",
+      "sources": [
+        "https://www.gov.za/news/speeches/deputy-minister-nobuhle-nkabane-mccloskey-southern-african-coal-conference-02-feb",
+        "https://www.theassay.com/articles/south-africas-coal-sector-holds-firm-despite-price-pressure-and-long-term-transition/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "TZA",
@@ -1286,7 +1314,12 @@
       "year": 2025,
       "source": "eia",
       "ar": "محطة تصدير خط النيجر–بنين لنفط النيجر في سيمي، وأُغلق الخط مؤقتاً عام 2024 بسبب خلاف حدودي بين البلدين.",
-      "en": "Terminal of the Niger–Benin pipeline for Nigerien oil at Sèmè; the line was halted in 2024 by a border dispute between the two countries."
+      "en": "Terminal of the Niger–Benin pipeline for Nigerien oil at Sèmè; the line was halted in 2024 by a border dispute between the two countries.",
+      "sources": [
+        "https://pipeline-journal.net/news/unresolved-niger-benin-border-dispute-stalls-major-west-africas-oil-pipeline-project",
+        "https://pgjonline.com/news/2024/june/benin-niger-dispute-intensifies-with-arrests-at-crude-pipeline-terminal"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "BDI",
@@ -1303,7 +1336,12 @@
       "source": "eia",
       "ar": "اتفاق مع تركيا (2024) للتنقيب عن النفط والغاز في المياه الصومالية، في ظل حرب مع حركة الشباب ونزاع على الصلاحيات مع الولايات.",
       "en": "A 2024 agreement with Türkiye for oil and gas exploration in Somali waters, amid the war with al-Shabaab and disputes over powers with the federal states.",
-      "conflictIds": ["somalia"]
+      "conflictIds": ["somalia"],
+      "sources": [
+        "https://hurriyetdailynews.com/turkiyes-research-ship-arrives-in-somalia-for-oil-gas-exploration-201926",
+        "https://www.worldoil.com/news/2024/8/16/turkey-to-being-oil-and-gas-exploration-campaign-offshore-somalia-in-broader-african-energy-strategy/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "TGO",
@@ -1614,7 +1652,12 @@
       "year": 2024,
       "source": "undata",
       "ar": "إمكانات كهرومائية كبيرة في الهيمالايا، وتصدّر الكهرباء إلى الهند وإلى بنغلاديش عبرها منذ 2024.",
-      "en": "Large Himalayan hydropower potential; it exports electricity to India, and through India to Bangladesh since 2024."
+      "en": "Large Himalayan hydropower potential; it exports electricity to India, and through India to Bangladesh since 2024.",
+      "sources": [
+        "https://kathmandupost.com/money/2024/11/16/nepal-begins-historic-power-export-to-bangladesh-via-india",
+        "https://www.thestar.com.my/aseanplus/aseanplus-news/2025/06/16/nepal-begins-first-power-exports-to-bangladesh-via-india039s-grid"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "PRK",
@@ -1623,7 +1666,12 @@
       "source": "undata",
       "ar": "الفحم كان أكبر صادراتها إلى الصين قبل أن يحظره مجلس الأمن عام 2017، وتستمر تقارير عن تهريبه.",
       "en": "Coal was its largest export to China until the UN Security Council banned it in 2017; reports of smuggling continue.",
-      "conflictIds": ["korean-peninsula"]
+      "conflictIds": ["korean-peninsula"],
+      "sources": [
+        "https://www.koreatimes.co.kr/foreignaffairs/northkorea/20260607/n-korea-exports-15-mil-tons-of-coal-in-2025-despite-sanctions-lawmaker",
+        "https://www.marinelink.com/amp/news/us-wants-sanctions-seven-vessels-north-531945"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "LKA",
@@ -1664,7 +1712,12 @@
       "year": 2025,
       "source": "undata",
       "ar": "«بطارية جنوب شرق آسيا»: عشرات السدود على الميكونغ وروافده تصدّر الكهرباء إلى تايلاند، ومعظمها بتمويل صيني رفع الدين العام.",
-      "en": "\"The battery of Southeast Asia\": dozens of dams on the Mekong and its tributaries export power to Thailand, mostly with Chinese financing that has swollen public debt."
+      "en": "\"The battery of Southeast Asia\": dozens of dams on the Mekong and its tributaries export power to Thailand, mostly with Chinese financing that has swollen public debt.",
+      "sources": [
+        "https://amro-asia.org/lao-pdrs-electricity-sector-risk-or-opportunity/",
+        "https://www.qatar-tribune.com/article/253614/business/lights-out-in-laos-as-power-exports-surge"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "KGZ",
@@ -1713,7 +1766,11 @@
       "year": 2025,
       "source": "undata",
       "ar": "صادرات الفحم إلى الصين من تافان تولغوي أكبر مصدر للعملة الصعبة.",
-      "en": "Coal exports to China from Tavan Tolgoi are the main source of hard currency."
+      "en": "Coal exports to China from Tavan Tolgoi are the main source of hard currency.",
+      "sources": [
+        "https://www.mysteel.net/news/5109865-mongolias-2025-coal-exports-top-annual-target-set-new-record-high",
+        "https://www.mining-technology.com/news/mongolia-coal-export-china-2025/"
+      ]
     },
     {
       "iso3": "ARM",
@@ -1760,7 +1817,12 @@
       "year": 2024,
       "source": "undata",
       "ar": "الكهرباء المولّدة من السدود أكبر صادرات البلاد ومعظمها إلى الهند.",
-      "en": "Hydropower is the country's largest export, mostly to India."
+      "en": "Hydropower is the country's largest export, mostly to India.",
+      "sources": [
+        "https://indembthimphu.gov.in/pages/Mzgz",
+        "https://asianews.network/bhutan-and-india-deepen-energy-ties-with-new-power-agreements/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "BRN",
@@ -1960,7 +2022,12 @@
       "year": 2024,
       "source": "eia",
       "ar": "من أكبر منتجي فحم الليغنيت في العالم، وتعهّدت بالتخلّي عن الفحم بحلول 2038.",
-      "en": "One of the world's largest lignite producers, committed to phasing out coal by 2038."
+      "en": "One of the world's largest lignite producers, committed to phasing out coal by 2038.",
+      "sources": [
+        "https://www.cleanenergywire.org/dossiers/europes-largest-economy-aims-exit-coal-reach-climate-goals",
+        "https://www.mining.com/germany-moves-forward-with-55bn-plan-to-phase-out-coal-power-by-2038/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "FRA",
@@ -1993,7 +2060,12 @@
       "year": 2024,
       "source": "undata",
       "ar": "حقل لارديريلو في توسكانا كان أول محطة كهرباء حرارية جوفية في العالم، وتعتمد إيطاليا على الغاز الجزائري عبر خط ترانسميد.",
-      "en": "The Larderello field in Tuscany was the world's first geothermal power plant; Italy relies on Algerian gas via the Transmed pipeline."
+      "en": "The Larderello field in Tuscany was the world's first geothermal power plant; Italy relies on Algerian gas via the Transmed pipeline.",
+      "sources": [
+        "https://www.thinkgeoenergy.com/larderello-italy-celebrates-120-years-of-geothermal-electricity-generation/",
+        "https://www.euronews.com/2026/03/31/can-algerias-gas-save-the-old-continent-from-the-strait-of-hormuz"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "ESP",
@@ -2014,7 +2086,10 @@
       "year": 2024,
       "source": "eia",
       "ar": "أكبر منتج للفحم الحجري في الاتحاد الأوروبي، والفحم ما زال مصدر معظم كهربائها.",
-      "en": "The EU's largest hard coal producer, with coal still the source of most of its electricity."
+      "en": "The EU's largest hard coal producer, with coal still the source of most of its electricity.",
+      "sources": [
+        "https://schulung.table.media/en/climate/feature/poland-how-the-government-plans-to-phase-out-coal"
+      ]
     },
     {
       "iso3": "POL",
@@ -2029,8 +2104,13 @@
       "type": "gas",
       "year": 2025,
       "source": "eia",
-      "ar": "حقل نبتون ديب في البحر الأسود، المنتظر إنتاجه في 2027، سيجعل رومانيا أكبر منتج للغاز في الاتحاد الأوروبي.",
-      "en": "The Neptun Deep field in the Black Sea, due to produce in 2027, would make Romania the EU's largest gas producer."
+      "ar": "حقل نبتون ديب في البحر الأسود، المنتظر بدء إنتاجه في النصف الأول من 2027 بنحو 8 مليارات متر مكعب سنوياً، من أكبر مشاريع الغاز في الاتحاد الأوروبي.",
+      "en": "The Neptun Deep field in the Black Sea, due to start production in the first half of 2027 at around 8 billion cubic metres a year, is one of the EU's largest gas projects.",
+      "sources": [
+        "https://www.omv.com/en/media/press-releases/2025/250325-omv-petrom-and-romgaz-spud-the-first-gas-production-well-of-neptun-deep-project",
+        "https://www.romania-insider.com/neptun-deep-gas-january-2026"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "NLD",
@@ -2116,7 +2196,12 @@
       "year": 2024,
       "source": "undata",
       "ar": "الطاقة الكهرومائية تولّد نحو 60% من كهرباء النمسا.",
-      "en": "Hydropower generates around 60% of Austria's electricity."
+      "en": "Hydropower generates around 60% of Austria's electricity.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Renewable_energy_in_Austria",
+        "https://www.advantageaustria.org/bg/zentral/branchen/energiewirtschaft/zahlen-und-fakten/Zahlen_und_Fakten.en.html"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "CHE",
@@ -2185,7 +2270,12 @@
       "year": 2024,
       "source": "undata",
       "ar": "أكبر منتج للصخر الزيتي في الاتحاد الأوروبي، وكان أساس كهربائها حتى وقت قريب.",
-      "en": "The EU's largest oil shale producer, which until recently was the basis of its electricity."
+      "en": "The EU's largest oil shale producer, which until recently was the basis of its electricity.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Electricity_sector_in_Estonia",
+        "https://news.err.ee/1608232548/eesti-energia-to-drop-oil-shale-electricity-production-by-2030"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "ISL",
@@ -2310,7 +2400,12 @@
       "year": 2024,
       "source": "eia",
       "ar": "أكبر منتج ومصدّر للفحم في أمريكا اللاتينية من منجم سيريخون، إضافة إلى النفط.",
-      "en": "Latin America's largest coal producer and exporter, from the Cerrejón mine, alongside oil."
+      "en": "Latin America's largest coal producer and exporter, from the Cerrejón mine, alongside oil.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Cerrej%C3%B3n",
+        "https://www.nsenergybusiness.com/projects/cerrejon-coal-mine/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "COL",
@@ -2361,7 +2456,12 @@
       "year": 2024,
       "source": "undata",
       "ar": "سدّا إيتايبو مع البرازيل وياسيريتا مع الأرجنتين يجعلانها من أكبر مصدّري الكهرباء في العالم، وتبيع معظم حصتها للبرازيل.",
-      "en": "The Itaipú dam with Brazil and Yacyretá with Argentina make it one of the world's largest electricity exporters; it sells most of its share to Brazil."
+      "en": "The Itaipú dam with Brazil and Yacyretá with Argentina make it one of the world's largest electricity exporters; it sells most of its share to Brazil.",
+      "sources": [
+        "https://marcasur.com/en/noticia/paraguay-is-the-major-net-exporter-of-electricity-worldwide--&f=-2012",
+        "https://www.abc.com.py/economia/2024/02/12/exportacion-real-del-paraguay-no-llega-al-1-de-la-cedida-en-itaipu/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "SUR",
@@ -2369,7 +2469,12 @@
       "year": 2025,
       "source": "eia",
       "ar": "اكتشافات نفطية بحرية كبيرة بجوار غيانا، ومشروع غرانمورغو لتوتال إنرجيز يُنتظر إنتاجه في 2028.",
-      "en": "Large offshore oil discoveries next to Guyana; TotalEnergies' GranMorgu project is due to produce in 2028."
+      "en": "Large offshore oil discoveries next to Guyana; TotalEnergies' GranMorgu project is due to produce in 2028.",
+      "sources": [
+        "https://www.ogj.com/exploration-development/article/55167007/totalenergies-takes-fid-for-first-oil-development-in-block-58-offshore-suriname",
+        "https://drillingcontractor.org/totalenergies-signs-fid-for-surinames-granmorgu-development-on-block-58-70437"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "PNG",
@@ -2538,7 +2643,12 @@
       "year": 2025,
       "source": "eia",
       "ar": "اكتشافات نفطية بحرية أبرزها حقل سي لايون، وتطويرها مرتبط بنزاع السيادة مع الأرجنتين.",
-      "en": "Offshore oil discoveries, notably the Sea Lion field, whose development is entangled with the sovereignty dispute with Argentina."
+      "en": "Offshore oil discoveries, notably the Sea Lion field, whose development is entangled with the sovereignty dispute with Argentina.",
+      "sources": [
+        "https://worldoil.com/news/2025/12/10/fid-secured-for-sea-lion-field-offshore-falklands-first-oil-targeted-2028/",
+        "https://www.offshore-technology.com/newsletters/sea-lion-argentine-sanctions-falklands-oil/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "CRI",
