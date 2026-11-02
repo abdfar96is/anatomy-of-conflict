@@ -210,7 +210,12 @@
       "year": 2023,
       "source": "eia",
       "ar": "مورّد غاز رئيسي لأوروبا عبر خطّي ميدغاز وترانسميد، واكتسب وزناً إضافياً بعد تراجع الغاز الروسي.",
-      "en": "A principal gas supplier to Europe through the Medgaz and Transmed lines, which gained additional weight after the decline of Russian gas."
+      "en": "A principal gas supplier to Europe through the Medgaz and Transmed lines, which gained additional weight after the decline of Russian gas.",
+      "sources": [
+        "https://www.euronews.com/2026/03/31/can-algerias-gas-save-the-old-continent-from-the-strait-of-hormuz",
+        "https://www.dzair-tube.dz/en/algeria-maintains-its-strategic-position-as-a-key-gas-supplier-to-the-european-union"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "EGY",
@@ -219,7 +224,12 @@
       "source": "eia",
       "ar": "تحوّلت مصر من الاكتفاء الذاتي في 2018 إلى مستورد صافٍ للغاز في 2024. هبط الإنتاج من ذروته عند 71 مليار متر مكعب في 2021 إلى نحو 45 ملياراً في 2024، ومرجع ذلك أساساً تراجع حقل ظُهر من ذروة 3.2 مليار قدم مكعبة يومياً في 2019 إلى نحو 1.2 مليار. غطّت الواردات نحو 38٪ من إجمالي المعروض في الربع الأول من 2026، وكان الغاز المسال 72٪ منها.",
       "en": "Egypt moved from self-sufficiency in 2018 to net gas importer in 2024. Output fell from a 2021 peak of 71 billion cubic metres to around 45 billion in 2024, chiefly through the decline of the Zohr field from a 2019 peak of 3.2 billion cubic feet per day to around 1.2 billion. Imports covered around 38% of total supply in the first quarter of 2026, LNG making up 72% of them.",
-      "conflictIds": ["israel-palestine", "gulf-security"]
+      "conflictIds": ["israel-palestine", "gulf-security"],
+      "sources": [
+        "https://www.zawya.com/en/business/energy/egypts-natural-gas-imports-rise-36-yoy-in-q1-2026-jodi-o9slzqy4",
+        "https://www.kpler.com/blog/egypt-domestic-production-continues-to-fall-despite-new-wells-coming-online-increasing-lng-requirements",
+        "https://www.ecofinagency.com/news-industry/2808-48235-egypt-brings-zohr-6-gas-well-online-to-slow-output-decline"
+      ]
     },
     {
       "iso3": "EGY",
@@ -264,7 +274,12 @@
       "source": "eia",
       "ar": "اكتشافات حوض ستابروك البحري حوّلت غيانا إلى واحدة من أسرع الاقتصادات نمواً في العالم، وأعادت إحياء مطالبة فنزويلا بإيسيكيبو.",
       "en": "The offshore Stabroek block discoveries turned Guyana into one of the world's fastest-growing economies and revived Venezuela's Essequibo claim.",
-      "conflictIds": ["essequibo"]
+      "conflictIds": ["essequibo"],
+      "sources": [
+        "https://www.oilandgas360.com/guyanas-economy-surges-on-offshore-success-in-prolific-stabroek-block-eia-reports/",
+        "https://finance.yahoo.com/sectors/energy/articles/huge-profits-bubble-exxons-big-110300289.html"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "IDN",
@@ -308,7 +323,12 @@
       "rank": 5,
       "ar": "احتياطيات كبيرة في الجنوب وكركوك، والخلاف على حقّ التصدير جوهر النزاع بين بغداد وأربيل.",
       "en": "Large reserves in the south and at Kirkuk, with the dispute over export rights at the core of the Baghdad–Erbil conflict.",
-      "conflictIds": ["iraq-kurdistan"]
+      "conflictIds": ["iraq-kurdistan"],
+      "sources": [
+        "https://www.thenationalnews.com/news/mena/2026/03/17/baghdad-warns-kurdistan-region-of-legal-action-over-oil-pipeline-dispute/",
+        "https://www.thestar.com.my/news/world/2026/03/18/iraqi-government-kurdish-authorities-reach-deal-to-resume-oil-exports-to-turkey039s-ceyhan-port"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "ISR",
@@ -386,7 +406,12 @@
       "source": "eia",
       "ar": "حقول غاز محتملة في المنطقة الاقتصادية البحرية شرق المتوسط، ورُسمت الحدود البحرية مع إسرائيل باتفاق 2022.",
       "en": "Potential gas fields in the eastern Mediterranean exclusive economic zone; the maritime boundary with Israel was delimited by a 2022 agreement.",
-      "conflictIds": ["lebanon-israel"]
+      "conflictIds": ["lebanon-israel"],
+      "sources": [
+        "https://www.aljazeera.com/news/2022/10/14/what-to-know-about-the-israel-lebanon-maritime-border-deal",
+        "https://www.offshore-mag.com/regional-reports/middle-east/article/14285041/israel-lebanon-sign-usbrokered-maritime-border-deal"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "LBY",
@@ -402,8 +427,12 @@
       "year": 2026,
       "source": "eia",
       "rank": 9,
-      "ar": "أكبر احتياطي نفطي مؤكد في أفريقيا: نحو 48 مليار برميل، أي 41٪ من احتياطي القارة والمرتبة التاسعة عالمياً. بلغ الإنتاج 1.5 مليون برميل يومياً في 21 يونيو 2026، وهو أعلى مستوى منذ 2013 بعد أن كان نحو 1.7 مليون قبل 2011. الغالبية العظمى من الاحتياطيات القابلة للاستخراج في حوض سرت بحسب إدارة معلومات الطاقة الأمريكية. الإنتاج عرضة للتوقّف المتكرّر بفعل الإغلاقات المسلحة والاحتجاجات لا بفعل قيود جيولوجية.",
-      "en": "Africa's largest proven oil reserves: around 48 billion barrels, 41% of the continent's total and ninth globally. Output reached 1.5 million barrels per day on 21 June 2026, the highest since 2013, against around 1.7 million before 2011. The large majority of recoverable reserves lie in the Sirte basin according to the US Energy Information Administration. Production is subject to repeated shutdowns through armed closures and protests rather than geological constraints."
+      "ar": "أكبر احتياطي نفطي مؤكد في أفريقيا: نحو 48 مليار برميل، أي 41٪ من احتياطي القارة والمرتبة التاسعة عالمياً. بلغ الإنتاج نحو 1.49 مليون برميل يومياً في 21 يونيو 2026، وهو أعلى مستوى منذ 2013 بعد أن كان نحو 1.7 مليون قبل 2011. الغالبية العظمى من الاحتياطيات القابلة للاستخراج في حوض سرت بحسب إدارة معلومات الطاقة الأمريكية. الإنتاج عرضة للتوقّف المتكرّر بفعل الإغلاقات المسلحة والاحتجاجات لا بفعل قيود جيولوجية.",
+      "en": "Africa's largest proven oil reserves: around 48 billion barrels, 41% of the continent's total and ninth globally. Output reached nearly 1.49 million barrels per day on 21 June 2026, the highest since 2013, against around 1.7 million before 2011. The large majority of recoverable reserves lie in the Sirte basin according to the US Energy Information Administration. Production is subject to repeated shutdowns through armed closures and protests rather than geological constraints.",
+      "sources": [
+        "https://www.thestar.com.my/news/world/2026/06/22/libya-records-highest-oil-output-since-2013",
+        "https://www.mees.com/index.php/2026/6/26/news-in-brief/libyas-crude-output-nears-15mn-bd-target/145ef6e0-714e-11f1-95ca-d711df97a3ac"
+      ]
     },
     {
       "iso3": "MAR",
@@ -478,9 +507,14 @@
       "year": 2023,
       "source": "eia",
       "rank": 3,
-      "ar": "من أكبر مصدّري الغاز المسال، وتعتمد صادراتها على المرور عبر مضيق هرمز.",
-      "en": "Among the largest LNG exporters, with exports dependent on transit through the Strait of Hormuz.",
-      "conflictIds": ["gulf-security"]
+      "ar": "من أكبر مصدّري الغاز المسال، وتعتمد صادراتها على المرور عبر مضيق هرمز؛ أعلنت القوة القاهرة في مارس 2026 بعد الضربات الإيرانية على رأس لفان وإغلاق المضيق.",
+      "en": "Among the largest LNG exporters, with exports dependent on transit through the Strait of Hormuz; it declared force majeure in March 2026 after Iranian strikes on Ras Laffan and the closure of the Strait.",
+      "conflictIds": ["gulf-security"],
+      "sources": [
+        "https://www.thenationalnews.com/business/energy/2026/03/04/qatarenergy-declares-force-majeure-after-iran-attacks-halt-supply",
+        "https://thenationalnews.com/business/energy/2026/09/28/qatar-extends-lng-force-majeure-as-hormuz-disruption-threatens-winter-supply"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "RUS",
@@ -490,7 +524,8 @@
       "rank": 1,
       "ar": "أكبر احتياطي غاز في العالم؛ أعادت العقوبات توجيه صادراتها شرقاً نحو الصين.",
       "en": "The world's largest gas reserves; sanctions redirected exports eastward toward China.",
-      "conflictIds": ["russia-ukraine"]
+      "conflictIds": ["russia-ukraine"],
+      "sources": ["https://interfax.com/newsroom/top-stories/115552/"]
     },
     {
       "iso3": "RUS",
@@ -514,7 +549,12 @@
       "rank": 2,
       "ar": "أكبر مُصدِّر للنفط الخام، ولديها طاقة إنتاج احتياطية تمنحها دوراً في استقرار الأسواق.",
       "en": "The largest crude oil exporter, with spare production capacity that gives it a role in market stabilisation.",
-      "conflictIds": ["gulf-security", "yemen"]
+      "conflictIds": ["gulf-security", "yemen"],
+      "sources": [
+        "https://www.enerdata.net/publications/daily-energy-news/saudi-arabia-plans-raise-oil-export-pipeline-capacity-10-mbd.html",
+        "https://www.omanobserver.om/article/1121974/business/energy/with-world-in-energy-shock-saudi-oil-cushion-gets-very-thin"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "SAU",
@@ -542,7 +582,12 @@
       "source": "eia",
       "ar": "فقد السودان معظم حقوله النفطية بانفصال الجنوب في 2011، لكنه احتفظ بخطّ الأنابيب الوحيد ومصفاة ومحطة تصدير بورتسودان. فأصبح دخله النفطي رسوم عبور للخام الجنوبي أكثر منه إنتاجاً، وهو ما يربط اقتصاد الدولتين ربطاً قسرياً رغم خلافاتهما.",
       "en": "Sudan lost most of its oil fields with the south's secession in 2011 but retained the only pipeline, a refinery and the Port Sudan export terminal. Its oil income is therefore transit fees on southern crude more than production, which binds the two economies together despite their disputes.",
-      "conflictIds": ["sudan", "south-sudan"]
+      "conflictIds": ["sudan", "south-sudan"],
+      "sources": [
+        "https://www.radiotamazuj.org/en/news/article/sudan-south-sudan-discuss-revised-oil-export-fees",
+        "https://sudantribune.com/article/319333"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "SSD",
@@ -551,7 +596,11 @@
       "source": "eia",
       "ar": "حقول الوحدة وأعالي النيل تمثّل نحو كلّ إيرادات الدولة، وتُصدَّر عبر خطّ أنابيب يمرّ في السودان.",
       "en": "The Unity and Upper Nile fields account for virtually all state revenue and are exported through a pipeline running across Sudan.",
-      "conflictIds": ["south-sudan", "sudan"]
+      "conflictIds": ["south-sudan", "sudan"],
+      "sources": [
+        "https://www.radiotamazuj.org/en/news/article/sudan-south-sudan-discuss-revised-oil-export-fees",
+        "https://allafrica.com/stories/202512050049.html"
+      ]
     },
     {
       "iso3": "SYR",
@@ -620,8 +669,13 @@
       "year": 2024,
       "source": "eia",
       "rank": 1,
-      "ar": "أكبر منتج للنفط الخام في العالم منذ 2018، وصادراتها من الغاز المسال تمرّ جزئياً عبر قناة بنما.",
-      "en": "The world's largest crude oil producer since 2018, with part of its LNG exports transiting the Panama Canal."
+      "ar": "أكبر منتج للنفط الخام في العالم منذ 2018، وبلغ إنتاجها مستوى قياسياً قدره 13.6 مليون برميل يومياً في 2025.",
+      "en": "The world's largest crude oil producer since 2018, with record output of 13.6 million barrels per day in 2025.",
+      "sources": [
+        "https://www.enerdata.net/publications/daily-energy-news/us-remained-worlds-largest-crude-oil-producer-2025-eia-reports.html",
+        "https://hydrocarbonprocessing.com/news/2026/07/eia-the-us-produced-more-crude-oil-than-any-other-country-in-2025/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "VEN",
@@ -631,7 +685,12 @@
       "rank": 1,
       "ar": "أكبر احتياطي نفطي مؤكّد في العالم، معظمه نفط ثقيل في حوض أورينوكو يحتاج استثماراً كبيراً للاستخراج.",
       "en": "The world's largest proven oil reserves, mostly heavy crude in the Orinoco Belt requiring heavy investment to extract.",
-      "conflictIds": ["venezuela", "essequibo"]
+      "conflictIds": ["venezuela", "essequibo"],
+      "sources": [
+        "https://www.dawn.com/news/1964889",
+        "https://maldita.es/clima/20260107/reservas-petroleo-venezuela-fuentes-informacion/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "ARE",
@@ -689,7 +748,11 @@
       "source": "eia",
       "ar": "احتياطي يقارب 101.5 مليار برميل، وكل صادراتها تمرّ عبر مضيق هرمز؛ وكان النزاع على حقل الرميلة من ذرائع الغزو العراقي عام 1990.",
       "en": "Reserves of around 101.5 billion barrels, with all exports passing through the Strait of Hormuz; the dispute over the Rumaila field was among the pretexts for the Iraqi invasion of 1990.",
-      "conflictIds": ["gulf-security"]
+      "conflictIds": ["gulf-security"],
+      "sources": [
+        "https://www.dawn.com/news/2022961",
+        "https://al-monitor.com/originals/2026/08/no-substitute-kuwaits-future-tied-hormuz-strait-fate"
+      ]
     },
     {
       "iso3": "CAN",
@@ -698,15 +761,23 @@
       "source": "eia",
       "rank": 4,
       "ar": "رابع أكبر احتياطي نفطي في العالم، معظمه في رمال ألبرتا النفطية، ورابع أكبر منتج، وتذهب الغالبية العظمى من صادراته إلى الولايات المتحدة.",
-      "en": "The world's fourth-largest oil reserves, mostly in the Alberta oil sands, and the fourth-largest producer, with the large majority of exports going to the United States."
+      "en": "The world's fourth-largest oil reserves, mostly in the Alberta oil sands, and the fourth-largest producer, with the large majority of exports going to the United States.",
+      "sources": [
+        "https://natural-resources.canada.ca/energy-sources/fossil-fuels/what-are-oil-sands",
+        "https://www.capp.ca/wp-content/uploads/2026/05/The-Oil-Sands-April-17-2026.pdf"
+      ]
     },
     {
       "iso3": "BRA",
       "type": "oil",
       "year": 2024,
       "source": "eia",
-      "ar": "أكبر منتج للنفط في أمريكا اللاتينية بنحو 3.4 مليون برميل يومياً، معظمه من حقول ما قبل الملح البحرية العميقة.",
-      "en": "Latin America's largest oil producer at around 3.4 million barrels per day, most of it from deep-water pre-salt fields."
+      "ar": "إنتاج نفطي قياسي بنحو 3.8 مليون برميل يومياً في 2025، نحو 80٪ منه من حقول ما قبل الملح البحرية العميقة.",
+      "en": "Record oil output of around 3.8 million barrels per day in 2025, about 80% of it from deep-water pre-salt fields.",
+      "sources": [
+        "https://en.mercopress.com/2026/02/05/brazilian-oil-and-gas-production-record-in-2025-4-987million-boe-d"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "NOR",
@@ -714,7 +785,12 @@
       "year": 2024,
       "source": "eia",
       "ar": "أكبر مورّد للغاز إلى أوروبا منذ تراجع الغاز الروسي عام 2022، وخطوط أنابيبه في بحر الشمال صارت بنية تحتية حساسة أمنياً.",
-      "en": "Europe's largest gas supplier since the decline of Russian gas in 2022, its North Sea pipelines having become security-sensitive infrastructure."
+      "en": "Europe's largest gas supplier since the decline of Russian gas in 2022, its North Sea pipelines having become security-sensitive infrastructure.",
+      "sources": [
+        "https://gasprocessingnews.com/news/2026/01/norway-pipeline-gas-export-down-23-in-2025-seen-steady-this-year",
+        "https://www.ilfoglio.it/en/economy/2026/09/16/news/meloni-flies-to-norway-in-search-of-oil-and-gas-oslos-energy-significance-for-the-eu--407737"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "TKM",
@@ -723,7 +799,12 @@
       "source": "eia",
       "rank": 4,
       "ar": "رابع أكبر احتياطي غاز في العالم، ويتركز في حقل غالكينيش، ويصدّر معظمه إلى الصين عبر خط آسيا الوسطى–الصين.",
-      "en": "The world's fourth-largest gas reserves, concentrated in the Galkynysh field, mostly exported to China through the Central Asia–China pipeline."
+      "en": "The world's fourth-largest gas reserves, concentrated in the Galkynysh field, mostly exported to China through the Central Asia–China pipeline.",
+      "sources": [
+        "https://oilgas.gov.tm/en/posts/news/7459/chairman-of-the-state-concern-turkmengas-on-gas-reserves-development-of-galkynysh-pipelines-and-prospects-for-investors",
+        "https://timesca.com/turkmenistan-advances-galkynysh-gas-field-development-to-increase-exports-to-china/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "USA",
@@ -859,7 +940,12 @@
       "year": 2024,
       "source": "undata",
       "ar": "حقل أولكاريا في الأخدود الأفريقي يجعل الطاقة الحرارية الجوفية مصدر نحو خُمسَي كهرباء كينيا، من أعلى النسب في العالم.",
-      "en": "The Olkaria field in the Rift Valley makes geothermal the source of around two-fifths of Kenya's electricity, among the highest shares in the world."
+      "en": "The Olkaria field in the Rift Valley makes geothermal the source of around two-fifths of Kenya's electricity, among the highest shares in the world.",
+      "sources": [
+        "https://www.businessdailyafrica.com/bd/corporate/industry/geothermal-dominance-shrinks-to-three-year-low-on-shut-plant-4981610",
+        "https://www.thinkgeoenergy.com/geothermal-supplies-largest-share-to-kenyas-growing-electricity-demand/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "UGA",
@@ -867,7 +953,12 @@
       "year": 2025,
       "source": "eia",
       "ar": "احتياطيات نفطية حول بحيرة ألبرت يُخطَّط لتصديرها عبر خط شرق أفريقيا (إيكوب) إلى ميناء تانغا التنزاني، وسط اعتراضات بيئية دولية.",
-      "en": "Oil reserves around Lake Albert are to be exported through the East African Crude Oil Pipeline (EACOP) to Tanga in Tanzania, amid international environmental objections."
+      "en": "Oil reserves around Lake Albert are to be exported through the East African Crude Oil Pipeline (EACOP) to Tanga in Tanzania, amid international environmental objections.",
+      "sources": [
+        "https://allafrica.com/stories/202604090078.html",
+        "https://pipeline-journal.net/news/analysis-worlds-biggest-heated-oil-pipeline-eacop-after-decade-construction-tensions"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "UGA",
@@ -883,7 +974,12 @@
       "year": 2024,
       "source": "eia",
       "ar": "من أكبر منتجي النفط في أفريقيا، وانسحبت من أوبك في يناير 2024 بسبب خلاف على حصص الإنتاج.",
-      "en": "One of Africa's largest oil producers; it left OPEC in January 2024 over a dispute about production quotas."
+      "en": "One of Africa's largest oil producers; it left OPEC in January 2024 over a dispute about production quotas.",
+      "sources": [
+        "https://cnbcafrica.com/2023/factbox-angola-to-quit-opec-reducing-membership-to-12-countries",
+        "https://www.thejakartapost.com/business/2023/12/22/angola-leaves-opec-in-blow-to-oil-producer-group.html"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "AGO",
@@ -915,8 +1011,13 @@
       "type": "gas",
       "year": 2024,
       "source": "eia",
-      "ar": "احتياطيات غاز ضخمة في حوض روفوما، وعلّق هجوم المتمرّدين على بالما عام 2021 مشروع توتال إنرجيز للغاز المسال في كابو ديلغادو.",
-      "en": "Huge gas reserves in the Rovuma basin; the 2021 insurgent attack on Palma suspended TotalEnergies' LNG project in Cabo Delgado."
+      "ar": "احتياطيات غاز ضخمة في حوض روفوما؛ علّق هجوم المتمرّدين على بالما عام 2021 مشروع توتال إنرجيز للغاز المسال، ثم رُفعت القوة القاهرة واستُؤنف العمل في يناير 2026 والهدف أول شحنة عام 2029.",
+      "en": "Huge gas reserves in the Rovuma basin; the 2021 insurgent attack on Palma suspended TotalEnergies' LNG project, which lifted force majeure and resumed work in January 2026, targeting first LNG in 2029.",
+      "sources": [
+        "https://worldoil.com/news/2026/1/29/mozambique-lng-restarts-onshore-offshore-activities-after-force-majeure-lift",
+        "https://www.offshore-mag.com/regional-reports/africa/news/55354144/totalenergies-force-majeure-lifted-on-mozambique-lng-project"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "MOZ",
@@ -1003,7 +1104,11 @@
       "year": 2025,
       "source": "eia",
       "ar": "بدأ إنتاج حقل سانغومار النفطي في 2024، ومشروع الغاز المسال المشترك مع موريتانيا (السلحفاة الكبرى) صدّر أولى شحناته في 2025.",
-      "en": "The Sangomar oil field began production in 2024, and the Greater Tortue LNG project shared with Mauritania shipped its first cargoes in 2025."
+      "en": "The Sangomar oil field began production in 2024, and the Greater Tortue LNG project shared with Mauritania shipped its first cargoes in 2025.",
+      "sources": [
+        "https://www.intellinews.com/bp-announces-first-cargo-from-greater-tortue-ahmeyim-lng-project-in-mauritania-senegal-377191",
+        "https://www.africa-energy.com/news-centre/article/first-lng-cargo-dispatched-senegal-and-mauritanias-gta"
+      ]
     },
     {
       "iso3": "TCD",
@@ -1011,7 +1116,11 @@
       "year": 2024,
       "source": "eia",
       "ar": "النفط أهم الصادرات ويُنقل عبر خط تشاد–الكاميرون إلى كريبي، وأمّمت الحكومة أصول إكسون موبيل عام 2023.",
-      "en": "Oil is the main export, carried by the Chad–Cameroon pipeline to Kribi; the government nationalised ExxonMobil's former assets in 2023."
+      "en": "Oil is the main export, carried by the Chad–Cameroon pipeline to Kribi; the government nationalised ExxonMobil's former assets in 2023.",
+      "sources": [
+        "https://www.aljazeera.com/amp/news/2023/3/24/chad-says-it-has-nationalized-all-assets-owned-by-exxon-mobil",
+        "https://stabroeknews.com/2023/03/29/news/guyana/chad-approves-bill-to-nationalise-assets-exxonmobil-sold-to-savannah-energy"
+      ]
     },
     {
       "iso3": "ZWE",
@@ -1171,7 +1280,12 @@
       "year": 2025,
       "source": "eia",
       "ar": "شريكة السنغال في مشروع السلحفاة الكبرى للغاز المسال على حدودهما البحرية، الذي صدّر أولى شحناته في 2025.",
-      "en": "Senegal's partner in the Greater Tortue LNG project on their maritime border, which shipped its first cargoes in 2025."
+      "en": "Senegal's partner in the Greater Tortue LNG project on their maritime border, which shipped its first cargoes in 2025.",
+      "sources": [
+        "https://www.businesswire.com/news/home/20250416419796/en",
+        "https://www.intellinews.com/bp-announces-first-cargo-from-greater-tortue-ahmeyim-lng-project-in-mauritania-senegal-377191"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "GMB",
@@ -1351,7 +1465,12 @@
       "source": "eia",
       "ar": "توقّفت صادرات النفط منذ أواخر 2022 بعد ضربات حوثية بالمسيّرات على موانئ التصدير، وحقول مأرب وشبوة محور الصراع على الموارد.",
       "en": "Oil exports stopped in late 2022 after Houthi drone strikes on export terminals, and the Marib and Shabwa fields are at the centre of the struggle over resources.",
-      "conflictIds": ["yemen"]
+      "conflictIds": ["yemen"],
+      "sources": [
+        "https://almawqeapost.com/english-news/118290",
+        "https://en.majalla.com/node/333565"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "NPL",
@@ -1392,7 +1511,11 @@
       "year": 2025,
       "source": "undata",
       "ar": "سدّ روغون، الأعلى في العالم عند اكتماله، يمنح طاجيكستان نفوذاً على مياه نهر آمو داريا التي تعتمد عليها أوزبكستان.",
-      "en": "The Rogun dam, the world's tallest when complete, gives Tajikistan leverage over Amu Darya water on which Uzbekistan depends."
+      "en": "The Rogun dam, the world's tallest when complete, gives Tajikistan leverage over Amu Darya water on which Uzbekistan depends.",
+      "sources": [
+        "https://www.webuildgroup.com/en/projects/dams-hydroelectric-plants/rogun-dam/",
+        "https://www.waterpowermagazine.com/news/rogun-dam-reaches-1155m-elevation-as-construction-advances/"
+      ]
     },
     {
       "iso3": "LAO",
@@ -1471,7 +1594,12 @@
       "year": 2025,
       "source": "eia",
       "ar": "حقل الشروق الكبير في بحر تيمور بعد معاهدة الحدود البحرية مع أستراليا (2018)، مع نضوب حقل بايو أوندان الذي موّل الصندوق السيادي.",
-      "en": "The Greater Sunrise field in the Timor Sea following the 2018 maritime boundary treaty with Australia, as the Bayu-Undan field that funded the sovereign fund runs dry."
+      "en": "The Greater Sunrise field in the Timor Sea following the 2018 maritime boundary treaty with Australia, as the Bayu-Undan field that funded the sovereign fund runs dry.",
+      "sources": [
+        "https://www.dfat.gov.au/sites/default/files/aus-timor-maritime-boundary-fact-sheet.pdf",
+        "https://www.internationalaffairs.org.au/australianoutlook/timor-leste-plays-hardball-on-greater-sunrise/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "CYP",
@@ -1513,7 +1641,10 @@
       "source": "eia",
       "rank": 1,
       "ar": "أكبر مصدّر للفحم الحراري في العالم، ومعظمه يذهب إلى الصين والهند.",
-      "en": "The world's largest thermal coal exporter, mostly to China and India."
+      "en": "The world's largest thermal coal exporter, mostly to China and India.",
+      "sources": [
+        "https://iea.blob.core.windows.net/assets/1e9f8356-4ec9-4c7d-9673-beaea204b44d/CoalMid-YearUpdate2025.pdf"
+      ]
     },
     {
       "iso3": "IND",
@@ -1522,7 +1653,10 @@
       "source": "eia",
       "rank": 2,
       "ar": "ثاني أكبر منتج للفحم في العالم، وهو مصدر معظم كهرباء البلاد.",
-      "en": "The world's second-largest coal producer, the source of most of the country's electricity."
+      "en": "The world's second-largest coal producer, the source of most of the country's electricity.",
+      "sources": [
+        "https://iea.blob.core.windows.net/assets/1e9f8356-4ec9-4c7d-9673-beaea204b44d/CoalMid-YearUpdate2025.pdf"
+      ]
     },
     {
       "iso3": "IND",
@@ -1569,7 +1703,12 @@
       "source": "eia",
       "rank": 1,
       "ar": "أكبر منتج ومستهلك للفحم في العالم بنصف الإنتاج العالمي تقريباً.",
-      "en": "The world's largest coal producer and consumer, at around half of global output."
+      "en": "The world's largest coal producer and consumer, at around half of global output.",
+      "sources": [
+        "https://iea.blob.core.windows.net/assets/1e9f8356-4ec9-4c7d-9673-beaea204b44d/CoalMid-YearUpdate2025.pdf",
+        "https://www.instituteforenergyresearch.org/fossil-fuels/coal/global-coal-use-hits-another-historic-record-in-2024/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "AUS",
@@ -1643,7 +1782,12 @@
       "year": 2024,
       "source": "eia",
       "ar": "إنتاج شركة بيمكس الحكومية يتراجع منذ عقدين، وديونها من الأعلى بين شركات النفط في العالم.",
-      "en": "Output by state-owned Pemex has declined for two decades, and its debt is among the highest of any oil company."
+      "en": "Output by state-owned Pemex has declined for two decades, and its debt is among the highest of any oil company.",
+      "sources": [
+        "https://www.opis.com/resources/energy-market-news-from-opis/pemex-says-it-cut-debt-by-13-in-2025-dropping-it-to-the-lowest-level-in-11-years/",
+        "https://www.riotimesonline.com/pemexs-mounting-losses-and-debt-signal-deepening-crisis-for-mexicos-oil-giant/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "DEU",
@@ -1667,7 +1811,12 @@
       "year": 2024,
       "source": "eia",
       "ar": "نفط وغاز بحر الشمال في تراجع، والحكومة أوقفت منح تراخيص تنقيب جديدة.",
-      "en": "North Sea oil and gas are in decline, and the government has stopped issuing new exploration licences."
+      "en": "North Sea oil and gas are in decline, and the government has stopped issuing new exploration licences.",
+      "sources": [
+        "https://www.carbonbrief.org/labour-confirms-plans-to-block-all-new-north-sea-oil-and-gas-projects",
+        "https://ukerc.ac.uk/news/keir-starmer-hasnt-really-called-time-on-north-sea-oil-and-gas-heres-why/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "ITA",
@@ -1683,7 +1832,12 @@
       "year": 2024,
       "source": "eia",
       "ar": "أكبر طاقة لاستقبال الغاز المسال وإعادة تغويزه في أوروبا، وتستورد الغاز الجزائري عبر خط ميدغاز.",
-      "en": "The largest LNG import and regasification capacity in Europe, plus Algerian gas via the Medgaz pipeline."
+      "en": "The largest LNG import and regasification capacity in Europe, plus Algerian gas via the Medgaz pipeline.",
+      "sources": [
+        "https://www.gasworld.com/spain-leads-eu-with-most-lng-regasification-capacity/2014104.article",
+        "https://www.offshore-technology.com/analyst-comment/spain-spearheads-europe-operational-lng-regasification-capacity/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "POL",
@@ -1723,7 +1877,12 @@
       "year": 2024,
       "source": "eia",
       "ar": "أُغلق حقل غرونينغن، أكبر حقول الغاز في أوروبا الغربية، عام 2024 بسبب الزلازل التي سبّبها الاستخراج.",
-      "en": "Groningen, Western Europe's largest gas field, was closed in 2024 because of the earthquakes extraction caused."
+      "en": "Groningen, Western Europe's largest gas field, was closed in 2024 because of the earthquakes extraction caused.",
+      "sources": [
+        "https://nltimes.nl/2024/04/17/senate-approves-permanent-closure-groningen-gas-field",
+        "https://oenergetice.cz/en/natural-gas/production-at-the-eus-largest-gas-field-ends-for-good-exxon-and-shell-sue-netherlands-for-compensation"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "BEL",
@@ -1771,7 +1930,12 @@
       "year": 2025,
       "source": "eia",
       "ar": "تعتمد على الغاز الروسي عبر خط ترك ستريم وتعارض خطط الاتحاد الأوروبي لوقف وارداته.",
-      "en": "Depends on Russian gas via TurkStream and opposes EU plans to end its imports."
+      "en": "Depends on Russian gas via TurkStream and opposes EU plans to end its imports.",
+      "sources": [
+        "https://www.intellinews.com/hungary-to-challenge-eu-s-ban-on-russian-gas-imports-vows-to-block-repowereu-407294",
+        "https://www.rferl.org/amp/eu-russia-gas-hungary-supplies-halt/33611928.html"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "AUT",
@@ -1816,7 +1980,10 @@
       "year": 2024,
       "source": "eia",
       "ar": "نفط وغاز بحر الشمال، وأُعيد تشغيل مركز تايرا للغاز عام 2024، مع خطة لوقف الإنتاج بحلول 2050.",
-      "en": "North Sea oil and gas; the Tyra gas hub restarted in 2024, with production to end by 2050."
+      "en": "North Sea oil and gas; the Tyra gas hub restarted in 2024, with production to end by 2050.",
+      "sources": [
+        "https://worldoil.com/news/2024/3/22/totalenergies-led-consortium-restarts-natural-gas-production-from-tyra-field-in-danish-north-sea"
+      ]
     },
     {
       "iso3": "FIN",
@@ -1848,7 +2015,12 @@
       "year": 2024,
       "source": "undata",
       "ar": "الطاقة الحرارية الجوفية والكهرومائية تولّدان كل كهربائها تقريباً وتُدفئ معظم المنازل، وتجذب مصاهر الألمنيوم.",
-      "en": "Geothermal and hydropower generate nearly all its electricity and heat most homes, attracting aluminium smelters."
+      "en": "Geothermal and hydropower generate nearly all its electricity and heat most homes, attracting aluminium smelters.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Geothermal_power_in_Iceland",
+        "https://www.thinkgeoenergy.com/geothermal-energy-giving-iceland-lowest-heating-costs-in-the-nordics/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "CUB",
@@ -1926,7 +2098,11 @@
       "source": "eia",
       "ar": "مصدّر للغاز المسال منذ 1999، وتسعى لاستغلال حقل دراغون في المياه الفنزويلية.",
       "en": "An LNG exporter since 1999, seeking to develop the Dragon field in Venezuelan waters.",
-      "conflictIds": ["venezuela"]
+      "conflictIds": ["venezuela"],
+      "sources": [
+        "https://www.jamaicaobserver.com/2025/10/09/us-grants-trinidad-permit-explore-venezuela-gas-field/",
+        "https://www.argusmedia.com/de/news-and-insights/latest-market-news/2781306-trinidad-eyes-late-2027-start-for-venezuelan-gas-field"
+      ]
     },
     {
       "iso3": "GRL",
@@ -1968,7 +2144,12 @@
       "year": 2024,
       "source": "eia",
       "ar": "تكوين فاكا مويرتا من أكبر موارد الغاز والنفط الصخري في العالم، وحوّل الأرجنتين إلى مصدّر للطاقة.",
-      "en": "The Vaca Muerta formation holds some of the world's largest shale gas and oil resources and has turned Argentina into an energy exporter."
+      "en": "The Vaca Muerta formation holds some of the world's largest shale gas and oil resources and has turned Argentina into an energy exporter.",
+      "sources": [
+        "https://worldoil.com/news/2026/1/21/vaca-muerta-shale-push-delivers-record-energy-surplus-for-argentina/",
+        "https://www.batimes.com.ar/news/economy/argentina-posts-biggest-energy-surplus-in-decades-on-shale-push.phtml"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "ECU",
@@ -1976,7 +2157,11 @@
       "year": 2024,
       "source": "eia",
       "ar": "النفط أكبر الصادرات، وصوّت الإكوادوريون في استفتاء 2023 لوقف الحفر في حديقة ياسوني الأمازونية.",
-      "en": "Oil is the largest export; Ecuadorians voted in a 2023 referendum to stop drilling in the Amazonian Yasuní park."
+      "en": "Oil is the largest export; Ecuadorians voted in a 2023 referendum to stop drilling in the Amazonian Yasuní park.",
+      "sources": [
+        "https://www.businesslive.co.za/bd/world/americas/2023-08-21-ecuador-votes-to-stop-oil-drilling-in-amazon-national-park/",
+        "https://news.mongabay.com/2026/05/ecuador-failing-to-end-yasuni-oil-drilling-interview-with-waorani-leader-juan-bay/"
+      ]
     },
     {
       "iso3": "PRY",
@@ -2007,8 +2192,12 @@
       "type": "geothermal",
       "year": 2024,
       "source": "undata",
-      "ar": "الطاقة الحرارية الجوفية تولّد نحو خُمس كهرباء البلاد من منطقة تاوبو البركانية.",
-      "en": "Geothermal power generates around a fifth of the country's electricity, from the Taupō volcanic zone."
+      "ar": "الطاقة الحرارية الجوفية تولّد نحو 15٪ من كهرباء البلاد، معظمها من منطقة تاوبو البركانية.",
+      "en": "Geothermal power generates around 15% of the country's electricity, mostly from the Taupō volcanic zone.",
+      "sources": [
+        "https://www.mbie.govt.nz/building-and-energy/energy-and-natural-resources/energy-generation-and-markets/geothermal-energy-generation"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "KIR",
