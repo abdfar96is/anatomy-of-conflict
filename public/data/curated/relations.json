@@ -130,7 +130,13 @@
       "en": "Alliance of Sahel States",
       "kind": "treaty",
       "members": ["MLI", "BFA", "NER"],
-      "since": "2023-09-16"
+      "since": "2023-09-16",
+      "sources": [
+        "https://www.dawn.com/news/1844288/sahel-military-chiefs-mark-divorce-from-west-africa-bloc",
+        "https://africabriefing.com/mali-burkina-faso-and-niger-mull-confederation-amidst-calls-for-unity/",
+        "https://www.modernghana.com/news/1505977/aes-confederation-convenes-in-ouagadougou-to-chart.html"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "id": "brics",
@@ -142,7 +148,13 @@
         "ar": "عضوية السعودية غير مؤكّدة رسمياً: دُعيت في 2023 ولم تُعلن انضمامها الكامل.",
         "en": "Saudi Arabia was invited in 2023 and has not formally confirmed full membership."
       },
-      "since": "2009"
+      "since": "2009",
+      "sources": [
+        "https://www.gov.br/planalto/en/latest-news/2025/01/brazil-announces-indonesia-as-full-member-of-brics",
+        "https://www.dawn.com/news/1802825/brics-ranks-swell-as-five-more-states-join-bloc",
+        "https://www.timeslive.co.za/news/world/2025-05-08-saudi-arabia-sits-on-fence-over-brics-with-eye-on-vital-ties-with-us/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "id": "csto",
