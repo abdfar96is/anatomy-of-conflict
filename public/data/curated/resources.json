@@ -261,7 +261,12 @@
       "source": "undata",
       "ar": "تعتمد مصر على النيل في معظم مياهها العذبة، وهو ما يجعل أي تغيير في تدفّقه مسألة أمن وجودي بالنسبة لها.",
       "en": "Egypt depends on the Nile for most of its fresh water, which makes any change in its flow an existential security matter for it.",
-      "conflictIds": ["ethiopia"]
+      "conflictIds": ["ethiopia"],
+      "sources": [
+        "https://www.aljazeera.com/news/2025/9/9/ethiopia-inaugurates-gerd-dam-amid-downstream-tensions-with-egypt-sudan",
+        "https://businessday.ng/africa/article/ethiopia-inaugurates-continents-biggest-dam-as-egypt-warns-of-existential-threat/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "ETH",
@@ -270,7 +275,12 @@
       "source": "undata",
       "ar": "سدّ النهضة على النيل الأزرق أكبر محطة كهرومائية في أفريقيا، وهو جوهر الخلاف مع مصر والسودان.",
       "en": "The Grand Ethiopian Renaissance Dam on the Blue Nile is Africa's largest hydroelectric plant and the core of the dispute with Egypt and Sudan.",
-      "conflictIds": ["ethiopia"]
+      "conflictIds": ["ethiopia"],
+      "sources": [
+        "https://www.aljazeera.com/news/2025/9/9/ethiopia-inaugurates-gerd-dam-amid-downstream-tensions-with-egypt-sudan",
+        "https://english.ahram.org.eg/NewsContent/2/8/552690/World/Region/Ethiopia-inaugurates-GERD-despite-strong-objection.aspx"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "GUY",
@@ -308,7 +318,12 @@
       "source": "undata",
       "ar": "معاهدة مياه السند 1960 نظّمت تقاسم النهر مع باكستان؛ علّقت الهند مشاركتها في 2025 وحكمت محكمة التحكيم الدائمة في 31 أغسطس 2026 بأنها تبقى ملزمة بالكامل.",
       "en": "The 1960 Indus Waters Treaty governed river sharing with Pakistan; India suspended its participation in 2025 and the Permanent Court of Arbitration ruled on 31 August 2026 that it remains fully binding.",
-      "conflictIds": ["kashmir"]
+      "conflictIds": ["kashmir"],
+      "sources": [
+        "https://www.jurist.org/news/2026/09/pakistan-dispatch-court-of-arbitration-rules-indus-waters-treaty-remains-in-force-but-compliance-remains-the-harder-test/",
+        "https://www.dawn.com/news/1965075"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "IRN",
@@ -654,7 +669,12 @@
       "source": "undata",
       "ar": "سدود دجلة والفرات في جنوب شرق الأناضول تمنح تركيا تأثيراً على تدفّق المياه إلى سوريا والعراق.",
       "en": "The Tigris and Euphrates dams in south-eastern Anatolia give Türkiye influence over water flows into Syria and Iraq.",
-      "conflictIds": ["turkey-kurdish", "syria-transition"]
+      "conflictIds": ["turkey-kurdish", "syria-transition"],
+      "sources": [
+        "https://www.thecornerhouse.org.uk/resource/downstream-impacts-turkish-dam-construction-syria-and-iraq",
+        "https://www.newarab.com/news/iraq-face-severe-shortages-river-flows-drop"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "TWN",
@@ -664,7 +684,12 @@
       "rank": 1,
       "ar": "تنتج الحصّة الأكبر عالمياً من أشباه الموصلات المتقدّمة، وهو ما يجعل أي اضطراب في الجزيرة أزمة اقتصادية عالمية فورية.",
       "en": "Produces the largest global share of advanced semiconductors, which makes any disruption on the island an immediate global economic crisis.",
-      "conflictIds": ["taiwan-strait"]
+      "conflictIds": ["taiwan-strait"],
+      "sources": [
+        "https://apps.digitimes.com/news/a20250210VL200.html",
+        "https://semiconleadersasia.com/analysis/1/521/2025-marked-the-year-of-silicon-sovereignty-in-asias-semiconductor-power-shift.html"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "UKR",
@@ -673,7 +698,12 @@
       "source": "worldbank",
       "ar": "من أكبر مصدّري الحبوب والزيوت النباتية، وتعتمد صادراتها على ممرّ البحر الأسود والمضائق التركية.",
       "en": "Among the largest exporters of grain and vegetable oils, with exports dependent on the Black Sea corridor and the Turkish straits.",
-      "conflictIds": ["russia-ukraine"]
+      "conflictIds": ["russia-ukraine"],
+      "sources": [
+        "https://www.portseurope.com/ukraines-black-sea-corridor-now-carries-most-grain-exports-eu-data-shows/",
+        "https://gcaptain.com/ukraines-grain-iron-ore-exports-hit-by-russian-strikes-on-ports-this-winter"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "UKR",
@@ -1000,8 +1030,10 @@
       "type": "coffee",
       "year": 2024,
       "source": "undata",
-      "ar": "أكبر مصدّر للبن في أفريقيا، والبن أهم صادراتها الزراعية.",
-      "en": "Africa's largest coffee exporter, coffee being its leading agricultural export."
+      "ar": "من أكبر مصدّري البن في أفريقيا، والبن أهم صادراتها الزراعية.",
+      "en": "One of Africa's largest coffee exporters, coffee being its leading agricultural export.",
+      "sources": ["https://cropgpt.ai/ugandas-coffee-ambitions-rise-amid-global-production-rebound"],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "AGO",
@@ -1048,8 +1080,13 @@
       "year": 2024,
       "source": "undata",
       "rank": 2,
-      "ar": "ثاني أكبر منتج للكاكاو في العالم بعد ساحل العاج، والبلدان معاً يوفّران نحو ثلثي الإنتاج العالمي.",
-      "en": "The world's second-largest cocoa producer after Côte d'Ivoire; together they supply around two-thirds of world output."
+      "ar": "ثاني أكبر منتج للكاكاو في العالم بعد ساحل العاج، والبلدان معاً يوفّران أكثر من نصف الإنتاج العالمي.",
+      "en": "The world's second-largest cocoa producer after Côte d'Ivoire; together they supply more than half of world output.",
+      "sources": [
+        "https://invezz.com/news/2025/04/20/is-the-cocoa-crisis-over-west-african-harvests-signal-sweet-relief-for-2025",
+        "https://intelpoint.co/blogs/top-cocoa-producing-countries-trends/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "MOZ",
@@ -1111,7 +1148,12 @@
       "source": "undata",
       "rank": 1,
       "ar": "أكبر منتج للكاكاو في العالم بنحو 40% من الإنتاج، وتقلّبات محصولها تحرّك الأسعار العالمية.",
-      "en": "The world's largest cocoa producer, at around 40% of output; swings in its harvest move global prices."
+      "en": "The world's largest cocoa producer, at around 40% of output; swings in its harvest move global prices.",
+      "sources": [
+        "https://invezz.com/news/2025/04/20/is-the-cocoa-crisis-over-west-african-harvests-signal-sweet-relief-for-2025",
+        "https://intelpoint.co/blogs/top-cocoa-producing-countries-trends/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "BFA",
@@ -1388,7 +1430,12 @@
       "year": 2024,
       "source": "undata",
       "ar": "مشروع مياه مرتفعات ليسوتو يبيع المياه لمنطقة غاوتنغ في جنوب أفريقيا، وهو أهم مصادر دخل البلاد.",
-      "en": "The Lesotho Highlands Water Project sells water to South Africa's Gauteng region and is among the country's main sources of income."
+      "en": "The Lesotho Highlands Water Project sells water to South Africa's Gauteng region and is among the country's main sources of income.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Lesotho_Highlands_Water_Project",
+        "https://www.ewn.co.za/2026/03/30/lesotho-pushes-for-bigger-share-in-key-water-deal-with-south-africa"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "GNB",
@@ -1412,7 +1459,12 @@
       "year": 2026,
       "source": "undata",
       "ar": "معاهدة تقاسم مياه الغانج مع الهند (1996) تنتهي في ديسمبر 2026، والخلاف على نهر تيستا لم يُحسم.",
-      "en": "The Ganges water-sharing treaty with India (1996) expires in December 2026, and the dispute over the Teesta river is unresolved."
+      "en": "The Ganges water-sharing treaty with India (1996) expires in December 2026, and the dispute over the Teesta river is unresolved.",
+      "sources": [
+        "https://www.outlookindia.com/international/ganga-water-treaty-explained-why-india-and-bangladesh-are-discussing-its-renewal",
+        "https://www.deccanherald.com/amp/story/india%2Fwest-bengal%2Fafter-stalling-teesta-deal-mamatas-party-now-opposes-ganges-treaty-renewal-with-bangladesh-2-3077590"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "JPN",
@@ -1443,7 +1495,12 @@
       "source": "undata",
       "rank": 2,
       "ar": "ثاني أكبر منتج للبن في العالم بعد البرازيل، ومعظمه من نوع روبوستا.",
-      "en": "The world's second-largest coffee producer after Brazil, mostly robusta."
+      "en": "The world's second-largest coffee producer after Brazil, mostly robusta.",
+      "sources": [
+        "https://qahwaworld.com/news/top-coffee-producers-2026",
+        "https://logos-pres.md/en/news/the-top-3-largest-coffee-producers-are-behind-america-and-asia-where-is-ethiopia-in-the-ranking/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "VNM",
@@ -1459,7 +1516,11 @@
       "year": 2024,
       "source": "undata",
       "ar": "من أكبر مصدّري الأرز في العالم.",
-      "en": "One of the world's largest rice exporters."
+      "en": "One of the world's largest rice exporters.",
+      "sources": [
+        "https://theinvestor.vn/vietnam-overtakes-thailand-to-become-worlds-second-largest-rice-exporter-d16569.html"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "KOR",
@@ -1467,7 +1528,11 @@
       "year": 2025,
       "source": "undata",
       "ar": "سامسونغ وإس كيه هاينكس تهيمنان على رقائق الذاكرة العالمية، ومنها ذاكرة HBM اللازمة لرقائق الذكاء الاصطناعي.",
-      "en": "Samsung and SK hynix dominate global memory chips, including the HBM memory needed for AI chips."
+      "en": "Samsung and SK hynix dominate global memory chips, including the HBM memory needed for AI chips.",
+      "sources": [
+        "https://semiconleadersasia.com/analysis/1/521/2025-marked-the-year-of-silicon-sovereignty-in-asias-semiconductor-power-shift.html"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "AFG",
@@ -1509,7 +1574,12 @@
       "source": "undata",
       "rank": 2,
       "ar": "ثاني أكبر منتج لزيت النخيل بعد إندونيسيا، وقانون الاتحاد الأوروبي لمكافحة إزالة الغابات يهدّد صادراتها.",
-      "en": "The second-largest palm oil producer after Indonesia; the EU deforestation regulation threatens its exports."
+      "en": "The second-largest palm oil producer after Indonesia; the EU deforestation regulation threatens its exports.",
+      "sources": [
+        "https://ukragroconsult.com/en/news/malaysia-to-retain-palm-oil-market-position-despite-eu-indonesia-trade-agreement-momentum/",
+        "https://www.csis.org/blogs/new-perspectives-asia/palm-oil-powerhouses-why-eus-deforestation-free-regulation-does-not"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "MYS",
@@ -1517,7 +1587,12 @@
       "year": 2025,
       "source": "undata",
       "ar": "مركز عالمي لتجميع الرقائق واختبارها وتغليفها، خاصة في بينانغ.",
-      "en": "A global hub for chip assembly, testing and packaging, especially in Penang."
+      "en": "A global hub for chip assembly, testing and packaging, especially in Penang.",
+      "sources": [
+        "https://www.semimedia.cc/malaysia-captures-13-of-global-packaging-assembly-and-testing-services-market-share/",
+        "https://www.freemalaysiatoday.com/category/business/2024/04/12/penang-in-global-semiconductor-spotlight"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "YEM",
@@ -1564,7 +1639,12 @@
       "year": 2025,
       "source": "undata",
       "ar": "الاعتماد على نهر الميكونغ وبحيرة تونلي ساب، وقناة فونان تيكو المموّلة صينياً تثير قلق فيتنام على تدفّق النهر.",
-      "en": "Dependence on the Mekong and the Tonlé Sap lake; the Chinese-funded Funan Techo canal worries Vietnam about the river's flow."
+      "en": "Dependence on the Mekong and the Tonlé Sap lake; the Chinese-funded Funan Techo canal worries Vietnam about the river's flow.",
+      "sources": [
+        "https://fulcrum.sg/article/long-reads/weaknesses-in-mekong-river-governance-the-case-of-the-funan-techo-canal/",
+        "https://hanoitimes.vn/vietnam-calls-for-full-impact-assessment-of-cambodias-funan-techo-project.592754.html"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "TJK",
@@ -1697,7 +1777,12 @@
       "source": "undata",
       "rank": 1,
       "ar": "أكبر منتج لزيت النخيل في العالم.",
-      "en": "The world's largest palm oil producer."
+      "en": "The world's largest palm oil producer.",
+      "sources": [
+        "https://www.freemalaysiatoday.com/category/business/2025/09/24/indonesias-palm-oil-exports-to-eu-to-climb-on-trade-pact-regulatory-reprieve",
+        "https://www.tridge.com/stories/implications-of-the-eudr-for-the-malaysian-and-indonesian-palm-oil-industries-upon"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "IDN",
@@ -1730,7 +1815,12 @@
       "source": "undata",
       "rank": 1,
       "ar": "أكبر مصدّر للأرز في العالم، وقيود التصدير التي فرضتها في 2023 هزّت الأسواق.",
-      "en": "The world's largest rice exporter; the export restrictions it imposed in 2023 shook markets."
+      "en": "The world's largest rice exporter; the export restrictions it imposed in 2023 shook markets.",
+      "sources": [
+        "https://business-standard.com/amp/industry/news/why-india-s-easing-of-export-curbs-is-important-to-global-rice-trade-124092900481_1.html",
+        "https://www.deccanherald.com/amp/story/india%2Ffactbox-why-indias-easing-of-export-curbs-is-important-to-global-rice-trade-3211192"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "CHN",
@@ -1802,7 +1892,12 @@
       "source": "undata",
       "rank": 1,
       "ar": "أكبر منتج ومصدّر للبن في العالم.",
-      "en": "The world's largest coffee producer and exporter."
+      "en": "The world's largest coffee producer and exporter.",
+      "sources": [
+        "https://qahwaworld.com/news/top-coffee-producers-2026",
+        "https://logos-pres.md/en/news/the-top-3-largest-coffee-producers-are-behind-america-and-asia-where-is-ethiopia-in-the-ranking/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "RUS",
@@ -1943,7 +2038,11 @@
       "year": 2025,
       "source": "undata",
       "ar": "شركة إيه إس إم إل تحتكر آلات الطباعة الضوئية بالأشعة فوق البنفسجية القصوى اللازمة لأحدث الرقائق، وتخضع صادراتها إلى الصين لقيود.",
-      "en": "ASML holds a monopoly on the extreme ultraviolet lithography machines needed for the most advanced chips, and its exports to China are restricted."
+      "en": "ASML holds a monopoly on the extreme ultraviolet lithography machines needed for the most advanced chips, and its exports to China are restricted.",
+      "sources": [
+        "https://whbl.com/?p=781473",
+        "https://newsable.asianetnews.com/markets/asml-stock-gains-pre-market-as-2025-forecast-stands-firm-despite-tariff-threat-to-china-sales-retail-remains-cautious-ssnk6k"
+      ]
     },
     {
       "iso3": "NLD",
@@ -2131,7 +2230,11 @@
       "year": 2024,
       "source": "undata",
       "ar": "أكبر منتج للبن في أمريكا الوسطى، والبن أهم صادراتها الزراعية.",
-      "en": "Central America's largest coffee producer, coffee being its main agricultural export."
+      "en": "Central America's largest coffee producer, coffee being its main agricultural export.",
+      "sources": [
+        "https://statranker.org/economy/global-coffee-production-in-2025-major-producers-exporters-and-market-trends/"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "NIC",
@@ -2294,7 +2397,12 @@
       "year": 2024,
       "source": "undata",
       "ar": "عضو في اتفاق ناورو الذي تتحكّم دوله بنحو نصف إمدادات تونة السكيبجاك العالمية عبر نظام بيع أيام الصيد، ورسوم الصيد من أهم إيرادات الدولة.",
-      "en": "A member of the Parties to the Nauru Agreement, whose states control around half of the world's skipjack tuna supply through the vessel day scheme; fishing fees are among the state's main revenues."
+      "en": "A member of the Parties to the Nauru Agreement, whose states control around half of the world's skipjack tuna supply through the vessel day scheme; fishing fees are among the state's main revenues.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Nauru_Agreement",
+        "https://weforum.org/agenda/2021/06/subsidized-fishing-man-made-tragedy"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "FSM",
@@ -2302,7 +2410,12 @@
       "year": 2024,
       "source": "undata",
       "ar": "عضو في اتفاق ناورو الذي تتحكّم دوله بنحو نصف إمدادات تونة السكيبجاك العالمية عبر نظام بيع أيام الصيد، ورسوم الصيد من أهم إيرادات الدولة.",
-      "en": "A member of the Parties to the Nauru Agreement, whose states control around half of the world's skipjack tuna supply through the vessel day scheme; fishing fees are among the state's main revenues."
+      "en": "A member of the Parties to the Nauru Agreement, whose states control around half of the world's skipjack tuna supply through the vessel day scheme; fishing fees are among the state's main revenues.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Nauru_Agreement",
+        "https://weforum.org/agenda/2021/06/subsidized-fishing-man-made-tragedy"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "MHL",
@@ -2310,7 +2423,12 @@
       "year": 2024,
       "source": "undata",
       "ar": "عضو في اتفاق ناورو الذي تتحكّم دوله بنحو نصف إمدادات تونة السكيبجاك العالمية عبر نظام بيع أيام الصيد، ورسوم الصيد من أهم إيرادات الدولة.",
-      "en": "A member of the Parties to the Nauru Agreement, whose states control around half of the world's skipjack tuna supply through the vessel day scheme; fishing fees are among the state's main revenues."
+      "en": "A member of the Parties to the Nauru Agreement, whose states control around half of the world's skipjack tuna supply through the vessel day scheme; fishing fees are among the state's main revenues.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Nauru_Agreement",
+        "https://weforum.org/agenda/2021/06/subsidized-fishing-man-made-tragedy"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "TUV",
@@ -2318,7 +2436,12 @@
       "year": 2024,
       "source": "undata",
       "ar": "عضو في اتفاق ناورو الذي تتحكّم دوله بنحو نصف إمدادات تونة السكيبجاك العالمية عبر نظام بيع أيام الصيد، ورسوم الصيد من أهم إيرادات الدولة.",
-      "en": "A member of the Parties to the Nauru Agreement, whose states control around half of the world's skipjack tuna supply through the vessel day scheme; fishing fees are among the state's main revenues."
+      "en": "A member of the Parties to the Nauru Agreement, whose states control around half of the world's skipjack tuna supply through the vessel day scheme; fishing fees are among the state's main revenues.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Nauru_Agreement",
+        "https://weforum.org/agenda/2021/06/subsidized-fishing-man-made-tragedy"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "PLW",
@@ -2326,7 +2449,12 @@
       "year": 2024,
       "source": "undata",
       "ar": "عضو في اتفاق ناورو الذي تتحكّم دوله بنحو نصف إمدادات تونة السكيبجاك العالمية عبر نظام بيع أيام الصيد، ورسوم الصيد من أهم إيرادات الدولة.",
-      "en": "A member of the Parties to the Nauru Agreement, whose states control around half of the world's skipjack tuna supply through the vessel day scheme; fishing fees are among the state's main revenues."
+      "en": "A member of the Parties to the Nauru Agreement, whose states control around half of the world's skipjack tuna supply through the vessel day scheme; fishing fees are among the state's main revenues.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Nauru_Agreement",
+        "https://weforum.org/agenda/2021/06/subsidized-fishing-man-made-tragedy"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "SLB",
@@ -2334,7 +2462,12 @@
       "year": 2024,
       "source": "undata",
       "ar": "عضو في اتفاق ناورو الذي تتحكّم دوله بنحو نصف إمدادات تونة السكيبجاك العالمية عبر نظام بيع أيام الصيد، ورسوم الصيد من أهم إيرادات الدولة.",
-      "en": "A member of the Parties to the Nauru Agreement, whose states control around half of the world's skipjack tuna supply through the vessel day scheme; fishing fees are among the state's main revenues."
+      "en": "A member of the Parties to the Nauru Agreement, whose states control around half of the world's skipjack tuna supply through the vessel day scheme; fishing fees are among the state's main revenues.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Nauru_Agreement",
+        "https://weforum.org/agenda/2021/06/subsidized-fishing-man-made-tragedy"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "PNG",
@@ -2342,7 +2475,12 @@
       "year": 2024,
       "source": "undata",
       "ar": "عضو في اتفاق ناورو الذي تتحكّم دوله بنحو نصف إمدادات تونة السكيبجاك العالمية عبر نظام بيع أيام الصيد، ورسوم الصيد من أهم إيرادات الدولة.",
-      "en": "A member of the Parties to the Nauru Agreement, whose states control around half of the world's skipjack tuna supply through the vessel day scheme; fishing fees are among the state's main revenues."
+      "en": "A member of the Parties to the Nauru Agreement, whose states control around half of the world's skipjack tuna supply through the vessel day scheme; fishing fees are among the state's main revenues.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Nauru_Agreement",
+        "https://weforum.org/agenda/2021/06/subsidized-fishing-man-made-tragedy"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "NRU",
@@ -2350,7 +2488,12 @@
       "year": 2024,
       "source": "undata",
       "ar": "عضو في اتفاق ناورو الذي تتحكّم دوله بنحو نصف إمدادات تونة السكيبجاك العالمية عبر نظام بيع أيام الصيد، ورسوم الصيد من أهم إيرادات الدولة.",
-      "en": "A member of the Parties to the Nauru Agreement, whose states control around half of the world's skipjack tuna supply through the vessel day scheme; fishing fees are among the state's main revenues."
+      "en": "A member of the Parties to the Nauru Agreement, whose states control around half of the world's skipjack tuna supply through the vessel day scheme; fishing fees are among the state's main revenues.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Nauru_Agreement",
+        "https://weforum.org/agenda/2021/06/subsidized-fishing-man-made-tragedy"
+      ],
+      "verified": "2026-11-02"
     },
     {
       "iso3": "NRU",
