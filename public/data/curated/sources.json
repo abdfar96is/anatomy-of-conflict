@@ -106,8 +106,8 @@
         "en": "One figure per country and series: the latest year with a value, shown with its year and source."
       },
       "methodology": {
-        "ar": "يجلب السكربت scripts/fetch-indicators.ts كل أسبوع عبر GitHub Actions سبع سلاسل من واجهة البنك الدولي المفتوحة دون مفتاح: السكان (SP.POP.TOTL، تقديرات الأمم المتحدة)، والناتج المحلي ونصيب الفرد بالدولار الجاري (NY.GDP.MKTP.CD وNY.GDP.PCAP.CD، الحسابات القومية)، واللاجئون حسب بلد المنشأ وبلد اللجوء (SM.POP.REFG.OR وSM.POP.REFG، المفوضية السامية لشؤون اللاجئين)، والنازحون داخلياً بسبب النزاع والعنف (VC.IDP.TOCV، مركز رصد النزوح الداخلي)، وقتلى المعارك (VC.BTL.DETH، برنامج أوبسالا لبيانات النزاعات). تُحفظ لكل دولة آخر سنة فيها قيمة: ضمن عشر سنوات من أحدث سنة في السلسلة للسكان والناتج، وسنتين للاجئين والنازحين، وأحدث سنة وحدها لقتلى المعارك. لا يُكتب الملف إن فشل طلب أو قلّ عدد الدول عن حد أدنى أو أخفق فحص المعقولية، فيبقى آخر ملف سليم. حيث لا قيمة للسكان أو الناتج يظهر تقدير Natural Earth مع ذكر ذلك.",
-        "en": "scripts/fetch-indicators.ts runs weekly on GitHub Actions and fetches seven series from the World Bank's keyless open API: population (SP.POP.TOTL, UN estimates), GDP and GDP per person in current US dollars (NY.GDP.MKTP.CD, NY.GDP.PCAP.CD, national accounts), refugees by country of origin and of asylum (SM.POP.REFG.OR, SM.POP.REFG, UNHCR), people internally displaced by conflict and violence (VC.IDP.TOCV, IDMC) and battle deaths (VC.BTL.DETH, Uppsala Conflict Data Program). Each country keeps its latest year with a value: within ten years of the series' newest year for population and GDP, two years for refugees and displacement, and the newest year only for battle deaths. Nothing is written when a request fails, a series covers too few countries or a sanity check fails, so the last good file stays. Where population or GDP has no value, the Natural Earth estimate is shown and labelled as such."
+        "ar": "يجلب السكربت scripts/fetch-indicators.ts كل أسبوع عبر GitHub Actions سبع سلاسل من واجهة البنك الدولي المفتوحة دون مفتاح: السكان (SP.POP.TOTL، تقديرات الأمم المتحدة)، والناتج المحلي ونصيب الفرد بالدولار الجاري (NY.GDP.MKTP.CD وNY.GDP.PCAP.CD، الحسابات القومية)، واللاجئون حسب بلد المنشأ وبلد اللجوء (مجموع لاجئي ولاية المفوضية SM.POP.RHCR.EO/EA ولاجئي فلسطين لدى الأونروا SM.POP.RRWA.EO/EA)، والنازحون داخلياً (SM.POP.IDPC، المفوضية ومركز رصد النزوح الداخلي)، وقتلى المعارك (VC.BTL.DETH، برنامج أوبسالا لبيانات النزاعات). حين تُجمع سلسلتان يُؤخذ مجموعهما في سنة تتوفر فيها كلتاهما. تُحفظ لكل دولة آخر سنة فيها قيمة: ضمن عشر سنوات من أحدث سنة في السلسلة للسكان والناتج، وسنتين للاجئين والنازحين، وأحدث سنة وحدها لقتلى المعارك. إن فشلت سلسلة السكان أو الناتج، أو قلّ عدد دولها عن حد أدنى، أو أخفق فحص المعقولية، لا يُكتب الملف ويبقى آخر ملف سليم؛ أما السلاسل الإنسانية فإن فشلت إحداها تبقى قيمها السابقة بسنواتها ويظهر تحذير في سجل التشغيل. حيث لا قيمة للسكان أو الناتج يظهر تقدير Natural Earth مع ذكر ذلك.",
+        "en": "scripts/fetch-indicators.ts runs weekly on GitHub Actions and fetches seven series from the World Bank's keyless open API: population (SP.POP.TOTL, UN estimates), GDP and GDP per person in current US dollars (NY.GDP.MKTP.CD, NY.GDP.PCAP.CD, national accounts), refugees by country of origin and of asylum (refugees under UNHCR's mandate, SM.POP.RHCR.EO/EA, plus Palestine refugees registered with UNRWA, SM.POP.RRWA.EO/EA), internally displaced people (SM.POP.IDPC, UNHCR and IDMC) and battle deaths (VC.BTL.DETH, Uppsala Conflict Data Program). Where two series are summed, only years in which both have a value count. Each country keeps its latest year with a value: within ten years of the series' newest year for population and GDP, two years for refugees and displacement, and the newest year only for battle deaths. If population or GDP fails, covers too few countries or fails a sanity check, nothing is written and the last good file stays; if a humanitarian series fails, its previous values stay with their years and the run shows a warning. Where population or GDP has no value, the Natural Earth estimate is shown and labelled as such."
       },
       "limitations": {
         "ar": "السلاسل تتأخر عادةً سنة أو سنتين عن الواقع، وتظهر سنة كل رقم بجانبه. الأرقام لكل دولة كما يعرّفها المصدر، وقد تختلف عن الحدود المرسومة (أرقام الصومال مثلاً تشمل أرض الصومال)، وليست لنزاع بعينه. قتلى المعارك لا يشملون القتل المتعمد للمدنيين ولا الوفيات غير المباشرة. البنك الدولي ناقل لهذه الأرقام، ومراجعات المصدر الأصلي تصل إليه متأخرة.",
@@ -117,9 +117,11 @@
         "SP.POP.TOTL",
         "NY.GDP.MKTP.CD",
         "NY.GDP.PCAP.CD",
-        "SM.POP.REFG.OR",
-        "SM.POP.REFG",
-        "VC.IDP.TOCV",
+        "SM.POP.RHCR.EO",
+        "SM.POP.RRWA.EO",
+        "SM.POP.RHCR.EA",
+        "SM.POP.RRWA.EA",
+        "SM.POP.IDPC",
         "VC.BTL.DETH"
       ]
     },

@@ -33,7 +33,7 @@ export const liveFile = z.object({
   api: url,
   retrieved: day.nullable(),
   indicators: z.object(Object.fromEntries(LIVE_KEYS.map((k) => [k, z.object({
-    code: z.string().regex(/^[A-Z0-9.]+$/), name: z.string().optional(), origin: bi, url, sourceOrganization: z.string().optional(),
+    code: z.string().regex(/^[A-Z0-9.]+( \+ [A-Z0-9.]+)*$/, 'expected series codes joined by " + "'), name: z.string().optional(), origin: bi, url, sourceOrganization: z.string().optional(),
     lastUpdated: day.optional(), latestYear: z.number().int().optional(), countries: z.number().int().min(0).optional(),
   })])) as unknown as Record<(typeof LIVE_KEYS)[number], z.ZodType>),
   values: z.record(iso, z.partialRecord(liveKey, z.tuple([z.number().min(0), z.number().int().min(1960)]))),
