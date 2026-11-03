@@ -107,6 +107,9 @@ function summary(c: Country, k: Kit) {
   </>;
 }
 
+/** UCDP has no location for Palestine: battle deaths in Gaza are recorded under Israel (seen in the data). */
+export const BATTLE_UNDER_ISRAEL = new Set(['ISR', 'PSE']);
+
 /** Refugees, internal displacement and battle deaths from the open-data refresh, each with its year and source. */
 function humanitarian(c: Country, k: Kit) {
   const { t, fmt, db } = k;
@@ -118,8 +121,9 @@ function humanitarian(c: Country, k: Kit) {
       k.stat(t('dz.hu.refOrigin'), 'refOrigin', c, n, { noneTip: none }),
       k.stat(t('dz.hu.refAsylum'), 'refAsylum', c, n, { noneTip: none }),
       k.stat(t('dz.hu.idps'), 'idps', c, n, { noneTip: none }),
-      k.stat(t('dz.hu.battleDeaths'), 'battleDeaths', c, n, { noneTip: (y) => t('dz.hu.noneBattle', { y }) }),
+      k.stat(t('dz.hu.battleDeaths'), 'battleDeaths', c, n, { noneTip: (y) => (c.iso3 === 'PSE' ? t('dz.hu.bdPse') : t('dz.hu.noneBattle', { y })) }),
     ]),
+    BATTLE_UNDER_ISRAEL.has(c.iso3) ? k.caveat(t('dz.hu.bdPse')) : null,
     k.note(t('dz.hu.note')),
   ], { id: 'humanitarian' });
 }

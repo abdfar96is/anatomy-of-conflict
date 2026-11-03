@@ -233,6 +233,16 @@ describe('the dossier shows each figure with its year and source', () => {
     expect(panel().textContent).toContain(en('dz.cf.humNote'));
   });
 
+  test('Israel and Palestine say where UCDP records the Gaza war deaths', () => {
+    atlas.set({ lang: 'en' });
+    show(live);
+    act(() => { atlas.select('country', 'PSE', { fly: false }); });
+    expect(panel().textContent).toContain(en('dz.hu.bdPse'));
+    expect(factOf(en('dz.hu.battleDeaths')).querySelector('.dz-none')).toHaveAttribute('data-tip', en('dz.hu.bdPse'));
+    act(() => { atlas.select('country', 'SDN', { fly: false }); });
+    expect(panel().textContent).not.toContain(en('dz.hu.bdPse'));
+  });
+
   test('before the first fetch the figures say they are Natural Earth estimates', () => {
     atlas.set({ lang: 'en' });
     show(base);

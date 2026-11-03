@@ -7,6 +7,7 @@ import { esc } from '../../../ui/dom';
 import { Icon } from '../../../ui/Icon';
 import { extPowers, pickList, type ChokeX, type ConflictX, type EventX, type Panel, type ResEntryX } from '../model';
 import type { Kit } from '../parts';
+import { BATTLE_UNDER_ISRAEL } from './country';
 
 const DIMS: Record<string, { ar: string; en: string }> = DIMENSIONS;
 
@@ -101,6 +102,7 @@ function human(cf: ConflictX, k: Kit) {
     <p className="dz-pv" key="s"><span className="dz-pv-s">{t('dz.pv.sources')}{' '}{srcs.map((ind, i) => (
       <Fragment key={ind.code}>{i ? ' · ' : ''}<a href={ind.url} target="_blank" rel="noopener" data-tip={esc(t('dz.src.liveTip', { code: ind.code, o: ind.sourceOrganization || L(ind.origin), d: fmt.date(live.retrieved) }))}>{t('dz.src.live', { o: L(ind.origin) })}<Icon name="external" size={11} /></a></Fragment>
     ))}</span></p>,
+    isos.some((iso) => BATTLE_UNDER_ISRAEL.has(iso)) ? k.caveat(t('dz.hu.bdPse')) : null,
     k.note(t('dz.cf.humNote')),
   ], { id: 'human' });
 }
