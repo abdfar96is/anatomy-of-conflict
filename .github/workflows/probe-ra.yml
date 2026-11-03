@@ -1,0 +1,31 @@
+name: Probe Reactor Atlas (temporary)
+on:
+  push:
+    branches: [data/nuclear-construction]
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sitemaps and a country page
+        run: |
+          set +e
+          ua='Mozilla/5.0 (compatible; anatomy-of-conflict-atlas; educational)'
+          curl -sS -m 60 -A "$ua" https://reactoratlas.com/sitemap.xml | head -c 1500; echo
+          curl -sS -m 60 -A "$ua" https://reactoratlas.com/sitemaps/sitemap/plants.xml -o plants.xml; grep -o '<loc>[^<]*</loc>' plants.xml | wc -l; grep -o '<loc>[^<]*</loc>' plants.xml | grep -i 'en/' | head -15
+          for u in $(grep -o '<loc>[^<]*</loc>' plants.xml | sed 's/<[^>]*>//g' | grep -i '/en/' | grep -iE 'zhaoyuan|lufeng|leningrad|darlington|paks|chashma|shin-hanul|el-dabaa|jizzakh|uzbek' | head -8); do
+            sleep 2
+            curl -sS -m 60 -A "$ua" -o p.html -w "== $u %{http_code}\n" "$u"
+            python3 - <<'PY'
+          import re, html
+          s = open('p.html', encoding='utf-8', errors='replace').read()
+          clean = lambda x: re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]+>', ' ', x))).strip()
+          m = re.findall(r'(-?\d{1,2}\.\d{3,})\s*[,° ]\s*(-?\d{1,3}\.\d{3,})', clean(s))
+          print('  coords-ish', m[:3])
+          for k in re.findall(r'"(?:latitude|longitude|lat|lng|lon)"\s*:\s*(-?[\d.]+)', s)[:4]: print('  geo', k)
+          for t in re.findall(r'<table.*?</table>', s, re.S)[:3]:
+              for r in re.findall(r'<tr[^>]*>(.*?)</tr>', t, re.S)[:14]:
+                  print('    |', ' | '.join(clean(c) for c in re.findall(r'<t[dh][^>]*>(.*?)</t[dh]>', r, re.S)))
+          PY
+          done
