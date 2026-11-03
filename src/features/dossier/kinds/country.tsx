@@ -116,13 +116,15 @@ function humanitarian(c: Country, k: Kit) {
   if (!db.live) return k.sec(t('dz.hu.title'), k.note(t('dz.hu.pending')), { id: 'humanitarian' });
   const n = (v: number) => k.numUnit(fmt.compact(v));
   const none = (y: number | string) => t('dz.hu.noneTip', { y });
+  const refTip = t('dz.hu.refTip');
   return k.sec(t('dz.hu.title'), [
     k.facts([
-      k.stat(t('dz.hu.refOrigin'), 'refOrigin', c, n, { noneTip: none }),
-      k.stat(t('dz.hu.refAsylum'), 'refAsylum', c, n, { noneTip: none }),
+      k.stat(t('dz.hu.refOrigin'), 'refOrigin', c, n, { noneTip: none, tipText: refTip }),
+      k.stat(t('dz.hu.refAsylum'), 'refAsylum', c, n, { noneTip: none, tipText: refTip }),
       k.stat(t('dz.hu.idps'), 'idps', c, n, { noneTip: none }),
       k.stat(t('dz.hu.battleDeaths'), 'battleDeaths', c, n, { noneTip: (y) => (c.iso3 === 'PSE' ? t('dz.hu.bdPse') : t('dz.hu.noneBattle', { y })) }),
     ]),
+    k.figureNotes(c, { refOrigin: t('dz.hu.refOrigin'), refAsylum: t('dz.hu.refAsylum'), idps: t('dz.hu.idps'), battleDeaths: t('dz.hu.battleDeaths') }),
     BATTLE_UNDER_ISRAEL.has(c.iso3) ? k.caveat(t('dz.hu.bdPse')) : null,
     k.note(t('dz.hu.note')),
   ], { id: 'humanitarian' });

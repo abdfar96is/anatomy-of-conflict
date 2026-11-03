@@ -1,0 +1,92 @@
+{
+  "note": {
+    "ar": "ملاحظات على أرقام البيانات المفتوحة لدول بعينها، حين يختلف ما يقيسه الرقم عن الواقع اختلافاً كبيراً. كل ملاحظة تذكر مصادرها وتاريخ آخر تحقق منها.",
+    "en": "Notes on the open-data figures for particular countries, where what a figure measures differs widely from the situation on the ground. Each note names its sources and when it was last checked."
+  },
+  "countries": {
+    "ARE": {
+      "refAsylum": {
+        "ar": "الإمارات ليست طرفاً في اتفاقية 1951 للاجئين، شأنها شأن دول مجلس التعاون الخليجي كلها، ولا تمنح صفة اللاجئ. من فرّوا إليها من الحروب، كالسوريين، يقيمون بتأشيرات عمل أو زيارة أو إقامات عائلية، فلا يدخلون في هذا الرقم الذي يقتصر على من تعترف بهم المفوضية.",
+        "en": "The UAE is not a party to the 1951 Refugee Convention, like every Gulf Cooperation Council state, and does not grant refugee status. People who fled wars to it, such as Syrians, stay on work, visit or family residence visas, so they are not in this figure, which counts only those UNHCR recognises.",
+        "sources": [
+          "https://gulfmigration.grc.net/convention-relating-to-the-status-of-refugees/",
+          "https://www.npr.org/sections/parallels/2015/09/20/441457924/gulf-states-fend-off-criticism-about-doing-little-for-syrian-refugees",
+          "https://www.euronews.com/2015/09/25/why-aren-t-rich-gulf-states-welcoming-syrian-refugees-or-are-they",
+          "https://fount.aucegypt.edu/audiovisual_faculty_work/85"
+        ],
+        "verified": "2026-11-03"
+      }
+    },
+    "BHR": {
+      "refAsylum": {
+        "ar": "البحرين ليست طرفاً في اتفاقية 1951 للاجئين، شأنها شأن دول مجلس التعاون الخليجي كلها، ولا تمنح صفة اللاجئ. من فرّوا إليها من الحروب، كالسوريين، يقيمون بتأشيرات عمل أو زيارة أو إقامات عائلية، فلا يدخلون في هذا الرقم الذي يقتصر على من تعترف بهم المفوضية.",
+        "en": "Bahrain is not a party to the 1951 Refugee Convention, like every Gulf Cooperation Council state, and does not grant refugee status. People who fled wars to it, such as Syrians, stay on work, visit or family residence visas, so they are not in this figure, which counts only those UNHCR recognises.",
+        "sources": [
+          "https://gulfmigration.grc.net/convention-relating-to-the-status-of-refugees/",
+          "https://www.npr.org/sections/parallels/2015/09/20/441457924/gulf-states-fend-off-criticism-about-doing-little-for-syrian-refugees",
+          "https://www.euronews.com/2015/09/25/why-aren-t-rich-gulf-states-welcoming-syrian-refugees-or-are-they"
+        ],
+        "verified": "2026-11-03"
+      }
+    },
+    "KWT": {
+      "refAsylum": {
+        "ar": "الكويت ليست طرفاً في اتفاقية 1951 للاجئين، شأنها شأن دول مجلس التعاون الخليجي كلها، ولا تمنح صفة اللاجئ. من فرّوا إليها من الحروب، كالسوريين، يقيمون بتأشيرات عمل أو زيارة أو إقامات عائلية، فلا يدخلون في هذا الرقم الذي يقتصر على من تعترف بهم المفوضية.",
+        "en": "Kuwait is not a party to the 1951 Refugee Convention, like every Gulf Cooperation Council state, and does not grant refugee status. People who fled wars to it, such as Syrians, stay on work, visit or family residence visas, so they are not in this figure, which counts only those UNHCR recognises.",
+        "sources": [
+          "https://gulfmigration.grc.net/convention-relating-to-the-status-of-refugees/",
+          "https://www.npr.org/sections/parallels/2015/09/20/441457924/gulf-states-fend-off-criticism-about-doing-little-for-syrian-refugees",
+          "https://www.euronews.com/2015/09/25/why-aren-t-rich-gulf-states-welcoming-syrian-refugees-or-are-they"
+        ],
+        "verified": "2026-11-03"
+      }
+    },
+    "LBN": {
+      "refAsylum": {
+        "ar": "علّقت المفوضية تسجيل اللاجئين السوريين في لبنان منذ مايو 2015 بقرار من الحكومة اللبنانية، فهذا الرقم لا يشمل من لم يُسجَّلوا منذ ذلك الحين. وبحسب المفوضية وصل 112,089 سورياً إضافياً منذ 8 ديسمبر 2024 (تحديث نوفمبر 2025).",
+        "en": "UNHCR has suspended registration of Syrian refugees in Lebanon since May 2015 by decision of the Lebanese government, so this figure leaves out those not registered since. According to UNHCR, a further 112,089 Syrians have arrived since 8 December 2024 (November 2025 update).",
+        "sources": [
+          "https://www.unhcr.org/sites/default/files/2025-12/unhcr-lebanon-operational-update-november-2025.pdf",
+          "https://help.unhcr.org/lebanon/en/registration"
+        ],
+        "verified": "2026-11-03"
+      }
+    },
+    "OMN": {
+      "refAsylum": {
+        "ar": "عُمان ليست طرفاً في اتفاقية 1951 للاجئين، شأنها شأن دول مجلس التعاون الخليجي كلها، ولا تمنح صفة اللاجئ. من فرّوا إليها من الحروب، كالسوريين، يقيمون بتأشيرات عمل أو زيارة أو إقامات عائلية، فلا يدخلون في هذا الرقم الذي يقتصر على من تعترف بهم المفوضية.",
+        "en": "Oman is not a party to the 1951 Refugee Convention, like every Gulf Cooperation Council state, and does not grant refugee status. People who fled wars to it, such as Syrians, stay on work, visit or family residence visas, so they are not in this figure, which counts only those UNHCR recognises.",
+        "sources": [
+          "https://gulfmigration.grc.net/convention-relating-to-the-status-of-refugees/",
+          "https://www.npr.org/sections/parallels/2015/09/20/441457924/gulf-states-fend-off-criticism-about-doing-little-for-syrian-refugees",
+          "https://www.euronews.com/2015/09/25/why-aren-t-rich-gulf-states-welcoming-syrian-refugees-or-are-they"
+        ],
+        "verified": "2026-11-03"
+      }
+    },
+    "QAT": {
+      "refAsylum": {
+        "ar": "قطر ليست طرفاً في اتفاقية 1951 للاجئين، شأنها شأن دول مجلس التعاون الخليجي كلها، ولا تمنح صفة اللاجئ. من فرّوا إليها من الحروب، كالسوريين، يقيمون بتأشيرات عمل أو زيارة أو إقامات عائلية، فلا يدخلون في هذا الرقم الذي يقتصر على من تعترف بهم المفوضية.",
+        "en": "Qatar is not a party to the 1951 Refugee Convention, like every Gulf Cooperation Council state, and does not grant refugee status. People who fled wars to it, such as Syrians, stay on work, visit or family residence visas, so they are not in this figure, which counts only those UNHCR recognises.",
+        "sources": [
+          "https://gulfmigration.grc.net/convention-relating-to-the-status-of-refugees/",
+          "https://www.npr.org/sections/parallels/2015/09/20/441457924/gulf-states-fend-off-criticism-about-doing-little-for-syrian-refugees",
+          "https://www.euronews.com/2015/09/25/why-aren-t-rich-gulf-states-welcoming-syrian-refugees-or-are-they"
+        ],
+        "verified": "2026-11-03"
+      }
+    },
+    "SAU": {
+      "refAsylum": {
+        "ar": "السعودية ليست طرفاً في اتفاقية 1951 للاجئين ولا تمنح صفة اللاجئ، فهذا الرقم لا يشمل من فرّوا إليها من الحروب. قال متحدث باسم المفوضية عام 2015 إن نحو 500 ألف سوري يعيشون فيها دون تصنيفهم لاجئين، وتقدّر دراسة أكاديمية أن نحو 400 ألف يمني سوّوا أوضاعهم بإقامات عام 2015، ونحو 670 ألف سوري حتى 2018، ونحو 250 ألفاً من الروهينغا عام 2013. هذه الأرقام قديمة وتتفاوت بين المصادر.",
+        "en": "Saudi Arabia is not a party to the 1951 Refugee Convention and does not grant refugee status, so this figure leaves out people who fled wars to it. A UNHCR spokesperson said in 2015 that about 500,000 Syrians lived there without being classed as refugees; an academic study estimates that about 400,000 Yemenis regularised their stay with residence permits in 2015, about 670,000 Syrians by 2018 and about 250,000 Rohingya in 2013. These figures are old and differ between sources.",
+        "sources": [
+          "https://upr.info/sites/default/files/documents/2014-03/unhcr_upr17_sau_e_main.pdf",
+          "https://alqst.org/en/syrians-residing-in-saudi-arabia",
+          "https://academic.oup.com/ijrl/article/35/3/251/7439896"
+        ],
+        "verified": "2026-11-03"
+      }
+    }
+  }
+}

@@ -35,6 +35,7 @@ function normalizeIsos(R: RawData) {
   for (const s of R.resources.sites) s.iso3 = fix(s.iso3);
   R.intel.countries = Object.fromEntries(Object.entries(R.intel.countries).map(([k, v]) => [fix(k), v]));
   R.religions.countries = Object.fromEntries(Object.entries(R.religions.countries).map(([k, v]) => [fix(k), v]));
+  if (R.figureNotes) R.figureNotes.countries = Object.fromEntries(Object.entries(R.figureNotes.countries).map(([k, v]) => [fix(k), v]));
 }
 
 export function build(input: RawData): DB {
@@ -56,7 +57,7 @@ export function build(input: RawData): DB {
       pop: p.pop_est, popYear: p.pop_year, gdp: p.gdp_md, gdpYear: p.gdp_year, income: p.income_grp, economy: p.economy,
       lon: r.lon ?? p.label_x, lat: r.lat ?? p.label_y, wikidata: p.wikidataid,
       areaKm2: geoArea(f) * EARTH_R * EARTH_R,
-      feature: f, gdpPerCap: null, density: null, stats: {},
+      feature: f, gdpPerCap: null, density: null, stats: {}, figureNotes: R.figureNotes?.countries[p.iso3] ?? {},
       intel: null, religion: null, resources: [], sites: [], conflicts: [], external: [], blocs: [], edges: [],
       events: [], groups: [], chokepoints: [], neighbors: [], disputed: [],
     });

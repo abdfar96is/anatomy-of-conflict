@@ -148,6 +148,9 @@
 .dz-fsrc a { color: var(--fg-2); }
 .dz-fsrc a .ic { display: inline-block; margin-inline-start: 2px; vertical-align: -1px; }
 .dz-none { color: var(--fg-3); }
+.dz-fnote { display: grid; gap: 4px; margin-top: 10px; }
+.dz-fnote .dz-caveat { margin: 0; }
+.dz-fnote .dz-pv { padding-inline-start: 26px; }
 /* humanitarian figures per state, conflict dossier */
 .dz-hum-wrap { overflow-x: auto; }
 .dz-hum { inline-size: 100%; border-collapse: collapse; font-size: var(--fs-sm); }

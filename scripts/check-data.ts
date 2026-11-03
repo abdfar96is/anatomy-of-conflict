@@ -99,6 +99,13 @@ export function checkData(dataDir: string): Problem[] {
   resources.sites.forEach((s, i) => { country('resources.json', `sites[${i}].iso3`, s.iso3); resType('resources.json', `sites[${i}].type`, s.type); });
   for (const iso of Object.keys((files['country_intel.json'] as { countries: Rec }).countries)) country('country_intel.json', `countries.${iso}`, iso);
   for (const iso of Object.keys((files['religions.json'] as { countries: Rec }).countries)) country('religions.json', `countries.${iso}`, iso);
+  const figureNotes = (files['figure_notes.json'] as { countries: Record<string, Record<string, Rec>> } | undefined)?.countries ?? {};
+  for (const [iso, notes] of Object.entries(figureNotes)) {
+    country('figure_notes.json', `countries.${iso}`, iso);
+    for (const [k, n] of Object.entries(notes)) {
+      if (typeof n.verified === 'string' && n.verified > new Date().toISOString().slice(0, 10)) problems.push({ file: 'figure_notes.json', path: `countries.${iso}.${k}.verified`, message: 'date is in the future', value: n.verified });
+    }
+  }
 
   // 2b. A last-checked date cannot lie in the future.
   const today = new Date().toISOString().slice(0, 10);
