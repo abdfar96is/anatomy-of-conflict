@@ -1,0 +1,27 @@
+name: Dry run of the open-data fetch (temporary)
+on:
+  push:
+    branches: [fix/indicator-series]
+permissions:
+  contents: read
+jobs:
+  dry-run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run fetch-indicators
+      - run: npm run check-data
+      - run: npm test
+      - name: Summary of the fetched file
+        run: |
+          node -e '
+          const f = require("./public/data/live/indicators.json");
+          console.log("retrieved", f.retrieved, "countries", Object.keys(f.values).length);
+          for (const [k, i] of Object.entries(f.indicators)) console.log(k, i.code, "latest", i.latestYear, "n", i.countries, "updated", i.lastUpdated);
+          for (const iso of ["SAU","SDN","PSE","ISR","SYR","UKR","JOR","LBN","SOM","YEM","COD","TWN","KOS","SOL"]) console.log(iso, JSON.stringify(f.values[iso] ?? null));
+          '
