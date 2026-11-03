@@ -4,6 +4,7 @@
 |---|---|---|
 | `geo/` | Country, boundary and disputed-area shapes from [Natural Earth](https://www.naturalearthdata.com/) | Public domain |
 | `live/` | Population, GDP, refugees, internal displacement and battle deaths from the [World Bank's open data](https://data.worldbank.org/), refreshed weekly | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — World Bank; each series keeps its original publisher (UN, UNHCR, IDMC, UCDP) |
+| `history/` | Historical borders of states and dependent territories, 1886–2019, from [CShapes 2.0](https://icr.ethz.ch/data/cshapes/) (ETH Zurich), simplified; Arabic names and ruler colours in `meta.json` | [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) — non-commercial, share-alike; cite Schvitz et al. (2022) |
 | `curated/nuclear_plants.json` | Nuclear power plants and their units, derived from [GeoNuclearData](https://github.com/cristianst85/GeoNuclearData) with documented updates | [ODbL 1.0](https://opendatacommons.org/licenses/odbl/1-0/) — a derived database; contents under the [DbCL 1.0](https://opendatacommons.org/licenses/dbcl/1-0/) |
 | `curated/` | The atlas content: conflicts, ethnic groups, religions, relations, resources, chokepoints, timeline, sources | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — a compilation adapted from «الأطلس الجيوسياسي والعرقي الديني العالمي» |
 
@@ -70,3 +71,27 @@ This file is derived from GeoNuclearData 0.17.17 (3 March 2024) and stays under 
 - `iaea`: the PRIS id
 
 Units whose status changed since March 2024 carry `changed` with the year and the sources. The yearly Reactor Atlas tables cover grid connections and shutdowns in 2024–2026; separate sources cover the Japanese restarts and the Zaporizhzhia cold shutdown. Units under construction missing from the base data were added from the Reactor Atlas plant pages (November 2026), so each state's count of units under construction matches the 2026 table. Each added unit carries its construction-start year and a link to its page. Russia's Baltic 1 is left out because it is no longer counted as under construction. Per-state totals come from the Reactor Atlas 2026 table (`fleet` in `nuclear.json`), and a test checks that each state's civil status agrees with both.
+
+## Historical borders (`history/`)
+
+The Historical borders lens loads these two files on demand:
+
+- **`cshapes.topo.json`** is CShapes 2.0 (Gleditsch–Ward version), taken from the official `cshapes` 2.0 R package. Only that release carries the `status` and `owner` fields. The geometry is simplified to 4 % with mapshaper (`keep-shapes`, quantisation 1e5). Each geometry is one country-period with these fields:
+  - `gwcode`, `country_name`
+  - `start`, `end`
+  - `status`: `independent`, `colony`, `protectorate`, `mandate`, `occupied` or `N/A`
+  - `owner`: the ruling state's gwcode
+  - `capname`, `caplong`, `caplat`
+  - `b_def`: 1 if the borders are defined
+  - `fid`
+- **`meta.json`** holds:
+  - Arabic names for every `country_name`
+  - period names for a few states that changed name (Russian Empire, Soviet Union, Russia; Ottoman Empire, Turkey; Persia, Iran; German Empire, Germany; Qing China; Empire of Japan)
+  - the colonial powers with fixed colours
+  - the source, licence and citation
+
+The data is under **CC BY-NC-SA 4.0**: attribution, non-commercial use, and share-alike. This folder is therefore licensed apart from the rest of the atlas, and the layer must not be used commercially.
+
+Cite: Schvitz, Rüegger, Girardin, Cederman, Weidmann and Gleditsch (2022), *Mapping the International System, 1886–2019: The CShapes 2.0 Dataset*, Journal of Conflict Resolution 66(1): 144–61.
+
+`npm run check-data` checks that every unit has the fields the lens reads, an Arabic name and a start that does not fall after its end.

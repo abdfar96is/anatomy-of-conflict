@@ -6,6 +6,7 @@ import { RELIGION_FAMILIES, RESOURCE_CLASSES, SEVERITY_RANK } from '../config';
 import { normalize, type Lang } from '../i18n/format';
 import { CONFLICT_FILES } from './files';
 import { NUCLEAR_UNIT } from '../config';
+import { getBorders, successors, unitName } from './borders';
 import type { Conflict, Country, DB, Disputed, Group, IndexRow, Kind, LiveKey, NuclearUnitStatus, Plant, RawData, SearchEntry, Stat } from './types';
 
 const EARTH_R = 6371;
@@ -265,6 +266,7 @@ export function build(input: RawData): DB {
       case 'bloc': return DB.relations.blocById.get(id);
       case 'site': return DB.siteById.get(id);
       case 'plant': return DB.plantById.get(id);
+      case 'border': return getBorders()?.byId.get(id);
       default: return undefined;
     }
   };
@@ -289,11 +291,13 @@ export function build(input: RawData): DB {
       case 'bloc': return x.members as string[];
       case 'site': return [x.iso3 as string];
       case 'plant': return [x.iso3 as string];
+      case 'border': { const u = getBorders()?.byId.get(id); return u ? successors(u, DB) : []; }
       default: return [];
     }
   };
   /** [lon, lat] anchor of a selection. */
   DB.anchorOf = (kind, id) => {
+    if (kind === 'border') { const u = getBorders()?.byId.get(id); return u ? u.capLL : null; }
     const x = DB.get(kind, id) as { coords?: [number, number]; lon?: number; lat?: number } | undefined;
     if (!x) return null;
     if (x.coords) return x.coords;
@@ -303,6 +307,7 @@ export function build(input: RawData): DB {
     return geoCentroid(collection(isos.map((c) => c.feature)));
   };
   DB.nameOf = (kind: Kind, id: string, lang: Lang) => {
+    if (kind === 'border') { const B = getBorders(), u = B?.byId.get(id); return B && u ? unitName(B, u, lang) : id; }
     const x = DB.get(kind, id) as Record<string, unknown> | undefined;
     if (!x) return id;
     const ar = lang === 'ar';

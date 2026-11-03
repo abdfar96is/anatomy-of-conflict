@@ -36,6 +36,7 @@ registerStrings({
     'kind.bloc': 'تكتّل',
     'kind.site': 'موقع مورد',
     'kind.plant': 'محطة نووية',
+    'kind.border': 'وحدة تاريخية',
   },
   en: {
     'tr.tour': 'Tour',
@@ -63,6 +64,7 @@ registerStrings({
     'kind.bloc': 'Bloc',
     'kind.site': 'Resource site',
     'kind.plant': 'Nuclear plant',
+    'kind.border': 'Historical unit',
   },
 });
 

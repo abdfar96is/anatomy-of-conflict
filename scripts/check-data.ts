@@ -167,6 +167,24 @@ export function checkData(dataDir: string): Problem[] {
       }
     }
   }
+  // 5. Historical borders (history/): every unit has the fields the lens reads and an Arabic name.
+  const histDir = path.join(dataDir, 'history');
+  if (fs.existsSync(path.join(histDir, 'cshapes.topo.json'))) {
+    const topo = JSON.parse(fs.readFileSync(path.join(histDir, 'cshapes.topo.json'), 'utf8')) as { objects: Record<string, { geometries: { properties?: Rec }[] }> };
+    const metaText = fs.readFileSync(path.join(histDir, 'meta.json'), 'utf8').replace(/\r\n/g, '\n');
+    const meta = JSON.parse(metaText) as { names: Record<string, string>; rulers: Record<string, unknown> };
+    if (metaText !== formatJson(meta)) layout.push({ file: 'history/meta.json', path: '', message: 'not in the canonical layout; run npm run format-data' });
+    const geoms = topo.objects.borders?.geometries ?? [];
+    if (!geoms.length) problems.push({ file: 'history/cshapes.topo.json', path: 'objects.borders', message: 'no geometries' });
+    geoms.forEach((g, i) => {
+      const p = g.properties ?? {};
+      for (const k of ['gwcode', 'country_name', 'start', 'end', 'status', 'owner', 'fid']) {
+        if (p[k] == null) problems.push({ file: 'history/cshapes.topo.json', path: `objects.borders.geometries[${i}].properties.${k}`, message: 'missing' });
+      }
+      if (typeof p.country_name === 'string' && !meta.names[p.country_name]) problems.push({ file: 'history/meta.json', path: `names["${p.country_name}"]`, message: 'no Arabic name for this unit' });
+      if (typeof p.start === 'string' && typeof p.end === 'string' && p.start > p.end) problems.push({ file: 'history/cshapes.topo.json', path: `objects.borders.geometries[${i}]`, message: 'starts after it ends', value: [p.start, p.end] });
+    });
+  }
   return [...layout, ...problems];
 }
 

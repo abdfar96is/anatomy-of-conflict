@@ -12,12 +12,19 @@ import { LensRail, ShellOverlays, TopBar } from '../shell';
 import { TourPlayer } from '../tours/TourPlayer';
 import { ViewPanel } from '../views';
 import { Scrubber } from '../views/timeline';
+import { BordersScrubber } from '../borders/BordersScrubber';
 
 // The dossier retries on the next selection, so one bad record does not disable the panel for the visit.
 function DossierArea() {
   const selection = useAtlas((s) => s.selection);
   const key = selection ? `${selection.kind}-${selection.id}` : '';
   return <ErrorBoundary name="dossier" resetKey={key} fallback={<aside id="dossier" hidden />}><Dossier /></ErrorBoundary>;
+}
+
+// The Historical borders lens brings its own timeline (1886–2019, border changes per year) in place of the shared one.
+function ScrubberArea() {
+  const borders = useAtlas((s) => s.lens === 'borders');
+  return <ErrorBoundary name="scrubber" resetKey={String(borders)} fallback={<footer id="scrubber" />}>{borders ? <BordersScrubber /> : <Scrubber />}</ErrorBoundary>;
 }
 
 function ViewArea() {
@@ -36,7 +43,7 @@ export function Layout() {
           <ErrorBoundary name="map" fallback={<div id="map" />}><MapStage /></ErrorBoundary>
           <ViewArea />
         </main>
-        <ErrorBoundary name="scrubber" fallback={<footer id="scrubber" />}><Scrubber /></ErrorBoundary>
+        <ScrubberArea />
         <DossierArea />
       </div>
       <div id="tooltip" role="tooltip" hidden />
