@@ -5,7 +5,7 @@ import type { Feature, FeatureCollection } from 'geojson';
 import { RELIGION_FAMILIES, RESOURCE_CLASSES, SEVERITY_RANK } from '../config';
 import { normalize, type Lang } from '../i18n/format';
 import { CONFLICT_FILES } from './files';
-import type { Conflict, Country, DB, Disputed, Group, IndexRow, Kind, RawData, SearchEntry } from './types';
+import type { Conflict, Country, DB, Disputed, Group, IndexRow, Kind, LiveKey, RawData, SearchEntry, Stat } from './types';
 
 const EARTH_R = 6371;
 // Thematic files use ISO codes that Natural Earth spells differently.
@@ -41,6 +41,7 @@ export function build(input: RawData): DB {
   const R = structuredClone(input);
   normalizeIsos(R);
   const DB = { raw: R, corrections: R.corrections ?? [] } as DB;
+  DB.live = R.live && R.live.retrieved && R.live.values ? R.live : null;
 
   // ---- countries (Natural Earth admin-0 + index)
   const idx = new Map(R.index.map((r) => [r.iso3, r]));
@@ -55,13 +56,27 @@ export function build(input: RawData): DB {
       pop: p.pop_est, popYear: p.pop_year, gdp: p.gdp_md, gdpYear: p.gdp_year, income: p.income_grp, economy: p.economy,
       lon: r.lon ?? p.label_x, lat: r.lat ?? p.label_y, wikidata: p.wikidataid,
       areaKm2: geoArea(f) * EARTH_R * EARTH_R,
-      feature: f, gdpPerCap: null, density: null,
+      feature: f, gdpPerCap: null, density: null, stats: {},
       intel: null, religion: null, resources: [], sites: [], conflicts: [], external: [], blocs: [], edges: [],
       events: [], groups: [], chokepoints: [], neighbors: [], disputed: [],
     });
   }
+  // Figures: the weekly open-data refresh where it has a value, Natural Earth's baseline otherwise.
   for (const c of DB.countries.values()) {
-    c.gdpPerCap = c.gdp && c.pop ? (c.gdp * 1e6) / c.pop : null;
+    const st = c.stats;
+    const ne: Partial<Record<LiveKey, Stat>> = {
+      pop: c.pop ? { v: c.pop, y: c.popYear, src: 'ne' } : undefined,
+      gdp: c.gdp ? { v: c.gdp * 1e6, y: c.gdpYear, src: 'ne' } : undefined,
+    };
+    if (ne.pop && ne.gdp) ne.gdpPc = { v: ne.gdp.v / ne.pop.v, y: ne.gdp.y, src: 'ne' };
+    Object.assign(st, Object.fromEntries(Object.entries(ne).filter(([, x]) => x)));
+    const live = DB.live?.values[c.iso3];
+    if (live) for (const [k, x] of Object.entries(live) as [LiveKey, [number, number]][]) st[k] = { v: x[0], y: x[1], src: 'live' };
+    // per person: the live series, else derived from live GDP and population, else Natural Earth's (never a mix)
+    if (st.gdpPc?.src !== 'live' && st.gdp?.src === 'live' && st.pop?.src === 'live') st.gdpPc = { v: st.gdp.v / st.pop.v, y: st.gdp.y, src: 'live' };
+    c.pop = st.pop?.v; c.popYear = st.pop?.y;
+    c.gdp = st.gdp ? st.gdp.v / 1e6 : undefined; c.gdpYear = st.gdp?.y;
+    c.gdpPerCap = st.gdpPc?.v ?? null;
     c.density = c.pop && c.areaKm2 > 1 ? c.pop / c.areaKm2 : null;
   }
   const C = (iso: string): Country | undefined => DB.countries.get(iso);
@@ -191,6 +206,8 @@ export function build(input: RawData): DB {
   // ---- sources
   DB.sources = R.sources;
   DB.datasetById = new Map(R.sources.datasets.map((d) => [d.id, d]));
+  const liveSet = DB.datasetById.get('wb-indicators');
+  if (liveSet && DB.live?.retrieved) liveSet.lastRetrieved = DB.live.retrieved;
   DB.referenceById = new Map(R.sources.references.map((r) => [r.id, r]));
 
   // ---- neighbours: nearest label points inside the same subregion (proximity, not an official border list)

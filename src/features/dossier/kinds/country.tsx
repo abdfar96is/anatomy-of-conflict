@@ -47,9 +47,9 @@ function summary(c: Country, k: Kit) {
   const intel = c.intel as IntelX | null;
   const money = (v: number) => k.numUnit(t('dz.u.usd', { v: fmt.num(v) }));
   const head = k.facts([
-    k.fact(t('dz.f.pop'), k.numUnit(fmt.compact(c.pop)), { year: c.popYear }),
-    k.fact(t('dz.f.gdp'), c.gdp ? k.numUnit(fmt.gdp(c.gdp)) : '—', { year: c.gdp ? c.gdpYear : null }),
-    k.fact(t('dz.f.gdppc'), c.gdpPerCap ? money(c.gdpPerCap) : '—', { year: c.gdpPerCap ? c.gdpYear : null }),
+    k.stat(t('dz.f.pop'), 'pop', c, (v) => k.numUnit(fmt.compact(v))),
+    k.stat(t('dz.f.gdp'), 'gdp', c, (v) => k.numUnit(fmt.gdp(v / 1e6))),
+    k.stat(t('dz.f.gdppc'), 'gdpPc', c, money),
     k.fact(t('dz.f.area'), <><span className="data">{fmt.num(c.areaKm2)}</span>{' '}<span className="dz-unit">{t('dz.u.km2')}</span></>, { tipText: t('dz.f.areaTip') }),
     k.fact(t('dz.f.density'), c.density ? <><span className="data">{fmt.num(c.density, c.density < 10 ? 1 : 0)}</span>{' '}<span className="dz-unit">{t('dz.u.perKm2')}</span></> : '—'),
     k.fact(t('dz.f.income'), k.ne(c.income), { text: true }),
@@ -97,13 +97,31 @@ function summary(c: Country, k: Kit) {
   }
 
   return <>
-    {k.sec(null, [head, k.note(t('dz.f.note'))], { cls: 'first' })}
+    {k.sec(null, [head, k.note(db.live ? t('dz.f.note', { d: fmt.date(db.live.retrieved) }) : t('dz.f.noteBase'))], { cls: 'first' })}
+    {humanitarian(c, k)}
     {k.sec(t('dz.x.title'), exposure)}
     {k.sec(t('dz.s.blocs'), blocChips, { id: 'blocs', count: blocs.length })}
     {intelPart}
     {disputedNE.length ? k.sec(t('dz.s.neDisputed'), <div className="chips dz-chips">{disputedNE.map((d) => k.kchip('disputed', d.id, k.pickKey(d, 'name'), { lead: <Icon name="hatch" size={13} /> }))}</div>) : null}
     {k.sec(t('dz.s.neighbors'), neigh)}
   </>;
+}
+
+/** Refugees, internal displacement and battle deaths from the open-data refresh, each with its year and source. */
+function humanitarian(c: Country, k: Kit) {
+  const { t, fmt, db } = k;
+  if (!db.live) return k.sec(t('dz.hu.title'), k.note(t('dz.hu.pending')), { id: 'humanitarian' });
+  const n = (v: number) => k.numUnit(fmt.compact(v));
+  const none = (y: number | string) => t('dz.hu.noneTip', { y });
+  return k.sec(t('dz.hu.title'), [
+    k.facts([
+      k.stat(t('dz.hu.refOrigin'), 'refOrigin', c, n, { noneTip: none }),
+      k.stat(t('dz.hu.refAsylum'), 'refAsylum', c, n, { noneTip: none }),
+      k.stat(t('dz.hu.idps'), 'idps', c, n, { noneTip: none }),
+      k.stat(t('dz.hu.battleDeaths'), 'battleDeaths', c, n, { noneTip: (y) => t('dz.hu.noneBattle', { y }) }),
+    ]),
+    k.note(t('dz.hu.note')),
+  ], { id: 'humanitarian' });
 }
 
 function religion(c: Country, k: Kit) {

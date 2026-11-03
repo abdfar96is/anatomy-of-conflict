@@ -54,6 +54,20 @@ export interface Dataset extends Extra { id: string; file?: string }
 export interface Reference extends Extra { id: string }
 export interface Correction { id: string; where: Bi; what: Bi }
 
+/** Series the weekly open-data refresh fetches (public/data/live/indicators.json, scripts/fetch-indicators.ts). */
+export type LiveKey = 'pop' | 'gdp' | 'gdpPc' | 'refOrigin' | 'refAsylum' | 'idps' | 'battleDeaths';
+export interface LiveIndicator {
+  code: string; name?: string; origin: Bi; url: string; sourceOrganization?: string; lastUpdated?: string;
+  /** Newest year the series has for any country, and how many countries have a value. */
+  latestYear?: number; countries?: number;
+}
+export interface LiveFile {
+  source: string; api: string; retrieved: string | null;
+  indicators: Record<LiveKey, LiveIndicator>;
+  /** ISO3 → series → [value, year]. Money in current US dollars, people as head counts. */
+  values: Record<string, Partial<Record<LiveKey, [number, number]>>>;
+}
+
 export type RawData = {
   countries: FeatureCollection<Geometry, CountryProps>;
   index: IndexRow[];
@@ -70,6 +84,7 @@ export type RawData = {
   sources: { datasets: Dataset[]; references: Reference[]; [k: string]: unknown };
   timeline: { range: unknown; categories: TimelineCategory[]; events: RawEvent[]; boundaryLimitation?: Bi };
   corrections?: Correction[];
+  live?: LiveFile | null;
 } & { [K in (typeof CONFLICT_FILES)[number]]: ConflictFile };
 
 // ---- linked model
@@ -78,12 +93,16 @@ export interface CountryReligion extends CountryReligionRaw {
   sorted: [string, number][]; majority: string | null; majorityShare: number;
   families: [string, number][]; majorityFamily: string | null; diversity: number;
 }
+/** A figure with its year and origin: 'live' = the World Bank open-data refresh, 'ne' = the Natural Earth baseline. */
+export interface Stat { v: number; y?: number; src: 'live' | 'ne' }
 export interface Country {
   iso3: string; iso2?: string; nameAr?: string; nameEn?: string; nameLong?: string;
   type?: string; sovereign?: string; continent?: string; subregion?: string; regionWb?: string;
   pop?: number; popYear?: number; gdp?: number; gdpYear?: number; income?: string; economy?: string;
   lon?: number; lat?: number; wikidata?: string; areaKm2: number; feature: Feature<Geometry, CountryProps>;
   gdpPerCap: number | null; density: number | null;
+  /** pop, gdp (US dollars) and gdpPc as shown, with year and source; humanitarian series only when the refresh has them. */
+  stats: Partial<Record<LiveKey, Stat>>;
   intel: Intel | null; religion: CountryReligion | null; resources: ResourceEntry[];
   sites: string[]; conflicts: string[]; external: string[]; blocs: string[]; edges: string[];
   events: string[]; groups: string[]; chokepoints: string[]; neighbors: string[]; disputed: string[];
@@ -107,6 +126,8 @@ export interface SearchEntry { kind: Kind; id: string; ar: string; en: string; s
 export interface DB {
   raw: RawData;
   corrections: Correction[];
+  /** The open-data refresh, or null when the file is missing or has never been filled. */
+  live: LiveFile | null;
   isUnverified(kind: Kind, id: string): boolean;
   features: Feature<Geometry, CountryProps>[];
   countries: Map<string, Country>;

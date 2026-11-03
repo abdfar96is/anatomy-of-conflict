@@ -142,6 +142,21 @@
 .dz-fact dd .dz-chips { margin-top: 4px; }
 .dz-unit { font-size: var(--fs-sm); color: var(--fg-2); }
 .dz-yr { font-size: var(--fs-xs); color: var(--fg-3); margin-inline-start: 6px; }
+/* year · source line under a sourced figure */
+.dz-fsrc { flex-basis: 100%; display: block; margin-top: 2px; font-size: var(--fs-xs); line-height: 1.5; color: var(--fg-3); }
+.dz-fsrc .dz-yr { margin-inline-start: 0; }
+.dz-fsrc a { color: var(--fg-2); }
+.dz-fsrc a .ic { display: inline-block; margin-inline-start: 2px; vertical-align: -1px; }
+.dz-none { color: var(--fg-3); }
+/* humanitarian figures per state, conflict dossier */
+.dz-hum-wrap { overflow-x: auto; }
+.dz-hum { inline-size: 100%; border-collapse: collapse; font-size: var(--fs-sm); }
+.dz-hum th, .dz-hum td { padding: 6px 4px; border-top: 1px solid var(--line-2); text-align: start; vertical-align: top; }
+.dz-hum thead th { border-top: 0; font-weight: 500; font-size: var(--fs-xs); color: var(--fg-3); }
+.dz-hum-v { display: block; color: var(--fg); }
+.dz-hum-v .data { font-size: var(--fs-md); }
+.dz-hum-y { display: block; font-size: var(--fs-xs); color: var(--fg-3); }
+.dz-hum tbody th .dz-chip { margin: 0; }
 
 /* ---------- exposure strip: six counters divided by hairlines ---------- */
 .dz-x-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line-2); border-block: 1px solid var(--line-2); }

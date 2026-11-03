@@ -3,7 +3,7 @@
 import { Fragment, useLayoutEffect, useMemo, useRef, useState, type KeyboardEvent, type ReactNode } from 'react';
 import { atlas, useAtlas } from '../../app/store';
 import { useDb, useT } from '../../app/useT';
-import type { Country, DB, Kind } from '../../data/types';
+import type { Country, DB, Kind, Stat } from '../../data/types';
 import type { Bi } from '../../i18n/format';
 import { registerStrings } from '../../i18n/strings';
 import { Pips, StackBar } from '../../ui/charts';
@@ -31,7 +31,11 @@ registerStrings({
     'cp.km2': 'كم²',
     'cp.perKm2': 'نسمة لكل كم²',
     'cp.usd': '{n} دولار',
-    'cp.figNote': 'السكان والناتج تقديرات Natural Earth (سنة {y}). المساحة محسوبة من حدود الخريطة. كل صف بمقياسه الخاص.',
+    'cp.figNote': 'السنة بجانب كل رقم. مصدر السكان والناتج: {s}. المساحة محسوبة من حدود الخريطة. كل صف بمقياسه الخاص.',
+    'cp.srcLive': 'البيانات المفتوحة للبنك الدولي (تحديث أسبوعي آلي، آخر جلب {d})',
+    'cp.srcNe': 'تقديرات Natural Earth حين لا تتوفر قيمة مفتوحة',
+    'cp.srcNeOnly': 'تقديرات Natural Earth',
+    'cp.and': '، و',
     'cp.profile': 'التصنيف',
     'cp.region': 'الإقليم',
     'cp.income': 'فئة الدخل',
@@ -83,7 +87,11 @@ registerStrings({
     'cp.km2': 'km²',
     'cp.perKm2': 'per km²',
     'cp.usd': '${n}',
-    'cp.figNote': 'Population and GDP are Natural Earth estimates ({y}). Area is computed from the map outline. Each row has its own scale.',
+    'cp.figNote': 'The year sits next to each figure. Population and GDP: {s}. Area is computed from the map outline. Each row has its own scale.',
+    'cp.srcLive': 'World Bank open data (refreshed automatically every week, last fetched {d})',
+    'cp.srcNe': 'Natural Earth estimates where the open data has no value',
+    'cp.srcNeOnly': 'Natural Earth estimates',
+    'cp.and': '; ',
     'cp.profile': 'Classification',
     'cp.region': 'Region',
     'cp.income': 'Income group',
@@ -358,33 +366,41 @@ function Figures({ A, B }: { A: Country; B: Country }) {
   const db = useDb();
   const { t, fmt, lang } = useT();
   const usd = (v: number) => t('cp.usd', { n: fmt.num(v) });
-  const rows: [string, (c: Country) => number | null | undefined, (v: number) => string][] = [
-    [t('cp.pop'), (c) => c.pop, fmt.compact],
-    [t('cp.gdp'), (c) => c.gdp, fmt.gdp],
-    [t('cp.gdppc'), (c) => c.gdpPerCap, usd],
-    [t('cp.area'), (c) => c.areaKm2, (v) => `${v >= 1e4 ? fmt.compact(v) : fmt.num(v)} ${t('cp.km2')}`],
-    [t('cp.density'), (c) => c.density, (v) => `${fmt.num(v, v < 10 ? 1 : 0)} ${t('cp.perKm2')}`],
+  type Fig = { v: number | null | undefined; stat?: Stat };
+  const st = (key: 'pop' | 'gdp' | 'gdpPc') => (c: Country): Fig => ({ v: c.stats[key]?.v, stat: c.stats[key] });
+  const rows: [string, (c: Country) => Fig, (v: number) => string][] = [
+    [t('cp.pop'), st('pop'), fmt.compact],
+    [t('cp.gdp'), st('gdp'), (v) => fmt.gdp(v / 1e6)],
+    [t('cp.gdppc'), st('gdpPc'), usd],
+    [t('cp.area'), (c) => ({ v: c.areaKm2 }), (v) => `${v >= 1e4 ? fmt.compact(v) : fmt.num(v)} ${t('cp.km2')}`],
+    [t('cp.density'), (c) => ({ v: c.density }), (v) => `${fmt.num(v, v < 10 ? 1 : 0)} ${t('cp.perKm2')}`],
   ];
-  const bar = (v: number | null | undefined, max: number, f: (v: number) => string, c: Country, i: number) => {
+  const srcName = (s: Stat) => (s.src === 'live' ? 'World Bank' : 'Natural Earth');
+  const bar = ({ v, stat }: Fig, max: number, f: (v: number) => string, c: Country, i: number) => {
     const txt = v == null || Number.isNaN(v) ? '—' : f(v);
     const w = v ? Math.max(0.6, (v / max) * 100) : 0;
+    const sub = [db.nameOf('country', c.iso3, lang), stat?.y, stat && srcName(stat)].filter(Boolean).join(' · ');
     return (
-      <div className="cmp-bar" data-tip={`<b>${esc(txt)}</b> <span class="tip-sub">${esc(db.nameOf('country', c.iso3, lang))}</span>`}>
+      <div className="cmp-bar" data-tip={`<b>${esc(txt)}</b> <span class="tip-sub">${esc(sub)}</span>`}>
         <span className="cmp-track"><span className={`cmp-fill cmp-fill-${i}`} style={{ inlineSize: `${w.toFixed(2)}%` }} /></span>
-        <span className="cmp-val"><NumUnit s={txt} /></span>
+        <span className="cmp-val"><NumUnit s={txt} />{stat?.y ? <span className="cmp-yr data">{stat.y}</span> : null}</span>
       </div>
     );
   };
-  const years = [...new Set([A.popYear, B.popYear, A.gdpYear, B.gdpYear].filter(Boolean))].sort().join('–');
+  const used = new Set([A, B].flatMap((c) => (['pop', 'gdp', 'gdpPc'] as const).map((k) => c.stats[k]?.src)).filter(Boolean));
+  const srcText = [
+    used.has('live') && db.live ? t('cp.srcLive', { d: fmt.date(db.live.retrieved) }) : '',
+    used.has('ne') ? t(used.has('live') ? 'cp.srcNe' : 'cp.srcNeOnly') : '',
+  ].filter(Boolean).join(t('cp.and'));
   return (
     <Section title={t('cp.figures')}>
       <div className="cmp-figs">
         {rows.map(([label, get, f]) => {
-          const va = get(A), vb = get(B), max = Math.max(va || 0, vb || 0) || 1;
+          const va = get(A), vb = get(B), max = Math.max(va.v || 0, vb.v || 0) || 1;
           return <div className="cmp-fig" key={label}><div className="cmp-fig-l">{label}</div><div className="cmp-fig-b">{bar(va, max, f, A, 0)}{bar(vb, max, f, B, 1)}</div></div>;
         })}
       </div>
-      <p className="vw-note">{t('cp.figNote', { y: years || '—' })}</p>
+      <p className="vw-note">{t('cp.figNote', { s: srcText || '—' })}</p>
     </Section>
   );
 }

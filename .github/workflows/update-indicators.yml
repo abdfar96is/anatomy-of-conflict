@@ -1,0 +1,45 @@
+name: Weekly open-data refresh
+
+# Fetches population, GDP, refugees, internal displacement and battle deaths from the World Bank's open API
+# (scripts/fetch-indicators.ts), checks the result and commits public/data/live/indicators.json to main when it
+# changed. The push to main redeploys the site. Run it by hand from the Actions tab with "Run workflow".
+
+on:
+  schedule:
+    - cron: '17 3 * * 1' # Mondays 03:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-indicators
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run fetch-indicators
+      - run: npm run check-data
+      - run: npm test
+      - name: Commit when the figures changed
+        run: |
+          if git diff --quiet -- public/data/live; then
+            echo "No change in public/data/live."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/live
+          git commit -m "data: weekly refresh of open-data indicators"
+          git push origin HEAD:main

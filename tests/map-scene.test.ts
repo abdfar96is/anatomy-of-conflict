@@ -74,11 +74,11 @@ describe('buildScene matches the legacy scene', () => {
 });
 
 describe('tipFor', () => {
-  test('a country hit gives the same line as legacy', () => {
+  test('a country hit gives the legacy line, with the year of each figure', () => {
     expect(tipFor({ kind: 'country', id: 'SAU' }, db, { ...base, lens: 'overview' })).toBe(
-      '<b>السعودية</b><span class="tip-sub">السكان 34.3 مليون · الناتج المحلي 793 مليار دولار</span><span class="tip-sub">آسيا</span><span class="tip-sub">يتوفّر ملف تعريفي</span>');
+      '<b>السعودية</b><span class="tip-sub">السكان 34.3 مليون (2019) · الناتج المحلي 793 مليار دولار (2019)</span><span class="tip-sub">آسيا</span><span class="tip-sub">يتوفّر ملف تعريفي</span>');
     expect(tipFor({ kind: 'country', id: 'CIV' }, db, { ...base, lang: 'en', lens: 'overview' })).toBe(
-      '<b>Ivory Coast</b><span class="tip-sub">Population 25.7 M · GDP $58.5 bn</span><span class="tip-sub">Africa</span>');
+      '<b>Ivory Coast</b><span class="tip-sub">Population 25.7 M (2019) · GDP $58.5 bn (2019)</span><span class="tip-sub">Africa</span>');
   });
   test('a country hit escapes the country name', () => {
     const c = db.countries.get('SAU')!;

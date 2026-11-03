@@ -17,6 +17,7 @@ registerStrings({
     'map.tip.pop': 'السكان {v}',
     'map.tip.gdp': 'الناتج المحلي {v}',
     'map.tip.gdpPc': 'نصيب الفرد {v}',
+    'map.tip.yr': '{v} ({y})',
     'map.tip.conflicts0': 'ليست طرفاً في أي ملف نزاع مرصود',
     'map.tip.conflicts': 'طرف في {n} من ملفات النزاع',
     'map.tip.conflict1': 'طرف في ملف نزاع واحد',
@@ -55,6 +56,7 @@ registerStrings({
     'map.tip.pop': 'Population {v}',
     'map.tip.gdp': 'GDP {v}',
     'map.tip.gdpPc': 'Per person {v}',
+    'map.tip.yr': '{v} ({y})',
     'map.tip.conflicts0': 'Not a party to any tracked conflict',
     'map.tip.conflicts': 'Party to {n} tracked conflicts',
     'map.tip.conflict1': 'Party to 1 tracked conflict',
@@ -442,10 +444,12 @@ function countryLine(c: Country, DB: DB, S: AtlasState): string[] {
   const f = S.filters;
   switch (S.lens) {
     case 'overview': {
-      const base = [t('map.tip.pop', { v: fmtCompact(c.pop) }), t('map.tip.gdp', { v: fmtGdp(c.gdp) })].join(' · ');
+      // each figure carries its year; the legend note names the sources
+      const yr = (v: string, y?: number) => (y && v !== '—' ? t('map.tip.yr', { v, y }) : v);
+      const base = [t('map.tip.pop', { v: yr(fmtCompact(c.pop), c.popYear) }), t('map.tip.gdp', { v: yr(fmtGdp(c.gdp), c.gdpYear) })].join(' · ');
       const extra = f.overviewMode === 'continent' ? L(CONTINENTS.find((x) => x.id === c.continent))
         : f.overviewMode === 'income' ? L(INCOME[parseInt(c.income ?? '', 10) - 1])
-          : f.overviewMode === 'gdp' && c.gdpPerCap ? t('map.tip.gdpPc', { v: fmtGdp(c.gdpPerCap / 1e6) }) : '';
+          : f.overviewMode === 'gdp' && c.gdpPerCap ? t('map.tip.gdpPc', { v: yr(fmtGdp(c.gdpPerCap / 1e6), c.stats.gdpPc?.y) }) : '';
       return [base, extra, c.intel ? t('map.tip.profile') : ''];
     }
     case 'conflicts': {

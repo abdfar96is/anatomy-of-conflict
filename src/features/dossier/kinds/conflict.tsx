@@ -1,6 +1,9 @@
 // Conflict dossier: status, parties, roots and related tabs.
 
+import { Fragment } from 'react';
 import { DIMENSIONS } from '../../../config';
+import type { LiveKey } from '../../../data/types';
+import { esc } from '../../../ui/dom';
 import { Icon } from '../../../ui/Icon';
 import { extPowers, pickList, type ChokeX, type ConflictX, type EventX, type Panel, type ResEntryX } from '../model';
 import type { Kit } from '../parts';
@@ -65,8 +68,41 @@ function status(cf: ConflictX, k: Kit) {
     : k.empty(t('dz.cf.noRecent'));
   return <>
     {k.sec(t('dz.cf.now'), k.prose(L(cf.status)), { cls: 'first' })}
+    {human(cf, k)}
     {k.sec(t('dz.cf.recent'), list, { count: recent.length || null })}
   </>;
+}
+
+const HUMAN_COLS: [LiveKey, string][] = [['refOrigin', 'dz.cf.hRef'], ['idps', 'dz.cf.hIdp'], ['battleDeaths', 'dz.cf.hBd']];
+
+/** Refugees from, internally displaced and battle deaths for each state involved, from the open-data refresh. */
+function human(cf: ConflictX, k: Kit) {
+  const { t, pick: L, fmt, db } = k;
+  const live = db.live;
+  const isos = [...new Set(cf.countries)].filter((iso) => db.countries.has(iso));
+  if (!live || !isos.length) return null;
+  const cell = (iso: string, key: LiveKey) => {
+    const s = db.countries.get(iso)!.stats[key];
+    return (
+      <td key={key}>
+        <span className="dz-hum-v">{s ? k.numUnit(fmt.compact(s.v)) : <span className="dz-none">—</span>}</span>
+        <span className="dz-hum-y data">{s?.y ?? live.indicators[key].latestYear ?? ''}</span>
+      </td>
+    );
+  };
+  const srcs = HUMAN_COLS.map(([key]) => live.indicators[key]);
+  return k.sec(t('dz.cf.human'), [
+    <div className="dz-hum-wrap" key="t">
+      <table className="dz-hum">
+        <thead><tr><th scope="col">{t('dz.cf.hCountry')}</th>{HUMAN_COLS.map(([key, label]) => <th key={key} scope="col">{t(label)}</th>)}</tr></thead>
+        <tbody>{isos.map((iso) => <tr key={iso} data-hl={iso}><th scope="row">{k.cchip(iso)}</th>{HUMAN_COLS.map(([key]) => cell(iso, key))}</tr>)}</tbody>
+      </table>
+    </div>,
+    <p className="dz-pv" key="s"><span className="dz-pv-s">{t('dz.pv.sources')}{' '}{srcs.map((ind, i) => (
+      <Fragment key={ind.code}>{i ? ' · ' : ''}<a href={ind.url} target="_blank" rel="noopener" data-tip={esc(t('dz.src.liveTip', { code: ind.code, o: ind.sourceOrganization || L(ind.origin), d: fmt.date(live.retrieved) }))}>{t('dz.src.live', { o: L(ind.origin) })}<Icon name="external" size={11} /></a></Fragment>
+    ))}</span></p>,
+    k.note(t('dz.cf.humNote')),
+  ], { id: 'human' });
 }
 
 function parties(cf: ConflictX, k: Kit) {
