@@ -12,9 +12,10 @@ jobs:
         run: |
           set +e
           ua='anatomy-of-conflict-atlas (educational; data refresh)'
-          curl -sS -m 60 -A "$ua" -o be.html -w "BE country %{http_code} %{size_download}\n" "https://pris.iaea.org/PRIS/CountryStatistics/CountryDetails.aspx?current=BE"
-          curl -sS -m 60 -A "$ua" -o r.html -w "reactor 50 %{http_code} %{size_download}\n" "https://pris.iaea.org/PRIS/CountryStatistics/ReactorDetails.aspx?current=50"
-          curl -sS -m 60 -A "$ua" -o ws.html -w "world %{http_code} %{size_download}\n" "https://pris.iaea.org/PRIS/WorldStatistics/OperationalReactorsByCountry.aspx"
+          curl -sS -m 60 -A "$ua" -I "https://pris.iaea.org/PRIS/CountryStatistics/CountryDetails.aspx?current=BE" | grep -i "^location\|^HTTP"
+          curl -sS -m 60 -L -c jar -b jar -A "$ua" -o be.html -w "BE country %{http_code} %{size_download} %{url_effective}\n" "https://pris.iaea.org/PRIS/CountryStatistics/CountryDetails.aspx?current=BE"
+          curl -sS -m 60 -A "$ua" -L -c jar -b jar -o r.html -w "reactor 50 %{http_code} %{size_download} %{url_effective}\n" "https://pris.iaea.org/PRIS/CountryStatistics/ReactorDetails.aspx?current=50"
+          curl -sS -m 60 -A "$ua" -L -c jar -b jar -o ws.html -w "world %{http_code} %{size_download} %{url_effective}\n" "https://pris.iaea.org/PRIS/WorldStatistics/OperationalReactorsByCountry.aspx"
           python3 - <<'PY'
           import re, html
           for f in ['be.html', 'r.html', 'ws.html']:
