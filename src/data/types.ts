@@ -66,7 +66,7 @@ export type NuclearUnitStatus = keyof typeof NUCLEAR_UNIT;
 export interface NuclearUnit {
   name: string; status: NuclearUnitStatus; type?: string; model?: string; mw?: number; from?: number; to?: number; iaea?: number;
   /** A status change since the base dataset, with the year and its sources. */
-  changed?: { year: number; sources: string[] };
+  changed?: { year?: number; sources: string[] };
 }
 export interface NuclearPlant extends Bi, Provenance {
   id: string; iso3: string; coords: [number, number]; units: NuclearUnit[]; note?: Bi; conflictIds?: string[];

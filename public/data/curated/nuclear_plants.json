@@ -8,12 +8,12 @@
       "license": "ODbL-1.0"
     },
     "changes": {
-      "ar": "حُدّثت حالة الوحدات التي رُبطت بالشبكة أو أُغلقت في 2024-2026 من جداول Reactor Atlas السنوية، وإعادة تشغيل أوناغاوا 2 وشيماني 2 (2024) من الوكالة الدولية للطاقة الذرية، وكاشيوازاكي-كاريوا 6 (2026) والإيقاف البارد لزابوريجيا من مصادر مذكورة على كل وحدة.",
-      "en": "Units connected to the grid or shut down in 2024–2026 follow the Reactor Atlas yearly tables; the Onagawa 2 and Shimane 2 restarts (2024) follow the IAEA; Kashiwazaki-Kariwa 6 (2026) and the Zaporizhzhia cold shutdown follow the sources named on each unit."
+      "ar": "حُدّثت حالة الوحدات التي رُبطت بالشبكة أو أُغلقت في 2024-2026 من جداول Reactor Atlas السنوية، وإعادة تشغيل أوناغاوا 2 وشيماني 2 (2024) من الوكالة الدولية للطاقة الذرية، وكاشيوازاكي-كاريوا 6 (2026) والإيقاف البارد لزابوريجيا من مصادر مذكورة على كل وحدة. أُضيفت الوحدات قيد الإنشاء الناقصة من صفحات محطات Reactor Atlas (نوفمبر 2026)، وعلى كل وحدة سنة بدء بنائها ورابط صفحتها.",
+      "en": "Units connected to the grid or shut down in 2024–2026 follow the Reactor Atlas yearly tables; the Onagawa 2 and Shimane 2 restarts (2024) follow the IAEA; Kashiwazaki-Kariwa 6 (2026) and the Zaporizhzhia cold shutdown follow the sources named on each unit. Units under construction missing from the base data were added from the Reactor Atlas plant pages (November 2026); each carries its construction-start year and a link to its page."
     },
     "limits": {
-      "ar": "لا تظهر مشاريع البناء التي بدأت بعد مارس 2024؛ أعداد المفاعلات قيد الإنشاء لكل دولة مأخوذة من Reactor Atlas لعام 2026. القدرة هي القدرة الصافية التصميمية بالميغاواط.",
-      "en": "Construction projects begun after March 2024 are not shown; per-country counts of reactors under construction come from Reactor Atlas for 2026. Capacity is design net capacity in MWe."
+      "ar": "القدرة صافية تصميمية بالميغاواط. استُبعدت وحدة البلطيق 1 الروسية: قاعدة GeoNuclearData تذكر أنها حُذفت من قاعدة الرابطة النووية العالمية، ولا يعدّها Reactor Atlas قيد الإنشاء.",
+      "en": "Capacity is design net MWe. Russia's Baltic 1 is left out: GeoNuclearData notes it was removed from the World Nuclear Association database, and Reactor Atlas does not count it as under construction."
     }
   },
   "plants": [
@@ -473,6 +473,27 @@
       ]
     },
     {
+      "id": "darlington-new",
+      "iso3": "CAN",
+      "en": "Darlington New",
+      "ar": "دارلينغتون الجديدة",
+      "coords": [-78.706, 43.873],
+      "units": [
+        {
+          "name": "Darlington New 1",
+          "status": "building",
+          "type": "SMR",
+          "model": "BWRX-300",
+          "mw": 300,
+          "changed": {
+            "sources": [
+              "https://reactoratlas.com/en/reactor/canada-darlington-new-nuclear-power-plant"
+            ]
+          }
+        }
+      ]
+    },
+    {
       "id": "gentilly",
       "iso3": "CAN",
       "en": "Gentilly",
@@ -655,6 +676,26 @@
           "from": 1972,
           "to": 2019,
           "iaea": 56
+        }
+      ]
+    },
+    {
+      "id": "bailong",
+      "iso3": "CHN",
+      "en": "Bailong",
+      "ar": "بايلونغ",
+      "coords": [108.224, 21.507],
+      "units": [
+        {
+          "name": "Bailong 1-1",
+          "status": "building",
+          "type": "PWR",
+          "model": "CAP1000",
+          "mw": 1160,
+          "changed": {
+            "year": 2025,
+            "sources": ["https://reactoratlas.com/en/reactor/china-bailong-nuclear-power-plant"]
+          }
         }
       ]
     },
@@ -998,6 +1039,68 @@
       ]
     },
     {
+      "id": "jinqimen",
+      "iso3": "CHN",
+      "en": "Jinqimen",
+      "ar": "جينتشيمن",
+      "coords": [121.949, 29.055],
+      "units": [
+        {
+          "name": "Jinqimen 1-1",
+          "status": "building",
+          "type": "PWR",
+          "model": "Hualong One (HPR1000)",
+          "mw": 1145,
+          "changed": {
+            "year": 2025,
+            "sources": ["https://reactoratlas.com/en/reactor/china-jinqimen-nuclear-power-plant"]
+          }
+        },
+        {
+          "name": "Jinqimen 1-2",
+          "status": "building",
+          "type": "PWR",
+          "model": "Hualong One (HPR1000)",
+          "mw": 1145,
+          "changed": {
+            "year": 2026,
+            "sources": ["https://reactoratlas.com/en/reactor/china-jinqimen-nuclear-power-plant"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "lianjiang",
+      "iso3": "CHN",
+      "en": "Lianjiang",
+      "ar": "ليانجيانغ",
+      "coords": [109.815, 21.567],
+      "units": [
+        {
+          "name": "Lianjiang 1-1",
+          "status": "building",
+          "type": "PWR",
+          "model": "CAP1000",
+          "mw": 1224,
+          "changed": {
+            "year": 2023,
+            "sources": ["https://reactoratlas.com/en/reactor/china-lianjiang-nuclear-power-plant"]
+          }
+        },
+        {
+          "name": "Lianjiang 1-2",
+          "status": "building",
+          "type": "PWR",
+          "model": "CAP1000",
+          "mw": 1224,
+          "changed": {
+            "year": 2024,
+            "sources": ["https://reactoratlas.com/en/reactor/china-lianjiang-nuclear-power-plant"]
+          }
+        }
+      ]
+    },
+    {
       "id": "lingao",
       "iso3": "CHN",
       "en": "Lingao",
@@ -1043,12 +1146,87 @@
       ]
     },
     {
+      "id": "lufeng",
+      "iso3": "CHN",
+      "en": "Lufeng",
+      "ar": "لوفنغ",
+      "coords": [115.81, 22.752],
+      "units": [
+        {
+          "name": "Lufeng 1",
+          "status": "building",
+          "type": "PWR",
+          "model": "CAP1000",
+          "mw": 1250,
+          "changed": {
+            "year": 2025,
+            "sources": ["https://reactoratlas.com/en/reactor/china-lufeng-nuclear-power-plant"]
+          }
+        },
+        {
+          "name": "Lufeng 2",
+          "status": "building",
+          "type": "PWR",
+          "model": "CAP1000",
+          "mw": 1250,
+          "changed": {
+            "year": 2025,
+            "sources": ["https://reactoratlas.com/en/reactor/china-lufeng-nuclear-power-plant"]
+          }
+        },
+        {
+          "name": "Lufeng 5",
+          "status": "building",
+          "type": "PWR",
+          "model": "Hualong One (HPR1000)",
+          "mw": 1116,
+          "changed": {
+            "year": 2022,
+            "sources": ["https://reactoratlas.com/en/reactor/china-lufeng-nuclear-power-plant"]
+          }
+        },
+        {
+          "name": "Lufeng 6",
+          "status": "building",
+          "type": "PWR",
+          "model": "Hualong One (HPR1000)",
+          "mw": 1116,
+          "changed": {
+            "year": 2023,
+            "sources": ["https://reactoratlas.com/en/reactor/china-lufeng-nuclear-power-plant"]
+          }
+        }
+      ]
+    },
+    {
       "id": "ningde",
       "iso3": "CHN",
       "en": "Ningde",
       "ar": "نينغده",
       "coords": [120.287, 27.046],
       "units": [
+        {
+          "name": "Ningde 2-5",
+          "status": "building",
+          "type": "PWR",
+          "model": "Hualong One (HPR1000)",
+          "mw": 1200,
+          "changed": {
+            "year": 2024,
+            "sources": ["https://reactoratlas.com/en/reactor/china-ningde-nuclear-power-plant"]
+          }
+        },
+        {
+          "name": "Ningde 2-6",
+          "status": "building",
+          "type": "PWR",
+          "model": "Hualong One (HPR1000)",
+          "mw": 1117,
+          "changed": {
+            "year": 2025,
+            "sources": ["https://reactoratlas.com/en/reactor/china-ningde-nuclear-power-plant"]
+          }
+        },
         {
           "name": "Ningde-1",
           "status": "operating",
@@ -1167,6 +1345,19 @@
       "coords": [120.518, 27.201],
       "units": [
         {
+          "name": "Cangnan San'ao 2-3",
+          "status": "building",
+          "type": "PWR",
+          "model": "Hualong One (HPR1000)",
+          "mw": 1208,
+          "changed": {
+            "year": 2025,
+            "sources": [
+              "https://reactoratlas.com/en/reactor/china-cangnan-san-ao-nuclear-power-plant"
+            ]
+          }
+        },
+        {
           "name": "Sanaocun-1",
           "status": "operating",
           "type": "PWR",
@@ -1257,6 +1448,28 @@
           "changed": { "year": 2025, "sources": ["https://reactoratlas.com/en/year/2025"] }
         },
         {
+          "name": "Shidao Bay 3-1",
+          "status": "building",
+          "type": "PWR",
+          "model": "Hualong One (HPR1000)",
+          "mw": 1134,
+          "changed": {
+            "year": 2024,
+            "sources": ["https://reactoratlas.com/en/reactor/china-shidao-bay-nuclear-power-plant"]
+          }
+        },
+        {
+          "name": "Shidao Bay 3-2",
+          "status": "building",
+          "type": "PWR",
+          "model": "Hualong One (HPR1000)",
+          "mw": 1134,
+          "changed": {
+            "year": 2025,
+            "sources": ["https://reactoratlas.com/en/reactor/china-shidao-bay-nuclear-power-plant"]
+          }
+        },
+        {
           "name": "Shidao Bay-1",
           "status": "operating",
           "type": "HTGR",
@@ -1274,6 +1487,28 @@
       "ar": "تايبينغلينغ",
       "coords": [114.983, 22.693],
       "units": [
+        {
+          "name": "Taipingling 2-3",
+          "status": "building",
+          "type": "PWR",
+          "model": "Hualong One (HPR1000)",
+          "mw": 1209,
+          "changed": {
+            "year": 2025,
+            "sources": ["https://reactoratlas.com/en/reactor/china-taipingling-nuclear-power-plant"]
+          }
+        },
+        {
+          "name": "Taipingling 2-4",
+          "status": "building",
+          "type": "PWR",
+          "model": "Hualong One (HPR1000)",
+          "mw": 1209,
+          "changed": {
+            "year": 2026,
+            "sources": ["https://reactoratlas.com/en/reactor/china-taipingling-nuclear-power-plant"]
+          }
+        },
         {
           "name": "Taipingling-1",
           "status": "operating",
@@ -1450,6 +1685,39 @@
           "model": "VVER-1200/V491",
           "mw": 1200,
           "iaea": 1112
+        },
+        {
+          "name": "Xudapu 1-2",
+          "status": "building",
+          "type": "PWR",
+          "model": "CAP1000",
+          "mw": 1000,
+          "changed": {
+            "year": 2024,
+            "sources": ["https://reactoratlas.com/en/reactor/china-xudapu-nuclear-power-plant"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "xuwei",
+      "iso3": "CHN",
+      "en": "Xuwei",
+      "ar": "شوي",
+      "coords": [119.508, 34.625],
+      "units": [
+        {
+          "name": "Jiangsu Xuwei 1-1",
+          "status": "building",
+          "type": "PWR",
+          "model": "Hualong One (HPR1000)",
+          "mw": 729,
+          "changed": {
+            "year": 2026,
+            "sources": [
+              "https://reactoratlas.com/en/reactor/china-jiangsu-xuwei-nuclear-power-plant"
+            ]
+          }
         }
       ]
     },
@@ -1524,6 +1792,28 @@
       "coords": [117.492, 23.829],
       "units": [
         {
+          "name": "Zhangzhou 2-3",
+          "status": "building",
+          "type": "PWR",
+          "model": "Hualong One (HPR1000)",
+          "mw": 1129,
+          "changed": {
+            "year": 2024,
+            "sources": ["https://reactoratlas.com/en/reactor/china-zhangzhou-nuclear-power-plant"]
+          }
+        },
+        {
+          "name": "Zhangzhou 2-4",
+          "status": "building",
+          "type": "PWR",
+          "model": "Hualong One (HPR1000)",
+          "mw": 1129,
+          "changed": {
+            "year": 2024,
+            "sources": ["https://reactoratlas.com/en/reactor/china-zhangzhou-nuclear-power-plant"]
+          }
+        },
+        {
           "name": "Zhangzhou-1",
           "status": "operating",
           "type": "PWR",
@@ -1542,6 +1832,26 @@
           "from": 2025,
           "iaea": 1090,
           "changed": { "year": 2025, "sources": ["https://reactoratlas.com/en/year/2025"] }
+        }
+      ]
+    },
+    {
+      "id": "zhaoyuan",
+      "iso3": "CHN",
+      "en": "Zhaoyuan",
+      "ar": "تشاويوان",
+      "coords": [120.345, 37.487],
+      "units": [
+        {
+          "name": "Zhaoyuan 1-1",
+          "status": "building",
+          "type": "PWR",
+          "model": "Hualong One (HPR1000)",
+          "mw": 1117,
+          "changed": {
+            "year": 2025,
+            "sources": ["https://reactoratlas.com/en/reactor/china-zhaoyuan-nuclear-power-plant"]
+          }
         }
       ]
     },
@@ -1902,6 +2212,17 @@
       "ar": "الضبعة",
       "coords": [28.498, 31.044],
       "units": [
+        {
+          "name": "El Dabaa 4",
+          "status": "building",
+          "type": "PWR",
+          "model": "VVER-1200",
+          "mw": 1100,
+          "changed": {
+            "year": 2024,
+            "sources": ["https://reactoratlas.com/en/reactor/egypt-el-dabaa-nuclear-power-plant"]
+          }
+        },
         {
           "name": "El Dabaa-1",
           "status": "building",
@@ -3118,6 +3439,17 @@
       "coords": [18.855, 46.574],
       "units": [
         {
+          "name": "Paks 5",
+          "status": "building",
+          "type": "PWR",
+          "model": "VVER-1200",
+          "mw": 1185,
+          "changed": {
+            "year": 2026,
+            "sources": ["https://reactoratlas.com/en/reactor/hungary-paks-nuclear-power-plant"]
+          }
+        },
+        {
           "name": "Paks-1",
           "status": "operating",
           "type": "PWR",
@@ -3162,6 +3494,28 @@
       "ar": "كايغا",
       "coords": [74.438, 14.865],
       "units": [
+        {
+          "name": "Kaiga 5",
+          "status": "building",
+          "type": "PHWR",
+          "model": "IPHWR-700",
+          "mw": 630,
+          "changed": {
+            "year": 2026,
+            "sources": ["https://reactoratlas.com/en/reactor/india-kaiga-nuclear-power-plant"]
+          }
+        },
+        {
+          "name": "Kaiga 6",
+          "status": "building",
+          "type": "PHWR",
+          "model": "IPHWR-700",
+          "mw": 630,
+          "changed": {
+            "year": 2026,
+            "sources": ["https://reactoratlas.com/en/reactor/india-kaiga-nuclear-power-plant"]
+          }
+        },
         {
           "name": "Kaiga-1",
           "status": "operating",
@@ -3499,6 +3853,17 @@
       "ar": "بوشهر",
       "coords": [50.888, 28.83],
       "units": [
+        {
+          "name": "Bushehr 3",
+          "status": "building",
+          "type": "PWR",
+          "model": "VVER-1000 (V-528)",
+          "mw": 974,
+          "changed": {
+            "year": 2024,
+            "sources": ["https://reactoratlas.com/en/reactor/iran-bushehr-nuclear-power-plant"]
+          }
+        },
         {
           "name": "Bushehr-1",
           "status": "operating",
@@ -4353,6 +4718,28 @@
           "iaea": 406
         },
         {
+          "name": "Shin-Hanul 3",
+          "status": "building",
+          "type": "PWR",
+          "model": "APR-1400",
+          "mw": 1340,
+          "changed": {
+            "year": 2025,
+            "sources": ["https://reactoratlas.com/en/reactor/south-korea-hanul-nuclear-power-plant"]
+          }
+        },
+        {
+          "name": "Shin-Hanul 4",
+          "status": "building",
+          "type": "PWR",
+          "model": "APR-1400",
+          "mw": 1340,
+          "changed": {
+            "year": 2026,
+            "sources": ["https://reactoratlas.com/en/reactor/south-korea-hanul-nuclear-power-plant"]
+          }
+        },
+        {
           "name": "Shin-Hanul-1",
           "status": "operating",
           "type": "PWR",
@@ -4620,6 +5007,17 @@
           "mw": 313,
           "from": 2017,
           "iaea": 1045
+        },
+        {
+          "name": "Chashma 5",
+          "status": "building",
+          "type": "PWR",
+          "model": "Hualong One (Hualong-1)",
+          "mw": 1117,
+          "changed": {
+            "year": 2024,
+            "sources": ["https://reactoratlas.com/en/reactor/pakistan-chashma-nuclear-power-plant"]
+          }
         }
       ]
     },
@@ -4777,23 +5175,6 @@
       ]
     },
     {
-      "id": "baltic",
-      "iso3": "RUS",
-      "en": "Baltic",
-      "ar": "البلطيق",
-      "coords": [22.162, 54.939],
-      "units": [
-        {
-          "name": "Baltic-1",
-          "status": "building",
-          "type": "PWR",
-          "model": "VVER V-491",
-          "mw": 1109,
-          "iaea": 968
-        }
-      ]
-    },
-    {
       "id": "beloyarsk",
       "iso3": "RUS",
       "en": "Beloyarsk",
@@ -4869,6 +5250,39 @@
           "to": 2025,
           "iaea": 470,
           "changed": { "year": 2025, "sources": ["https://reactoratlas.com/en/year/2025"] }
+        }
+      ]
+    },
+    {
+      "id": "cape-nagloynyn-floating",
+      "iso3": "RUS",
+      "en": "Cape Nagloynyn (floating)",
+      "ar": "كيب ناغلوينين (عائمة)",
+      "coords": [169.414, 69.1],
+      "units": [
+        {
+          "name": "Cape Nagloynyn floating 1",
+          "status": "building",
+          "type": "PWR",
+          "model": "RITM-200S",
+          "mw": 106,
+          "changed": {
+            "sources": [
+              "https://reactoratlas.com/en/reactor/russia-cape-nagloynyn-floating-nuclear-power-plant"
+            ]
+          }
+        },
+        {
+          "name": "Cape Nagloynyn floating 2",
+          "status": "building",
+          "type": "PWR",
+          "model": "RITM-200S",
+          "mw": 106,
+          "changed": {
+            "sources": [
+              "https://reactoratlas.com/en/reactor/russia-cape-nagloynyn-floating-nuclear-power-plant"
+            ]
+          }
         }
       ]
     },
@@ -4988,6 +5402,17 @@
           "iaea": 1008
         },
         {
+          "name": "Kursk 2-3",
+          "status": "building",
+          "type": "PWR",
+          "model": "V-510",
+          "mw": 1200,
+          "changed": {
+            "year": 2025,
+            "sources": ["https://reactoratlas.com/en/reactor/russia-kursk-nuclear-power-plant"]
+          }
+        },
+        {
           "name": "Kursk-1",
           "status": "shutdown",
           "type": "LWGR",
@@ -5052,6 +5477,28 @@
           "mw": 1066,
           "from": 2021,
           "iaea": 901
+        },
+        {
+          "name": "Leningrad 2-3",
+          "status": "building",
+          "type": "PWR",
+          "model": "VVER-1200 (V-491)",
+          "mw": 1150,
+          "changed": {
+            "year": 2024,
+            "sources": ["https://reactoratlas.com/en/reactor/russia-leningrad-nuclear-power-plant"]
+          }
+        },
+        {
+          "name": "Leningrad 2-4",
+          "status": "building",
+          "type": "PWR",
+          "model": "VVER-1200 (V-491)",
+          "mw": 1150,
+          "changed": {
+            "year": 2025,
+            "sources": ["https://reactoratlas.com/en/reactor/russia-leningrad-nuclear-power-plant"]
+          }
         },
         {
           "name": "Leningrad-1",
@@ -7424,6 +7871,41 @@
           "mw": 1170,
           "from": 1985,
           "iaea": 751
+        }
+      ]
+    },
+    {
+      "id": "jizzakh",
+      "iso3": "UZB",
+      "en": "Jizzakh",
+      "ar": "جيزاخ",
+      "coords": [67.158, 40.708],
+      "units": [
+        {
+          "name": "Jizzakh 1",
+          "status": "building",
+          "type": "SMR",
+          "model": "RITM-200N",
+          "mw": 55,
+          "changed": {
+            "year": 2026,
+            "sources": [
+              "https://reactoratlas.com/en/reactor/uzbekistan-jizzakh-nuclear-power-plant"
+            ]
+          }
+        },
+        {
+          "name": "Jizzakh 2",
+          "status": "building",
+          "type": "SMR",
+          "model": "RITM-200N",
+          "mw": 55,
+          "changed": {
+            "year": 2026,
+            "sources": [
+              "https://reactoratlas.com/en/reactor/uzbekistan-jizzakh-nuclear-power-plant"
+            ]
+          }
         }
       ]
     },

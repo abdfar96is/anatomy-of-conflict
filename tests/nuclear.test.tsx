@@ -163,6 +163,19 @@ describe('nuclear power plants', () => {
     // Yongbyon-era units, which the plant data does not hold
     const GAP: Record<string, number> = { CHN: 1, IND: 1, PRK: -2 };
     for (const [iso, [reactors]] of Object.entries(db.nuclear.fleet.values)) expect(inService(iso) - reactors, iso).toBe(GAP[iso] ?? 0);
+    // units under construction match exactly, the ones added from Reactor Atlas plant pages included
+    const building = (iso: string) => db.nuclear.plants.filter((p) => p.iso3 === iso).reduce((n, p) => n + p.count.building, 0);
+    for (const [iso, [, , uc]] of Object.entries(db.nuclear.fleet.values)) expect(building(iso), iso).toBe(uc);
+    const lufeng = db.plantById.get('lufeng')!;
+    expect(lufeng).toMatchObject({ iso3: 'CHN', status: 'building' });
+    expect(lufeng.units.find((u) => u.name === 'Lufeng 1')?.changed).toEqual({ year: 2025, sources: ['https://reactoratlas.com/en/reactor/china-lufeng-nuclear-power-plant'] });
+    expect(db.plantById.has('baltic')).toBe(false);
+    atlas.set({ lang: 'en' });
+    render(<DbContext.Provider value={db}><Dossier /></DbContext.Provider>);
+    act(() => { atlas.select('plant', 'lufeng', { fly: false }); });
+    const cap = [...document.querySelectorAll('#dz-panel .dz-fact')].find((f) => f.querySelector('dt')?.textContent === en('dz.pl.buildingMw'))!;
+    expect(cap.querySelector('.dz-fsrc')!.textContent).toBe('Reactor Atlas');
+    act(() => { atlas.reset(); });
   });
 
   test('every state\'s civil status agrees with the plants and the 2026 table, and is checked', () => {

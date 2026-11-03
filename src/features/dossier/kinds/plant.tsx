@@ -30,17 +30,23 @@ function body(p: Plant, k: Kit) {
   const src = db.nuclear.plantSource;
   const base = { label: `${src.base.name} ${src.base.version}`, url: src.base.url, tip: t('dz.pl.baseTip', { d: fmt.date(src.base.date) }) };
   const inService = p.mw.operating + p.mw.suspended;
+  // units added from Reactor Atlas plant pages carry no PRIS id; their figures are credited to that page
+  const sourceOf = (statuses: NuclearUnitStatus[]) => {
+    const us = p.units.filter((u) => statuses.includes(u.status));
+    const added = us.length > 0 && us.every((u) => !u.iaea && u.changed?.sources[0]);
+    return added ? { label: 'Reactor Atlas', url: us[0]!.changed!.sources[0] } : base;
+  };
   const facts = k.facts([
     k.fact(t('dz.pl.country'), k.cchip(p.iso3), { text: true }),
     k.fact(t('dz.pl.status'), L(NUCLEAR_UNIT[p.status]), { text: true }),
-    inService ? k.fact(t('dz.pl.capacity'), mwOf(k, inService), { tipText: t('dz.pl.capacityTip'), source: base }) : null,
-    p.count.building ? k.fact(t('dz.pl.buildingMw'), mwOf(k, p.mw.building), { source: base }) : null,
+    inService ? k.fact(t('dz.pl.capacity'), mwOf(k, inService), { tipText: t('dz.pl.capacityTip'), source: sourceOf(['operating', 'suspended']) }) : null,
+    p.count.building ? k.fact(t('dz.pl.buildingMw'), mwOf(k, p.mw.building), { source: sourceOf(['building']) }) : null,
     k.fact(t('dz.pl.units'), k.listJoin(ORDER.filter((s) => p.count[s]).map((s) => `${fmt.num(p.count[s])} ${L(NUCLEAR_UNIT[s])}`)), { text: true, wide: true }),
   ]);
   const rows = p.units.map((u) => (
     <tr key={u.name} className={`pl-${u.status}`}>
       <th scope="row"><bdi>{u.name}</bdi></th>
-      <td>{L(NUCLEAR_UNIT[u.status])}{u.changed ? <span className="dz-hum-y data">{u.changed.year}</span> : null}</td>
+      <td>{L(NUCLEAR_UNIT[u.status])}{u.changed?.year ? <span className="dz-hum-y data">{u.changed.year}</span> : null}</td>
       <td><bdi>{[u.type, u.model].filter(Boolean).join(' · ')}</bdi></td>
       <td className="data">{u.mw ? fmt.num(u.mw) : '—'}</td>
       <td className="data">{u.from ?? ''}{u.to ? `–${u.to}` : ''}</td>

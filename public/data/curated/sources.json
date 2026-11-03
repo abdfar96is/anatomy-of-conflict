@@ -356,12 +356,12 @@
         "en": "One plant per site with its coordinates; its units with status, type, design net capacity and years of service."
       },
       "methodology": {
-        "ar": "جُمعت الوحدات العاملة والمتوقفة مؤقتاً وقيد الإنشاء، والمغلقة منذ 2011، إضافة إلى تشيرنوبيل وفوكوشيما دايتشي وجزيرة الأميال الثلاثة، في محطات بحسب اسم الموقع. حُدّثت حالة 31 وحدة تغيّرت منذ مارس 2024 من جداول Reactor Atlas السنوية ومصادر أخرى مذكورة على كل وحدة. أعداد المفاعلات وقدراتها لكل دولة مأخوذة من جدول Reactor Atlas لعام 2026 في ملف الوضع النووي.",
-        "en": "Operating, idle and under-construction units, units shut since 2011, plus Chernobyl, Fukushima Daiichi and Three Mile Island, are grouped into plants by site name. The status of 31 units that changed since March 2024 follows the Reactor Atlas yearly tables and other sources named on each unit. Per-state reactor counts and capacity come from the Reactor Atlas 2026 table in the nuclear-status file."
+        "ar": "جُمعت الوحدات العاملة والمتوقفة مؤقتاً وقيد الإنشاء، والمغلقة منذ 2011، إضافة إلى تشيرنوبيل وفوكوشيما دايتشي وجزيرة الأميال الثلاثة، في محطات بحسب اسم الموقع. حُدّثت حالة 31 وحدة تغيّرت منذ مارس 2024 من جداول Reactor Atlas السنوية ومصادر أخرى مذكورة على كل وحدة. وأُضيفت 37 وحدة قيد الإنشاء ناقصة من صفحات محطات Reactor Atlas (نوفمبر 2026)، فصار عدد الوحدات قيد الإنشاء لكل دولة مطابقاً لجدولها لعام 2026. أعداد المفاعلات وقدراتها لكل دولة مأخوذة من جدول Reactor Atlas لعام 2026 في ملف الوضع النووي.",
+        "en": "Operating, idle and under-construction units, units shut since 2011, plus Chernobyl, Fukushima Daiichi and Three Mile Island, are grouped into plants by site name. The status of 31 units that changed since March 2024 follows the Reactor Atlas yearly tables and other sources named on each unit. 37 missing units under construction were added from the Reactor Atlas plant pages (November 2026), so each state's count of units under construction matches its 2026 table. Per-state reactor counts and capacity come from the Reactor Atlas 2026 table in the nuclear-status file."
       },
       "limitations": {
-        "ar": "لا تظهر مشاريع البناء التي بدأت بعد مارس 2024. الإحداثيات من قاعدة GeoNuclearData وقد تكون تقريبية. القدرة صافية تصميمية وقد تختلف قليلاً عن القدرة المرجعية التي تنشرها الوكالة الدولية.",
-        "en": "Construction begun after March 2024 is not shown. Coordinates come from GeoNuclearData and may be approximate. Capacity is design net and can differ slightly from the reference capacity the IAEA publishes."
+        "ar": "الإحداثيات من GeoNuclearData أو من صفحات Reactor Atlas وقد تكون تقريبية. القدرة صافية تصميمية وقد تختلف قليلاً عن القدرة المرجعية التي تنشرها الوكالة الدولية. استُبعدت وحدة البلطيق 1 الروسية لأنها لم تعد تُعدّ قيد الإنشاء.",
+        "en": "Coordinates come from GeoNuclearData or the Reactor Atlas plant pages and may be approximate. Capacity is design net and can differ slightly from the reference capacity the IAEA publishes. Russia's Baltic 1 is left out as no longer counted as under construction."
       }
     },
     {
