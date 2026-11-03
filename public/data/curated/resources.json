@@ -247,7 +247,10 @@
       "year": 2025,
       "source": "undata",
       "ar": "منجم السكري في الصحراء الشرقية هو المنجم الذهبي الرئيسي في مصر وأحد أكبر المناجم العاملة في أفريقيا، وتسعى الدولة إلى توسيع التنقيب في درع الصحراء الشرقية.",
-      "en": "The Sukari mine in the Eastern Desert is Egypt's principal gold mine and one of Africa's largest operating mines; the state is seeking to expand exploration across the Eastern Desert shield."
+      "en": "The Sukari mine in the Eastern Desert is Egypt's principal gold mine and one of Africa's largest operating mines; the state is seeking to expand exploration across the Eastern Desert shield.",
+      "sources": [
+        "https://www.sec.gov/Archives/edgar/data/1973832/000197383226000066/au-20251231.htm"
+      ]
     },
     {
       "iso3": "EGY",
@@ -377,7 +380,11 @@
       "source": "usgs",
       "rank": 2,
       "ar": "ثاني أكبر منتج للبروم في العالم بعد إسرائيل، بنحو 26٪ من الإنتاج العالمي، ومصدره كذلك أملاح البحر الميت. البحر الميت مورد مشترك بين الأردن وإسرائيل وفلسطين، وانحسار منسوبه يمثّل قيداً بيئياً وإنتاجياً طويل الأمد على الجانبين.",
-      "en": "The world's second-largest bromine producer after Israel, at around 26% of global output, also from Dead Sea brines. The Dead Sea is a resource shared between Jordan, Israel and Palestine, and its falling level is a long-term environmental and production constraint on both sides."
+      "en": "The world's second-largest bromine producer after Israel, at around 26% of global output, also from Dead Sea brines. The Dead Sea is a resource shared between Jordan, Israel and Palestine, and its falling level is a long-term environmental and production constraint on both sides.",
+      "sources": [
+        "https://pubs.usgs.gov/myb/vol3/2020-21/myb3-2020-21-jordan.pdf",
+        "https://jordantimes.com/news/local/pm-attends-event-marking-20th-anniversary-jordan-bromine-factory"
+      ]
     },
     {
       "iso3": "JOR",
@@ -1017,7 +1024,10 @@
       "year": 2025,
       "source": "usgs",
       "ar": "من أكبر منتجي الذهب في أفريقيا، ومنجم غيتا أبرز مناجمه، والذهب أكبر صادرات البلاد.",
-      "en": "Among Africa's largest gold producers, with Geita its leading mine; gold is the country's largest export."
+      "en": "Among Africa's largest gold producers, with Geita its leading mine; gold is the country's largest export.",
+      "sources": [
+        "https://www.sec.gov/Archives/edgar/data/1973832/000197383226000066/au-20251231.htm"
+      ]
     },
     {
       "iso3": "TZA",
@@ -1438,7 +1448,11 @@
       "source": "usgs",
       "rank": 2,
       "ar": "ثاني أكبر منتج للماس بالكمية بعد روسيا والأكبر بالقيمة غالباً، واتفاق مع دي بيرز (2023) رفع حصتها من الإنتاج.",
-      "en": "The second-largest diamond producer by volume after Russia, and often the largest by value; a 2023 deal with De Beers raised its share of output."
+      "en": "The second-largest diamond producer by volume after Russia, and often the largest by value; a 2023 deal with De Beers raised its share of output.",
+      "sources": [
+        "https://mining.com/web/de-beers-agrees-to-give-botswana-more-rough-diamonds-in-new-sales-pact",
+        "https://www.businessday.co.za/bd/companies/mining/2025-02-03-de-beers-signs-new-sales-agreement-with-botswana-government"
+      ]
     },
     {
       "iso3": "GAB",
@@ -1590,7 +1604,11 @@
       "year": 2025,
       "source": "usgs",
       "ar": "منجم مورونتاو من أكبر مناجم الذهب المكشوفة في العالم، والذهب أكبر صادرات البلاد.",
-      "en": "The Muruntau mine is among the world's largest open-pit gold mines, and gold is the country's largest export."
+      "en": "The Muruntau mine is among the world's largest open-pit gold mines, and gold is the country's largest export.",
+      "sources": [
+        "https://www.nsenergybusiness.com/projects/muruntau-gold-mine/",
+        "https://actual.ngmk.uz/en/home/pressa/1471-the-muruntau-mine-became-one-of-the-world-leaders-in-gold-mining-in-2022.html"
+      ]
     },
     {
       "iso3": "UZB",
@@ -1777,9 +1795,15 @@
       "type": "copper",
       "year": 2025,
       "source": "usgs",
-      "ar": "مجمّع زنغزور للنحاس والموليبدنوم في سيونيك أكبر دافع للضرائب، والمنطقة نفسها محور ممرّ العبور المتفق عليه مع أذربيجان.",
-      "en": "The Zangezur copper-molybdenum combine in Syunik is the largest taxpayer, and the same province is the focus of the transit corridor agreed with Azerbaijan.",
-      "conflictIds": ["armenia-azerbaijan"]
+      "ar": "مجمّع زنغزور للنحاس والموليبدنوم في سيونيك من أكبر دافعي الضرائب في البلاد، والمنطقة نفسها محور ممرّ العبور المتفق عليه مع أذربيجان.",
+      "en": "The Zangezur copper-molybdenum combine in Syunik is among the country's largest taxpayers, and the same province is the focus of the transit corridor agreed with Azerbaijan.",
+      "conflictIds": ["armenia-azerbaijan"],
+      "sources": [
+        "https://www.civilnet.am/en/news/815399/zangezur-mine-keeps-spot-as-armenias-top-taxpayer-this-week-in-business/",
+        "https://panarmenian.net/m/eng/news/330141/",
+        "https://jam-news.net/armenia-begins-ratifying-the-tripp-agreement/"
+      ],
+      "verified": "2026-11-03"
     },
     {
       "iso3": "BHR",
@@ -2097,7 +2121,12 @@
       "year": 2025,
       "source": "usgs",
       "ar": "شركة كي جي إتش إم أكبر منتج للنحاس في أوروبا ومن أكبر منتجي الفضة في العالم.",
-      "en": "KGHM is Europe's largest copper producer and one of the world's largest silver producers."
+      "en": "KGHM is Europe's largest copper producer and one of the world's largest silver producers.",
+      "sources": [
+        "https://www.mining.com/web/kghm-eyes-takeovers-as-global-energy-shift-spurs-demand-for-copper/",
+        "https://media.kghm.com/en/news-and-press-releases/kghm-polska-miedz-ranks-among-the-world-s-leading-silver-producers"
+      ],
+      "verified": "2026-11-03"
     },
     {
       "iso3": "ROU",
@@ -2143,7 +2172,12 @@
       "year": 2024,
       "source": "undata",
       "ar": "أنتويرب أكبر مركز لتجارة الماس الخام في العالم.",
-      "en": "Antwerp is the world's largest trading centre for rough diamonds."
+      "en": "Antwerp is the world's largest trading centre for rough diamonds.",
+      "sources": [
+        "https://awdc.be/en/node/988",
+        "https://www.businessday.co.za/bd/world/2018-02-14-nearly-all-the-worlds-diamonds-pass-through-a-drab-part-of-antwerp"
+      ],
+      "verified": "2026-11-03"
     },
     {
       "iso3": "GRC",
@@ -2167,7 +2201,11 @@
       "year": 2025,
       "source": "usgs",
       "ar": "شركة إل كيه إيه بي في كيرونا تنتج معظم خام الحديد في الاتحاد الأوروبي، واكتشفت عام 2023 أكبر رواسب للعناصر النادرة في أوروبا.",
-      "en": "LKAB at Kiruna produces most of the EU's iron ore, and in 2023 found Europe's largest known rare earth deposit."
+      "en": "LKAB at Kiruna produces most of the EU's iron ore, and in 2023 found Europe's largest known rare earth deposit.",
+      "sources": [
+        "https://lkab.com/en/press/europes-largest-deposit-of-rare-earth-metals-is-located-in-the-kiruna-area/",
+        "https://mining.com/?p=1120056"
+      ]
     },
     {
       "iso3": "PRT",
@@ -2222,7 +2260,11 @@
       "year": 2025,
       "source": "usgs",
       "ar": "مصهر بيردوب من أكبر مصاهر النحاس في أوروبا، وبلغاريا ممرّ لخط ترك ستريم.",
-      "en": "The Pirdop smelter is among Europe's largest copper smelters, and Bulgaria is a transit route for TurkStream."
+      "en": "The Pirdop smelter is among Europe's largest copper smelters, and Bulgaria is a transit route for TurkStream.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Pirdop_copper_smelter_and_refinery",
+        "https://www.mining.com/web/aurubis-investing-to-expand-copper-output-in-bulgaria/"
+      ]
     },
     {
       "iso3": "SRB",
@@ -2254,7 +2296,12 @@
       "year": 2025,
       "source": "usgs",
       "ar": "مصفاة كوكولا من أكبر مصافي الكوبالت خارج الصين، وتنتج فنلندا النيكل والكوبالت للبطاريات.",
-      "en": "The Kokkola refinery is among the largest cobalt refineries outside China, and Finland produces nickel and cobalt for batteries."
+      "en": "The Kokkola refinery is among the largest cobalt refineries outside China, and Finland produces nickel and cobalt for batteries.",
+      "sources": [
+        "https://jervoisglobal.com/wp-content/uploads/2024/02/240226-Jervois-Finland-presentation-MIRU-battery-summit.pdf",
+        "https://www.miningweekly.com/article/jervois-to-buy-finland-cobalt-refining-business-for-160m-2021-07-27"
+      ],
+      "verified": "2026-11-03"
     },
     {
       "iso3": "ALB",
@@ -2295,8 +2342,13 @@
       "type": "nickel",
       "year": 2025,
       "source": "usgs",
-      "ar": "نيكل وكوبالت مناجم مووا أهم الصادرات المعدنية، بشراكة مع شركة شيريت الكندية.",
-      "en": "Nickel and cobalt from the Moa mines are the main mineral exports, in partnership with Canada's Sherritt."
+      "ar": "نيكل وكوبالت مناجم مووا أهم الصادرات المعدنية، عبر مشروع مشترك مناصفةً مع شركة شيريت الكندية التي علّقت مشاركتها بعد توسيع العقوبات الأمريكية في مايو 2026.",
+      "en": "Nickel and cobalt from the Moa mines are the main mineral exports, through a 50/50 venture with Canada's Sherritt, which suspended its participation after US sanctions were expanded in May 2026.",
+      "sources": [
+        "https://nationalnewswatch.com/2026/05/07/sherritt-suspends-cuban-joint-venture-participation-as-u-s-expands-sanctions",
+        "https://finance.yahoo.com/news/sherritt-halts-plan-dissolve-cuba-135505343.html"
+      ],
+      "verified": "2026-11-03"
     },
     {
       "iso3": "DOM",
@@ -2304,15 +2356,23 @@
       "year": 2025,
       "source": "usgs",
       "ar": "منجم بويبلو فييخو من أكبر مناجم الذهب في العالم.",
-      "en": "The Pueblo Viejo mine is among the largest gold mines in the world."
+      "en": "The Pueblo Viejo mine is among the largest gold mines in the world.",
+      "sources": [
+        "https://www.sec.gov/Archives/edgar/data/756894/000119312526079253/d833573dex991.htm"
+      ]
     },
     {
       "iso3": "GTM",
       "type": "nickel",
       "year": 2025,
       "source": "usgs",
-      "ar": "منجم فينيكس للنيكل، وفرضت الولايات المتحدة عقوبات على مالكته شركة سولواي عام 2022.",
-      "en": "The Fénix nickel mine; the United States sanctioned its owner Solway in 2022."
+      "ar": "منجم فينيكس للنيكل؛ فرضت الولايات المتحدة عام 2022 عقوبات على شركتَي سولواي المشغّلتين له بتهم فساد، ثم رفعتها لاحقاً.",
+      "en": "The Fénix nickel mine; in 2022 the United States sanctioned the Solway subsidiaries that run it over corruption allegations, and later lifted the sanctions.",
+      "sources": [
+        "https://business-humanrights.org/en/latest-news/guatemala-solway-group-sanctioned-for-mining-related-corruption-in-guatemala-by-the-us-government/",
+        "https://www.mining.com/?p=1134001"
+      ],
+      "verified": "2026-11-03"
     },
     {
       "iso3": "HND",
@@ -2332,7 +2392,12 @@
       "year": 2025,
       "source": "usgs",
       "ar": "الذهب أكبر صادرات البلاد، بامتيازات منح كثير منها لشركات صينية.",
-      "en": "Gold is the country's largest export, with many concessions granted to Chinese companies."
+      "en": "Gold is the country's largest export, with many concessions granted to Chinese companies.",
+      "sources": [
+        "https://www.laprensani.com/2025/11/04/english/3555774-how-a-chinese-company-became-nicaraguas-fastest-growing-gold-exporter-to-the-u-s",
+        "https://confidencial.digital/en/nation/nicaragua-grants-over-500000-hectares-in-mining-rights-to-chinese-companies/"
+      ],
+      "verified": "2026-11-03"
     },
     {
       "iso3": "SLV",
