@@ -8,29 +8,27 @@ jobs:
   probe:
     runs-on: ubuntu-latest
     steps:
-      - name: PRIS country and reactor pages
+      - name: Reactor databases
         run: |
           set +e
-          ua='anatomy-of-conflict-atlas (educational; data refresh)'
-          curl -sS -m 60 -A "$ua" -I "https://pris.iaea.org/PRIS/CountryStatistics/CountryDetails.aspx?current=BE" | grep -i "^location\|^HTTP"
-          curl -sS -m 60 -L -c jar -b jar -A "$ua" -o be.html -w "BE country %{http_code} %{size_download} %{url_effective}\n" "https://pris.iaea.org/PRIS/CountryStatistics/CountryDetails.aspx?current=BE"
-          curl -sS -m 60 -A "$ua" -L -c jar -b jar -o r.html -w "reactor 50 %{http_code} %{size_download} %{url_effective}\n" "https://pris.iaea.org/PRIS/CountryStatistics/ReactorDetails.aspx?current=50"
-          curl -sS -m 60 -A "$ua" -L -c jar -b jar -o ws.html -w "world %{http_code} %{size_download} %{url_effective}\n" "https://pris.iaea.org/PRIS/WorldStatistics/OperationalReactorsByCountry.aspx"
-          python3 - <<'PY'
-          import re, html
-          for f in ['be.html', 'r.html', 'ws.html']:
-              try: s = open(f, encoding='utf-8', errors='replace').read()
-              except Exception as e: print(f, e); continue
-              print('=====', f, len(s))
-              tables = re.findall(r'<table[^>]*>.*?</table>', s, re.S)
-              print('tables', len(tables))
-              for t in tables[:4]:
-                  rows = re.findall(r'<tr[^>]*>(.*?)</tr>', t, re.S)
-                  print('-- table rows', len(rows))
-                  for r in rows[:6]:
-                      cells = [html.unescape(re.sub(r'<[^>]+>', '', c)).strip() for c in re.findall(r'<t[dh][^>]*>(.*?)</t[dh]>', r, re.S)]
-                      links = re.findall(r'href="([^"]*current=\d+[^"]*)"', r)
-                      print('   ', cells[:12], links[:1])
-              spans = re.findall(r'<span id="(MainContent_[^"]+)"[^>]*>(.*?)</span>', s, re.S)
-              for k, v in spans[:40]: print('  span', k, '=', html.unescape(re.sub(r'<[^>]+>', '', v)).strip()[:80])
+          ua='Mozilla/5.0 (compatible; anatomy-of-conflict-atlas; educational)'
+          for u in \
+            "https://world-nuclear.org/nuclear-reactor-database/summary" \
+            "https://world-nuclear.org/nuclear-reactor-database/details/ZAPOROZHYE-1" \
+            "https://reactoratlas.com/en/year/2025" \
+            "https://reactoratlas.com/robots.txt" \
+            "https://world-nuclear.org/robots.txt" \
+            "https://pris-stats.iaea.org/" ; do
+            f=$(echo "$u" | md5sum | cut -c1-8).html
+            curl -sS -m 60 -L -A "$ua" -o "$f" -w "== $u %{http_code} %{size_download} %{content_type}\n" "$u"
+            python3 - "$f" <<'PY'
+          import re, sys, html
+          s = open(sys.argv[1], encoding='utf-8', errors='replace').read()
+          print('  tables', len(re.findall(r'<table', s)), 'json-ish', len(re.findall(r'__NEXT_DATA__|application/json|\.json', s)))
+          for m in re.findall(r'(https?://[^"\' ]*(?:api|json|graphql|export|csv)[^"\' ]*)', s)[:12]: print('  url', m[:160])
+          for m in re.findall(r'<script[^>]+src="([^"]+)"', s)[:6]: print('  script', m[:120])
+          text = html.unescape(re.sub(r'<[^>]+>', ' ', re.sub(r'<script.*?</script>|<style.*?</style>', ' ', s, flags=re.S)))
+          text = re.sub(r'\s+', ' ', text)
+          print('  text', text[:900])
           PY
+          done
