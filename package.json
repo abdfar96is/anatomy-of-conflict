@@ -19,6 +19,7 @@
     "check-data": "tsx scripts/check-data.ts",
     "migrate-errata": "tsx scripts/migrate-errata.ts",
     "format-data": "tsx scripts/format-data.ts",
+    "fetch-indicators": "tsx scripts/fetch-indicators.ts",
     "test:e2e": "playwright test"
   },
   "dependencies": {

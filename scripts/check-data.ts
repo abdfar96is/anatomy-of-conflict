@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 import { geoContains } from 'd3';
 import type { Feature } from 'geojson';
 import { formatJson } from './format-json';
-import { conflictFile, SCHEMAS } from './schema';
+import { conflictFile, liveFile, SCHEMAS } from './schema';
 
 export interface Problem { file: string; path: string; message: string; value?: unknown }
 
@@ -124,6 +124,27 @@ export function checkData(dataDir: string): Problem[] {
   dupes('chokepoints.json', (files['chokepoints.json'] as { points: Rec[] }).points, 'points');
   dupes('relations.json', rel.blocs, 'blocs');
   dupes('resources.json', resources.sites, 'sites');
+
+  // 4. The open-data refresh (live/indicators.json), when present: shape, layout, known countries, no future years.
+  const liveName = 'live/indicators.json', livePath = path.join(dataDir, liveName);
+  if (fs.existsSync(livePath)) {
+    const text = fs.readFileSync(livePath, 'utf8').replace(/\r\n/g, '\n');
+    let data: unknown;
+    try { data = JSON.parse(text); } catch (err) { problems.push({ file: liveName, path: '', message: `not valid JSON: ${(err as Error).message}` }); }
+    if (data !== undefined) {
+      if (text !== formatJson(data)) layout.push({ file: liveName, path: '', message: 'not in the canonical layout; run npm run format-data' });
+      const res = liveFile.safeParse(data);
+      if (!res.success) for (const issue of res.error.issues) problems.push({ file: liveName, path: pathOf(issue.path), message: issue.message, value: at(data, issue.path) });
+      else {
+        const year = new Date().getUTCFullYear();
+        if (res.data.retrieved && res.data.retrieved > today) problems.push({ file: liveName, path: 'retrieved', message: 'date is in the future', value: res.data.retrieved });
+        for (const [iso, row] of Object.entries(res.data.values)) {
+          country(liveName, `values.${iso}`, iso);
+          for (const [k, v] of Object.entries(row)) if (v && v[1] > year) problems.push({ file: liveName, path: `values.${iso}.${k}`, message: 'year is in the future', value: v });
+        }
+      }
+    }
+  }
   return [...layout, ...problems];
 }
 
@@ -150,7 +171,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   const dir = path.resolve(import.meta.dirname, '../public/data');
   const problems = checkData(dir);
   for (const p of problems) console.log(`${p.file} › ${p.path || '(file)'} › ${p.message}${p.value !== undefined ? ` (got ${JSON.stringify(p.value)})` : ''}`);
-  console.log(problems.length ? `\n${problems.length} problem(s) in public/data/curated` : 'public/data/curated: all checks passed');
+  console.log(problems.length ? `\n${problems.length} problem(s) in public/data` : 'public/data: all checks passed');
   // Source coverage is reported, not enforced: older records predate the provenance fields.
   for (const c of provenanceCoverage(dir)) {
     console.log(`  sources: ${c.name} ${c.sourced}/${c.total}, last-checked ${c.verified}/${c.total}`);

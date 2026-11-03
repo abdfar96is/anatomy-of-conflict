@@ -1,15 +1,16 @@
-// Rewrites every curated JSON file in the canonical layout (see format-json.ts). Content never changes.
+// Rewrites every curated (and live) JSON file in the canonical layout (see format-json.ts). Content never changes.
 
 import fs from 'node:fs';
 import path from 'node:path';
 import { isDeepStrictEqual } from 'node:util';
 import { formatJson } from './format-json';
 
-const DIR = path.resolve(import.meta.dirname, '../public/data/curated');
-const files = fs.readdirSync(DIR, { recursive: true, encoding: 'utf8' }).filter((f) => f.endsWith('.json'));
+const ROOT = path.resolve(import.meta.dirname, '../public/data');
+const files = ['curated', 'live'].filter((d) => fs.existsSync(path.join(ROOT, d))).flatMap((d) =>
+  fs.readdirSync(path.join(ROOT, d), { recursive: true, encoding: 'utf8' }).filter((f) => f.endsWith('.json')).map((f) => path.join(d, f)));
 let changed = 0;
 for (const f of files) {
-  const p = path.join(DIR, f);
+  const p = path.join(ROOT, f);
   const text = fs.readFileSync(p, 'utf8');
   const data = JSON.parse(text);
   const next = formatJson(data);

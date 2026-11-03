@@ -5,7 +5,7 @@ import { Fragment, useId, useLayoutEffect, useRef, useState, type HTMLAttributes
 import { atlas, useAtlas } from '../../app/store';
 import { CHOKE_STATUS, CONFIDENCE, SEVERITY } from '../../config';
 import type { Bi } from '../../i18n/format';
-import type { Kind } from '../../data/types';
+import type { Country, Kind, LiveKey } from '../../data/types';
 import { esc } from '../../ui/dom';
 import { Icon } from '../../ui/Icon';
 import { resClassVar, sevVar } from '../../ui/palette';
@@ -189,12 +189,47 @@ export function kit(c: Ctx, actions: KitActions) {
   const rows = (items: ReactElement[]) =>
     (items.length ? <ul className="dz-rows" role="list">{items.map((el, i) => <li key={el.key ?? i}>{el}</li>)}</ul> : null);
 
-  const fact = (label: string, value: ReactNode, { year, wide = false, text = false, tipText }: { year?: number | string | null; wide?: boolean; text?: boolean; tipText?: string } = {}) => (
+  /** A figure; with `source`, its year and source sit on a line under it, the source linking to the data. */
+  const fact = (label: string, value: ReactNode, { year, wide = false, text = false, tipText, source }: {
+    year?: number | string | null; wide?: boolean; text?: boolean; tipText?: string; source?: FactSource;
+  } = {}) => (
     <div key={label} className={`dz-fact${wide ? ' wide' : ''}${text ? ' text' : ''}`}>
       <dt data-tip={tipText ? esc(tipText) : undefined} tabIndex={tipText ? 0 : undefined}>{label}{tipText ? <Icon name="info" size={12} /> : null}</dt>
-      <dd>{value}{year ? <span className="dz-yr data">{year}</span> : null}</dd>
+      <dd>{value}{year && !source ? <span className="dz-yr data">{year}</span> : null}{source ? factSource(source, year) : null}</dd>
     </div>
   );
+  const factSource = (s: FactSource, year?: number | string | null) => (
+    <span className="dz-fsrc">
+      {year ? <><span className="data dz-yr">{year}</span>{' · '}</> : null}
+      {s.url
+        ? <a href={s.url} target="_blank" rel="noopener" data-tip={s.tip ? esc(s.tip) : undefined}>{s.label}<Icon name="external" size={11} /></a>
+        : <span data-tip={s.tip ? esc(s.tip) : undefined}>{s.label}</span>}
+    </span>
+  );
+  /** Where a country figure comes from: a World Bank open-data series (weekly refresh) or the Natural Earth baseline. */
+  const statSource = (key: LiveKey, src: 'live' | 'ne', iso2?: string): FactSource | undefined => {
+    if (src === 'ne') {
+      const d = db.datasetById.get('ne-admin0') as DatasetX | undefined;
+      return { label: 'Natural Earth', url: d?.url, tip: t('dz.src.neTip') };
+    }
+    const ind = db.live?.indicators[key];
+    if (!ind) return undefined;
+    const o = L(ind.origin);
+    return {
+      label: t('dz.src.live', { o }),
+      url: ind.url + (iso2 && /^[A-Z]{2}$/.test(iso2) ? `?locations=${iso2}` : ''),
+      tip: t('dz.src.liveTip', { code: ind.code, o: ind.sourceOrganization || o, d: fmt.date(db.live?.retrieved) }),
+    };
+  };
+  /** A country figure with its year and source. Without a value, a live series still says which year it checked. */
+  const stat = (label: string, key: LiveKey, x: Country, format: (v: number) => ReactNode, { noneTip, wide }: { noneTip?: (y: number | string) => string; wide?: boolean } = {}) => {
+    const s = x.stats[key];
+    if (s) return fact(label, format(s.v), { year: s.y, source: statSource(key, s.src, x.iso2), wide });
+    const ind = db.live?.indicators[key];
+    const y = ind?.latestYear;
+    const none = <span className="dz-none" data-tip={noneTip && y ? esc(noneTip(y)) : undefined}>—</span>;
+    return fact(label, none, { year: y, source: ind ? statSource(key, 'live', x.iso2) : undefined, wide });
+  };
   const facts = (items: (ReactElement | null | false | undefined | '')[]) => <dl className="dz-facts">{items.filter(Boolean)}</dl>;
 
   /** Generic clickable row: glyph | title | meta, then a sub line. */
@@ -319,9 +354,10 @@ export function kit(c: Ctx, actions: KitActions) {
   return {
     ...c, ...actions, SEV, hl, sw, listJoin, nameC, tradName, resTypeName, resColor, ne, famName, sevName,
     sevGlyph, sevPill, confPill, unverifiedPill, chokePill, kindPill, coord, numUnit, cchip, cchips, kchip,
-    sec, prose, empty, caveat, note, bullets, rows, fact, facts, conflictRow, chokeRow, siteRow, groupRow,
+    sec, prose, empty, caveat, note, bullets, rows, fact, facts, factSource, statSource, stat, conflictRow, chokeRow, siteRow, groupRow,
     catTag, eventList, srcName, refItem, provenance, resourceEntry, altSpan, networkBtn, yearBtn, barRowProps,
   };
 }
 
 export type Kit = ReturnType<typeof kit>;
+export interface FactSource { label: string; url?: string; tip?: string }

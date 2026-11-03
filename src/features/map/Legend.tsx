@@ -111,7 +111,7 @@ const BODY: Record<(typeof LENSES)[number]['id'], (c: Ctx) => ReactNode> = {
       <>
         <Sec label={t('map.lc.colorBy')}><Chips label={t('map.lc.colorBy')}>{modes}</Chips></Sec>
         <Sec>{key}<Keys><KeyRow lead={<span className="dot-accent" aria-hidden="true" />} label={t('map.ov.profile')} /></Keys></Sec>
-        <Note text={t('map.ov.note')} />
+        <Note text={DB.live ? t('map.ov.noteLive', { d: fmt.date(DB.live.retrieved) }) : t('map.ov.note')} />
       </>
     );
   },

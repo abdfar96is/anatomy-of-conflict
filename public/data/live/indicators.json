@@ -1,0 +1,43 @@
+{
+  "source": "World Bank Indicators API v2",
+  "api": "https://api.worldbank.org/v2/",
+  "retrieved": null,
+  "indicators": {
+    "pop": {
+      "code": "SP.POP.TOTL",
+      "origin": { "ar": "الأمم المتحدة (WPP)", "en": "UN WPP" },
+      "url": "https://data.worldbank.org/indicator/SP.POP.TOTL"
+    },
+    "gdp": {
+      "code": "NY.GDP.MKTP.CD",
+      "origin": { "ar": "الحسابات القومية", "en": "national accounts" },
+      "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD"
+    },
+    "gdpPc": {
+      "code": "NY.GDP.PCAP.CD",
+      "origin": { "ar": "الحسابات القومية", "en": "national accounts" },
+      "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD"
+    },
+    "refOrigin": {
+      "code": "SM.POP.REFG.OR",
+      "origin": { "ar": "المفوضية (UNHCR)", "en": "UNHCR" },
+      "url": "https://data.worldbank.org/indicator/SM.POP.REFG.OR"
+    },
+    "refAsylum": {
+      "code": "SM.POP.REFG",
+      "origin": { "ar": "المفوضية (UNHCR)", "en": "UNHCR" },
+      "url": "https://data.worldbank.org/indicator/SM.POP.REFG"
+    },
+    "idps": {
+      "code": "VC.IDP.TOCV",
+      "origin": { "ar": "مركز رصد النزوح (IDMC)", "en": "IDMC" },
+      "url": "https://data.worldbank.org/indicator/VC.IDP.TOCV"
+    },
+    "battleDeaths": {
+      "code": "VC.BTL.DETH",
+      "origin": { "ar": "برنامج أوبسالا (UCDP)", "en": "UCDP" },
+      "url": "https://data.worldbank.org/indicator/VC.BTL.DETH"
+    }
+  },
+  "values": {}
+}

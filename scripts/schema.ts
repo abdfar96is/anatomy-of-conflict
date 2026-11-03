@@ -25,6 +25,20 @@ export const conflictFile = z.looseObject({
   })),
 });
 
+const LIVE_KEYS = ['pop', 'gdp', 'gdpPc', 'refOrigin', 'refAsylum', 'idps', 'battleDeaths'] as const;
+const liveKey = z.enum(LIVE_KEYS);
+/** public/data/live/indicators.json, written by scripts/fetch-indicators.ts. Every series is described; values may be empty. */
+export const liveFile = z.object({
+  source: z.string(),
+  api: url,
+  retrieved: day.nullable(),
+  indicators: z.object(Object.fromEntries(LIVE_KEYS.map((k) => [k, z.object({
+    code: z.string().regex(/^[A-Z0-9.]+$/), name: z.string().optional(), origin: bi, url, sourceOrganization: z.string().optional(),
+    lastUpdated: day.optional(), latestYear: z.number().int().optional(), countries: z.number().int().min(0).optional(),
+  })])) as unknown as Record<(typeof LIVE_KEYS)[number], z.ZodType>),
+  values: z.record(iso, z.partialRecord(liveKey, z.tuple([z.number().min(0), z.number().int().min(1960)]))),
+});
+
 export const SCHEMAS: Record<string, z.ZodType> = {
   'chokepoints.json': z.looseObject({
     points: z.array(z.looseObject({

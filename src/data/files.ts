@@ -19,7 +19,10 @@ export const FILES = {
   cEurope: 'curated/conflicts/europe.json',
   cMideast: 'curated/conflicts/middle-east.json',
   corrections: 'curated/corrections.json',
+  live: 'live/indicators.json',
 } as const;
 
 export type FileKey = keyof typeof FILES;
+/** Files the atlas can do without: a missing open-data refresh falls back to the Natural Earth figures. */
+export const OPTIONAL_FILES: readonly FileKey[] = ['live'];
 export const CONFLICT_FILES = ['cMideast', 'cEurope', 'cAsia', 'cAfrica', 'cAmericas'] as const;
