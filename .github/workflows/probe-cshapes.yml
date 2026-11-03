@@ -8,33 +8,33 @@ jobs:
   probe:
     runs-on: ubuntu-latest
     steps:
-      - name: Data schema and licence wording
+      - name: CSV and shapefile attributes, simplification size
         run: |
           set +e
           ua='Mozilla/5.0 (compatible; anatomy-of-conflict-atlas; educational)'
-          curl -sS -m 60 -L -A "$ua" -o page.html https://icr.ethz.ch/data/cshapes/
+          curl -sS -m 300 -L -A "$ua" -o cs.csv -w "csv %{http_code} %{size_download}\n" https://icr.ethz.ch/data/cshapes/CShapes-2.0.csv
+          echo "CSVHEAD"; head -c 1500 cs.csv | cut -c1-600; echo
           python3 - <<'PY'
-          import re, html
-          s = open('page.html', encoding='utf-8', errors='replace').read()
-          i = s.find('creativecommons')
-          print('LICENCE-CTX', re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]+>', ' ', s[max(0, i-1500):i+600]))))
+          import csv, collections, sys
+          csv.field_size_limit(sys.maxsize)
+          raw = open('cs.csv', encoding='utf-8', errors='replace').read()
+          delim = '\t' if raw.count('\t') > raw.count(',') else ','
+          rows = list(csv.DictReader(raw.splitlines(), delimiter=delim))
+          print('CSVROWS', len(rows), 'COLS', list(rows[0].keys()))
+          for k in rows[0]:
+              if 'geom' in k.lower(): continue
+              vals = collections.Counter(r[k] for r in rows)
+              print('COL', k, len(vals), list(vals.items())[:10])
           PY
-          curl -sS -m 300 -L -A "$ua" -o cs.geojson -w "geojson %{http_code} %{size_download}\n" https://icr.ethz.ch/data/cshapes/CShapes-2.0.geojson
-          curl -sS -m 120 -L -A "$ua" -o cb.pdf -w "codebook %{http_code} %{size_download}\n" https://icr.ethz.ch/data/cshapes/CShapes-2.0_Codebook.pdf
-          (pdftotext -layout cb.pdf cb.txt 2>/dev/null || (pip -q install pdfminer.six && pdf2txt.py cb.pdf > cb.txt)); echo "CODEBOOK"; head -c 9000 cb.txt
+          curl -sS -m 300 -L -A "$ua" -o cs.zip -w "zip %{http_code} %{size_download}\n" https://icr.ethz.ch/data/cshapes/CShapes-2.0.zip
+          unzip -l cs.zip | head -20
+          unzip -o -q cs.zip -d shp
           python3 - <<'PY'
-          import json, collections
-          d = json.load(open('cs.geojson'))
-          f = d['features']; print('FEATURES', len(f), 'crs', d.get('crs'))
-          keys = collections.Counter(k for x in f for k in x['properties']); print('KEYS', dict(keys))
-          for x in f[:6]: print('ROW', json.dumps(x['properties'], ensure_ascii=False))
-          for k in keys:
-              vals = [x['properties'][k] for x in f if x['properties'].get(k) is not None]
-              if vals and isinstance(vals[0], str): print('STR', k, len(set(vals)), sorted(set(vals))[:12])
-              elif vals: print('NUM', k, min(vals), max(vals))
-          geoms = collections.Counter(x['geometry']['type'] for x in f); print('GEOMS', geoms)
-          pts = sum(len(json.dumps(x['geometry'])) for x in f); print('GEOM_BYTES', pts)
-          for x in f:
-              p = x['properties']
-              if 'India' in json.dumps(p) or 'Ottoman' in json.dumps(p) or 'Sudan' in json.dumps(p): print('SAMPLE', json.dumps(p, ensure_ascii=False))
+          import glob, struct
+          for f in glob.glob('shp/**/*.dbf', recursive=True):
+              b = open(f, 'rb').read(32 + 32 * 40)
+              n = (struct.unpack('<H', b[8:10])[0] - 33) // 32
+              print('DBF', f, [b[32 + i*32: 32 + i*32 + 11].split(b'\0')[0].decode() for i in range(n)])
           PY
+          curl -sS -m 300 -L -A "$ua" -o cs.geojson https://icr.ethz.ch/data/cshapes/CShapes-2.0.geojson
+          for pct in 2 5; do npx -y mapshaper@0.6.102 cs.geojson -simplify ${pct}% keep-shapes -o format=topojson quantization=100000 out$pct.json 2>&1 | tail -2; ls -la out$pct.json; gzip -c out$pct.json | wc -c; done
