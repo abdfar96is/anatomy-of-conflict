@@ -19,19 +19,19 @@
       "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD"
     },
     "refOrigin": {
-      "code": "SM.POP.REFG.OR",
-      "origin": { "ar": "المفوضية (UNHCR)", "en": "UNHCR" },
-      "url": "https://data.worldbank.org/indicator/SM.POP.REFG.OR"
+      "code": "SM.POP.RHCR.EO + SM.POP.RRWA.EO",
+      "origin": { "ar": "المفوضية (UNHCR) والأونروا", "en": "UNHCR and UNRWA" },
+      "url": "https://data.worldbank.org/indicator/SM.POP.RHCR.EO"
     },
     "refAsylum": {
-      "code": "SM.POP.REFG",
-      "origin": { "ar": "المفوضية (UNHCR)", "en": "UNHCR" },
-      "url": "https://data.worldbank.org/indicator/SM.POP.REFG"
+      "code": "SM.POP.RHCR.EA + SM.POP.RRWA.EA",
+      "origin": { "ar": "المفوضية (UNHCR) والأونروا", "en": "UNHCR and UNRWA" },
+      "url": "https://data.worldbank.org/indicator/SM.POP.RHCR.EA"
     },
     "idps": {
-      "code": "VC.IDP.TOCV",
-      "origin": { "ar": "مركز رصد النزوح (IDMC)", "en": "IDMC" },
-      "url": "https://data.worldbank.org/indicator/VC.IDP.TOCV"
+      "code": "SM.POP.IDPC",
+      "origin": { "ar": "المفوضية (UNHCR) ومركز رصد النزوح (IDMC)", "en": "UNHCR and IDMC" },
+      "url": "https://data.worldbank.org/indicator/SM.POP.IDPC"
     },
     "battleDeaths": {
       "code": "VC.BTL.DETH",

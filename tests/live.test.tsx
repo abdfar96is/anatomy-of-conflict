@@ -8,7 +8,7 @@ import { act, render } from '@testing-library/react';
 import type { ReactNode } from 'react';
 import { afterAll, afterEach, beforeAll, describe, expect, test } from 'vitest';
 import { checkData } from '../scripts/check-data';
-import { assemble, INDICATORS, latestByCountry, LIVE_KEYS, parseCountryList, parseIndicatorPage, skeleton, type WbRow } from '../scripts/fetch-indicators';
+import { assemble, combine, type Fetched, INDICATORS, latestByCountry, LIVE_KEYS, parseCountryList, parseIndicatorPage, skeleton, type WbRow } from '../scripts/fetch-indicators';
 import { formatJson } from '../scripts/format-json';
 import { atlas } from '../src/app/store';
 import { DbContext } from '../src/app/useT';
@@ -46,39 +46,68 @@ describe('World Bank API parsing', () => {
     expect(Object.fromEntries(latestByCountry(rows, keep, 0).values)).toEqual({ SDN: { iso3: 'SDN', year: 2024, value: 2 } });
     expect(latestByCountry(rows, keep, 10).values.get('COL')?.year).toBe(2019);
   });
+  test('two series are summed per country, only in years both report', () => {
+    const unhcr: WbRow[] = [
+      { iso3: 'PSE', year: 2024, value: 43_712 }, { iso3: 'PSE', year: 2025, value: 48_323 },
+      { iso3: 'SDN', year: 2025, value: 2_820_737 },
+    ];
+    const unrwa: WbRow[] = [{ iso3: 'PSE', year: 2024, value: 5_914_401 }, { iso3: 'OLD', year: 2010, value: 5 }];
+    const sum = combine([unhcr, unrwa], 2);
+    // PSE: UNRWA has no 2025 yet, so the latest complete year is 2024; SDN has no UNRWA part at all
+    expect(sum).toEqual([
+      { iso3: 'PSE', year: 2024, value: 43_712 + 5_914_401 },
+      { iso3: 'SDN', year: 2025, value: 2_820_737 },
+    ]);
+  });
 });
 
 describe('assembling the file', () => {
   const codes = Array.from({ length: 200 }, (_, i) => `A${String.fromCharCode(65 + Math.floor(i / 26))}${String.fromCharCode(65 + (i % 26))}`);
   const keep = new Set([...codes, 'CHN', 'IND', 'USA']);
-  const series = (over: Partial<Record<string, number>> = {}) => Object.fromEntries(LIVE_KEYS.map((k) => [k, {
+  const series = (over: Partial<Record<string, number>> = {}): Record<(typeof LIVE_KEYS)[number], Fetched> => Object.fromEntries(LIVE_KEYS.map((k) => [k, {
     rows: [
       ...codes.map((iso) => ({ iso3: iso, year: 2024, value: 1000 })),
       { iso3: 'CHN', year: 2024, value: over[`CHN.${k}`] ?? 1.41e9 }, { iso3: 'IND', year: 2024, value: 1.45e9 },
       { iso3: 'USA', year: 2024, value: k === 'gdp' ? 2.9e13 : k === 'gdpPc' ? 85_000 : 3.4e8 },
     ],
     lastUpdated: '2026-10-28',
-  }])) as Parameters<typeof assemble>[0];
+  }])) as Record<(typeof LIVE_KEYS)[number], Fetched>;
 
   test('describes each series and keeps [value, year] per country, sorted', () => {
-    const f = assemble(series(), keep, '2026-11-02');
+    const { file: f, warnings } = assemble(series(), keep, '2026-11-02');
+    expect(warnings).toEqual([]);
     expect(f.retrieved).toBe('2026-11-02');
-    expect(f.indicators.idps).toMatchObject({ code: 'VC.IDP.TOCV', url: 'https://data.worldbank.org/indicator/VC.IDP.TOCV', latestYear: 2024, countries: 203 });
+    expect(f.indicators.idps).toMatchObject({ code: 'SM.POP.IDPC', url: 'https://data.worldbank.org/indicator/SM.POP.IDPC', latestYear: 2024, countries: 203 });
+    expect(f.indicators.refOrigin).toMatchObject({ code: 'SM.POP.RHCR.EO + SM.POP.RRWA.EO', url: 'https://data.worldbank.org/indicator/SM.POP.RHCR.EO' });
     expect(f.values.USA?.gdp).toEqual([2.9e13, 2024]);
     expect(Object.keys(f.values)).toEqual([...Object.keys(f.values)].sort());
   });
-  test('too few countries, or a figure off by orders of magnitude, writes nothing', () => {
+  test('a required series that is thin, or a figure off by orders of magnitude, writes nothing', () => {
     const thin = series();
-    thin.pop.rows = thin.pop.rows.slice(150);
+    (thin.pop as { rows: WbRow[] }).rows = (thin.pop as { rows: WbRow[] }).rows.slice(150);
     expect(() => assemble(thin, keep, '2026-11-02')).toThrow(/SP.POP.TOTL: \d+ countries/);
+    const gone = { ...series(), gdp: { error: 'API error: The indicator was not found.' } satisfies Fetched };
+    expect(() => assemble(gone, keep, '2026-11-02')).toThrow(/NY.GDP.MKTP.CD: API error/);
     expect(() => assemble(series({ 'CHN.pop': 1.41e6 }), keep, '2026-11-02')).toThrow(/China/);
+  });
+  test('a retired humanitarian series keeps its previous values, with their years, and warns', () => {
+    const prev = assemble(series(), keep, '2026-10-26').file;
+    const broken = { ...series(), refOrigin: { error: 'API error: The indicator was not found. It may have been deleted or archived.' } satisfies Fetched };
+    const { file, warnings } = assemble(broken, keep, '2026-11-02', prev);
+    expect(file.values.USA?.refOrigin).toEqual(prev.values.USA?.refOrigin);
+    expect(file.indicators.refOrigin).toMatchObject({ countries: 203, lastUpdated: '2026-10-28' });
+    expect(warnings).toEqual(['SM.POP.RHCR.EO + SM.POP.RRWA.EO: API error: The indicator was not found. It may have been deleted or archived.; kept 203 values from 2026-10-26']);
+    // the first run has nothing to keep: the series is left empty and the run still succeeds
+    const first = assemble(broken, keep, '2026-11-02', null);
+    expect(first.file.values.USA?.refOrigin).toBeUndefined();
+    expect(first.warnings[0]).toMatch(/no earlier values to keep$/);
   });
   test('the committed file is the skeleton or a full refresh, in the canonical layout', () => {
     const text = fs.readFileSync(path.join(DATA_DIR, 'live/indicators.json'), 'utf8');
     const file = JSON.parse(text) as LiveFile;
     expect(text).toBe(formatJson(file));
     expect(Object.keys(file.indicators)).toEqual(LIVE_KEYS);
-    for (const k of LIVE_KEYS) expect(file.indicators[k].code).toBe(INDICATORS[k].code);
+    for (const k of LIVE_KEYS) expect(file.indicators[k].code).toBe(INDICATORS[k].codes.join(' + '));
     if (!file.retrieved) expect(file).toEqual(skeleton());
   });
 });
@@ -119,6 +148,30 @@ describe('build() with the open-data file', () => {
   test('the skeleton (never fetched) or a missing file means no live layer', () => {
     expect(build(withLive(skeleton())).live).toBeNull();
     expect(build(withLive(null)).countries.get('SAU')!.stats.pop?.src).toBe('ne');
+  });
+});
+
+describe('the committed open-data file', () => {
+  // whatever the weekly refresh last wrote: it must merge into the model and render
+  const raw = readRaw(DATA_DIR, { live: true });
+  const db = build(raw);
+  const values = raw.live?.retrieved ? Object.entries(raw.live.values) : [];
+
+  test('every value lands in its country, labelled as live, with its year', () => {
+    for (const [iso, row] of values) {
+      for (const [k, v] of Object.entries(row)) expect(db.countries.get(iso)?.stats[k as keyof typeof row], `${iso}.${k}`).toEqual({ v: v![0], y: v![1], src: 'live' });
+    }
+  });
+
+  test('a country with live figures renders them with the World Bank as source', () => {
+    const iso = values.find(([, row]) => row.pop)?.[0];
+    if (!iso) return; // the skeleton: nothing fetched yet
+    atlas.set({ lang: 'en' });
+    render(<DbContext.Provider value={db}><Dossier /></DbContext.Provider>);
+    act(() => { atlas.select('country', iso, { fly: false }); });
+    const pop = [...document.querySelectorAll('#dz-panel .dz-fact')].find((f) => f.querySelector('dt')?.textContent === en('dz.f.pop'))!;
+    expect(pop.querySelector('.dz-fsrc')!.textContent).toContain('World Bank');
+    act(() => { atlas.reset(); });
   });
 });
 
@@ -163,7 +216,7 @@ describe('the dossier shows each figure with its year and source', () => {
     atlas.set({ lang: 'en' });
     show(live);
     act(() => { atlas.select('country', 'SDN', { fly: false }); });
-    expect(factOf(en('dz.hu.idps')).querySelector('dd')!.textContent).toBe('9 M2024 · IDMC via World Bank');
+    expect(factOf(en('dz.hu.idps')).querySelector('dd')!.textContent).toBe('9 M2024 · UNHCR and IDMC via World Bank');
     expect(factOf(en('dz.hu.battleDeaths')).querySelector('dd')!.textContent).toBe('5,2002024 · UCDP via World Bank');
     const hosted = factOf(en('dz.hu.refAsylum'));
     expect(hosted.querySelector('.dz-none')).toHaveAttribute('data-tip', en('dz.hu.noneTip', { y: 2024 }));
@@ -178,6 +231,16 @@ describe('the dossier shows each figure with its year and source', () => {
     const sdn = table.querySelector('tr[data-hl="SDN"]')!;
     expect([...sdn.querySelectorAll('td')].map((td) => td.textContent)).toEqual(['2.1 M2024', '9 M2024', '5,2002024']);
     expect(panel().textContent).toContain(en('dz.cf.humNote'));
+  });
+
+  test('Israel and Palestine say where UCDP records the Gaza war deaths', () => {
+    atlas.set({ lang: 'en' });
+    show(live);
+    act(() => { atlas.select('country', 'PSE', { fly: false }); });
+    expect(panel().textContent).toContain(en('dz.hu.bdPse'));
+    expect(factOf(en('dz.hu.battleDeaths')).querySelector('.dz-none')).toHaveAttribute('data-tip', en('dz.hu.bdPse'));
+    act(() => { atlas.select('country', 'SDN', { fly: false }); });
+    expect(panel().textContent).not.toContain(en('dz.hu.bdPse'));
   });
 
   test('before the first fetch the figures say they are Natural Earth estimates', () => {

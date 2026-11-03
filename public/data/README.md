@@ -31,9 +31,11 @@ Relations (`relations.json` edges and blocs), resource records and resource site
 | `pop` | `SP.POP.TOTL` population | UN World Population Prospects | 10 years of the series' newest year |
 | `gdp` | `NY.GDP.MKTP.CD` GDP, current US$ | World Bank and OECD national accounts | 10 years |
 | `gdpPc` | `NY.GDP.PCAP.CD` GDP per person, current US$ | World Bank and OECD national accounts | 10 years |
-| `refOrigin` | `SM.POP.REFG.OR` refugees by country of origin | UNHCR | 2 years |
-| `refAsylum` | `SM.POP.REFG` refugees by country of asylum | UNHCR | 2 years |
-| `idps` | `VC.IDP.TOCV` internally displaced by conflict and violence | IDMC | 2 years |
+| `refOrigin` | `SM.POP.RHCR.EO` + `SM.POP.RRWA.EO` refugees by country of origin | UNHCR (its mandate) + UNRWA (Palestine refugees) | 2 years |
+| `refAsylum` | `SM.POP.RHCR.EA` + `SM.POP.RRWA.EA` refugees by country of asylum | UNHCR + UNRWA | 2 years |
+| `idps` | `SM.POP.IDPC` internally displaced people | UNHCR and IDMC | 2 years |
 | `battleDeaths` | `VC.BTL.DETH` battle-related deaths | UCDP | the newest year only (no value means no conflict reached UCDP's threshold that year) |
 
-`values` maps each ISO3 code to `[value, year]` per series. The atlas shows every figure with its year and a link to the series. Where population or GDP has no value it falls back to Natural Earth's estimate and says so. The script writes nothing when a request fails, a series covers too few countries or a sanity check fails (China and India above 1 billion people, US GDP above $10 trillion), so the last good file stays in place. Before the first run the file lists the series with empty `values`.
+Where a key sums two series, a country counts only years in which both have a value. In October 2026 the World Bank moved `SM.POP.REFG`, `SM.POP.REFG.OR` and `VC.IDP.TOCV` to its archive (source 57, no longer served), so the keys above use their WDI replacements.
+
+`values` maps each ISO3 code to `[value, year]` per series. The atlas shows every figure with its year and a link to the series. Where population or GDP has no value it falls back to Natural Earth's estimate and says so. Population and GDP are required: if one fails, covers too few countries or fails a sanity check (China and India above 1 billion people, US GDP above $10 trillion), the script writes nothing and the last good file stays in place. A humanitarian series that fails keeps its previous values, each with its own year, and the run shows a warning on its GitHub summary page. Before the first run the file lists the series with empty `values`.

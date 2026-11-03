@@ -3,9 +3,12 @@
 // the weekly GitHub workflow (.github/workflows/update-indicators.yml) runs it and commits the result.
 //
 // Each series keeps its original publisher: UN population estimates, World Bank/OECD national accounts,
-// UNHCR refugee statistics, IDMC displacement figures and UCDP battle deaths. For every country the file keeps
-// the latest year that has a value, next to the value, so the atlas can show the year and source of each figure.
-// The script never writes a partial file: a failed request or a sanity check that does not pass stops it.
+// UNHCR and UNRWA refugee statistics, UNHCR/IDMC displacement figures and UCDP battle deaths. For every country
+// the file keeps the latest year that has a value, next to the value, so the atlas can show the year and source.
+//
+// Population and GDP are required: if one of them fails, nothing is written. A humanitarian series that fails
+// (the World Bank archives and renames series from time to time) keeps its values from the previous file and the
+// run prints a warning, so one retired code never blanks the rest.
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -18,28 +21,34 @@ const API = 'https://api.worldbank.org/v2/';
 const ISO_ALIAS: Record<string, string> = { XKX: 'KOS' };
 
 interface Spec {
-  code: string;
+  /** World Bank series; several are summed per country and year (UNHCR + UNRWA refugees). The first names the link. */
+  codes: string[];
   origin: { ar: string; en: string };
   /** How many years behind the series' newest year a country's value may be. */
   window: number;
   /** The fewest countries the series must cover, or the fetch is treated as broken. */
   min: number;
+  /** Required series stop the whole refresh when they fail; the others keep their previous values. */
+  required?: boolean;
 }
 
+// Series checked against the API on 2026-11-03: SM.POP.REFG(.OR) and VC.IDP.TOCV had moved to the WDI archive
+// (source 57) and no longer serve data; SM.POP.RHCR.*, SM.POP.RRWA.* and SM.POP.IDPC replace them in WDI.
 export const INDICATORS: Record<LiveKey, Spec> = {
-  pop: { code: 'SP.POP.TOTL', origin: { ar: 'الأمم المتحدة (WPP)', en: 'UN WPP' }, window: 10, min: 180 },
-  gdp: { code: 'NY.GDP.MKTP.CD', origin: { ar: 'الحسابات القومية', en: 'national accounts' }, window: 10, min: 150 },
-  gdpPc: { code: 'NY.GDP.PCAP.CD', origin: { ar: 'الحسابات القومية', en: 'national accounts' }, window: 10, min: 150 },
-  refOrigin: { code: 'SM.POP.REFG.OR', origin: { ar: 'المفوضية (UNHCR)', en: 'UNHCR' }, window: 2, min: 100 },
-  refAsylum: { code: 'SM.POP.REFG', origin: { ar: 'المفوضية (UNHCR)', en: 'UNHCR' }, window: 2, min: 100 },
-  idps: { code: 'VC.IDP.TOCV', origin: { ar: 'مركز رصد النزوح (IDMC)', en: 'IDMC' }, window: 2, min: 25 },
-  // UCDP records no value when a country had no conflict above its threshold, so an older value would
-  // describe a war that has ended: only the series' newest year counts.
-  battleDeaths: { code: 'VC.BTL.DETH', origin: { ar: 'برنامج أوبسالا (UCDP)', en: 'UCDP' }, window: 0, min: 10 },
+  pop: { codes: ['SP.POP.TOTL'], origin: { ar: 'الأمم المتحدة (WPP)', en: 'UN WPP' }, window: 10, min: 180, required: true },
+  gdp: { codes: ['NY.GDP.MKTP.CD'], origin: { ar: 'الحسابات القومية', en: 'national accounts' }, window: 10, min: 150, required: true },
+  gdpPc: { codes: ['NY.GDP.PCAP.CD'], origin: { ar: 'الحسابات القومية', en: 'national accounts' }, window: 10, min: 150, required: true },
+  refOrigin: { codes: ['SM.POP.RHCR.EO', 'SM.POP.RRWA.EO'], origin: { ar: 'المفوضية (UNHCR) والأونروا', en: 'UNHCR and UNRWA' }, window: 2, min: 100 },
+  refAsylum: { codes: ['SM.POP.RHCR.EA', 'SM.POP.RRWA.EA'], origin: { ar: 'المفوضية (UNHCR) والأونروا', en: 'UNHCR and UNRWA' }, window: 2, min: 100 },
+  idps: { codes: ['SM.POP.IDPC'], origin: { ar: 'المفوضية (UNHCR) ومركز رصد النزوح (IDMC)', en: 'UNHCR and IDMC' }, window: 2, min: 25 },
+  // UCDP records no value when a country had no deaths in a conflict above its threshold, so an older value
+  // would describe a war that has ended: only the series' newest year counts.
+  battleDeaths: { codes: ['VC.BTL.DETH'], origin: { ar: 'برنامج أوبسالا (UCDP)', en: 'UCDP' }, window: 0, min: 10 },
 };
 export const LIVE_KEYS = Object.keys(INDICATORS) as LiveKey[];
 
 export const indicatorUrl = (code: string) => `https://data.worldbank.org/indicator/${code}`;
+const codeOf = (spec: Spec) => spec.codes.join(' + ');
 
 // ---- parsing (pure, tested)
 
@@ -73,6 +82,33 @@ export function parseCountryList(json: unknown): Set<string> {
   return out;
 }
 
+/**
+ * Sums several series per country and year. A country counts only the parts that report it recently (within
+ * `window` years of the newest year), and only the years in which all those parts have a value.
+ */
+export function combine(parts: WbRow[][], window: number): WbRow[] {
+  if (parts.length === 1) return parts[0]!;
+  const newest = Math.max(0, ...parts.flat().map((r) => r.year));
+  const maps = parts.map((rows) => {
+    const m = new Map<string, Map<number, number>>();
+    for (const r of rows) {
+      let y = m.get(r.iso3);
+      if (!y) m.set(r.iso3, (y = new Map()));
+      y.set(r.year, r.value);
+    }
+    return m;
+  });
+  const out: WbRow[] = [];
+  for (const iso of new Set(maps.flatMap((m) => [...m.keys()]))) {
+    const present = maps.map((m) => m.get(iso)).filter((y): y is Map<number, number> => !!y && [...y.keys()].some((yr) => yr >= newest - window));
+    if (!present.length) continue;
+    for (const year of present[0]!.keys()) {
+      if (present.every((p) => p.has(year))) out.push({ iso3: iso, year, value: present.reduce((s, p) => s + p.get(year)!, 0) });
+    }
+  }
+  return out;
+}
+
 /** The latest value per country, within `window` years of the newest year any kept country has. */
 export function latestByCountry(rows: WbRow[], keep: Set<string>, window: number) {
   const best = new Map<string, WbRow>();
@@ -86,18 +122,38 @@ export function latestByCountry(rows: WbRow[], keep: Set<string>, window: number
   return { newest: newest || undefined, values: best };
 }
 
-/** Assembles the file. Throws when a series covers too few countries or a well-known figure is off by orders of magnitude. */
-export function assemble(series: Record<LiveKey, { rows: WbRow[]; lastUpdated?: string; sourceOrganization?: string; name?: string }>, keep: Set<string>, retrieved: string): LiveFile {
+export type Fetched = { rows: WbRow[]; lastUpdated?: string; sourceOrganization?: string; name?: string } | { error: string };
+
+/**
+ * Assembles the file. A required series that failed or covers too few countries, or a well-known figure off by
+ * orders of magnitude, throws. Any other failed series keeps its values from `prev` and adds a warning.
+ */
+export function assemble(series: Record<LiveKey, Fetched>, keep: Set<string>, retrieved: string, prev?: LiveFile | null): { file: LiveFile; warnings: string[] } {
   const indicators = {} as Record<LiveKey, LiveIndicator>;
   const values: LiveFile['values'] = {};
+  const warnings: string[] = [];
   for (const key of LIVE_KEYS) {
-    const spec = INDICATORS[key], s = series[key];
-    const { newest, values: best } = latestByCountry(s.rows, keep, spec.window);
-    if (best.size < spec.min) throw new Error(`${spec.code}: ${best.size} countries, expected at least ${spec.min}`);
+    const spec = INDICATORS[key], s = series[key], code = codeOf(spec);
+    let problem = 'error' in s ? s.error : '';
+    let best: Map<string, WbRow> = new Map(), newest: number | undefined;
+    if (!('error' in s)) {
+      ({ newest, values: best } = latestByCountry(s.rows, keep, spec.window));
+      if (best.size < spec.min) problem = `${best.size} countries, expected at least ${spec.min}`;
+    }
+    if (problem) {
+      if (spec.required) throw new Error(`${code}: ${problem}`);
+      const kept = prev?.indicators?.[key];
+      const old = Object.entries(prev?.values ?? {}).filter(([, v]) => v[key]);
+      warnings.push(`${code}: ${problem}; ${old.length ? `kept ${old.length} values from ${prev?.retrieved}` : 'no earlier values to keep'}`);
+      indicators[key] = { ...(kept ?? {}), code, origin: spec.origin, url: indicatorUrl(spec.codes[0]!), countries: old.length };
+      for (const [iso, v] of old) (values[iso] ??= {})[key] = v[key];
+      continue;
+    }
+    const ok = s as Exclude<Fetched, { error: string }>;
     indicators[key] = {
-      code: spec.code, ...(s.name ? { name: s.name } : {}), origin: spec.origin, url: indicatorUrl(spec.code),
-      ...(s.sourceOrganization ? { sourceOrganization: s.sourceOrganization } : {}),
-      ...(s.lastUpdated ? { lastUpdated: s.lastUpdated } : {}), latestYear: newest, countries: best.size,
+      code, ...(ok.name ? { name: ok.name } : {}), origin: spec.origin, url: indicatorUrl(spec.codes[0]!),
+      ...(ok.sourceOrganization ? { sourceOrganization: ok.sourceOrganization } : {}),
+      ...(ok.lastUpdated ? { lastUpdated: ok.lastUpdated } : {}), latestYear: newest, countries: best.size,
     };
     for (const [iso, r] of best) (values[iso] ??= {})[key] = [Math.round(r.value * 100) / 100, r.year];
   }
@@ -110,12 +166,15 @@ export function assemble(series: Record<LiveKey, { rows: WbRow[]; lastUpdated?: 
   ];
   for (const [what, ok] of checks) if (!ok) throw new Error(`sanity check failed: ${what}`);
   const sorted = Object.fromEntries(Object.keys(values).sort().map((iso) => [iso, values[iso]!]));
-  return { source: 'World Bank Indicators API v2', api: API, retrieved, indicators, values: sorted };
+  return { file: { source: 'World Bank Indicators API v2', api: API, retrieved, indicators, values: sorted }, warnings };
 }
 
 /** The file before the first fetch: the series are described, no values yet, so the atlas keeps Natural Earth's figures. */
 export function skeleton(): LiveFile {
-  const indicators = Object.fromEntries(LIVE_KEYS.map((k) => [k, { code: INDICATORS[k].code, origin: INDICATORS[k].origin, url: indicatorUrl(INDICATORS[k].code) }])) as Record<LiveKey, LiveIndicator>;
+  const indicators = Object.fromEntries(LIVE_KEYS.map((k) => {
+    const spec = INDICATORS[k];
+    return [k, { code: codeOf(spec), origin: spec.origin, url: indicatorUrl(spec.codes[0]!) }];
+  })) as Record<LiveKey, LiveIndicator>;
   return { source: 'World Bank Indicators API v2', api: API, retrieved: null, indicators, values: {} };
 }
 
@@ -136,10 +195,11 @@ async function getJson(url: string, tries = 3): Promise<unknown> {
   throw new Error(`${url}: ${(last as Error)?.message ?? last}`);
 }
 
-async function fetchSeries(code: string, from: number, to: number) {
+async function fetchCode(code: string, from: number, to: number) {
   const rows: WbRow[] = [];
   let lastUpdated: string | undefined;
   for (let page = 1, pages = 1; page <= pages; page++) {
+    // an API error ("indicator was not found…") is an answer, not a network failure: no point retrying it
     const p = parseIndicatorPage(await getJson(`${API}country/all/indicator/${code}?format=json&per_page=20000&date=${from}:${to}&page=${page}`));
     pages = p.pages; lastUpdated ??= p.lastUpdated; rows.push(...p.rows);
   }
@@ -152,6 +212,25 @@ async function fetchSeries(code: string, from: number, to: number) {
   return { rows, lastUpdated, name, sourceOrganization };
 }
 
+async function fetchSeries(spec: Spec, from: number, to: number): Promise<Fetched> {
+  try {
+    const parts = [];
+    for (const code of spec.codes) {
+      const p = await fetchCode(code, from, to);
+      console.log(`  ${code}: ${p.rows.length} rows, updated ${p.lastUpdated ?? '?'}`);
+      parts.push(p);
+    }
+    const uniq = (xs: (string | undefined)[]) => [...new Set(xs.filter(Boolean))].join('; ') || undefined;
+    return {
+      rows: combine(parts.map((p) => p.rows), spec.window),
+      lastUpdated: parts.map((p) => p.lastUpdated).filter(Boolean).sort()[0],
+      name: uniq(parts.map((p) => p.name)), sourceOrganization: uniq(parts.map((p) => p.sourceOrganization)),
+    };
+  } catch (err) {
+    return { error: (err as Error).message };
+  }
+}
+
 async function main() {
   const dataDir = path.resolve(import.meta.dirname, '../public/data');
   const out = path.join(dataDir, 'live/indicators.json');
@@ -161,6 +240,7 @@ async function main() {
     console.log(`wrote ${path.relative(process.cwd(), out)} (no values)`);
     return;
   }
+  const prev = fs.existsSync(out) ? JSON.parse(fs.readFileSync(out, 'utf8')) as LiveFile : null;
   const geo = JSON.parse(fs.readFileSync(path.join(dataDir, 'geo/countries.json'), 'utf8')) as { features: { properties: { iso3: string } }[] };
   const mapped = new Set(geo.features.map((f) => f.properties.iso3));
   let keep = mapped;
@@ -170,16 +250,14 @@ async function main() {
   } catch (err) { console.warn(`country list unavailable, keeping every mapped code (${(err as Error).message})`); }
 
   const year = new Date().getUTCFullYear();
-  const series = {} as Parameters<typeof assemble>[0];
-  for (const key of LIVE_KEYS) {
-    const { code } = INDICATORS[key];
-    series[key] = await fetchSeries(code, year - 12, year);
-    console.log(`  ${code}: ${series[key].rows.length} rows, updated ${series[key].lastUpdated ?? '?'}`);
-  }
-  const file = assemble(series, keep, new Date().toISOString().slice(0, 10));
+  const series = {} as Record<LiveKey, Fetched>;
+  for (const key of LIVE_KEYS) series[key] = await fetchSeries(INDICATORS[key], year - 12, year);
+  const { file, warnings } = assemble(series, keep, new Date().toISOString().slice(0, 10), prev);
   fs.mkdirSync(path.dirname(out), { recursive: true });
   fs.writeFileSync(out, formatJson(file));
-  for (const k of LIVE_KEYS) console.log(`  ${k}: ${file.indicators[k].countries} countries, newest year ${file.indicators[k].latestYear}`);
+  for (const k of LIVE_KEYS) console.log(`  ${k}: ${file.indicators[k].countries} countries, newest year ${file.indicators[k].latestYear ?? '—'}`);
+  // GitHub shows ::warning:: lines on the run's summary page
+  for (const w of warnings) console.log(`::warning title=Open-data series not refreshed::${w}`);
   console.log(`wrote ${path.relative(process.cwd(), out)}`);
 }
 
