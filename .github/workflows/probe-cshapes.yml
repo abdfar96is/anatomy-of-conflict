@@ -8,20 +8,24 @@ jobs:
   probe:
     runs-on: ubuntu-latest
     steps:
-      - name: R package data files
+      - name: TopoJSON attributes
         run: |
           set +e
-          curl -sS -m 300 -L -o pkg.tgz -w "pkg %{http_code} %{size_download}\n" https://cran.r-project.org/src/contrib/cshapes_2.0.tar.gz
-          tar tzf pkg.tgz | head -40
-          tar xzf pkg.tgz
-          ls -la cshapes/inst/extdata cshapes/data 2>/dev/null
-          grep -rn "status\|owner\|ruledby" cshapes/R/*.R | head -20
-          for f in $(find cshapes -name "*.gpkg" -o -name "*.sqlite"); do echo "GPKG $f"; python3 - "$f" <<'PY'
-          import sqlite3, sys
-          c = sqlite3.connect(sys.argv[1])
-          for (t,) in c.execute("select name from sqlite_master where type='table'"): 
-              cols = [r[1] for r in c.execute(f'pragma table_info("{t}")')]
-              n = c.execute(f'select count(*) from "{t}"').fetchone()[0]
-              print('TABLE', t, n, cols)
+          curl -sS -m 300 -L -o pkg.tgz https://cran.r-project.org/src/contrib/cshapes_2.0.tar.gz && tar xzf pkg.tgz
+          xz -dk cshapes/inst/extdata/cshapes_2_gw.topojson.xz && ls -la cshapes/inst/extdata/
+          sed -n 1,60p cshapes/R/cshp.R
+          python3 - <<'PY'
+          import json, collections
+          t = json.load(open('cshapes/inst/extdata/cshapes_2_gw.topojson'))
+          print('OBJECTS', list(t['objects']), 'transform', t.get('transform'), 'arcs', len(t['arcs']))
+          for name, o in t['objects'].items():
+              g = o['geometries']; print('OBJ', name, len(g))
+              keys = collections.Counter(k for x in g for k in (x.get('properties') or {}))
+              print('KEYS', dict(keys))
+              for x in g[:3]: print('ROW', json.dumps(x.get('properties'), ensure_ascii=False))
+              for k in keys:
+                  vals = collections.Counter(str((x.get('properties') or {}).get(k)) for x in g)
+                  print('VAL', k, len(vals), vals.most_common(14))
+              owners = collections.Counter((x['properties'].get('owner'), x['properties'].get('status')) for x in g)
+              print('OWNERxSTATUS', owners.most_common(40))
           PY
-          done
