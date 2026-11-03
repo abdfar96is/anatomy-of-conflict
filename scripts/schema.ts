@@ -106,7 +106,7 @@ export const SCHEMAS: Record<string, z.ZodType> = {
       units: z.array(z.looseObject({
         name: z.string().min(1), status: z.enum(Object.keys(NUCLEAR_UNIT) as [string, ...string[]]), type: z.string().optional(), model: z.string().optional(),
         mw: z.number().min(0).optional(), from: z.number().int().optional(), to: z.number().int().optional(), iaea: z.number().int().optional(),
-        changed: z.object({ year: z.number().int(), sources: z.array(url).min(1) }).optional(),
+        changed: z.object({ year: z.number().int().optional(), sources: z.array(url).min(1) }).optional(),
       })).min(1),
     })),
   }),
