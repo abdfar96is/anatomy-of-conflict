@@ -5,7 +5,8 @@ import type { Feature, FeatureCollection } from 'geojson';
 import { RELIGION_FAMILIES, RESOURCE_CLASSES, SEVERITY_RANK } from '../config';
 import { normalize, type Lang } from '../i18n/format';
 import { CONFLICT_FILES } from './files';
-import type { Conflict, Country, DB, Disputed, Group, IndexRow, Kind, LiveKey, RawData, SearchEntry, Stat } from './types';
+import { NUCLEAR_UNIT } from '../config';
+import type { Conflict, Country, DB, Disputed, Group, IndexRow, Kind, LiveKey, NuclearUnitStatus, Plant, RawData, SearchEntry, Stat } from './types';
 
 const EARTH_R = 6371;
 // Thematic files use ISO codes that Natural Earth spells differently.
@@ -40,6 +41,8 @@ function normalizeIsos(R: RawData) {
   R.religions.countries = Object.fromEntries(Object.entries(R.religions.countries).map(([k, v]) => [fix(k), v]));
   R.nuclear.countries = Object.fromEntries(Object.entries(R.nuclear.countries).map(([k, v]) => [fix(k), v]));
   for (const z of R.nuclear.zones) z.members = arr(z.members) ?? [];
+  R.nuclear.fleet.values = Object.fromEntries(Object.entries(R.nuclear.fleet.values).map(([k, v]) => [fix(k), v]));
+  for (const p of R.nuclearPlants.plants) p.iso3 = fix(p.iso3);
   if (R.figureNotes) R.figureNotes.countries = Object.fromEntries(Object.entries(R.figureNotes.countries).map(([k, v]) => [fix(k), v]));
 }
 
@@ -62,7 +65,7 @@ export function build(input: RawData): DB {
       pop: p.pop_est, popYear: p.pop_year, gdp: p.gdp_md, gdpYear: p.gdp_year, income: p.income_grp, economy: p.economy,
       lon: r.lon ?? p.label_x, lat: r.lat ?? p.label_y, wikidata: p.wikidataid,
       areaKm2: geoArea(f) * EARTH_R * EARTH_R,
-      feature: f, gdpPerCap: null, density: null, stats: {}, figureNotes: R.figureNotes?.countries[p.iso3] ?? {}, nuclear: { zones: [] },
+      feature: f, gdpPerCap: null, density: null, stats: {}, figureNotes: R.figureNotes?.countries[p.iso3] ?? {}, nuclear: { zones: [], plants: [] },
       intel: null, religion: null, resources: [], sites: [], conflicts: [], external: [], blocs: [], edges: [],
       events: [], groups: [], chokepoints: [], neighbors: [], disputed: [],
     });
@@ -88,7 +91,16 @@ export function build(input: RawData): DB {
   const C = (iso: string): Country | undefined => DB.countries.get(iso);
 
   // ---- nuclear: each state's record; NPT membership defaults to "party" for UN member states
-  DB.nuclear = { ...R.nuclear, zoneById: new Map(R.nuclear.zones.map((z) => [z.id, z])) };
+  // plants: status and capacity rolled up from their units; the plant takes the most active unit status
+  const ORDER = Object.keys(NUCLEAR_UNIT) as NuclearUnitStatus[];
+  const plants: Plant[] = R.nuclearPlants.plants.map((p) => {
+    const count = Object.fromEntries(ORDER.map((s) => [s, 0])) as Plant['count'];
+    const mw = Object.fromEntries(ORDER.map((s) => [s, 0])) as Plant['mw'];
+    for (const u of p.units) { count[u.status]++; mw[u.status] += u.mw ?? 0; }
+    return { ...p, count, mw, status: ORDER.find((s) => count[s] > 0) ?? 'shutdown' };
+  });
+  DB.plantById = new Map(plants.map((p) => [p.id, p]));
+  DB.nuclear = { ...R.nuclear, zoneById: new Map(R.nuclear.zones.map((z) => [z.id, z])), plants, plantSource: R.nuclearPlants.source };
   for (const c of DB.countries.values()) {
     const n = R.nuclear.countries[c.iso3] ?? {};
     // "Country" also covers territories (Greenland, Hong Kong): only the sovereign's own feature is a state
@@ -96,7 +108,10 @@ export function build(input: RawData): DB {
     c.nuclear = {
       ...n, npt: n.npt ?? (state ? 'party' : undefined), warheads: R.nuclear.warheads.values[c.iso3],
       zones: R.nuclear.zones.filter((z) => z.members.includes(c.iso3)).map((z) => z.id),
+      plants: plants.filter((p) => p.iso3 === c.iso3).map((p) => p.id),
     };
+    const fl = R.nuclear.fleet.values[c.iso3];
+    if (fl) c.nuclear.fleet = { reactors: fl[0], mwe: fl[1], building: fl[2] };
   }
 
   DB.boundaries = R.boundaries.features;
@@ -249,6 +264,7 @@ export function build(input: RawData): DB {
       case 'event': return DB.eventById.get(id);
       case 'bloc': return DB.relations.blocById.get(id);
       case 'site': return DB.siteById.get(id);
+      case 'plant': return DB.plantById.get(id);
       default: return undefined;
     }
   };
@@ -272,6 +288,7 @@ export function build(input: RawData): DB {
       case 'event': return (x.countries as string[] | undefined) ?? [];
       case 'bloc': return x.members as string[];
       case 'site': return [x.iso3 as string];
+      case 'plant': return [x.iso3 as string];
       default: return [];
     }
   };
@@ -308,6 +325,7 @@ export function build(input: RawData): DB {
   for (const e of DB.timeline.events) push('event', e.id, e.ar, e.en, e.date, e.date);
   for (const b of DB.relations.blocs) push('bloc', b.id, b.ar, b.en);
   for (const s of DB.resources.sites) push('site', s.id, s.ar, s.en);
+  for (const p of plants) push('plant', p.id, p.ar, p.en);
   DB.searchIndex = S;
   DB.search = (q, limit = 30) => {
     const n = normalize(q);

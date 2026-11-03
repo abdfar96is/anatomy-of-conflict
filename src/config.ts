@@ -72,6 +72,13 @@ export const NUCLEAR_CIVIL = {
   building:     { ar: 'تبني محطتها الأولى',          en: 'Building its first plant',  t: 0.45 },
   'phased-out': { ar: 'أوقفت مفاعلاتها',            en: 'Phased out',                t: 0 },
 } as const;
+// Reactor and plant status (curated/nuclear_plants.json): map marker shape follows the status.
+export const NUCLEAR_UNIT = {
+  operating: { ar: 'عامل',             en: 'Operating',          shape: 'disc' },
+  suspended: { ar: 'متوقف مؤقتاً',      en: 'Idle',               shape: 'dashed' },
+  building:  { ar: 'قيد الإنشاء',       en: 'Under construction', shape: 'ring' },
+  shutdown:  { ar: 'مغلق نهائياً',       en: 'Permanently shut',   shape: 'hollow' },
+} as const;
 export const NUCLEAR_NPT = {
   nws:         { ar: 'طرف، دولة نووية معترف بها', en: 'Party, recognised nuclear-weapon state' },
   party:       { ar: 'طرف',                      en: 'Party' },
@@ -104,7 +111,7 @@ export const RESOURCE_CLASSES = [
 ];
 
 // Selection kinds and their hash prefixes: #country-SAU, #conflict-sudan, #group-kurds …
-export const KINDS = ['country', 'conflict', 'group', 'religion', 'choke', 'disputed', 'event', 'bloc', 'site'] as const;
+export const KINDS = ['country', 'conflict', 'group', 'religion', 'choke', 'disputed', 'event', 'bloc', 'site', 'plant'] as const;
 
 // 24×24 stroke icons (stroke = currentColor). Use ui.icon(name).
 export const ICONS: Record<string, string> = {

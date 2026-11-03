@@ -137,8 +137,9 @@ function nuclear(c: Country, k: Kit) {
   const { t, pick: L, fmt, db } = k;
   const n = c.nuclear;
   const zones = n.zones.map((id) => db.nuclear.zoneById.get(id)).filter((z) => !!z);
-  if (!n.weapons && !n.civil && !n.warheads && !zones.length && (!n.npt || n.npt === 'party')) return null;
-  const w = db.nuclear.warheads;
+  const plants = n.plants.map((id) => db.plantById.get(id)).filter((p) => !!p).sort((a, b) => (b.mw.operating + b.mw.suspended) - (a.mw.operating + a.mw.suspended));
+  if (!n.weapons && !n.civil && !n.warheads && !zones.length && !n.plants.length && (!n.npt || n.npt === 'party')) return null;
+  const w = db.nuclear.warheads, fl = db.nuclear.fleet;
   const host = n.host ? db.countries.get(n.host) : undefined;
   const facts = k.facts([
     k.fact(t('dz.nc.status'), n.weapons ? L(NUCLEAR_STATUS[n.weapons]) : t('dz.nc.noWeapons'), { text: true, wide: true }),
@@ -148,6 +149,11 @@ function nuclear(c: Country, k: Kit) {
     host ? k.fact(t('dz.nc.host'), k.cchip(host.iso3), { text: true }) : null,
     k.fact(t('dz.nc.npt'), n.npt ? L(NUCLEAR_NPT[n.npt]) : '—', { text: true }),
     k.fact(t('dz.nc.civil'), n.civil ? L(NUCLEAR_CIVIL[n.civil]) : t('dz.nc.noCivil'), { text: true }),
+    ...(n.fleet && (n.fleet.reactors || n.fleet.building) ? [
+      k.fact(t('dz.nc.fleet'), <span className="data">{fmt.num(n.fleet.reactors)}</span>, { year: fl.year, tipText: L(fl.note), source: { label: fl.publisher, url: fl.sources[0], tip: L(fl.note) } }),
+      n.fleet.mwe ? k.fact(t('dz.nc.fleetMw'), <><span className="data">{fmt.num(n.fleet.mwe)}</span>{' '}<span className="dz-unit">{t('dz.pl.mw')}</span></>, { year: fl.year, source: { label: fl.publisher, url: fl.sources[0] } }) : null,
+      k.fact(t('dz.nc.fleetBuilding'), <span className="data">{fmt.num(n.fleet.building)}</span>, { year: fl.year, source: { label: fl.publisher, url: fl.sources[0] } }),
+    ] : []),
     zones.length ? k.fact(t('dz.nc.zone'), k.listJoin(zones.map((z) => `${L(z.treaty)} (${z.year})`)), { text: true, wide: true }) : null,
   ]);
   const record = db.raw.nuclear.countries[c.iso3];
@@ -155,8 +161,8 @@ function nuclear(c: Country, k: Kit) {
   return k.sec(t('dz.nc.title'), [
     facts,
     n.note ? k.prose(L(n.note), { cls: 'sm', clamp: false }) : null,
+    plants.length ? <div className="chips dz-chips" key="pl" aria-label={t('dz.nc.plants')}>{plants.map((p) => k.kchip('plant', p.id, L(p), { lead: <Icon name="atom" size={13} />, isos: [p.iso3] }))}</div> : null,
     record?.sources?.length ? k.provenance(record) : zoneSources.length ? k.provenance({ sources: zoneSources }) : null,
-    record && !record.verified && record.civil ? k.note(t('dz.nc.civilUnchecked')) : null,
   ], { id: 'nuclear' });
 }
 

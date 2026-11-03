@@ -2,7 +2,7 @@
 // Only the fields the app relies on are checked; any other field is allowed.
 
 import { z } from 'zod';
-import { NUCLEAR_CIVIL, NUCLEAR_NPT, NUCLEAR_STATUS, SEVERITY } from '../src/config';
+import { NUCLEAR_CIVIL, NUCLEAR_NPT, NUCLEAR_STATUS, NUCLEAR_UNIT, SEVERITY } from '../src/config';
 
 const bi = z.object({ ar: z.string(), en: z.string() });
 const id = z.string().min(1);
@@ -85,6 +85,11 @@ export const SCHEMAS: Record<string, z.ZodType> = {
   'nuclear.json': z.looseObject({
     note: bi.optional(), zonesNote: bi.optional(),
     warheads: z.looseObject({ year: z.number().int(), metric: bi, publisher: z.string(), sources: z.array(url).min(1), verified: day.optional(), values: z.record(iso, z.number().int().min(0)) }),
+    fleet: z.looseObject({
+      year: z.number().int(), publisher: z.string(), sources: z.array(url).min(1), verified: day.optional(), note: bi.optional(),
+      columns: z.tuple([z.literal('reactors'), z.literal('mwe'), z.literal('underConstruction')]),
+      values: z.record(iso, z.tuple([z.number().int().min(0), z.number().int().min(0), z.number().int().min(0)])),
+    }),
     countries: z.record(iso, z.looseObject({
       weapons: z.enum(Object.keys(NUCLEAR_STATUS) as [string, ...string[]]).optional(),
       host: iso.optional(),
@@ -93,6 +98,17 @@ export const SCHEMAS: Record<string, z.ZodType> = {
       note: bi.optional(), ...provenance,
     })),
     zones: z.array(z.looseObject({ id, ar: z.string(), en: z.string(), treaty: bi, year: z.number().int(), members: z.array(iso).min(1), sources: z.array(url).min(1) })),
+  }),
+  'nuclear_plants.json': z.looseObject({
+    source: z.looseObject({ base: z.looseObject({ name: z.string(), version: z.string(), date: day, url, license: z.string() }), changes: bi, limits: bi }),
+    plants: z.array(z.looseObject({
+      id, iso3: iso, ar: z.string().min(1), en: z.string().min(1), coords: lonLat, note: bi.optional(), conflictIds: z.array(id).optional(), ...provenance,
+      units: z.array(z.looseObject({
+        name: z.string().min(1), status: z.enum(Object.keys(NUCLEAR_UNIT) as [string, ...string[]]), type: z.string().optional(), model: z.string().optional(),
+        mw: z.number().min(0).optional(), from: z.number().int().optional(), to: z.number().int().optional(), iaea: z.number().int().optional(),
+        changed: z.object({ year: z.number().int(), sources: z.array(url).min(1) }).optional(),
+      })).min(1),
+    })),
   }),
   'figure_notes.json': z.looseObject({
     note: bi.optional(),

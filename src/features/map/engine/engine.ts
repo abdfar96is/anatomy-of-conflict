@@ -40,7 +40,7 @@ const K_MIN = 0.8, K_MAX = 60, K_FIT_MAX = 28;
 const HOME: LonLat = [35, 25];
 const TOL_COARSE = 0.12, TOL_FINE = 0.02;
 const SCENE_KEYS = new Set<keyof AtlasState>(['lens', 'selection', 'filters', 'layers', 'year', 'yearFilter', 'theme', 'compare', 'view', 'lang']);
-const POINT_KINDS: Kind[] = ['conflict', 'choke', 'site'];
+const POINT_KINDS: Kind[] = ['conflict', 'choke', 'site', 'plant'];
 const clamp = (v: number, a: number, b: number) => Math.max(a, Math.min(b, v));
 const clampK = (k: number) => clamp(k, K_MIN, K_MAX);
 const dir = (): 'rtl' | 'ltr' => (atlas.get().lang === 'ar' ? 'rtl' : 'ltr');

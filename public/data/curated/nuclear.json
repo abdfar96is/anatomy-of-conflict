@@ -1,7 +1,7 @@
 {
   "note": {
-    "ar": "الوضع النووي لكل دولة: الأسلحة واستضافتها والاستخدام المدني والمعاهدات. تقديرات الرؤوس من SIPRI لمطلع 2026 وكل رقم فيها تقدير. القائمة المدنية تذكر الدول التي تشغّل مفاعلات طاقة؛ ستُدقَّق كل دولة على حدة حين تُضاف طبقة المحطات. لا تُعرض مواقع عسكرية.",
-    "en": "Each state's nuclear status: weapons, hosting, civil use and treaties. Warhead figures are SIPRI estimates for early 2026, each an estimate. The civil list names states that run power reactors; each will be checked one by one when the plant layer is added. No military sites are shown."
+    "ar": "الوضع النووي لكل دولة: الأسلحة واستضافتها والاستخدام المدني والمعاهدات. تقديرات الرؤوس من SIPRI لمطلع 2026 وكل رقم فيها تقدير. الوضع المدني لكل دولة مدقَّق مقابل جدول Reactor Atlas لعام 2026 وبيانات المحطات. لا تُعرض مواقع عسكرية.",
+    "en": "Each state's nuclear status: weapons, hosting, civil use and treaties. Warhead figures are SIPRI estimates for early 2026, each an estimate. Each state's civil status is checked against the Reactor Atlas 2026 table and the plant data. No military sites are shown."
   },
   "zonesNote": {
     "ar": "تُظهر المناطق النطاق الجغرافي لكل معاهدة، لا وضع تصديق كل دولة عليها: معاهدة بليندابا مثلاً لم تصادق عليها كل دول أفريقيا.",
@@ -36,20 +36,29 @@
     "ARE": {
       "civil": "operating",
       "sources": [
-        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
-      ]
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today",
+        "https://reactoratlas.com/en/year/2026",
+        "https://github.com/cristianst85/GeoNuclearData"
+      ],
+      "verified": "2026-11-03"
     },
     "ARG": {
       "civil": "operating",
       "sources": [
-        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
-      ]
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today",
+        "https://reactoratlas.com/en/year/2026",
+        "https://github.com/cristianst85/GeoNuclearData"
+      ],
+      "verified": "2026-11-03"
     },
     "ARM": {
       "civil": "operating",
       "sources": [
-        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
-      ]
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today",
+        "https://reactoratlas.com/en/year/2026",
+        "https://github.com/cristianst85/GeoNuclearData"
+      ],
+      "verified": "2026-11-03"
     },
     "BEL": {
       "weapons": "host",
@@ -57,7 +66,9 @@
       "civil": "operating",
       "sources": [
         "https://armscontrolcenter.org/fact-sheet-u-s-nuclear-weapons-in-europe/",
-        "https://www.sipri.org/sites/default/files/YB26%2008%20World%20Nuclear%20Forces.pdf"
+        "https://www.sipri.org/sites/default/files/YB26%2008%20World%20Nuclear%20Forces.pdf",
+        "https://reactoratlas.com/en/year/2026",
+        "https://github.com/cristianst85/GeoNuclearData"
       ],
       "verified": "2026-11-03",
       "note": {
@@ -70,7 +81,9 @@
       "verified": "2026-11-03",
       "sources": [
         "https://en.prothomalo.com/bangladesh/8rwdwsnif8",
-        "https://en.wikipedia.org/wiki/Rooppur_Nuclear_Power_Plant"
+        "https://en.wikipedia.org/wiki/Rooppur_Nuclear_Power_Plant",
+        "https://reactoratlas.com/en/year/2026",
+        "https://github.com/cristianst85/GeoNuclearData"
       ],
       "note": {
         "ar": "محطتها الأولى (روبور) في مرحلة التشغيل التجريبي: بدأ تحميل الوقود في الوحدة الأولى في أبريل 2026.",
@@ -80,8 +93,11 @@
     "BGR": {
       "civil": "operating",
       "sources": [
-        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
-      ]
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today",
+        "https://reactoratlas.com/en/year/2026",
+        "https://github.com/cristianst85/GeoNuclearData"
+      ],
+      "verified": "2026-11-03"
     },
     "BLR": {
       "weapons": "host-claimed",
@@ -92,7 +108,9 @@
         "https://www.sipri.org/sites/default/files/YB26%2008%20World%20Nuclear%20Forces.pdf",
         "https://thebulletin.org/premium/2026-05/russian-nuclear-weapons-2026/",
         "https://www.nbcnews.com/world/europe/belarus-russia-nuclear-capable-oreshnik-missile-rcna249929",
-        "https://en.wikipedia.org/wiki/Budapest_Memorandum"
+        "https://en.wikipedia.org/wiki/Budapest_Memorandum",
+        "https://reactoratlas.com/en/year/2026",
+        "https://github.com/cristianst85/GeoNuclearData"
       ],
       "note": {
         "ar": "أعلنت روسيا وبيلاروس مراراً نشر أسلحة نووية روسية فيها، ونُشر فيها صاروخ «أوريشنيك» القادر على حمل رؤوس نووية (ديسمبر 2025)، لكن لا دليل علني قاطع حتى مارس 2026 على تخزين رؤوس هناك. تخلّت في التسعينيات عن الأسلحة السوفيتية التي ورثتها.",
@@ -102,20 +120,29 @@
     "BRA": {
       "civil": "operating",
       "sources": [
-        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
-      ]
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today",
+        "https://reactoratlas.com/en/year/2026",
+        "https://github.com/cristianst85/GeoNuclearData"
+      ],
+      "verified": "2026-11-03"
     },
     "CAN": {
       "civil": "operating",
       "sources": [
-        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
-      ]
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today",
+        "https://reactoratlas.com/en/year/2026",
+        "https://github.com/cristianst85/GeoNuclearData"
+      ],
+      "verified": "2026-11-03"
     },
     "CHE": {
       "civil": "operating",
       "sources": [
-        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
-      ]
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today",
+        "https://reactoratlas.com/en/year/2026",
+        "https://github.com/cristianst85/GeoNuclearData"
+      ],
+      "verified": "2026-11-03"
     },
     "CHN": {
       "weapons": "npt-nws",
@@ -125,15 +152,20 @@
         "https://www.sipri.org/sites/default/files/YB26%2008%20World%20Nuclear%20Forces.pdf",
         "https://www.sipri.org/media/press-release/2026/increasing-focus-nuclear-weapons-amid-heightened-escalation-risks-new-sipri-yearbook-out-now",
         "https://www.nti.org/education-center/treaties-and-regimes/treaty-on-the-non-proliferation-of-nuclear-weapons/",
-        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today",
+        "https://reactoratlas.com/en/year/2026",
+        "https://github.com/cristianst85/GeoNuclearData"
       ],
       "verified": "2026-11-03"
     },
     "CZE": {
       "civil": "operating",
       "sources": [
-        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
-      ]
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today",
+        "https://reactoratlas.com/en/year/2026",
+        "https://github.com/cristianst85/GeoNuclearData"
+      ],
+      "verified": "2026-11-03"
     },
     "DEU": {
       "weapons": "host",
@@ -142,7 +174,8 @@
       "sources": [
         "https://armscontrolcenter.org/fact-sheet-u-s-nuclear-weapons-in-europe/",
         "https://www.sipri.org/sites/default/files/YB26%2008%20World%20Nuclear%20Forces.pdf",
-        "https://www.timesofisrael.com/end-of-an-era-germany-shuts-down-its-last-3-nuclear-reactors/"
+        "https://www.timesofisrael.com/end-of-an-era-germany-shuts-down-its-last-3-nuclear-reactors/",
+        "https://reactoratlas.com/en/year/2026"
       ],
       "verified": "2026-11-03",
       "note": {
@@ -155,7 +188,9 @@
       "verified": "2026-11-03",
       "sources": [
         "https://www.powermag.com/el-dabaa-first-of-several-nuclear-reactors-for-egypt/",
-        "https://www.gem.wiki/El_Dabaa_nuclear_power_plant"
+        "https://www.gem.wiki/El_Dabaa_nuclear_power_plant",
+        "https://reactoratlas.com/en/year/2026",
+        "https://github.com/cristianst85/GeoNuclearData"
       ],
       "note": {
         "ar": "تبني روسيا (روساتوم) محطتها الأولى في الضبعة بأربعة مفاعلات VVER-1200، والوحدة الأولى مقررة لعام 2026.",
@@ -165,14 +200,20 @@
     "ESP": {
       "civil": "operating",
       "sources": [
-        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
-      ]
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today",
+        "https://reactoratlas.com/en/year/2026",
+        "https://github.com/cristianst85/GeoNuclearData"
+      ],
+      "verified": "2026-11-03"
     },
     "FIN": {
       "civil": "operating",
       "sources": [
-        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
-      ]
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today",
+        "https://reactoratlas.com/en/year/2026",
+        "https://github.com/cristianst85/GeoNuclearData"
+      ],
+      "verified": "2026-11-03"
     },
     "FRA": {
       "weapons": "npt-nws",
@@ -182,7 +223,9 @@
         "https://www.sipri.org/sites/default/files/YB26%2008%20World%20Nuclear%20Forces.pdf",
         "https://www.sipri.org/media/press-release/2026/increasing-focus-nuclear-weapons-amid-heightened-escalation-risks-new-sipri-yearbook-out-now",
         "https://www.nti.org/education-center/treaties-and-regimes/treaty-on-the-non-proliferation-of-nuclear-weapons/",
-        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today",
+        "https://reactoratlas.com/en/year/2026",
+        "https://github.com/cristianst85/GeoNuclearData"
       ],
       "verified": "2026-11-03",
       "note": {
@@ -198,15 +241,20 @@
         "https://www.sipri.org/sites/default/files/YB26%2008%20World%20Nuclear%20Forces.pdf",
         "https://www.sipri.org/media/press-release/2026/increasing-focus-nuclear-weapons-amid-heightened-escalation-risks-new-sipri-yearbook-out-now",
         "https://www.nti.org/education-center/treaties-and-regimes/treaty-on-the-non-proliferation-of-nuclear-weapons/",
-        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today",
+        "https://reactoratlas.com/en/year/2026",
+        "https://github.com/cristianst85/GeoNuclearData"
       ],
       "verified": "2026-11-03"
     },
     "HUN": {
       "civil": "operating",
       "sources": [
-        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
-      ]
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today",
+        "https://reactoratlas.com/en/year/2026",
+        "https://github.com/cristianst85/GeoNuclearData"
+      ],
+      "verified": "2026-11-03"
     },
     "IND": {
       "weapons": "non-npt",
@@ -216,7 +264,9 @@
         "https://www.sipri.org/sites/default/files/YB26%2008%20World%20Nuclear%20Forces.pdf",
         "https://www.sipri.org/media/press-release/2026/increasing-focus-nuclear-weapons-amid-heightened-escalation-risks-new-sipri-yearbook-out-now",
         "https://www.nti.org/education-center/treaties-and-regimes/treaty-on-the-non-proliferation-of-nuclear-weapons/",
-        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today",
+        "https://reactoratlas.com/en/year/2026",
+        "https://github.com/cristianst85/GeoNuclearData"
       ],
       "verified": "2026-11-03"
     },
@@ -227,7 +277,9 @@
       "sources": [
         "https://www.globalsecurity.org/wmd/library/news/iran/2026/09/iran-260902-rferl05.htm",
         "https://www.armscontrol.org/act/2026-10/news/iaea-reports-iran-un-security-council",
-        "https://www.aljazeera.com/news/2026/10/31/iran-lawmakers-call-for-withdrawal-from-npt-will-we-have-war-or-peace"
+        "https://www.aljazeera.com/news/2026/10/31/iran-lawmakers-call-for-withdrawal-from-npt-will-we-have-war-or-peace",
+        "https://reactoratlas.com/en/year/2026",
+        "https://github.com/cristianst85/GeoNuclearData"
       ],
       "note": {
         "ar": "طرف في معاهدة عدم الانتشار ولا يُعدّ دولة نووية. آخر تقدير للوكالة الدولية للطاقة الذرية لمخزونها من اليورانيوم المخصّب بنسبة 60% هو 440.9 كغ، والوكالة تقول إنها لا تستطيع تحديد حجمه الحالي ولا مكانه لأن إيران تمنع الوصول إلى المنشآت التي ضُربت عام 2025. أحالها مجلس محافظي الوكالة إلى مجلس الأمن في سبتمبر 2026، ويطالب نواب في برلمانها بالانسحاب من المعاهدة.",
@@ -255,7 +307,8 @@
       "sources": [
         "https://armscontrolcenter.org/fact-sheet-u-s-nuclear-weapons-in-europe/",
         "https://www.sipri.org/sites/default/files/YB26%2008%20World%20Nuclear%20Forces.pdf",
-        "https://world-nuclear.org/information-library/country-profiles/countries-g-n/italy"
+        "https://world-nuclear.org/information-library/country-profiles/countries-g-n/italy",
+        "https://reactoratlas.com/en/year/2026"
       ],
       "verified": "2026-11-03",
       "note": {
@@ -266,8 +319,11 @@
     "JPN": {
       "civil": "operating",
       "sources": [
-        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
-      ]
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today",
+        "https://reactoratlas.com/en/year/2026",
+        "https://github.com/cristianst85/GeoNuclearData"
+      ],
+      "verified": "2026-11-03"
     },
     "KAZ": {
       "weapons": "relinquished",
@@ -284,14 +340,20 @@
     "KOR": {
       "civil": "operating",
       "sources": [
-        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
-      ]
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today",
+        "https://reactoratlas.com/en/year/2026",
+        "https://github.com/cristianst85/GeoNuclearData"
+      ],
+      "verified": "2026-11-03"
     },
     "MEX": {
       "civil": "operating",
       "sources": [
-        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
-      ]
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today",
+        "https://reactoratlas.com/en/year/2026",
+        "https://github.com/cristianst85/GeoNuclearData"
+      ],
+      "verified": "2026-11-03"
     },
     "NLD": {
       "weapons": "host",
@@ -299,7 +361,9 @@
       "civil": "operating",
       "sources": [
         "https://armscontrolcenter.org/fact-sheet-u-s-nuclear-weapons-in-europe/",
-        "https://www.sipri.org/sites/default/files/YB26%2008%20World%20Nuclear%20Forces.pdf"
+        "https://www.sipri.org/sites/default/files/YB26%2008%20World%20Nuclear%20Forces.pdf",
+        "https://reactoratlas.com/en/year/2026",
+        "https://github.com/cristianst85/GeoNuclearData"
       ],
       "verified": "2026-11-03",
       "note": {
@@ -315,7 +379,9 @@
         "https://www.sipri.org/sites/default/files/YB26%2008%20World%20Nuclear%20Forces.pdf",
         "https://www.sipri.org/media/press-release/2026/increasing-focus-nuclear-weapons-amid-heightened-escalation-risks-new-sipri-yearbook-out-now",
         "https://www.nti.org/education-center/treaties-and-regimes/treaty-on-the-non-proliferation-of-nuclear-weapons/",
-        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today",
+        "https://reactoratlas.com/en/year/2026",
+        "https://github.com/cristianst85/GeoNuclearData"
       ],
       "verified": "2026-11-03"
     },
@@ -336,8 +402,11 @@
     "ROU": {
       "civil": "operating",
       "sources": [
-        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
-      ]
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today",
+        "https://reactoratlas.com/en/year/2026",
+        "https://github.com/cristianst85/GeoNuclearData"
+      ],
+      "verified": "2026-11-03"
     },
     "RUS": {
       "weapons": "npt-nws",
@@ -347,7 +416,9 @@
         "https://www.sipri.org/sites/default/files/YB26%2008%20World%20Nuclear%20Forces.pdf",
         "https://www.sipri.org/media/press-release/2026/increasing-focus-nuclear-weapons-amid-heightened-escalation-risks-new-sipri-yearbook-out-now",
         "https://www.nti.org/education-center/treaties-and-regimes/treaty-on-the-non-proliferation-of-nuclear-weapons/",
-        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today",
+        "https://reactoratlas.com/en/year/2026",
+        "https://github.com/cristianst85/GeoNuclearData"
       ],
       "verified": "2026-11-03"
     },
@@ -360,20 +431,29 @@
     "SVK": {
       "civil": "operating",
       "sources": [
-        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
-      ]
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today",
+        "https://reactoratlas.com/en/year/2026",
+        "https://github.com/cristianst85/GeoNuclearData"
+      ],
+      "verified": "2026-11-03"
     },
     "SVN": {
       "civil": "operating",
       "sources": [
-        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
-      ]
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today",
+        "https://reactoratlas.com/en/year/2026",
+        "https://github.com/cristianst85/GeoNuclearData"
+      ],
+      "verified": "2026-11-03"
     },
     "SWE": {
       "civil": "operating",
       "sources": [
-        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
-      ]
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today",
+        "https://reactoratlas.com/en/year/2026",
+        "https://github.com/cristianst85/GeoNuclearData"
+      ],
+      "verified": "2026-11-03"
     },
     "TUR": {
       "weapons": "host",
@@ -382,7 +462,9 @@
       "sources": [
         "https://armscontrolcenter.org/fact-sheet-u-s-nuclear-weapons-in-europe/",
         "https://www.sipri.org/sites/default/files/YB26%2008%20World%20Nuclear%20Forces.pdf",
-        "https://world-nuclear.org/information-library/country-profiles/countries-t-z/turkey"
+        "https://world-nuclear.org/information-library/country-profiles/countries-t-z/turkey",
+        "https://reactoratlas.com/en/year/2026",
+        "https://github.com/cristianst85/GeoNuclearData"
       ],
       "verified": "2026-11-03",
       "note": {
@@ -394,7 +476,8 @@
       "civil": "phased-out",
       "verified": "2026-11-03",
       "sources": [
-        "https://wnn.world-nuclear.org/articles/reactor-closure-marks-taiwans-nuclear-exit"
+        "https://wnn.world-nuclear.org/articles/reactor-closure-marks-taiwans-nuclear-exit",
+        "https://reactoratlas.com/en/year/2026"
       ],
       "note": {
         "ar": "أوقفت آخر مفاعل لديها (مانشان 2) في 17 مايو 2025.",
@@ -407,7 +490,9 @@
       "sources": [
         "https://en.wikipedia.org/wiki/Budapest_Memorandum",
         "https://www.armscontrol.org/node/12895",
-        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today",
+        "https://reactoratlas.com/en/year/2026",
+        "https://github.com/cristianst85/GeoNuclearData"
       ],
       "verified": "2026-11-03",
       "note": {
@@ -423,9 +508,23 @@
         "https://www.sipri.org/sites/default/files/YB26%2008%20World%20Nuclear%20Forces.pdf",
         "https://www.sipri.org/media/press-release/2026/increasing-focus-nuclear-weapons-amid-heightened-escalation-risks-new-sipri-yearbook-out-now",
         "https://www.nti.org/education-center/treaties-and-regimes/treaty-on-the-non-proliferation-of-nuclear-weapons/",
-        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today",
+        "https://reactoratlas.com/en/year/2026",
+        "https://github.com/cristianst85/GeoNuclearData"
       ],
       "verified": "2026-11-03"
+    },
+    "UZB": {
+      "civil": "building",
+      "sources": [
+        "https://reactoratlas.com/en/year/2026",
+        "https://github.com/cristianst85/GeoNuclearData"
+      ],
+      "verified": "2026-11-03",
+      "note": {
+        "ar": "بدأت بناء أول محطة نووية لديها: Reactor Atlas يسجّل مفاعلين قيد الإنشاء عام 2026.",
+        "en": "Has begun building its first nuclear plant: Reactor Atlas records two reactors under construction in 2026."
+      }
     },
     "ZAF": {
       "weapons": "relinquished",
@@ -433,7 +532,9 @@
       "sources": [
         "https://www.worldatlas.com/articles/countries-who-gave-up-nuclear-weapons.html",
         "https://www.wionews.com/photos/from-ukraine-to-south-africa-countries-that-abandoned-nuclear-weapons-and-why-1747644448155",
-        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today",
+        "https://reactoratlas.com/en/year/2026",
+        "https://github.com/cristianst85/GeoNuclearData"
       ],
       "verified": "2026-11-03",
       "note": {
@@ -607,5 +708,55 @@
         "https://www.armscontrol.org/factsheets/nuclear-weapon-free-zones-nwfz-glance"
       ]
     }
-  ]
+  ],
+  "fleet": {
+    "year": 2026,
+    "publisher": "Reactor Atlas",
+    "sources": ["https://reactoratlas.com/en/year/2026"],
+    "verified": "2026-11-03",
+    "columns": ["reactors", "mwe", "underConstruction"],
+    "note": {
+      "ar": "المفاعلات في الخدمة وقدرتها الصافية والمفاعلات قيد الإنشاء لكل دولة لعام 2026. تُعدّ المفاعلات المتوقفة مؤقتاً ضمن «في الخدمة»، كوحدات زابوريجيا الست وعدد من مفاعلات اليابان.",
+      "en": "Reactors in service, their net capacity and reactors under construction per state for 2026. Temporarily idle reactors count as in service, such as the six Zaporizhzhia units and several Japanese reactors."
+    },
+    "values": {
+      "ARE": [4, 5348, 0],
+      "ARG": [3, 1631, 1],
+      "ARM": [1, 416, 0],
+      "BEL": [2, 2056, 0],
+      "BGD": [0, 0, 2],
+      "BGR": [2, 2006, 0],
+      "BLR": [2, 2220, 0],
+      "BRA": [2, 1884, 1],
+      "CAN": [17, 12714, 1],
+      "CHE": [4, 2973, 0],
+      "CHN": [64, 60928, 35],
+      "CZE": [6, 3972, 0],
+      "EGY": [0, 0, 4],
+      "ESP": [7, 7123, 0],
+      "FIN": [5, 4369, 0],
+      "FRA": [57, 63000, 0],
+      "GBR": [9, 5883, 2],
+      "HUN": [4, 1916, 1],
+      "IND": [24, 8047, 8],
+      "IRN": [1, 915, 2],
+      "JPN": [33, 31679, 2],
+      "KOR": [26, 25609, 4],
+      "MEX": [2, 1552, 0],
+      "NLD": [1, 482, 0],
+      "PAK": [6, 3262, 1],
+      "PHL": [0, 0, 0],
+      "PRK": [2, 5, 0],
+      "ROU": [2, 1300, 0],
+      "RUS": [34, 27969, 7],
+      "SVK": [5, 2306, 1],
+      "SVN": [1, 696, 0],
+      "SWE": [6, 7012, 0],
+      "TUR": [0, 0, 4],
+      "UKR": [15, 13107, 2],
+      "USA": [94, 96952, 0],
+      "UZB": [0, 0, 2],
+      "ZAF": [2, 1854, 0]
+    }
+  }
 }

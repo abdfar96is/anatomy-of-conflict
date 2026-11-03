@@ -337,6 +337,34 @@
       }
     },
     {
+      "id": "atlas-nuclear-plants",
+      "file": "curated/nuclear_plants.json",
+      "title": {
+        "ar": "محطات الطاقة النووية ووحداتها",
+        "en": "Nuclear power plants and their units"
+      },
+      "publisher": {
+        "ar": "مشتقة من GeoNuclearData (cristianst85) مع تحديثات موثّقة",
+        "en": "Derived from GeoNuclearData (cristianst85) with documented updates"
+      },
+      "url": "https://github.com/cristianst85/GeoNuclearData",
+      "license": "ODbL-1.0 (derived database)",
+      "published": "2024-03-03",
+      "lastRetrieved": "2026-11-03",
+      "resolution": {
+        "ar": "محطة لكل موقع بإحداثياته، ووحداتها بحالتها ونوعها وقدرتها الصافية التصميمية وسنوات تشغيلها.",
+        "en": "One plant per site with its coordinates; its units with status, type, design net capacity and years of service."
+      },
+      "methodology": {
+        "ar": "جُمعت الوحدات العاملة والمتوقفة مؤقتاً وقيد الإنشاء، والمغلقة منذ 2011، إضافة إلى تشيرنوبيل وفوكوشيما دايتشي وجزيرة الأميال الثلاثة، في محطات بحسب اسم الموقع. حُدّثت حالة 31 وحدة تغيّرت منذ مارس 2024 من جداول Reactor Atlas السنوية ومصادر أخرى مذكورة على كل وحدة. أعداد المفاعلات وقدراتها لكل دولة مأخوذة من جدول Reactor Atlas لعام 2026 في ملف الوضع النووي.",
+        "en": "Operating, idle and under-construction units, units shut since 2011, plus Chernobyl, Fukushima Daiichi and Three Mile Island, are grouped into plants by site name. The status of 31 units that changed since March 2024 follows the Reactor Atlas yearly tables and other sources named on each unit. Per-state reactor counts and capacity come from the Reactor Atlas 2026 table in the nuclear-status file."
+      },
+      "limitations": {
+        "ar": "لا تظهر مشاريع البناء التي بدأت بعد مارس 2024. الإحداثيات من قاعدة GeoNuclearData وقد تكون تقريبية. القدرة صافية تصميمية وقد تختلف قليلاً عن القدرة المرجعية التي تنشرها الوكالة الدولية.",
+        "en": "Construction begun after March 2024 is not shown. Coordinates come from GeoNuclearData and may be approximate. Capacity is design net and can differ slightly from the reference capacity the IAEA publishes."
+      }
+    },
+    {
       "id": "atlas-country-intel",
       "file": "thematic/country_intel.json",
       "title": {

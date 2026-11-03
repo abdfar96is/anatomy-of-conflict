@@ -4,6 +4,7 @@
 |---|---|---|
 | `geo/` | Country, boundary and disputed-area shapes from [Natural Earth](https://www.naturalearthdata.com/) | Public domain |
 | `live/` | Population, GDP, refugees, internal displacement and battle deaths from the [World Bank's open data](https://data.worldbank.org/), refreshed weekly | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — World Bank; each series keeps its original publisher (UN, UNHCR, IDMC, UCDP) |
+| `curated/nuclear_plants.json` | Nuclear power plants and their units, derived from [GeoNuclearData](https://github.com/cristianst85/GeoNuclearData) with documented updates | [ODbL 1.0](https://opendatacommons.org/licenses/odbl/1-0/) — a derived database; contents under the [DbCL 1.0](https://opendatacommons.org/licenses/dbcl/1-0/) |
 | `curated/` | The atlas content: conflicts, ethnic groups, religions, relations, resources, chokepoints, timeline, sources | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — a compilation adapted from «الأطلس الجيوسياسي والعرقي الديني العالمي» |
 
 Changes this project made to the compiled content are listed in `curated/corrections.json` and on the atlas's Sources page, as CC BY 4.0 asks. Each record names its own sources in `sources.json`; those sources keep their own terms.
@@ -57,3 +58,15 @@ The Nuclear lens reads this file. `countries.<ISO3>` holds:
 | `note`, `sources`, `verified` | | As for other records |
 
 `warheads` holds SIPRI's per-state estimates for one year, as total inventory. They must sum to SIPRI's world total for that year, and a test checks this. `zones` lists the nuclear-weapon-free zones with the states inside each treaty's scope. Membership of a zone does not mean a state has ratified the treaty. No military sites are recorded.
+
+## Nuclear power plants (`curated/nuclear_plants.json`)
+
+This file is derived from GeoNuclearData 0.17.17 (3 March 2024) and stays under that database's ODbL 1.0 licence. It holds one plant per site, and each plant lists its units with:
+
+- `status`: `operating`, `suspended`, `building` or `shutdown`
+- `type` and `model`
+- `mw`: design net capacity
+- `from` and `to`: years of service
+- `iaea`: the PRIS id
+
+Units whose status changed since March 2024 carry `changed` with the year and the sources. The yearly Reactor Atlas tables cover grid connections and shutdowns in 2024–2026; separate sources cover the Japanese restarts and the Zaporizhzhia cold shutdown. Construction begun after March 2024 is not included. Per-state totals come from the Reactor Atlas 2026 table (`fleet` in `nuclear.json`), and a test checks that each state's civil status agrees with both.

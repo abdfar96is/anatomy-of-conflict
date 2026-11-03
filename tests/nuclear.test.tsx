@@ -141,6 +141,85 @@ describe('the lens', () => {
   });
 });
 
+describe('nuclear power plants', () => {
+  const inService = (iso: string) => db.nuclear.plants.filter((p) => p.iso3 === iso).reduce((n, p) => n + p.count.operating + p.count.suspended, 0);
+
+  test('units roll up into plants, with the 2024–2026 changes and their sources', () => {
+    expect(db.nuclear.plants.length).toBeGreaterThan(200);
+    const z = db.plantById.get('zaporizhzhia')!;
+    expect(z).toMatchObject({ iso3: 'UKR', status: 'suspended', conflictIds: ['russia-ukraine'] });
+    expect(z.count.suspended).toBe(6);
+    const maanshan = db.plantById.get('maanshan')!;
+    expect(maanshan.status).toBe('shutdown');
+    expect(maanshan.units.find((u) => u.name === 'Maanshan-2')?.changed).toMatchObject({ year: 2025 });
+    const barakah = db.plantById.get('barakah')!;
+    expect(barakah.count.operating).toBe(4);
+    expect(barakah.units.find((u) => u.name === 'Barakah-4')).toMatchObject({ mw: 1337, changed: { year: 2024 } });
+    expect(db.countries.get('UKR')!.nuclear.plants).toContain('zaporizhzhia');
+  });
+
+  test('plant data agrees with the Reactor Atlas 2026 country table', () => {
+    // known gaps: CEFR (an experimental fast reactor) in China, one long-idle unit in India, and North Korea's two small
+    // Yongbyon-era units, which the plant data does not hold
+    const GAP: Record<string, number> = { CHN: 1, IND: 1, PRK: -2 };
+    for (const [iso, [reactors]] of Object.entries(db.nuclear.fleet.values)) expect(inService(iso) - reactors, iso).toBe(GAP[iso] ?? 0);
+  });
+
+  test('every state\'s civil status agrees with the plants and the 2026 table, and is checked', () => {
+    for (const c of db.countries.values()) {
+      const n = c.nuclear, fl = n.fleet;
+      if (c.iso3 === 'PRK') continue;
+      if (n.civil === 'phased-out') {
+        // no reactor in service, and any plant on record is shut (Italy's closed before the plant data starts)
+        expect(fl?.reactors ?? 0, c.iso3).toBe(0);
+        expect(n.plants.every((id) => db.plantById.get(id)!.status === 'shutdown'), c.iso3).toBe(true);
+      } else {
+        expect(n.civil, c.iso3).toBe(fl?.reactors ? 'operating' : fl?.building ? 'building' : undefined);
+      }
+      if (n.civil) expect(db.raw.nuclear.countries[c.iso3]?.verified, c.iso3).toBeTruthy();
+    }
+  });
+
+  test('civil mode draws every plant, sized by capacity; other modes only a selected plant', () => {
+    const P = { land: '#2a3440', landMuted: '#20262e', accent2: '#40a0c0', fg3: '#999999', cat: Array(9).fill('#888888'), seq: () => '#555555', status: { good: '#00ff00', warn: '#ffaa00', critical: '#ff0000' } } as unknown as Palette;
+    const s = initialState();
+    const civil = buildScene(db, { ...s, lens: 'nuclear', filters: { ...s.filters, nuclearMode: 'civil' } }, P);
+    const plants = civil.markers.filter((m) => m.kind === 'plant');
+    expect(plants.length).toBe(db.nuclear.plants.length);
+    const r = (id: string) => plants.find((m) => m.id === id)!.r;
+    expect(r('kashiwazaki-kariwa')).toBeGreaterThan(r('borssele'));
+    expect(plants.find((m) => m.id === 'zaporizhzhia')!.shape).toBe('dashed');
+    const military = buildScene(db, { ...s, lens: 'nuclear', selection: { kind: 'plant', id: 'bushehr' } }, P);
+    expect(military.markers.filter((m) => m.kind === 'plant').map((m) => m.id)).toEqual(['bushehr']);
+  });
+
+  test('tooltip, search and the plant dossier', () => {
+    const tip = tipFor({ kind: 'plant', id: 'zaporizhzhia' }, db, { ...initialState(), lang: 'en', lens: 'nuclear' });
+    expect(tip).toContain('Zaporizhzhia');
+    expect(tip).toContain('6 Idle');
+    expect(db.search('زابوريجيا').some((e) => e.kind === 'plant' && e.id === 'zaporizhzhia')).toBe(true);
+
+    atlas.set({ lang: 'en' });
+    render(<DbContext.Provider value={db}><Dossier /></DbContext.Provider>);
+    act(() => { atlas.select('plant', 'zaporizhzhia', { fly: false }); });
+    const panel = document.getElementById('dz-panel')!;
+    expect(panel.querySelectorAll('.dz-units tbody tr').length).toBe(6);
+    expect(panel.querySelector('[data-sel-kind="conflict"][data-sel-id="russia-ukraine"]')).not.toBeNull();
+    expect(panel.textContent).toContain('cold shutdown since April 2025');
+    expect([...panel.querySelectorAll('.dz-pv a')].map((a) => a.getAttribute('href'))).toContain('https://github.com/cristianst85/GeoNuclearData');
+  });
+
+  test('the country profile adds the 2026 fleet with its source and links its plants', () => {
+    atlas.set({ lang: 'en' });
+    render(<DbContext.Provider value={db}><Dossier /></DbContext.Provider>);
+    act(() => { atlas.select('country', 'UKR', { fly: false }); });
+    const sec = document.getElementById('dz-a-nuclear')!;
+    const fact = [...sec.querySelectorAll('.dz-fact')].find((f) => f.querySelector('dt')?.textContent === en('dz.nc.fleet'))!;
+    expect(fact.querySelector('dd')!.textContent).toBe('152026 · Reactor Atlas');
+    expect(sec.querySelector('[data-sel-kind="plant"][data-sel-id="zaporizhzhia"]')).not.toBeNull();
+  });
+});
+
 describe('check-data on the nuclear file', () => {
   let dir: string;
   beforeAll(() => {
@@ -151,6 +230,10 @@ describe('check-data on the nuclear file', () => {
     n.countries.BEL.host = 'USX';
     n.zones[0].members.push('ZZZ');
     fs.writeFileSync(f, formatJson(n));
+    const pf = path.join(dir, 'curated/nuclear_plants.json');
+    const pl = JSON.parse(fs.readFileSync(pf, 'utf8'));
+    pl.plants[0].iso3 = 'QQQ';
+    fs.writeFileSync(pf, formatJson(pl));
   });
   afterAll(() => fs.rmSync(dir, { recursive: true, force: true }));
 
@@ -158,6 +241,7 @@ describe('check-data on the nuclear file', () => {
     expect(checkData(dir).map((p) => `${p.file} › ${p.path} › ${p.message}`)).toEqual([
       'nuclear.json › countries.BEL.host › unknown country code',
       expect.stringMatching(/^nuclear\.json › zones\[0\]\.members\[\d+\] › unknown country code$/),
+      'nuclear_plants.json › plants[0].iso3 › unknown country code',
     ]);
   });
 });

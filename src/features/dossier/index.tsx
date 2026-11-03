@@ -22,18 +22,19 @@ import { disputedPanel } from './kinds/disputed';
 import { eventPanel } from './kinds/event';
 import { groupPanel } from './kinds/group';
 import { religionPanel } from './kinds/religion';
+import { plantPanel } from './kinds/plant';
 import { sitePanel } from './kinds/site';
 import type { Panel, Sel } from './model';
 import { isEmpty, kit, type Kit } from './parts';
 import './strings';
 import { useSheet } from './useSheet';
 
-const KIND_ICON: Record<Kind, string> = { country: 'globe', conflict: 'flame', group: 'people', religion: 'pie', choke: 'anchor', disputed: 'hatch', event: 'clock', bloc: 'network', site: 'gem' };
+const KIND_ICON: Record<Kind, string> = { country: 'globe', conflict: 'flame', group: 'people', religion: 'pie', choke: 'anchor', disputed: 'hatch', event: 'clock', bloc: 'network', site: 'gem', plant: 'atom' };
 // Lens a selection kind belongs to (SPEC); country keeps the current lens.
-const LENS_OF: Partial<Record<Kind, LensId>> = { conflict: 'conflicts', group: 'ethnic', religion: 'religion', choke: 'chokepoints', disputed: 'disputed', event: 'history', bloc: 'powers', site: 'resources' };
+const LENS_OF: Partial<Record<Kind, LensId>> = { conflict: 'conflicts', group: 'ethnic', religion: 'religion', choke: 'chokepoints', disputed: 'disputed', event: 'history', bloc: 'powers', site: 'resources', plant: 'nuclear' };
 const PANELS: Record<Kind, (id: string, k: Kit) => Panel | null> = {
   country: countryPanel, conflict: conflictPanel, group: groupPanel, religion: religionPanel, choke: chokePanel,
-  disputed: disputedPanel, event: eventPanel, bloc: blocPanel, site: sitePanel,
+  disputed: disputedPanel, event: eventPanel, bloc: blocPanel, site: sitePanel, plant: plantPanel,
 };
 const LEAVE_MS = 260;
 

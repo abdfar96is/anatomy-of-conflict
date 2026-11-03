@@ -1,0 +1,7458 @@
+{
+  "source": {
+    "base": {
+      "name": "GeoNuclearData",
+      "version": "0.17.17",
+      "date": "2024-03-03",
+      "url": "https://github.com/cristianst85/GeoNuclearData",
+      "license": "ODbL-1.0"
+    },
+    "changes": {
+      "ar": "حُدّثت حالة الوحدات التي رُبطت بالشبكة أو أُغلقت في 2024-2026 من جداول Reactor Atlas السنوية، وإعادة تشغيل أوناغاوا 2 وشيماني 2 (2024) من الوكالة الدولية للطاقة الذرية، وكاشيوازاكي-كاريوا 6 (2026) والإيقاف البارد لزابوريجيا من مصادر مذكورة على كل وحدة.",
+      "en": "Units connected to the grid or shut down in 2024–2026 follow the Reactor Atlas yearly tables; the Onagawa 2 and Shimane 2 restarts (2024) follow the IAEA; Kashiwazaki-Kariwa 6 (2026) and the Zaporizhzhia cold shutdown follow the sources named on each unit."
+    },
+    "limits": {
+      "ar": "لا تظهر مشاريع البناء التي بدأت بعد مارس 2024؛ أعداد المفاعلات قيد الإنشاء لكل دولة مأخوذة من Reactor Atlas لعام 2026. القدرة هي القدرة الصافية التصميمية بالميغاواط.",
+      "en": "Construction projects begun after March 2024 are not shown; per-country counts of reactors under construction come from Reactor Atlas for 2026. Capacity is design net capacity in MWe."
+    }
+  },
+  "plants": [
+    {
+      "id": "barakah",
+      "iso3": "ARE",
+      "en": "Barakah",
+      "ar": "براكة",
+      "coords": [52.198, 23.953],
+      "units": [
+        {
+          "name": "Barakah-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "APR-1400",
+          "mw": 1310,
+          "from": 2021,
+          "iaea": 1050
+        },
+        {
+          "name": "Barakah-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "APR-1400",
+          "mw": 1310,
+          "from": 2022,
+          "iaea": 1051
+        },
+        {
+          "name": "Barakah-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "APR-1400",
+          "mw": 1310,
+          "from": 2023,
+          "iaea": 1052
+        },
+        {
+          "name": "Barakah-4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "APR-1400",
+          "mw": 1337,
+          "from": 2024,
+          "iaea": 1053,
+          "changed": { "year": 2024, "sources": ["https://reactoratlas.com/en/year/2024"] }
+        }
+      ]
+    },
+    {
+      "id": "atucha",
+      "iso3": "ARG",
+      "en": "Atucha",
+      "ar": "أتوتشا",
+      "coords": [-59.209, -33.967],
+      "units": [
+        {
+          "name": "Atucha-1",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "PHWR KWU",
+          "mw": 319,
+          "from": 1974,
+          "iaea": 3
+        },
+        {
+          "name": "Atucha-2",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "PHWR KWU",
+          "mw": 692,
+          "from": 2016,
+          "iaea": 5
+        }
+      ]
+    },
+    {
+      "id": "carem",
+      "iso3": "ARG",
+      "en": "CAREM",
+      "ar": "كاريم",
+      "coords": [-59.211, -33.967],
+      "units": [
+        {
+          "name": "CAREM25",
+          "status": "building",
+          "type": "PWR",
+          "model": "CAREM Prototype (Integrated-PWR)",
+          "mw": 25,
+          "iaea": 1055
+        }
+      ]
+    },
+    {
+      "id": "embalse",
+      "iso3": "ARG",
+      "en": "Embalse",
+      "ar": "إمبالسي",
+      "coords": [-64.442, -32.232],
+      "units": [
+        {
+          "name": "Embalse",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "CANDU 6",
+          "mw": 608,
+          "from": 1984,
+          "iaea": 4
+        }
+      ]
+    },
+    {
+      "id": "armenian-metsamor",
+      "iso3": "ARM",
+      "en": "Armenian (Metsamor)",
+      "ar": "الأرمينية (ميتسامور)",
+      "coords": [44.147, 40.182],
+      "units": [
+        {
+          "name": "Armenian-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-270",
+          "mw": 375,
+          "from": 1980,
+          "iaea": 2
+        }
+      ]
+    },
+    {
+      "id": "doel",
+      "iso3": "BEL",
+      "en": "Doel",
+      "ar": "دول",
+      "coords": [4.259, 51.323],
+      "units": [
+        {
+          "name": "Doel-1",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "WH 2LP",
+          "mw": 392,
+          "from": 1975,
+          "to": 2025,
+          "iaea": 9,
+          "changed": { "year": 2025, "sources": ["https://reactoratlas.com/en/year/2025"] }
+        },
+        {
+          "name": "Doel-2",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "WH 2LP",
+          "mw": 445,
+          "from": 1975,
+          "to": 2025,
+          "iaea": 11,
+          "changed": { "year": 2025, "sources": ["https://reactoratlas.com/en/year/2025"] }
+        },
+        {
+          "name": "Doel-3",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "WH 3LP",
+          "mw": 890,
+          "from": 1982,
+          "to": 2022,
+          "iaea": 12
+        },
+        {
+          "name": "Doel-4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 3LP",
+          "mw": 1000,
+          "from": 1985,
+          "iaea": 14
+        }
+      ]
+    },
+    {
+      "id": "tihange",
+      "iso3": "BEL",
+      "en": "Tihange",
+      "ar": "تيهانج",
+      "coords": [5.271, 50.533],
+      "units": [
+        {
+          "name": "Tihange-1",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "Framatome 3 loops reactor",
+          "mw": 870,
+          "from": 1975,
+          "to": 2025,
+          "iaea": 10,
+          "changed": { "year": 2025, "sources": ["https://reactoratlas.com/en/year/2025"] }
+        },
+        {
+          "name": "Tihange-2",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "WH 3LP",
+          "mw": 900,
+          "from": 1983,
+          "to": 2023,
+          "iaea": 13
+        },
+        {
+          "name": "Tihange-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 3LP",
+          "mw": 1020,
+          "from": 1985,
+          "iaea": 15
+        }
+      ]
+    },
+    {
+      "id": "rooppur",
+      "iso3": "BGD",
+      "en": "Rooppur",
+      "ar": "روبور",
+      "coords": [89.047, 24.067],
+      "units": [
+        {
+          "name": "Rooppur-1",
+          "status": "building",
+          "type": "PWR",
+          "model": "VVER V-523",
+          "mw": 1080,
+          "iaea": 1078
+        },
+        {
+          "name": "Rooppur-2",
+          "status": "building",
+          "type": "PWR",
+          "model": "VVER V-523",
+          "mw": 1080,
+          "iaea": 1079
+        }
+      ]
+    },
+    {
+      "id": "kozloduy",
+      "iso3": "BGR",
+      "en": "Kozloduy",
+      "ar": "كوزلودوي",
+      "coords": [23.776, 43.744],
+      "units": [
+        {
+          "name": "Kozloduy-5",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-320",
+          "mw": 953,
+          "from": 1988,
+          "iaea": 20
+        },
+        {
+          "name": "Kozloduy-6",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-320",
+          "mw": 1003,
+          "from": 1993,
+          "iaea": 21
+        }
+      ]
+    },
+    {
+      "id": "belarusian-ostrovets",
+      "iso3": "BLR",
+      "en": "Belarusian (Ostrovets)",
+      "ar": "البيلاروسية (أوستروفيتس)",
+      "coords": [26.117, 54.767],
+      "units": [
+        {
+          "name": "Belarusian-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-491",
+          "mw": 1110,
+          "from": 2021,
+          "iaea": 1056
+        },
+        {
+          "name": "Belarusian-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-491",
+          "mw": 1110,
+          "from": 2023,
+          "iaea": 1061
+        }
+      ]
+    },
+    {
+      "id": "angra",
+      "iso3": "BRA",
+      "en": "Angra",
+      "ar": "أنغرا",
+      "coords": [-44.457, -23.008],
+      "units": [
+        {
+          "name": "Angra-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 2LP",
+          "mw": 609,
+          "from": 1985,
+          "iaea": 24
+        },
+        {
+          "name": "Angra-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "PRE KONVOI",
+          "mw": 1245,
+          "from": 2001,
+          "iaea": 25
+        },
+        {
+          "name": "Angra-3",
+          "status": "building",
+          "type": "PWR",
+          "model": "PRE KONVOI",
+          "mw": 1340,
+          "iaea": 26
+        }
+      ]
+    },
+    {
+      "id": "bruce",
+      "iso3": "CAN",
+      "en": "Bruce",
+      "ar": "بروس",
+      "coords": [-81.572, 44.341],
+      "units": [
+        {
+          "name": "Bruce-1",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "CANDU 791",
+          "mw": 732,
+          "from": 1977,
+          "iaea": 53
+        },
+        {
+          "name": "Bruce-2",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "CANDU 791",
+          "mw": 732,
+          "from": 1977,
+          "iaea": 54
+        },
+        {
+          "name": "Bruce-3",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "CANDU 750A",
+          "mw": 750,
+          "from": 1978,
+          "iaea": 30
+        },
+        {
+          "name": "Bruce-4",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "CANDU 750A",
+          "mw": 750,
+          "from": 1979,
+          "iaea": 31
+        },
+        {
+          "name": "Bruce-5",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "CANDU 750B",
+          "mw": 822,
+          "from": 1985,
+          "iaea": 38
+        },
+        {
+          "name": "Bruce-6",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "CANDU 750B",
+          "mw": 822,
+          "from": 1984,
+          "iaea": 39
+        },
+        {
+          "name": "Bruce-7",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "CANDU 750B",
+          "mw": 822,
+          "from": 1986,
+          "iaea": 41
+        },
+        {
+          "name": "Bruce-8",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "CANDU 750B",
+          "mw": 795,
+          "from": 1987,
+          "iaea": 42
+        }
+      ]
+    },
+    {
+      "id": "darlington",
+      "iso3": "CAN",
+      "en": "Darlington",
+      "ar": "دارلينغتون",
+      "coords": [-78.724, 43.867],
+      "units": [
+        {
+          "name": "Darlington-1",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "CANDU 850",
+          "mw": 881,
+          "from": 1992,
+          "iaea": 43
+        },
+        {
+          "name": "Darlington-2",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "CANDU 850",
+          "mw": 881,
+          "from": 1990,
+          "iaea": 44
+        },
+        {
+          "name": "Darlington-3",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "CANDU 850",
+          "mw": 881,
+          "from": 1993,
+          "iaea": 45
+        },
+        {
+          "name": "Darlington-4",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "CANDU 850",
+          "mw": 881,
+          "from": 1993,
+          "iaea": 46
+        }
+      ]
+    },
+    {
+      "id": "gentilly",
+      "iso3": "CAN",
+      "en": "Gentilly",
+      "ar": "جنتيلي",
+      "coords": [-72.357, 46.395],
+      "units": [
+        {
+          "name": "Gentilly-2",
+          "status": "shutdown",
+          "type": "PHWR",
+          "model": "CANDU 6",
+          "mw": 645,
+          "from": 1983,
+          "to": 2012,
+          "iaea": 32
+        }
+      ]
+    },
+    {
+      "id": "pickering",
+      "iso3": "CAN",
+      "en": "Pickering",
+      "ar": "بيكرينغ",
+      "coords": [-79.07, 43.812],
+      "units": [
+        {
+          "name": "Pickering-1",
+          "status": "shutdown",
+          "type": "PHWR",
+          "model": "CANDU 500A",
+          "mw": 508,
+          "from": 1971,
+          "to": 2024,
+          "iaea": 49,
+          "changed": { "year": 2024, "sources": ["https://reactoratlas.com/en/year/2024"] }
+        },
+        {
+          "name": "Pickering-4",
+          "status": "shutdown",
+          "type": "PHWR",
+          "model": "CANDU 500A",
+          "mw": 508,
+          "from": 1973,
+          "to": 2024,
+          "iaea": 52,
+          "changed": { "year": 2024, "sources": ["https://reactoratlas.com/en/year/2024"] }
+        },
+        {
+          "name": "Pickering-5",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "CANDU 500B",
+          "mw": 516,
+          "from": 1983,
+          "iaea": 33
+        },
+        {
+          "name": "Pickering-6",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "CANDU 500B",
+          "mw": 516,
+          "from": 1984,
+          "iaea": 34
+        },
+        {
+          "name": "Pickering-7",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "CANDU 500B",
+          "mw": 516,
+          "from": 1985,
+          "iaea": 35
+        },
+        {
+          "name": "Pickering-8",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "CANDU 500B",
+          "mw": 516,
+          "from": 1986,
+          "iaea": 36
+        }
+      ]
+    },
+    {
+      "id": "point-lepreau",
+      "iso3": "CAN",
+      "en": "Point Lepreau",
+      "ar": "بوينت ليبرو",
+      "coords": [-66.455, 45.068],
+      "units": [
+        {
+          "name": "Point Lepreau",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "CANDU 6",
+          "mw": 660,
+          "from": 1983,
+          "iaea": 37
+        }
+      ]
+    },
+    {
+      "id": "beznau",
+      "iso3": "CHE",
+      "en": "Beznau",
+      "ar": "بيزناو",
+      "coords": [8.229, 47.552],
+      "units": [
+        {
+          "name": "Beznau-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 2LP",
+          "mw": 350,
+          "from": 1969,
+          "iaea": 55
+        },
+        {
+          "name": "Beznau-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 2LP",
+          "mw": 350,
+          "from": 1972,
+          "iaea": 57
+        }
+      ]
+    },
+    {
+      "id": "g-sgen",
+      "iso3": "CHE",
+      "en": "Gösgen",
+      "ar": "غوسغن",
+      "coords": [7.969, 47.366],
+      "units": [
+        {
+          "name": "Goesgen",
+          "status": "operating",
+          "type": "PWR",
+          "model": "PWR 3 Loop",
+          "mw": 920,
+          "from": 1979,
+          "iaea": 58
+        }
+      ]
+    },
+    {
+      "id": "leibstadt",
+      "iso3": "CHE",
+      "en": "Leibstadt",
+      "ar": "لايبشتات",
+      "coords": [8.183, 47.601],
+      "units": [
+        {
+          "name": "Leibstadt",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-6",
+          "mw": 960,
+          "from": 1984,
+          "iaea": 59
+        }
+      ]
+    },
+    {
+      "id": "m-hleberg",
+      "iso3": "CHE",
+      "en": "Mühleberg",
+      "ar": "موهلبرغ",
+      "coords": [7.266, 46.969],
+      "units": [
+        {
+          "name": "Muehleberg",
+          "status": "shutdown",
+          "type": "BWR",
+          "model": "BWR-4",
+          "mw": 306,
+          "from": 1972,
+          "to": 2019,
+          "iaea": 56
+        }
+      ]
+    },
+    {
+      "id": "changjiang",
+      "iso3": "CHN",
+      "en": "Changjiang",
+      "ar": "تشانغجيانغ",
+      "coords": [108.9, 19.461],
+      "units": [
+        {
+          "name": "Changjiang SMR-1",
+          "status": "building",
+          "type": "PWR",
+          "model": "ACP100",
+          "mw": 100,
+          "iaea": 1111
+        },
+        {
+          "name": "Changjiang-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CNP-600",
+          "mw": 601,
+          "from": 2015,
+          "iaea": 939
+        },
+        {
+          "name": "Changjiang-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CNP-600",
+          "mw": 601,
+          "from": 2016,
+          "iaea": 940
+        },
+        {
+          "name": "Changjiang-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "HPR1000",
+          "mw": 1000,
+          "from": 2026,
+          "iaea": 941,
+          "changed": { "year": 2026, "sources": ["https://reactoratlas.com/en/year/2026"] }
+        },
+        {
+          "name": "Changjiang-4",
+          "status": "building",
+          "type": "PWR",
+          "model": "HPR1000",
+          "mw": 1000,
+          "iaea": 942
+        }
+      ]
+    },
+    {
+      "id": "china-experimental-fast-reactor",
+      "iso3": "CHN",
+      "en": "China Experimental Fast Reactor",
+      "ar": "المفاعل الصيني التجريبي السريع",
+      "coords": [116.03, 39.739],
+      "units": [
+        {
+          "name": "CEFR (China Experimental Fast Reactor)",
+          "status": "operating",
+          "type": "FBR",
+          "model": "BN-20",
+          "mw": 20,
+          "iaea": 1047
+        }
+      ]
+    },
+    {
+      "id": "daya-bay",
+      "iso3": "CHN",
+      "en": "Daya Bay",
+      "ar": "خليج دايا",
+      "coords": [114.544, 22.599],
+      "units": [
+        {
+          "name": "Daya Bay-1 (Guangdong-1)",
+          "status": "operating",
+          "type": "PWR",
+          "model": "M310",
+          "mw": 930,
+          "from": 1994,
+          "iaea": 63
+        },
+        {
+          "name": "Daya Bay-2 (Guangdong-2)",
+          "status": "operating",
+          "type": "PWR",
+          "model": "M310",
+          "mw": 930,
+          "from": 1994,
+          "iaea": 64
+        }
+      ]
+    },
+    {
+      "id": "fangchenggang",
+      "iso3": "CHN",
+      "en": "Fangchenggang",
+      "ar": "فانغتشنغقانغ",
+      "coords": [108.3, 21.6],
+      "units": [
+        {
+          "name": "Fangchenggang-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CPR-1000",
+          "mw": 1000,
+          "from": 2016,
+          "iaea": 943
+        },
+        {
+          "name": "Fangchenggang-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CPR-1000",
+          "mw": 1000,
+          "from": 2016,
+          "iaea": 944
+        },
+        {
+          "name": "Fangchenggang-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "HPR1000",
+          "mw": 1000,
+          "from": 2023,
+          "iaea": 945
+        },
+        {
+          "name": "Fangchenggang-4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "HPR1000",
+          "mw": 1000,
+          "from": 2024,
+          "iaea": 946,
+          "changed": { "year": 2024, "sources": ["https://reactoratlas.com/en/year/2024"] }
+        }
+      ]
+    },
+    {
+      "id": "fangjiashan",
+      "iso3": "CHN",
+      "en": "Fangjiashan",
+      "ar": "فانغجياشان",
+      "coords": [120.951, 30.416],
+      "units": [
+        {
+          "name": "Fangjiashan-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CPR-1000",
+          "mw": 1000,
+          "from": 2014,
+          "iaea": 912
+        },
+        {
+          "name": "Fangjiashan-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CPR-1000",
+          "mw": 1000,
+          "from": 2015,
+          "iaea": 913
+        }
+      ]
+    },
+    {
+      "id": "fuqing",
+      "iso3": "CHN",
+      "en": "Fuqing",
+      "ar": "فوتشينغ",
+      "coords": [119.384, 25.72],
+      "units": [
+        {
+          "name": "Fuqing-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CNP-1000",
+          "mw": 1000,
+          "from": 2014,
+          "iaea": 914
+        },
+        {
+          "name": "Fuqing-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CNP-1000",
+          "mw": 1000,
+          "from": 2015,
+          "iaea": 915
+        },
+        {
+          "name": "Fuqing-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CNP-1000",
+          "mw": 1000,
+          "from": 2016,
+          "iaea": 935
+        },
+        {
+          "name": "Fuqing-4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CNP-1000",
+          "mw": 1000,
+          "from": 2017,
+          "iaea": 936
+        },
+        {
+          "name": "Fuqing-5",
+          "status": "operating",
+          "type": "PWR",
+          "model": "HPR1000",
+          "mw": 1075,
+          "from": 2021,
+          "iaea": 937
+        },
+        {
+          "name": "Fuqing-6",
+          "status": "operating",
+          "type": "PWR",
+          "model": "HPR1000",
+          "mw": 1075,
+          "from": 2022,
+          "iaea": 938
+        }
+      ]
+    },
+    {
+      "id": "haiyang",
+      "iso3": "CHN",
+      "en": "Haiyang",
+      "ar": "هاييانغ",
+      "coords": [121.382, 36.704],
+      "units": [
+        {
+          "name": "Haiyang-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "AP-1000",
+          "mw": 1126,
+          "from": 2018,
+          "iaea": 908
+        },
+        {
+          "name": "Haiyang-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "AP-1000",
+          "mw": 1126,
+          "from": 2019,
+          "iaea": 909
+        },
+        {
+          "name": "Haiyang-3",
+          "status": "building",
+          "type": "PWR",
+          "model": "CAP1000",
+          "mw": 1161,
+          "iaea": 993
+        },
+        {
+          "name": "Haiyang-4",
+          "status": "building",
+          "type": "PWR",
+          "model": "CAP1000",
+          "mw": 1161,
+          "iaea": 994
+        }
+      ]
+    },
+    {
+      "id": "hongyanhe",
+      "iso3": "CHN",
+      "en": "Hongyanhe",
+      "ar": "هونغيانخه",
+      "coords": [121.477, 39.797],
+      "units": [
+        {
+          "name": "Hongyanhe-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CPR-1000",
+          "mw": 1061,
+          "from": 2013,
+          "iaea": 904
+        },
+        {
+          "name": "Hongyanhe-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CPR-1000",
+          "mw": 1061,
+          "from": 2014,
+          "iaea": 905
+        },
+        {
+          "name": "Hongyanhe-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CPR-1000",
+          "mw": 1061,
+          "from": 2015,
+          "iaea": 906
+        },
+        {
+          "name": "Hongyanhe-4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CPR-1000",
+          "mw": 1061,
+          "from": 2016,
+          "iaea": 907
+        },
+        {
+          "name": "Hongyanhe-5",
+          "status": "operating",
+          "type": "PWR",
+          "model": "ACPR-1000",
+          "mw": 1061,
+          "from": 2021,
+          "iaea": 997
+        },
+        {
+          "name": "Hongyanhe-6",
+          "status": "operating",
+          "type": "PWR",
+          "model": "ACPR-1000",
+          "mw": 1061,
+          "from": 2022,
+          "iaea": 998
+        }
+      ]
+    },
+    {
+      "id": "lingao",
+      "iso3": "CHN",
+      "en": "Lingao",
+      "ar": "لينغآو",
+      "coords": [114.551, 22.608],
+      "units": [
+        {
+          "name": "Lingao-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "M310",
+          "mw": 950,
+          "from": 2002,
+          "iaea": 67
+        },
+        {
+          "name": "Lingao-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "M310",
+          "mw": 950,
+          "from": 2003,
+          "iaea": 68
+        },
+        {
+          "name": "Lingao-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CPR-1000",
+          "mw": 1007,
+          "from": 2010,
+          "iaea": 878
+        },
+        {
+          "name": "Lingao-4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CPR-1000",
+          "mw": 1007,
+          "from": 2011,
+          "iaea": 875
+        }
+      ]
+    },
+    {
+      "id": "ningde",
+      "iso3": "CHN",
+      "en": "Ningde",
+      "ar": "نينغده",
+      "coords": [120.287, 27.046],
+      "units": [
+        {
+          "name": "Ningde-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CPR-1000",
+          "mw": 1018,
+          "from": 2013,
+          "iaea": 921
+        },
+        {
+          "name": "Ningde-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CPR-1000",
+          "mw": 1018,
+          "from": 2014,
+          "iaea": 922
+        },
+        {
+          "name": "Ningde-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CPR-1000",
+          "mw": 1018,
+          "from": 2015,
+          "iaea": 923
+        },
+        {
+          "name": "Ningde-4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CPR-1000",
+          "mw": 1018,
+          "from": 2016,
+          "iaea": 924
+        }
+      ]
+    },
+    {
+      "id": "qinshan",
+      "iso3": "CHN",
+      "en": "Qinshan",
+      "ar": "تشينشان",
+      "coords": [120.95, 30.44],
+      "units": [
+        {
+          "name": "Qinshan-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CNP-300",
+          "mw": 289,
+          "from": 1994,
+          "iaea": 62
+        },
+        {
+          "name": "Qinshan-2-1 (Qinshan 2)",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CNP-600",
+          "mw": 610,
+          "from": 2002,
+          "iaea": 65
+        },
+        {
+          "name": "Qinshan-2-2 (Qinshan 3)",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CNP-600",
+          "mw": 610,
+          "from": 2004,
+          "iaea": 66
+        },
+        {
+          "name": "Qinshan-2-3 (Qinshan 4)",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CNP-600",
+          "mw": 619,
+          "from": 2010,
+          "iaea": 876
+        },
+        {
+          "name": "Qinshan-2-4 (Qinshan 5)",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CNP-600",
+          "mw": 619,
+          "from": 2011,
+          "iaea": 877
+        },
+        {
+          "name": "Qinshan-3-1 (Qinshan 6)",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "CANDU 6",
+          "mw": 677,
+          "from": 2002,
+          "iaea": 69
+        },
+        {
+          "name": "Qinshan-3-2 (Qinshan 7)",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "CANDU 6",
+          "mw": 677,
+          "from": 2003,
+          "iaea": 840
+        }
+      ]
+    },
+    {
+      "id": "sanao",
+      "iso3": "CHN",
+      "en": "San'ao",
+      "ar": "سانآو",
+      "coords": [120.518, 27.201],
+      "units": [
+        {
+          "name": "Sanaocun-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "HRP1000",
+          "mw": 1208,
+          "from": 2026,
+          "iaea": 1094,
+          "changed": { "year": 2026, "sources": ["https://reactoratlas.com/en/year/2026"] }
+        },
+        {
+          "name": "Sanaocun-2",
+          "status": "building",
+          "type": "PWR",
+          "model": "HRP1000",
+          "mw": 1117,
+          "iaea": 1107
+        }
+      ]
+    },
+    {
+      "id": "sanmen",
+      "iso3": "CHN",
+      "en": "Sanmen",
+      "ar": "سانمن",
+      "coords": [121.647, 29.101],
+      "units": [
+        {
+          "name": "Sanmen-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "AP-1000",
+          "mw": 1157,
+          "from": 2018,
+          "iaea": 879
+        },
+        {
+          "name": "Sanmen-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "AP-1000",
+          "mw": 1157,
+          "from": 2018,
+          "iaea": 880
+        },
+        {
+          "name": "Sanmen-3",
+          "status": "building",
+          "type": "PWR",
+          "model": "CAP1000",
+          "mw": 1163,
+          "iaea": 995
+        },
+        {
+          "name": "Sanmen-4",
+          "status": "building",
+          "type": "PWR",
+          "model": "CAP1000",
+          "mw": 1163,
+          "iaea": 996
+        }
+      ]
+    },
+    {
+      "id": "shidao-bay",
+      "iso3": "CHN",
+      "en": "Shidao Bay",
+      "ar": "خليج شيداو",
+      "coords": [122.52, 36.966],
+      "units": [
+        {
+          "name": "CAP1400-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CAP1400",
+          "mw": 1534,
+          "from": 2024,
+          "iaea": 1085,
+          "changed": { "year": 2024, "sources": ["https://reactoratlas.com/en/year/2024"] }
+        },
+        {
+          "name": "CAP1400-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CAP1400",
+          "mw": 1534,
+          "from": 2025,
+          "iaea": 1086,
+          "changed": { "year": 2025, "sources": ["https://reactoratlas.com/en/year/2025"] }
+        },
+        {
+          "name": "Shidao Bay-1",
+          "status": "operating",
+          "type": "HTGR",
+          "model": "HTR-PM",
+          "mw": 200,
+          "from": 2023,
+          "iaea": 957
+        }
+      ]
+    },
+    {
+      "id": "taipingling",
+      "iso3": "CHN",
+      "en": "Taipingling",
+      "ar": "تايبينغلينغ",
+      "coords": [114.983, 22.693],
+      "units": [
+        {
+          "name": "Taipingling-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "HPR1000",
+          "mw": 1116,
+          "from": 2026,
+          "iaea": 1084,
+          "changed": { "year": 2026, "sources": ["https://reactoratlas.com/en/year/2026"] }
+        },
+        {
+          "name": "Taipingling-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "HPR1000",
+          "mw": 1116,
+          "from": 2026,
+          "iaea": 1091,
+          "changed": { "year": 2026, "sources": ["https://reactoratlas.com/en/year/2026"] }
+        }
+      ]
+    },
+    {
+      "id": "taishan",
+      "iso3": "CHN",
+      "en": "Taishan",
+      "ar": "تايشان",
+      "coords": [112.982, 21.918],
+      "units": [
+        {
+          "name": "Taishan-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "EPR-1750",
+          "mw": 1660,
+          "from": 2018,
+          "iaea": 918
+        },
+        {
+          "name": "Taishan-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "EPR-1750",
+          "mw": 1660,
+          "from": 2019,
+          "iaea": 919
+        }
+      ]
+    },
+    {
+      "id": "tianwan",
+      "iso3": "CHN",
+      "en": "Tianwan",
+      "ar": "تيانوان",
+      "coords": [119.456, 34.685],
+      "units": [
+        {
+          "name": "Tianwan-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-428",
+          "mw": 990,
+          "from": 2007,
+          "iaea": 838
+        },
+        {
+          "name": "Tianwan-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-428",
+          "mw": 990,
+          "from": 2007,
+          "iaea": 839
+        },
+        {
+          "name": "Tianwan-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-428M",
+          "mw": 1060,
+          "from": 2018,
+          "iaea": 973
+        },
+        {
+          "name": "Tianwan-4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-428M",
+          "mw": 1060,
+          "from": 2018,
+          "iaea": 974
+        },
+        {
+          "name": "Tianwan-5",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CNP-1000",
+          "mw": 1000,
+          "from": 2020,
+          "iaea": 975
+        },
+        {
+          "name": "Tianwan-6",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CNP-1000",
+          "mw": 1000,
+          "from": 2021,
+          "iaea": 976
+        },
+        {
+          "name": "Tianwan-7",
+          "status": "building",
+          "type": "PWR",
+          "model": "VVER-1200/V491",
+          "mw": 1171,
+          "iaea": 1105
+        },
+        {
+          "name": "Tianwan-8",
+          "status": "building",
+          "type": "PWR",
+          "model": "VVER-1200/V491",
+          "mw": 1171,
+          "iaea": 1110
+        }
+      ]
+    },
+    {
+      "id": "xiapu",
+      "iso3": "CHN",
+      "en": "Xiapu",
+      "ar": "شيابو",
+      "coords": [120.155, 26.804],
+      "units": [
+        {
+          "name": "Xiapu-1",
+          "status": "building",
+          "type": "FBR",
+          "model": "CFR600",
+          "mw": 642,
+          "iaea": 1101
+        },
+        { "name": "Xiapu-2", "status": "building", "type": "FBR", "model": "CFR-600", "mw": 600 }
+      ]
+    },
+    {
+      "id": "xudabao",
+      "iso3": "CHN",
+      "en": "Xudabao",
+      "ar": "شوداباو",
+      "coords": [120.546, 40.351],
+      "units": [
+        {
+          "name": "Xudabu-1",
+          "status": "building",
+          "type": "PWR",
+          "model": "CAP1000",
+          "mw": 1000,
+          "iaea": 999
+        },
+        {
+          "name": "Xudabu-3",
+          "status": "building",
+          "type": "PWR",
+          "model": "VVER-1200/V491",
+          "mw": 1200,
+          "iaea": 1104
+        },
+        {
+          "name": "Xudabu-4",
+          "status": "building",
+          "type": "PWR",
+          "model": "VVER-1200/V491",
+          "mw": 1200,
+          "iaea": 1112
+        }
+      ]
+    },
+    {
+      "id": "yangjiang",
+      "iso3": "CHN",
+      "en": "Yangjiang",
+      "ar": "يانغجيانغ",
+      "coords": [112.119, 21.782],
+      "units": [
+        {
+          "name": "Yangjiang-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CPR-1000",
+          "mw": 1021,
+          "from": 2014,
+          "iaea": 881
+        },
+        {
+          "name": "Yangjiang-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CPR-1000",
+          "mw": 1000,
+          "from": 2015,
+          "iaea": 882
+        },
+        {
+          "name": "Yangjiang-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CPR-1000",
+          "mw": 1000,
+          "from": 2016,
+          "iaea": 931
+        },
+        {
+          "name": "Yangjiang-4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CPR-1000",
+          "mw": 1000,
+          "from": 2017,
+          "iaea": 932
+        },
+        {
+          "name": "Yangjiang-5",
+          "status": "operating",
+          "type": "PWR",
+          "model": "ACPR-1000",
+          "mw": 1021,
+          "from": 2018,
+          "iaea": 933
+        },
+        {
+          "name": "Yangjiang-6",
+          "status": "operating",
+          "type": "PWR",
+          "model": "ACPR-1000",
+          "mw": 1000,
+          "from": 2019,
+          "iaea": 934
+        }
+      ]
+    },
+    {
+      "id": "zhangzhou",
+      "iso3": "CHN",
+      "en": "Zhangzhou",
+      "ar": "تشانغتشو",
+      "coords": [117.492, 23.829],
+      "units": [
+        {
+          "name": "Zhangzhou-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "HPR1000",
+          "mw": 1126,
+          "from": 2024,
+          "iaea": 1083,
+          "changed": { "year": 2024, "sources": ["https://reactoratlas.com/en/year/2024"] }
+        },
+        {
+          "name": "Zhangzhou-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "HPR-1000",
+          "mw": 1126,
+          "from": 2025,
+          "iaea": 1090,
+          "changed": { "year": 2025, "sources": ["https://reactoratlas.com/en/year/2025"] }
+        }
+      ]
+    },
+    {
+      "id": "dukovany",
+      "iso3": "CZE",
+      "en": "Dukovany",
+      "ar": "دوكوفاني",
+      "coords": [16.149, 49.089],
+      "units": [
+        {
+          "name": "Dukovany-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-213",
+          "mw": 420,
+          "from": 1985,
+          "iaea": 78
+        },
+        {
+          "name": "Dukovany-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-213",
+          "mw": 420,
+          "from": 1986,
+          "iaea": 79
+        },
+        {
+          "name": "Dukovany-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-213",
+          "mw": 420,
+          "from": 1986,
+          "iaea": 80
+        },
+        {
+          "name": "Dukovany-4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-213",
+          "mw": 420,
+          "from": 1987,
+          "iaea": 81
+        }
+      ]
+    },
+    {
+      "id": "temelin",
+      "iso3": "CZE",
+      "en": "Temelin",
+      "ar": "تيميلين",
+      "coords": [14.377, 49.181],
+      "units": [
+        {
+          "name": "Temelin-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-320",
+          "mw": 1027,
+          "from": 2002,
+          "iaea": 74
+        },
+        {
+          "name": "Temelin-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-320",
+          "mw": 1029,
+          "from": 2003,
+          "iaea": 75
+        }
+      ]
+    },
+    {
+      "id": "biblis",
+      "iso3": "DEU",
+      "en": "Biblis",
+      "ar": "بيبليس",
+      "coords": [8.415, 49.709],
+      "units": [
+        {
+          "name": "Biblis-A",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "PWR",
+          "mw": 1146,
+          "from": 1975,
+          "to": 2011,
+          "iaea": 85
+        },
+        {
+          "name": "Biblis-B",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "PWR",
+          "mw": 1178,
+          "from": 1977,
+          "to": 2011,
+          "iaea": 91
+        }
+      ]
+    },
+    {
+      "id": "brokdorf",
+      "iso3": "DEU",
+      "en": "Brokdorf",
+      "ar": "بروكدورف",
+      "coords": [9.345, 53.85],
+      "units": [
+        {
+          "name": "Brokdorf",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "PWR",
+          "mw": 1307,
+          "from": 1986,
+          "to": 2021,
+          "iaea": 107
+        }
+      ]
+    },
+    {
+      "id": "brunsb-ttel",
+      "iso3": "DEU",
+      "en": "Brunsbüttel",
+      "ar": "برونسبوتل",
+      "coords": [9.202, 53.891],
+      "units": [
+        {
+          "name": "Brunsbuettel",
+          "status": "shutdown",
+          "type": "BWR",
+          "model": "BWR-69",
+          "mw": 770,
+          "from": 1977,
+          "to": 2011,
+          "iaea": 86
+        }
+      ]
+    },
+    {
+      "id": "emsland",
+      "iso3": "DEU",
+      "en": "Emsland",
+      "ar": "إمسلاند",
+      "coords": [7.322, 52.471],
+      "units": [
+        {
+          "name": "Emsland",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "Konvoi",
+          "mw": 1242,
+          "from": 1988,
+          "to": 2023,
+          "iaea": 108
+        }
+      ]
+    },
+    {
+      "id": "grafenrheinfeld",
+      "iso3": "DEU",
+      "en": "Grafenrheinfeld",
+      "ar": "غرافنراينفيلد",
+      "coords": [10.186, 49.984],
+      "units": [
+        {
+          "name": "Grafenrheinfeld",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "PWR",
+          "mw": 1225,
+          "from": 1982,
+          "to": 2015,
+          "iaea": 97
+        }
+      ]
+    },
+    {
+      "id": "grohnde",
+      "iso3": "DEU",
+      "en": "Grohnde",
+      "ar": "غروندي",
+      "coords": [9.412, 52.033],
+      "units": [
+        {
+          "name": "Grohnde",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "PWR",
+          "mw": 1289,
+          "from": 1985,
+          "to": 2021,
+          "iaea": 101
+        }
+      ]
+    },
+    {
+      "id": "gundremmingen",
+      "iso3": "DEU",
+      "en": "Gundremmingen",
+      "ar": "غوندريمينغن",
+      "coords": [10.401, 48.513],
+      "units": [
+        {
+          "name": "Gundremmingen-B",
+          "status": "shutdown",
+          "type": "BWR",
+          "model": "BWR-72",
+          "mw": 1244,
+          "from": 1984,
+          "to": 2017,
+          "iaea": 100
+        },
+        {
+          "name": "Gundremmingen-C",
+          "status": "shutdown",
+          "type": "BWR",
+          "model": "BWR-72",
+          "mw": 1249,
+          "from": 1985,
+          "to": 2021,
+          "iaea": 102
+        }
+      ]
+    },
+    {
+      "id": "isar",
+      "iso3": "DEU",
+      "en": "Isar",
+      "ar": "إيزار",
+      "coords": [12.296, 48.607],
+      "units": [
+        {
+          "name": "Isar-1",
+          "status": "shutdown",
+          "type": "BWR",
+          "model": "BWR-69",
+          "mw": 870,
+          "from": 1979,
+          "to": 2011,
+          "iaea": 89
+        },
+        {
+          "name": "Isar-2",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "Konvoi",
+          "mw": 1285,
+          "from": 1988,
+          "to": 2023,
+          "iaea": 106
+        }
+      ]
+    },
+    {
+      "id": "kr-mmel",
+      "iso3": "DEU",
+      "en": "Krümmel",
+      "ar": "كروميل",
+      "coords": [10.41, 53.41],
+      "units": [
+        {
+          "name": "Kruemmel",
+          "status": "shutdown",
+          "type": "BWR",
+          "model": "BWR-69",
+          "mw": 1260,
+          "from": 1984,
+          "to": 2011,
+          "iaea": 94
+        }
+      ]
+    },
+    {
+      "id": "neckarwestheim",
+      "iso3": "DEU",
+      "en": "Neckarwestheim",
+      "ar": "نيكارفيستهايم",
+      "coords": [9.176, 49.039],
+      "units": [
+        {
+          "name": "Neckarwestheim-1",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "PWR",
+          "mw": 805,
+          "from": 1976,
+          "to": 2011,
+          "iaea": 88
+        },
+        {
+          "name": "Neckarwestheim-2",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "Konvoi",
+          "mw": 1225,
+          "from": 1989,
+          "to": 2023,
+          "iaea": 119
+        }
+      ]
+    },
+    {
+      "id": "philippsburg",
+      "iso3": "DEU",
+      "en": "Philippsburg",
+      "ar": "فيليبسبورغ",
+      "coords": [8.432, 49.253],
+      "units": [
+        {
+          "name": "Philippsburg-1",
+          "status": "shutdown",
+          "type": "BWR",
+          "model": "BWR-69",
+          "mw": 864,
+          "from": 1980,
+          "to": 2011,
+          "iaea": 87
+        },
+        {
+          "name": "Philippsburg-2",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "PWR",
+          "mw": 1268,
+          "from": 1985,
+          "to": 2019,
+          "iaea": 98
+        }
+      ]
+    },
+    {
+      "id": "unterweser",
+      "iso3": "DEU",
+      "en": "Unterweser",
+      "ar": "أونترفيزر",
+      "coords": [8.477, 53.429],
+      "units": [
+        {
+          "name": "Unterweser",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "PWR",
+          "mw": 1230,
+          "from": 1979,
+          "to": 2011,
+          "iaea": 90
+        }
+      ]
+    },
+    {
+      "id": "el-dabaa",
+      "iso3": "EGY",
+      "en": "El Dabaa",
+      "ar": "الضبعة",
+      "coords": [28.498, 31.044],
+      "units": [
+        {
+          "name": "El Dabaa-1",
+          "status": "building",
+          "type": "PWR",
+          "model": "VVER-1200",
+          "mw": 1100,
+          "iaea": 137
+        },
+        {
+          "name": "El Dabaa-2",
+          "status": "building",
+          "type": "PWR",
+          "model": "VVER-1200",
+          "mw": 1100,
+          "iaea": 138
+        },
+        {
+          "name": "El Dabaa-3",
+          "status": "building",
+          "type": "PWR",
+          "model": "VVER-1200",
+          "mw": 1100,
+          "iaea": 1120
+        }
+      ]
+    },
+    {
+      "id": "almaraz",
+      "iso3": "ESP",
+      "en": "Almaraz",
+      "ar": "ألمارات",
+      "coords": [-5.698, 39.807],
+      "units": [
+        {
+          "name": "Almaraz-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 3LP",
+          "mw": 900,
+          "from": 1983,
+          "iaea": 153
+        },
+        {
+          "name": "Almaraz-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 3LP",
+          "mw": 900,
+          "from": 1984,
+          "iaea": 154
+        }
+      ]
+    },
+    {
+      "id": "asco",
+      "iso3": "ESP",
+      "en": "Asco",
+      "ar": "أسكو",
+      "coords": [0.571, 41.202],
+      "units": [
+        {
+          "name": "Asco-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 3LP",
+          "mw": 888,
+          "from": 1984,
+          "iaea": 155
+        },
+        {
+          "name": "Asco-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 3LP",
+          "mw": 888,
+          "from": 1986,
+          "iaea": 156
+        }
+      ]
+    },
+    {
+      "id": "cofrentes",
+      "iso3": "ESP",
+      "en": "Cofrentes",
+      "ar": "كوفرينتس",
+      "coords": [-1.051, 39.216],
+      "units": [
+        {
+          "name": "Cofrentes",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-6 (Mark 3)",
+          "mw": 939,
+          "from": 1985,
+          "iaea": 140
+        }
+      ]
+    },
+    {
+      "id": "santa-maria-de-garona",
+      "iso3": "ESP",
+      "en": "Santa Maria de Garona",
+      "ar": "سانتا ماريا دي غارونيا",
+      "coords": [-3.205, 42.775],
+      "units": [
+        {
+          "name": "Santa Maria de Garona",
+          "status": "shutdown",
+          "type": "BWR",
+          "model": "BWR-3",
+          "mw": 440,
+          "from": 1971,
+          "to": 2017,
+          "iaea": 149
+        }
+      ]
+    },
+    {
+      "id": "trillo",
+      "iso3": "ESP",
+      "en": "Trillo",
+      "ar": "تريّو",
+      "coords": [-2.622, 40.699],
+      "units": [
+        {
+          "name": "Trillo-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "PWR 3 loops",
+          "mw": 990,
+          "from": 1988,
+          "iaea": 141
+        }
+      ]
+    },
+    {
+      "id": "vandellos",
+      "iso3": "ESP",
+      "en": "Vandellos",
+      "ar": "فانديّوس",
+      "coords": [0.867, 40.949],
+      "units": [
+        {
+          "name": "Vandellos-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 3LP",
+          "mw": 930,
+          "from": 1988,
+          "iaea": 146
+        }
+      ]
+    },
+    {
+      "id": "loviisa",
+      "iso3": "FIN",
+      "en": "Loviisa",
+      "ar": "لوفيسا",
+      "coords": [26.342, 60.372],
+      "units": [
+        {
+          "name": "Loviisa-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-213",
+          "mw": 420,
+          "from": 1977,
+          "iaea": 157
+        },
+        {
+          "name": "Loviisa-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-213",
+          "mw": 420,
+          "from": 1981,
+          "iaea": 158
+        }
+      ]
+    },
+    {
+      "id": "olkiluoto",
+      "iso3": "FIN",
+      "en": "Olkiluoto",
+      "ar": "أولكيلوتو",
+      "coords": [21.444, 61.235],
+      "units": [
+        {
+          "name": "Olkiluoto-1",
+          "status": "operating",
+          "type": "BWR",
+          "model": "AA-III, BWR-2500",
+          "mw": 660,
+          "from": 1979,
+          "iaea": 159
+        },
+        {
+          "name": "Olkiluoto-2",
+          "status": "operating",
+          "type": "BWR",
+          "model": "AA-III, BWR-2500",
+          "mw": 660,
+          "from": 1982,
+          "iaea": 160
+        },
+        {
+          "name": "Olkiluoto-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "EPR",
+          "mw": 1600,
+          "from": 2023,
+          "iaea": 860
+        }
+      ]
+    },
+    {
+      "id": "belleville",
+      "iso3": "FRA",
+      "en": "Belleville",
+      "ar": "بيلفيل",
+      "coords": [2.871, 47.511],
+      "units": [
+        {
+          "name": "Belleville-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "P4 REP 1300",
+          "mw": 1310,
+          "from": 1988,
+          "iaea": 211
+        },
+        {
+          "name": "Belleville-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "P4 REP 1300",
+          "mw": 1310,
+          "from": 1989,
+          "iaea": 212
+        }
+      ]
+    },
+    {
+      "id": "blayais",
+      "iso3": "FRA",
+      "en": "Blayais",
+      "ar": "بلاييه",
+      "coords": [-0.691, 45.256],
+      "units": [
+        {
+          "name": "Blayais-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CP1",
+          "mw": 910,
+          "from": 1981,
+          "iaea": 187
+        },
+        {
+          "name": "Blayais-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CP1",
+          "mw": 910,
+          "from": 1983,
+          "iaea": 188
+        },
+        {
+          "name": "Blayais-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CP1",
+          "mw": 910,
+          "from": 1983,
+          "iaea": 189
+        },
+        {
+          "name": "Blayais-4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CP1",
+          "mw": 910,
+          "from": 1983,
+          "iaea": 190
+        }
+      ]
+    },
+    {
+      "id": "bugey",
+      "iso3": "FRA",
+      "en": "Bugey",
+      "ar": "بوجيه",
+      "coords": [5.268, 45.799],
+      "units": [
+        {
+          "name": "Bugey-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CP0",
+          "mw": 920,
+          "from": 1979,
+          "iaea": 165
+        },
+        {
+          "name": "Bugey-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CP0",
+          "mw": 920,
+          "from": 1979,
+          "iaea": 166
+        },
+        {
+          "name": "Bugey-4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CP0",
+          "mw": 900,
+          "from": 1979,
+          "iaea": 167
+        },
+        {
+          "name": "Bugey-5",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CP0",
+          "mw": 900,
+          "from": 1980,
+          "iaea": 168
+        }
+      ]
+    },
+    {
+      "id": "cattenom",
+      "iso3": "FRA",
+      "en": "Cattenom",
+      "ar": "كاتنوم",
+      "coords": [6.217, 49.416],
+      "units": [
+        {
+          "name": "Cattenom-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "P4 REP 1300",
+          "mw": 1300,
+          "from": 1987,
+          "iaea": 207
+        },
+        {
+          "name": "Cattenom-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "P4 REP 1300",
+          "mw": 1300,
+          "from": 1988,
+          "iaea": 210
+        },
+        {
+          "name": "Cattenom-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "P4 REP 1300",
+          "mw": 1300,
+          "from": 1991,
+          "iaea": 218
+        },
+        {
+          "name": "Cattenom-4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "P4 REP 1300",
+          "mw": 1300,
+          "from": 1992,
+          "iaea": 223
+        }
+      ]
+    },
+    {
+      "id": "chinon",
+      "iso3": "FRA",
+      "en": "Chinon",
+      "ar": "شينون",
+      "coords": [0.167, 47.232],
+      "units": [
+        {
+          "name": "Chinon-B1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CP2",
+          "mw": 870,
+          "from": 1984,
+          "iaea": 196
+        },
+        {
+          "name": "Chinon-B2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CP2",
+          "mw": 870,
+          "from": 1984,
+          "iaea": 197
+        },
+        {
+          "name": "Chinon-B3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CP2",
+          "mw": 905,
+          "from": 1987,
+          "iaea": 213
+        },
+        {
+          "name": "Chinon-B4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CP2",
+          "mw": 905,
+          "from": 1988,
+          "iaea": 214
+        }
+      ]
+    },
+    {
+      "id": "chooz",
+      "iso3": "FRA",
+      "en": "Chooz",
+      "ar": "شو",
+      "coords": [4.792, 50.086],
+      "units": [
+        {
+          "name": "Chooz-B1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "N4 REP 1450",
+          "mw": 1455,
+          "from": 2000,
+          "iaea": 220
+        },
+        {
+          "name": "Chooz-B2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "N4 REP 1450",
+          "mw": 1455,
+          "from": 2000,
+          "iaea": 226
+        }
+      ]
+    },
+    {
+      "id": "civaux",
+      "iso3": "FRA",
+      "en": "Civaux",
+      "ar": "سيفو",
+      "coords": [0.654, 46.457],
+      "units": [
+        {
+          "name": "Civaux-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "N4 REP 1450",
+          "mw": 1450,
+          "from": 2002,
+          "iaea": 227
+        },
+        {
+          "name": "Civaux-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "N4 REP 1450",
+          "mw": 1450,
+          "from": 2002,
+          "iaea": 228
+        }
+      ]
+    },
+    {
+      "id": "cruas",
+      "iso3": "FRA",
+      "en": "Cruas",
+      "ar": "كرواس",
+      "coords": [4.757, 44.634],
+      "units": [
+        {
+          "name": "Cruas-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CP2",
+          "mw": 880,
+          "from": 1984,
+          "iaea": 198
+        },
+        {
+          "name": "Cruas-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CP2",
+          "mw": 915,
+          "from": 1985,
+          "iaea": 199
+        },
+        {
+          "name": "Cruas-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CP2",
+          "mw": 880,
+          "from": 1984,
+          "iaea": 200
+        },
+        {
+          "name": "Cruas-4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CP2",
+          "mw": 880,
+          "from": 1985,
+          "iaea": 201
+        }
+      ]
+    },
+    {
+      "id": "dampierre",
+      "iso3": "FRA",
+      "en": "Dampierre",
+      "ar": "دامبيير",
+      "coords": [2.513, 47.732],
+      "units": [
+        {
+          "name": "Dampierre-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CP1",
+          "mw": 890,
+          "from": 1980,
+          "iaea": 176
+        },
+        {
+          "name": "Dampierre-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CP1",
+          "mw": 890,
+          "from": 1981,
+          "iaea": 183
+        },
+        {
+          "name": "Dampierre-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CP1",
+          "mw": 890,
+          "from": 1981,
+          "iaea": 185
+        },
+        {
+          "name": "Dampierre-4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CP1",
+          "mw": 890,
+          "from": 1981,
+          "iaea": 186
+        }
+      ]
+    },
+    {
+      "id": "fessenheim",
+      "iso3": "FRA",
+      "en": "Fessenheim",
+      "ar": "فيسنهايم",
+      "coords": [7.564, 47.903],
+      "units": [
+        {
+          "name": "Fessenheim-1",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "CP0",
+          "mw": 880,
+          "from": 1978,
+          "to": 2020,
+          "iaea": 163
+        },
+        {
+          "name": "Fessenheim-2",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "CP0",
+          "mw": 880,
+          "from": 1978,
+          "to": 2020,
+          "iaea": 164
+        }
+      ]
+    },
+    {
+      "id": "flamanville",
+      "iso3": "FRA",
+      "en": "Flamanville",
+      "ar": "فلامانفيل",
+      "coords": [-1.881, 49.537],
+      "units": [
+        {
+          "name": "Flamanville-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "P4 REP 1300",
+          "mw": 1330,
+          "from": 1986,
+          "iaea": 202
+        },
+        {
+          "name": "Flamanville-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "P4 REP 1300",
+          "mw": 1330,
+          "from": 1987,
+          "iaea": 203
+        },
+        {
+          "name": "Flamanville-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "EPR",
+          "mw": 1630,
+          "from": 2024,
+          "iaea": 873,
+          "changed": { "year": 2024, "sources": ["https://reactoratlas.com/en/year/2024"] }
+        }
+      ]
+    },
+    {
+      "id": "golfech",
+      "iso3": "FRA",
+      "en": "Golfech",
+      "ar": "غولفيش",
+      "coords": [0.845, 44.105],
+      "units": [
+        {
+          "name": "Golfech-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "P4 REP 1300",
+          "mw": 1310,
+          "from": 1991,
+          "iaea": 219
+        },
+        {
+          "name": "Golfech-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "P4 REP 1300",
+          "mw": 1310,
+          "from": 1994,
+          "iaea": 224
+        }
+      ]
+    },
+    {
+      "id": "gravelines",
+      "iso3": "FRA",
+      "en": "Gravelines",
+      "ar": "غرافلين",
+      "coords": [2.138, 51.014],
+      "units": [
+        {
+          "name": "Gravelines-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CP1",
+          "mw": 910,
+          "from": 1980,
+          "iaea": 174
+        },
+        {
+          "name": "Gravelines-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CP1",
+          "mw": 910,
+          "from": 1980,
+          "iaea": 175
+        },
+        {
+          "name": "Gravelines-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CP1",
+          "mw": 910,
+          "from": 1981,
+          "iaea": 181
+        },
+        {
+          "name": "Gravelines-4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CP1",
+          "mw": 910,
+          "from": 1981,
+          "iaea": 182
+        },
+        {
+          "name": "Gravelines-5",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CP1",
+          "mw": 910,
+          "from": 1985,
+          "iaea": 208
+        },
+        {
+          "name": "Gravelines-6",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CP1",
+          "mw": 910,
+          "from": 1985,
+          "iaea": 209
+        }
+      ]
+    },
+    {
+      "id": "nogent",
+      "iso3": "FRA",
+      "en": "Nogent",
+      "ar": "نوجان",
+      "coords": [3.52, 48.517],
+      "units": [
+        {
+          "name": "Nogent-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "P4 REP 1300",
+          "mw": 1310,
+          "from": 1988,
+          "iaea": 215
+        },
+        {
+          "name": "Nogent-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "P4 REP 1300",
+          "mw": 1310,
+          "from": 1989,
+          "iaea": 216
+        }
+      ]
+    },
+    {
+      "id": "paluel",
+      "iso3": "FRA",
+      "en": "Paluel",
+      "ar": "بالويل",
+      "coords": [0.635, 49.857],
+      "units": [
+        {
+          "name": "Paluel-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "P4 REP 1300",
+          "mw": 1330,
+          "from": 1985,
+          "iaea": 191
+        },
+        {
+          "name": "Paluel-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "P4 REP 1300",
+          "mw": 1330,
+          "from": 1985,
+          "iaea": 192
+        },
+        {
+          "name": "Paluel-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "P4 REP 1300",
+          "mw": 1330,
+          "from": 1986,
+          "iaea": 193
+        },
+        {
+          "name": "Paluel-4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "P4 REP 1300",
+          "mw": 1330,
+          "from": 1986,
+          "iaea": 194
+        }
+      ]
+    },
+    {
+      "id": "penly",
+      "iso3": "FRA",
+      "en": "Penly",
+      "ar": "بنلي",
+      "coords": [1.215, 49.975],
+      "units": [
+        {
+          "name": "Penly-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "P4 REP 1300",
+          "mw": 1330,
+          "from": 1990,
+          "iaea": 221
+        },
+        {
+          "name": "Penly-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "P4 REP 1300",
+          "mw": 1330,
+          "from": 1992,
+          "iaea": 222
+        }
+      ]
+    },
+    {
+      "id": "st-alban",
+      "iso3": "FRA",
+      "en": "St. Alban",
+      "ar": "سان ألبان",
+      "coords": [4.754, 45.404],
+      "units": [
+        {
+          "name": "St. Alban-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "P4 REP 1300",
+          "mw": 1335,
+          "from": 1986,
+          "iaea": 204
+        },
+        {
+          "name": "St. Alban-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "P4 REP 1300",
+          "mw": 1335,
+          "from": 1987,
+          "iaea": 205
+        }
+      ]
+    },
+    {
+      "id": "st-laurent",
+      "iso3": "FRA",
+      "en": "St. Laurent",
+      "ar": "سان لوران",
+      "coords": [1.582, 47.722],
+      "units": [
+        {
+          "name": "St. Laurent-B1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CP2",
+          "mw": 915,
+          "from": 1983,
+          "iaea": 169
+        },
+        {
+          "name": "St. Laurent-B2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CP2",
+          "mw": 880,
+          "from": 1983,
+          "iaea": 177
+        }
+      ]
+    },
+    {
+      "id": "tricastin",
+      "iso3": "FRA",
+      "en": "Tricastin",
+      "ar": "تريكاستان",
+      "coords": [4.733, 44.331],
+      "units": [
+        {
+          "name": "Tricastin-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CP1",
+          "mw": 915,
+          "from": 1980,
+          "iaea": 170
+        },
+        {
+          "name": "Tricastin-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CP1",
+          "mw": 915,
+          "from": 1980,
+          "iaea": 171
+        },
+        {
+          "name": "Tricastin-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CP1",
+          "mw": 915,
+          "from": 1981,
+          "iaea": 179
+        },
+        {
+          "name": "Tricastin-4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CP1",
+          "mw": 915,
+          "from": 1981,
+          "iaea": 180
+        }
+      ]
+    },
+    {
+      "id": "dungeness",
+      "iso3": "GBR",
+      "en": "Dungeness",
+      "ar": "دنجنس",
+      "coords": [0.962, 50.914],
+      "units": [
+        {
+          "name": "Dungeness-B1",
+          "status": "shutdown",
+          "type": "GCR",
+          "model": "AGR",
+          "mw": 607,
+          "from": 1985,
+          "to": 2021,
+          "iaea": 248
+        },
+        {
+          "name": "Dungeness-B2",
+          "status": "shutdown",
+          "type": "GCR",
+          "model": "AGR",
+          "mw": 607,
+          "from": 1989,
+          "to": 2021,
+          "iaea": 249
+        }
+      ]
+    },
+    {
+      "id": "hartlepool",
+      "iso3": "GBR",
+      "en": "Hartlepool",
+      "ar": "هارتلبول",
+      "coords": [-1.18, 54.634],
+      "units": [
+        {
+          "name": "Hartlepool-A1",
+          "status": "operating",
+          "type": "GCR",
+          "model": "AGR",
+          "mw": 590,
+          "from": 1989,
+          "iaea": 250
+        },
+        {
+          "name": "Hartlepool-A2",
+          "status": "operating",
+          "type": "GCR",
+          "model": "AGR",
+          "mw": 595,
+          "from": 1989,
+          "iaea": 251
+        }
+      ]
+    },
+    {
+      "id": "heysham",
+      "iso3": "GBR",
+      "en": "Heysham",
+      "ar": "هيشام",
+      "coords": [-2.912, 54.029],
+      "units": [
+        {
+          "name": "Heysham-A1",
+          "status": "operating",
+          "type": "GCR",
+          "model": "AGR",
+          "mw": 611,
+          "from": 1989,
+          "iaea": 256
+        },
+        {
+          "name": "Heysham-A2",
+          "status": "operating",
+          "type": "GCR",
+          "model": "AGR",
+          "mw": 611,
+          "from": 1989,
+          "iaea": 257
+        },
+        {
+          "name": "Heysham-B1",
+          "status": "operating",
+          "type": "GCR",
+          "model": "AGR",
+          "mw": 615,
+          "from": 1989,
+          "iaea": 259
+        },
+        {
+          "name": "Heysham-B2",
+          "status": "operating",
+          "type": "GCR",
+          "model": "AGR",
+          "mw": 615,
+          "from": 1989,
+          "iaea": 260
+        }
+      ]
+    },
+    {
+      "id": "hinkley-point",
+      "iso3": "GBR",
+      "en": "Hinkley Point",
+      "ar": "هينكلي بوينت",
+      "coords": [-3.131, 51.209],
+      "units": [
+        {
+          "name": "Hinkley Point-B1",
+          "status": "shutdown",
+          "type": "GCR",
+          "model": "AGR",
+          "mw": 625,
+          "from": 1978,
+          "to": 2022,
+          "iaea": 244
+        },
+        {
+          "name": "Hinkley Point-B2",
+          "status": "shutdown",
+          "type": "GCR",
+          "model": "AGR",
+          "mw": 625,
+          "from": 1976,
+          "to": 2022,
+          "iaea": 245
+        }
+      ]
+    },
+    {
+      "id": "hinkley-point-c",
+      "iso3": "GBR",
+      "en": "Hinkley Point C",
+      "ar": "هينكلي بوينت سي",
+      "coords": [-3.131, 51.209],
+      "units": [
+        {
+          "name": "Hinkley Point-C1",
+          "status": "building",
+          "type": "PWR",
+          "model": "EPR-1750",
+          "mw": 1630,
+          "iaea": 1072
+        },
+        {
+          "name": "Hinkley Point-C2",
+          "status": "building",
+          "type": "PWR",
+          "model": "EPR-1750",
+          "mw": 1630,
+          "iaea": 1073
+        }
+      ]
+    },
+    {
+      "id": "hunterston",
+      "iso3": "GBR",
+      "en": "Hunterston",
+      "ar": "هنترستون",
+      "coords": [-4.893, 55.722],
+      "units": [
+        {
+          "name": "Hunterston-B1",
+          "status": "shutdown",
+          "type": "GCR",
+          "model": "AGR",
+          "mw": 624,
+          "from": 1976,
+          "to": 2021,
+          "iaea": 246
+        },
+        {
+          "name": "Hunterston-B2",
+          "status": "shutdown",
+          "type": "GCR",
+          "model": "AGR",
+          "mw": 624,
+          "from": 1977,
+          "to": 2022,
+          "iaea": 247
+        }
+      ]
+    },
+    {
+      "id": "oldbury",
+      "iso3": "GBR",
+      "en": "Oldbury",
+      "ar": "أولدبري",
+      "coords": [-2.567, 51.649],
+      "units": [
+        {
+          "name": "Oldbury-A1",
+          "status": "shutdown",
+          "type": "GCR",
+          "model": "MAGNOX",
+          "mw": 300,
+          "from": 1967,
+          "to": 2012,
+          "iaea": 237
+        },
+        {
+          "name": "Oldbury-A2",
+          "status": "shutdown",
+          "type": "GCR",
+          "model": "MAGNOX",
+          "mw": 300,
+          "from": 1968,
+          "to": 2011,
+          "iaea": 238
+        }
+      ]
+    },
+    {
+      "id": "sizewell",
+      "iso3": "GBR",
+      "en": "Sizewell",
+      "ar": "سايزويل",
+      "coords": [1.621, 52.212],
+      "units": [
+        {
+          "name": "Sizewell-B",
+          "status": "operating",
+          "type": "PWR",
+          "model": "SNUPPS",
+          "mw": 1188,
+          "from": 1995,
+          "iaea": 263
+        }
+      ]
+    },
+    {
+      "id": "torness",
+      "iso3": "GBR",
+      "en": "Torness",
+      "ar": "تورنس",
+      "coords": [-2.399, 55.966],
+      "units": [
+        {
+          "name": "Torness-1",
+          "status": "operating",
+          "type": "GCR",
+          "model": "AGR",
+          "mw": 645,
+          "from": 1988,
+          "iaea": 261
+        },
+        {
+          "name": "Torness-2",
+          "status": "operating",
+          "type": "GCR",
+          "model": "AGR",
+          "mw": 645,
+          "from": 1989,
+          "iaea": 262
+        }
+      ]
+    },
+    {
+      "id": "wylfa",
+      "iso3": "GBR",
+      "en": "Wylfa",
+      "ar": "ويلفا",
+      "coords": [-4.48, 53.416],
+      "units": [
+        {
+          "name": "Wylfa-1",
+          "status": "shutdown",
+          "type": "GCR",
+          "model": "MAGNOX",
+          "mw": 550,
+          "from": 1971,
+          "to": 2015,
+          "iaea": 240
+        },
+        {
+          "name": "Wylfa-2",
+          "status": "shutdown",
+          "type": "GCR",
+          "model": "MAGNOX",
+          "mw": 550,
+          "from": 1972,
+          "to": 2012,
+          "iaea": 241
+        }
+      ]
+    },
+    {
+      "id": "paks",
+      "iso3": "HUN",
+      "en": "Paks",
+      "ar": "باكش",
+      "coords": [18.855, 46.574],
+      "units": [
+        {
+          "name": "Paks-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-213",
+          "mw": 408,
+          "from": 1983,
+          "iaea": 278
+        },
+        {
+          "name": "Paks-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-213",
+          "mw": 410,
+          "from": 1984,
+          "iaea": 279
+        },
+        {
+          "name": "Paks-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-213",
+          "mw": 410,
+          "from": 1986,
+          "iaea": 280
+        },
+        {
+          "name": "Paks-4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-213",
+          "mw": 410,
+          "from": 1987,
+          "iaea": 281
+        }
+      ]
+    },
+    {
+      "id": "kaiga",
+      "iso3": "IND",
+      "en": "Kaiga",
+      "ar": "كايغا",
+      "coords": [74.438, 14.865],
+      "units": [
+        {
+          "name": "Kaiga-1",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "Horizontal Pressure Tube type",
+          "mw": 202,
+          "from": 2000,
+          "iaea": 289
+        },
+        {
+          "name": "Kaiga-2",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "Horizontal Pressure Tube type",
+          "mw": 202,
+          "from": 2000,
+          "iaea": 290
+        },
+        {
+          "name": "Kaiga-3",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "Horizontal Pressure Tube type",
+          "mw": 202,
+          "from": 2007,
+          "iaea": 291
+        },
+        {
+          "name": "Kaiga-4",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "Horizontal Pressure Tube type",
+          "mw": 202,
+          "from": 2011,
+          "iaea": 292
+        }
+      ]
+    },
+    {
+      "id": "kakrapar",
+      "iso3": "IND",
+      "en": "Kakrapar",
+      "ar": "كاكرابار",
+      "coords": [73.351, 21.236],
+      "units": [
+        {
+          "name": "Kakrapar-1",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "Horizontal Pressure Tube type",
+          "mw": 202,
+          "from": 1993,
+          "iaea": 308
+        },
+        {
+          "name": "Kakrapar-2",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "Horizontal Pressure Tube type",
+          "mw": 202,
+          "from": 1995,
+          "iaea": 286
+        },
+        {
+          "name": "Kakrapar-3",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "PHWR-700",
+          "mw": 630,
+          "iaea": 986
+        },
+        {
+          "name": "Kakrapar-4",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "PHWR-700",
+          "mw": 630,
+          "from": 2024,
+          "iaea": 987,
+          "changed": { "year": 2024, "sources": ["https://reactoratlas.com/en/year/2024"] }
+        }
+      ]
+    },
+    {
+      "id": "kalpakkam",
+      "iso3": "IND",
+      "en": "Kalpakkam",
+      "ar": "كالباكام",
+      "coords": [80.174, 12.553],
+      "units": [
+        {
+          "name": "Kalpakkam (PFBR)",
+          "status": "building",
+          "type": "FBR",
+          "model": "Prototype",
+          "mw": 470,
+          "iaea": 859
+        },
+        {
+          "name": "Kalpakkam-1 (Madras-1 / MAPS1)",
+          "status": "suspended",
+          "type": "PHWR",
+          "model": "Horizontal Pressure Tube type",
+          "mw": 202,
+          "from": 1984,
+          "iaea": 304
+        },
+        {
+          "name": "Kalpakkam-2 (Madras-2 / MAPS2)",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "Horizontal Pressure Tube type",
+          "mw": 202,
+          "from": 1986,
+          "iaea": 305
+        }
+      ]
+    },
+    {
+      "id": "kudankulam",
+      "iso3": "IND",
+      "en": "Kudankulam",
+      "ar": "كودانكولام",
+      "coords": [77.708, 8.167],
+      "units": [
+        {
+          "name": "Kudankulam-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-412",
+          "mw": 917,
+          "from": 2014,
+          "iaea": 852
+        },
+        {
+          "name": "Kudankulam-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-412",
+          "mw": 917,
+          "from": 2017,
+          "iaea": 853
+        },
+        {
+          "name": "Kudankulam-3",
+          "status": "building",
+          "type": "PWR",
+          "model": "VVER V-412",
+          "mw": 917,
+          "iaea": 1059
+        },
+        {
+          "name": "Kudankulam-4",
+          "status": "building",
+          "type": "PWR",
+          "model": "VVER V-412",
+          "mw": 917,
+          "iaea": 1060
+        },
+        {
+          "name": "Kudankulam-5",
+          "status": "building",
+          "type": "PWR",
+          "model": "VVERV412",
+          "mw": 917,
+          "iaea": 1108
+        },
+        {
+          "name": "Kudankulam-6",
+          "status": "building",
+          "type": "PWR",
+          "model": "VVERV412",
+          "mw": 917,
+          "iaea": 1109
+        }
+      ]
+    },
+    {
+      "id": "narora",
+      "iso3": "IND",
+      "en": "Narora",
+      "ar": "نارورا",
+      "coords": [78.409, 28.155],
+      "units": [
+        {
+          "name": "Narora-1",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "Horizontal Pressure Tube type",
+          "mw": 202,
+          "from": 1991,
+          "iaea": 306
+        },
+        {
+          "name": "Narora-2",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "Horizontal Pressure Tube type",
+          "mw": 202,
+          "from": 1992,
+          "iaea": 307
+        }
+      ]
+    },
+    {
+      "id": "rajasthan",
+      "iso3": "IND",
+      "en": "Rajasthan",
+      "ar": "راجستان",
+      "coords": [75.608, 24.876],
+      "units": [
+        {
+          "name": "Rajasthan-1",
+          "status": "suspended",
+          "type": "PHWR",
+          "model": "Horizontal Pressure Tube type",
+          "mw": 207,
+          "from": 1973,
+          "iaea": 302
+        },
+        {
+          "name": "Rajasthan-2",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "Horizontal Pressure Tube type",
+          "mw": 207,
+          "from": 1981,
+          "iaea": 303
+        },
+        {
+          "name": "Rajasthan-3",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "Horizontal Pressure Tube type",
+          "mw": 202,
+          "from": 2000,
+          "iaea": 287
+        },
+        {
+          "name": "Rajasthan-4",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "Horizontal Pressure Tube type",
+          "mw": 202,
+          "from": 2000,
+          "iaea": 288
+        },
+        {
+          "name": "Rajasthan-5",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "Horizontal Pressure Tube type",
+          "mw": 202,
+          "from": 2010,
+          "iaea": 295
+        },
+        {
+          "name": "Rajasthan-6",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "Horizontal Pressure Tube type",
+          "mw": 202,
+          "from": 2010,
+          "iaea": 297
+        },
+        {
+          "name": "Rajasthan-7",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "Horizontal Pressure Tube type",
+          "mw": 630,
+          "from": 2025,
+          "iaea": 298,
+          "changed": { "year": 2025, "sources": ["https://reactoratlas.com/en/year/2025"] }
+        },
+        {
+          "name": "Rajasthan-8",
+          "status": "building",
+          "type": "PHWR",
+          "model": "Horizontal Pressure Tube type",
+          "mw": 630,
+          "iaea": 299
+        }
+      ]
+    },
+    {
+      "id": "tarapur",
+      "iso3": "IND",
+      "en": "Tarapur",
+      "ar": "تارابور",
+      "coords": [72.657, 19.834],
+      "units": [
+        {
+          "name": "Tarapur-1",
+          "status": "suspended",
+          "type": "BWR",
+          "model": "BWR-1 (Mark 2)",
+          "mw": 200,
+          "from": 1969,
+          "iaea": 285
+        },
+        {
+          "name": "Tarapur-2",
+          "status": "suspended",
+          "type": "BWR",
+          "model": "BWR-1 (Mark 2)",
+          "mw": 200,
+          "from": 1969,
+          "iaea": 296
+        },
+        {
+          "name": "Tarapur-3",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "Horizontal Pressure Tube Type",
+          "mw": 502,
+          "from": 2006,
+          "iaea": 300
+        },
+        {
+          "name": "Tarapur-4",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "Horizontal Pressure Tube Type",
+          "mw": 502,
+          "from": 2005,
+          "iaea": 301
+        }
+      ]
+    },
+    {
+      "id": "bushehr",
+      "iso3": "IRN",
+      "en": "Bushehr",
+      "ar": "بوشهر",
+      "coords": [50.888, 28.83],
+      "units": [
+        {
+          "name": "Bushehr-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-446",
+          "mw": 915,
+          "from": 2013,
+          "iaea": 310
+        },
+        {
+          "name": "Bushehr-2",
+          "status": "building",
+          "type": "PWR",
+          "model": "V-528 VVER-1000 AES-92 GIII+",
+          "mw": 974,
+          "iaea": 311
+        }
+      ]
+    },
+    {
+      "id": "fukushima-daiichi",
+      "iso3": "JPN",
+      "en": "Fukushima Daiichi",
+      "ar": "فوكوشيما دايتشي",
+      "coords": [141.032, 37.423],
+      "units": [
+        {
+          "name": "Fukushima Daiichi-1",
+          "status": "shutdown",
+          "type": "BWR",
+          "model": "BWR-3",
+          "mw": 439,
+          "from": 1971,
+          "to": 2011,
+          "iaea": 377
+        },
+        {
+          "name": "Fukushima Daiichi-2",
+          "status": "shutdown",
+          "type": "BWR",
+          "model": "BWR-4",
+          "mw": 760,
+          "from": 1974,
+          "to": 2011,
+          "iaea": 389
+        },
+        {
+          "name": "Fukushima Daiichi-3",
+          "status": "shutdown",
+          "type": "BWR",
+          "model": "BWR-4",
+          "mw": 760,
+          "from": 1976,
+          "to": 2011,
+          "iaea": 334
+        },
+        {
+          "name": "Fukushima Daiichi-4",
+          "status": "shutdown",
+          "type": "BWR",
+          "model": "BWR-4",
+          "mw": 760,
+          "from": 1978,
+          "to": 2011,
+          "iaea": 340
+        },
+        {
+          "name": "Fukushima Daiichi-5",
+          "status": "shutdown",
+          "type": "BWR",
+          "model": "BWR-4",
+          "mw": 760,
+          "from": 1978,
+          "to": 2013,
+          "iaea": 341
+        },
+        {
+          "name": "Fukushima Daiichi-6",
+          "status": "shutdown",
+          "type": "BWR",
+          "model": "BWR-5",
+          "mw": 1067,
+          "from": 1979,
+          "to": 2013,
+          "iaea": 342
+        }
+      ]
+    },
+    {
+      "id": "fukushima-daini",
+      "iso3": "JPN",
+      "en": "Fukushima Daini",
+      "ar": "فوكوشيما داييني",
+      "coords": [141.024, 37.315],
+      "units": [
+        {
+          "name": "Fukushima Daini-1",
+          "status": "shutdown",
+          "type": "BWR",
+          "model": "BWR-5",
+          "mw": 1067,
+          "from": 1982,
+          "to": 2019,
+          "iaea": 350
+        },
+        {
+          "name": "Fukushima Daini-2",
+          "status": "shutdown",
+          "type": "BWR",
+          "model": "BWR-5",
+          "mw": 1067,
+          "from": 1984,
+          "to": 2019,
+          "iaea": 351
+        },
+        {
+          "name": "Fukushima Daini-3",
+          "status": "shutdown",
+          "type": "BWR",
+          "model": "BWR-5",
+          "mw": 1067,
+          "from": 1985,
+          "to": 2019,
+          "iaea": 361
+        },
+        {
+          "name": "Fukushima Daini-4",
+          "status": "shutdown",
+          "type": "BWR",
+          "model": "BWR-5",
+          "mw": 1067,
+          "from": 1987,
+          "to": 2019,
+          "iaea": 364
+        }
+      ]
+    },
+    {
+      "id": "genkai",
+      "iso3": "JPN",
+      "en": "Genkai",
+      "ar": "غينكاي",
+      "coords": [129.837, 33.518],
+      "units": [
+        {
+          "name": "Genkai-1",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "M (2-loop)",
+          "mw": 529,
+          "from": 1975,
+          "to": 2015,
+          "iaea": 336
+        },
+        {
+          "name": "Genkai-2",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "M (2-loop)",
+          "mw": 529,
+          "from": 1981,
+          "to": 2019,
+          "iaea": 352
+        },
+        {
+          "name": "Genkai-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "M (4-loop)",
+          "mw": 1127,
+          "from": 1994,
+          "iaea": 372
+        },
+        {
+          "name": "Genkai-4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "M (4-loop)",
+          "mw": 1127,
+          "from": 1997,
+          "iaea": 373
+        }
+      ]
+    },
+    {
+      "id": "hamaoka",
+      "iso3": "JPN",
+      "en": "Hamaoka",
+      "ar": "هاماأوكا",
+      "coords": [138.141, 34.621],
+      "units": [
+        {
+          "name": "Hamaoka-3",
+          "status": "suspended",
+          "type": "BWR",
+          "model": "BWR-5",
+          "mw": 1056,
+          "from": 1987,
+          "iaea": 362
+        },
+        {
+          "name": "Hamaoka-4",
+          "status": "suspended",
+          "type": "BWR",
+          "model": "BWR-5",
+          "mw": 1092,
+          "from": 1993,
+          "iaea": 376
+        },
+        {
+          "name": "Hamaoka-5",
+          "status": "suspended",
+          "type": "BWR",
+          "model": "ABWR",
+          "mw": 1325,
+          "from": 2005,
+          "iaea": 843
+        }
+      ]
+    },
+    {
+      "id": "higashi-dori",
+      "iso3": "JPN",
+      "en": "Higashi Dori",
+      "ar": "هيغاشي دوري",
+      "coords": [141.393, 41.188],
+      "units": [
+        {
+          "name": "Higashi Dori-1 (Tohoku)",
+          "status": "suspended",
+          "type": "BWR",
+          "model": "BWR-5",
+          "mw": 1067,
+          "from": 2005,
+          "iaea": 841
+        }
+      ]
+    },
+    {
+      "id": "ikata",
+      "iso3": "JPN",
+      "en": "Ikata",
+      "ar": "إيكاتا",
+      "coords": [132.309, 33.491],
+      "units": [
+        {
+          "name": "Ikata-1",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "M (2-loop)",
+          "mw": 538,
+          "from": 1977,
+          "to": 2016,
+          "iaea": 348
+        },
+        {
+          "name": "Ikata-2",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "M (2-loop)",
+          "mw": 538,
+          "from": 1982,
+          "to": 2018,
+          "iaea": 358
+        },
+        {
+          "name": "Ikata-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "M (3-loop)",
+          "mw": 846,
+          "from": 1994,
+          "iaea": 374
+        }
+      ]
+    },
+    {
+      "id": "kashiwazaki-kariwa",
+      "iso3": "JPN",
+      "en": "Kashiwazaki-Kariwa",
+      "ar": "كاشيوازاكي-كاريوا",
+      "coords": [138.598, 37.434],
+      "units": [
+        {
+          "name": "Kashiwazaki Kariwa-1",
+          "status": "suspended",
+          "type": "BWR",
+          "model": "BWR-5",
+          "mw": 1067,
+          "from": 1985,
+          "iaea": 359
+        },
+        {
+          "name": "Kashiwazaki Kariwa-2",
+          "status": "suspended",
+          "type": "BWR",
+          "model": "BWR-5",
+          "mw": 1067,
+          "from": 1990,
+          "iaea": 365
+        },
+        {
+          "name": "Kashiwazaki Kariwa-3",
+          "status": "suspended",
+          "type": "BWR",
+          "model": "BWR-5",
+          "mw": 1067,
+          "from": 1993,
+          "iaea": 380
+        },
+        {
+          "name": "Kashiwazaki Kariwa-4",
+          "status": "suspended",
+          "type": "BWR",
+          "model": "BWR-5",
+          "mw": 1067,
+          "from": 1994,
+          "iaea": 381
+        },
+        {
+          "name": "Kashiwazaki Kariwa-5",
+          "status": "suspended",
+          "type": "BWR",
+          "model": "BWR-5",
+          "mw": 1067,
+          "from": 1990,
+          "iaea": 367
+        },
+        {
+          "name": "Kashiwazaki Kariwa-6",
+          "status": "operating",
+          "type": "BWR",
+          "model": "ABWR",
+          "mw": 1315,
+          "from": 1996,
+          "iaea": 383,
+          "changed": {
+            "year": 2026,
+            "sources": [
+              "https://world-nuclear.org/information-library/country-profiles/countries-g-n/japan-nuclear-power",
+              "https://en.wikipedia.org/wiki/Kashiwazaki-Kariwa_Nuclear_Power_Plant"
+            ]
+          }
+        },
+        {
+          "name": "Kashiwazaki Kariwa-7",
+          "status": "suspended",
+          "type": "BWR",
+          "model": "ABWR",
+          "mw": 1315,
+          "from": 1997,
+          "iaea": 384
+        }
+      ]
+    },
+    {
+      "id": "mihama",
+      "iso3": "JPN",
+      "en": "Mihama",
+      "ar": "ميهاما",
+      "coords": [135.962, 35.701],
+      "units": [
+        {
+          "name": "Mihama-1",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "WH 2LP",
+          "mw": 320,
+          "from": 1970,
+          "to": 2015,
+          "iaea": 366
+        },
+        {
+          "name": "Mihama-2",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "M (2-loop)",
+          "mw": 470,
+          "from": 1972,
+          "to": 2015,
+          "iaea": 386
+        },
+        {
+          "name": "Mihama-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "M (3-loop)",
+          "mw": 780,
+          "from": 1976,
+          "iaea": 338
+        }
+      ]
+    },
+    {
+      "id": "monju",
+      "iso3": "JPN",
+      "en": "Monju",
+      "ar": "مونجو",
+      "coords": [135.988, 35.739],
+      "units": [
+        { "name": "Monju", "status": "shutdown", "type": "FBR", "mw": 246, "to": 2017, "iaea": 357 }
+      ]
+    },
+    {
+      "id": "ohi",
+      "iso3": "JPN",
+      "en": "Ohi",
+      "ar": "أوهي",
+      "coords": [135.652, 35.544],
+      "units": [
+        {
+          "name": "Ohi-1",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "WH 4LP",
+          "mw": 1120,
+          "from": 1979,
+          "to": 2018,
+          "iaea": 339
+        },
+        {
+          "name": "Ohi-2",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "WH 4LP",
+          "mw": 1120,
+          "from": 1979,
+          "to": 2018,
+          "iaea": 343
+        },
+        {
+          "name": "Ohi-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "M (4-loop)",
+          "mw": 1127,
+          "from": 1991,
+          "iaea": 378
+        },
+        {
+          "name": "Ohi-4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "M (4-loop)",
+          "mw": 1127,
+          "from": 1993,
+          "iaea": 379
+        }
+      ]
+    },
+    {
+      "id": "ohma",
+      "iso3": "JPN",
+      "en": "Ohma",
+      "ar": "أوما",
+      "coords": [140.909, 41.507],
+      "units": [
+        {
+          "name": "Ohma",
+          "status": "building",
+          "type": "BWR",
+          "model": "ABWR",
+          "mw": 1328,
+          "iaea": 867
+        }
+      ]
+    },
+    {
+      "id": "onagawa",
+      "iso3": "JPN",
+      "en": "Onagawa",
+      "ar": "أوناغاوا",
+      "coords": [141.504, 38.4],
+      "units": [
+        {
+          "name": "Onagawa-1",
+          "status": "shutdown",
+          "type": "BWR",
+          "model": "BWR-4",
+          "mw": 498,
+          "from": 1984,
+          "to": 2018,
+          "iaea": 347
+        },
+        {
+          "name": "Onagawa-2",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-5",
+          "mw": 796,
+          "from": 1995,
+          "iaea": 382,
+          "changed": {
+            "year": 2024,
+            "sources": ["https://www-pub.iaea.org/MTCD/Publications/PDF/RDS-2-45_web.pdf"]
+          }
+        },
+        {
+          "name": "Onagawa-3",
+          "status": "suspended",
+          "type": "BWR",
+          "model": "BWR-5",
+          "mw": 796,
+          "from": 2002,
+          "iaea": 385
+        }
+      ]
+    },
+    {
+      "id": "sendai",
+      "iso3": "JPN",
+      "en": "Sendai",
+      "ar": "سنداي",
+      "coords": [130.193, 31.834],
+      "units": [
+        {
+          "name": "Sendai-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "M (3-loop)",
+          "mw": 846,
+          "from": 1984,
+          "iaea": 353
+        },
+        {
+          "name": "Sendai-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "M (3-loop)",
+          "mw": 846,
+          "from": 1985,
+          "iaea": 363
+        }
+      ]
+    },
+    {
+      "id": "shika",
+      "iso3": "JPN",
+      "en": "Shika",
+      "ar": "شيكا",
+      "coords": [136.728, 37.061],
+      "units": [
+        {
+          "name": "Shika-1",
+          "status": "suspended",
+          "type": "BWR",
+          "model": "BWR-5",
+          "mw": 505,
+          "from": 1993,
+          "iaea": 375
+        },
+        {
+          "name": "Shika-2",
+          "status": "suspended",
+          "type": "BWR",
+          "model": "ABWR",
+          "mw": 1304,
+          "from": 2006,
+          "iaea": 842
+        }
+      ]
+    },
+    {
+      "id": "shimane",
+      "iso3": "JPN",
+      "en": "Shimane",
+      "ar": "شيماني",
+      "coords": [132.999, 35.537],
+      "units": [
+        {
+          "name": "Shimane-1",
+          "status": "shutdown",
+          "type": "BWR",
+          "model": "BWR-3",
+          "mw": 439,
+          "from": 1974,
+          "to": 2015,
+          "iaea": 387
+        },
+        {
+          "name": "Shimane-2",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-5",
+          "mw": 789,
+          "from": 1989,
+          "iaea": 368,
+          "changed": {
+            "year": 2024,
+            "sources": ["https://www-pub.iaea.org/MTCD/Publications/PDF/RDS-2-45_web.pdf"]
+          }
+        },
+        {
+          "name": "Shimane-3",
+          "status": "building",
+          "type": "BWR",
+          "model": "ABWR",
+          "mw": 1325,
+          "iaea": 862
+        }
+      ]
+    },
+    {
+      "id": "takahama",
+      "iso3": "JPN",
+      "en": "Takahama",
+      "ar": "تاكاهاما",
+      "coords": [135.503, 35.52],
+      "units": [
+        {
+          "name": "Takahama-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "M (3-loop)",
+          "mw": 780,
+          "from": 1974,
+          "iaea": 388
+        },
+        {
+          "name": "Takahama-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "M (3-loop)",
+          "mw": 780,
+          "from": 1975,
+          "iaea": 337
+        },
+        {
+          "name": "Takahama-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "M (3-loop)",
+          "mw": 830,
+          "from": 1985,
+          "iaea": 354
+        },
+        {
+          "name": "Takahama-4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "M (3-loop)",
+          "mw": 830,
+          "from": 1985,
+          "iaea": 356
+        }
+      ]
+    },
+    {
+      "id": "tokai",
+      "iso3": "JPN",
+      "en": "Tokai",
+      "ar": "توكاي",
+      "coords": [140.612, 36.466],
+      "units": [
+        {
+          "name": "Tokai-2",
+          "status": "suspended",
+          "type": "BWR",
+          "model": "BWR-5",
+          "mw": 1056,
+          "from": 1978,
+          "iaea": 346
+        }
+      ]
+    },
+    {
+      "id": "tomari",
+      "iso3": "JPN",
+      "en": "Tomari",
+      "ar": "توماري",
+      "coords": [140.515, 43.038],
+      "units": [
+        {
+          "name": "Tomari-1",
+          "status": "suspended",
+          "type": "PWR",
+          "model": "M (2-loop)",
+          "mw": 550,
+          "from": 1989,
+          "iaea": 370
+        },
+        {
+          "name": "Tomari-2",
+          "status": "suspended",
+          "type": "PWR",
+          "model": "M (2-loop)",
+          "mw": 550,
+          "from": 1991,
+          "iaea": 371
+        },
+        {
+          "name": "Tomari-3",
+          "status": "suspended",
+          "type": "PWR",
+          "model": "M (3-loop)",
+          "mw": 866,
+          "from": 2009,
+          "iaea": 856
+        }
+      ]
+    },
+    {
+      "id": "tsuruga",
+      "iso3": "JPN",
+      "en": "Tsuruga",
+      "ar": "تسوروغا",
+      "coords": [136.079, 35.672],
+      "units": [
+        {
+          "name": "Tsuruga-1",
+          "status": "shutdown",
+          "type": "BWR",
+          "model": "BWR-2",
+          "mw": 341,
+          "from": 1970,
+          "to": 2015,
+          "iaea": 355
+        },
+        {
+          "name": "Tsuruga-2",
+          "status": "suspended",
+          "type": "PWR",
+          "model": "M (4-loop)",
+          "mw": 1115,
+          "from": 1987,
+          "iaea": 360
+        }
+      ]
+    },
+    {
+      "id": "hanbit",
+      "iso3": "KOR",
+      "en": "Hanbit",
+      "ar": "هانبيت",
+      "coords": [126.41, 35.405],
+      "units": [
+        {
+          "name": "Hanbit-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH F",
+          "mw": 903,
+          "from": 1986,
+          "iaea": 411
+        },
+        {
+          "name": "Hanbit-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH F",
+          "mw": 903,
+          "from": 1987,
+          "iaea": 412
+        },
+        {
+          "name": "Hanbit-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "OPR-1000",
+          "mw": 950,
+          "from": 1995,
+          "iaea": 396
+        },
+        {
+          "name": "Hanbit-4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "OPR-1000",
+          "mw": 950,
+          "from": 1996,
+          "iaea": 397
+        },
+        {
+          "name": "Hanbit-5",
+          "status": "operating",
+          "type": "PWR",
+          "model": "OPR-1000",
+          "mw": 950,
+          "from": 2002,
+          "iaea": 402
+        },
+        {
+          "name": "Hanbit-6",
+          "status": "operating",
+          "type": "PWR",
+          "model": "OPR-1000",
+          "mw": 993,
+          "from": 2002,
+          "iaea": 403
+        }
+      ]
+    },
+    {
+      "id": "hanul",
+      "iso3": "KOR",
+      "en": "Hanul",
+      "ar": "هانول",
+      "coords": [129.384, 37.09],
+      "units": [
+        {
+          "name": "Hanul-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "France CPI",
+          "mw": 903,
+          "from": 1988,
+          "iaea": 413
+        },
+        {
+          "name": "Hanul-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "France CPI",
+          "mw": 903,
+          "from": 1989,
+          "iaea": 395
+        },
+        {
+          "name": "Hanul-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "OPR-1000",
+          "mw": 997,
+          "from": 1998,
+          "iaea": 398
+        },
+        {
+          "name": "Hanul-4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "OPR-1000",
+          "mw": 950,
+          "from": 1999,
+          "iaea": 399
+        },
+        {
+          "name": "Hanul-5",
+          "status": "operating",
+          "type": "PWR",
+          "model": "OPR-1000",
+          "mw": 950,
+          "from": 2004,
+          "iaea": 404
+        },
+        {
+          "name": "Hanul-6",
+          "status": "operating",
+          "type": "PWR",
+          "model": "OPR-1000",
+          "mw": 950,
+          "from": 2005,
+          "iaea": 406
+        },
+        {
+          "name": "Shin-Hanul-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "APR-1400",
+          "mw": 1340,
+          "from": 2022,
+          "iaea": 887
+        },
+        {
+          "name": "Shin-Hanul-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "APR-1400",
+          "mw": 1340,
+          "iaea": 888
+        }
+      ]
+    },
+    {
+      "id": "kori",
+      "iso3": "KOR",
+      "en": "Kori",
+      "ar": "كوري",
+      "coords": [129.302, 35.327],
+      "units": [
+        {
+          "name": "Kori-1",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "WH 60",
+          "mw": 558,
+          "from": 1978,
+          "to": 2017,
+          "iaea": 394
+        },
+        {
+          "name": "Kori-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH F",
+          "mw": 618,
+          "from": 1983,
+          "iaea": 405
+        },
+        {
+          "name": "Kori-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH F",
+          "mw": 1001,
+          "from": 1985,
+          "iaea": 409
+        },
+        {
+          "name": "Kori-4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH F",
+          "mw": 1012,
+          "from": 1986,
+          "iaea": 410
+        },
+        {
+          "name": "Saeul-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "APR-1400",
+          "mw": 1340,
+          "from": 2016,
+          "iaea": 885
+        },
+        {
+          "name": "Saeul-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "APR-1400",
+          "mw": 1340,
+          "from": 2019,
+          "iaea": 886
+        },
+        {
+          "name": "Saeul-3",
+          "status": "building",
+          "type": "PWR",
+          "model": "APR-1400",
+          "mw": 1340,
+          "iaea": 1074
+        },
+        {
+          "name": "Saeul-4",
+          "status": "building",
+          "type": "PWR",
+          "model": "APR-1400",
+          "mw": 1340,
+          "iaea": 1075
+        },
+        {
+          "name": "Shin-Kori-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "OPR-1000",
+          "mw": 998,
+          "from": 2011,
+          "iaea": 864
+        },
+        {
+          "name": "Shin-Kori-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "OPR-1000",
+          "mw": 995,
+          "from": 2012,
+          "iaea": 865
+        }
+      ]
+    },
+    {
+      "id": "wolsong",
+      "iso3": "KOR",
+      "en": "Wolsong",
+      "ar": "وولسونغ",
+      "coords": [129.476, 35.71],
+      "units": [
+        {
+          "name": "Shin-Wolsong-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "OPR-1000",
+          "mw": 950,
+          "from": 2012,
+          "iaea": 883
+        },
+        {
+          "name": "Shin-Wolsong-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "OPR-1000",
+          "mw": 950,
+          "from": 2015,
+          "iaea": 884
+        },
+        {
+          "name": "Wolsong-1",
+          "status": "shutdown",
+          "type": "PHWR",
+          "model": "CANDU 6",
+          "mw": 629,
+          "from": 1983,
+          "to": 2019,
+          "iaea": 407
+        },
+        {
+          "name": "Wolsong-2",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "CANDU 6",
+          "mw": 652,
+          "from": 1997,
+          "iaea": 408
+        },
+        {
+          "name": "Wolsong-3",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "CANDU 6",
+          "mw": 665,
+          "from": 1998,
+          "iaea": 400
+        },
+        {
+          "name": "Wolsong-4",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "CANDU 6",
+          "mw": 669,
+          "from": 1999,
+          "iaea": 401
+        }
+      ]
+    },
+    {
+      "id": "laguna-verde",
+      "iso3": "MEX",
+      "en": "Laguna Verde",
+      "ar": "لاغونا فيردي",
+      "coords": [-96.405, 19.719],
+      "units": [
+        {
+          "name": "Laguna Verde-1",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-5",
+          "mw": 780,
+          "from": 1990,
+          "iaea": 420
+        },
+        {
+          "name": "Laguna Verde-2",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-5",
+          "mw": 780,
+          "from": 1995,
+          "iaea": 421
+        }
+      ]
+    },
+    {
+      "id": "borssele",
+      "iso3": "NLD",
+      "en": "Borssele",
+      "ar": "بورسيله",
+      "coords": [3.719, 51.431],
+      "units": [
+        {
+          "name": "Borssele",
+          "status": "operating",
+          "type": "PWR",
+          "model": "KWU 2LP",
+          "mw": 495,
+          "from": 1973,
+          "iaea": 423
+        }
+      ]
+    },
+    {
+      "id": "chashma",
+      "iso3": "PAK",
+      "en": "Chashma",
+      "ar": "تشاشما",
+      "coords": [71.463, 32.392],
+      "units": [
+        {
+          "name": "CHASNUPP-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CNP-300",
+          "mw": 300,
+          "from": 2000,
+          "iaea": 428
+        },
+        {
+          "name": "CHASNUPP-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CNP-300",
+          "mw": 300,
+          "from": 2011,
+          "iaea": 429
+        },
+        {
+          "name": "CHASNUPP-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CNP-300",
+          "mw": 315,
+          "from": 2016,
+          "iaea": 1044
+        },
+        {
+          "name": "CHASNUPP-4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CNP-300",
+          "mw": 313,
+          "from": 2017,
+          "iaea": 1045
+        }
+      ]
+    },
+    {
+      "id": "karachi",
+      "iso3": "PAK",
+      "en": "Karachi",
+      "ar": "كراتشي",
+      "coords": [66.79, 24.845],
+      "units": [
+        {
+          "name": "KANUPP-1",
+          "status": "shutdown",
+          "type": "PHWR",
+          "model": "CANDU-137 MW",
+          "mw": 125,
+          "from": 1972,
+          "to": 2021,
+          "iaea": 427
+        },
+        {
+          "name": "KANUPP-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "ACP-1000",
+          "mw": 1017,
+          "from": 2021,
+          "iaea": 1067
+        },
+        {
+          "name": "KANUPP-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "ACP-1000",
+          "mw": 1014,
+          "from": 2022,
+          "iaea": 1068
+        }
+      ]
+    },
+    {
+      "id": "cernavoda",
+      "iso3": "ROU",
+      "en": "Cernavoda",
+      "ar": "تشيرنافودا",
+      "coords": [28.061, 44.322],
+      "units": [
+        {
+          "name": "Cernavoda-1",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "CANDU 6",
+          "mw": 650,
+          "from": 1996,
+          "iaea": 442
+        },
+        {
+          "name": "Cernavoda-2",
+          "status": "operating",
+          "type": "PHWR",
+          "model": "CANDU 6",
+          "mw": 650,
+          "from": 2007,
+          "iaea": 443
+        }
+      ]
+    },
+    {
+      "id": "akademik-lomonosov",
+      "iso3": "RUS",
+      "en": "Akademik Lomonosov",
+      "ar": "أكاديميك لومونوسوف (عائمة)",
+      "coords": [170.306, 69.71],
+      "units": [
+        {
+          "name": "Akademik Lomonosov-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "KLT-40S 'Floating'",
+          "mw": 30,
+          "from": 2020,
+          "iaea": 895
+        },
+        {
+          "name": "Akademik Lomonosov-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "KLT-40S 'Floating'",
+          "mw": 30,
+          "from": 2020,
+          "iaea": 896
+        }
+      ]
+    },
+    {
+      "id": "brest-od",
+      "iso3": "RUS",
+      "en": "BREST-OD",
+      "ar": "بريست-أو دي",
+      "coords": [84.905, 56.637],
+      "units": [
+        {
+          "name": "BREST-OD-300",
+          "status": "building",
+          "type": "FBR",
+          "model": "BREST-OD-300",
+          "mw": 300,
+          "iaea": 1106
+        }
+      ]
+    },
+    {
+      "id": "balakovo",
+      "iso3": "RUS",
+      "en": "Balakovo",
+      "ar": "بالاكوفو",
+      "coords": [47.952, 52.092],
+      "units": [
+        {
+          "name": "Balakovo-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-320",
+          "mw": 950,
+          "from": 1986,
+          "iaea": 524
+        },
+        {
+          "name": "Balakovo-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-320",
+          "mw": 950,
+          "from": 1988,
+          "iaea": 525
+        },
+        {
+          "name": "Balakovo-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-320",
+          "mw": 950,
+          "from": 1989,
+          "iaea": 526
+        },
+        {
+          "name": "Balakovo-4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-320",
+          "mw": 950,
+          "from": 1993,
+          "iaea": 527
+        }
+      ]
+    },
+    {
+      "id": "baltic",
+      "iso3": "RUS",
+      "en": "Baltic",
+      "ar": "البلطيق",
+      "coords": [22.162, 54.939],
+      "units": [
+        {
+          "name": "Baltic-1",
+          "status": "building",
+          "type": "PWR",
+          "model": "VVER V-491",
+          "mw": 1109,
+          "iaea": 968
+        }
+      ]
+    },
+    {
+      "id": "beloyarsk",
+      "iso3": "RUS",
+      "en": "Beloyarsk",
+      "ar": "بيلويارسك",
+      "coords": [61.321, 56.842],
+      "units": [
+        {
+          "name": "Beloyarsk-3",
+          "status": "operating",
+          "type": "FBR",
+          "model": "BN-600",
+          "mw": 560,
+          "from": 1981,
+          "iaea": 484
+        },
+        {
+          "name": "Beloyarsk-4",
+          "status": "operating",
+          "type": "FBR",
+          "model": "BN-800",
+          "mw": 820,
+          "from": 2016,
+          "iaea": 451
+        }
+      ]
+    },
+    {
+      "id": "bilibino",
+      "iso3": "RUS",
+      "en": "Bilibino",
+      "ar": "بيليبينو",
+      "coords": [166.492, 68.059],
+      "units": [
+        {
+          "name": "Bilibino-1",
+          "status": "shutdown",
+          "type": "LWGR",
+          "model": "EGP-6",
+          "mw": 11,
+          "from": 1974,
+          "to": 2019,
+          "iaea": 467
+        },
+        {
+          "name": "Bilibino-2",
+          "status": "shutdown",
+          "type": "LWGR",
+          "model": "EGP-6",
+          "mw": 11,
+          "from": 1975,
+          "to": 2025,
+          "iaea": 468,
+          "changed": { "year": 2025, "sources": ["https://reactoratlas.com/en/year/2025"] }
+        },
+        {
+          "name": "Bilibino-3",
+          "status": "shutdown",
+          "type": "LWGR",
+          "model": "EGP-6",
+          "mw": 11,
+          "from": 1976,
+          "to": 2025,
+          "iaea": 469,
+          "changed": { "year": 2025, "sources": ["https://reactoratlas.com/en/year/2025"] }
+        },
+        {
+          "name": "Bilibino-4",
+          "status": "shutdown",
+          "type": "LWGR",
+          "model": "EGP-6",
+          "mw": 11,
+          "from": 1977,
+          "to": 2025,
+          "iaea": 470,
+          "changed": { "year": 2025, "sources": ["https://reactoratlas.com/en/year/2025"] }
+        }
+      ]
+    },
+    {
+      "id": "kalinin",
+      "iso3": "RUS",
+      "en": "Kalinin",
+      "ar": "كالينين",
+      "coords": [35.057, 57.903],
+      "units": [
+        {
+          "name": "Kalinin-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-338",
+          "mw": 950,
+          "from": 1985,
+          "iaea": 489
+        },
+        {
+          "name": "Kalinin-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-338",
+          "mw": 950,
+          "from": 1987,
+          "iaea": 490
+        },
+        {
+          "name": "Kalinin-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-320",
+          "mw": 950,
+          "from": 2005,
+          "iaea": 495
+        },
+        {
+          "name": "Kalinin-4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-320",
+          "mw": 950,
+          "from": 2012,
+          "iaea": 496
+        }
+      ]
+    },
+    {
+      "id": "kola",
+      "iso3": "RUS",
+      "en": "Kola",
+      "ar": "كولا",
+      "coords": [32.491, 67.467],
+      "units": [
+        {
+          "name": "Kola-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-230",
+          "mw": 411,
+          "from": 1973,
+          "iaea": 453
+        },
+        {
+          "name": "Kola-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-230",
+          "mw": 411,
+          "from": 1975,
+          "iaea": 460
+        },
+        {
+          "name": "Kola-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-213",
+          "mw": 411,
+          "from": 1982,
+          "iaea": 491
+        },
+        {
+          "name": "Kola-4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-213",
+          "mw": 411,
+          "from": 1984,
+          "iaea": 492
+        }
+      ]
+    },
+    {
+      "id": "kursk",
+      "iso3": "RUS",
+      "en": "Kursk",
+      "ar": "كورسك",
+      "coords": [35.607, 51.674],
+      "units": [
+        {
+          "name": "Kursk 2-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-510",
+          "mw": 1200,
+          "from": 2025,
+          "iaea": 903,
+          "changed": { "year": 2025, "sources": ["https://reactoratlas.com/en/year/2025"] }
+        },
+        {
+          "name": "Kursk 2-2",
+          "status": "building",
+          "type": "PWR",
+          "model": "VVER V-510",
+          "mw": 1200,
+          "iaea": 1008
+        },
+        {
+          "name": "Kursk-1",
+          "status": "shutdown",
+          "type": "LWGR",
+          "model": "RBMK-1000",
+          "mw": 925,
+          "from": 1977,
+          "to": 2021,
+          "iaea": 476
+        },
+        {
+          "name": "Kursk-2",
+          "status": "shutdown",
+          "type": "LWGR",
+          "model": "RBMK-1000",
+          "mw": 925,
+          "from": 1979,
+          "to": 2024,
+          "iaea": 485,
+          "changed": { "year": 2024, "sources": ["https://reactoratlas.com/en/year/2024"] }
+        },
+        {
+          "name": "Kursk-3",
+          "status": "operating",
+          "type": "LWGR",
+          "model": "RBMK-1000",
+          "mw": 925,
+          "from": 1984,
+          "iaea": 497
+        },
+        {
+          "name": "Kursk-4",
+          "status": "operating",
+          "type": "LWGR",
+          "model": "RBMK-1000",
+          "mw": 925,
+          "from": 1986,
+          "iaea": 498
+        }
+      ]
+    },
+    {
+      "id": "leningrad",
+      "iso3": "RUS",
+      "en": "Leningrad",
+      "ar": "لينينغراد",
+      "coords": [29.039, 59.837],
+      "units": [
+        {
+          "name": "Leningrad 2-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-491",
+          "mw": 1066,
+          "from": 2018,
+          "iaea": 900
+        },
+        {
+          "name": "Leningrad 2-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-491",
+          "mw": 1066,
+          "from": 2021,
+          "iaea": 901
+        },
+        {
+          "name": "Leningrad-1",
+          "status": "shutdown",
+          "type": "LWGR",
+          "model": "RBMK-1000",
+          "mw": 925,
+          "from": 1974,
+          "to": 2018,
+          "iaea": 474
+        },
+        {
+          "name": "Leningrad-2",
+          "status": "shutdown",
+          "type": "LWGR",
+          "model": "RBMK-1000",
+          "mw": 925,
+          "from": 1976,
+          "to": 2020,
+          "iaea": 475
+        },
+        {
+          "name": "Leningrad-3",
+          "status": "operating",
+          "type": "LWGR",
+          "model": "RBMK-1000",
+          "mw": 925,
+          "from": 1980,
+          "iaea": 493
+        },
+        {
+          "name": "Leningrad-4",
+          "status": "operating",
+          "type": "LWGR",
+          "model": "RBMK-1000",
+          "mw": 925,
+          "from": 1981,
+          "iaea": 494
+        }
+      ]
+    },
+    {
+      "id": "novovoronezh",
+      "iso3": "RUS",
+      "en": "Novovoronezh",
+      "ar": "نوفوفورونيج",
+      "coords": [39.206, 51.275],
+      "units": [
+        {
+          "name": "Novovoronezh 2-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-392M",
+          "mw": 1114,
+          "from": 2017,
+          "iaea": 898
+        },
+        {
+          "name": "Novovoronezh 2-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-392M",
+          "mw": 1114,
+          "from": 2019,
+          "iaea": 899
+        },
+        {
+          "name": "Novovoronezh-3",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "VVER V-179",
+          "mw": 385,
+          "from": 1972,
+          "to": 2016,
+          "iaea": 519
+        },
+        {
+          "name": "Novovoronezh-4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-179",
+          "mw": 385,
+          "from": 1973,
+          "iaea": 448
+        },
+        {
+          "name": "Novovoronezh-5",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-187",
+          "mw": 950,
+          "from": 1981,
+          "iaea": 483
+        }
+      ]
+    },
+    {
+      "id": "rostov",
+      "iso3": "RUS",
+      "en": "Rostov",
+      "ar": "روستوف",
+      "coords": [42.373, 47.599],
+      "units": [
+        {
+          "name": "Rostov-1 (Volgodonsk-1)",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-320",
+          "mw": 950,
+          "from": 2001,
+          "iaea": 502
+        },
+        {
+          "name": "Rostov-2 (Volgodonsk-2)",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-320",
+          "mw": 950,
+          "from": 2010,
+          "iaea": 505
+        },
+        {
+          "name": "Rostov-3 (Volgodonsk-3)",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-320",
+          "mw": 950,
+          "from": 2015,
+          "iaea": 506
+        },
+        {
+          "name": "Rostov-4 (Volgodonsk-4)",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-320",
+          "mw": 950,
+          "from": 2018,
+          "iaea": 507
+        }
+      ]
+    },
+    {
+      "id": "smolensk",
+      "iso3": "RUS",
+      "en": "Smolensk",
+      "ar": "سمولينسك",
+      "coords": [33.245, 54.169],
+      "units": [
+        {
+          "name": "Smolensk-1",
+          "status": "operating",
+          "type": "LWGR",
+          "model": "RBMK-1000",
+          "mw": 925,
+          "from": 1983,
+          "iaea": 486
+        },
+        {
+          "name": "Smolensk-2",
+          "status": "operating",
+          "type": "LWGR",
+          "model": "RBMK-1000",
+          "mw": 925,
+          "from": 1985,
+          "iaea": 487
+        },
+        {
+          "name": "Smolensk-3",
+          "status": "operating",
+          "type": "LWGR",
+          "model": "RBMK-1000",
+          "mw": 925,
+          "from": 1990,
+          "iaea": 508
+        }
+      ]
+    },
+    {
+      "id": "bohunice",
+      "iso3": "SVK",
+      "en": "Bohunice",
+      "ar": "بوهونيتسه",
+      "coords": [17.687, 48.494],
+      "units": [
+        {
+          "name": "Bohunice-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-213",
+          "mw": 466,
+          "from": 1985,
+          "iaea": 546
+        },
+        {
+          "name": "Bohunice-4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-213",
+          "mw": 466,
+          "from": 1985,
+          "iaea": 547
+        }
+      ]
+    },
+    {
+      "id": "mochovce",
+      "iso3": "SVK",
+      "en": "Mochovce",
+      "ar": "موخوفتسه",
+      "coords": [18.455, 48.261],
+      "units": [
+        {
+          "name": "Mochovce-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-213",
+          "mw": 408,
+          "from": 1998,
+          "iaea": 550
+        },
+        {
+          "name": "Mochovce-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-213",
+          "mw": 408,
+          "from": 2000,
+          "iaea": 551
+        },
+        {
+          "name": "Mochovce-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-213",
+          "mw": 440,
+          "iaea": 544
+        },
+        {
+          "name": "Mochovce-4",
+          "status": "building",
+          "type": "PWR",
+          "model": "VVER V-213",
+          "mw": 440,
+          "iaea": 545
+        }
+      ]
+    },
+    {
+      "id": "krsko",
+      "iso3": "SVN",
+      "en": "Krsko",
+      "ar": "كرشكو",
+      "coords": [15.516, 45.939],
+      "units": [
+        {
+          "name": "Krsko",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 2LP",
+          "mw": 632,
+          "from": 1983,
+          "iaea": 542
+        }
+      ]
+    },
+    {
+      "id": "forsmark",
+      "iso3": "SWE",
+      "en": "Forsmark",
+      "ar": "فورسمارك",
+      "coords": [18.168, 60.405],
+      "units": [
+        {
+          "name": "Forsmark-1",
+          "status": "operating",
+          "type": "BWR",
+          "model": "AA-III, BWR-2500",
+          "mw": 900,
+          "from": 1980,
+          "iaea": 541
+        },
+        {
+          "name": "Forsmark-2",
+          "status": "operating",
+          "type": "BWR",
+          "model": "AA-III, BWR-2500",
+          "mw": 900,
+          "from": 1981,
+          "iaea": 530
+        },
+        {
+          "name": "Forsmark-3",
+          "status": "operating",
+          "type": "BWR",
+          "model": "AA-IV, BWR-3000",
+          "mw": 1050,
+          "from": 1985,
+          "iaea": 532
+        }
+      ]
+    },
+    {
+      "id": "oskarshamn",
+      "iso3": "SWE",
+      "en": "Oskarshamn",
+      "ar": "أوسكارسهامن",
+      "coords": [16.666, 57.415],
+      "units": [
+        {
+          "name": "Oskarshamn-1",
+          "status": "shutdown",
+          "type": "BWR",
+          "model": "AA-I",
+          "mw": 440,
+          "from": 1972,
+          "to": 2017,
+          "iaea": 534
+        },
+        {
+          "name": "Oskarshamn-2",
+          "status": "shutdown",
+          "type": "BWR",
+          "model": "AA-II",
+          "mw": 580,
+          "from": 1975,
+          "to": 2016,
+          "iaea": 535
+        },
+        {
+          "name": "Oskarshamn-3",
+          "status": "operating",
+          "type": "BWR",
+          "model": "AA-IV, BWR-3000",
+          "mw": 1050,
+          "from": 1985,
+          "iaea": 531
+        }
+      ]
+    },
+    {
+      "id": "ringhals",
+      "iso3": "SWE",
+      "en": "Ringhals",
+      "ar": "رينغالس",
+      "coords": [12.111, 57.259],
+      "units": [
+        {
+          "name": "Ringhals-1",
+          "status": "shutdown",
+          "type": "BWR",
+          "model": "AA-I",
+          "mw": 881,
+          "from": 1976,
+          "to": 2020,
+          "iaea": 536
+        },
+        {
+          "name": "Ringhals-2",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "WH 3LP",
+          "mw": 820,
+          "from": 1975,
+          "to": 2019,
+          "iaea": 537
+        },
+        {
+          "name": "Ringhals-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 3LP",
+          "mw": 915,
+          "from": 1981,
+          "iaea": 539
+        },
+        {
+          "name": "Ringhals-4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 3LP",
+          "mw": 1130,
+          "from": 1983,
+          "iaea": 529
+        }
+      ]
+    },
+    {
+      "id": "akkuyu",
+      "iso3": "TUR",
+      "en": "Akkuyu",
+      "ar": "أكويو",
+      "coords": [33.541, 36.144],
+      "units": [
+        {
+          "name": "Akkuyu-1",
+          "status": "building",
+          "type": "PWR",
+          "model": "VVER V-509",
+          "mw": 1114,
+          "iaea": 553
+        },
+        {
+          "name": "Akkuyu-2",
+          "status": "building",
+          "type": "PWR",
+          "model": "VVER V-509",
+          "mw": 1114,
+          "iaea": 1080
+        },
+        {
+          "name": "Akkuyu-3",
+          "status": "building",
+          "type": "PWR",
+          "model": "VVER V-509",
+          "mw": 1114,
+          "iaea": 1081
+        },
+        {
+          "name": "Akkuyu-4",
+          "status": "building",
+          "type": "PWR",
+          "model": "VVER V-509",
+          "mw": 1114,
+          "iaea": 1082
+        }
+      ]
+    },
+    {
+      "id": "chin-shan",
+      "iso3": "TWN",
+      "en": "Chin Shan",
+      "ar": "تشين شان",
+      "coords": [121.567, 25.292],
+      "units": [
+        {
+          "name": "Chin Shan-1",
+          "status": "shutdown",
+          "type": "BWR",
+          "model": "BWR-4 (Mark 1)",
+          "mw": 604,
+          "from": 1978,
+          "to": 2018,
+          "iaea": 554
+        },
+        {
+          "name": "Chin Shan-2",
+          "status": "shutdown",
+          "type": "BWR",
+          "model": "BWR-4 (Mark 1)",
+          "mw": 604,
+          "from": 1979,
+          "to": 2019,
+          "iaea": 555
+        }
+      ]
+    },
+    {
+      "id": "kuosheng",
+      "iso3": "TWN",
+      "en": "Kuosheng",
+      "ar": "كوشينغ",
+      "coords": [121.662, 25.203],
+      "units": [
+        {
+          "name": "Kuosheng-1",
+          "status": "shutdown",
+          "type": "BWR",
+          "model": "BWR-6",
+          "mw": 948,
+          "from": 1981,
+          "to": 2021,
+          "iaea": 556
+        },
+        {
+          "name": "Kuosheng-2",
+          "status": "shutdown",
+          "type": "BWR",
+          "model": "BWR-6",
+          "mw": 948,
+          "from": 1983,
+          "to": 2023,
+          "iaea": 557
+        }
+      ]
+    },
+    {
+      "id": "maanshan",
+      "iso3": "TWN",
+      "en": "Maanshan",
+      "ar": "مانشان",
+      "coords": [121.924, 25.038],
+      "units": [
+        {
+          "name": "Maanshan-1",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "WH 3LP (WE 312)",
+          "mw": 936,
+          "from": 1984,
+          "to": 2024,
+          "iaea": 558,
+          "changed": { "year": 2024, "sources": ["https://reactoratlas.com/en/year/2024"] }
+        },
+        {
+          "name": "Maanshan-2",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "WH 3LP (WE 312)",
+          "mw": 938,
+          "from": 1985,
+          "to": 2025,
+          "iaea": 559,
+          "changed": { "year": 2025, "sources": ["https://reactoratlas.com/en/year/2025"] }
+        }
+      ]
+    },
+    {
+      "id": "chernobyl",
+      "iso3": "UKR",
+      "en": "Chernobyl",
+      "ar": "تشيرنوبيل",
+      "coords": [30.103, 51.389],
+      "units": [
+        {
+          "name": "Chernobyl-1",
+          "status": "shutdown",
+          "type": "LWGR",
+          "model": "RBMK",
+          "mw": 925,
+          "from": 1978,
+          "to": 1996,
+          "iaea": 568
+        },
+        {
+          "name": "Chernobyl-2",
+          "status": "shutdown",
+          "type": "LWGR",
+          "model": "RBMK",
+          "mw": 925,
+          "from": 1979,
+          "to": 1991,
+          "iaea": 569
+        },
+        {
+          "name": "Chernobyl-3",
+          "status": "shutdown",
+          "type": "LWGR",
+          "model": "RBMK",
+          "mw": 925,
+          "from": 1982,
+          "to": 2000,
+          "iaea": 575
+        },
+        {
+          "name": "Chernobyl-4",
+          "status": "shutdown",
+          "type": "LWGR",
+          "model": "RBMK",
+          "mw": 925,
+          "from": 1984,
+          "to": 1986,
+          "iaea": 576
+        }
+      ]
+    },
+    {
+      "id": "khmelnytskyi",
+      "iso3": "UKR",
+      "en": "Khmelnytskyi",
+      "ar": "خميلنيتسكي",
+      "coords": [26.646, 50.302],
+      "units": [
+        {
+          "name": "Khmelnitski-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-320",
+          "mw": 950,
+          "from": 1988,
+          "iaea": 573
+        },
+        {
+          "name": "Khmelnitski-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-320",
+          "mw": 950,
+          "from": 2005,
+          "iaea": 574
+        },
+        {
+          "name": "Khmelnitski-3",
+          "status": "building",
+          "type": "PWR",
+          "model": "VVER",
+          "mw": 1035,
+          "iaea": 581
+        },
+        {
+          "name": "Khmelnitski-4",
+          "status": "building",
+          "type": "PWR",
+          "model": "VVER",
+          "mw": 1035,
+          "iaea": 582
+        }
+      ]
+    },
+    {
+      "id": "rivne",
+      "iso3": "UKR",
+      "en": "Rivne",
+      "ar": "ريفنه",
+      "coords": [25.9, 51.326],
+      "units": [
+        {
+          "name": "Rivne-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-213",
+          "mw": 361,
+          "from": 1981,
+          "iaea": 570
+        },
+        {
+          "name": "Rivne-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-213",
+          "mw": 384,
+          "from": 1982,
+          "iaea": 571
+        },
+        {
+          "name": "Rivne-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-320",
+          "mw": 950,
+          "from": 1987,
+          "iaea": 572
+        },
+        {
+          "name": "Rivne-4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-320",
+          "mw": 950,
+          "from": 2006,
+          "iaea": 589
+        }
+      ]
+    },
+    {
+      "id": "south-ukraine",
+      "iso3": "UKR",
+      "en": "South Ukraine",
+      "ar": "جنوب أوكرانيا",
+      "coords": [31.22, 47.811],
+      "units": [
+        {
+          "name": "South Ukraine-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-302",
+          "mw": 950,
+          "from": 1983,
+          "iaea": 577
+        },
+        {
+          "name": "South Ukraine-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-338",
+          "mw": 950,
+          "from": 1985,
+          "iaea": 578
+        },
+        {
+          "name": "South Ukraine-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "VVER V-320",
+          "mw": 950,
+          "from": 1989,
+          "iaea": 579
+        }
+      ]
+    },
+    {
+      "id": "zaporizhzhia",
+      "iso3": "UKR",
+      "en": "Zaporizhzhia",
+      "ar": "زابوريجيا",
+      "coords": [34.627, 47.508],
+      "units": [
+        {
+          "name": "Zaporozhye-1",
+          "status": "suspended",
+          "type": "PWR",
+          "model": "VVER V-320",
+          "mw": 950,
+          "from": 1985,
+          "iaea": 584,
+          "changed": {
+            "year": 2025,
+            "sources": [
+              "https://www.yahoo.com/news/iaea-chief-welcomes-cold-shutdown-203034178.html",
+              "https://www.ukrinform.net/rubric-economy/3903730-znpp-reactors-should-not-be-restarted-until-war-ends-iaea-chief.html"
+            ]
+          }
+        },
+        {
+          "name": "Zaporozhye-2",
+          "status": "suspended",
+          "type": "PWR",
+          "model": "VVER V-320",
+          "mw": 950,
+          "from": 1986,
+          "iaea": 586,
+          "changed": {
+            "year": 2025,
+            "sources": [
+              "https://www.yahoo.com/news/iaea-chief-welcomes-cold-shutdown-203034178.html",
+              "https://www.ukrinform.net/rubric-economy/3903730-znpp-reactors-should-not-be-restarted-until-war-ends-iaea-chief.html"
+            ]
+          }
+        },
+        {
+          "name": "Zaporozhye-3",
+          "status": "suspended",
+          "type": "PWR",
+          "model": "VVER V-320",
+          "mw": 950,
+          "from": 1987,
+          "iaea": 594,
+          "changed": {
+            "year": 2025,
+            "sources": [
+              "https://www.yahoo.com/news/iaea-chief-welcomes-cold-shutdown-203034178.html",
+              "https://www.ukrinform.net/rubric-economy/3903730-znpp-reactors-should-not-be-restarted-until-war-ends-iaea-chief.html"
+            ]
+          }
+        },
+        {
+          "name": "Zaporozhye-4",
+          "status": "suspended",
+          "type": "PWR",
+          "model": "VVER V-320",
+          "mw": 950,
+          "from": 1988,
+          "iaea": 595,
+          "changed": {
+            "year": 2025,
+            "sources": [
+              "https://www.yahoo.com/news/iaea-chief-welcomes-cold-shutdown-203034178.html",
+              "https://www.ukrinform.net/rubric-economy/3903730-znpp-reactors-should-not-be-restarted-until-war-ends-iaea-chief.html"
+            ]
+          }
+        },
+        {
+          "name": "Zaporozhye-5",
+          "status": "suspended",
+          "type": "PWR",
+          "model": "VVER V-320",
+          "mw": 950,
+          "from": 1989,
+          "iaea": 566,
+          "changed": {
+            "year": 2025,
+            "sources": [
+              "https://www.yahoo.com/news/iaea-chief-welcomes-cold-shutdown-203034178.html",
+              "https://www.ukrinform.net/rubric-economy/3903730-znpp-reactors-should-not-be-restarted-until-war-ends-iaea-chief.html"
+            ]
+          }
+        },
+        {
+          "name": "Zaporozhye-6",
+          "status": "suspended",
+          "type": "PWR",
+          "model": "VVER V-320",
+          "mw": 950,
+          "from": 1996,
+          "iaea": 567,
+          "changed": {
+            "year": 2025,
+            "sources": [
+              "https://www.yahoo.com/news/iaea-chief-welcomes-cold-shutdown-203034178.html",
+              "https://www.ukrinform.net/rubric-economy/3903730-znpp-reactors-should-not-be-restarted-until-war-ends-iaea-chief.html"
+            ]
+          }
+        }
+      ],
+      "note": {
+        "ar": "أكبر محطة نووية في أوروبا، تحت السيطرة الروسية منذ مارس 2022. وحداتها الست في حالة إيقاف بارد منذ أبريل 2025، ويقول المدير العام للوكالة الدولية للطاقة الذرية إنها يجب أن تبقى كذلك ما دامت الحرب تهدد سلامتها.",
+        "en": "Europe's largest nuclear plant, under Russian control since March 2022. Its six units have been in cold shutdown since April 2025, and the IAEA Director General says they must stay so while the war threatens the plant's safety."
+      },
+      "conflictIds": ["russia-ukraine"],
+      "sources": [
+        "https://www.yahoo.com/news/iaea-chief-welcomes-cold-shutdown-203034178.html",
+        "https://www.ukrinform.net/rubric-economy/3903730-znpp-reactors-should-not-be-restarted-until-war-ends-iaea-chief.html"
+      ],
+      "verified": "2026-11-03"
+    },
+    {
+      "id": "arkansas-nuclear-one",
+      "iso3": "USA",
+      "en": "Arkansas Nuclear One",
+      "ar": "أركنساس النووية",
+      "coords": [-93.23, 35.31],
+      "units": [
+        {
+          "name": "Arkansas Nuclear One-1 (ANO-1)",
+          "status": "operating",
+          "type": "PWR",
+          "model": "B&W LLP (DRYAMB)",
+          "mw": 850,
+          "from": 1974,
+          "iaea": 652
+        },
+        {
+          "name": "Arkansas Nuclear One-2 (ANO-2)",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CE 2LP (DRYAMB)",
+          "mw": 912,
+          "from": 1980,
+          "iaea": 689
+        }
+      ]
+    },
+    {
+      "id": "beaver-valley",
+      "iso3": "USA",
+      "en": "Beaver Valley",
+      "ar": "بيفر فالي",
+      "coords": [-80.432, 40.624],
+      "units": [
+        {
+          "name": "Beaver Valley-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 3LP (DRYSUB)",
+          "mw": 835,
+          "from": 1976,
+          "iaea": 669
+        },
+        {
+          "name": "Beaver Valley-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 3LP (DRYSUB)",
+          "mw": 836,
+          "from": 1987,
+          "iaea": 712
+        }
+      ]
+    },
+    {
+      "id": "braidwood",
+      "iso3": "USA",
+      "en": "Braidwood",
+      "ar": "بريدوود",
+      "coords": [-88.23, 41.247],
+      "units": [
+        {
+          "name": "Braidwood-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 4LP (DRYAMB)",
+          "mw": 1120,
+          "from": 1988,
+          "iaea": 737
+        },
+        {
+          "name": "Braidwood-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 4LP (DRYAMB)",
+          "mw": 1120,
+          "from": 1988,
+          "iaea": 738
+        }
+      ]
+    },
+    {
+      "id": "browns-ferry",
+      "iso3": "USA",
+      "en": "Browns Ferry",
+      "ar": "براونز فيري",
+      "coords": [-87.119, 34.704],
+      "units": [
+        {
+          "name": "Browns Ferry-1",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-4 (Mark 1)",
+          "mw": 1065,
+          "from": 1974,
+          "iaea": 617
+        },
+        {
+          "name": "Browns Ferry-2",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-4 (Mark 1)",
+          "mw": 1065,
+          "from": 1975,
+          "iaea": 618
+        },
+        {
+          "name": "Browns Ferry-3",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-4 (Mark 1)",
+          "mw": 1065,
+          "from": 1977,
+          "iaea": 641
+        }
+      ]
+    },
+    {
+      "id": "brunswick",
+      "iso3": "USA",
+      "en": "Brunswick",
+      "ar": "برونزويك",
+      "coords": [-78.007, 33.958],
+      "units": [
+        {
+          "name": "Brunswick-1",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-4 (Mark 1)",
+          "mw": 821,
+          "from": 1977,
+          "iaea": 662
+        },
+        {
+          "name": "Brunswick-2",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-4 (Mark 1)",
+          "mw": 821,
+          "from": 1975,
+          "iaea": 661
+        }
+      ]
+    },
+    {
+      "id": "byron",
+      "iso3": "USA",
+      "en": "Byron",
+      "ar": "بايرون",
+      "coords": [-89.277, 42.074],
+      "units": [
+        {
+          "name": "Byron-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 4LP (DRYAMB)",
+          "mw": 1120,
+          "from": 1985,
+          "iaea": 735
+        },
+        {
+          "name": "Byron-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 4LP (DRYAMB)",
+          "mw": 1120,
+          "from": 1987,
+          "iaea": 736
+        }
+      ]
+    },
+    {
+      "id": "callaway",
+      "iso3": "USA",
+      "en": "Callaway",
+      "ar": "كالاواي",
+      "coords": [-91.781, 38.763],
+      "units": [
+        {
+          "name": "Callaway-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 4LP (DRYAMB)",
+          "mw": 1171,
+          "from": 1984,
+          "iaea": 752
+        }
+      ]
+    },
+    {
+      "id": "calvert-cliffs",
+      "iso3": "USA",
+      "en": "Calvert Cliffs",
+      "ar": "كالفرت كليفس",
+      "coords": [-76.439, 38.435],
+      "units": [
+        {
+          "name": "Calvert Cliffs-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CE 2LP (DRYAMB)",
+          "mw": 845,
+          "from": 1975,
+          "iaea": 655
+        },
+        {
+          "name": "Calvert Cliffs-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CE 2LP (DRYAMB)",
+          "mw": 845,
+          "from": 1977,
+          "iaea": 656
+        }
+      ]
+    },
+    {
+      "id": "catawba",
+      "iso3": "USA",
+      "en": "Catawba",
+      "ar": "كاتوبا",
+      "coords": [-81.071, 35.053],
+      "units": [
+        {
+          "name": "Catawba-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 4LP (ICECND)",
+          "mw": 1145,
+          "from": 1985,
+          "iaea": 713
+        },
+        {
+          "name": "Catawba-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 4LP (ICECND)",
+          "mw": 1145,
+          "from": 1986,
+          "iaea": 714
+        }
+      ]
+    },
+    {
+      "id": "clinton",
+      "iso3": "USA",
+      "en": "Clinton",
+      "ar": "كلينتون",
+      "coords": [-88.834, 40.172],
+      "units": [
+        {
+          "name": "Clinton-1",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-6 (Mark 3)",
+          "mw": 950,
+          "from": 1987,
+          "iaea": 742
+        }
+      ]
+    },
+    {
+      "id": "columbia",
+      "iso3": "USA",
+      "en": "Columbia",
+      "ar": "كولومبيا",
+      "coords": [-119.333, 46.471],
+      "units": [
+        {
+          "name": "Columbia (WNP-2)",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-5 (Mark 2)",
+          "mw": 1100,
+          "from": 1984,
+          "iaea": 702
+        }
+      ]
+    },
+    {
+      "id": "comanche-peak",
+      "iso3": "USA",
+      "en": "Comanche Peak",
+      "ar": "كومانشي بيك",
+      "coords": [-97.787, 32.301],
+      "units": [
+        {
+          "name": "Comanche Peak-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 4LP (DRYAMB)",
+          "mw": 1150,
+          "from": 1990,
+          "iaea": 729
+        },
+        {
+          "name": "Comanche Peak-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 4LP (DRYAMB)",
+          "mw": 1150,
+          "from": 1993,
+          "iaea": 730
+        }
+      ]
+    },
+    {
+      "id": "cooper",
+      "iso3": "USA",
+      "en": "Cooper",
+      "ar": "كوبر",
+      "coords": [-95.643, 40.361],
+      "units": [
+        {
+          "name": "Cooper",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-4 (Mark 1)",
+          "mw": 778,
+          "from": 1974,
+          "iaea": 642
+        }
+      ]
+    },
+    {
+      "id": "crystal-river",
+      "iso3": "USA",
+      "en": "Crystal River",
+      "ar": "كريستال ريفر",
+      "coords": [-82.697, 28.966],
+      "units": [
+        {
+          "name": "Crystal River-3",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "B&W LLP (DRYAMB)",
+          "mw": 825,
+          "from": 1977,
+          "to": 2013,
+          "iaea": 645
+        }
+      ]
+    },
+    {
+      "id": "davis-besse",
+      "iso3": "USA",
+      "en": "Davis Besse",
+      "ar": "ديفيس بيسي",
+      "coords": [-83.092, 41.597],
+      "units": [
+        {
+          "name": "Davis Besse-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "B&W RLP (DRYAMB)",
+          "mw": 906,
+          "from": 1978,
+          "iaea": 676
+        }
+      ]
+    },
+    {
+      "id": "diablo-canyon",
+      "iso3": "USA",
+      "en": "Diablo Canyon",
+      "ar": "ديابلو كانيون",
+      "coords": [-120.854, 35.212],
+      "units": [
+        {
+          "name": "Diablo Canyon-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 4LP (DRYAMB)",
+          "mw": 1084,
+          "from": 1985,
+          "iaea": 628
+        },
+        {
+          "name": "Diablo Canyon-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 4LP (DRYAMB)",
+          "mw": 1106,
+          "from": 1986,
+          "iaea": 660
+        }
+      ]
+    },
+    {
+      "id": "donald-cook",
+      "iso3": "USA",
+      "en": "Donald Cook",
+      "ar": "دونالد كوك",
+      "coords": [-86.564, 41.975],
+      "units": [
+        {
+          "name": "Donald Cook-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 4LP (ICECDN)",
+          "mw": 1030,
+          "from": 1975,
+          "iaea": 653
+        },
+        {
+          "name": "Donald Cook-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 4LP (ICECDN)",
+          "mw": 1100,
+          "from": 1978,
+          "iaea": 654
+        }
+      ]
+    },
+    {
+      "id": "dresden",
+      "iso3": "USA",
+      "en": "Dresden",
+      "ar": "دريسدن",
+      "coords": [-88.349, 41.353],
+      "units": [
+        {
+          "name": "Dresden-2",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-3 (Mark 1)",
+          "mw": 794,
+          "from": 1970,
+          "iaea": 608
+        },
+        {
+          "name": "Dresden-3",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-3 (Mark 1)",
+          "mw": 794,
+          "from": 1971,
+          "iaea": 612
+        }
+      ]
+    },
+    {
+      "id": "duane-arnold",
+      "iso3": "USA",
+      "en": "Duane Arnold",
+      "ar": "دوين أرنولد",
+      "coords": [-91.776, 42.101],
+      "units": [
+        {
+          "name": "Duane Arnold-1",
+          "status": "shutdown",
+          "type": "BWR",
+          "model": "BWR-4 (Mark 1)",
+          "mw": 601,
+          "from": 1975,
+          "to": 2020,
+          "iaea": 667
+        }
+      ]
+    },
+    {
+      "id": "enrico-fermi",
+      "iso3": "USA",
+      "en": "Enrico Fermi",
+      "ar": "إنريكو فيرمي",
+      "coords": [-83.257, 41.96],
+      "units": [
+        {
+          "name": "Enrico Fermi-2",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-4 (Mark 1)",
+          "mw": 1093,
+          "from": 1988,
+          "iaea": 674
+        }
+      ]
+    },
+    {
+      "id": "farley",
+      "iso3": "USA",
+      "en": "Farley",
+      "ar": "فارلي",
+      "coords": [-85.115, 31.223],
+      "units": [
+        {
+          "name": "Farley-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 3LP (DRYAMB)",
+          "mw": 829,
+          "from": 1977,
+          "iaea": 677
+        },
+        {
+          "name": "Farley-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 3LP (DRYAMB)",
+          "mw": 829,
+          "from": 1981,
+          "iaea": 686
+        }
+      ]
+    },
+    {
+      "id": "fitzpatrick",
+      "iso3": "USA",
+      "en": "FitzPatrick",
+      "ar": "فيتزباتريك",
+      "coords": [-76.403, 43.521],
+      "units": [
+        {
+          "name": "FitzPatrick",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-4 (Mark 1)",
+          "mw": 821,
+          "from": 1975,
+          "iaea": 668
+        }
+      ]
+    },
+    {
+      "id": "fort-calhoun",
+      "iso3": "USA",
+      "en": "Fort Calhoun",
+      "ar": "فورت كالهون",
+      "coords": [-96.076, 41.52],
+      "units": [
+        {
+          "name": "Fort Calhoun-1",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "CE 2LP",
+          "mw": 478,
+          "from": 1973,
+          "to": 2016,
+          "iaea": 634
+        }
+      ]
+    },
+    {
+      "id": "grand-gulf",
+      "iso3": "USA",
+      "en": "Grand Gulf",
+      "ar": "غراند غلف",
+      "coords": [-91.045, 32.007],
+      "units": [
+        {
+          "name": "Grand Gulf-1",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-6 (Mark 3)",
+          "mw": 1250,
+          "from": 1985,
+          "iaea": 715
+        }
+      ]
+    },
+    {
+      "id": "h-b-robinson",
+      "iso3": "USA",
+      "en": "H. B. Robinson",
+      "ar": "إتش بي روبنسون",
+      "coords": [-80.158, 34.402],
+      "units": [
+        {
+          "name": "H. B. Robinson-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 3LP (DRYAMB)",
+          "mw": 700,
+          "from": 1971,
+          "iaea": 619
+        }
+      ]
+    },
+    {
+      "id": "hatch",
+      "iso3": "USA",
+      "en": "Hatch",
+      "ar": "هاتش",
+      "coords": [-82.346, 31.935],
+      "units": [
+        {
+          "name": "Hatch-1",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-4 (Mark 1)",
+          "mw": 777,
+          "from": 1975,
+          "iaea": 658
+        },
+        {
+          "name": "Hatch-2",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-4 (Mark 1)",
+          "mw": 784,
+          "from": 1979,
+          "iaea": 687
+        }
+      ]
+    },
+    {
+      "id": "hope-creek",
+      "iso3": "USA",
+      "en": "Hope Creek",
+      "ar": "هوب كريك",
+      "coords": [-75.535, 39.467],
+      "units": [
+        {
+          "name": "Hope Creek-1",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-4 (Mark 1)",
+          "mw": 1067,
+          "from": 1986,
+          "iaea": 680
+        }
+      ]
+    },
+    {
+      "id": "indian-point",
+      "iso3": "USA",
+      "en": "Indian Point",
+      "ar": "إنديان بوينت",
+      "coords": [-73.95, 41.27],
+      "units": [
+        {
+          "name": "Indian Point-2",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "WH 4LP (DRYAMB)",
+          "mw": 873,
+          "from": 1974,
+          "to": 2020,
+          "iaea": 611
+        },
+        {
+          "name": "Indian Point-3",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "WH 4LP (DRYAMB)",
+          "mw": 965,
+          "from": 1976,
+          "to": 2021,
+          "iaea": 635
+        }
+      ]
+    },
+    {
+      "id": "kewaunee",
+      "iso3": "USA",
+      "en": "Kewaunee",
+      "ar": "كيوني",
+      "coords": [-87.498, 44.47],
+      "units": [
+        {
+          "name": "Kewaunee",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "WH 2LP (DRYAMB)",
+          "mw": 535,
+          "from": 1974,
+          "to": 2013,
+          "iaea": 647
+        }
+      ]
+    },
+    {
+      "id": "lasalle",
+      "iso3": "USA",
+      "en": "LaSalle",
+      "ar": "لاسال",
+      "coords": [-88.672, 41.246],
+      "units": [
+        {
+          "name": "LaSalle-1",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-5 (Mark 2)",
+          "mw": 1078,
+          "from": 1984,
+          "iaea": 692
+        },
+        {
+          "name": "LaSalle-2",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-5 (Mark 2)",
+          "mw": 1078,
+          "from": 1984,
+          "iaea": 693
+        }
+      ]
+    },
+    {
+      "id": "limerick",
+      "iso3": "USA",
+      "en": "Limerick",
+      "ar": "ليمريك",
+      "coords": [-75.584, 40.225],
+      "units": [
+        {
+          "name": "Limerick-1",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-4 (Mark 2)",
+          "mw": 1055,
+          "from": 1986,
+          "iaea": 678
+        },
+        {
+          "name": "Limerick-2",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-4 (Mark 2)",
+          "mw": 1055,
+          "from": 1990,
+          "iaea": 679
+        }
+      ]
+    },
+    {
+      "id": "mcguire",
+      "iso3": "USA",
+      "en": "McGuire",
+      "ar": "ماكغواير",
+      "coords": [-80.946, 35.433],
+      "units": [
+        {
+          "name": "McGuire-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 4LP (ICECND)",
+          "mw": 1180,
+          "from": 1981,
+          "iaea": 690
+        },
+        {
+          "name": "McGuire-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 4LP (ICECND)",
+          "mw": 1180,
+          "from": 1984,
+          "iaea": 691
+        }
+      ]
+    },
+    {
+      "id": "millstone",
+      "iso3": "USA",
+      "en": "Millstone",
+      "ar": "ميلستون",
+      "coords": [-72.166, 41.312],
+      "units": [
+        {
+          "name": "Millstone-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CE 2LP (DRYAMB)",
+          "mw": 870,
+          "from": 1975,
+          "iaea": 671
+        },
+        {
+          "name": "Millstone-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 4LP (DRYSUB)",
+          "mw": 1159,
+          "from": 1986,
+          "iaea": 717
+        }
+      ]
+    },
+    {
+      "id": "monticello",
+      "iso3": "USA",
+      "en": "Monticello",
+      "ar": "مونتيسيلو",
+      "coords": [-93.85, 45.334],
+      "units": [
+        {
+          "name": "Monticello",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-3 (Mark 1)",
+          "mw": 545,
+          "from": 1971,
+          "iaea": 620
+        }
+      ]
+    },
+    {
+      "id": "nine-mile-point",
+      "iso3": "USA",
+      "en": "Nine Mile Point",
+      "ar": "ناين مايل بوينت",
+      "coords": [-76.412, 43.522],
+      "units": [
+        {
+          "name": "Nine Mile Point-1",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-2 (Mark 1)",
+          "mw": 620,
+          "from": 1969,
+          "iaea": 607
+        },
+        {
+          "name": "Nine Mile Point-2",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-5 (Mark 2)",
+          "mw": 1100,
+          "from": 1988,
+          "iaea": 711
+        }
+      ]
+    },
+    {
+      "id": "north-anna",
+      "iso3": "USA",
+      "en": "North Anna",
+      "ar": "نورث آنا",
+      "coords": [-77.792, 38.061],
+      "units": [
+        {
+          "name": "North Anna-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 3LP (DRYSUB)",
+          "mw": 907,
+          "from": 1978,
+          "iaea": 672
+        },
+        {
+          "name": "North Anna-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 3LP (DRYSUB)",
+          "mw": 907,
+          "from": 1980,
+          "iaea": 673
+        }
+      ]
+    },
+    {
+      "id": "oconee",
+      "iso3": "USA",
+      "en": "Oconee",
+      "ar": "أوكوني",
+      "coords": [-82.894, 34.796],
+      "units": [
+        {
+          "name": "Oconee-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "B&W LLP (DRYAMB)",
+          "mw": 887,
+          "from": 1973,
+          "iaea": 624
+        },
+        {
+          "name": "Oconee-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "B&W LLP (DRYAMB)",
+          "mw": 887,
+          "from": 1974,
+          "iaea": 625
+        },
+        {
+          "name": "Oconee-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "B&W LLP (DRYAMB)",
+          "mw": 887,
+          "from": 1974,
+          "iaea": 636
+        }
+      ]
+    },
+    {
+      "id": "oyster-creek",
+      "iso3": "USA",
+      "en": "Oyster Creek",
+      "ar": "أويستر كريك",
+      "coords": [-74.208, 39.815],
+      "units": [
+        {
+          "name": "Oyster Creek",
+          "status": "shutdown",
+          "type": "BWR",
+          "model": "BWR-2 (Mark 1)",
+          "mw": 650,
+          "from": 1969,
+          "to": 2018,
+          "iaea": 606
+        }
+      ]
+    },
+    {
+      "id": "palisades",
+      "iso3": "USA",
+      "en": "Palisades",
+      "ar": "باليسيدز",
+      "coords": [-86.316, 42.323],
+      "units": [
+        {
+          "name": "Palisades",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "CE 2LP (DRYAMB)",
+          "mw": 805,
+          "to": 2022,
+          "iaea": 616
+        }
+      ]
+    },
+    {
+      "id": "palo-verde",
+      "iso3": "USA",
+      "en": "Palo Verde",
+      "ar": "بالو فيردي",
+      "coords": [-112.863, 33.387],
+      "units": [
+        {
+          "name": "Palo Verde-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CE80 2LP (DRYAMB)",
+          "mw": 1221,
+          "from": 1986,
+          "iaea": 789
+        },
+        {
+          "name": "Palo Verde-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CE80 2LP (DRYAMB)",
+          "mw": 1304,
+          "from": 1986,
+          "iaea": 790
+        },
+        {
+          "name": "Palo Verde-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CE80 2LP (DRYAMB)",
+          "mw": 1304,
+          "from": 1988,
+          "iaea": 791
+        }
+      ]
+    },
+    {
+      "id": "peach-bottom",
+      "iso3": "USA",
+      "en": "Peach Bottom",
+      "ar": "بيتش بوتوم",
+      "coords": [-76.27, 39.759],
+      "units": [
+        {
+          "name": "Peach Bottom-2",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-4 (Mark 1)",
+          "mw": 1065,
+          "from": 1974,
+          "iaea": 629
+        },
+        {
+          "name": "Peach Bottom-3",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-4 (Mark 1)",
+          "mw": 1065,
+          "from": 1974,
+          "iaea": 630
+        }
+      ]
+    },
+    {
+      "id": "perry",
+      "iso3": "USA",
+      "en": "Perry",
+      "ar": "بيري",
+      "coords": [-81.147, 41.801],
+      "units": [
+        {
+          "name": "Perry-1",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-6 (Mark 3)",
+          "mw": 1205,
+          "from": 1987,
+          "iaea": 725
+        }
+      ]
+    },
+    {
+      "id": "pilgrim",
+      "iso3": "USA",
+      "en": "Pilgrim",
+      "ar": "بيلغريم",
+      "coords": [-70.578, 41.945],
+      "units": [
+        {
+          "name": "Pilgrim-1",
+          "status": "shutdown",
+          "type": "BWR",
+          "model": "BWR-3 (Mark 1)",
+          "mw": 655,
+          "from": 1972,
+          "to": 2019,
+          "iaea": 639
+        }
+      ]
+    },
+    {
+      "id": "point-beach",
+      "iso3": "USA",
+      "en": "Point Beach",
+      "ar": "بوينت بيتش",
+      "coords": [-87.534, 44.282],
+      "units": [
+        {
+          "name": "Point Beach-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 2LP (DRYAMB)",
+          "mw": 497,
+          "from": 1970,
+          "iaea": 622
+        },
+        {
+          "name": "Point Beach-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 2LP (DRYAMB)",
+          "mw": 497,
+          "from": 1972,
+          "iaea": 644
+        }
+      ]
+    },
+    {
+      "id": "prairie-island",
+      "iso3": "USA",
+      "en": "Prairie Island",
+      "ar": "بريري آيلاند",
+      "coords": [-92.631, 44.622],
+      "units": [
+        {
+          "name": "Prairie Island-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 2LP (DRYAMB)",
+          "mw": 530,
+          "from": 1973,
+          "iaea": 633
+        },
+        {
+          "name": "Prairie Island-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 2LP (DRYAMB)",
+          "mw": 530,
+          "from": 1974,
+          "iaea": 648
+        }
+      ]
+    },
+    {
+      "id": "quad-cities",
+      "iso3": "USA",
+      "en": "Quad Cities",
+      "ar": "كواد سيتيز",
+      "coords": [-90.308, 41.727],
+      "units": [
+        {
+          "name": "Quad Cities-1",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-3 (Mark 1)",
+          "mw": 789,
+          "from": 1973,
+          "iaea": 615
+        },
+        {
+          "name": "Quad Cities-2",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-3 (Mark 1)",
+          "mw": 789,
+          "from": 1973,
+          "iaea": 621
+        }
+      ]
+    },
+    {
+      "id": "r-e-ginna",
+      "iso3": "USA",
+      "en": "R. E. Ginna",
+      "ar": "جينا",
+      "coords": [-77.311, 43.279],
+      "units": [
+        {
+          "name": "R. E. Ginna",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 2LP (DRYAMB)",
+          "mw": 470,
+          "from": 1970,
+          "iaea": 609
+        }
+      ]
+    },
+    {
+      "id": "river-bend",
+      "iso3": "USA",
+      "en": "River Bend",
+      "ar": "ريفر بند",
+      "coords": [-91.372, 30.727],
+      "units": [
+        {
+          "name": "River Bend-1",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-6 (Mark 3)",
+          "mw": 966,
+          "from": 1986,
+          "iaea": 739
+        }
+      ]
+    },
+    {
+      "id": "salem",
+      "iso3": "USA",
+      "en": "Salem",
+      "ar": "سالم",
+      "coords": [-75.534, 39.463],
+      "units": [
+        {
+          "name": "Salem-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 4LP (DRYAMB)",
+          "mw": 1090,
+          "from": 1977,
+          "iaea": 627
+        },
+        {
+          "name": "Salem-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 4LP (DRYAMB)",
+          "mw": 1115,
+          "from": 1981,
+          "iaea": 650
+        }
+      ]
+    },
+    {
+      "id": "san-onofre",
+      "iso3": "USA",
+      "en": "San Onofre",
+      "ar": "سان أونوفري",
+      "coords": [-117.556, 33.368],
+      "units": [
+        {
+          "name": "San Onofre-2",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "CE (2-loop) DRYAMB",
+          "mw": 1070,
+          "from": 1983,
+          "to": 2013,
+          "iaea": 683
+        },
+        {
+          "name": "San Onofre-3",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "CE (2-loop) DRYAMB",
+          "mw": 1070,
+          "from": 1984,
+          "to": 2013,
+          "iaea": 684
+        }
+      ]
+    },
+    {
+      "id": "seabrook",
+      "iso3": "USA",
+      "en": "Seabrook",
+      "ar": "سيبروك",
+      "coords": [-70.849, 42.897],
+      "units": [
+        {
+          "name": "Seabrook-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 4LP (DRYAMB)",
+          "mw": 1149,
+          "from": 1990,
+          "iaea": 727
+        }
+      ]
+    },
+    {
+      "id": "sequoyah",
+      "iso3": "USA",
+      "en": "Sequoyah",
+      "ar": "سيكويا",
+      "coords": [-85.094, 35.228],
+      "units": [
+        {
+          "name": "Sequoyah-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 4LP (ICECND)",
+          "mw": 1148,
+          "from": 1981,
+          "iaea": 663
+        },
+        {
+          "name": "Sequoyah-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 4LP (ICECND)",
+          "mw": 1148,
+          "from": 1982,
+          "iaea": 664
+        }
+      ]
+    },
+    {
+      "id": "shearon-harris",
+      "iso3": "USA",
+      "en": "Shearon Harris",
+      "ar": "شيرون هاريس",
+      "coords": [-78.955, 35.635],
+      "units": [
+        {
+          "name": "Shearon Harris-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 3LP (DRYAMB)",
+          "mw": 900,
+          "from": 1987,
+          "iaea": 704
+        }
+      ]
+    },
+    {
+      "id": "south-texas",
+      "iso3": "USA",
+      "en": "South Texas",
+      "ar": "جنوب تكساس",
+      "coords": [-96.044, 28.797],
+      "units": [
+        {
+          "name": "South Texas-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 4LP (DRYAMB)",
+          "mw": 1250,
+          "from": 1988,
+          "iaea": 764
+        },
+        {
+          "name": "South Texas-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 4LP (DRYAMB)",
+          "mw": 1250,
+          "from": 1989,
+          "iaea": 765
+        }
+      ]
+    },
+    {
+      "id": "st-lucie",
+      "iso3": "USA",
+      "en": "St. Lucie",
+      "ar": "سانت لوسي",
+      "coords": [-80.244, 27.348],
+      "units": [
+        {
+          "name": "St. Lucie-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CE 2LP (DRYAMB)",
+          "mw": 830,
+          "from": 1976,
+          "iaea": 670
+        },
+        {
+          "name": "St. Lucie-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CE 2LP (DRYAMB)",
+          "mw": 830,
+          "from": 1983,
+          "iaea": 698
+        }
+      ]
+    },
+    {
+      "id": "summer",
+      "iso3": "USA",
+      "en": "Summer",
+      "ar": "سمر",
+      "coords": [-81.314, 34.299],
+      "units": [
+        {
+          "name": "Summer-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 3LP (DRYAMB)",
+          "mw": 900,
+          "from": 1984,
+          "iaea": 701
+        }
+      ]
+    },
+    {
+      "id": "surry",
+      "iso3": "USA",
+      "en": "Surry",
+      "ar": "سري",
+      "coords": [-76.7, 37.166],
+      "units": [
+        {
+          "name": "Surry-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 3LP (DRYSUB)",
+          "mw": 788,
+          "from": 1972,
+          "iaea": 631
+        },
+        {
+          "name": "Surry-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 3LP (DRYSUB)",
+          "mw": 788,
+          "from": 1973,
+          "iaea": 632
+        }
+      ]
+    },
+    {
+      "id": "susquehanna",
+      "iso3": "USA",
+      "en": "Susquehanna",
+      "ar": "سسكويهانا",
+      "coords": [-76.143, 41.093],
+      "units": [
+        {
+          "name": "Susquehanna-1",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-4 (Mark 2)",
+          "mw": 1065,
+          "from": 1983,
+          "iaea": 696
+        },
+        {
+          "name": "Susquehanna-2",
+          "status": "operating",
+          "type": "BWR",
+          "model": "BWR-4 (Mark 2)",
+          "mw": 1065,
+          "from": 1985,
+          "iaea": 697
+        }
+      ]
+    },
+    {
+      "id": "three-mile-island",
+      "iso3": "USA",
+      "en": "Three Mile Island",
+      "ar": "جزيرة الأميال الثلاثة",
+      "coords": [-76.727, 40.154],
+      "units": [
+        {
+          "name": "Three Mile Island-1",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "B&W LLP (DRYAMB)",
+          "mw": 819,
+          "from": 1974,
+          "to": 2019,
+          "iaea": 637
+        },
+        {
+          "name": "Three Mile Island-2",
+          "status": "shutdown",
+          "type": "PWR",
+          "model": "PWR",
+          "mw": 906,
+          "from": 1978,
+          "to": 1979,
+          "iaea": 657
+        }
+      ]
+    },
+    {
+      "id": "turkey-point",
+      "iso3": "USA",
+      "en": "Turkey Point",
+      "ar": "تيركي بوينت",
+      "coords": [-80.33, 25.435],
+      "units": [
+        {
+          "name": "Turkey Point-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 3LP (DRYAMB)",
+          "mw": 693,
+          "from": 1972,
+          "iaea": 613
+        },
+        {
+          "name": "Turkey Point-4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 3LP (DRYAMB)",
+          "mw": 693,
+          "from": 1973,
+          "iaea": 614
+        }
+      ]
+    },
+    {
+      "id": "vermont-yankee",
+      "iso3": "USA",
+      "en": "Vermont Yankee",
+      "ar": "فيرمونت يانكي",
+      "coords": [-72.514, 42.779],
+      "units": [
+        {
+          "name": "Vermont Yankee",
+          "status": "shutdown",
+          "type": "BWR",
+          "model": "BWR-4 (Mark 1)",
+          "mw": 514,
+          "from": 1972,
+          "to": 2014,
+          "iaea": 626
+        }
+      ]
+    },
+    {
+      "id": "vogtle",
+      "iso3": "USA",
+      "en": "Vogtle",
+      "ar": "فوغل",
+      "coords": [-81.764, 33.141],
+      "units": [
+        {
+          "name": "Vogtle-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 4LP (DRYAMB)",
+          "mw": 1122,
+          "from": 1987,
+          "iaea": 718
+        },
+        {
+          "name": "Vogtle-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 4LP (DRYAMB)",
+          "mw": 1101,
+          "from": 1989,
+          "iaea": 719
+        },
+        {
+          "name": "Vogtle-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "AP-1000",
+          "mw": 1117,
+          "from": 2023,
+          "iaea": 1042
+        },
+        {
+          "name": "Vogtle-4",
+          "status": "operating",
+          "type": "PWR",
+          "model": "AP-1000",
+          "mw": 1117,
+          "from": 2024,
+          "iaea": 1043,
+          "changed": { "year": 2024, "sources": ["https://reactoratlas.com/en/year/2024"] }
+        }
+      ]
+    },
+    {
+      "id": "waterford",
+      "iso3": "USA",
+      "en": "Waterford",
+      "ar": "ووترفورد",
+      "coords": [-90.471, 29.994],
+      "units": [
+        {
+          "name": "Waterford-3",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CE 2LP (DRYAMB)",
+          "mw": 1104,
+          "from": 1985,
+          "iaea": 695
+        }
+      ]
+    },
+    {
+      "id": "watts-bar",
+      "iso3": "USA",
+      "en": "Watts Bar",
+      "ar": "واتس بار",
+      "coords": [-84.789, 35.601],
+      "units": [
+        {
+          "name": "Watts Bar-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 4LP (ICECND)",
+          "mw": 1218,
+          "from": 1996,
+          "iaea": 699
+        },
+        {
+          "name": "Watts Bar-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 4LP (ICECND)",
+          "mw": 1165,
+          "from": 2016,
+          "iaea": 700
+        }
+      ]
+    },
+    {
+      "id": "wolf-creek",
+      "iso3": "USA",
+      "en": "Wolf Creek",
+      "ar": "وولف كريك",
+      "coords": [-95.691, 38.239],
+      "units": [
+        {
+          "name": "Wolf Creek",
+          "status": "operating",
+          "type": "PWR",
+          "model": "WH 4LP (DRYAMB)",
+          "mw": 1170,
+          "from": 1985,
+          "iaea": 751
+        }
+      ]
+    },
+    {
+      "id": "koeberg",
+      "iso3": "ZAF",
+      "en": "Koeberg",
+      "ar": "كوبرغ",
+      "coords": [18.433, -33.677],
+      "units": [
+        {
+          "name": "Koeberg-1",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CP1",
+          "mw": 921,
+          "from": 1984,
+          "iaea": 836
+        },
+        {
+          "name": "Koeberg-2",
+          "status": "operating",
+          "type": "PWR",
+          "model": "CP1",
+          "mw": 921,
+          "from": 1985,
+          "iaea": 837
+        }
+      ]
+    }
+  ]
+}
