@@ -14,6 +14,9 @@ const fix = (iso: string) => ISO_ALIAS[iso] ?? iso;
 // Natural Earth's Arabic name is wrong for a few disputed features (English brk_name is right).
 const DISPUTED_AR_FIX: Record<string, string> = { 'Spratly Is.': 'جزر سبراتلي' };
 
+// Natural Earth marks these as sovereign, but they are not UN member states (and so not NPT parties by default).
+const NOT_UN_MEMBERS = new Set(['SOL', 'CYN', 'TWN', 'KOS', 'ESH', 'PSE', 'ATA']);
+
 const collection = (features: Feature[]): FeatureCollection => ({ type: 'FeatureCollection', features });
 
 /** Rewrite every ISO reference in the thematic files to Natural Earth's codes before linking. */
@@ -35,6 +38,8 @@ function normalizeIsos(R: RawData) {
   for (const s of R.resources.sites) s.iso3 = fix(s.iso3);
   R.intel.countries = Object.fromEntries(Object.entries(R.intel.countries).map(([k, v]) => [fix(k), v]));
   R.religions.countries = Object.fromEntries(Object.entries(R.religions.countries).map(([k, v]) => [fix(k), v]));
+  R.nuclear.countries = Object.fromEntries(Object.entries(R.nuclear.countries).map(([k, v]) => [fix(k), v]));
+  for (const z of R.nuclear.zones) z.members = arr(z.members) ?? [];
   if (R.figureNotes) R.figureNotes.countries = Object.fromEntries(Object.entries(R.figureNotes.countries).map(([k, v]) => [fix(k), v]));
 }
 
@@ -57,7 +62,7 @@ export function build(input: RawData): DB {
       pop: p.pop_est, popYear: p.pop_year, gdp: p.gdp_md, gdpYear: p.gdp_year, income: p.income_grp, economy: p.economy,
       lon: r.lon ?? p.label_x, lat: r.lat ?? p.label_y, wikidata: p.wikidataid,
       areaKm2: geoArea(f) * EARTH_R * EARTH_R,
-      feature: f, gdpPerCap: null, density: null, stats: {}, figureNotes: R.figureNotes?.countries[p.iso3] ?? {},
+      feature: f, gdpPerCap: null, density: null, stats: {}, figureNotes: R.figureNotes?.countries[p.iso3] ?? {}, nuclear: { zones: [] },
       intel: null, religion: null, resources: [], sites: [], conflicts: [], external: [], blocs: [], edges: [],
       events: [], groups: [], chokepoints: [], neighbors: [], disputed: [],
     });
@@ -81,6 +86,18 @@ export function build(input: RawData): DB {
     c.density = c.pop && c.areaKm2 > 1 ? c.pop / c.areaKm2 : null;
   }
   const C = (iso: string): Country | undefined => DB.countries.get(iso);
+
+  // ---- nuclear: each state's record; NPT membership defaults to "party" for UN member states
+  DB.nuclear = { ...R.nuclear, zoneById: new Map(R.nuclear.zones.map((z) => [z.id, z])) };
+  for (const c of DB.countries.values()) {
+    const n = R.nuclear.countries[c.iso3] ?? {};
+    // "Country" also covers territories (Greenland, Hong Kong): only the sovereign's own feature is a state
+    const state = (c.type === 'Sovereign country' || (c.type === 'Country' && c.feature.properties.admin === c.sovereign)) && !NOT_UN_MEMBERS.has(c.iso3);
+    c.nuclear = {
+      ...n, npt: n.npt ?? (state ? 'party' : undefined), warheads: R.nuclear.warheads.values[c.iso3],
+      zones: R.nuclear.zones.filter((z) => z.members.includes(c.iso3)).map((z) => z.id),
+    };
+  }
 
   DB.boundaries = R.boundaries.features;
   DB.disputed = R.disputed.features.map((f, i): Disputed => {

@@ -7,6 +7,7 @@ export const LENSES = [
   { id: 'ethnic',      ar: 'المجموعات العرقية',       en: 'Ethnic groups',          icon: 'people',  sub: { ar: 'نطاقات تقريبية إرشادية', en: 'Indicative core extents' } },
   { id: 'disputed',    ar: 'الأقاليم المتنازع عليها',  en: 'Disputed territories',   icon: 'hatch',   sub: { ar: 'من Natural Earth', en: 'From Natural Earth' } },
   { id: 'powers',      ar: 'القوى والتحالفات',        en: 'Powers & alliances',     icon: 'network', sub: { ar: 'التكتلات وشبكة العلاقات', en: 'Blocs and the relations web' } },
+  { id: 'nuclear',     ar: 'النووي',                 en: 'Nuclear',                icon: 'atom',    sub: { ar: 'الأسلحة والاستخدام المدني والمعاهدات', en: 'Weapons, civil use, treaties' } },
   { id: 'resources',   ar: 'الموارد الاستراتيجية',    en: 'Strategic resources',    icon: 'gem',     sub: { ar: 'الطاقة والمعادن والغذاء', en: 'Energy, minerals, food' } },
   { id: 'chokepoints', ar: 'المضائق والممرات',        en: 'Chokepoints',            icon: 'anchor',  sub: { ar: 'تدفّق النفط والمخاطر', en: 'Oil flow and risk' } },
   { id: 'history',     ar: 'الخط الزمني',             en: 'Timeline',               icon: 'clock',   sub: { ar: '1900 — اليوم', en: '1900 — today' } },
@@ -54,6 +55,30 @@ export const CHOKE_STATUS = {
   crisis:   { ar: 'أزمة',   en: 'Crisis',   tone: 'critical' },
 };
 
+// Nuclear status of a state (curated/nuclear.json). Military status: one per state; tone drives the map colour,
+// `unconfirmed` adds hatching where the status rests on claims or reports rather than confirmation.
+export const NUCLEAR_STATUS = {
+  'npt-nws':      { ar: 'دولة نووية بموجب معاهدة عدم الانتشار', en: 'NPT nuclear-weapon state', tone: 'critical', strength: 0.85 },
+  'non-npt':      { ar: 'دولة نووية خارج المعاهدة',            en: 'Nuclear-armed outside the NPT', tone: 'critical', strength: 0.55 },
+  'undeclared':   { ar: 'ترسانة غير معلنة',                   en: 'Undeclared arsenal',          tone: 'critical', strength: 0.35, unconfirmed: true },
+  'host':         { ar: 'تستضيف أسلحة أمريكية (الناتو)',        en: 'Hosts US weapons (NATO)',      tone: 'warn',     strength: 0.7 },
+  'host-claimed': { ar: 'استضافة معلنة لأسلحة روسية',           en: 'Announced host of Russian weapons', tone: 'warn', strength: 0.45, unconfirmed: true },
+  'contested':    { ar: 'برنامج موضع نزاع دولي',               en: 'Programme under international dispute', tone: 'accent', strength: 0.55 },
+  'relinquished': { ar: 'تخلّت عن أسلحة نووية',                 en: 'Gave up nuclear weapons',      tone: 'good',     strength: 0.5 },
+} as const;
+// Civil use: power reactors.
+export const NUCLEAR_CIVIL = {
+  operating:    { ar: 'تشغّل مفاعلات طاقة',         en: 'Runs power reactors',       t: 0.85 },
+  building:     { ar: 'تبني محطتها الأولى',          en: 'Building its first plant',  t: 0.45 },
+  'phased-out': { ar: 'أوقفت مفاعلاتها',            en: 'Phased out',                t: 0 },
+} as const;
+export const NUCLEAR_NPT = {
+  nws:         { ar: 'طرف، دولة نووية معترف بها', en: 'Party, recognised nuclear-weapon state' },
+  party:       { ar: 'طرف',                      en: 'Party' },
+  'non-party': { ar: 'ليست طرفاً',                en: 'Not a party' },
+  withdrawn:   { ar: 'أعلنت الانسحاب (2003)',     en: 'Announced withdrawal (2003)' },
+} as const;
+
 // Religion families: traditions roll up to these for the majority map. Order is the categorical slot order.
 export const RELIGION_FAMILIES = [
   { id: 'islam',        ar: 'الإسلام',            en: 'Islam',          slot: 3, members: ['sunni', 'shia', 'islam_other'] },
@@ -90,6 +115,7 @@ export const ICONS: Record<string, string> = {
   people:  '<circle cx="9" cy="8.5" r="3"/><circle cx="16.5" cy="9.5" r="2.4"/><path d="M3.5 19c.6-3.3 2.8-5 5.5-5s4.9 1.7 5.5 5M14.6 14.3c.6-.2 1.2-.3 1.9-.3 2.2 0 3.8 1.4 4.2 4"/>',
   hatch:   '<rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 12l8-8M4 20L20 4M12 20l8-8"/>',
   network: '<circle cx="6" cy="7" r="2.2"/><circle cx="18" cy="6" r="2.2"/><circle cx="12" cy="17.5" r="2.4"/><path d="M8 7.8l2.8 7.6M16.6 7.8l-3.4 7.7M8.2 6.8l7.6-.6"/>',
+  atom:    '<circle cx="12" cy="12" r="1.6"/><ellipse cx="12" cy="12" rx="9" ry="3.6"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(-60 12 12)"/>',
   gem:     '<path d="M7 4h10l4 5-9 11L3 9z"/><path d="M3 9h18M9.5 4L8 9l4 11 4-11-1.5-5"/>',
   anchor:  '<circle cx="12" cy="5" r="2"/><path d="M12 7v13M8 10h8M4.5 13.5C5 17.5 8.3 20 12 20s7-2.5 7.5-6.5"/>',
   clock:   '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/>',

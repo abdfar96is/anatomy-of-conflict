@@ -43,7 +43,8 @@ function onKey(e: KeyboardEvent): void {
   if (typing || mod || e.altKey || isModal()) return;
   const k = keyOf(e);
   const s = atlas.get();
-  const lens = /^[1-9]$/.test(k) ? LENSES[+k - 1] : undefined;
+  // 1–9 pick the first nine lenses on the rail, 0 the tenth
+  const lens = /^[0-9]$/.test(k) ? LENSES[k === '0' ? 9 : +k - 1] : undefined;
   if (k === '/') { e.preventDefault(); openPalette(); }
   else if (k === '?') { e.preventDefault(); openHelp(); }
   else if (lens) setLens(lens.id);

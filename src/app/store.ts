@@ -15,6 +15,7 @@ export interface Filters {
   religionMode: 'majority' | 'share' | 'diversity';
   religionTradition: string;
   overviewMode: 'continent' | 'income' | 'population' | 'gdp';
+  nuclearMode: 'military' | 'civil' | 'zones';
   timelineCats: Set<string> | null;
   ethnicFamily: string | null;
 }
@@ -44,7 +45,7 @@ export const initialState = (): AtlasState => ({
     relTypes: new Set(['alliance', 'military', 'economic', 'influence', 'proxy', 'rivalry', 'territorial', 'diplomatic']),
     relKinds: new Set(['treaty', 'assessed']),
     bloc: null, resourceClass: null, religionMode: 'majority', religionTradition: 'sunni',
-    overviewMode: 'continent', timelineCats: null, ethnicFamily: null,
+    overviewMode: 'continent', nuclearMode: 'military', timelineCats: null, ethnicFamily: null,
   },
   layers: { labels: true, graticule: true, boundaries: true, disputed: true, ethnic: false, conflicts: false, arcs: false },
 });

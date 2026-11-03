@@ -1,0 +1,611 @@
+{
+  "note": {
+    "ar": "الوضع النووي لكل دولة: الأسلحة واستضافتها والاستخدام المدني والمعاهدات. تقديرات الرؤوس من SIPRI لمطلع 2026 وكل رقم فيها تقدير. القائمة المدنية تذكر الدول التي تشغّل مفاعلات طاقة؛ ستُدقَّق كل دولة على حدة حين تُضاف طبقة المحطات. لا تُعرض مواقع عسكرية.",
+    "en": "Each state's nuclear status: weapons, hosting, civil use and treaties. Warhead figures are SIPRI estimates for early 2026, each an estimate. The civil list names states that run power reactors; each will be checked one by one when the plant layer is added. No military sites are shown."
+  },
+  "zonesNote": {
+    "ar": "تُظهر المناطق النطاق الجغرافي لكل معاهدة، لا وضع تصديق كل دولة عليها: معاهدة بليندابا مثلاً لم تصادق عليها كل دول أفريقيا.",
+    "en": "Zones show each treaty's geographic scope, not each state's ratification: not every African state has ratified the Treaty of Pelindaba, for example."
+  },
+  "warheads": {
+    "year": 2026,
+    "metric": {
+      "ar": "إجمالي المخزون (يشمل الرؤوس المتقاعدة بانتظار التفكيك)",
+      "en": "Total inventory (includes retired warheads awaiting dismantlement)"
+    },
+    "publisher": "SIPRI",
+    "sources": [
+      "https://www.sipri.org/sites/default/files/YB26%2008%20World%20Nuclear%20Forces.pdf",
+      "https://www.sipri.org/media/press-release/2026/increasing-focus-nuclear-weapons-amid-heightened-escalation-risks-new-sipri-yearbook-out-now",
+      "https://www.aljazeera.com/news/2026/6/8/nuclear-risks-rise-as-powers-expand-and-modernise-arsenals-study-finds"
+    ],
+    "verified": "2026-11-03",
+    "values": {
+      "USA": 5042,
+      "RUS": 5420,
+      "GBR": 225,
+      "FRA": 370,
+      "CHN": 620,
+      "IND": 190,
+      "PAK": 170,
+      "PRK": 60,
+      "ISR": 90
+    }
+  },
+  "countries": {
+    "ARE": {
+      "civil": "operating",
+      "sources": [
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+      ]
+    },
+    "ARG": {
+      "civil": "operating",
+      "sources": [
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+      ]
+    },
+    "ARM": {
+      "civil": "operating",
+      "sources": [
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+      ]
+    },
+    "BEL": {
+      "weapons": "host",
+      "host": "USA",
+      "civil": "operating",
+      "sources": [
+        "https://armscontrolcenter.org/fact-sheet-u-s-nuclear-weapons-in-europe/",
+        "https://www.sipri.org/sites/default/files/YB26%2008%20World%20Nuclear%20Forces.pdf"
+      ],
+      "verified": "2026-11-03",
+      "note": {
+        "ar": "تستضيف قنابل B61 أمريكية ضمن ترتيب المشاركة النووية في الناتو، بحسب تقارير مراكز الحد من التسلح؛ تبقى القنابل في عهدة أمريكية ولا تؤكد الحكومات مواقعها رسمياً. يقدّر SIPRI عددها في أوروبا بين 100 و120 قنبلة.",
+        "en": "Hosts US B61 bombs under NATO nuclear sharing, according to arms-control centres; the bombs stay in US custody and governments do not officially confirm the sites. SIPRI estimates 100 to 120 such bombs in Europe."
+      }
+    },
+    "BGD": {
+      "civil": "building",
+      "verified": "2026-11-03",
+      "sources": [
+        "https://en.prothomalo.com/bangladesh/8rwdwsnif8",
+        "https://en.wikipedia.org/wiki/Rooppur_Nuclear_Power_Plant"
+      ],
+      "note": {
+        "ar": "محطتها الأولى (روبور) في مرحلة التشغيل التجريبي: بدأ تحميل الوقود في الوحدة الأولى في أبريل 2026.",
+        "en": "Its first plant (Rooppur) is in commissioning: fuel loading in unit 1 began in April 2026."
+      }
+    },
+    "BGR": {
+      "civil": "operating",
+      "sources": [
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+      ]
+    },
+    "BLR": {
+      "weapons": "host-claimed",
+      "host": "RUS",
+      "civil": "operating",
+      "verified": "2026-11-03",
+      "sources": [
+        "https://www.sipri.org/sites/default/files/YB26%2008%20World%20Nuclear%20Forces.pdf",
+        "https://thebulletin.org/premium/2026-05/russian-nuclear-weapons-2026/",
+        "https://www.nbcnews.com/world/europe/belarus-russia-nuclear-capable-oreshnik-missile-rcna249929",
+        "https://en.wikipedia.org/wiki/Budapest_Memorandum"
+      ],
+      "note": {
+        "ar": "أعلنت روسيا وبيلاروس مراراً نشر أسلحة نووية روسية فيها، ونُشر فيها صاروخ «أوريشنيك» القادر على حمل رؤوس نووية (ديسمبر 2025)، لكن لا دليل علني قاطع حتى مارس 2026 على تخزين رؤوس هناك. تخلّت في التسعينيات عن الأسلحة السوفيتية التي ورثتها.",
+        "en": "Russia and Belarus have repeatedly said Russian nuclear weapons are deployed there, and the nuclear-capable Oreshnik missile was stationed there (December 2025), but there was no conclusive public evidence by March 2026 that warheads are stored there. It gave up the Soviet weapons it inherited in the 1990s."
+      }
+    },
+    "BRA": {
+      "civil": "operating",
+      "sources": [
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+      ]
+    },
+    "CAN": {
+      "civil": "operating",
+      "sources": [
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+      ]
+    },
+    "CHE": {
+      "civil": "operating",
+      "sources": [
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+      ]
+    },
+    "CHN": {
+      "weapons": "npt-nws",
+      "npt": "nws",
+      "civil": "operating",
+      "sources": [
+        "https://www.sipri.org/sites/default/files/YB26%2008%20World%20Nuclear%20Forces.pdf",
+        "https://www.sipri.org/media/press-release/2026/increasing-focus-nuclear-weapons-amid-heightened-escalation-risks-new-sipri-yearbook-out-now",
+        "https://www.nti.org/education-center/treaties-and-regimes/treaty-on-the-non-proliferation-of-nuclear-weapons/",
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+      ],
+      "verified": "2026-11-03"
+    },
+    "CZE": {
+      "civil": "operating",
+      "sources": [
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+      ]
+    },
+    "DEU": {
+      "weapons": "host",
+      "host": "USA",
+      "civil": "phased-out",
+      "sources": [
+        "https://armscontrolcenter.org/fact-sheet-u-s-nuclear-weapons-in-europe/",
+        "https://www.sipri.org/sites/default/files/YB26%2008%20World%20Nuclear%20Forces.pdf",
+        "https://www.timesofisrael.com/end-of-an-era-germany-shuts-down-its-last-3-nuclear-reactors/"
+      ],
+      "verified": "2026-11-03",
+      "note": {
+        "ar": "تستضيف قنابل B61 أمريكية ضمن ترتيب المشاركة النووية في الناتو، بحسب تقارير مراكز الحد من التسلح؛ تبقى القنابل في عهدة أمريكية ولا تؤكد الحكومات مواقعها رسمياً. يقدّر SIPRI عددها في أوروبا بين 100 و120 قنبلة. أوقفت آخر ثلاثة مفاعلات للطاقة لديها في 15 أبريل 2023.",
+        "en": "Hosts US B61 bombs under NATO nuclear sharing, according to arms-control centres; the bombs stay in US custody and governments do not officially confirm the sites. SIPRI estimates 100 to 120 such bombs in Europe. It shut its last three power reactors on 15 April 2023."
+      }
+    },
+    "EGY": {
+      "civil": "building",
+      "verified": "2026-11-03",
+      "sources": [
+        "https://www.powermag.com/el-dabaa-first-of-several-nuclear-reactors-for-egypt/",
+        "https://www.gem.wiki/El_Dabaa_nuclear_power_plant"
+      ],
+      "note": {
+        "ar": "تبني روسيا (روساتوم) محطتها الأولى في الضبعة بأربعة مفاعلات VVER-1200، والوحدة الأولى مقررة لعام 2026.",
+        "en": "Rosatom is building its first plant at El Dabaa with four VVER-1200 reactors; unit 1 is scheduled for 2026."
+      }
+    },
+    "ESP": {
+      "civil": "operating",
+      "sources": [
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+      ]
+    },
+    "FIN": {
+      "civil": "operating",
+      "sources": [
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+      ]
+    },
+    "FRA": {
+      "weapons": "npt-nws",
+      "npt": "nws",
+      "civil": "operating",
+      "sources": [
+        "https://www.sipri.org/sites/default/files/YB26%2008%20World%20Nuclear%20Forces.pdf",
+        "https://www.sipri.org/media/press-release/2026/increasing-focus-nuclear-weapons-amid-heightened-escalation-risks-new-sipri-yearbook-out-now",
+        "https://www.nti.org/education-center/treaties-and-regimes/treaty-on-the-non-proliferation-of-nuclear-weapons/",
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+      ],
+      "verified": "2026-11-03",
+      "note": {
+        "ar": "تقدير SIPRI لإجمالي المخزون 370 رأساً، منها 290 في المخزون العسكري والباقي متقاعد بانتظار التفكيك.",
+        "en": "SIPRI's total-inventory estimate is 370 warheads, of which 290 are in the military stockpile and the rest retired awaiting dismantlement."
+      }
+    },
+    "GBR": {
+      "weapons": "npt-nws",
+      "npt": "nws",
+      "civil": "operating",
+      "sources": [
+        "https://www.sipri.org/sites/default/files/YB26%2008%20World%20Nuclear%20Forces.pdf",
+        "https://www.sipri.org/media/press-release/2026/increasing-focus-nuclear-weapons-amid-heightened-escalation-risks-new-sipri-yearbook-out-now",
+        "https://www.nti.org/education-center/treaties-and-regimes/treaty-on-the-non-proliferation-of-nuclear-weapons/",
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+      ],
+      "verified": "2026-11-03"
+    },
+    "HUN": {
+      "civil": "operating",
+      "sources": [
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+      ]
+    },
+    "IND": {
+      "weapons": "non-npt",
+      "npt": "non-party",
+      "civil": "operating",
+      "sources": [
+        "https://www.sipri.org/sites/default/files/YB26%2008%20World%20Nuclear%20Forces.pdf",
+        "https://www.sipri.org/media/press-release/2026/increasing-focus-nuclear-weapons-amid-heightened-escalation-risks-new-sipri-yearbook-out-now",
+        "https://www.nti.org/education-center/treaties-and-regimes/treaty-on-the-non-proliferation-of-nuclear-weapons/",
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+      ],
+      "verified": "2026-11-03"
+    },
+    "IRN": {
+      "weapons": "contested",
+      "civil": "operating",
+      "verified": "2026-11-03",
+      "sources": [
+        "https://www.globalsecurity.org/wmd/library/news/iran/2026/09/iran-260902-rferl05.htm",
+        "https://www.armscontrol.org/act/2026-10/news/iaea-reports-iran-un-security-council",
+        "https://www.aljazeera.com/news/2026/10/31/iran-lawmakers-call-for-withdrawal-from-npt-will-we-have-war-or-peace"
+      ],
+      "note": {
+        "ar": "طرف في معاهدة عدم الانتشار ولا يُعدّ دولة نووية. آخر تقدير للوكالة الدولية للطاقة الذرية لمخزونها من اليورانيوم المخصّب بنسبة 60% هو 440.9 كغ، والوكالة تقول إنها لا تستطيع تحديد حجمه الحالي ولا مكانه لأن إيران تمنع الوصول إلى المنشآت التي ضُربت عام 2025. أحالها مجلس محافظي الوكالة إلى مجلس الأمن في سبتمبر 2026، ويطالب نواب في برلمانها بالانسحاب من المعاهدة.",
+        "en": "An NPT party, not a nuclear-armed state. The IAEA's last estimate of its uranium enriched to 60% is 440.9 kg; the agency says it cannot establish the stockpile's current size or location because Iran blocks access to the facilities struck in 2025. The IAEA Board referred it to the UN Security Council in September 2026, and members of its parliament are calling for NPT withdrawal."
+      }
+    },
+    "ISR": {
+      "weapons": "undeclared",
+      "npt": "non-party",
+      "sources": [
+        "https://www.sipri.org/sites/default/files/YB26%2008%20World%20Nuclear%20Forces.pdf",
+        "https://www.sipri.org/media/press-release/2026/increasing-focus-nuclear-weapons-amid-heightened-escalation-risks-new-sipri-yearbook-out-now",
+        "https://www.nti.org/education-center/treaties-and-regimes/treaty-on-the-non-proliferation-of-nuclear-weapons/"
+      ],
+      "verified": "2026-11-03",
+      "note": {
+        "ar": "تنتهج سياسة الغموض النووي فلا تؤكد امتلاك أسلحة نووية ولا تنفيه، ولذلك يحمل تقدير SIPRI (نحو 90 رأساً) هامش شك كبيراً.",
+        "en": "Keeps a policy of nuclear ambiguity, neither confirming nor denying nuclear weapons, so SIPRI's estimate (about 90 warheads) carries considerable uncertainty."
+      }
+    },
+    "ITA": {
+      "weapons": "host",
+      "host": "USA",
+      "civil": "phased-out",
+      "sources": [
+        "https://armscontrolcenter.org/fact-sheet-u-s-nuclear-weapons-in-europe/",
+        "https://www.sipri.org/sites/default/files/YB26%2008%20World%20Nuclear%20Forces.pdf",
+        "https://world-nuclear.org/information-library/country-profiles/countries-g-n/italy"
+      ],
+      "verified": "2026-11-03",
+      "note": {
+        "ar": "تستضيف قنابل B61 أمريكية ضمن ترتيب المشاركة النووية في الناتو، بحسب تقارير مراكز الحد من التسلح؛ تبقى القنابل في عهدة أمريكية ولا تؤكد الحكومات مواقعها رسمياً. يقدّر SIPRI عددها في أوروبا بين 100 و120 قنبلة. أغلقت محطاتها النووية بعد استفتاء 1987، وآخرها عام 1990، وأجاز قانون 2026 العودة إلى بناء محطات من الجيل الجديد.",
+        "en": "Hosts US B61 bombs under NATO nuclear sharing, according to arms-control centres; the bombs stay in US custody and governments do not officially confirm the sites. SIPRI estimates 100 to 120 such bombs in Europe. It closed its nuclear plants after the 1987 referendum, the last in 1990; a 2026 law allows new-generation plants again."
+      }
+    },
+    "JPN": {
+      "civil": "operating",
+      "sources": [
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+      ]
+    },
+    "KAZ": {
+      "weapons": "relinquished",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Budapest_Memorandum",
+        "https://www.armscontrol.org/node/12895"
+      ],
+      "verified": "2026-11-03",
+      "note": {
+        "ar": "سلّمت إلى روسيا بحلول 1995 نحو 1400 رأس نووي سوفيتي ورثتها، وشملتها ضمانات مذكرة بودابست.",
+        "en": "Transferred to Russia by 1995 the roughly 1,400 Soviet warheads it inherited, and was covered by the Budapest Memorandum's assurances."
+      }
+    },
+    "KOR": {
+      "civil": "operating",
+      "sources": [
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+      ]
+    },
+    "MEX": {
+      "civil": "operating",
+      "sources": [
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+      ]
+    },
+    "NLD": {
+      "weapons": "host",
+      "host": "USA",
+      "civil": "operating",
+      "sources": [
+        "https://armscontrolcenter.org/fact-sheet-u-s-nuclear-weapons-in-europe/",
+        "https://www.sipri.org/sites/default/files/YB26%2008%20World%20Nuclear%20Forces.pdf"
+      ],
+      "verified": "2026-11-03",
+      "note": {
+        "ar": "تستضيف قنابل B61 أمريكية ضمن ترتيب المشاركة النووية في الناتو، بحسب تقارير مراكز الحد من التسلح؛ تبقى القنابل في عهدة أمريكية ولا تؤكد الحكومات مواقعها رسمياً. يقدّر SIPRI عددها في أوروبا بين 100 و120 قنبلة.",
+        "en": "Hosts US B61 bombs under NATO nuclear sharing, according to arms-control centres; the bombs stay in US custody and governments do not officially confirm the sites. SIPRI estimates 100 to 120 such bombs in Europe."
+      }
+    },
+    "PAK": {
+      "weapons": "non-npt",
+      "npt": "non-party",
+      "civil": "operating",
+      "sources": [
+        "https://www.sipri.org/sites/default/files/YB26%2008%20World%20Nuclear%20Forces.pdf",
+        "https://www.sipri.org/media/press-release/2026/increasing-focus-nuclear-weapons-amid-heightened-escalation-risks-new-sipri-yearbook-out-now",
+        "https://www.nti.org/education-center/treaties-and-regimes/treaty-on-the-non-proliferation-of-nuclear-weapons/",
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+      ],
+      "verified": "2026-11-03"
+    },
+    "PRK": {
+      "weapons": "non-npt",
+      "npt": "withdrawn",
+      "sources": [
+        "https://www.sipri.org/sites/default/files/YB26%2008%20World%20Nuclear%20Forces.pdf",
+        "https://www.sipri.org/media/press-release/2026/increasing-focus-nuclear-weapons-amid-heightened-escalation-risks-new-sipri-yearbook-out-now",
+        "https://www.nti.org/education-center/treaties-and-regimes/treaty-on-the-non-proliferation-of-nuclear-weapons/"
+      ],
+      "verified": "2026-11-03",
+      "note": {
+        "ar": "أعلنت انسحابها من معاهدة عدم الانتشار عام 2003. يقدّر SIPRI أنها جمّعت نحو 60 رأساً ولديها مواد انشطارية تكفي 30 رأساً آخر على الأقل.",
+        "en": "Announced its withdrawal from the NPT in 2003. SIPRI estimates it has assembled about 60 warheads and has fissile material for at least 30 more."
+      }
+    },
+    "ROU": {
+      "civil": "operating",
+      "sources": [
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+      ]
+    },
+    "RUS": {
+      "weapons": "npt-nws",
+      "npt": "nws",
+      "civil": "operating",
+      "sources": [
+        "https://www.sipri.org/sites/default/files/YB26%2008%20World%20Nuclear%20Forces.pdf",
+        "https://www.sipri.org/media/press-release/2026/increasing-focus-nuclear-weapons-amid-heightened-escalation-risks-new-sipri-yearbook-out-now",
+        "https://www.nti.org/education-center/treaties-and-regimes/treaty-on-the-non-proliferation-of-nuclear-weapons/",
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+      ],
+      "verified": "2026-11-03"
+    },
+    "SSD": {
+      "npt": "non-party",
+      "sources": [
+        "https://www.nti.org/education-center/treaties-and-regimes/treaty-on-the-non-proliferation-of-nuclear-weapons/"
+      ]
+    },
+    "SVK": {
+      "civil": "operating",
+      "sources": [
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+      ]
+    },
+    "SVN": {
+      "civil": "operating",
+      "sources": [
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+      ]
+    },
+    "SWE": {
+      "civil": "operating",
+      "sources": [
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+      ]
+    },
+    "TUR": {
+      "weapons": "host",
+      "host": "USA",
+      "civil": "building",
+      "sources": [
+        "https://armscontrolcenter.org/fact-sheet-u-s-nuclear-weapons-in-europe/",
+        "https://www.sipri.org/sites/default/files/YB26%2008%20World%20Nuclear%20Forces.pdf",
+        "https://world-nuclear.org/information-library/country-profiles/countries-t-z/turkey"
+      ],
+      "verified": "2026-11-03",
+      "note": {
+        "ar": "تستضيف قنابل B61 أمريكية ضمن ترتيب المشاركة النووية في الناتو، بحسب تقارير مراكز الحد من التسلح؛ تبقى القنابل في عهدة أمريكية ولا تؤكد الحكومات مواقعها رسمياً. يقدّر SIPRI عددها في أوروبا بين 100 و120 قنبلة. محطتها الأولى (أكويو) في مرحلة التشغيل التجريبي منذ يوليو 2025.",
+        "en": "Hosts US B61 bombs under NATO nuclear sharing, according to arms-control centres; the bombs stay in US custody and governments do not officially confirm the sites. SIPRI estimates 100 to 120 such bombs in Europe. Its first plant (Akkuyu) has been in commissioning since July 2025."
+      }
+    },
+    "TWN": {
+      "civil": "phased-out",
+      "verified": "2026-11-03",
+      "sources": [
+        "https://wnn.world-nuclear.org/articles/reactor-closure-marks-taiwans-nuclear-exit"
+      ],
+      "note": {
+        "ar": "أوقفت آخر مفاعل لديها (مانشان 2) في 17 مايو 2025.",
+        "en": "Shut its last reactor (Maanshan 2) on 17 May 2025."
+      }
+    },
+    "UKR": {
+      "weapons": "relinquished",
+      "civil": "operating",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Budapest_Memorandum",
+        "https://www.armscontrol.org/node/12895",
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+      ],
+      "verified": "2026-11-03",
+      "note": {
+        "ar": "ورثت عند تفكك الاتحاد السوفيتي ثالث أكبر ترسانة نووية في العالم، وسلّمتها إلى روسيا بين 1994 و1996 مقابل ضمانات أمنية في مذكرة بودابست (1994).",
+        "en": "Inherited the world's third-largest nuclear arsenal when the Soviet Union broke up and handed it to Russia between 1994 and 1996, in return for security assurances in the Budapest Memorandum (1994)."
+      }
+    },
+    "USA": {
+      "weapons": "npt-nws",
+      "npt": "nws",
+      "civil": "operating",
+      "sources": [
+        "https://www.sipri.org/sites/default/files/YB26%2008%20World%20Nuclear%20Forces.pdf",
+        "https://www.sipri.org/media/press-release/2026/increasing-focus-nuclear-weapons-amid-heightened-escalation-risks-new-sipri-yearbook-out-now",
+        "https://www.nti.org/education-center/treaties-and-regimes/treaty-on-the-non-proliferation-of-nuclear-weapons/",
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+      ],
+      "verified": "2026-11-03"
+    },
+    "ZAF": {
+      "weapons": "relinquished",
+      "civil": "operating",
+      "sources": [
+        "https://www.worldatlas.com/articles/countries-who-gave-up-nuclear-weapons.html",
+        "https://www.wionews.com/photos/from-ukraine-to-south-africa-countries-that-abandoned-nuclear-weapons-and-why-1747644448155",
+        "https://world-nuclear.org/information-library/current-and-future-generation/nuclear-power-in-the-world-today"
+      ],
+      "verified": "2026-11-03",
+      "note": {
+        "ar": "أول دولة تفكّك طوعاً أسلحة نووية صنعتها بنفسها: أنهت التفكيك بحلول 1991 وانضمت إلى معاهدة عدم الانتشار في العام نفسه، وأعلنت ذلك عام 1993.",
+        "en": "The first state to dismantle nuclear weapons it built itself: dismantling was complete by 1991, the year it joined the NPT, and it disclosed this in 1993."
+      }
+    }
+  },
+  "zones": [
+    {
+      "id": "tlatelolco",
+      "ar": "أمريكا اللاتينية والكاريبي",
+      "en": "Latin America and the Caribbean",
+      "treaty": { "ar": "معاهدة تلاتيلولكو", "en": "Treaty of Tlatelolco" },
+      "year": 1967,
+      "members": [
+        "ARG",
+        "ATG",
+        "BHS",
+        "BLZ",
+        "BOL",
+        "BRA",
+        "BRB",
+        "CHL",
+        "COL",
+        "CRI",
+        "CUB",
+        "DMA",
+        "DOM",
+        "ECU",
+        "GRD",
+        "GTM",
+        "GUY",
+        "HND",
+        "HTI",
+        "JAM",
+        "KNA",
+        "LCA",
+        "MEX",
+        "NIC",
+        "PAN",
+        "PER",
+        "PRY",
+        "SLV",
+        "SUR",
+        "TTO",
+        "URY",
+        "VCT",
+        "VEN"
+      ],
+      "sources": [
+        "https://www.unoda.org/en/nwfz/overview-nuclear-weapon-free-zones",
+        "https://www.armscontrol.org/factsheets/nuclear-weapon-free-zones-nwfz-glance",
+        "https://en.wikipedia.org/wiki/Treaty_of_Tlatelolco"
+      ]
+    },
+    {
+      "id": "rarotonga",
+      "ar": "جنوب المحيط الهادئ",
+      "en": "South Pacific",
+      "treaty": { "ar": "معاهدة راروتونغا", "en": "Treaty of Rarotonga" },
+      "year": 1985,
+      "members": [
+        "AUS",
+        "COK",
+        "FJI",
+        "KIR",
+        "NIU",
+        "NRU",
+        "NZL",
+        "PNG",
+        "SLB",
+        "TON",
+        "TUV",
+        "VUT",
+        "WSM"
+      ],
+      "sources": [
+        "https://www.unoda.org/en/nwfz/overview-nuclear-weapon-free-zones",
+        "https://www.armscontrol.org/factsheets/nuclear-weapon-free-zones-nwfz-glance"
+      ]
+    },
+    {
+      "id": "bangkok",
+      "ar": "جنوب شرق آسيا",
+      "en": "Southeast Asia",
+      "treaty": { "ar": "معاهدة بانكوك", "en": "Treaty of Bangkok" },
+      "year": 1995,
+      "members": ["BRN", "IDN", "KHM", "LAO", "MMR", "MYS", "PHL", "SGP", "THA", "VNM"],
+      "sources": [
+        "https://www.unoda.org/en/nwfz/overview-nuclear-weapon-free-zones",
+        "https://www.armscontrol.org/factsheets/nuclear-weapon-free-zones-nwfz-glance"
+      ]
+    },
+    {
+      "id": "pelindaba",
+      "ar": "أفريقيا",
+      "en": "Africa",
+      "treaty": { "ar": "معاهدة بليندابا", "en": "Treaty of Pelindaba" },
+      "year": 1996,
+      "members": [
+        "AGO",
+        "BDI",
+        "BEN",
+        "BFA",
+        "BWA",
+        "CAF",
+        "CIV",
+        "CMR",
+        "COD",
+        "COG",
+        "COM",
+        "CPV",
+        "DJI",
+        "DZA",
+        "EGY",
+        "ERI",
+        "ETH",
+        "GAB",
+        "GHA",
+        "GIN",
+        "GMB",
+        "GNB",
+        "GNQ",
+        "KEN",
+        "LBR",
+        "LBY",
+        "LSO",
+        "MAR",
+        "MDG",
+        "MLI",
+        "MOZ",
+        "MRT",
+        "MUS",
+        "MWI",
+        "NAM",
+        "NER",
+        "NGA",
+        "RWA",
+        "SDN",
+        "SEN",
+        "SLE",
+        "SOM",
+        "SSD",
+        "STP",
+        "SWZ",
+        "SYC",
+        "TCD",
+        "TGO",
+        "TUN",
+        "TZA",
+        "UGA",
+        "ZAF",
+        "ZMB",
+        "ZWE"
+      ],
+      "sources": [
+        "https://www.unoda.org/en/nwfz/overview-nuclear-weapon-free-zones",
+        "https://www.armscontrol.org/factsheets/nuclear-weapon-free-zones-nwfz-glance"
+      ]
+    },
+    {
+      "id": "central-asia",
+      "ar": "آسيا الوسطى",
+      "en": "Central Asia",
+      "treaty": { "ar": "معاهدة سيميبالاتينسك", "en": "Semipalatinsk Treaty" },
+      "year": 2006,
+      "members": ["KAZ", "KGZ", "TJK", "TKM", "UZB"],
+      "sources": [
+        "https://www.unoda.org/en/nwfz/overview-nuclear-weapon-free-zones",
+        "https://www.armscontrol.org/factsheets/nuclear-weapon-free-zones-nwfz-glance"
+      ]
+    }
+  ]
+}

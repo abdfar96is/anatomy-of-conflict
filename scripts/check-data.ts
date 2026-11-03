@@ -99,6 +99,13 @@ export function checkData(dataDir: string): Problem[] {
   resources.sites.forEach((s, i) => { country('resources.json', `sites[${i}].iso3`, s.iso3); resType('resources.json', `sites[${i}].type`, s.type); });
   for (const iso of Object.keys((files['country_intel.json'] as { countries: Rec }).countries)) country('country_intel.json', `countries.${iso}`, iso);
   for (const iso of Object.keys((files['religions.json'] as { countries: Rec }).countries)) country('religions.json', `countries.${iso}`, iso);
+  const nuclear = files['nuclear.json'] as { warheads: { values: Rec }; countries: Record<string, Rec>; zones: Rec[] };
+  for (const [iso, r] of Object.entries(nuclear.countries)) {
+    country('nuclear.json', `countries.${iso}`, iso);
+    if (r.host) country('nuclear.json', `countries.${iso}.host`, r.host);
+  }
+  for (const iso of Object.keys(nuclear.warheads.values)) country('nuclear.json', `warheads.values.${iso}`, iso);
+  nuclear.zones.forEach((zn, i) => each('nuclear.json', zn.members, `zones[${i}].members`, country));
   const figureNotes = (files['figure_notes.json'] as { countries: Record<string, Record<string, Rec>> } | undefined)?.countries ?? {};
   for (const [iso, notes] of Object.entries(figureNotes)) {
     country('figure_notes.json', `countries.${iso}`, iso);
@@ -131,6 +138,10 @@ export function checkData(dataDir: string): Problem[] {
   dupes('chokepoints.json', (files['chokepoints.json'] as { points: Rec[] }).points, 'points');
   dupes('relations.json', rel.blocs, 'blocs');
   dupes('resources.json', resources.sites, 'sites');
+  dupes('nuclear.json', nuclear.zones, 'zones');
+  for (const [iso, r] of Object.entries(nuclear.countries)) {
+    if (typeof r.verified === 'string' && r.verified > today) problems.push({ file: 'nuclear.json', path: `countries.${iso}.verified`, message: 'date is in the future', value: r.verified });
+  }
 
   // 4. The open-data refresh (live/indicators.json), when present: shape, layout, known countries, no future years.
   const liveName = 'live/indicators.json', livePath = path.join(dataDir, liveName);

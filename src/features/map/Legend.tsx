@@ -5,13 +5,13 @@ import * as d3 from 'd3';
 import { useState, useSyncExternalStore, type CSSProperties, type ReactNode, type SyntheticEvent } from 'react';
 import { atlas, useAtlas, type AtlasState } from '../../app/store';
 import { useDb, useT } from '../../app/useT';
-import { CHOKE_STATUS, LENSES, RESOURCE_CLASSES, SEVERITY } from '../../config';
+import { CHOKE_STATUS, LENSES, NUCLEAR_CIVIL, NUCLEAR_STATUS, RESOURCE_CLASSES, SEVERITY } from '../../config';
 import type { DB } from '../../data/types';
 import { Icon } from '../../ui/Icon';
 import { catVar, edgeVar, pal, resClassVar, sevVar, traditionColor, type Palette } from '../../ui/palette';
 import {
   BLOC_T, CHOKE_T, CONTINENTS, ETHNIC_CLASSES, GDP_RANGE, INCOME, POP_RANGE, RES_SHAPE,
-  activeBloc, bi, decadeWindow, ethnicClass, landTint, seqFill, visibleConflicts, windowEvents,
+  activeBloc, bi, decadeWindow, ethnicClass, landTint, nuclearCivilFill, nuclearFill, nuclearZoneFill, seqFill, visibleConflicts, windowEvents,
 } from './engine/scene';
 import './strings';
 
@@ -89,6 +89,7 @@ interface Ctx { DB: DB; S: LegendState; P: Palette; T: ReturnType<typeof useT> }
 
 const setOverviewMode = (v: AtlasState['filters']['overviewMode']) => atlas.setFilter('overviewMode', v);
 const setReligionMode = (v: AtlasState['filters']['religionMode']) => atlas.setFilter('religionMode', v);
+const setNuclearMode = (v: AtlasState['filters']['nuclearMode']) => atlas.setFilter('nuclearMode', v);
 
 const BODY: Record<(typeof LENSES)[number]['id'], (c: Ctx) => ReactNode> = {
   overview({ DB, S, P, T: { t, pick: L, fmt } }) {
@@ -206,6 +207,41 @@ const BODY: Record<(typeof LENSES)[number]['id'], (c: Ctx) => ReactNode> = {
           </Keys>
         </Sec>
         <Note text={t('map.dp.note', { n: fmt.num(DB.disputed.length) })} />
+      </>
+    );
+  },
+
+  nuclear({ DB, S, P, T: { t, pick: L, fmt } }) {
+    const m = S.filters.nuclearMode;
+    const modes = (['military', 'civil', 'zones'] as const).map((id) => (
+      <Chip key={id} act="set" k="nuclearMode" val={id} pressed={m === id} label={t('map.nc.' + id)} onClick={() => setNuclearMode(id)} />
+    ));
+    const all = [...DB.countries.values()];
+    let key: ReactNode, note: string;
+    if (m === 'military') {
+      key = <Keys>{(Object.keys(NUCLEAR_STATUS) as (keyof typeof NUCLEAR_STATUS)[]).map((id) => (
+        <KeyRow key={id} lead={<Sw bg={nuclearFill(P, id)} cls={`sw-land${'unconfirmed' in NUCLEAR_STATUS[id] ? ' sw-overhatch' : ''}`} />} label={L(NUCLEAR_STATUS[id])}
+          n={all.filter((c) => c.nuclear.weapons === id).length} />
+      ))}</Keys>;
+      const total = Object.values(DB.nuclear.warheads.values).reduce((a, b) => a + b, 0);
+      note = [t('map.nc.warheads', { n: fmt.num(total), y: DB.nuclear.warheads.year }), t('map.nc.hatch'), L(DB.nuclear.note)].join(' ');
+    } else if (m === 'civil') {
+      key = <Keys>{(Object.keys(NUCLEAR_CIVIL) as (keyof typeof NUCLEAR_CIVIL)[]).map((id) => (
+        <KeyRow key={id} lead={<Sw bg={nuclearCivilFill(P, id)} cls={`sw-land${id === 'phased-out' ? ' sw-overhatch' : ''}`} />} label={L(NUCLEAR_CIVIL[id])}
+          n={all.filter((c) => c.nuclear.civil === id).length} />
+      ))}</Keys>;
+      note = t('map.nc.civilNote');
+    } else {
+      key = <Keys>{DB.nuclear.zones.map((z) => (
+        <KeyRow key={z.id} lead={<Sw bg={nuclearZoneFill(P, z.id)} cls="sw-land" />} label={`${L(z)} · ${L(z.treaty)} (${z.year})`} n={z.members.length} />
+      ))}</Keys>;
+      note = L(DB.nuclear.zonesNote);
+    }
+    return (
+      <>
+        <Sec label={t('map.lc.colorBy')}><Chips label={t('map.lc.colorBy')}>{modes}</Chips></Sec>
+        <Sec>{key}</Sec>
+        <Note text={note} />
       </>
     );
   },
