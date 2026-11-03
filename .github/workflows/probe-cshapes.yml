@@ -1,0 +1,25 @@
+name: Probe CShapes (temporary)
+on:
+  push:
+    branches: [feat/historical-borders]
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Page, licence and downloads
+        run: |
+          set +e
+          ua='Mozilla/5.0 (compatible; anatomy-of-conflict-atlas; educational)'
+          curl -sS -m 60 -L -A "$ua" -o page.html -w "page %{http_code} %{size_download}\n" https://icr.ethz.ch/data/cshapes/
+          python3 - <<'PY'
+          import re, html
+          s = open('page.html', encoding='utf-8', errors='replace').read()
+          clean = lambda x: re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]+>', ' ', x))).strip()
+          body = clean(re.sub(r'<script.*?</script>|<style.*?</style>', ' ', s, flags=re.S))
+          i = body.find('CShapes')
+          print('TEXT', body[i:i+3000])
+          for h in sorted(set(re.findall(r'href="([^"]+)"', s))):
+              if re.search(r'\.(zip|geojson|json|csv|shp|rds|gpkg|pdf)|download|licen|creative', h, re.I): print('LINK', h)
+          PY
