@@ -184,9 +184,14 @@
       "type": "water",
       "year": 2024,
       "source": "undata",
-      "ar": "هضبة التبت منبع السند وبراهماپوترا والميكونغ واليانغتسي والنهر الأصفر، فالسيطرة عليها مسألة مياه لنصف سكّان آسيا.",
-      "en": "The Tibetan plateau is the source of the Indus, Brahmaputra, Mekong, Yangtze and Yellow rivers, so control of it is a water question for half of Asia's population.",
-      "conflictIds": ["tibet"]
+      "ar": "هضبة التبت منبع السند وبراهماپوترا والميكونغ واليانغتسي والنهر الأصفر، فالسيطرة عليها مسألة مياه لأكثر من مليار إنسان في مجرى هذه الأنهار.",
+      "en": "The Tibetan plateau is the source of the Indus, Brahmaputra, Mekong, Yangtze and Yellow rivers, so control of it is a water question for more than a billion people downstream.",
+      "conflictIds": ["tibet"],
+      "sources": [
+        "https://asiatimes.com/2020/12/importance-of-tibets-rivers-for-asian-water-security/",
+        "https://thetibetpost.com/ecosystem/heatwave/tibet-the-third-pole-and-water-tower-of-asia"
+      ],
+      "verified": "2026-11-03"
     },
     {
       "iso3": "COD",
@@ -1035,7 +1040,12 @@
       "year": 2024,
       "source": "eia",
       "ar": "احتياطيات غاز بحرية كبيرة في الجنوب، ومشروع للغاز المسال في ليندي ما زال قيد التفاوض.",
-      "en": "Large offshore gas reserves in the south, with an LNG project at Lindi still under negotiation."
+      "en": "Large offshore gas reserves in the south, with an LNG project at Lindi still under negotiation.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Tanzania_Liquefied_Natural_Gas_Project",
+        "https://www.africa-energy.com/news-centre/article/tanzania-lindi-lng-host-government-agreement-delayed-february"
+      ],
+      "verified": "2026-11-03"
     },
     {
       "iso3": "KEN",
@@ -1145,7 +1155,11 @@
       "year": 2025,
       "source": "usgs",
       "ar": "منجم بالاما من أكبر مناجم الغرافيت خارج الصين، ومورد مهم لأنودات البطاريات.",
-      "en": "The Balama mine is among the largest graphite mines outside China, an important source for battery anodes."
+      "en": "The Balama mine is among the largest graphite mines outside China, an important source for battery anodes.",
+      "sources": [
+        "https://www.miningweekly.com/article/balama-graphite-project-mozambique-update-2025-06-27",
+        "https://aimnews.org/2026/03/03/syrah-resources-to-supply-graphite-to-japan/"
+      ]
     },
     {
       "iso3": "MDG",
@@ -1153,7 +1167,12 @@
       "year": 2025,
       "source": "usgs",
       "ar": "منجم أمباتوفي من أكبر مناجم النيكل والكوبالت اللاتيريتية في العالم.",
-      "en": "The Ambatovy mine is among the world's largest lateritic nickel and cobalt operations."
+      "en": "The Ambatovy mine is among the world's largest lateritic nickel and cobalt operations.",
+      "sources": [
+        "https://www.mining.com/web/madagascan-miner-ambatovy-resumes-nickel-production-after-cyclone/",
+        "https://www.iisd.org/system/files/2026-07/country-profile-madagascar.pdf"
+      ],
+      "verified": "2026-11-03"
     },
     {
       "iso3": "MDG",
@@ -1161,7 +1180,8 @@
       "year": 2025,
       "source": "usgs",
       "ar": "من أكبر منتجي الغرافيت الطبيعي خارج الصين.",
-      "en": "One of the largest natural graphite producers outside China."
+      "en": "One of the largest natural graphite producers outside China.",
+      "sources": ["https://www.iisd.org/system/files/2026-07/country-profile-madagascar.pdf"]
     },
     {
       "iso3": "CMR",
@@ -1177,7 +1197,10 @@
       "year": 2024,
       "source": "undata",
       "ar": "من أكبر خمسة منتجين للكاكاو في العالم.",
-      "en": "Among the world's five largest cocoa producers."
+      "en": "Among the world's five largest cocoa producers.",
+      "sources": [
+        "https://m.investiraucameroun.com/news/i/14618/cameroon-could-hit-highest-cocoa-output-over-five-years"
+      ]
     },
     {
       "iso3": "CIV",
@@ -1212,7 +1235,12 @@
       "year": 2024,
       "source": "undata",
       "ar": "نزاع حدودي قديم مع تنزانيا على بحيرة مالاوي (نياسا) تجدّد مع التنقيب عن النفط في البحيرة.",
-      "en": "A long-running border dispute with Tanzania over Lake Malawi (Nyasa), revived by oil exploration in the lake."
+      "en": "A long-running border dispute with Tanzania over Lake Malawi (Nyasa), revived by oil exploration in the lake.",
+      "sources": [
+        "https://www.bairdmaritime.com/shipping/malawi-tanzania-in-border-dispute-over-oil-and-gas",
+        "https://issafrica.org/research/publication-archives/cpra-daily-briefing/border-dispute-between-tanzania-and-malawi-may-go-to-the-icj"
+      ],
+      "verified": "2026-11-03"
     },
     {
       "iso3": "ZMB",
@@ -1397,7 +1425,11 @@
       "year": 2025,
       "source": "usgs",
       "ar": "خام الحديد من جبال نيمبا تستخرجه أرسيلور ميتال ويُصدَّر عبر بوكانان، وهو أكبر صادرات البلاد مع الذهب.",
-      "en": "Iron ore from the Nimba mountains, mined by ArcelorMittal and shipped from Buchanan, is the largest export alongside gold."
+      "en": "Iron ore from the Nimba mountains, mined by ArcelorMittal and shipped from Buchanan, is the largest export alongside gold.",
+      "sources": [
+        "https://trade.gov/country-commercial-guides/liberia-mining-and-minerals",
+        "https://allafrica.com/stories/202506060202.html"
+      ]
     },
     {
       "iso3": "CAF",
@@ -1439,7 +1471,12 @@
       "year": 2024,
       "source": "undata",
       "ar": "مصائد الأسماك مورد أساسي للغذاء والعمل، ومصانع دقيق السمك الأجنبية تُتّهم باستنزاف المخزون.",
-      "en": "Fisheries are a key source of food and jobs; foreign fishmeal factories are accused of depleting stocks."
+      "en": "Fisheries are a key source of food and jobs; foreign fishmeal factories are accused of depleting stocks.",
+      "sources": [
+        "https://dialogue.earth/en/ocean/11980-fishmeal-factories-threaten-food-security-in-the-gambia/",
+        "https://adf-magazine.com/2021/04/fishmeal-factories-in-the-gambia-feed-outrage"
+      ],
+      "verified": "2026-11-03"
     },
     {
       "iso3": "BWA",
@@ -1524,7 +1561,12 @@
       "year": 2025,
       "source": "undata",
       "ar": "فقيرة الموارد لكنها تهيمن على مواد صناعة الرقائق: رقائق السيليكون والمواد المقاومة للضوء ومعدّات التصنيع.",
-      "en": "Resource-poor, but dominant in chipmaking materials: silicon wafers, photoresists and manufacturing equipment."
+      "en": "Resource-poor, but dominant in chipmaking materials: silicon wafers, photoresists and manufacturing equipment.",
+      "sources": [
+        "https://amro-asia.org/wp-content/uploads/2025/03/SI5.-Japans-Strategic-Comeback-in-the-Global-Chip-Race.pdf",
+        "https://www.scmp.com/week-asia/politics/article/3150323/japan-strengthens-hold-semiconductor-raw-materials-amid-global"
+      ],
+      "verified": "2026-11-03"
     },
     {
       "iso3": "PHL",
@@ -1559,8 +1601,13 @@
       "type": "rare-earths",
       "year": 2025,
       "source": "usgs",
-      "ar": "من أكبر احتياطيات العناصر الأرضية النادرة خارج الصين، مع إنتاج ما زال محدوداً.",
-      "en": "Among the largest rare earth reserves outside China, with production still limited."
+      "ar": "كانت تُصنَّف ثانيةً عالمياً في احتياطيات العناصر الأرضية النادرة، لكن هيئة المسح الجيولوجي الأمريكية خفّضت تقديرها عام 2025 إلى نحو 3.5 مليون طن، مع إنتاج ما زال محدوداً.",
+      "en": "Once ranked second in rare earth reserves, until the US Geological Survey cut its estimate in 2025 to around 3.5 million tonnes; production is still limited.",
+      "sources": [
+        "https://www.mining.com/web/us-agency-slashes-its-estimate-of-vietnams-rare-earth-reserves-in-major-revision",
+        "https://theinvestor.vn/us-geological-survey-cuts-vietnams-rare-earth-reserve-from-22-mln-to-35-mln-tons-d14876.html"
+      ],
+      "verified": "2026-11-03"
     },
     {
       "iso3": "THA",
@@ -1812,7 +1859,12 @@
       "source": "eia",
       "ar": "إنتاج نفطي محدود، واكتُشف حوض خليج البحرين البحري عام 2018 بموارد كبيرة من النفط المحكم صعب الاستخراج.",
       "en": "Limited oil output; the offshore Khaleej al-Bahrain basin, discovered in 2018, holds large tight-oil resources that are hard to extract.",
-      "conflictIds": ["gulf-security"]
+      "conflictIds": ["gulf-security"],
+      "sources": [
+        "https://gulfnews.com/business/energy/bahrain-discovers-80b-barrels-of-tight-oil-1.2200080",
+        "https://english.alarabiya.net/business/energy/2018/04/04/Bahrain-says-new-discovery-contains-an-estimated-80-bln-barrels-of-tight-oil"
+      ],
+      "verified": "2026-11-03"
     },
     {
       "iso3": "TLS",
@@ -1833,7 +1885,11 @@
       "year": 2024,
       "source": "eia",
       "ar": "حقل أفروديت ضمن منطقتها الاقتصادية الخالصة، وتركيا تعترض على حقوق التنقيب باسم القبارصة الأتراك.",
-      "en": "The Aphrodite field in its exclusive economic zone; Türkiye contests drilling rights on behalf of the Turkish Cypriots."
+      "en": "The Aphrodite field in its exclusive economic zone; Türkiye contests drilling rights on behalf of the Turkish Cypriots.",
+      "sources": [
+        "https://worldoil.com/news/2023/8/28/cyprus-rejects-chevron-s-development-plan-for-aphrodite-offshore-natural-gas-field/",
+        "https://www.spglobal.com/commodityinsights/en/market-insights/latest-news/natural-gas/051024-aphrodite-gas-project-faces-renewed-uncertainty-after-cyprus-plan-rejection"
+      ]
     },
     {
       "iso3": "BTN",
@@ -2213,7 +2269,12 @@
       "year": 2025,
       "source": "usgs",
       "ar": "أكبر احتياطيات الليثيوم في أوروبا الغربية، ومشروع باروسو يواجه معارضة محلية.",
-      "en": "The largest lithium reserves in Western Europe; the Barroso project faces local opposition."
+      "en": "The largest lithium reserves in Western Europe; the Barroso project faces local opposition.",
+      "sources": [
+        "https://www.mining.com/web/savannah-resources-delays-start-of-portuguese-lithium-production-to-2027/",
+        "https://www.engineeringnews.co.za/article/savannah-to-resume-lithium-work-after-three-week-halt-as-portugal-backs-project-2026-06-29"
+      ],
+      "verified": "2026-11-03"
     },
     {
       "iso3": "HUN",
@@ -2309,7 +2370,11 @@
       "year": 2025,
       "source": "usgs",
       "ar": "من أبرز منتجي الكروم في أوروبا، ولديها أكبر حقل نفط بري في أوروبا (باتوس–مارينزا).",
-      "en": "One of Europe's main chromium producers, and home to Europe's largest onshore oil field (Patos-Marinza)."
+      "en": "One of Europe's main chromium producers, and home to Europe's largest onshore oil field (Patos-Marinza).",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Patos-Marinza_Oil_Field",
+        "https://jpt.spe.org/reviving-europes-largest-onshore-field"
+      ]
     },
     {
       "iso3": "EST",
@@ -2478,7 +2543,12 @@
       "year": 2024,
       "source": "undata",
       "ar": "من أكبر منتجي البن العربي في العالم.",
-      "en": "One of the world's largest producers of arabica coffee."
+      "en": "One of the world's largest producers of arabica coffee.",
+      "sources": [
+        "https://qahwaworld.com/news/top-coffee-producing-countries-2024",
+        "https://qahwaworld.com/news/colombia-best-coffee-harvest-2025"
+      ],
+      "verified": "2026-11-03"
     },
     {
       "iso3": "ARG",
@@ -2671,7 +2741,12 @@
       "year": 2024,
       "source": "undata",
       "ar": "استُنزف الفوسفات الذي كان مصدر ثروتها خلال القرن العشرين، وترك معظم الجزيرة أرضاً غير صالحة.",
-      "en": "The phosphate that made it rich was exhausted over the twentieth century, leaving most of the island unusable."
+      "en": "The phosphate that made it rich was exhausted over the twentieth century, leaving most of the island unusable.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Effects_of_mining_in_Nauru",
+        "https://www.princeton.edu/news/2019/05/20/princeton-senior-lohmann-explores-nauru-where-environmental-future-now"
+      ],
+      "verified": "2026-11-03"
     },
     {
       "iso3": "MDV",
@@ -2679,7 +2754,12 @@
       "year": 2024,
       "source": "undata",
       "ar": "صيد التونة بالصنارة أهم الصادرات بعد السياحة.",
-      "en": "Pole-and-line tuna fishing is the main export after tourism."
+      "en": "Pole-and-line tuna fishing is the main export after tourism.",
+      "sources": [
+        "https://iotc.org/sites/default/files/documents/2023/11/IOTC-2023-SC26-NR16E_Maldives.pdf",
+        "https://www.seafoodsource.com/news/supply-trade/maldives-export-revenue-to-increase-thanks-to-msc"
+      ],
+      "verified": "2026-11-03"
     },
     {
       "iso3": "SYC",
@@ -2720,8 +2800,13 @@
       "type": "semiconductors",
       "year": 2025,
       "source": "undata",
-      "ar": "موقع إنتل لتجميع الرقائق واختبارها جعلها أكبر مصدّر لأشباه الموصلات في أمريكا اللاتينية.",
-      "en": "Intel's chip assembly and test site has made it Latin America's largest semiconductor exporter."
+      "ar": "جعل موقع إنتل لتجميع الرقائق واختبارها كوستاريكا مصدّراً رئيسياً لأشباه الموصلات، لكن إنتل أعلنت في يوليو 2025 نقل هذه العمليات إلى ماليزيا وفيتنام.",
+      "en": "Intel's chip assembly and test site made Costa Rica a major semiconductor exporter, but Intel announced in July 2025 that it would move those operations to Malaysia and Vietnam.",
+      "sources": [
+        "https://theedgemalaysia.com/article/intel-closes-costa-rica-operation-cuts-1500-jobs",
+        "https://www.cinde.org/en/essential-news/in-the-last-two-years-intel-invested-close-to-usd-1billion-in-costa-rica-and-officially-inaugurated-an-assembly-and-test-plant"
+      ],
+      "verified": "2026-11-03"
     }
   ],
   "sites": [
