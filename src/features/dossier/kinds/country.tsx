@@ -1,6 +1,7 @@
 // Country dossier: summary, religion, peoples, conflicts, relations, resources and history tabs.
 
 import { Fragment, type ReactNode } from 'react';
+import { NUCLEAR_CIVIL, NUCLEAR_NPT, NUCLEAR_STATUS } from '../../../config';
 import { BarList, Donut, Pips } from '../../../ui/charts';
 import { esc } from '../../../ui/dom';
 import { Icon } from '../../../ui/Icon';
@@ -99,6 +100,7 @@ function summary(c: Country, k: Kit) {
   return <>
     {k.sec(null, [head, k.note(db.live ? t('dz.f.note', { d: fmt.date(db.live.retrieved) }) : t('dz.f.noteBase'))], { cls: 'first' })}
     {humanitarian(c, k)}
+    {nuclear(c, k)}
     {k.sec(t('dz.x.title'), exposure)}
     {k.sec(t('dz.s.blocs'), blocChips, { id: 'blocs', count: blocs.length })}
     {intelPart}
@@ -128,6 +130,34 @@ function humanitarian(c: Country, k: Kit) {
     BATTLE_UNDER_ISRAEL.has(c.iso3) ? k.caveat(t('dz.hu.bdPse')) : null,
     k.note(t('dz.hu.note')),
   ], { id: 'humanitarian' });
+}
+
+/** Nuclear profile (curated/nuclear.json): status, SIPRI warhead estimate, NPT, civil use, weapon-free zone, sources. */
+function nuclear(c: Country, k: Kit) {
+  const { t, pick: L, fmt, db } = k;
+  const n = c.nuclear;
+  const zones = n.zones.map((id) => db.nuclear.zoneById.get(id)).filter((z) => !!z);
+  if (!n.weapons && !n.civil && !n.warheads && !zones.length && (!n.npt || n.npt === 'party')) return null;
+  const w = db.nuclear.warheads;
+  const host = n.host ? db.countries.get(n.host) : undefined;
+  const facts = k.facts([
+    k.fact(t('dz.nc.status'), n.weapons ? L(NUCLEAR_STATUS[n.weapons]) : t('dz.nc.noWeapons'), { text: true, wide: true }),
+    n.warheads ? k.fact(t('dz.nc.warheads'), <span className="data">{fmt.num(n.warheads)}</span>, {
+      year: w.year, tipText: L(w.metric), source: { label: w.publisher, url: w.sources[0], tip: L(w.metric) },
+    }) : null,
+    host ? k.fact(t('dz.nc.host'), k.cchip(host.iso3), { text: true }) : null,
+    k.fact(t('dz.nc.npt'), n.npt ? L(NUCLEAR_NPT[n.npt]) : '—', { text: true }),
+    k.fact(t('dz.nc.civil'), n.civil ? L(NUCLEAR_CIVIL[n.civil]) : t('dz.nc.noCivil'), { text: true }),
+    zones.length ? k.fact(t('dz.nc.zone'), k.listJoin(zones.map((z) => `${L(z.treaty)} (${z.year})`)), { text: true, wide: true }) : null,
+  ]);
+  const record = db.raw.nuclear.countries[c.iso3];
+  const zoneSources = [...new Set(zones.flatMap((z) => z.sources))];
+  return k.sec(t('dz.nc.title'), [
+    facts,
+    n.note ? k.prose(L(n.note), { cls: 'sm', clamp: false }) : null,
+    record?.sources?.length ? k.provenance(record) : zoneSources.length ? k.provenance({ sources: zoneSources }) : null,
+    record && !record.verified && record.civil ? k.note(t('dz.nc.civilUnchecked')) : null,
+  ], { id: 'nuclear' });
 }
 
 function religion(c: Country, k: Kit) {

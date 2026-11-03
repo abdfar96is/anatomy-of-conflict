@@ -3,7 +3,7 @@
 
 import type { Feature, FeatureCollection, Geometry } from 'geojson';
 import type { Bi, Lang } from '../i18n/format';
-import type { Kind } from '../config';
+import type { Kind, NUCLEAR_CIVIL, NUCLEAR_NPT, NUCLEAR_STATUS } from '../config';
 import type { CONFLICT_FILES } from './files';
 
 export type { Kind };
@@ -54,6 +54,23 @@ export interface Dataset extends Extra { id: string; file?: string }
 export interface Reference extends Extra { id: string }
 export interface Correction { id: string; where: Bi; what: Bi }
 
+/** Nuclear status (curated/nuclear.json). */
+export type NuclearStatusId = keyof typeof NUCLEAR_STATUS;
+export type NuclearCivilId = keyof typeof NUCLEAR_CIVIL;
+export type NuclearNptId = keyof typeof NUCLEAR_NPT;
+export interface NuclearRecord extends Provenance {
+  weapons?: NuclearStatusId; host?: string; civil?: NuclearCivilId; npt?: NuclearNptId; note?: Bi;
+}
+export interface NuclearZone extends Bi { id: string; treaty: Bi; year: number; members: string[]; sources: string[] }
+export interface NuclearFile {
+  note?: Bi; zonesNote?: Bi;
+  warheads: { year: number; metric: Bi; publisher: string; sources: string[]; verified?: string; values: Record<string, number> };
+  countries: Record<string, NuclearRecord>;
+  zones: NuclearZone[];
+}
+/** A country's nuclear profile in the model: its record, the NPT status filled in for states, warheads and zones. */
+export interface CountryNuclear extends Omit<NuclearRecord, 'npt'> { npt?: NuclearNptId; warheads?: number; zones: string[] }
+
 /** A sourced caveat on one open-data figure for one country (curated/figure_notes.json). */
 export interface FigureNote extends Bi { sources: string[]; verified: string }
 
@@ -88,6 +105,7 @@ export type RawData = {
   timeline: { range: unknown; categories: TimelineCategory[]; events: RawEvent[]; boundaryLimitation?: Bi };
   corrections?: Correction[];
   figureNotes?: { note?: Bi; countries: Record<string, Partial<Record<LiveKey, FigureNote>>> };
+  nuclear: NuclearFile;
   live?: LiveFile | null;
 } & { [K in (typeof CONFLICT_FILES)[number]]: ConflictFile };
 
@@ -109,6 +127,7 @@ export interface Country {
   stats: Partial<Record<LiveKey, Stat>>;
   /** Sourced caveats on some of those figures, where the figure measures something narrower than it seems. */
   figureNotes: Partial<Record<LiveKey, FigureNote>>;
+  nuclear: CountryNuclear;
   intel: Intel | null; religion: CountryReligion | null; resources: ResourceEntry[];
   sites: string[]; conflicts: string[]; external: string[]; blocs: string[]; edges: string[];
   events: string[]; groups: string[]; chokepoints: string[]; neighbors: string[]; disputed: string[];
@@ -134,6 +153,7 @@ export interface DB {
   corrections: Correction[];
   /** The open-data refresh, or null when the file is missing or has never been filled. */
   live: LiveFile | null;
+  nuclear: NuclearFile & { zoneById: Map<string, NuclearZone> };
   isUnverified(kind: Kind, id: string): boolean;
   features: Feature<Geometry, CountryProps>[];
   countries: Map<string, Country>;

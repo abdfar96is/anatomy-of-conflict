@@ -310,6 +310,33 @@
       }
     },
     {
+      "id": "atlas-nuclear",
+      "file": "curated/nuclear.json",
+      "title": {
+        "ar": "الوضع النووي للدول — الأسلحة والاستخدام المدني والمعاهدات",
+        "en": "Nuclear status of states — weapons, civil use and treaties"
+      },
+      "publisher": {
+        "ar": "تجميع تحريري لهذا الأطلس من SIPRI ومراكز الحد من التسلح والوكالة الدولية للطاقة الذرية والرابطة النووية العالمية",
+        "en": "Editorial compilation for this atlas from SIPRI, arms-control centres, the IAEA and the World Nuclear Association"
+      },
+      "license": "CC-BY-4.0 (compilation)",
+      "published": "2026-11-03",
+      "lastRetrieved": "2026-11-03",
+      "resolution": {
+        "ar": "على مستوى الدولة فقط؛ لا مواقع عسكرية. المناطق الخالية تُظهر النطاق الجغرافي لكل معاهدة.",
+        "en": "State level only; no military sites. Weapon-free zones show each treaty's geographic scope."
+      },
+      "methodology": {
+        "ar": "لكل دولة وضع عسكري واحد (دولة نووية بموجب المعاهدة، خارجها، غير معلنة، مستضيفة، مستضيفة بإعلان، برنامج موضع نزاع، تخلّت عن أسلحة) ووضع مدني، مع مصادر وتاريخ تحقق. تقديرات الرؤوس من الكتاب السنوي لـ SIPRI لمطلع 2026 (إجمالي المخزون)، ومجموعها يطابق مجموع SIPRI العالمي (12,187). عضوية معاهدة عدم الانتشار تُفترض للدول الأعضاء في الأمم المتحدة إلا الاستثناءات المسجلة.",
+        "en": "Each state has one military status (NPT nuclear-weapon state, outside the NPT, undeclared, host, announced host, disputed programme, gave up weapons) and a civil status, with sources and a check date. Warhead estimates come from the SIPRI Yearbook for early 2026 (total inventory) and sum to SIPRI's world total (12,187). NPT membership is assumed for UN member states except the recorded exceptions."
+      },
+      "limitations": {
+        "ar": "أعداد الرؤوس تقديرات لا أرقام رسمية، وإسرائيل لا تؤكد امتلاكها. استضافة الأسلحة الأمريكية في أوروبا قائمة على تقارير لا تأكيد رسمي، واستضافة بيلاروس لأسلحة روسية إعلان لم يُثبت علناً. القائمة المدنية مأخوذة من مصدر عام ولم تُدقَّق كل دولة على حدة بعد. لا تشمل هذه النسخة عضوية معاهدة حظر الأسلحة النووية لكل دولة، لأن قائمتها لم يتسنَّ التحقق منها.",
+        "en": "Warhead counts are estimates, not official figures, and Israel does not confirm its arsenal. US weapons in Europe rest on reports rather than official confirmation, and Belarus hosting Russian weapons is an announcement not publicly proven. The civil list comes from a general source and has not yet been checked state by state. This edition leaves out per-state membership of the Treaty on the Prohibition of Nuclear Weapons, as its list could not be verified."
+      }
+    },
+    {
       "id": "atlas-country-intel",
       "file": "thematic/country_intel.json",
       "title": {

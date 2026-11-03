@@ -4,7 +4,7 @@
 import * as d3 from 'd3';
 import type { Feature } from 'geojson';
 import type { AtlasState } from '../../../app/store';
-import { CHOKE_STATUS, SEVERITY, type LensId } from '../../../config';
+import { CHOKE_STATUS, NUCLEAR_CIVIL, NUCLEAR_STATUS, SEVERITY, type LensId } from '../../../config';
 import type { Bloc, Country, DB, Disputed, Kind, TimelineEvent } from '../../../data/types';
 import { fmtCompact, fmtDate, fmtGdp, fmtNum, fmtPct, type Bi, type Lang } from '../../../i18n/format';
 import { pick, pickKey, registerStrings, translate } from '../../../i18n/strings';
@@ -18,6 +18,10 @@ registerStrings({
     'map.tip.gdp': 'الناتج المحلي {v}',
     'map.tip.gdpPc': 'نصيب الفرد {v}',
     'map.tip.yr': '{v} ({y})',
+    'map.tip.nuc.none': 'لا وضع نووياً عسكرياً مسجّلاً',
+    'map.tip.nuc.warheads': 'نحو {n} رأس نووي (تقدير SIPRI، {y})',
+    'map.tip.nuc.civil0': 'لا مفاعلات طاقة مسجّلة',
+    'map.tip.nuc.zone0': 'خارج المناطق الخالية من السلاح النووي',
     'map.tip.conflicts0': 'ليست طرفاً في أي ملف نزاع مرصود',
     'map.tip.conflicts': 'طرف في {n} من ملفات النزاع',
     'map.tip.conflict1': 'طرف في ملف نزاع واحد',
@@ -57,6 +61,10 @@ registerStrings({
     'map.tip.gdp': 'GDP {v}',
     'map.tip.gdpPc': 'Per person {v}',
     'map.tip.yr': '{v} ({y})',
+    'map.tip.nuc.none': 'No military nuclear status recorded',
+    'map.tip.nuc.warheads': 'About {n} nuclear warheads (SIPRI estimate, {y})',
+    'map.tip.nuc.civil0': 'No power reactors recorded',
+    'map.tip.nuc.zone0': 'Outside the nuclear-weapon-free zones',
     'map.tip.conflicts0': 'Not a party to any tracked conflict',
     'map.tip.conflicts': 'Party to {n} tracked conflicts',
     'map.tip.conflict1': 'Party to 1 tracked conflict',
@@ -175,6 +183,15 @@ export const landTint = (P: Palette, color: string) => mix(P.land, color, 0.8);
 /** Sequential land fill: the --seq ramp without its two extremes (keeps names legible on the darkest and lightest steps). */
 export const seqFill = (P: Palette, v: number) => P.seq(0.06 + 0.68 * Math.max(0, Math.min(1, v)));
 export const BLOC_T = 0.6, CHOKE_T = 0.42;
+// Nuclear lens: military status → status colour at the status's strength; zones → categorical slots.
+export const NUCLEAR_ZONE_SLOT: Record<string, number> = { tlatelolco: 1, pelindaba: 2, bangkok: 3, rarotonga: 4, 'central-asia': 7 };
+export function nuclearFill(P: Palette, id: keyof typeof NUCLEAR_STATUS): string {
+  const s = NUCLEAR_STATUS[id];
+  const base = s.tone === 'accent' ? (P.cat[7] ?? P.accent2) : P.status[s.tone];
+  return mix(P.land, base, s.strength);
+}
+export const nuclearCivilFill = (P: Palette, id: keyof typeof NUCLEAR_CIVIL) => (id === 'phased-out' ? P.landMuted : seqFill(P, NUCLEAR_CIVIL[id].t));
+export const nuclearZoneFill = (P: Palette, id: string) => mix(P.land, P.cat[NUCLEAR_ZONE_SLOT[id] ?? 0] ?? P.land, 0.55);
 const areaMemo = new WeakMap<Disputed, number>();
 const anchorMemo = new WeakMap<TimelineEvent, LonLat | null>();
 const cats = (e: TimelineEvent): string[] => [e.cat ?? []].flat().filter((c): c is string => typeof c === 'string');
@@ -354,6 +371,23 @@ const BUILD: Record<LensId, Builder> = {
     }
   },
 
+  nuclear(sc, DB, S, P) {
+    const mode = S.filters.nuclearMode;
+    for (const c of DB.countries.values()) {
+      const n = c.nuclear;
+      if (mode === 'military' && n.weapons) {
+        sc.fill.set(c.iso3, nuclearFill(P, n.weapons));
+        if ('unconfirmed' in NUCLEAR_STATUS[n.weapons]) sc.hatch.add(c.iso3);
+      } else if (mode === 'civil' && n.civil) {
+        sc.fill.set(c.iso3, nuclearCivilFill(P, n.civil));
+        if (n.civil === 'phased-out') sc.hatch.add(c.iso3);
+      } else if (mode === 'zones' && n.zones[0]) {
+        sc.fill.set(c.iso3, nuclearZoneFill(P, n.zones[0]));
+      }
+    }
+    sc.hatchAlpha = 0.5;
+  },
+
   resources(sc, DB, S, P) {
     const cls = S.filters.resourceClass;
     const best = new Map<string, number>();
@@ -482,6 +516,16 @@ function countryLine(c: Country, DB: DB, S: AtlasState): string[] {
       if (!top) return [t('map.tip.res0')];
       const ty = L(DB.resources.typeById.get(top.type)) || top.type, rank = num(top.rank);
       return [rank ? t('map.tip.rank', { type: ty, n: fmtNum(rank) }) : ty, rows.length > 1 ? t('map.tip.resMore', { n: fmtNum(rows.length - 1) }) : ''];
+    }
+    case 'nuclear': {
+      const n = c.nuclear;
+      if (f.nuclearMode === 'civil') return [n.civil ? L(NUCLEAR_CIVIL[n.civil]) : t('map.tip.nuc.civil0')];
+      if (f.nuclearMode === 'zones') {
+        const z = n.zones.map((id) => DB.nuclear.zoneById.get(id)).filter((x) => !!x);
+        return [z.length ? z.map((x) => `${L(x.treaty)} (${x.year})`).join(t('map.sep')) : t('map.tip.nuc.zone0')];
+      }
+      if (!n.weapons) return [t('map.tip.nuc.none')];
+      return [L(NUCLEAR_STATUS[n.weapons]), n.warheads ? t('map.tip.nuc.warheads', { n: fmtNum(n.warheads), y: DB.nuclear.warheads.year }) : ''];
     }
     case 'chokepoints':
       return [c.chokepoints.length ? t('map.tip.chokes', { list: list3(c.chokepoints.map((id) => L(DB.chokeById.get(id)))) }) : t('map.tip.choke0')];

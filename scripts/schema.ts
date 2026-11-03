@@ -2,7 +2,7 @@
 // Only the fields the app relies on are checked; any other field is allowed.
 
 import { z } from 'zod';
-import { SEVERITY } from '../src/config';
+import { NUCLEAR_CIVIL, NUCLEAR_NPT, NUCLEAR_STATUS, SEVERITY } from '../src/config';
 
 const bi = z.object({ ar: z.string(), en: z.string() });
 const id = z.string().min(1);
@@ -82,6 +82,18 @@ export const SCHEMAS: Record<string, z.ZodType> = {
     })),
   }),
   'corrections.json': z.array(z.object({ id, where: bi, what: bi })),
+  'nuclear.json': z.looseObject({
+    note: bi.optional(), zonesNote: bi.optional(),
+    warheads: z.looseObject({ year: z.number().int(), metric: bi, publisher: z.string(), sources: z.array(url).min(1), verified: day.optional(), values: z.record(iso, z.number().int().min(0)) }),
+    countries: z.record(iso, z.looseObject({
+      weapons: z.enum(Object.keys(NUCLEAR_STATUS) as [string, ...string[]]).optional(),
+      host: iso.optional(),
+      civil: z.enum(Object.keys(NUCLEAR_CIVIL) as [string, ...string[]]).optional(),
+      npt: z.enum(Object.keys(NUCLEAR_NPT) as [string, ...string[]]).optional(),
+      note: bi.optional(), ...provenance,
+    })),
+    zones: z.array(z.looseObject({ id, ar: z.string(), en: z.string(), treaty: bi, year: z.number().int(), members: z.array(iso).min(1), sources: z.array(url).min(1) })),
+  }),
   'figure_notes.json': z.looseObject({
     note: bi.optional(),
     countries: z.record(iso, z.partialRecord(liveKey, z.object({ ar: z.string().min(1), en: z.string().min(1), sources: z.array(url).min(1), verified: day }))),

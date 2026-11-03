@@ -20,6 +20,7 @@ export const FILES = {
   cMideast: 'curated/conflicts/middle-east.json',
   corrections: 'curated/corrections.json',
   figureNotes: 'curated/figure_notes.json',
+  nuclear: 'curated/nuclear.json',
   live: 'live/indicators.json',
 } as const;
 

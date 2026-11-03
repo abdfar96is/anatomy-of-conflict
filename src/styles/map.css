@@ -110,6 +110,8 @@
   background-image: repeating-linear-gradient(-45deg, var(--hatch) 0 1.2px, transparent 1.2px 4.2px);
   box-shadow: inset 0 0 0 1px var(--hatch);
 }
+/* hatching over a coloured swatch (the inline background shorthand would otherwise clear the image) */
+#legend .sw-overhatch { background-image: repeating-linear-gradient(-45deg, var(--hatch) 0 1.2px, transparent 1.2px 4.2px) !important; }
 #legend .sw-nodata { background-color: var(--land-muted); box-shadow: inset 0 0 0 1px var(--geo-border); opacity: .9; }
 #legend .sw-round { border-radius: 50%; }
 #legend .glyph { flex: none; display: block; overflow: visible; }

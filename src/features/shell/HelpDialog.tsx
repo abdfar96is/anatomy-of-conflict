@@ -18,7 +18,7 @@ const k = (...keys: string[]) => (
 );
 
 const ROWS: [ReactNode, string][] = [
-  [k(MOD, 'K'), 'sh.kPalette'], [k('/'), 'sh.kSearch'], [k('1', '–', '9'), 'sh.kLens'], [k('G'), 'sh.kProj'], [k('T'), 'sh.kTheme'],
+  [k(MOD, 'K'), 'sh.kPalette'], [k('/'), 'sh.kSearch'], [k('1', '–', '9', '0'), 'sh.kLens'], [k('G'), 'sh.kProj'], [k('T'), 'sh.kTheme'],
   [k('L'), 'sh.kLang'], [k('?'), 'sh.kHelp'], [k('Esc'), 'sh.kEsc'], [k('←', '→'), 'sh.kTour'], [<>{k('←', '↑', '↓', '→')} {k('+', '−')}</>, 'sh.kMap'],
 ];
 

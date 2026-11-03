@@ -43,3 +43,17 @@ Where a key sums two series, a country counts only years in which both have a va
 ## Notes on figures (`curated/figure_notes.json`)
 
 Some open-data figures measure something narrower than they seem. For example, refugees "hosted" counts only people UNHCR recognises or UNRWA registers, so it says little about states that do not grant refugee status. `figure_notes.json` holds a short note per country and series (`countries.<ISO3>.<key>`, where the key is one of those in the table above), with `ar`, `en`, `sources` (https links) and a `verified` date. The dossier shows each note under the figures with its sources. `npm run check-data` checks the country codes and that no date lies in the future. Add a note only when its sources support it fully.
+
+## Nuclear status (`curated/nuclear.json`)
+
+The Nuclear lens reads this file. `countries.<ISO3>` holds:
+
+| Field | Values | Meaning |
+|---|---|---|
+| `weapons` | `npt-nws`, `non-npt`, `undeclared`, `host`, `host-claimed`, `contested`, `relinquished` | Military status, one per state (see `NUCLEAR_STATUS` in `src/config.ts`) |
+| `host` | ISO3 | Whose weapons a host state holds |
+| `civil` | `operating`, `building`, `phased-out` | Power reactors |
+| `npt` | `nws`, `non-party`, `withdrawn` | Only the exceptions; UN member states default to `party` |
+| `note`, `sources`, `verified` | | As for other records |
+
+`warheads` holds SIPRI's per-state estimates for one year, as total inventory. They must sum to SIPRI's world total for that year, and a test checks this. `zones` lists the nuclear-weapon-free zones with the states inside each treaty's scope. Membership of a zone does not mean a state has ratified the treaty. No military sites are recorded.
