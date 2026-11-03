@@ -1,43 +1,1586 @@
 {
   "source": "World Bank Indicators API v2",
   "api": "https://api.worldbank.org/v2/",
-  "retrieved": null,
+  "retrieved": "2026-11-03",
   "indicators": {
     "pop": {
       "code": "SP.POP.TOTL",
+      "name": "Population, total",
       "origin": { "ar": "الأمم المتحدة (WPP)", "en": "UN WPP" },
-      "url": "https://data.worldbank.org/indicator/SP.POP.TOTL"
+      "url": "https://data.worldbank.org/indicator/SP.POP.TOTL",
+      "sourceOrganization": "World Population Prospects, United Nations (UN), uri: https://population.un.org/wpp/, publisher: UN Population Division; Statistical databases and publications from national statistical offices, National Statistical Offices (NSOs), uri: https://unstats.un.org/home/nso_sites/, publisher: National Statistical Offices; Eurostat: Demographic Statistics, Eurostat (ESTAT), uri: https://ec.europa.eu/eurostat/data/database?node_code=earn_ses_monthly, publisher: Eurostat; Population and Vital Statistics Report (various years), United Nations (UN), uri: https://unstats.un.org, publisher: UN Statistics Division",
+      "lastUpdated": "2026-10-08",
+      "latestYear": 2025,
+      "countries": 215
     },
     "gdp": {
       "code": "NY.GDP.MKTP.CD",
+      "name": "GDP (current US$)",
       "origin": { "ar": "الحسابات القومية", "en": "national accounts" },
-      "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD"
+      "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD",
+      "sourceOrganization": "Country official statistics, National Statistical Organizations and/or Central Banks; National Accounts data files, Organisation for Economic Co-operation and Development (OECD); Staff estimates, World Bank (WB)",
+      "lastUpdated": "2026-10-08",
+      "latestYear": 2025,
+      "countries": 212
     },
     "gdpPc": {
       "code": "NY.GDP.PCAP.CD",
+      "name": "GDP per capita (current US$)",
       "origin": { "ar": "الحسابات القومية", "en": "national accounts" },
-      "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD"
+      "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD",
+      "sourceOrganization": "Country official statistics, National Statistical Organizations and/or Central Banks; National Accounts data files, Organisation for Economic Co-operation and Development (OECD); Staff estimates, World Bank (WB)",
+      "lastUpdated": "2026-10-08",
+      "latestYear": 2025,
+      "countries": 212
     },
     "refOrigin": {
       "code": "SM.POP.RHCR.EO + SM.POP.RRWA.EO",
+      "name": "Refugees under the mandate of the UNHCR by country or territory of origin; Refugees under the mandate of the UNRWA by country or territory of origin",
       "origin": { "ar": "المفوضية (UNHCR) والأونروا", "en": "UNHCR and UNRWA" },
-      "url": "https://data.worldbank.org/indicator/SM.POP.RHCR.EO"
+      "url": "https://data.worldbank.org/indicator/SM.POP.RHCR.EO",
+      "sourceOrganization": "Refugee Population Statistics Database, UN High Commissioner for Refugees (UNHCR), uri: https://www.unhcr.org/refugee-statistics/download; Refugee Population Statistics Database, UN High Commissioner for Refugees (UNHCR), uri: https://www.unhcr.org/refugee-statistics/download; Statistics Bulletin, UN Relief and Works Agency for Palestine Refugees in the Near East (UNRWA), uri: https://www.unrwa.org/what-we-do/unrwa-statistics-bulletin",
+      "lastUpdated": "2026-10-08",
+      "latestYear": 2025,
+      "countries": 200
     },
     "refAsylum": {
       "code": "SM.POP.RHCR.EA + SM.POP.RRWA.EA",
+      "name": "Refugees under the mandate of the UNHCR by country or territory of asylum; Refugees under the mandate of the UNRWA by country or territory of asylum",
       "origin": { "ar": "المفوضية (UNHCR) والأونروا", "en": "UNHCR and UNRWA" },
-      "url": "https://data.worldbank.org/indicator/SM.POP.RHCR.EA"
+      "url": "https://data.worldbank.org/indicator/SM.POP.RHCR.EA",
+      "sourceOrganization": "Refugee Population Statistics Database, UN High Commissioner for Refugees (UNHCR), uri: https://www.unhcr.org/refugee-statistics/download; Refugee Population Statistics Database, UN High Commissioner for Refugees (UNHCR), uri: https://www.unhcr.org/refugee-statistics/download; Statistics Bulletin, UN Relief and Works Agency for Palestine Refugees in the Near East (UNRWA), uri: https://www.unrwa.org/what-we-do/unrwa-statistics-bulletin",
+      "lastUpdated": "2026-10-08",
+      "latestYear": 2025,
+      "countries": 182
     },
     "idps": {
       "code": "SM.POP.IDPC",
+      "name": "Internally displaced people (IDP) by country or territory of asylum / origin",
       "origin": { "ar": "المفوضية (UNHCR) ومركز رصد النزوح (IDMC)", "en": "UNHCR and IDMC" },
-      "url": "https://data.worldbank.org/indicator/SM.POP.IDPC"
+      "url": "https://data.worldbank.org/indicator/SM.POP.IDPC",
+      "sourceOrganization": "Refugee Population Statistics Database, UN High Commissioner for Refugees (UNHCR), uri: https://www.unhcr.org/refugee-statistics/download; Global Internal Displacement Database, Internal Displacement Monitoring Centre (IDMC), uri: https://www.internal-displacement.org/database/displacement-data/",
+      "lastUpdated": "2026-10-08",
+      "latestYear": 2025,
+      "countries": 66
     },
     "battleDeaths": {
       "code": "VC.BTL.DETH",
+      "name": "Battle-related deaths (number of people)",
       "origin": { "ar": "برنامج أوبسالا (UCDP)", "en": "UCDP" },
-      "url": "https://data.worldbank.org/indicator/VC.BTL.DETH"
+      "url": "https://data.worldbank.org/indicator/VC.BTL.DETH",
+      "sourceOrganization": "UCDP Battle-related Deaths Dataset , Uppsala Conflict Data Program (UCDP), uri: https://ucdp.uu.se/downloads/, publisher: Uppsala University",
+      "lastUpdated": "2026-10-08",
+      "latestYear": 2024,
+      "countries": 41
     }
   },
-  "values": {}
+  "values": {
+    "ABW": {
+      "pop": [108785, 2025],
+      "gdp": [4167588070.29, 2024],
+      "gdpPc": [38590.57, 2024],
+      "refAsylum": [0, 2025]
+    },
+    "AFG": {
+      "pop": [43844111, 2025],
+      "gdp": [17778508875.74, 2024],
+      "gdpPc": [416.87, 2024],
+      "refOrigin": [2671560, 2025],
+      "refAsylum": [20869, 2025],
+      "idps": [4355000, 2025],
+      "battleDeaths": [260, 2024]
+    },
+    "AGO": {
+      "pop": [39040039, 2025],
+      "gdp": [122174889423.64, 2025],
+      "gdpPc": [3129.48, 2025],
+      "refOrigin": [13433, 2025],
+      "refAsylum": [25396, 2025],
+      "battleDeaths": [25, 2024]
+    },
+    "ALB": {
+      "pop": [2349580, 2025],
+      "gdp": [30540188271.34, 2025],
+      "gdpPc": [12998.15, 2025],
+      "refOrigin": [21447, 2025],
+      "refAsylum": [4673, 2025]
+    },
+    "AND": {
+      "pop": [82904, 2025],
+      "gdp": [4500982731.81, 2025],
+      "gdpPc": [54291.5, 2025],
+      "refOrigin": [5, 2025]
+    },
+    "ARE": {
+      "pop": [11513149, 2025],
+      "gdp": [552324919095.87, 2024],
+      "gdpPc": [50273.51, 2024],
+      "refOrigin": [252, 2025],
+      "refAsylum": [1377, 2025]
+    },
+    "ARG": {
+      "pop": [45851378, 2025],
+      "gdp": [683097891618.6, 2025],
+      "gdpPc": [14898.09, 2025],
+      "refOrigin": [542, 2025],
+      "refAsylum": [4941, 2025]
+    },
+    "ARM": {
+      "pop": [3086700, 2025],
+      "gdp": [29243452882.35, 2025],
+      "gdpPc": [9474.02, 2025],
+      "refOrigin": [15578, 2025],
+      "refAsylum": [123087, 2025],
+      "idps": [7600, 2023]
+    },
+    "ASM": { "pop": [46029, 2025], "gdp": [871000000, 2022], "gdpPc": [18017.46, 2022] },
+    "ATG": {
+      "pop": [94209, 2025],
+      "gdp": [2338196296.3, 2025],
+      "gdpPc": [24819.25, 2025],
+      "refOrigin": [97, 2025],
+      "refAsylum": [0, 2024]
+    },
+    "AUS": {
+      "pop": [27614411, 2025],
+      "gdp": [1798518933689.21, 2025],
+      "gdpPc": [65129.72, 2025],
+      "refOrigin": [41, 2025],
+      "refAsylum": [33415, 2025]
+    },
+    "AUT": {
+      "pop": [9208163, 2025],
+      "gdp": [579470021095.42, 2025],
+      "gdpPc": [62930.04, 2025],
+      "refOrigin": [33, 2025],
+      "refAsylum": [286651, 2025]
+    },
+    "AZE": {
+      "pop": [10246996, 2025],
+      "gdp": [75937647058.82, 2025],
+      "gdpPc": [7410.72, 2025],
+      "refOrigin": [130983, 2025],
+      "refAsylum": [6389, 2025],
+      "idps": [657000, 2025]
+    },
+    "BDI": {
+      "pop": [14390003, 2025],
+      "gdp": [3364713864.08, 2025],
+      "gdpPc": [233.82, 2025],
+      "refOrigin": [318291, 2025],
+      "refAsylum": [110800, 2025],
+      "idps": [6800, 2025],
+      "battleDeaths": [19, 2024]
+    },
+    "BEL": {
+      "pop": [11941781, 2025],
+      "gdp": [725466462859.65, 2025],
+      "gdpPc": [60750.27, 2025],
+      "refOrigin": [113, 2025],
+      "refAsylum": [186393, 2025]
+    },
+    "BEN": {
+      "pop": [14814460, 2025],
+      "gdp": [24566420903.53, 2025],
+      "gdpPc": [1658.27, 2025],
+      "refOrigin": [1279, 2025],
+      "refAsylum": [16974, 2025],
+      "idps": [26000, 2025],
+      "battleDeaths": [77, 2024]
+    },
+    "BFA": {
+      "pop": [24074580, 2025],
+      "gdp": [27627297461.32, 2025],
+      "gdpPc": [1147.57, 2025],
+      "refOrigin": [351209, 2025],
+      "refAsylum": [40996, 2025],
+      "idps": [2063000, 2025],
+      "battleDeaths": [2199, 2024]
+    },
+    "BGD": {
+      "pop": [175686899, 2025],
+      "gdp": [456319229255.58, 2025],
+      "gdpPc": [2597.34, 2025],
+      "refOrigin": [31862, 2025],
+      "refAsylum": [1178038, 2025],
+      "idps": [583000, 2025],
+      "battleDeaths": [2, 2024]
+    },
+    "BGR": {
+      "pop": [6433302, 2025],
+      "gdp": [130777235529.61, 2025],
+      "gdpPc": [20328.17, 2025],
+      "refOrigin": [533, 2025],
+      "refAsylum": [105596, 2025]
+    },
+    "BHR": {
+      "pop": [1600366, 2025],
+      "gdp": [48965725531.91, 2025],
+      "gdpPc": [30596.58, 2025],
+      "refOrigin": [267, 2025],
+      "refAsylum": [240, 2025]
+    },
+    "BHS": {
+      "pop": [403033, 2025],
+      "gdp": [15832800000, 2024],
+      "gdpPc": [39455.45, 2024],
+      "refOrigin": [1598, 2025],
+      "refAsylum": [10, 2025]
+    },
+    "BIH": {
+      "pop": [3140095, 2025],
+      "gdp": [32599982936.39, 2025],
+      "gdpPc": [10381.85, 2025],
+      "refOrigin": [24653, 2025],
+      "refAsylum": [586, 2025],
+      "idps": [95000, 2025]
+    },
+    "BLR": {
+      "pop": [9085991, 2025],
+      "gdp": [93397215864.2, 2025],
+      "gdpPc": [10279.25, 2025],
+      "refOrigin": [19462, 2025],
+      "refAsylum": [40794, 2025]
+    },
+    "BLZ": {
+      "pop": [422924, 2025],
+      "gdp": [3326500000, 2025],
+      "gdpPc": [7865.48, 2025],
+      "refOrigin": [108, 2025],
+      "refAsylum": [347, 2025]
+    },
+    "BMU": {
+      "pop": [64555, 2025],
+      "gdp": [9194499000, 2024],
+      "gdpPc": [142250.43, 2024],
+      "refOrigin": [6, 2025]
+    },
+    "BOL": {
+      "pop": [12581843, 2025],
+      "gdp": [64768947525.33, 2025],
+      "gdpPc": [5147.81, 2025],
+      "refOrigin": [710, 2025],
+      "refAsylum": [1147, 2025]
+    },
+    "BRA": {
+      "pop": [212812405, 2025],
+      "gdp": [2279920092492.13, 2025],
+      "gdpPc": [10713.29, 2025],
+      "refOrigin": [6306, 2025],
+      "refAsylum": [278966, 2025],
+      "idps": [19000, 2025]
+    },
+    "BRB": {
+      "pop": [282623, 2025],
+      "gdp": [8016550000, 2025],
+      "gdpPc": [28364.82, 2025],
+      "refOrigin": [577, 2025],
+      "refAsylum": [5, 2025]
+    },
+    "BRN": {
+      "pop": [466330, 2025],
+      "gdp": [15031980994.11, 2025],
+      "gdpPc": [32234.64, 2025],
+      "refOrigin": [5, 2025],
+      "refAsylum": [0, 2025]
+    },
+    "BTN": {
+      "pop": [796682, 2025],
+      "gdp": [3579320145.13, 2025],
+      "gdpPc": [4492.78, 2025],
+      "refOrigin": [7257, 2025]
+    },
+    "BWA": {
+      "pop": [2562122, 2025],
+      "gdp": [19928479839.45, 2025],
+      "gdpPc": [7778.12, 2025],
+      "refOrigin": [384, 2025],
+      "refAsylum": [847, 2025]
+    },
+    "CAF": {
+      "pop": [5513282, 2025],
+      "gdp": [3066109226.4, 2025],
+      "gdpPc": [556.13, 2025],
+      "refOrigin": [674222, 2025],
+      "refAsylum": [55307, 2025],
+      "idps": [427000, 2025],
+      "battleDeaths": [177, 2024]
+    },
+    "CAN": {
+      "pop": [41651653, 2025],
+      "gdp": [2319899772425.92, 2025],
+      "gdpPc": [55697.66, 2025],
+      "refOrigin": [360, 2025],
+      "refAsylum": [416028, 2025]
+    },
+    "CHE": {
+      "pop": [9092436, 2025],
+      "gdp": [1043529899250.92, 2025],
+      "gdpPc": [114769.01, 2025],
+      "refOrigin": [6, 2025],
+      "refAsylum": [208287, 2025]
+    },
+    "CHL": {
+      "pop": [19859921, 2025],
+      "gdp": [357371159574.86, 2025],
+      "gdpPc": [17994.59, 2025],
+      "refOrigin": [5358, 2025],
+      "refAsylum": [2631, 2025]
+    },
+    "CHN": {
+      "pop": [1406585000, 2025],
+      "gdp": [19498039388042.6, 2025],
+      "gdpPc": [13861.97, 2025],
+      "refOrigin": [153962, 2025],
+      "refAsylum": [230, 2025]
+    },
+    "CIV": {
+      "pop": [32711547, 2025],
+      "gdp": [99773555666.2, 2025],
+      "gdpPc": [3050.1, 2025],
+      "refOrigin": [32506, 2025],
+      "refAsylum": [74630, 2025]
+    },
+    "CMR": {
+      "pop": [29879337, 2025],
+      "gdp": [58933453923.76, 2025],
+      "gdpPc": [1972.38, 2025],
+      "refOrigin": [140366, 2025],
+      "refAsylum": [408613, 2025],
+      "idps": [954000, 2025],
+      "battleDeaths": [231, 2024]
+    },
+    "COD": {
+      "pop": [112832473, 2025],
+      "gdp": [91030531316.99, 2025],
+      "gdpPc": [806.78, 2025],
+      "refOrigin": [1176489, 2025],
+      "refAsylum": [503732, 2025],
+      "idps": [4276000, 2025],
+      "battleDeaths": [1138, 2024]
+    },
+    "COG": {
+      "pop": [6484437, 2025],
+      "gdp": [16306633778.77, 2025],
+      "gdpPc": [2514.73, 2025],
+      "refOrigin": [13134, 2025],
+      "refAsylum": [62500, 2025]
+    },
+    "COL": {
+      "pop": [53425635, 2025],
+      "gdp": [457410034202.52, 2025],
+      "gdpPc": [8561.62, 2025],
+      "refOrigin": [79669, 2025],
+      "refAsylum": [1464, 2025],
+      "idps": [7211000, 2025],
+      "battleDeaths": [225, 2024]
+    },
+    "COM": {
+      "pop": [882847, 2025],
+      "gdp": [1814920856.27, 2025],
+      "gdpPc": [2055.76, 2025],
+      "refOrigin": [2338, 2025],
+      "refAsylum": [5, 2025],
+      "idps": [11, 2024]
+    },
+    "CPV": {
+      "pop": [527326, 2025],
+      "gdp": [3056630435.32, 2025],
+      "gdpPc": [5796.47, 2025],
+      "refOrigin": [15, 2025],
+      "refAsylum": [0, 2025]
+    },
+    "CRI": {
+      "pop": [5152950, 2025],
+      "gdp": [102904921157.48, 2025],
+      "gdpPc": [19970.1, 2025],
+      "refOrigin": [367, 2025],
+      "refAsylum": [36395, 2025]
+    },
+    "CUB": {
+      "pop": [10937203, 2025],
+      "gdp": [107352000000, 2020],
+      "gdpPc": [9605.28, 2020],
+      "refOrigin": [29395, 2025],
+      "refAsylum": [115, 2025]
+    },
+    "CUW": {
+      "pop": [156263, 2025],
+      "gdp": [3561178212.29, 2024],
+      "gdpPc": [22832.9, 2024],
+      "refOrigin": [8, 2025],
+      "refAsylum": [0, 2025]
+    },
+    "CYM": {
+      "pop": [75844, 2025],
+      "gdp": [7765336505.34, 2024],
+      "gdpPc": [104292.9, 2024],
+      "refOrigin": [0, 2025],
+      "refAsylum": [53, 2025]
+    },
+    "CYP": {
+      "pop": [1370754, 2025],
+      "gdp": [41225787247.33, 2025],
+      "gdpPc": [41783.09, 2025],
+      "refOrigin": [15, 2025],
+      "refAsylum": [48207, 2025],
+      "idps": [247000, 2025]
+    },
+    "CZE": {
+      "pop": [10886878, 2025],
+      "gdp": [391026962800.48, 2025],
+      "gdpPc": [35917.27, 2025],
+      "refOrigin": [794, 2025],
+      "refAsylum": [395559, 2025]
+    },
+    "DEU": {
+      "pop": [83491249, 2025],
+      "gdp": [5050922925047.05, 2025],
+      "gdpPc": [60496.44, 2025],
+      "refOrigin": [327, 2025],
+      "refAsylum": [2655191, 2025]
+    },
+    "DJI": {
+      "pop": [1184076, 2025],
+      "gdp": [4624533092.32, 2025],
+      "gdpPc": [3905.6, 2025],
+      "refOrigin": [2223, 2025],
+      "refAsylum": [24899, 2025]
+    },
+    "DMA": {
+      "pop": [65871, 2025],
+      "gdp": [723859259.26, 2025],
+      "gdpPc": [10989.04, 2025],
+      "refOrigin": [97, 2025],
+      "refAsylum": [0, 2025]
+    },
+    "DNK": {
+      "pop": [6009169, 2025],
+      "gdp": [462526660468.39, 2025],
+      "gdpPc": [76970.15, 2025],
+      "refOrigin": [21, 2025],
+      "refAsylum": [95007, 2025]
+    },
+    "DOM": {
+      "pop": [11520487, 2025],
+      "gdp": [127407463759.04, 2025],
+      "gdpPc": [11059.21, 2025],
+      "refOrigin": [1240, 2025],
+      "refAsylum": [20, 2025]
+    },
+    "DZA": {
+      "pop": [47435312, 2025],
+      "gdp": [287031225987.74, 2025],
+      "gdpPc": [6051, 2025],
+      "refOrigin": [9174, 2025],
+      "refAsylum": [180575, 2025]
+    },
+    "ECU": {
+      "pop": [18289896, 2025],
+      "gdp": [130320560400, 2025],
+      "gdpPc": [7125.28, 2025],
+      "refOrigin": [5723, 2025],
+      "refAsylum": [26428, 2025],
+      "idps": [316000, 2025]
+    },
+    "EGY": {
+      "pop": [118365995, 2025],
+      "gdp": [365254630179.74, 2025],
+      "gdpPc": [3085.81, 2025],
+      "refOrigin": [23763, 2025],
+      "refAsylum": [220033, 2025]
+    },
+    "ERI": { "pop": [3607003, 2025], "refOrigin": [554891, 2025], "refAsylum": [119, 2025] },
+    "ESP": {
+      "pop": [49355143, 2025],
+      "gdp": [1906453309985.88, 2025],
+      "gdpPc": [38627.25, 2025],
+      "refOrigin": [186, 2025],
+      "refAsylum": [511079, 2025]
+    },
+    "EST": {
+      "pop": [1366475, 2025],
+      "gdp": [47030833798.59, 2025],
+      "gdpPc": [34417.63, 2025],
+      "refOrigin": [86, 2025],
+      "refAsylum": [41299, 2025]
+    },
+    "ETH": {
+      "pop": [135472051, 2025],
+      "gdp": [126358758448.36, 2025],
+      "gdpPc": [932.73, 2025],
+      "refOrigin": [164215, 2025],
+      "refAsylum": [1010466, 2025],
+      "idps": [2378000, 2025],
+      "battleDeaths": [2824, 2024]
+    },
+    "FIN": {
+      "pop": [5646436, 2025],
+      "gdp": [317039368819.61, 2025],
+      "gdpPc": [56148.58, 2025],
+      "refOrigin": [5, 2025],
+      "refAsylum": [102544, 2025]
+    },
+    "FJI": {
+      "pop": [933154, 2025],
+      "gdp": [6198013062.07, 2025],
+      "gdpPc": [6642, 2025],
+      "refOrigin": [343, 2025],
+      "refAsylum": [15, 2025]
+    },
+    "FRA": {
+      "pop": [68720337, 2025],
+      "gdp": [3366315927447.33, 2025],
+      "gdpPc": [48985.73, 2025],
+      "refOrigin": [166, 2025],
+      "refAsylum": [788419, 2025]
+    },
+    "FRO": { "pop": [54900, 2025], "gdp": [4052937169.77, 2024], "gdpPc": [74175.28, 2024] },
+    "FSM": {
+      "pop": [113683, 2025],
+      "gdp": [501797600, 2025],
+      "gdpPc": [4414.01, 2025],
+      "refOrigin": [0, 2025]
+    },
+    "GAB": {
+      "pop": [2593130, 2025],
+      "gdp": [21427119323.28, 2025],
+      "gdpPc": [8263.03, 2025],
+      "refOrigin": [984, 2025],
+      "refAsylum": [166, 2025]
+    },
+    "GBR": {
+      "pop": [69487000, 2025],
+      "gdp": [4002587541846.01, 2025],
+      "gdpPc": [57601.96, 2025],
+      "refOrigin": [517, 2025],
+      "refAsylum": [581072, 2025]
+    },
+    "GEO": {
+      "pop": [3935766, 2025],
+      "gdp": [38143612855.14, 2025],
+      "gdpPc": [9691.53, 2025],
+      "refOrigin": [17302, 2025],
+      "refAsylum": [26522, 2025],
+      "idps": [301000, 2025]
+    },
+    "GHA": {
+      "pop": [35064272, 2025],
+      "gdp": [114209905278.72, 2025],
+      "gdpPc": [3257.16, 2025],
+      "refOrigin": [16030, 2025],
+      "refAsylum": [21050, 2025],
+      "idps": [3900, 2025]
+    },
+    "GIN": {
+      "pop": [15099727, 2025],
+      "gdp": [28346024753.29, 2025],
+      "gdpPc": [1877.25, 2025],
+      "refOrigin": [47692, 2025],
+      "refAsylum": [2154, 2025]
+    },
+    "GMB": {
+      "pop": [2822093, 2025],
+      "gdp": [2593673987.53, 2025],
+      "gdpPc": [919.06, 2025],
+      "refOrigin": [6728, 2025],
+      "refAsylum": [4108, 2025],
+      "idps": [5700, 2023]
+    },
+    "GNB": {
+      "pop": [2249515, 2025],
+      "gdp": [2527930272.93, 2025],
+      "gdpPc": [1123.77, 2025],
+      "refOrigin": [1800, 2025],
+      "refAsylum": [24, 2025]
+    },
+    "GNQ": {
+      "pop": [1938431, 2025],
+      "gdp": [12823210425.92, 2025],
+      "gdpPc": [6615.25, 2025],
+      "refOrigin": [424, 2025],
+      "refAsylum": [5, 2024]
+    },
+    "GRC": {
+      "pop": [10413962, 2025],
+      "gdp": [280635521324.44, 2025],
+      "gdpPc": [26948.01, 2025],
+      "refOrigin": [94, 2025],
+      "refAsylum": [134563, 2025]
+    },
+    "GRD": {
+      "pop": [117303, 2025],
+      "gdp": [1420173228.57, 2025],
+      "gdpPc": [12106.88, 2025],
+      "refOrigin": [117, 2025]
+    },
+    "GRL": { "pop": [56831, 2025], "gdp": [3326543974.39, 2023], "gdpPc": [58498.97, 2023] },
+    "GTM": {
+      "pop": [18687881, 2025],
+      "gdp": [123306008821.47, 2025],
+      "gdpPc": [6598.18, 2025],
+      "refOrigin": [34994, 2025],
+      "refAsylum": [1586, 2025],
+      "idps": [573000, 2025]
+    },
+    "GUM": { "pop": [168999, 2025], "gdp": [6910000000, 2022], "gdpPc": [41833.15, 2022] },
+    "GUY": {
+      "pop": [835986, 2025],
+      "gdp": [27097477218.23, 2025],
+      "gdpPc": [32413.79, 2025],
+      "refOrigin": [342, 2025],
+      "refAsylum": [35, 2025]
+    },
+    "HKG": {
+      "pop": [7498900, 2025],
+      "gdp": [427310315921.99, 2025],
+      "gdpPc": [56983.07, 2025],
+      "refOrigin": [245, 2025],
+      "refAsylum": [236, 2025]
+    },
+    "HND": {
+      "pop": [11005850, 2025],
+      "gdp": [39601409103.3, 2025],
+      "gdpPc": [3598.21, 2025],
+      "refOrigin": [94449, 2025],
+      "refAsylum": [270, 2025],
+      "idps": [101000, 2025]
+    },
+    "HRV": {
+      "pop": [3876200, 2025],
+      "gdp": [105060182186.27, 2025],
+      "gdpPc": [27103.91, 2025],
+      "refOrigin": [17207, 2025],
+      "refAsylum": [29748, 2025]
+    },
+    "HTI": {
+      "pop": [11906095, 2025],
+      "gdp": [32077278409.23, 2025],
+      "gdpPc": [2694.19, 2025],
+      "refOrigin": [180702, 2025],
+      "refAsylum": [0, 2025],
+      "idps": [1431000, 2025],
+      "battleDeaths": [193, 2024]
+    },
+    "HUN": {
+      "pop": [9514251, 2025],
+      "gdp": [246490213513.05, 2025],
+      "gdpPc": [25907.47, 2025],
+      "refOrigin": [2055, 2025],
+      "refAsylum": [71332, 2025]
+    },
+    "IDN": {
+      "pop": [285721236, 2025],
+      "gdp": [1445642584163.81, 2025],
+      "gdpPc": [5059.63, 2025],
+      "refOrigin": [9215, 2025],
+      "refAsylum": [7374, 2025],
+      "idps": [36000, 2025],
+      "battleDeaths": [57, 2024]
+    },
+    "IMN": { "pop": [84118, 2025], "gdp": [7576129932.79, 2023], "gdpPc": [90015.21, 2023] },
+    "IND": {
+      "pop": [1463865525, 2025],
+      "gdp": [3956067115771.63, 2025],
+      "gdpPc": [2702.48, 2025],
+      "refOrigin": [42610, 2025],
+      "refAsylum": [238643, 2025],
+      "idps": [530000, 2025],
+      "battleDeaths": [437, 2024]
+    },
+    "IRL": {
+      "pop": [5484367, 2025],
+      "gdp": [721701359046.31, 2025],
+      "gdpPc": [131592.46, 2025],
+      "refOrigin": [69, 2025],
+      "refAsylum": [137869, 2025]
+    },
+    "IRN": {
+      "pop": [92417681, 2025],
+      "gdp": [362682115433.36, 2025],
+      "gdpPc": [3924.38, 2025],
+      "refOrigin": [157912, 2025],
+      "refAsylum": [770514, 2025],
+      "battleDeaths": [123, 2024]
+    },
+    "IRQ": {
+      "pop": [47020774, 2025],
+      "gdp": [254367293538.46, 2025],
+      "gdpPc": [5409.68, 2025],
+      "refOrigin": [270671, 2025],
+      "refAsylum": [322345, 2025],
+      "idps": [997000, 2025],
+      "battleDeaths": [396, 2024]
+    },
+    "ISL": {
+      "pop": [392404, 2025],
+      "gdp": [38582528789, 2025],
+      "gdpPc": [98323.48, 2025],
+      "refOrigin": [0, 2025],
+      "refAsylum": [8459, 2025]
+    },
+    "ISR": {
+      "pop": [10122800, 2025],
+      "gdp": [610777842873.6, 2025],
+      "gdpPc": [60336.85, 2025],
+      "refOrigin": [1265, 2025],
+      "refAsylum": [1274, 2025],
+      "idps": [31000, 2025],
+      "battleDeaths": [21440, 2024]
+    },
+    "ITA": {
+      "pop": [58915656, 2025],
+      "gdp": [2551556954100.35, 2025],
+      "gdpPc": [43308.64, 2025],
+      "refOrigin": [266, 2025],
+      "refAsylum": [192914, 2025]
+    },
+    "JAM": {
+      "pop": [2837077, 2025],
+      "gdp": [22704903217.56, 2025],
+      "gdpPc": [8002.92, 2025],
+      "refOrigin": [2642, 2025]
+    },
+    "JOR": {
+      "pop": [11520684, 2025],
+      "gdp": [61610052535.21, 2025],
+      "gdpPc": [5347.78, 2025],
+      "refOrigin": [5471, 2025],
+      "refAsylum": [2834405, 2025],
+      "battleDeaths": [3, 2024]
+    },
+    "JPN": {
+      "pop": [123366734, 2025],
+      "gdp": [4435162999976.94, 2025],
+      "gdpPc": [35951.04, 2025],
+      "refOrigin": [56, 2025],
+      "refAsylum": [42450, 2025]
+    },
+    "KAZ": {
+      "pop": [20843754, 2025],
+      "gdp": [306239209650.02, 2025],
+      "gdpPc": [14692.13, 2025],
+      "refOrigin": [4144, 2025],
+      "refAsylum": [4377, 2025]
+    },
+    "KEN": {
+      "pop": [57532493, 2025],
+      "gdp": [135941278878.82, 2025],
+      "gdpPc": [2362.86, 2025],
+      "refOrigin": [13325, 2025],
+      "refAsylum": [617125, 2025],
+      "idps": [10000, 2025],
+      "battleDeaths": [66, 2024]
+    },
+    "KGZ": {
+      "pop": [7343064, 2025],
+      "gdp": [22623752095.46, 2025],
+      "gdpPc": [3080.97, 2025],
+      "refOrigin": [3337, 2025],
+      "refAsylum": [1150, 2025]
+    },
+    "KHM": {
+      "pop": [17847982, 2025],
+      "gdp": [51267065842.96, 2025],
+      "gdpPc": [2872.43, 2025],
+      "refOrigin": [11332, 2025],
+      "refAsylum": [23, 2025],
+      "idps": [518000, 2025]
+    },
+    "KIR": {
+      "pop": [136488, 2025],
+      "gdp": [349227254.16, 2025],
+      "gdpPc": [2558.67, 2025],
+      "refOrigin": [5, 2025]
+    },
+    "KNA": {
+      "pop": [46922, 2025],
+      "gdp": [1183514814.81, 2025],
+      "gdpPc": [25223.03, 2025],
+      "refOrigin": [36, 2025],
+      "refAsylum": [5, 2025]
+    },
+    "KOR": {
+      "pop": [51684564, 2025],
+      "gdp": [1872374961553.15, 2025],
+      "gdpPc": [36226.97, 2025],
+      "refOrigin": [117, 2025],
+      "refAsylum": [4407, 2025]
+    },
+    "KOS": { "pop": [1576876, 2025], "gdp": [12456403306.82, 2025], "gdpPc": [7899.42, 2025] },
+    "KWT": {
+      "pop": [4865298, 2025],
+      "gdp": [157209026926.42, 2025],
+      "gdpPc": [32312.31, 2025],
+      "refOrigin": [3369, 2025],
+      "refAsylum": [386, 2025]
+    },
+    "LAO": {
+      "pop": [7873046, 2025],
+      "gdp": [18302970218.59, 2025],
+      "gdpPc": [2324.76, 2025],
+      "refOrigin": [6489, 2025]
+    },
+    "LBN": {
+      "pop": [5849421, 2025],
+      "gdp": [25971643441.34, 2024],
+      "gdpPc": [4473.27, 2024],
+      "refOrigin": [9568, 2025],
+      "refAsylum": [763442, 2025],
+      "idps": [64000, 2025],
+      "battleDeaths": [4335, 2024]
+    },
+    "LBR": {
+      "pop": [5731206, 2025],
+      "gdp": [5245938900, 2025],
+      "gdpPc": [915.33, 2025],
+      "refOrigin": [5117, 2025],
+      "refAsylum": [1172, 2025]
+    },
+    "LBY": {
+      "pop": [7458555, 2025],
+      "gdp": [48098909613.63, 2025],
+      "gdpPc": [6448.82, 2025],
+      "refOrigin": [17161, 2025],
+      "refAsylum": [552523, 2025],
+      "idps": [85000, 2025],
+      "battleDeaths": [2, 2024]
+    },
+    "LCA": {
+      "pop": [180149, 2025],
+      "gdp": [2656444444.44, 2025],
+      "gdpPc": [14745.82, 2025],
+      "refOrigin": [199, 2025],
+      "refAsylum": [5, 2025]
+    },
+    "LIE": {
+      "pop": [41024, 2025],
+      "gdp": [8905764270.41, 2024],
+      "gdpPc": [220167.23, 2024],
+      "refAsylum": [987, 2025]
+    },
+    "LKA": {
+      "pop": [21756000, 2025],
+      "gdp": [108825231671.2, 2025],
+      "gdpPc": [5002.08, 2025],
+      "refOrigin": [148369, 2025],
+      "refAsylum": [213, 2025],
+      "idps": [4800, 2025]
+    },
+    "LSO": {
+      "pop": [2363325, 2025],
+      "gdp": [2573572920.05, 2025],
+      "gdpPc": [1088.96, 2025],
+      "refOrigin": [27, 2025],
+      "refAsylum": [478, 2025]
+    },
+    "LTU": {
+      "pop": [2888774, 2025],
+      "gdp": [95210150818.35, 2025],
+      "gdpPc": [32958.67, 2025],
+      "refOrigin": [101, 2025],
+      "refAsylum": [54381, 2025]
+    },
+    "LUX": {
+      "pop": [686970, 2025],
+      "gdp": [101157829491.11, 2025],
+      "gdpPc": [147252.18, 2025],
+      "refOrigin": [20, 2025],
+      "refAsylum": [10284, 2025]
+    },
+    "LVA": {
+      "pop": [1847785, 2025],
+      "gdp": [48618869160.33, 2025],
+      "gdpPc": [26311.97, 2025],
+      "refOrigin": [189, 2025],
+      "refAsylum": [32454, 2025]
+    },
+    "MAC": {
+      "pop": [685900, 2025],
+      "gdp": [52061007670.17, 2025],
+      "gdpPc": [75901.75, 2025],
+      "refOrigin": [15, 2025]
+    },
+    "MAF": { "pop": [24941, 2025], "gdp": [649206262.85, 2021], "gdpPc": [21668.38, 2021] },
+    "MAR": {
+      "pop": [38430770, 2025],
+      "gdp": [182374250612.28, 2025],
+      "gdpPc": [4672.47, 2025],
+      "refOrigin": [10400, 2025],
+      "refAsylum": [7304, 2025]
+    },
+    "MCO": {
+      "pop": [38341, 2025],
+      "gdp": [11125788838.28, 2024],
+      "gdpPc": [288001.57, 2024],
+      "refAsylum": [17, 2025]
+    },
+    "MDA": {
+      "pop": [2360527, 2025],
+      "gdp": [20351796275.29, 2025],
+      "gdpPc": [8621.72, 2025],
+      "refOrigin": [5846, 2025],
+      "refAsylum": [149324, 2025]
+    },
+    "MDG": {
+      "pop": [32740678, 2025],
+      "gdp": [19620352035.79, 2025],
+      "gdpPc": [599.27, 2025],
+      "refOrigin": [637, 2025],
+      "refAsylum": [87, 2025],
+      "idps": [180, 2024]
+    },
+    "MDV": {
+      "pop": [529676, 2025],
+      "gdp": [7741066860.63, 2025],
+      "gdpPc": [14614.72, 2025],
+      "refOrigin": [62, 2025]
+    },
+    "MEX": {
+      "pop": [131946900, 2025],
+      "gdp": [1832641364775.52, 2025],
+      "gdpPc": [13889.23, 2025],
+      "refOrigin": [41307, 2025],
+      "refAsylum": [152002, 2025],
+      "idps": [390000, 2025]
+    },
+    "MHL": {
+      "pop": [36282, 2025],
+      "gdp": [308000000, 2025],
+      "gdpPc": [8489.06, 2025],
+      "refOrigin": [0, 2025]
+    },
+    "MKD": {
+      "pop": [1820909, 2025],
+      "gdp": [19101199817.02, 2025],
+      "gdpPc": [10489.93, 2025],
+      "refOrigin": [1886, 2025],
+      "refAsylum": [20822, 2025],
+      "idps": [110, 2023]
+    },
+    "MLI": {
+      "pop": [25198821, 2025],
+      "gdp": [30069148580.77, 2025],
+      "gdpPc": [1193.28, 2025],
+      "refOrigin": [519738, 2025],
+      "refAsylum": [286715, 2025],
+      "idps": [409000, 2025],
+      "battleDeaths": [1008, 2024]
+    },
+    "MLT": {
+      "pop": [579704, 2025],
+      "gdp": [27771821560.94, 2025],
+      "gdpPc": [47906.9, 2025],
+      "refOrigin": [11, 2025],
+      "refAsylum": [8306, 2025]
+    },
+    "MMR": {
+      "pop": [54850648, 2025],
+      "gdp": [81665773809.52, 2025],
+      "gdpPc": [1488.88, 2025],
+      "refOrigin": [1524378, 2025],
+      "idps": [3639000, 2025],
+      "battleDeaths": [2332, 2024]
+    },
+    "MNE": {
+      "pop": [623129, 2025],
+      "gdp": [9232801464.79, 2025],
+      "gdpPc": [14816.84, 2025],
+      "refOrigin": [696, 2025],
+      "refAsylum": [12269, 2025]
+    },
+    "MNG": {
+      "pop": [3568978, 2025],
+      "gdp": [25369107325.45, 2025],
+      "gdpPc": [7108.23, 2025],
+      "refOrigin": [2403, 2025],
+      "refAsylum": [11, 2025]
+    },
+    "MNP": { "pop": [43541, 2025], "gdp": [1096000000, 2022], "gdpPc": [23785.75, 2022] },
+    "MOZ": {
+      "pop": [35631653, 2025],
+      "gdp": [22337997046.19, 2025],
+      "gdpPc": [626.91, 2025],
+      "refOrigin": [119, 2025],
+      "refAsylum": [5105, 2025],
+      "idps": [465000, 2025],
+      "battleDeaths": [151, 2024]
+    },
+    "MRT": {
+      "pop": [5315065, 2025],
+      "gdp": [11679910946.44, 2025],
+      "gdpPc": [2197.51, 2025],
+      "refOrigin": [43906, 2025],
+      "refAsylum": [301490, 2025],
+      "battleDeaths": [3, 2024]
+    },
+    "MUS": {
+      "pop": [1243741, 2025],
+      "gdp": [16157804491.76, 2025],
+      "gdpPc": [12991.29, 2025],
+      "refOrigin": [283, 2025],
+      "refAsylum": [24, 2025]
+    },
+    "MWI": {
+      "pop": [22216120, 2025],
+      "gdp": [14918276698.3, 2025],
+      "gdpPc": [671.51, 2025],
+      "refOrigin": [551, 2025],
+      "refAsylum": [35241, 2025],
+      "idps": [880, 2024]
+    },
+    "MYS": {
+      "pop": [35977838, 2025],
+      "gdp": [472193128644.6, 2025],
+      "gdpPc": [13124.56, 2025],
+      "refOrigin": [2477, 2025],
+      "refAsylum": [150164, 2025]
+    },
+    "NAM": {
+      "pop": [3092816, 2025],
+      "gdp": [15080340653.53, 2025],
+      "gdpPc": [4875.93, 2025],
+      "refOrigin": [685, 2025],
+      "refAsylum": [5470, 2025]
+    },
+    "NCL": {
+      "pop": [295333, 2025],
+      "gdp": [8548919387.13, 2024],
+      "gdpPc": [29213.19, 2024],
+      "idps": [150, 2023]
+    },
+    "NER": {
+      "pop": [27917831, 2025],
+      "gdp": [21646191388.25, 2025],
+      "gdpPc": [775.35, 2025],
+      "refOrigin": [85591, 2025],
+      "refAsylum": [385986, 2025],
+      "idps": [392000, 2025],
+      "battleDeaths": [952, 2024]
+    },
+    "NGA": {
+      "pop": [237527782, 2025],
+      "gdp": [290794361542.11, 2025],
+      "gdpPc": [1224.25, 2025],
+      "refOrigin": [478150, 2025],
+      "refAsylum": [123848, 2025],
+      "idps": [3496000, 2025],
+      "battleDeaths": [1486, 2024]
+    },
+    "NIC": {
+      "pop": [7007502, 2025],
+      "gdp": [22237167113.09, 2025],
+      "gdpPc": [3173.34, 2025],
+      "refOrigin": [35341, 2025],
+      "refAsylum": [311, 2023],
+      "idps": [1300, 2023]
+    },
+    "NLD": {
+      "pop": [18087633, 2025],
+      "gdp": [1332767651100.39, 2025],
+      "gdpPc": [73683.92, 2025],
+      "refOrigin": [159, 2025],
+      "refAsylum": [283935, 2025]
+    },
+    "NOR": {
+      "pop": [5610870, 2025],
+      "gdp": [530755719438.88, 2025],
+      "gdpPc": [94594.19, 2025],
+      "refOrigin": [20, 2025],
+      "refAsylum": [124006, 2025]
+    },
+    "NPL": {
+      "pop": [29618118, 2025],
+      "gdp": [45489810283.11, 2025],
+      "gdpPc": [1535.88, 2025],
+      "refOrigin": [8019, 2025],
+      "refAsylum": [19613, 2025]
+    },
+    "NRU": {
+      "pop": [12025, 2025],
+      "gdp": [176040043.93, 2025],
+      "gdpPc": [14639.5, 2025],
+      "refOrigin": [5, 2025],
+      "refAsylum": [5, 2025]
+    },
+    "NZL": {
+      "pop": [5324700, 2025],
+      "gdp": [264057413739.97, 2025],
+      "gdpPc": [49591.04, 2025],
+      "refOrigin": [58, 2025],
+      "refAsylum": [2148, 2025]
+    },
+    "OMN": {
+      "pop": [5494691, 2025],
+      "gdp": [109604780696.23, 2025],
+      "gdpPc": [19947.4, 2025],
+      "refOrigin": [133, 2025],
+      "refAsylum": [289, 2025]
+    },
+    "PAK": {
+      "pop": [255219554, 2025],
+      "gdp": [407307214476.22, 2025],
+      "gdpPc": [1595.91, 2025],
+      "refOrigin": [90497, 2025],
+      "refAsylum": [1159038, 2025],
+      "idps": [269000, 2025],
+      "battleDeaths": [1534, 2024]
+    },
+    "PAN": {
+      "pop": [4571189, 2025],
+      "gdp": [90462600000, 2025],
+      "gdpPc": [19789.73, 2025],
+      "refOrigin": [375, 2025],
+      "refAsylum": [2694, 2025]
+    },
+    "PER": {
+      "pop": [34576665, 2025],
+      "gdp": [334854659181.89, 2025],
+      "gdpPc": [9684.41, 2025],
+      "refOrigin": [7885, 2025],
+      "refAsylum": [6788, 2025],
+      "idps": [82000, 2025]
+    },
+    "PHL": {
+      "pop": [116786962, 2025],
+      "gdp": [487086123720.42, 2025],
+      "gdpPc": [4170.72, 2025],
+      "refOrigin": [807, 2025],
+      "refAsylum": [1032, 2025],
+      "idps": [28000, 2025],
+      "battleDeaths": [176, 2024]
+    },
+    "PLW": {
+      "pop": [17663, 2025],
+      "gdp": [345000000, 2025],
+      "gdpPc": [19532.36, 2025],
+      "refOrigin": [5, 2023],
+      "refAsylum": [5, 2024]
+    },
+    "PNG": {
+      "pop": [10762817, 2025],
+      "gdp": [32498658653.84, 2025],
+      "gdpPc": [3019.53, 2025],
+      "refOrigin": [644, 2025],
+      "refAsylum": [7727, 2025],
+      "idps": [70000, 2025]
+    },
+    "POL": {
+      "pop": [36435861, 2025],
+      "gdp": [1035491784197.44, 2025],
+      "gdpPc": [28419.58, 2025],
+      "refOrigin": [1368, 2025],
+      "refAsylum": [990469, 2025]
+    },
+    "PRI": {
+      "pop": [3184835, 2025],
+      "gdp": [129368484000, 2025],
+      "gdpPc": [40620.15, 2025],
+      "refOrigin": [0, 2024]
+    },
+    "PRK": { "pop": [26571036, 2025], "refOrigin": [263, 2025] },
+    "PRT": {
+      "pop": [10804871, 2025],
+      "gdp": [346639825141.82, 2025],
+      "gdpPc": [32081.81, 2025],
+      "refOrigin": [109, 2025],
+      "refAsylum": [70349, 2025]
+    },
+    "PRY": {
+      "pop": [7013078, 2025],
+      "gdp": [49278227554.33, 2025],
+      "gdpPc": [7026.62, 2025],
+      "refOrigin": [162, 2025],
+      "refAsylum": [4621, 2025]
+    },
+    "PSE": {
+      "pop": [5413596, 2025],
+      "gdp": [17167100000, 2025],
+      "gdpPc": [3171.11, 2025],
+      "refOrigin": [6013105, 2025],
+      "refAsylum": [2484580, 2025],
+      "idps": [2035000, 2025]
+    },
+    "PYF": {
+      "pop": [282465, 2025],
+      "gdp": [6323716355.05, 2024],
+      "gdpPc": [22439.88, 2024],
+      "refOrigin": [0, 2025]
+    },
+    "QAT": {
+      "pop": [2972215, 2025],
+      "gdp": [215559615384.62, 2025],
+      "gdpPc": [72524.91, 2025],
+      "refOrigin": [73, 2025],
+      "refAsylum": [195, 2025]
+    },
+    "ROU": {
+      "pop": [19020271, 2025],
+      "gdp": [428677977854.83, 2025],
+      "gdpPc": [22537.95, 2025],
+      "refOrigin": [3130, 2025],
+      "refAsylum": [206671, 2025]
+    },
+    "RUS": {
+      "pop": [143513328, 2025],
+      "gdp": [2561310169358.74, 2025],
+      "gdpPc": [17546.61, 2025],
+      "refOrigin": [99360, 2025],
+      "refAsylum": [11811, 2025],
+      "idps": [580, 2025],
+      "battleDeaths": [7670, 2024]
+    },
+    "RWA": {
+      "pop": [14569341, 2025],
+      "gdp": [16372132990.23, 2025],
+      "gdpPc": [1123.74, 2025],
+      "refOrigin": [244415, 2025],
+      "refAsylum": [115794, 2025],
+      "battleDeaths": [1, 2024]
+    },
+    "SAU": {
+      "pop": [36973555, 2025],
+      "gdp": [1276942933333.33, 2025],
+      "gdpPc": [34536.66, 2025],
+      "refOrigin": [2368, 2025],
+      "refAsylum": [448, 2025]
+    },
+    "SDN": {
+      "pop": [51662147, 2025],
+      "gdp": [60162634574.47, 2025],
+      "gdpPc": [1164.54, 2025],
+      "refOrigin": [2820737, 2025],
+      "refAsylum": [809816, 2025],
+      "idps": [9117000, 2025],
+      "battleDeaths": [4680, 2024]
+    },
+    "SEN": {
+      "pop": [18931966, 2025],
+      "gdp": [37006536238.37, 2025],
+      "gdpPc": [1954.71, 2025],
+      "refOrigin": [13028, 2025],
+      "refAsylum": [17259, 2025],
+      "idps": [5900, 2024]
+    },
+    "SGP": {
+      "pop": [6111175, 2025],
+      "gdp": [603869516998.74, 2025],
+      "gdpPc": [98813.98, 2025],
+      "refOrigin": [43, 2025],
+      "refAsylum": [0, 2025]
+    },
+    "SLB": {
+      "pop": [838645, 2025],
+      "gdp": [1749572442.95, 2025],
+      "gdpPc": [2086.19, 2025],
+      "refOrigin": [73, 2025],
+      "refAsylum": [0, 2024],
+      "idps": [11, 2024]
+    },
+    "SLE": {
+      "pop": [8819794, 2025],
+      "gdp": [7464157904.44, 2025],
+      "gdpPc": [846.3, 2025],
+      "refOrigin": [8925, 2025],
+      "refAsylum": [0, 2025]
+    },
+    "SLV": {
+      "pop": [6365503, 2025],
+      "gdp": [36708110000, 2025],
+      "gdpPc": [5766.73, 2025],
+      "refOrigin": [68182, 2025],
+      "refAsylum": [182, 2025],
+      "idps": [61000, 2025]
+    },
+    "SMR": { "pop": [34109, 2025], "gdp": [2027243193.51, 2023], "gdpPc": [59871.33, 2023] },
+    "SOM": {
+      "pop": [19654739, 2025],
+      "gdp": [12995200000.27, 2025],
+      "gdpPc": [661.17, 2025],
+      "refOrigin": [892037, 2025],
+      "refAsylum": [20967, 2025],
+      "idps": [3347000, 2025],
+      "battleDeaths": [2284, 2024]
+    },
+    "SRB": {
+      "pop": [6549143, 2025],
+      "gdp": [99953324472.9, 2025],
+      "gdpPc": [15262.05, 2025],
+      "refOrigin": [29665, 2025],
+      "refAsylum": [40863, 2025],
+      "idps": [210000, 2025]
+    },
+    "SSD": {
+      "pop": [12188788, 2025],
+      "gdp": [11997800760.22, 2015],
+      "gdpPc": [1080.15, 2015],
+      "refOrigin": [2386499, 2025],
+      "refAsylum": [601818, 2025],
+      "idps": [945000, 2025],
+      "battleDeaths": [2, 2024]
+    },
+    "STP": {
+      "pop": [240254, 2025],
+      "gdp": [981293586.91, 2025],
+      "gdpPc": [4084.4, 2025],
+      "refOrigin": [8, 2025]
+    },
+    "SUR": {
+      "pop": [639850, 2025],
+      "gdp": [4523657796.86, 2025],
+      "gdpPc": [7069.87, 2025],
+      "refOrigin": [56, 2025],
+      "refAsylum": [24, 2025]
+    },
+    "SVK": {
+      "pop": [5413813, 2025],
+      "gdp": [154530066506.89, 2025],
+      "gdpPc": [28543.67, 2025],
+      "refOrigin": [625, 2025],
+      "refAsylum": [140885, 2025]
+    },
+    "SVN": {
+      "pop": [2130986, 2025],
+      "gdp": [79648204979.36, 2025],
+      "gdpPc": [37376.22, 2025],
+      "refOrigin": [12, 2025],
+      "refAsylum": [12513, 2025]
+    },
+    "SWE": {
+      "pop": [10596620, 2025],
+      "gdp": [668998664082.08, 2025],
+      "gdpPc": [63133.21, 2025],
+      "refOrigin": [128, 2025],
+      "refAsylum": [144116, 2025]
+    },
+    "SWZ": {
+      "pop": [1256174, 2025],
+      "gdp": [5160679612.82, 2025],
+      "gdpPc": [4108.25, 2025],
+      "refOrigin": [220, 2025],
+      "refAsylum": [1414, 2025]
+    },
+    "SXM": {
+      "pop": [43923, 2025],
+      "gdp": [1887728480.45, 2025],
+      "gdpPc": [42978.13, 2025],
+      "refAsylum": [17, 2025]
+    },
+    "SYC": {
+      "pop": [122730, 2025],
+      "gdp": [2387022853.49, 2025],
+      "gdpPc": [19449.38, 2025],
+      "refOrigin": [10, 2025]
+    },
+    "SYR": {
+      "pop": [25620427, 2025],
+      "gdp": [23737634644.4, 2022],
+      "gdpPc": [1056.78, 2022],
+      "refOrigin": [4865764, 2025],
+      "refAsylum": [367870, 2025],
+      "idps": [5964000, 2025],
+      "battleDeaths": [2732, 2024]
+    },
+    "TCA": {
+      "pop": [46855, 2025],
+      "gdp": [1745378000, 2024],
+      "gdpPc": [37506.78, 2024],
+      "refOrigin": [14, 2025],
+      "refAsylum": [8, 2025]
+    },
+    "TCD": {
+      "pop": [21003705, 2025],
+      "gdp": [21472835225.43, 2025],
+      "gdpPc": [1022.34, 2025],
+      "refOrigin": [15281, 2025],
+      "refAsylum": [1502263, 2025],
+      "idps": [593000, 2025],
+      "battleDeaths": [69, 2024]
+    },
+    "TGO": {
+      "pop": [8591626, 2025],
+      "gdp": [11889949067.47, 2025],
+      "gdpPc": [1383.9, 2025],
+      "refOrigin": [12661, 2025],
+      "refAsylum": [54167, 2025],
+      "idps": [18000, 2024],
+      "battleDeaths": [46, 2024]
+    },
+    "THA": {
+      "pop": [71619863, 2025],
+      "gdp": [577009981112.02, 2025],
+      "gdpPc": [8056.56, 2025],
+      "refOrigin": [327, 2025],
+      "refAsylum": [84017, 2025],
+      "idps": [273000, 2025],
+      "battleDeaths": [35, 2024]
+    },
+    "TJK": {
+      "pop": [10786734, 2025],
+      "gdp": [17660626562.48, 2025],
+      "gdpPc": [1637.25, 2025],
+      "refOrigin": [4163, 2025],
+      "refAsylum": [8620, 2025]
+    },
+    "TKM": {
+      "pop": [7618847, 2025],
+      "gdp": [49828621355.65, 2025],
+      "gdpPc": [6540.18, 2025],
+      "refOrigin": [1864, 2025],
+      "refAsylum": [9, 2025]
+    },
+    "TLS": {
+      "pop": [1418517, 2025],
+      "gdp": [1902180257.83, 2025],
+      "gdpPc": [1340.96, 2025],
+      "refOrigin": [15, 2025]
+    },
+    "TON": {
+      "pop": [103742, 2025],
+      "gdp": [679218218.58, 2025],
+      "gdpPc": [6547.19, 2025],
+      "refOrigin": [65, 2025]
+    },
+    "TTO": {
+      "pop": [1367764, 2025],
+      "gdp": [25942749718.47, 2025],
+      "gdpPc": [18967.27, 2025],
+      "refOrigin": [576, 2025],
+      "refAsylum": [1877, 2025]
+    },
+    "TUN": {
+      "pop": [12348573, 2025],
+      "gdp": [57502836548.09, 2025],
+      "gdpPc": [4656.64, 2025],
+      "refOrigin": [3711, 2025],
+      "refAsylum": [2386, 2025]
+    },
+    "TUR": {
+      "pop": [85878556, 2025],
+      "gdp": [1597293229287, 2025],
+      "gdpPc": [18599.44, 2025],
+      "refOrigin": [149405, 2025],
+      "refAsylum": [2390414, 2025],
+      "battleDeaths": [34, 2024]
+    },
+    "TUV": {
+      "pop": [9492, 2025],
+      "gdp": [57345434.72, 2025],
+      "gdpPc": [6041.45, 2025],
+      "refOrigin": [0, 2025]
+    },
+    "TZA": {
+      "pop": [70545865, 2025],
+      "gdp": [90143496090.44, 2025],
+      "gdpPc": [1318.82, 2025],
+      "refOrigin": [1592, 2025],
+      "refAsylum": [171142, 2025]
+    },
+    "UGA": {
+      "pop": [51384894, 2025],
+      "gdp": [61985829288.15, 2025],
+      "gdpPc": [1206.3, 2025],
+      "refOrigin": [12792, 2025],
+      "refAsylum": [1936719, 2025],
+      "idps": [2000, 2025]
+    },
+    "UKR": {
+      "pop": [38980376, 2025],
+      "gdp": [214233312784.4, 2025],
+      "gdpPc": [5865.88, 2025],
+      "refOrigin": [5224131, 2025],
+      "refAsylum": [2370, 2025],
+      "idps": [3712000, 2025],
+      "battleDeaths": [68097, 2024]
+    },
+    "URY": {
+      "pop": [3384688, 2025],
+      "gdp": [85347696277.69, 2025],
+      "gdpPc": [25215.82, 2025],
+      "refOrigin": [126, 2025],
+      "refAsylum": [3195, 2025]
+    },
+    "USA": {
+      "pop": [341784857, 2025],
+      "gdp": [30769700000000, 2025],
+      "gdpPc": [90026.52, 2025],
+      "refOrigin": [3667, 2025],
+      "refAsylum": [457647, 2025]
+    },
+    "UZB": {
+      "pop": [37053428, 2025],
+      "gdp": [147038081129.41, 2025],
+      "gdpPc": [3968.27, 2025],
+      "refOrigin": [5164, 2025],
+      "refAsylum": [5, 2025]
+    },
+    "VCT": {
+      "pop": [99924, 2025],
+      "gdp": [1255222222.22, 2025],
+      "gdpPc": [12561.77, 2025],
+      "refOrigin": [194, 2025]
+    },
+    "VEN": {
+      "pop": [28516896, 2025],
+      "gdp": [99661244155.63, 2025],
+      "gdpPc": [3494.81, 2025],
+      "refOrigin": [417010, 2025],
+      "refAsylum": [14333, 2025]
+    },
+    "VGB": { "pop": [39732, 2025], "refOrigin": [0, 2025], "refAsylum": [6, 2025] },
+    "VIR": { "pop": [103792, 2025], "gdp": [4672000000, 2022], "gdpPc": [44320.91, 2022] },
+    "VNM": {
+      "pop": [101598527, 2025],
+      "gdp": [514697215165.07, 2025],
+      "gdpPc": [5065.99, 2025],
+      "refOrigin": [20636, 2025],
+      "refAsylum": [13, 2025]
+    },
+    "VUT": {
+      "pop": [335169, 2025],
+      "gdp": [1353658840.64, 2025],
+      "gdpPc": [4038.74, 2025],
+      "refOrigin": [13, 2025],
+      "refAsylum": [0, 2025]
+    },
+    "WSM": {
+      "pop": [219306, 2025],
+      "gdp": [1287936621.65, 2025],
+      "gdpPc": [5872.78, 2025],
+      "refOrigin": [17, 2025]
+    },
+    "YEM": {
+      "pop": [41773878, 2025],
+      "gdp": [21606160663.03, 2018],
+      "gdpPc": [633.89, 2018],
+      "refOrigin": [57327, 2025],
+      "refAsylum": [49107, 2025],
+      "idps": [4796000, 2025],
+      "battleDeaths": [918, 2024]
+    },
+    "ZAF": {
+      "pop": [64747319, 2025],
+      "gdp": [427184325997.31, 2025],
+      "gdpPc": [6597.71, 2025],
+      "refOrigin": [1319, 2025],
+      "refAsylum": [55177, 2025],
+      "idps": [29, 2024]
+    },
+    "ZMB": {
+      "pop": [21913874, 2025],
+      "gdp": [28879806220.13, 2025],
+      "gdpPc": [1317.88, 2025],
+      "refOrigin": [346, 2025],
+      "refAsylum": [83225, 2025],
+      "idps": [190, 2024]
+    },
+    "ZWE": {
+      "pop": [16950795, 2025],
+      "gdp": [51215643905.59, 2025],
+      "gdpPc": [3021.43, 2025],
+      "refOrigin": [6632, 2025],
+      "refAsylum": [8570, 2025],
+      "idps": [400, 2024]
+    }
+  }
 }
