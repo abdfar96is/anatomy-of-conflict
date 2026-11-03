@@ -3,7 +3,7 @@
 
 import type { Feature, FeatureCollection, Geometry } from 'geojson';
 import type { Bi, Lang } from '../i18n/format';
-import type { Kind, NUCLEAR_CIVIL, NUCLEAR_NPT, NUCLEAR_STATUS } from '../config';
+import type { Kind, NUCLEAR_CIVIL, NUCLEAR_NPT, NUCLEAR_STATUS, NUCLEAR_UNIT } from '../config';
 import type { CONFLICT_FILES } from './files';
 
 export type { Kind };
@@ -62,14 +62,36 @@ export interface NuclearRecord extends Provenance {
   weapons?: NuclearStatusId; host?: string; civil?: NuclearCivilId; npt?: NuclearNptId; note?: Bi;
 }
 export interface NuclearZone extends Bi { id: string; treaty: Bi; year: number; members: string[]; sources: string[] }
+export type NuclearUnitStatus = keyof typeof NUCLEAR_UNIT;
+export interface NuclearUnit {
+  name: string; status: NuclearUnitStatus; type?: string; model?: string; mw?: number; from?: number; to?: number; iaea?: number;
+  /** A status change since the base dataset, with the year and its sources. */
+  changed?: { year: number; sources: string[] };
+}
+export interface NuclearPlant extends Bi, Provenance {
+  id: string; iso3: string; coords: [number, number]; units: NuclearUnit[]; note?: Bi; conflictIds?: string[];
+}
+export interface NuclearPlantFile {
+  source: { base: { name: string; version: string; date: string; url: string; license: string }; changes: Bi; limits: Bi };
+  plants: NuclearPlant[];
+}
+/** A plant in the model: its record plus the status and capacity rolled up from its units. */
+export interface Plant extends NuclearPlant {
+  status: NuclearUnitStatus; count: Record<NuclearUnitStatus, number>; mw: Record<NuclearUnitStatus, number>;
+}
 export interface NuclearFile {
   note?: Bi; zonesNote?: Bi;
+  fleet: { year: number; publisher: string; sources: string[]; verified?: string; note?: Bi; columns: string[]; values: Record<string, [number, number, number]> };
   warheads: { year: number; metric: Bi; publisher: string; sources: string[]; verified?: string; values: Record<string, number> };
   countries: Record<string, NuclearRecord>;
   zones: NuclearZone[];
 }
 /** A country's nuclear profile in the model: its record, the NPT status filled in for states, warheads and zones. */
-export interface CountryNuclear extends Omit<NuclearRecord, 'npt'> { npt?: NuclearNptId; warheads?: number; zones: string[] }
+export interface CountryNuclear extends Omit<NuclearRecord, 'npt'> {
+  npt?: NuclearNptId; warheads?: number; zones: string[];
+  /** Reactors in service, net MWe and reactors under construction (Reactor Atlas), and the plants in this state. */
+  fleet?: { reactors: number; mwe: number; building: number }; plants: string[];
+}
 
 /** A sourced caveat on one open-data figure for one country (curated/figure_notes.json). */
 export interface FigureNote extends Bi { sources: string[]; verified: string }
@@ -106,6 +128,7 @@ export type RawData = {
   corrections?: Correction[];
   figureNotes?: { note?: Bi; countries: Record<string, Partial<Record<LiveKey, FigureNote>>> };
   nuclear: NuclearFile;
+  nuclearPlants: NuclearPlantFile;
   live?: LiveFile | null;
 } & { [K in (typeof CONFLICT_FILES)[number]]: ConflictFile };
 
@@ -153,7 +176,8 @@ export interface DB {
   corrections: Correction[];
   /** The open-data refresh, or null when the file is missing or has never been filled. */
   live: LiveFile | null;
-  nuclear: NuclearFile & { zoneById: Map<string, NuclearZone> };
+  nuclear: NuclearFile & { zoneById: Map<string, NuclearZone>; plants: Plant[]; plantSource: NuclearPlantFile['source'] };
+  plantById: Map<string, Plant>;
   isUnverified(kind: Kind, id: string): boolean;
   features: Feature<Geometry, CountryProps>[];
   countries: Map<string, Country>;

@@ -4,7 +4,7 @@ import { useLayoutEffect, useMemo, useRef, useState, type KeyboardEvent, type Re
 import { atlas, useAtlas } from '../../app/store';
 import { useDb, useT } from '../../app/useT';
 import type { Prefs } from '../../app/prefs';
-import { LENSES, RELIGION_FAMILIES, SEVERITY, VIEWS, type LensId, type ViewId } from '../../config';
+import { LENSES, NUCLEAR_UNIT, RELIGION_FAMILIES, SEVERITY, VIEWS, type LensId, type ViewId } from '../../config';
 import type { DB, Kind } from '../../data/types';
 import { normalize, type Lang } from '../../i18n/format';
 import { esc } from '../../ui/dom';
@@ -83,6 +83,10 @@ function subOf(db: DB, T: T, kind: Kind, id: string): string {
     case 'bloc': {
       const x = db.relations.blocById.get(id);
       return x ? membersLabel((x.members || []).length, lang) : '';
+    }
+    case 'plant': {
+      const x = db.plantById.get(id);
+      return x ? [countryName(x.iso3), L(NUCLEAR_UNIT[x.status])].filter(Boolean).join(' · ') : '';
     }
     case 'site': {
       const x = db.siteById.get(id);

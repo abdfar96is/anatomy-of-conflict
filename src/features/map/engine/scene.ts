@@ -4,8 +4,8 @@
 import * as d3 from 'd3';
 import type { Feature } from 'geojson';
 import type { AtlasState } from '../../../app/store';
-import { CHOKE_STATUS, NUCLEAR_CIVIL, NUCLEAR_STATUS, SEVERITY, type LensId } from '../../../config';
-import type { Bloc, Country, DB, Disputed, Kind, TimelineEvent } from '../../../data/types';
+import { CHOKE_STATUS, NUCLEAR_CIVIL, NUCLEAR_STATUS, NUCLEAR_UNIT, SEVERITY, type LensId } from '../../../config';
+import type { Bloc, Country, DB, Disputed, Kind, Plant, TimelineEvent } from '../../../data/types';
 import { fmtCompact, fmtDate, fmtGdp, fmtNum, fmtPct, type Bi, type Lang } from '../../../i18n/format';
 import { pick, pickKey, registerStrings, translate } from '../../../i18n/strings';
 import { esc } from '../../../ui/dom';
@@ -22,6 +22,7 @@ registerStrings({
     'map.tip.nuc.warheads': 'نحو {n} رأس نووي (تقدير SIPRI، {y})',
     'map.tip.nuc.civil0': 'لا مفاعلات طاقة مسجّلة',
     'map.tip.nuc.zone0': 'خارج المناطق الخالية من السلاح النووي',
+    'map.tip.plantMw': '{v} ميغاواط في الخدمة', 'map.tip.plantBuild': '{v} ميغاواط قيد الإنشاء',
     'map.tip.conflicts0': 'ليست طرفاً في أي ملف نزاع مرصود',
     'map.tip.conflicts': 'طرف في {n} من ملفات النزاع',
     'map.tip.conflict1': 'طرف في ملف نزاع واحد',
@@ -65,6 +66,7 @@ registerStrings({
     'map.tip.nuc.warheads': 'About {n} nuclear warheads (SIPRI estimate, {y})',
     'map.tip.nuc.civil0': 'No power reactors recorded',
     'map.tip.nuc.zone0': 'Outside the nuclear-weapon-free zones',
+    'map.tip.plantMw': '{v} MWe in service', 'map.tip.plantBuild': '{v} MWe under construction',
     'map.tip.conflicts0': 'Not a party to any tracked conflict',
     'map.tip.conflicts': 'Party to {n} tracked conflicts',
     'map.tip.conflict1': 'Party to 1 tracked conflict',
@@ -191,6 +193,11 @@ export function nuclearFill(P: Palette, id: keyof typeof NUCLEAR_STATUS): string
   return mix(P.land, base, s.strength);
 }
 export const nuclearCivilFill = (P: Palette, id: keyof typeof NUCLEAR_CIVIL) => (id === 'phased-out' ? P.landMuted : seqFill(P, NUCLEAR_CIVIL[id].t));
+/** Plant markers: shape by status (NUCLEAR_UNIT), size by the capacity in service (or under construction). */
+export const plantColor = (P: Palette, status: keyof typeof NUCLEAR_UNIT) =>
+  status === 'operating' ? P.status.good : status === 'suspended' ? P.status.warn : status === 'building' ? P.accent2 : P.fg3;
+export const plantRadius = (mw: number) => 3 + Math.sqrt(Math.max(0, mw)) / 9;
+const mwShown = (p: Plant) => p.mw.operating + p.mw.suspended || p.mw.building;
 export const nuclearZoneFill = (P: Palette, id: string) => mix(P.land, P.cat[NUCLEAR_ZONE_SLOT[id] ?? 0] ?? P.land, 0.55);
 const areaMemo = new WeakMap<Disputed, number>();
 const anchorMemo = new WeakMap<TimelineEvent, LonLat | null>();
@@ -386,6 +393,12 @@ const BUILD: Record<LensId, Builder> = {
       }
     }
     sc.hatchAlpha = 0.5;
+    // plants: every plant in civil mode (largest first, so small ones sit on top); elsewhere only a selected one
+    const selPlant = S.selection?.kind === 'plant' ? S.selection.id : null;
+    const shown = mode === 'civil' ? DB.nuclear.plants : DB.nuclear.plants.filter((p) => p.id === selPlant);
+    for (const p of [...shown].sort((a, b) => mwShown(b) - mwShown(a))) {
+      sc.markers.push({ lonlat: p.coords, shape: NUCLEAR_UNIT[p.status].shape, r: plantRadius(mwShown(p)), color: plantColor(P, p.status), kind: 'plant', id: p.id });
+    }
   },
 
   resources(sc, DB, S, P) {
@@ -446,7 +459,7 @@ function emphasis(sc: Scene, DB: DB, S: AtlasState, P: Palette) {
     if (sel.kind === 'disputed') { const d = DB.disputedById.get(sel.id); if (d) sc.selPolys.push({ feature: d.feature, stroke: P.sel, width: 2 }); }
     let anchor: LonLat | null = null;
     if (sel.kind === 'event') { const e = DB.eventById.get(sel.id); anchor = e ? eventAnchor(DB, e) : null; }
-    else if (['conflict', 'choke', 'site', 'disputed'].includes(sel.kind)) anchor = DB.anchorOf(sel.kind, sel.id);
+    else if (['conflict', 'choke', 'site', 'disputed', 'plant'].includes(sel.kind)) anchor = DB.anchorOf(sel.kind, sel.id);
     if (anchor) sc.selRing = { lonlat: anchor, kind: sel.kind, id: sel.id };
   }
   if (S.view === 'compare') {
@@ -558,6 +571,13 @@ export function tipFor(hit: Hit, DB: DB, S: AtlasState): string {
       if (!x) return '';
       const flow = num(x.oilFlowMbd), year = x.flowYear;
       return tip(L(x), L(chokeStatus(x.status)), flow ? t('map.tip.flow', { v: fmtNum(flow, 1), y: typeof year === 'number' || typeof year === 'string' ? year : '' }) : t('map.tip.flowNa'));
+    }
+    case 'plant': {
+      const x = DB.plantById.get(hit.id);
+      if (!x) return '';
+      const mw = x.mw.operating + x.mw.suspended;
+      const units = (Object.keys(NUCLEAR_UNIT) as (keyof typeof NUCLEAR_UNIT)[]).filter((s) => x.count[s]).map((s) => `${fmtNum(x.count[s])} ${L(NUCLEAR_UNIT[s])}`).join(t('map.sep'));
+      return tip(L(x), nameOf(DB, x.iso3, S.lang), units, mw ? t('map.tip.plantMw', { v: fmtNum(mw) }) : x.mw.building ? t('map.tip.plantBuild', { v: fmtNum(x.mw.building) }) : '');
     }
     case 'site': {
       const x = DB.siteById.get(hit.id);

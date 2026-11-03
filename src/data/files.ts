@@ -21,6 +21,7 @@ export const FILES = {
   corrections: 'curated/corrections.json',
   figureNotes: 'curated/figure_notes.json',
   nuclear: 'curated/nuclear.json',
+  nuclearPlants: 'curated/nuclear_plants.json',
   live: 'live/indicators.json',
 } as const;
 

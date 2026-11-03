@@ -5,13 +5,13 @@ import * as d3 from 'd3';
 import { useState, useSyncExternalStore, type CSSProperties, type ReactNode, type SyntheticEvent } from 'react';
 import { atlas, useAtlas, type AtlasState } from '../../app/store';
 import { useDb, useT } from '../../app/useT';
-import { CHOKE_STATUS, LENSES, NUCLEAR_CIVIL, NUCLEAR_STATUS, RESOURCE_CLASSES, SEVERITY } from '../../config';
+import { CHOKE_STATUS, LENSES, NUCLEAR_CIVIL, NUCLEAR_STATUS, NUCLEAR_UNIT, RESOURCE_CLASSES, SEVERITY } from '../../config';
 import type { DB } from '../../data/types';
 import { Icon } from '../../ui/Icon';
 import { catVar, edgeVar, pal, resClassVar, sevVar, traditionColor, type Palette } from '../../ui/palette';
 import {
   BLOC_T, CHOKE_T, CONTINENTS, ETHNIC_CLASSES, GDP_RANGE, INCOME, POP_RANGE, RES_SHAPE,
-  activeBloc, bi, decadeWindow, ethnicClass, landTint, nuclearCivilFill, nuclearFill, nuclearZoneFill, seqFill, visibleConflicts, windowEvents,
+  activeBloc, bi, decadeWindow, ethnicClass, landTint, nuclearCivilFill, nuclearFill, nuclearZoneFill, plantColor, seqFill, visibleConflicts, windowEvents,
 } from './engine/scene';
 import './strings';
 
@@ -230,7 +230,14 @@ const BODY: Record<(typeof LENSES)[number]['id'], (c: Ctx) => ReactNode> = {
         <KeyRow key={id} lead={<Sw bg={nuclearCivilFill(P, id)} cls={`sw-land${id === 'phased-out' ? ' sw-overhatch' : ''}`} />} label={L(NUCLEAR_CIVIL[id])}
           n={all.filter((c) => c.nuclear.civil === id).length} />
       ))}</Keys>;
-      note = t('map.nc.civilNote');
+      const plants = DB.nuclear.plants;
+      key = <>{key}<Keys>{(Object.keys(NUCLEAR_UNIT) as (keyof typeof NUCLEAR_UNIT)[]).map((id) => (
+        <KeyRow key={id} lead={<Glyph shape={NUCLEAR_UNIT[id].shape} color={plantColor(P, id)} />} label={t('map.nc.plant', { s: L(NUCLEAR_UNIT[id]) })}
+          n={plants.filter((p) => p.status === id).length} />
+      ))}
+        <KeyRow lead={<span className="sizes" aria-hidden="true"><Glyph shape="disc" color="var(--fg-3)" size={8} /><Glyph shape="disc" color="var(--fg-3)" size={18} /></span>} label={t('map.nc.size')} />
+      </Keys></>;
+      note = t('map.nc.civilNote', { d: fmt.date(DB.nuclear.plantSource.base.date) });
     } else {
       key = <Keys>{DB.nuclear.zones.map((z) => (
         <KeyRow key={z.id} lead={<Sw bg={nuclearZoneFill(P, z.id)} cls="sw-land" />} label={`${L(z)} · ${L(z.treaty)} (${z.year})`} n={z.members.length} />
