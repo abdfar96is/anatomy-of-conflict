@@ -700,7 +700,7 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
     const order = first.size ? [...[...first].map((iso) => geoBy.get(iso)).filter((g): g is GeoRec => !!g), ...labelOrder.filter((g) => !first.has(g.iso3))] : labelOrder;
     const badgeOf = new Map(sc.badges.filter((b) => b.type !== 'cmp').map((b) => [b.iso3, b.type]));
     const rtl = dir() === 'rtl';
-    if (S.layers.labels) {
+    if (S.layers.labels && !sc.hideCountryLabels) {
       for (const g of order) {
         const c = g.c;
         const forced = first.has(g.iso3);

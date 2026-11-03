@@ -16,6 +16,8 @@ export interface Filters {
   religionTradition: string;
   overviewMode: 'continent' | 'income' | 'population' | 'gdp';
   nuclearMode: 'military' | 'civil' | 'zones';
+  /** Year the Historical borders lens shows (borders as they stood on 31 December). */
+  bordersYear: number;
   timelineCats: Set<string> | null;
   ethnicFamily: string | null;
 }
@@ -45,7 +47,7 @@ export const initialState = (): AtlasState => ({
     relTypes: new Set(['alliance', 'military', 'economic', 'influence', 'proxy', 'rivalry', 'territorial', 'diplomatic']),
     relKinds: new Set(['treaty', 'assessed']),
     bloc: null, resourceClass: null, religionMode: 'majority', religionTradition: 'sunni',
-    overviewMode: 'continent', nuclearMode: 'military', timelineCats: null, ethnicFamily: null,
+    overviewMode: 'continent', nuclearMode: 'military', bordersYear: 1914, timelineCats: null, ethnicFamily: null,
   },
   layers: { labels: true, graticule: true, boundaries: true, disputed: true, ethnic: false, conflicts: false, arcs: false },
 });

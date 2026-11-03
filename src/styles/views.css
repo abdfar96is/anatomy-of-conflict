@@ -341,3 +341,11 @@ button.cmp-item:hover { border-color: var(--fg-3); }
 .src-uv { display: grid; gap: 4px; max-width: 80ch; font-size: var(--fs-sm); color: var(--fg-2); }
 .src-uv .vw-h3 { align-items: center; margin-block-end: 2px; }
 .src-uv .vw-h3 .ic { color: var(--fg-3); }
+
+/* ---- Historical borders lens: its own timeline in the scrubber area */
+.sc-borders .bd-steps { flex: none; display: flex; gap: 2px; }
+.sc-borders .bd-steps .btn { width: 32px; min-height: 32px; padding: 0; justify-content: center; }
+.sc-borders .bd-steps .btn:disabled { opacity: .35; }
+.sc-borders .sc-bar.is-sel { fill: var(--accent); }
+.sc-borders .bd-status { flex: none; font-size: var(--fs-xs); color: var(--fg-3); white-space: nowrap; }
+@media (max-width: 700px) { .sc-borders .bd-status { display: none; } }

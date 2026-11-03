@@ -159,3 +159,10 @@
 @media (max-height: 520px) {
   #legend .lc-sub { display: none; }
 }
+
+/* Historical borders lens card: the year's changes */
+#legend .bd-changes { display: grid; gap: 2px; margin: 0; padding: 0; list-style: none; max-height: 220px; overflow-y: auto; }
+#legend .bd-change { display: block; width: 100%; text-align: start; padding: 3px 4px; border-radius: 6px; font-size: var(--fs-sm); color: var(--fg-2); line-height: 1.4; }
+#legend .bd-change:hover, #legend .bd-change:focus-visible { background: var(--surface-2, rgba(127,127,127,.12)); color: var(--fg); }
+#legend .bd-date { color: var(--fg-3); font-size: var(--fs-xs); margin-inline-end: 4px; }
+#legend .bd-more { font-size: var(--fs-xs); color: var(--fg-3); padding-inline-start: 4px; }

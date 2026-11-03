@@ -11,6 +11,7 @@ import { pick, pickKey, registerStrings, translate } from '../../../i18n/strings
 import { esc } from '../../../ui/dom';
 import type { Palette } from '../../../ui/palette';
 import { type LonLat } from './geo';
+import { getBorders, rulerColor, rulerName, statusLabel, unitName, unitsAt, yearEnd, type BorderUnit, type Borders } from '../../../data/borders';
 
 registerStrings({
   ar: {
@@ -22,7 +23,8 @@ registerStrings({
     'map.tip.nuc.warheads': 'نحو {n} رأس نووي (تقدير SIPRI، {y})',
     'map.tip.nuc.civil0': 'لا مفاعلات طاقة مسجّلة',
     'map.tip.nuc.zone0': 'خارج المناطق الخالية من السلاح النووي',
-    'map.tip.plantMw': '{v} ميغاواط في الخدمة', 'map.tip.plantBuild': '{v} ميغاواط قيد الإنشاء',
+    'map.tip.plantMw': '{v} ميغاواط في الخدمة',
+    'map.tip.bdRuled': '{s} · تحت حكم {r}', 'map.tip.bdPeriod': 'بهذه الحدود من {a} إلى {b}', 'map.tip.bdCap': 'العاصمة: {c}', 'map.tip.plantBuild': '{v} ميغاواط قيد الإنشاء',
     'map.tip.conflicts0': 'ليست طرفاً في أي ملف نزاع مرصود',
     'map.tip.conflicts': 'طرف في {n} من ملفات النزاع',
     'map.tip.conflict1': 'طرف في ملف نزاع واحد',
@@ -66,7 +68,8 @@ registerStrings({
     'map.tip.nuc.warheads': 'About {n} nuclear warheads (SIPRI estimate, {y})',
     'map.tip.nuc.civil0': 'No power reactors recorded',
     'map.tip.nuc.zone0': 'Outside the nuclear-weapon-free zones',
-    'map.tip.plantMw': '{v} MWe in service', 'map.tip.plantBuild': '{v} MWe under construction',
+    'map.tip.plantMw': '{v} MWe in service',
+    'map.tip.bdRuled': '{s} · ruled by {r}', 'map.tip.bdPeriod': 'With these borders from {a} to {b}', 'map.tip.bdCap': 'Capital: {c}', 'map.tip.plantBuild': '{v} MWe under construction',
     'map.tip.conflicts0': 'Not a party to any tracked conflict',
     'map.tip.conflicts': 'Party to {n} tracked conflicts',
     'map.tip.conflict1': 'Party to 1 tracked conflict',
@@ -123,6 +126,8 @@ export interface Scene {
   fill: Map<string, string>; hatch: Set<string>; hatchAlpha: number; emph: Set<string> | null;
   outlines: Outline[]; polys: Poly[]; under: Poly[]; selPolys: Poly[]; arcs: Arc[]; markers: Marker[]; labels: Label[]; badges: Badge[];
   selRing: { lonlat: LonLat; kind: Kind; id: string } | null; pulse: boolean;
+  /** Today's country names would mislead on a historical map: the borders lens turns them off. */
+  hideCountryLabels?: boolean;
 }
 
 export function emptyScene(): Scene {
@@ -198,6 +203,20 @@ export const plantColor = (P: Palette, status: keyof typeof NUCLEAR_UNIT) =>
   status === 'operating' ? P.status.good : status === 'suspended' ? P.status.warn : status === 'building' ? P.accent2 : P.fg3;
 export const plantRadius = (mw: number) => 3 + Math.sqrt(Math.max(0, mw)) / 9;
 const mwShown = (p: Plant) => p.mw.operating + p.mw.suspended || p.mw.building;
+/** Historical borders: a colonial power's colour, stronger for its home territory than for its dependencies. */
+const BORDER_STRENGTH: Record<string, number> = { independent: 0.78, colony: 0.55, occupied: 0.55, protectorate: 0.4, mandate: 0.4, 'N/A': 0.3 };
+export function borderFill(P: Palette, B: Borders, u: BorderUnit): string {
+  const c = rulerColor(B, u);
+  if (c) return mix(P.land, c, BORDER_STRENGTH[u.status] ?? 0.4);
+  // other states: neutral; their few dependencies a little darker
+  return u.status === 'independent' ? mix(P.land, P.fg3, 0.12) : mix(P.land, P.fg3, 0.32);
+}
+const unitGeo = new WeakMap<BorderUnit, { c: LonLat; km2: number }>();
+const geoOfUnit = (u: BorderUnit) => {
+  let g = unitGeo.get(u);
+  if (!g) { g = { c: d3.geoCentroid(u.feature) as LonLat, km2: d3.geoArea(u.feature) * EARTH_R * EARTH_R }; unitGeo.set(u, g); }
+  return g;
+};
 export const nuclearZoneFill = (P: Palette, id: string) => mix(P.land, P.cat[NUCLEAR_ZONE_SLOT[id] ?? 0] ?? P.land, 0.55);
 const areaMemo = new WeakMap<Disputed, number>();
 const anchorMemo = new WeakMap<TimelineEvent, LonLat | null>();
@@ -401,6 +420,24 @@ const BUILD: Record<LensId, Builder> = {
     }
   },
 
+  borders(sc, DB, S, P) {
+    for (const c of DB.countries.values()) sc.fill.set(c.iso3, P.landMuted);
+    const B = getBorders();
+    if (!B) return;
+    sc.hideCountryLabels = true;
+    const { lang } = S, at = yearEnd(S.filters.bordersYear);
+    for (const u of unitsAt(B, S.filters.bordersYear)) {
+      sc.polys.push({
+        feature: u.feature, fill: borderFill(P, B, u), fillAlpha: 0.9, stroke: P.fg2, width: 0.7, strokeAlpha: 0.55,
+        dash: u.status === 'occupied' || !u.defined ? [3, 2] : undefined, kind: 'border', id: u.id,
+      });
+      const g = geoOfUnit(u);
+      sc.labels.push({ lonlat: g.c, text: unitName(B, u, lang, at), style: 'group', pri: g.km2, areaKm2: g.km2, kind: 'border', id: u.id });
+    }
+    const sel = S.selection?.kind === 'border' ? B.byId.get(S.selection.id) : undefined;
+    if (sel) sc.selPolys.push({ feature: sel.feature, stroke: P.sel, width: 2.2 });
+  },
+
   resources(sc, DB, S, P) {
     const cls = S.filters.resourceClass;
     const best = new Map<string, number>();
@@ -459,7 +496,7 @@ function emphasis(sc: Scene, DB: DB, S: AtlasState, P: Palette) {
     if (sel.kind === 'disputed') { const d = DB.disputedById.get(sel.id); if (d) sc.selPolys.push({ feature: d.feature, stroke: P.sel, width: 2 }); }
     let anchor: LonLat | null = null;
     if (sel.kind === 'event') { const e = DB.eventById.get(sel.id); anchor = e ? eventAnchor(DB, e) : null; }
-    else if (['conflict', 'choke', 'site', 'disputed', 'plant'].includes(sel.kind)) anchor = DB.anchorOf(sel.kind, sel.id);
+    else if (['conflict', 'choke', 'site', 'disputed', 'plant', 'border'].includes(sel.kind)) anchor = DB.anchorOf(sel.kind, sel.id);
     if (anchor) sc.selRing = { lonlat: anchor, kind: sel.kind, id: sel.id };
   }
   if (S.view === 'compare') {
@@ -571,6 +608,13 @@ export function tipFor(hit: Hit, DB: DB, S: AtlasState): string {
       if (!x) return '';
       const flow = num(x.oilFlowMbd), year = x.flowYear;
       return tip(L(x), L(chokeStatus(x.status)), flow ? t('map.tip.flow', { v: fmtNum(flow, 1), y: typeof year === 'number' || typeof year === 'string' ? year : '' }) : t('map.tip.flowNa'));
+    }
+    case 'border': {
+      const B = getBorders(), u = B?.byId.get(hit.id);
+      if (!B || !u) return '';
+      const st = L(statusLabel(u.status)), at = yearEnd(S.filters.bordersYear);
+      const status = u.status === 'independent' ? st : t('map.tip.bdRuled', { s: st, r: rulerName(B, u, S.lang, at) });
+      return tip(unitName(B, u, S.lang, at), status, t('map.tip.bdPeriod', { a: fmtDate(u.start), b: fmtDate(u.end) }), u.capital ? t('map.tip.bdCap', { c: u.capital }) : '');
     }
     case 'plant': {
       const x = DB.plantById.get(hit.id);

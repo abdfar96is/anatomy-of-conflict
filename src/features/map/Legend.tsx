@@ -11,8 +11,11 @@ import { Icon } from '../../ui/Icon';
 import { catVar, edgeVar, pal, resClassVar, sevVar, traditionColor, type Palette } from '../../ui/palette';
 import {
   BLOC_T, CHOKE_T, CONTINENTS, ETHNIC_CLASSES, GDP_RANGE, INCOME, POP_RANGE, RES_SHAPE,
-  activeBloc, bi, decadeWindow, ethnicClass, landTint, nuclearCivilFill, nuclearFill, nuclearZoneFill, plantColor, seqFill, visibleConflicts, windowEvents,
+  activeBloc, bi, borderFill, decadeWindow, ethnicClass, landTint, nuclearCivilFill, nuclearFill, nuclearZoneFill, plantColor, seqFill, visibleConflicts, windowEvents,
 } from './engine/scene';
+import { getBorders, unitsAt } from '../../data/borders';
+import { changeLine } from '../borders/changes';
+import '../borders/strings';
 import './strings';
 
 // ---- small builders
@@ -249,6 +252,49 @@ const BODY: Record<(typeof LENSES)[number]['id'], (c: Ctx) => ReactNode> = {
         <Sec label={t('map.lc.colorBy')}><Chips label={t('map.lc.colorBy')}>{modes}</Chips></Sec>
         <Sec>{key}</Sec>
         <Note text={note} />
+      </>
+    );
+  },
+
+  borders({ S, P, T: { t, lang } }) {
+    const B = getBorders();
+    const y = S.filters.bordersYear;
+    if (!B) return <Note text={t('bd.loading')} />;
+    const units = unitsAt(B, y);
+    // ruling powers present this year: their own territory first, then their dependencies
+    const by = new Map<string, { n: number; sample: (typeof units)[number] }>();
+    let other = 0, otherDep = 0, otherSample: (typeof units)[number] | undefined, otherDepSample: (typeof units)[number] | undefined;
+    for (const u of units) {
+      const key = String(u.ruler);
+      if (B.meta.rulers[key]) {
+        const e = by.get(key) ?? { n: 0, sample: u };
+        e.n++;
+        if (u.gw === u.ruler) e.sample = u;
+        by.set(key, e);
+      } else if (u.status === 'independent') { other++; otherSample ??= u; } else { otherDep++; otherDepSample ??= u; }
+    }
+    const rows = [...by].sort((a, b) => b[1].n - a[1].n).map(([key, e]) => {
+      const home = units.find((u) => u.gw === Number(key) && u.status === 'independent') ?? e.sample;
+      const [ar, en] = B.meta.rulers[key]!;
+      return <KeyRow key={key} lead={<Sw bg={borderFill(P, B, home)} cls="sw-land" />} label={lang === 'ar' ? ar : en} n={e.n} />;
+    });
+    if (otherSample) rows.push(<KeyRow key="other" lead={<Sw bg={borderFill(P, B, otherSample)} cls="sw-land" />} label={t('bd.lg.other')} n={other} />);
+    if (otherDepSample) rows.push(<KeyRow key="otherDep" lead={<Sw bg={borderFill(P, B, otherDepSample)} cls="sw-land" />} label={t('bd.lg.otherDep')} n={otherDep} />);
+    const changes = B.changes.get(y) ?? [];
+    return (
+      <>
+        <Sec label={t('bd.lg.year', { y })}><Keys>{rows}</Keys></Sec>
+        <Note text={t('bd.lg.shade')} />
+        <Sec label={t('bd.lg.changes', { y })}>
+          {changes.length
+            ? <ul className="bd-changes">{changes.slice(0, 12).map((c, i) => (
+              <li key={`${c.unit.id}:${c.kind}:${i}`}><button type="button" className="bd-change" onClick={() => atlas.select('border', c.unit.id, { fly: true })}>
+                <span className="bd-date num">{c.date.slice(5).split('-').reverse().join('/')}</span>{' '}{changeLine(B, c, lang, t)}
+              </button></li>
+            ))}{changes.length > 12 ? <li className="bd-more">{t('bd.more', { n: changes.length - 12 })}</li> : null}</ul>
+            : <p className="lc-note">{t('bd.lg.none')}</p>}
+        </Sec>
+        <Note text={t('bd.lg.note')} />
       </>
     );
   },

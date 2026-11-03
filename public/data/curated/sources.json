@@ -89,6 +89,34 @@
       }
     },
     {
+      "id": "cshapes",
+      "file": "history/cshapes.topo.json",
+      "title": {
+        "ar": "الحدود التاريخية للدول والأقاليم التابعة 1886–2019 — CShapes 2.0",
+        "en": "Historical borders of states and dependent territories, 1886–2019 — CShapes 2.0"
+      },
+      "publisher": {
+        "ar": "معهد أبحاث النزاعات الدولية، ETH زيورخ",
+        "en": "International Conflict Research, ETH Zurich"
+      },
+      "url": "https://icr.ethz.ch/data/cshapes/",
+      "license": "CC BY-NC-SA 4.0",
+      "published": "2021-05-20",
+      "lastRetrieved": "2026-11-03",
+      "resolution": {
+        "ar": "710 وحدة (دولة-فترة)، كل منها بتاريخ بدايته ونهايته ووضعه والدولة الحاكمة. الخطوط مبسّطة إلى 4% للعرض.",
+        "en": "710 units (state-periods), each with its start and end date, status and ruling state. Lines simplified to 4% for display."
+      },
+      "methodology": {
+        "ar": "نسخة غليديتش ووارد من CShapes 2.0 مأخوذة من حزمة R الرسمية (cshapes 2.0) لأنها وحدها تحمل حقلي الوضع والدولة الحاكمة، ثم بُسّطت بأداة mapshaper. تُرسم الخريطة كما كانت في 31 ديسمبر من السنة المختارة. التغييرات مشتقة من تتابع فترات كل وحدة: قيام، استقلال، ضمّ، انتقال حكم، تغيّر حدود، زوال. أسماء الوحدات بالعربية من إعداد الأطلس.",
+        "en": "The Gleditsch–Ward version of CShapes 2.0 taken from the official R package (cshapes 2.0), the only release carrying the status and ruling-state fields, then simplified with mapshaper. The map shows each year as it stood on 31 December. Changes are derived from the sequence of each unit's periods: emergence, independence, annexation, change of ruler, border change, end. Arabic unit names are the atlas's own."
+      },
+      "limitations": {
+        "ar": "حدود قانونية (de jure) بحسب تعريف المصدر، لا خطوط سيطرة فعلية. لا تُسجَّل التغييرات الأصغر من 10 آلاف كم² ولا الانفصالات غير المعترف بها. تنتهي البيانات عند 2019. الترخيص غير تجاري ويشترط المشاركة بالمثل، فهذا الملف وحده تحت CC BY-NC-SA 4.0.",
+        "en": "De jure borders as the source defines them, not lines of actual control. Changes under 10,000 km² and unrecognised secessions are not coded. The data ends in 2019. The licence is non-commercial and share-alike, so this file alone is under CC BY-NC-SA 4.0."
+      }
+    },
+    {
       "id": "wb-indicators",
       "file": "live/indicators.json",
       "title": {

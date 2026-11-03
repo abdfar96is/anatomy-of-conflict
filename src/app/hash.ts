@@ -28,6 +28,11 @@ export function parseHash(token: string, db: DB): ParsedHash | null {
     return null;
   }
   if (head === 'tour') return rest ? { tour: rest } : null;
+  // Historical units load with their lens, so their links are accepted before the data is in.
+  if (head === 'border' && /^\d+$/.test(rest)) {
+    const sel = { kind: 'border' as Kind, id: rest };
+    return { patch: { lens: 'borders', selection: sel, view: null } };
+  }
   // A selection link shows that record on the map, so it closes any open view.
   if ((KINDS as readonly string[]).includes(head) && db.exists(head as Kind, rest)) {
     const sel = { kind: head as Kind, id: rest };

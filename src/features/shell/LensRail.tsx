@@ -53,10 +53,12 @@ export function LensRail() {
     <div ref={railRef} className="rail" role="toolbar" aria-orientation={phone ? 'horizontal' : 'vertical'} aria-label={t('sh.lenses')} onKeyDown={onKeyDown}>
       {LENSES.map((l, i) => {
         const on = lens === l.id;
-        const tip = phone ? undefined : `<b>${esc(L(l))}</b><span class="tip-sub">${esc(L(l.sub))} · ${esc(t('sh.key'))} ${i + 1}</span>`;
+        // keys 1–9 open the first nine lenses and 0 the tenth (keyboard.ts); later lenses have no key
+        const hot = i < 9 ? String(i + 1) : i === 9 ? '0' : undefined;
+        const tip = phone ? undefined : `<b>${esc(L(l))}</b><span class="tip-sub">${esc(L(l.sub))}${hot ? ` · ${esc(t('sh.key'))} ${hot}` : ''}</span>`;
         return (
           <button key={l.id} type="button" className="lens" data-k={`lens-${l.id}`} aria-pressed={on} tabIndex={tabStop === i ? 0 : -1}
-            aria-keyshortcuts={String(i + 1)} data-tip={tip} onClick={() => setLens(l.id)}>
+            aria-keyshortcuts={hot} data-tip={tip} onClick={() => setLens(l.id)}>
             <span className="lens-tile"><Icon name={l.icon} size={phone ? 16 : 20} /></span><span className="lens-lbl">{L(l)}</span>
           </button>
         );
