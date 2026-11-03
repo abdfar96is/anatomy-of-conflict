@@ -151,6 +151,30 @@ describe('build() with the open-data file', () => {
   });
 });
 
+describe('the committed open-data file', () => {
+  // whatever the weekly refresh last wrote: it must merge into the model and render
+  const raw = readRaw(DATA_DIR, { live: true });
+  const db = build(raw);
+  const values = raw.live?.retrieved ? Object.entries(raw.live.values) : [];
+
+  test('every value lands in its country, labelled as live, with its year', () => {
+    for (const [iso, row] of values) {
+      for (const [k, v] of Object.entries(row)) expect(db.countries.get(iso)?.stats[k as keyof typeof row], `${iso}.${k}`).toEqual({ v: v![0], y: v![1], src: 'live' });
+    }
+  });
+
+  test('a country with live figures renders them with the World Bank as source', () => {
+    const iso = values.find(([, row]) => row.pop)?.[0];
+    if (!iso) return; // the skeleton: nothing fetched yet
+    atlas.set({ lang: 'en' });
+    render(<DbContext.Provider value={db}><Dossier /></DbContext.Provider>);
+    act(() => { atlas.select('country', iso, { fly: false }); });
+    const pop = [...document.querySelectorAll('#dz-panel .dz-fact')].find((f) => f.querySelector('dt')?.textContent === en('dz.f.pop'))!;
+    expect(pop.querySelector('.dz-fsrc')!.textContent).toContain('World Bank');
+    act(() => { atlas.reset(); });
+  });
+});
+
 describe('check-data on the open-data file', () => {
   let dir: string;
   beforeAll(() => {
