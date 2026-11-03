@@ -54,6 +54,9 @@ export interface Dataset extends Extra { id: string; file?: string }
 export interface Reference extends Extra { id: string }
 export interface Correction { id: string; where: Bi; what: Bi }
 
+/** A sourced caveat on one open-data figure for one country (curated/figure_notes.json). */
+export interface FigureNote extends Bi { sources: string[]; verified: string }
+
 /** Series the weekly open-data refresh fetches (public/data/live/indicators.json, scripts/fetch-indicators.ts). */
 export type LiveKey = 'pop' | 'gdp' | 'gdpPc' | 'refOrigin' | 'refAsylum' | 'idps' | 'battleDeaths';
 export interface LiveIndicator {
@@ -84,6 +87,7 @@ export type RawData = {
   sources: { datasets: Dataset[]; references: Reference[]; [k: string]: unknown };
   timeline: { range: unknown; categories: TimelineCategory[]; events: RawEvent[]; boundaryLimitation?: Bi };
   corrections?: Correction[];
+  figureNotes?: { note?: Bi; countries: Record<string, Partial<Record<LiveKey, FigureNote>>> };
   live?: LiveFile | null;
 } & { [K in (typeof CONFLICT_FILES)[number]]: ConflictFile };
 
@@ -103,6 +107,8 @@ export interface Country {
   gdpPerCap: number | null; density: number | null;
   /** pop, gdp (US dollars) and gdpPc as shown, with year and source; humanitarian series only when the refresh has them. */
   stats: Partial<Record<LiveKey, Stat>>;
+  /** Sourced caveats on some of those figures, where the figure measures something narrower than it seems. */
+  figureNotes: Partial<Record<LiveKey, FigureNote>>;
   intel: Intel | null; religion: CountryReligion | null; resources: ResourceEntry[];
   sites: string[]; conflicts: string[]; external: string[]; blocs: string[]; edges: string[];
   events: string[]; groups: string[]; chokepoints: string[]; neighbors: string[]; disputed: string[];

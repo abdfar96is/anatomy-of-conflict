@@ -19,6 +19,7 @@ export const FILES = {
   cEurope: 'curated/conflicts/europe.json',
   cMideast: 'curated/conflicts/middle-east.json',
   corrections: 'curated/corrections.json',
+  figureNotes: 'curated/figure_notes.json',
   live: 'live/indicators.json',
 } as const;
 

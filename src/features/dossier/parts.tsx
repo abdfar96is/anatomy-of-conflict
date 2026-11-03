@@ -222,13 +222,26 @@ export function kit(c: Ctx, actions: KitActions) {
     };
   };
   /** A country figure with its year and source. Without a value, a live series still says which year it checked. */
-  const stat = (label: string, key: LiveKey, x: Country, format: (v: number) => ReactNode, { noneTip, wide }: { noneTip?: (y: number | string) => string; wide?: boolean } = {}) => {
+  const stat = (label: string, key: LiveKey, x: Country, format: (v: number) => ReactNode, { noneTip, wide, tipText }: { noneTip?: (y: number | string) => string; wide?: boolean; tipText?: string } = {}) => {
     const s = x.stats[key];
-    if (s) return fact(label, format(s.v), { year: s.y, source: statSource(key, s.src, x.iso2), wide });
+    if (s) return fact(label, format(s.v), { year: s.y, source: statSource(key, s.src, x.iso2), wide, tipText });
     const ind = db.live?.indicators[key];
     const y = ind?.latestYear;
     const none = <span className="dz-none" data-tip={noneTip && y ? esc(noneTip(y)) : undefined}>—</span>;
-    return fact(label, none, { year: y, source: ind ? statSource(key, 'live', x.iso2) : undefined, wide });
+    return fact(label, none, { year: y, source: ind ? statSource(key, 'live', x.iso2) : undefined, wide, tipText });
+  };
+  /** Sourced caveats on a country's figures (curated/figure_notes.json), each under the label of the figure it qualifies. */
+  const figureNotes = (x: Country, labels: Partial<Record<LiveKey, string>>) => {
+    const items = (Object.keys(labels) as LiveKey[]).filter((k) => x.figureNotes[k]).map((k) => {
+      const n = x.figureNotes[k]!;
+      return (
+        <div key={k} className="dz-fnote" data-note={k}>
+          <p className="caveat dz-caveat"><Icon name="alert" size={16} /><span><b>{t('dz.hu.fnote', { f: labels[k]! })}</b>{' '}{L(n)}</span></p>
+          {provenance(n)}
+        </div>
+      );
+    });
+    return items.length ? <>{items}</> : null;
   };
   const facts = (items: (ReactElement | null | false | undefined | '')[]) => <dl className="dz-facts">{items.filter(Boolean)}</dl>;
 
@@ -354,7 +367,7 @@ export function kit(c: Ctx, actions: KitActions) {
   return {
     ...c, ...actions, SEV, hl, sw, listJoin, nameC, tradName, resTypeName, resColor, ne, famName, sevName,
     sevGlyph, sevPill, confPill, unverifiedPill, chokePill, kindPill, coord, numUnit, cchip, cchips, kchip,
-    sec, prose, empty, caveat, note, bullets, rows, fact, facts, factSource, statSource, stat, conflictRow, chokeRow, siteRow, groupRow,
+    sec, prose, empty, caveat, note, bullets, rows, fact, facts, factSource, statSource, stat, figureNotes, conflictRow, chokeRow, siteRow, groupRow,
     catTag, eventList, srcName, refItem, provenance, resourceEntry, altSpan, networkBtn, yearBtn, barRowProps,
   };
 }

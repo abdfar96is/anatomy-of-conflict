@@ -82,4 +82,8 @@ export const SCHEMAS: Record<string, z.ZodType> = {
     })),
   }),
   'corrections.json': z.array(z.object({ id, where: bi, what: bi })),
+  'figure_notes.json': z.looseObject({
+    note: bi.optional(),
+    countries: z.record(iso, z.partialRecord(liveKey, z.object({ ar: z.string().min(1), en: z.string().min(1), sources: z.array(url).min(1), verified: day }))),
+  }),
 };

@@ -175,6 +175,27 @@ describe('the committed open-data file', () => {
   });
 });
 
+describe('check-data on the figure notes', () => {
+  let dir: string;
+  beforeAll(() => {
+    dir = fs.mkdtempSync(path.join(os.tmpdir(), 'atlas-notes-'));
+    fs.cpSync(DATA_DIR, dir, { recursive: true });
+    const f = path.join(dir, 'curated/figure_notes.json');
+    const notes = JSON.parse(fs.readFileSync(f, 'utf8'));
+    notes.countries.SDX = { refAsylum: { ar: 'س', en: 'x', sources: ['https://example.org/'], verified: '2026-01-01' } };
+    notes.countries.SAU.refAsylum.verified = '2999-01-01';
+    fs.writeFileSync(f, formatJson(notes));
+  });
+  afterAll(() => fs.rmSync(dir, { recursive: true, force: true }));
+
+  test('reports unknown countries and future check dates', () => {
+    expect(checkData(dir).map((p) => `${p.file} › ${p.path} › ${p.message}`)).toEqual([
+      'figure_notes.json › countries.SAU.refAsylum.verified › date is in the future',
+      'figure_notes.json › countries.SDX › unknown country code',
+    ]);
+  });
+});
+
 describe('check-data on the open-data file', () => {
   let dir: string;
   beforeAll(() => {
@@ -231,6 +252,21 @@ describe('the dossier shows each figure with its year and source', () => {
     const sdn = table.querySelector('tr[data-hl="SDN"]')!;
     expect([...sdn.querySelectorAll('td')].map((td) => td.textContent)).toEqual(['2.1 M2024', '9 M2024', '5,2002024']);
     expect(panel().textContent).toContain(en('dz.cf.humNote'));
+  });
+
+  test('a sourced note qualifies a figure that counts less than it seems (Saudi Arabia)', () => {
+    atlas.set({ lang: 'en' });
+    show(live);
+    act(() => { atlas.select('country', 'SAU', { fly: false }); });
+    const hosted = factOf(en('dz.hu.refAsylum'));
+    expect(hosted.querySelector('dt')).toHaveAttribute('data-tip', en('dz.hu.refTip'));
+    const note = panel().querySelector('.dz-fnote[data-note="refAsylum"]')!;
+    const n = live.countries.get('SAU')!.figureNotes.refAsylum!;
+    expect(note.textContent).toContain(`${en('dz.hu.fnote', { f: en('dz.hu.refAsylum') })} ${n.en}`);
+    expect([...note.querySelectorAll('.dz-pv a')].map((a) => a.getAttribute('href'))).toEqual(n.sources);
+    expect(note.textContent).toContain(en('dz.pv.verified', { d: '3 Nov 2026' }));
+    act(() => { atlas.select('country', 'SDN', { fly: false }); });
+    expect(panel().querySelector('.dz-fnote')).toBeNull();
   });
 
   test('Israel and Palestine say where UCDP records the Gaza war deaths', () => {
