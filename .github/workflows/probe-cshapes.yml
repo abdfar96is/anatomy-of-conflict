@@ -8,18 +8,33 @@ jobs:
   probe:
     runs-on: ubuntu-latest
     steps:
-      - name: Page, licence and downloads
+      - name: Data schema and licence wording
         run: |
           set +e
           ua='Mozilla/5.0 (compatible; anatomy-of-conflict-atlas; educational)'
-          curl -sS -m 60 -L -A "$ua" -o page.html -w "page %{http_code} %{size_download}\n" https://icr.ethz.ch/data/cshapes/
+          curl -sS -m 60 -L -A "$ua" -o page.html https://icr.ethz.ch/data/cshapes/
           python3 - <<'PY'
           import re, html
           s = open('page.html', encoding='utf-8', errors='replace').read()
-          clean = lambda x: re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]+>', ' ', x))).strip()
-          body = clean(re.sub(r'<script.*?</script>|<style.*?</style>', ' ', s, flags=re.S))
-          i = body.find('CShapes')
-          print('TEXT', body[i:i+3000])
-          for h in sorted(set(re.findall(r'href="([^"]+)"', s))):
-              if re.search(r'\.(zip|geojson|json|csv|shp|rds|gpkg|pdf)|download|licen|creative', h, re.I): print('LINK', h)
+          i = s.find('creativecommons')
+          print('LICENCE-CTX', re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]+>', ' ', s[max(0, i-1500):i+600]))))
+          PY
+          curl -sS -m 300 -L -A "$ua" -o cs.geojson -w "geojson %{http_code} %{size_download}\n" https://icr.ethz.ch/data/cshapes/CShapes-2.0.geojson
+          curl -sS -m 120 -L -A "$ua" -o cb.pdf -w "codebook %{http_code} %{size_download}\n" https://icr.ethz.ch/data/cshapes/CShapes-2.0_Codebook.pdf
+          (pdftotext -layout cb.pdf cb.txt 2>/dev/null || (pip -q install pdfminer.six && pdf2txt.py cb.pdf > cb.txt)); echo "CODEBOOK"; head -c 9000 cb.txt
+          python3 - <<'PY'
+          import json, collections
+          d = json.load(open('cs.geojson'))
+          f = d['features']; print('FEATURES', len(f), 'crs', d.get('crs'))
+          keys = collections.Counter(k for x in f for k in x['properties']); print('KEYS', dict(keys))
+          for x in f[:6]: print('ROW', json.dumps(x['properties'], ensure_ascii=False))
+          for k in keys:
+              vals = [x['properties'][k] for x in f if x['properties'].get(k) is not None]
+              if vals and isinstance(vals[0], str): print('STR', k, len(set(vals)), sorted(set(vals))[:12])
+              elif vals: print('NUM', k, min(vals), max(vals))
+          geoms = collections.Counter(x['geometry']['type'] for x in f); print('GEOMS', geoms)
+          pts = sum(len(json.dumps(x['geometry'])) for x in f); print('GEOM_BYTES', pts)
+          for x in f:
+              p = x['properties']
+              if 'India' in json.dumps(p) or 'Ottoman' in json.dumps(p) or 'Sudan' in json.dumps(p): print('SAMPLE', json.dumps(p, ensure_ascii=False))
           PY
