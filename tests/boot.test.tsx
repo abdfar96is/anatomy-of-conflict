@@ -27,7 +27,8 @@ describe('Boot', () => {
     render(<Boot><p>atlas ready</p></Boot>);
     await screen.findByText('atlas ready');
     const cats = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'curated/timeline.json'), 'utf8')).categories.map((c: { id: string }) => c.id);
-    expect([...(atlas.get().filters.timelineCats ?? [])]).toEqual(cats);
+    // Boot fills the filter in an effect, which React may run just after the children appear
+    await waitFor(() => expect([...(atlas.get().filters.timelineCats ?? [])]).toEqual(cats));
   });
 
   test('switching to English flips direction and title', async () => {
