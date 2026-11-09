@@ -185,6 +185,52 @@ export function checkData(dataDir: string): Problem[] {
       if (typeof p.start === 'string' && typeof p.end === 'string' && p.start > p.end) problems.push({ file: 'history/cshapes.topo.json', path: `objects.borders.geometries[${i}]`, message: 'starts after it ends', value: [p.start, p.end] });
     });
   }
+  // 6. Pipelines and LNG terminals (energy/): fields the lens reads, known states, and the curated notes' links.
+  const energyDir = path.join(dataDir, 'energy');
+  if (fs.existsSync(path.join(energyDir, 'pipelines.topo.json'))) {
+    const topo = JSON.parse(fs.readFileSync(path.join(energyDir, 'pipelines.topo.json'), 'utf8')) as { objects: Record<string, { geometries: { type: string | null; properties?: Rec }[] }> };
+    const canon = (f: string) => {
+      const text = fs.readFileSync(path.join(energyDir, f), 'utf8').replace(/\r\n/g, '\n');
+      const data = JSON.parse(text) as unknown;
+      if (text !== formatJson(data)) layout.push({ file: `energy/${f}`, path: '', message: 'not in the canonical layout; run npm run format-data' });
+      return data;
+    };
+    const meta = canon('meta.json') as { names: Record<string, string>; notes: { pipelines: string[]; chokepoints: string[]; conflicts: string[]; ar: string; en: string; sources: { title: string; url: string }[] }[] };
+    const lng = canon('lng.json') as Rec[];
+    const file = 'energy/pipelines.topo.json';
+    const geoms = topo.objects.pipelines?.geometries ?? [];
+    if (!geoms.length) problems.push({ file, path: 'objects.pipelines', message: 'no geometries' });
+    const ids = new Set<string>(), systems = new Set<string>();
+    geoms.forEach((g, i) => {
+      const p = g.properties ?? {}, at = `objects.pipelines.geometries[${i}]`;
+      if (g.type !== 'LineString' && g.type !== 'MultiLineString') problems.push({ file, path: at, message: 'not a line', value: g.type });
+      for (const k of ['id', 'n', 'f', 'st']) if (p[k] == null) problems.push({ file, path: `${at}.properties.${k}`, message: 'missing' });
+      if (!['gas', 'oil', 'ngl'].includes(p.f as string)) problems.push({ file, path: `${at}.properties.f`, message: 'unknown fuel', value: p.f });
+      if (!['operating', 'construction'].includes(p.st as string)) problems.push({ file, path: `${at}.properties.st`, message: 'status outside operating / construction', value: p.st });
+      if (ids.has(p.id as string)) problems.push({ file, path: `${at}.properties.id`, message: 'duplicate id', value: p.id });
+      ids.add(p.id as string); systems.add(p.n as string);
+      if (typeof p.c === 'string') p.c.split(',').forEach((iso) => country(file, `${at}.properties.c`, iso));
+    });
+    lng.forEach((t, i) => {
+      const at = `[${i}]`;
+      for (const k of ['id', 'n', 't', 'st', 'lon', 'lat']) if (t[k] == null) problems.push({ file: 'energy/lng.json', path: `${at}.${k}`, message: 'missing' });
+      if (!['import', 'export'].includes(t.t as string)) problems.push({ file: 'energy/lng.json', path: `${at}.t`, message: 'type outside import / export', value: t.t });
+      if (!['operating', 'construction'].includes(t.st as string)) problems.push({ file: 'energy/lng.json', path: `${at}.st`, message: 'status outside operating / construction', value: t.st });
+      if (Math.abs(Number(t.lon)) > 180 || Math.abs(Number(t.lat)) > 90) problems.push({ file: 'energy/lng.json', path: at, message: 'coordinates out of range', value: [t.lon, t.lat] });
+      if (t.iso != null) country('energy/lng.json', `${at}.iso`, t.iso);
+    });
+    const chokeIds = new Set((files['chokepoints.json'] as { points: Rec[] }).points.map((p) => p.id as string));
+    for (const name of Object.keys(meta.names)) if (!systems.has(name)) problems.push({ file: 'energy/meta.json', path: `names["${name}"]`, message: 'no pipeline of this name' });
+    meta.notes.forEach((n, i) => {
+      const at = `notes[${i}]`;
+      n.pipelines.forEach((name, j) => { if (!systems.has(name)) problems.push({ file: 'energy/meta.json', path: `${at}.pipelines[${j}]`, message: 'no pipeline of this name', value: name }); });
+      n.chokepoints.forEach((id, j) => { if (!chokeIds.has(id)) problems.push({ file: 'energy/meta.json', path: `${at}.chokepoints[${j}]`, message: 'unknown chokepoint id', value: id }); });
+      n.conflicts.forEach((id, j) => conflict('energy/meta.json', `${at}.conflicts[${j}]`, id));
+      if (!n.ar?.trim() || !n.en?.trim()) problems.push({ file: 'energy/meta.json', path: at, message: 'note needs Arabic and English text' });
+      if (!n.sources.length) problems.push({ file: 'energy/meta.json', path: `${at}.sources`, message: 'a note needs at least one source' });
+      n.sources.forEach((s, j) => { if (!/^https:\/\//.test(s.url)) problems.push({ file: 'energy/meta.json', path: `${at}.sources[${j}].url`, message: 'not an https link', value: s.url }); });
+    });
+  }
   return [...layout, ...problems];
 }
 

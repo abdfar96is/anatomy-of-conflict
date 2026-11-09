@@ -5,10 +5,11 @@
 // createMap() owns one map; destroy() removes every listener, observer, timer, frame and canvas it added.
 
 import * as d3 from 'd3';
-import type { Feature, Geometry } from 'geojson';
+import type { Feature, Geometry, Position } from 'geojson';
 import { onStateChange } from '../../../app/compat';
 import { emit, on } from '../../../app/events';
 import { atlas, type AtlasState } from '../../../app/store';
+import { getEnergy } from '../../../data/energy';
 import type { Country, DB, Kind } from '../../../data/types';
 import type { Lang } from '../../../i18n/format';
 import { pickKey, registerStrings, translate } from '../../../i18n/strings';
@@ -16,10 +17,10 @@ import { cssVar, reducedMotion } from '../../../ui/dom';
 import { pal, type Palette } from '../../../ui/palette';
 import { hideTip, showTip } from '../../../ui/tooltip';
 import {
-  capOf, focusGeometry, inBounds, packFeature, packLines, segDist, simplifyFeature, traceFlat, traceGlobe, traceLinesFlat,
-  traceLinesGlobe, viewAngle, type Bounds, type FastQ, type LonLat, type Packed, type PackedRing,
+  capOf, focusGeometry, inBounds, packFeature, packLines, segDist, simplifyFeature, simplifyLine, traceFlat, traceGlobe, traceLinesFlat,
+  traceLinesGlobe, viewAngle, type Bounds, type Cap, type FastQ, type LonLat, type Packed, type PackedRing,
 } from './geo';
-import { buildScene, emptyScene, eventAnchor, tipFor, type Arc, type Hit, type Marker, type Poly, type Scene } from './scene';
+import { buildScene, emptyScene, eventAnchor, tipFor, type Arc, type Hit, type LineItem, type LineSet, type Marker, type Poly, type Scene } from './scene';
 
 registerStrings({
   ar: { 'map.aria': 'خريطة تفاعلية. اسحب لتحريكها، والأسهم للتنقّل، و+ و− للتكبير والتصغير، و0 لإعادة الضبط.' },
@@ -40,7 +41,10 @@ const K_MIN = 0.8, K_MAX = 60, K_FIT_MAX = 28;
 const HOME: LonLat = [35, 25];
 const TOL_COARSE = 0.12, TOL_FINE = 0.02;
 const SCENE_KEYS = new Set<keyof AtlasState>(['lens', 'selection', 'filters', 'layers', 'year', 'yearFilter', 'theme', 'compare', 'view', 'lang']);
-const POINT_KINDS: Kind[] = ['conflict', 'choke', 'site', 'plant'];
+const POINT_KINDS: Kind[] = ['conflict', 'choke', 'site', 'plant', 'lng'];
+/** Grid cell size (degrees) of the line hit-test index. */
+const LINE_CELL = 2;
+const lineCell = (lon: number, lat: number) => (Math.floor(lat / LINE_CELL) + 46) * 182 + Math.floor(lon / LINE_CELL) + 91;
 const clamp = (v: number, a: number, b: number) => Math.max(a, Math.min(b, v));
 const clampK = (k: number) => clamp(k, K_MIN, K_MAX);
 const dir = (): 'rtl' | 'ltr' => (atlas.get().lang === 'ar' ? 'rtl' : 'ltr');
@@ -145,6 +149,10 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
   let pendingVisible = false;
   let offTimers: ReturnType<typeof setTimeout>[] = [];
   const gratPacks = new Map<object, PackedRing[]>();
+  // lens lines (pipelines): packed once per item; a 2° grid of their segments for picking, rebuilt per scene
+  type LineRec = { lines: Position[][]; pk: Partial<Record<Level, PackedRing[]>>; ext: Partial<Record<Level, Float32Array>>; cap: Cap | null };
+  const lineRecs = new WeakMap<Position[][], LineRec>();
+  let lineGrid: { sc: Scene; cells: Map<number, [LineItem, number, number][]> } | null = null;
   let drag: Drag | null = null;
   const ptrs = new Map<number, { x: number; y: number }>();
   let hoverReq: [number, number, number, number, boolean] | null = null, hoverRaf = 0;
@@ -524,6 +532,7 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
     drawLand(ctx, sc, S, P, X);
     for (const p of sc.under) drawPoly(ctx, clipPath, cen, level, p, P);
     for (const p of sc.polys) drawPoly(ctx, clipPath, cen, level, p, P);
+    for (const ls of sc.lines) drawLineSet(ctx, ls, cen);
     if (mode === 'globe') drawLimb(ctx, X);
     drawLabels(ctx, sc, S, P, X, cen);
   }
@@ -604,6 +613,123 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
       ctx.setLineDash([]);
     }
     ctx.globalAlpha = 1;
+  }
+
+  /** A line item packed at a level of detail (simplified copies are made on first use, like country shapes). */
+  function lineRec(lines: Position[][]) {
+    let r = lineRecs.get(lines);
+    if (!r) {
+      const cap = capOf([{ type: 'MultiLineString', coordinates: lines }]);
+      r = { lines, pk: {}, ext: {}, cap: cap && { center: cap.center, r: cap.r + 0.01 } };
+      lineRecs.set(lines, r);
+    }
+    return r;
+  }
+  /** Packed parts at a level, with each part's extent (degrees, the larger side of its box). */
+  function linePack(r: LineRec, level: Level): [PackedRing[], Float32Array] {
+    let pk = r.pk[level], ext = r.ext[level];
+    if (!pk || !ext) {
+      const tol = level === 'coarse' ? TOL_COARSE : level === 'fine' ? TOL_FINE : 0;
+      const parts = tol ? r.lines.map((l) => simplifyLine(l, tol)) : r.lines;
+      pk = r.pk[level] = packLines({ type: 'MultiLineString', coordinates: parts }, P0);
+      ext = r.ext[level] = Float32Array.from(parts, (l) => {
+        let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
+        for (const p of l) { x0 = Math.min(x0, p[0]!); x1 = Math.max(x1, p[0]!); y0 = Math.min(y0, p[1]!); y1 = Math.max(y1, p[1]!); }
+        return Math.max(x1 - x0, y1 - y0);
+      });
+    }
+    return [pk, ext];
+  }
+
+  /**
+   * Trace line items into a path, projected point by point. Items wholly behind the globe are skipped; while the map
+   * moves, so are items shorter than a pixel or two, and every item is drawn from its simplified copy.
+   */
+  function traceItems(target: Path2D, items: LineItem[], cen: LonLat, level: Level = lod()) {
+    // while moving, parts under ~3 px across are left out (they come back when the map settles)
+    const minDeg = interacting ? 3 / ((absScale() * Math.PI) / 180) : 0;
+    const half = Math.PI / 2 + 0.02;
+    const c = d3.geoRotation([-cen[0], -cen[1]]), toRad = Math.PI / 180;
+    for (const it of items) {
+      const r = lineRec(it.lines);
+      if (r.cap && 2 * (r.cap.r / toRad) < minDeg) continue;
+      // on the globe, skip items wholly on the far side (angle of the cap centre from the view centre)
+      if (mode === 'globe' && r.cap) {
+        const [lon, lat] = c(r.cap.center);
+        const ang = Math.acos(Math.max(-1, Math.min(1, Math.cos(lat * toRad) * Math.cos(lon * toRad))));
+        if (ang - r.cap.r > half) continue;
+      }
+      const [pk, ext] = linePack(r, level);
+      (mode === 'flat' ? traceLinesFlat : traceLinesGlobe)(target, minDeg ? pk.filter((_, i) => ext[i]! >= minDeg) : pk, fastQ);
+    }
+  }
+
+  /** Lines thicken a little as the map zooms in, so trunk lines stay legible against the land. */
+  const lineZoom = () => clamp(Math.pow(absScale() / baseScale(), 0.32), 1, 2.4);
+
+  function drawLineSet(ctx: CanvasRenderingContext2D, ls: LineSet, cen: LonLat, over?: { color: string; extra: number; alpha: number }) {
+    const path = new Path2D();
+    traceItems(path, ls.items, cen);
+    const w = ls.width * lineZoom() + (over?.extra ?? 0);
+    // round joins and caps cost a lot to rasterise across thousands of parts: only when the map is still
+    ctx.lineJoin = interacting ? 'bevel' : 'round';
+    ctx.lineCap = (ls.dash && !over) || interacting ? 'butt' : 'round';
+    if (ls.casing) {
+      ctx.globalAlpha = 0.85; ctx.strokeStyle = ls.casing; ctx.lineWidth = w + 2.4; ctx.setLineDash([]);
+      ctx.stroke(path);
+    }
+    ctx.globalAlpha = over?.alpha ?? ls.alpha;
+    ctx.strokeStyle = over?.color ?? ls.color;
+    ctx.lineWidth = w;
+    ctx.setLineDash(over ? [] : ls.dash ?? []);
+    ctx.stroke(path);
+    ctx.setLineDash([]);
+    ctx.globalAlpha = 1;
+  }
+
+  /** Segment grid of the scene's lines: cell → [item, part, vertex index of the segment's end]. */
+  function lineIndex(sc: Scene) {
+    if (lineGrid?.sc === sc) return lineGrid.cells;
+    const cells = new Map<number, [LineItem, number, number][]>();
+    for (const ls of sc.lines) for (const it of ls.items) {
+      it.lines.forEach((line, li) => {
+        for (let i = 1; i < line.length; i++) {
+          const a = line[i - 1]!, b = line[i]!;
+          const x0 = Math.floor(Math.min(a[0]!, b[0]!) / LINE_CELL), x1 = Math.floor(Math.max(a[0]!, b[0]!) / LINE_CELL);
+          const y0 = Math.floor(Math.min(a[1]!, b[1]!) / LINE_CELL), y1 = Math.floor(Math.max(a[1]!, b[1]!) / LINE_CELL);
+          for (let cy = y0; cy <= y1; cy++) for (let cx = x0; cx <= x1; cx++) {
+            const k = (cy + 46) * 182 + cx + 91;
+            const l = cells.get(k);
+            if (l) l.push([it, li, i]); else cells.set(k, [[it, li, i]]);
+          }
+        }
+      });
+    }
+    lineGrid = { sc, cells };
+    return cells;
+  }
+
+  /** The nearest scene line within a few pixels of (x, y), searched in the grid cells around the pointer. */
+  function pickLine(x: number, y: number, touch: boolean): Hit | null {
+    if (!scene?.lines.length) return null;
+    const ll = invert(x, y);
+    if (!ll) return null;
+    const cells = lineIndex(scene), cen = centerLL();
+    let best: LineItem | null = null, bd = touch ? 12 : 5;
+    const seen = new Set<string>();
+    for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) {
+      for (const [it, li, i] of cells.get(lineCell(ll[0] + dx * LINE_CELL, ll[1] + dy * LINE_CELL)) ?? []) {
+        const key = `${it.id}:${li}:${i}`;
+        if (seen.has(key)) continue;
+        seen.add(key);
+        const line = it.lines[li]!;
+        const p = projectVisible(line[i - 1] as LonLat, cen, 1.57), q = projectVisible(line[i] as LonLat, cen, 1.57);
+        if (!p || !q) continue;
+        const d = segDist(x, y, p[0], p[1], q[0], q[1]);
+        if (d < bd) { bd = d; best = it; }
+      }
+    }
+    return best ? { kind: best.kind, id: best.id } : null;
   }
 
   // ===================================================================== labels
@@ -797,6 +923,13 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
     ctx.setLineDash([]);
     const clipPath = d3.geoPath(proj), level = lod();
     for (const p of sc.selPolys) drawPoly(ctx, clipPath, cen, level, p, P);
+    if (hover?.kind === 'pipeline') {
+      for (const ls of sc.lines) {
+        const it = ls.items.find((x) => x.id === hover!.id);
+        if (it) { drawLineSet(ctx, { ...ls, items: [it] }, cen, { color: P.fg, extra: 1.2, alpha: 0.95 }); break; }
+      }
+    }
+    for (const ls of sc.selLines) drawLineSet(ctx, ls, cen);
 
     if (hl) {
       ctx.strokeStyle = P.accent2;
@@ -951,6 +1084,8 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
       }
     }
     if (best) return { kind: best.kind, id: best.id, conflict: best.conflict };
+    const line = pickLine(x, y, touch);
+    if (line) return line;
     const ll = invert(x, y);
     if (!ll) return null;
     let poly: Poly | null = null, pa = Infinity;
@@ -1107,6 +1242,10 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
   function selectionTarget(kind: Kind, id: string): Target | null {
     if (!DB.get(kind, id)) return null;
     let geoms: (Geometry | null | undefined)[];
+    if (kind === 'pipeline') {
+      const p = getEnergy()?.byId.get(id);
+      return p ? fitTarget([{ type: 'MultiLineString', coordinates: p.lines }], []) : null;
+    }
     if (kind === 'group') geoms = DB.ethnic.groups.get(id)?.features.map((f) => f.geometry) ?? [];
     else if (kind === 'disputed') geoms = [DB.disputedById.get(id)?.feature.geometry];
     else geoms = DB.countriesOf(kind, id).map((iso) => focusOf(iso)).filter(Boolean);

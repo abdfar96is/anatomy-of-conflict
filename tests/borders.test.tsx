@@ -91,8 +91,10 @@ describe('the lens', () => {
   } as unknown as Palette;
   const S = (year: number) => { const s = initialState(); return { ...s, lens: 'borders' as const, filters: { ...s.filters, bordersYear: year } }; };
 
-  test('is the last lens on the rail', () => {
-    expect(LENSES[LENSES.length - 1]!.id).toBe('borders');
+  test('follows the timeline on the rail, before the pipelines', () => {
+    const ids = LENSES.map((l) => l.id);
+    expect(ids.indexOf('borders')).toBe(ids.indexOf('history') + 1);
+    expect(ids.indexOf('pipelines')).toBe(ids.indexOf('borders') + 1);
   });
 
   test('draws every unit of the year, coloured by its ruling power, with labels', () => {

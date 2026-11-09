@@ -1,0 +1,239 @@
+{
+  "sources": {
+    "ggit": {
+      "name": "Global Gas Infrastructure Tracker — Gas Pipelines",
+      "publisher": "Global Energy Monitor",
+      "release": "2025-11",
+      "file": "GEM-GGIT-Gas-Pipelines-2025-11",
+      "url": "https://globalenergymonitor.org/projects/global-gas-infrastructure-tracker/download-data/",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "citation": "Global Energy Monitor, Global Gas Infrastructure Tracker, Global Gas Infrastructure Tracker - Gas Pipelines - November 2025 release."
+    },
+    "goit": {
+      "name": "Global Oil Infrastructure Tracker — Oil/NGL Pipelines",
+      "publisher": "Global Energy Monitor",
+      "release": "2026-06",
+      "file": "GEM-GOIT-Oil-NGL-Pipelines-2026-07-21 (corrected June 2026 release)",
+      "url": "https://globalenergymonitor.org/projects/global-oil-infrastructure-tracker/download-data/",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "citation": "Global Oil Infrastructure Tracker - Oil/NGL Pipelines - June 2026 release."
+    },
+    "lng": {
+      "name": "Global Gas Infrastructure Tracker — LNG Terminals",
+      "publisher": "Global Energy Monitor",
+      "release": "2026-10",
+      "file": "GEM-GGIT-LNG-Terminals-2026-10",
+      "url": "https://globalenergymonitor.org/projects/global-gas-infrastructure-tracker/download-data/",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "citation": "Global Energy Monitor, Global Gas Infrastructure Tracker, October 2026 release."
+    }
+  },
+  "wiki": "https://www.gem.wiki/",
+  "simplified": "operating and under-construction segments with a mapped route; pieces joined end to end, stubs under 5 km dropped, simplified at a 2.5 km interval (mapshaper), quantised 1e5",
+  "names": {
+    "East-West Crude Oil Pipeline": "خط شرق–غرب للنفط الخام (بترولاين)",
+    "Bab-Habshan–Fujairah Oil Pipeline": "خط حبشان–الفجيرة للنفط (أدكوب)",
+    "Sumed Oil Pipeline": "خط سوميد للنفط",
+    "Kirkuk-Ceyhan Oil Pipeline": "خط كركوك–جيهان للنفط",
+    "Kirkuk Baiji Baghdad Oil Pipeline": "خط كركوك–بيجي–بغداد للنفط",
+    "Iraq Strategic Pipeline": "الخط الاستراتيجي العراقي للنفط",
+    "Goreh-Jask Crude Oil Pipeline": "خط غوره–جاسك للنفط الخام",
+    "Druzhba Oil Pipeline": "خط دروجبا للنفط («الصداقة»)",
+    "TurkStream Gas Pipeline": "خط السيل التركي للغاز",
+    "Blue Stream Gas Pipeline": "خط السيل الأزرق للغاز",
+    "Greater Nile Oil Pipeline": "خط النيل الكبير للنفط",
+    "Arish–Ashkelon Pipeline": "خط العريش–عسقلان للغاز",
+    "Arab Gas Pipeline": "خط الغاز العربي",
+    "Dolphin Qatar–UAE Natural Gas Pipeline": "خط دولفين للغاز (قطر–الإمارات)",
+    "Sino-Myanmar Oil Pipeline": "خط النفط بين ميانمار والصين",
+    "Sino-Myanmar Gas Pipeline": "خط الغاز بين ميانمار والصين",
+    "Sino-Myanmar Gas Pipeline (China Section)": "خط الغاز بين ميانمار والصين (القسم الصيني)",
+    "Baku-Tbilisi-Ceyhan Pipeline": "خط باكو–تبليسي–جيهان للنفط",
+    "Trans-Anatolian Gas Pipeline": "خط الغاز العابر للأناضول (تاناب)",
+    "Trans-Adriatic Gas Pipeline": "خط الغاز العابر للأدرياتيكي (تاب)",
+    "Power of Siberia Gas Pipeline": "خط قوة سيبيريا للغاز",
+    "Eastern Siberia–Pacific Ocean Oil Pipeline": "خط شرق سيبيريا–المحيط الهادئ للنفط",
+    "Central Asia–China Gas Pipeline": "خط الغاز بين آسيا الوسطى والصين",
+    "Kazakhstan-China Oil Pipeline": "خط النفط بين كازاخستان والصين",
+    "Caspian Pipeline": "خط بحر قزوين للنفط",
+    "Turkmenistan-Afghanistan-Pakistan-India Gas Pipeline": "خط تابي للغاز (تركمانستان–أفغانستان–باكستان–الهند)",
+    "Iran-Pakistan Pipeline": "خط الغاز بين إيران وباكستان",
+    "Maghreb-Europe Gas Pipeline": "خط الغاز المغاربي–الأوروبي",
+    "Medgaz Gas Pipeline": "خط ميدغاز للغاز",
+    "Trans-Mediterranean Gas Pipeline": "خط الغاز العابر للمتوسط (ترانسمِد)",
+    "Greenstream Gas Pipeline": "خط غرين ستريم للغاز",
+    "West African Gas Pipeline": "خط غاز غرب أفريقيا",
+    "Chad–Cameroon Oil Pipeline": "خط تشاد–الكاميرون للنفط",
+    "Niger–Benin Oil Pipeline": "خط النيجر–بنين للنفط",
+    "East African Crude Oil Pipeline (EACOP)": "خط شرق أفريقيا للنفط الخام (إيكوب)",
+    "Keystone Oil Pipeline": "خط كيستون للنفط",
+    "Trans Mountain Oil Pipeline": "خط ترانس ماونتن للنفط",
+    "Trans-Alaska Oil Pipeline System": "خط ألاسكا للنفط",
+    "Langeled Gas Pipeline": "خط لانغليد للغاز",
+    "Baltic Pipe Project": "خط البلطيق للغاز (بالتيك بايب)"
+  },
+  "notes": [
+    {
+      "pipelines": ["East-West Crude Oil Pipeline"],
+      "chokepoints": ["hormuz", "bab-al-mandab"],
+      "conflicts": ["iran-us-israel", "gulf-security", "yemen"],
+      "ar": "المنفذ السعودي الرئيسي لتجاوز مضيق هرمز: نحو 1,200 كم من حقول المنطقة الشرقية إلى ميناء ينبع على البحر الأحمر، بُني عام 1981 وطاقته القصوى 7 ملايين برميل يومياً. منذ الإغلاق شبه الكامل لهرمز أواخر فبراير 2026 ينقل نحو 4 ملايين برميل يومياً إلى ينبع. أُغلق احترازياً مطلع سبتمبر 2026 بعد ضربات بطائرات مسيّرة نُسبت إلى فصائل عراقية، وقال وزير الطاقة في 6 أكتوبر إن الضخّ عاد إلى 5.8 ملايين برميل يومياً. وتبقى صادرات ينبع معرّضة لهجمات الحوثيين على طريق البحر الأحمر.",
+      "en": "Saudi Arabia's main bypass of the Strait of Hormuz: about 1,200 km from the eastern fields to the Red Sea port of Yanbu, built in 1981, with a maximum capacity of 7 million barrels a day. Since Hormuz largely closed in late February 2026 it has carried some 4 million barrels a day to Yanbu. It was shut as a precaution in early September 2026 after drone strikes blamed on Iraqi militias; on 6 October the energy minister said flows were back to 5.8 million barrels a day. Exports from Yanbu remain exposed to Houthi attacks on the Red Sea route.",
+      "sources": [
+        {
+          "title": "Al Jazeera, 6 October 2026: Saudi Arabia says East-West pipeline pumping 5.8 million bpd",
+          "url": "https://www.aljazeera.com/economy/2026/10/6/saudi-arabia-says-east-west-pipeline-pumping-5-8-million-bpd"
+        },
+        {
+          "title": "Kpler: Red Sea crude flows, Bab el-Mandeb, and alternative routes",
+          "url": "https://www.kpler.com/es/blog/factbox-red-sea-crude-flows-bab-el-mandeb-and-alternative-routes"
+        }
+      ],
+      "verified": "2026-11-09"
+    },
+    {
+      "pipelines": ["Bab-Habshan–Fujairah Oil Pipeline"],
+      "chokepoints": ["hormuz"],
+      "conflicts": ["iran-us-israel", "gulf-security"],
+      "ar": "طريق الإمارات حول مضيق هرمز: خط أبوظبي للنفط الخام (أدكوب) من حبشان إلى الفجيرة على خليج عُمان. يعمل منذ 2012 بطاقة نحو 1.5 مليون برميل يومياً، ويضخّ بكامل طاقته منذ بدء حرب 2026 (قُدّر الضخّ بـ1.7–1.8 مليون برميل). تعرّض ميناء الفجيرة نفسه لضربات إيرانية. وفي مايو 2026 أعلنت أدنوك تسريع خط ثانٍ إلى الفجيرة (خط غرب–شرق) يُتوقّع تشغيله في 2027.",
+      "en": "The UAE's route around the Strait of Hormuz: the Abu Dhabi Crude Oil Pipeline (ADCOP) runs from Habshan to Fujairah on the Gulf of Oman. In service since 2012 with a capacity of about 1.5 million barrels a day, it has run at full capacity since the 2026 war began (reported at 1.7–1.8 million barrels). The port of Fujairah itself has been struck by Iran. In May 2026 ADNOC said it was accelerating a second line to Fujairah, the West–East Pipeline, expected in 2027.",
+      "sources": [
+        {
+          "title": "The Maritime Executive, 15 May 2026: UAE instructs ADNOC to accelerate pipeline construction to bypass Hormuz",
+          "url": "https://maritime-executive.com/article/uae-instructs-adnoc-to-accelerate-pipeline-construction-to-bypass-hormuz"
+        },
+        {
+          "title": "Enerdata, 21 May 2026: UAE speeds up construction of new oil pipelines, bypassing the Strait of Hormuz",
+          "url": "https://www.enerdata.net/publications/daily-energy-news/uae-speeds-construction-new-oil-pipelines-bypassing-strait-hormuz.html"
+        }
+      ],
+      "verified": "2026-11-09"
+    },
+    {
+      "pipelines": ["Sumed Oil Pipeline"],
+      "chokepoints": ["suez", "bab-al-mandab"],
+      "conflicts": ["yemen", "iran-us-israel"],
+      "ar": "خطّان من العين السخنة على البحر الأحمر إلى سيدي كرير على المتوسط، حُمّلت أول ناقلة منه في سيدي كرير في يناير 1977، وطاقته نحو 2.5 مليون برميل يومياً. تفرّغ الناقلات العملاقة نحو نصف حمولتها في العين السخنة لتعبر قناة السويس بغاطس أخفّ، ثم تستعيده في سيدي كرير. وللنفط المحمّل من ينبع يتيح طريقاً إلى المتوسط لا يمرّ بباب المندب. ارتفعت التدفقات عبره بحدّة في 2026 مع تحويل جزء من شحنات الخليج إلى البحر الأحمر.",
+      "en": "Two lines from Ain Sukhna on the Red Sea to Sidi Kerir on the Mediterranean; the first tanker loaded at Sidi Kerir in January 1977, and capacity is about 2.5 million barrels a day. Very large tankers discharge about half their cargo at Ain Sukhna to pass the Suez Canal at a shallower draught, then reload it at Sidi Kerir. For crude loaded at Yanbu it offers a route to the Mediterranean that avoids Bab al-Mandab. Flows rose sharply in 2026 as part of the Gulf's shipments was rerouted to the Red Sea.",
+      "sources": [
+        {
+          "title": "Kpler: Red Sea crude flows, Bab el-Mandeb, and alternative routes",
+          "url": "https://www.kpler.com/es/blog/factbox-red-sea-crude-flows-bab-el-mandeb-and-alternative-routes"
+        },
+        {
+          "title": "Ecofin Agency: Egypt's SUMED pipeline flows jump 150% as Iran-related conflict shifts oil routes",
+          "url": "https://www.ecofinagency.com/news/0404-54411-egypt-s-sumed-pipeline-flows-jump-150-as-iran-related-conflict-shifts-oil-routes"
+        },
+        { "title": "SUMED: company history", "url": "https://www.sumed.org/?p=history" }
+      ],
+      "verified": "2026-11-09"
+    },
+    {
+      "pipelines": ["Kirkuk-Ceyhan Oil Pipeline"],
+      "chokepoints": ["hormuz"],
+      "conflicts": ["iraq-kurdistan", "iran-us-israel"],
+      "ar": "منفذ التصدير العراقي الشمالي إلى ميناء جيهان التركي على المتوسط، بطاقة 1.4 مليون برميل يومياً بحسب شركة بوتاش التركية. توقّف الضخّ في 2023 بعد حكم تحكيم دولي بأن تركيا خالفت اتفاقية 1976 بسماحها بتصدير نفط إقليم كردستان دون موافقة بغداد، ولم يُستأنف إلا أواخر 2025 بنحو 190 ألف برميل يومياً. استعاد الخط أهميته في 2026 بعد توقّف صادرات العراق البحرية بإغلاق هرمز، وفي يوليو قالت تركيا إن العراق طلب طاقة 750 ألف برميل يومياً فيه.",
+      "en": "Iraq's northern export route to the Turkish Mediterranean port of Ceyhan, with a capacity of 1.4 million barrels a day according to Turkey's BOTAS. Flows stopped in 2023 after an international arbitration tribunal ruled that Turkey had breached the 1976 pipeline agreement by allowing Kurdistan Region exports without Baghdad's approval; they resumed only toward the end of 2025, at about 190,000 barrels a day. The line regained importance in 2026 when the closure of Hormuz halted Iraq's seaborne exports; in July Turkey said Iraq had asked for 750,000 barrels a day of capacity on it.",
+      "sources": [
+        {
+          "title": "Hydrocarbon Processing, July 2026: Turkey says Iraq seeks 750,000 bpd capacity on Kirkuk-Ceyhan oil pipeline",
+          "url": "https://hydrocarbonprocessing.com/news/2026/07/turkey-says-iraq-seeks-750-000-bpd-capacity-on-kirkuk-ceyhan-oil-pipeline/"
+        }
+      ],
+      "verified": "2026-11-09"
+    },
+    {
+      "pipelines": ["Druzhba Oil Pipeline"],
+      "chokepoints": [],
+      "conflicts": ["russia-ukraine"],
+      "ar": "خط «الصداقة» من الحقبة السوفيتية، ينقل النفط الروسي إلى وسط أوروبا، ويبقى فرعه الجنوبي عبر أوكرانيا مصدراً حيوياً للنفط لهنغاريا وسلوفاكيا. توقّفت الإمدادات إليهما أواخر يناير 2026؛ قالت أوكرانيا إن الخط تضرّر بضربات روسية، فيما اتّهمت بودابست وبراتيسلافا كييف بإبقائه مغلقاً. عاد الضخّ أواخر أبريل 2026 بعد نحو ثلاثة أشهر، فرفعت هنغاريا اعتراضها على قرض أوروبي لأوكرانيا بقيمة 90 مليار يورو.",
+      "en": "The Soviet-era 'Friendship' line carrying Russian crude into Central Europe; its southern branch through Ukraine remains a vital source of oil for Hungary and Slovakia. Deliveries to both stopped at the end of January 2026: Ukraine said the line had been damaged by Russian strikes, while Budapest and Bratislava accused Kyiv of keeping it closed. Flows resumed in late April 2026 after almost three months, and Hungary lifted its veto on a €90bn EU loan to Ukraine.",
+      "sources": [
+        {
+          "title": "Enerdata, 23 April 2026: Russian oil transit resumes on Druzhba pipeline, Hungary lifts EUR90bn loan veto",
+          "url": "https://www.enerdata.net/publications/daily-energy-news/russian-oil-transit-resumes-druzhba-pipeline-hungary-lifts-eur90bn-loan-veto.html"
+        },
+        {
+          "title": "oEnergetice.cz, 23 April 2026: MOL resumes receiving oil from Druzhba after three months",
+          "url": "https://oenergetice.cz/en/oil/mol-resumes-receiving-oil-from-druzhba-after-three-months-with-flows-also-reaching-slovakia"
+        }
+      ],
+      "verified": "2026-11-09"
+    },
+    {
+      "pipelines": ["TurkStream Gas Pipeline"],
+      "chokepoints": [],
+      "conflicts": ["russia-ukraine"],
+      "ar": "خطّان تحت البحر الأسود من روسيا إلى تركيا بطاقة إجمالية 31.5 مليار م³ سنوياً، يذهب جزء منها إلى أوروبا ويخدم الباقي السوق التركية. منذ انتهاء العبور عبر أوكرانيا في 1 يناير 2025 صار الطريق الوحيد للغاز الروسي إلى أوروبا عبر الأنابيب؛ وتراجعت صادرات غازبروم إلى أوروبا 44% في 2025 إلى 18 مليار م³، وهو الأدنى منذ منتصف السبعينيات. بلغت تدفقاته إلى أوروبا في الأشهر العشرة الأولى من 2026 نحو 14.8 مليار م³.",
+      "en": "Two strings under the Black Sea from Russia to Turkey with a combined capacity of 31.5 billion cubic metres a year; part goes on to Europe and the rest serves the Turkish market. Since Ukrainian transit ended on 1 January 2025 it has been the only pipeline route for Russian gas to Europe; Gazprom's exports to Europe fell 44% in 2025 to 18 bcm, the lowest since the mid-1970s. Its deliveries to Europe in the first ten months of 2026 were about 14.8 bcm.",
+      "sources": [
+        {
+          "title": "bne IntelliNews, 13 January 2025: TurkStream is now the only route for Russian gas to Europe",
+          "url": "https://www.intellinews.com/turkstream-is-now-the-only-route-for-russian-gas-to-europe-361174/"
+        },
+        {
+          "title": "Baird Maritime (Reuters), 2 November 2026: Russian gas flows to Europe via undersea pipeline drop in October",
+          "url": "https://www.bairdmaritime.com/offshore/transport/russian-gas-flows-to-europe-via-undersea-pipeline-drop-in-october"
+        }
+      ],
+      "verified": "2026-11-09"
+    },
+    {
+      "pipelines": ["Greater Nile Oil Pipeline"],
+      "chokepoints": [],
+      "conflicts": ["sudan", "south-sudan"],
+      "ar": "نحو 1,600 كم من حقل الوحدة في جنوب السودان إلى بورتسودان، وهو منفذ التصدير الذي تعتمد عليه دولة جنوب السودان الحبيسة اعتماداً كاملاً. يمرّ بهجليج التي تعالج منشآتها 80–100 ألف برميل يومياً، وقد سيطرت عليها قوات الدعم السريع في ديسمبر 2025. وبموجب اتفاق أمني توسّط فيه جنوب السودان تولّى جيشه حماية منطقة النفط وتراجعت قوات الدعم السريع إلى شمال الحقل.",
+      "en": "About 1,600 km from South Sudan's Unity oilfield to Port Sudan: the export route on which landlocked South Sudan entirely depends. It passes Heglig, whose installations process 80,000–100,000 barrels a day; the Rapid Support Forces seized Heglig in December 2025. Under a security deal brokered by South Sudan, its army took charge of the oil zone and the RSF pulled back to the field's north.",
+      "sources": [
+        {
+          "title": "Radio Tamazuj, 11 December 2025: 1,710 Sudanese soldiers enter South Sudan after losing Heglig oilfield to RSF",
+          "url": "https://www.radiotamazuj.org/en/news/article/1710-sudanese-soldiers-enter-south-sudan-after-losing-heglig-oilfield-to-rsf"
+        },
+        {
+          "title": "Africanews, 12 December 2025: RSF capture of Heglig threatens South Sudan's oil exports",
+          "url": "https://www.africanews.com/2025/12/12/sudan-rsf-capture-of-heglig-threatens-south-sudans-oil-exports/"
+        }
+      ],
+      "verified": "2026-11-09"
+    },
+    {
+      "pipelines": ["Arish–Ashkelon Pipeline"],
+      "chokepoints": [],
+      "conflicts": ["iran-us-israel", "israel-palestine"],
+      "ar": "يمتدّ من إسرائيل إلى مصر. توقّفت صادرات حقل ليفياثان الإسرائيلي من الغاز إلى مصر حين أُغلق الحقل في 28 فبراير 2026 مع بدء الضربات الأمريكية الإسرائيلية على إيران، وكان يزوّد مصر قبل الإغلاق بنحو 830 مليون قدم مكعبة يومياً. وأعلنت وزارة الطاقة الإسرائيلية في 2 أبريل 2026 إعادة المنصّة إلى العمل.",
+      "en": "Runs from Israel to Egypt. Israel's Leviathan field stopped its gas exports to Egypt when it was shut on 28 February 2026 as the US–Israeli strikes on Iran began; before the shutdown it was supplying Egypt with about 830 million cubic feet a day. Israel's energy ministry said on 2 April 2026 that the platform would return to operation.",
+      "sources": [
+        {
+          "title": "EnterpriseAM Egypt, 30 March 2026: Israeli state of emergency extension pushes back restart of Leviathan exports to Egypt",
+          "url": "https://enterpriseam.com/egypt/2026/03/30/israeli-state-of-emergency-extension-pushes-back-restart-of-leviathan-exports-to-egypt/"
+        },
+        {
+          "title": "BOE Report (Reuters), 2 April 2026: Israel's Leviathan gas field to resume operations after war shutdown",
+          "url": "https://boereport.com/2026/04/02/israels-leviathan-gas-field-to-resume-operations-after-war-shutdown-energy-ministry-says/"
+        }
+      ],
+      "verified": "2026-11-09"
+    },
+    {
+      "pipelines": [
+        "Sino-Myanmar Oil Pipeline",
+        "Sino-Myanmar Gas Pipeline",
+        "Sino-Myanmar Gas Pipeline (China Section)"
+      ],
+      "chokepoints": ["malacca"],
+      "conflicts": ["myanmar"],
+      "ar": "خطّان متوازيان للنفط والغاز بنتهما شركة CNPC الصينية من كياوكفيو على ساحل راخين في ميانمار إلى كونمينغ في يونّان، يتيحان للصين تجاوز مضيق ملقا. يمرّ نحو نصف المسار في شمال ولاية شان المعرّض للتمرّد، ولذلك ظلّ أمنه موضع شكّ منذ إنشائه (بحسب تحليل من 2012).",
+      "en": "Twin crude and gas lines built by China's CNPC from Kyaukphyu on Myanmar's Rakhine coast to Kunming in Yunnan, letting China bypass the Strait of Malacca. About half of the route crosses the insurgency-prone north of Shan State, so its security has been in doubt since construction (per a 2012 analysis).",
+      "sources": [
+        {
+          "title": "MP-IDSA, 10 January 2012: China's pipelines in Myanmar",
+          "url": "https://idsa.in/?p=43773"
+        }
+      ],
+      "verified": "2026-11-09"
+    }
+  ]
+}

@@ -33,6 +33,10 @@ export function parseHash(token: string, db: DB): ParsedHash | null {
     const sel = { kind: 'border' as Kind, id: rest };
     return { patch: { lens: 'borders', selection: sel, view: null } };
   }
+  // Pipelines and LNG terminals load with their lens too; the map flies to them once the data is in.
+  if ((head === 'pipeline' && /^P\d+$/.test(rest)) || (head === 'lng' && /^T\d+-[ie]$/.test(rest))) {
+    return { patch: { lens: 'pipelines', selection: { kind: head as Kind, id: rest }, view: null } };
+  }
   // A selection link shows that record on the map, so it closes any open view.
   if ((KINDS as readonly string[]).includes(head) && db.exists(head as Kind, rest)) {
     const sel = { kind: head as Kind, id: rest };

@@ -37,6 +37,8 @@ registerStrings({
     'kind.site': 'موقع مورد',
     'kind.plant': 'محطة نووية',
     'kind.border': 'وحدة تاريخية',
+    'kind.pipeline': 'خط أنابيب',
+    'kind.lng': 'محطة غاز مسال',
   },
   en: {
     'tr.tour': 'Tour',
@@ -65,6 +67,8 @@ registerStrings({
     'kind.site': 'Resource site',
     'kind.plant': 'Nuclear plant',
     'kind.border': 'Historical unit',
+    'kind.pipeline': 'Pipeline',
+    'kind.lng': 'LNG terminal',
   },
 });
 

@@ -12,6 +12,7 @@ export const LENSES = [
   { id: 'chokepoints', ar: 'المضائق والممرات',        en: 'Chokepoints',            icon: 'anchor',  sub: { ar: 'تدفّق النفط والمخاطر', en: 'Oil flow and risk' } },
   { id: 'history',     ar: 'الخط الزمني',             en: 'Timeline',               icon: 'clock',   sub: { ar: '1900 — اليوم', en: '1900 — today' } },
   { id: 'borders',     ar: 'الحدود التاريخية',         en: 'Historical borders',     icon: 'borders', sub: { ar: 'الدول والمستعمرات 1886–2019', en: 'States and colonies, 1886–2019' } },
+  { id: 'pipelines',   ar: 'أنابيب النفط والغاز',       en: 'Oil & gas pipelines',    icon: 'pipeline', sub: { ar: 'الخطوط العاملة وقيد الإنشاء', en: 'Operating and under construction' } },
 ] as const;
 
 // Full-panel views that open over the stage.
@@ -112,7 +113,7 @@ export const RESOURCE_CLASSES = [
 ];
 
 // Selection kinds and their hash prefixes: #country-SAU, #conflict-sudan, #group-kurds …
-export const KINDS = ['country', 'conflict', 'group', 'religion', 'choke', 'disputed', 'event', 'bloc', 'site', 'plant', 'border'] as const;
+export const KINDS = ['country', 'conflict', 'group', 'religion', 'choke', 'disputed', 'event', 'bloc', 'site', 'plant', 'border', 'pipeline', 'lng'] as const;
 
 // 24×24 stroke icons (stroke = currentColor). Use ui.icon(name).
 export const ICONS: Record<string, string> = {
@@ -124,6 +125,8 @@ export const ICONS: Record<string, string> = {
   hatch:   '<rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 12l8-8M4 20L20 4M12 20l8-8"/>',
   network: '<circle cx="6" cy="7" r="2.2"/><circle cx="18" cy="6" r="2.2"/><circle cx="12" cy="17.5" r="2.4"/><path d="M8 7.8l2.8 7.6M16.6 7.8l-3.4 7.7M8.2 6.8l7.6-.6"/>',
   borders: '<path d="M4 5.5l5-2 6 2 5-2v15l-5 2-6-2-5 2z"/><path d="M9 3.5v15M15 5.5v15" stroke-dasharray="2 2"/>',
+  pipeline: '<path d="M3 8h7a3 3 0 0 1 3 3v2a3 3 0 0 0 3 3h5"/><path d="M3 5.5v5M21 13.5v5M7.5 6v4"/>',
+  lng:     '<path d="M12 3.5c3 3.6 5 6.4 5 9.2a5 5 0 0 1-10 0c0-2.8 2-5.6 5-9.2z"/><path d="M9.6 14.2c.4 1.3 1.3 2 2.6 2.2"/>',
   atom:    '<circle cx="12" cy="12" r="1.6"/><ellipse cx="12" cy="12" rx="9" ry="3.6"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(-60 12 12)"/>',
   gem:     '<path d="M7 4h10l4 5-9 11L3 9z"/><path d="M3 9h18M9.5 4L8 9l4 11 4-11-1.5-5"/>',
   anchor:  '<circle cx="12" cy="5" r="2"/><path d="M12 7v13M8 10h8M4.5 13.5C5 17.5 8.3 20 12 20s7-2.5 7.5-6.5"/>',

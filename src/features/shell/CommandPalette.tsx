@@ -5,6 +5,7 @@ import { atlas, useAtlas } from '../../app/store';
 import { useDb, useT } from '../../app/useT';
 import type { Prefs } from '../../app/prefs';
 import { LENSES, NUCLEAR_UNIT, RELIGION_FAMILIES, SEVERITY, VIEWS, type LensId, type ViewId } from '../../config';
+import { FUEL_LABEL, STATUS_LABEL, getEnergy } from '../../data/energy';
 import type { DB, Kind } from '../../data/types';
 import { normalize, type Lang } from '../../i18n/format';
 import { esc } from '../../ui/dom';
@@ -91,6 +92,14 @@ function subOf(db: DB, T: T, kind: Kind, id: string): string {
     case 'site': {
       const x = db.siteById.get(id);
       return !x ? '' : [x.iso3 && db.countries.has(x.iso3) ? countryName(x.iso3) : '', L(db.resources.typeById.get(x.type))].filter(Boolean).join(' · ');
+    }
+    case 'pipeline': {
+      const x = getEnergy()?.byId.get(id);
+      return !x ? '' : [L(FUEL_LABEL[x.fuel]), x.countries.filter((iso) => db.countries.has(iso)).slice(0, 3).map(countryName).join(ar ? '، ' : ', ')].filter(Boolean).join(' · ');
+    }
+    case 'lng': {
+      const x = getEnergy()?.lngById.get(id);
+      return !x ? '' : [x.iso3 && db.countries.has(x.iso3) ? countryName(x.iso3) : '', L(STATUS_LABEL[x.status])].filter(Boolean).join(' · ');
     }
     default: return '';
   }
@@ -185,6 +194,16 @@ function PaletteBox() {
     }
     for (const [kind, items] of byKind) groups.push({ label: t('kinds.' + kind), items });
     const nq = normalize(q);
+    // pipelines and LNG terminals, once their lens has loaded them: one row per line system (its longest segment)
+    const E = getEnergy();
+    if (E && nq.length >= 2) {
+      const hit = (...names: (string | undefined)[]) => names.some((n) => n && normalize(n).includes(nq));
+      const pipes = [...E.bySystem].filter(([name]) => hit(name, E.meta.names[name])).slice(0, 6)
+        .map(([, segs]) => segs.reduce((a, b) => ((b.km ?? 0) > (a.km ?? 0) ? b : a)));
+      if (pipes.length) groups.push({ label: t('kinds.pipeline'), items: pipes.map((p) => dataItem(db, T, 'pipeline', p.id, q)) });
+      const lng = E.lng.filter((x) => hit(x.name)).slice(0, 6);
+      if (lng.length) groups.push({ label: t('kinds.lng'), items: lng.map((x) => dataItem(db, T, 'lng', x.id, q)) });
+    }
     const cmds = commands(T, { lens, view, theme, projection, tour }, tours).filter((c) => normalize(c.label).includes(nq));
     if (cmds.length) groups.push({ label: t('sh.gActions'), items: cmds.slice(0, 8).map((c, n) => cmdItem(T, c, q, n)) });
   } else {

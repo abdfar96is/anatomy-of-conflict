@@ -58,7 +58,7 @@ describe('lens rail', () => {
     expect(document.activeElement).toBe(q('#lensrail [data-k="lens-conflicts"]'));
     expect(document.activeElement).toHaveAttribute('tabindex', '0');
     key(document.activeElement, { key: 'End' });
-    expect(document.activeElement).toBe(q('#lensrail [data-k="lens-borders"]'));
+    expect(document.activeElement).toBe(q('#lensrail [data-k="lens-pipelines"]'));
     expect(atlas.get().lens).toBe('overview');
   });
 

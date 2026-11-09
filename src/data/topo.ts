@@ -1,6 +1,6 @@
-// Minimal TopoJSON decoder: quantised, delta-encoded arcs → GeoJSON features (Polygon / MultiPolygon only).
+// Minimal TopoJSON decoder: quantised, delta-encoded arcs → GeoJSON features (polygons and lines).
 
-import type { Feature, MultiPolygon, Polygon, Position } from 'geojson';
+import type { Feature, LineString, MultiLineString, MultiPolygon, Polygon, Position } from 'geojson';
 
 export interface Topology {
   type: 'Topology';
@@ -9,13 +9,24 @@ export interface Topology {
   objects: Record<string, { type: 'GeometryCollection'; geometries: TopoGeometry[] }>;
 }
 export interface TopoGeometry {
-  type: 'Polygon' | 'MultiPolygon' | null;
-  arcs?: number[][] | number[][][];
+  type: 'Polygon' | 'MultiPolygon' | 'LineString' | 'MultiLineString' | null;
+  arcs?: number[] | number[][] | number[][][];
   properties?: Record<string, unknown>;
 }
 
-/** Decode every geometry of one object into GeoJSON features (null geometries are skipped). */
+type TopoShape = Polygon | MultiPolygon | LineString | MultiLineString;
+
+/** Decode the polygons of one object into GeoJSON features (null geometries and lines are skipped). */
 export function topoFeatures<P = Record<string, unknown>>(topo: Topology, object: string): Feature<Polygon | MultiPolygon, P>[] {
+  return decode<P>(topo, object).filter((f): f is Feature<Polygon | MultiPolygon, P> => f.geometry.type === 'Polygon' || f.geometry.type === 'MultiPolygon');
+}
+
+/** Decode the lines of one object into GeoJSON features (null geometries and polygons are skipped). */
+export function topoLines<P = Record<string, unknown>>(topo: Topology, object: string): Feature<LineString | MultiLineString, P>[] {
+  return decode<P>(topo, object).filter((f): f is Feature<LineString | MultiLineString, P> => f.geometry.type === 'LineString' || f.geometry.type === 'MultiLineString');
+}
+
+function decode<P>(topo: Topology, object: string): Feature<TopoShape, P>[] {
   const t = topo.transform;
   // absolute positions per arc, decoded once
   const arcs = topo.arcs.map((arc) => {
@@ -36,12 +47,17 @@ export function topoFeatures<P = Record<string, unknown>>(topo: Topology, object
     return out;
   };
   const geoms = topo.objects[object]?.geometries ?? [];
-  const features: Feature<Polygon | MultiPolygon, P>[] = [];
+  const features: Feature<TopoShape, P>[] = [];
   for (const g of geoms) {
-    if (g.type === 'Polygon') {
-      features.push({ type: 'Feature', properties: (g.properties ?? {}) as P, geometry: { type: 'Polygon', coordinates: (g.arcs as number[][]).map(ring) } });
+    const properties = (g.properties ?? {}) as P;
+    if (g.type === 'LineString') {
+      features.push({ type: 'Feature', properties, geometry: { type: 'LineString', coordinates: ring(g.arcs as number[]) } });
+    } else if (g.type === 'MultiLineString') {
+      features.push({ type: 'Feature', properties, geometry: { type: 'MultiLineString', coordinates: (g.arcs as number[][]).map(ring) } });
+    } else if (g.type === 'Polygon') {
+      features.push({ type: 'Feature', properties, geometry: { type: 'Polygon', coordinates: (g.arcs as number[][]).map(ring) } });
     } else if (g.type === 'MultiPolygon') {
-      features.push({ type: 'Feature', properties: (g.properties ?? {}) as P, geometry: { type: 'MultiPolygon', coordinates: (g.arcs as number[][][]).map((p) => p.map(ring)) } });
+      features.push({ type: 'Feature', properties, geometry: { type: 'MultiPolygon', coordinates: (g.arcs as number[][][]).map((p) => p.map(ring)) } });
     }
   }
   return features;
