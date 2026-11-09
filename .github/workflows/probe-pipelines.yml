@@ -1,0 +1,45 @@
+name: probe-pipelines
+on:
+  push:
+    branches: [feat/halted-pipelines]
+    paths: ['.github/workflows/probe-pipelines.yml']
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: read source articles
+        run: |
+          cat > urls.txt <<'U'
+          https://www.maritime-executive.com/article/sweden-finds-explosive-traces-calling-nord-stream-gross-sabotage
+          https://www.tbsnews.net/world/sweden-ends-investigation-nord-stream-pipeline-blasts-788822
+          https://en.protothema.gr/reuters-denmark-ends-probe-into-deliberate-nord-stream-pipeline-blasts/
+          https://www.themoscowtimes.com/2022/06/25/russias-gazprom-halts-gas-transports-to-europe-via-poland-pipeline
+          https://www.arabnews.pk/node/2080721
+          https://s.thepeninsula.qa/article/14/11/2022/poland-seizes-gazprom-share-in-yamal-pipeline-section
+          https://gulfnews.com/uae/saudi-arabia-seizes-iraqi-pipeline-on-its-territory-1.418782
+          https://hydrocarbonprocessing.com/news/2017/08/iraq-wants-to-reopen-old-saudi-crude-exports-pipeline/
+          https://www.aljazeera.com/news/2004/1/23/saudis-to-help-with-iraq-pipeline
+          https://english.enabbaladi.net/archives/2025/11/iraq-and-syria-agree-to-assess-the-kirkuk-baniyas-pipeline/
+          https://shafaq.com/en/Report/Preparatory-studies-begin-on-Kirkuk-Baniyas-pipeline-rehabilitation
+          https://www.shafaq.com/en/Iraq/Iraq-Syria-to-rehabilitate-Kirkuk-Baniyas-oil-pipeline
+          https://shafaq.com/en/Economy/Syria-advances-Kirkuk-Baniyas-pipeline-project-with-Iraq
+          https://www.aljazeera.com/news/2022/11/22/houthis-attack-yemeni-oil-terminal-in-latest-assault
+          https://www.timeslive.co.za/news/world/2022-11-22-yemens-houthis-attack-al-dhabba-oil-terminal-force-ship-to-leave/
+          https://gcaptain.com/drone-fired-rocket-hits-offshore-oil-terminal-in-yemen
+          U
+          python3 - <<'PY'
+          import re, html, subprocess
+          KEY = re.compile(r'(?i)pipeline|barrel|bpd|halt|resum|capacity|bcm|cubic|export|attack|drone|explosion|blast|sabotage|investigat|sanction|seiz|confiscat|1990|2001|2003|rehabilit|terminal|string|nord|yamal|europol|baniyas|ipsa|dhabba')
+          for u in [l.strip() for l in open('urls.txt') if l.strip()]:
+              r = subprocess.run(['curl', '-sSL', '--max-time', '40', '-w', '\n%{http_code}', u], capture_output=True, text=True)
+              body, _, code = r.stdout.rpartition('\n')
+              t = re.sub(r'(?is)<(script|style|noscript|svg|nav|footer|header)\b.*?</\1>', ' ', body)
+              m = re.search(r'(?is)<title>(.*?)</title>', body)
+              t = html.unescape(re.sub(r'<[^>]+>', ' ', t)); t = re.sub(r'\s+', ' ', t)
+              dates = sorted(set(re.findall(r'"datePublished"\s*:\s*"([^"]+)"', body)))[:2]
+              print('\n#####', code, u); print('title:', html.unescape(m.group(1).strip()) if m else '', '| published:', dates)
+              seen = 0
+              for s in re.split(r'(?<=[.!?])\s+', t):
+                  if 40 < len(s) < 600 and KEY.search(s) and seen < 18:
+                      print(' -', s); seen += 1
+          PY
