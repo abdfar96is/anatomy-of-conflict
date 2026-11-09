@@ -10,29 +10,18 @@ jobs:
       - name: read source articles
         run: |
           cat > urls.txt <<'U'
-          https://english.alarabiya.net/business/energy/2026/03/28/saudi-pipeline-that-bypasses-strait-of-hormuz-hits-7millionbarrel-goal
-          https://www.aljazeera.com/economy/2026/10/6/saudi-arabia-says-east-west-pipeline-pumping-5-8-million-bpd
-          https://maritime-executive.com/article/uae-instructs-adnoc-to-accelerate-pipeline-construction-to-bypass-hormuz
-          https://www.enerdata.net/publications/daily-energy-news/uae-speeds-construction-new-oil-pipelines-bypassing-strait-hormuz.html
-          https://english.ahram.org.eg/UI/Front/Inner.aspx?NewsContentID=576180
-          https://www.tamimi.com/news/gulf-disruption-and-energy-supply-risk-why-egypts-sumed-corridor-matters/
-          https://hydrocarbonprocessing.com/news/2026/07/turkey-says-iraq-seeks-750-000-bpd-capacity-on-kirkuk-ceyhan-oil-pipeline/
-          https://tankterminals.com/news/iraq-resumes-kirkuk-crude-exports-via-ceyhan-after-baghdad-krg-deal/
-          https://www.enerdata.net/publications/daily-energy-news/russian-oil-transit-resumes-druzhba-pipeline-hungary-lifts-eur90bn-loan-veto.html
-          https://oenergetice.cz/en/oil/mol-resumes-receiving-oil-from-druzhba-after-three-months-with-flows-also-reaching-slovakia
-          https://www.intellinews.com/turkstream-is-now-the-only-route-for-russian-gas-to-europe-361174/
-          https://www.bairdmaritime.com/offshore/transport/russian-gas-flows-to-europe-via-undersea-pipeline-drop-in-october
-          https://wtop.com/news/2025/11/south-sudan-resumes-oil-exports-after-drone-attack-in-neighboring-sudan
-          https://sudantribune.com/article/319333
-          https://www.rigzone.com/news/wire/south_sudan_oil_exports_at_risk-10-dec-2025-182503-article/
-          https://www.newarab.com/news/israels-leviathan-gas-field-resume-operations-after-shutdown
-          https://www.spacewar.com/afp/260403134728.lfadxzai.html
-          https://enterpriseam.com/egypt/2026/03/30/israeli-state-of-emergency-extension-pushes-back-restart-of-leviathan-exports-to-egypt/
-          https://www.bnionline.net/en/news/business-usual-chinese-projects-arakan-state
+          https://boereport.com/2026/04/02/israels-leviathan-gas-field-to-resume-operations-after-war-shutdown-energy-ministry-says/
+          https://www.ecofinagency.com/news/0404-54411-egypt-s-sumed-pipeline-flows-jump-150-as-iran-related-conflict-shifts-oil-routes
+          https://www.kpler.com/es/blog/factbox-red-sea-crude-flows-bab-el-mandeb-and-alternative-routes
+          https://www.sumed.org/?p=history
+          https://www.africanews.com/2025/12/12/sudan-rsf-capture-of-heglig-threatens-south-sudans-oil-exports/
+          https://www.radiotamazuj.org/en/news/article/1710-sudanese-soldiers-enter-south-sudan-after-losing-heglig-oilfield-to-rsf
+          https://www.irrawaddy.com/opinion/analysis/militarized-pipelines-how-chinas-security-priorities-harm-local-communities.html
+          https://idsa.in/?p=43773
           U
           python3 - <<'PY'
           import re, html, subprocess
-          KEY = re.compile(r'(?i)pipeline|barrel|bpd|b/d|halt|resum|capacity|bcm|cubic|million|transit|export|attack|drone|strike|yanbu|fujairah|ceyhan|heglig|leviathan|kyaukphyu')
+          KEY = re.compile(r'(?i)pipeline|barrel|bpd|b/d|halt|resum|capacity|bcm|cubic|million|transit|export|attack|drone|strike|yanbu|fujairah|ceyhan|heglig|leviathan|kyaukphyu|sokhna|kerir|kunming|myanmar|rsf')
           for u in [l.strip() for l in open('urls.txt') if l.strip()]:
               r = subprocess.run(['curl', '-sSL', '--max-time', '40', '-w', '\n%{http_code}', u], capture_output=True, text=True)
               body, _, code = r.stdout.rpartition('\n')
