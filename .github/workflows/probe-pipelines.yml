@@ -9,16 +9,17 @@ jobs:
     steps:
       - name: list bucket
         run: |
-          for p in GOIT/ ggit/ latest/; do
-            echo "== $p"; curl -sS --max-time 60 "https://publicgemdata.nyc3.digitaloceanspaces.com/?prefix=$p&max-keys=1000" | grep -oE '<Key>[^<]+</Key><LastModified>[^<]+</LastModified>[^<]*<ETag>[^<]*</ETag><Size>[0-9]+' | sed -E 's#<Key>([^<]+)</Key><LastModified>([^<]+)</LastModified>.*<Size>([0-9]+)#\2 \3 \1#' | grep -iE 'goit|ggit|pipe' | sort | tail -40 || true
-          done
+          curl -sS --max-time 60 -i "https://publicgemdata.nyc3.digitaloceanspaces.com/?prefix=GOIT/&max-keys=50" | head -c 1500; echo
       - name: download
         run: |
           mkdir d && cd d
-          curl -sS --max-time 300 -o ggit.geojson https://publicgemdata.nyc3.cdn.digitaloceanspaces.com/ggit/2026-03/ggit_map_2026-02-20.geojson
-          curl -sS --max-time 300 -o goit.geojson https://publicgemdata.nyc3.cdn.digitaloceanspaces.com/GOIT/2025-03/goit_2025-04-09.geojson
-          ls -la
+          for u in https://publicgemdata.nyc3.cdn.digitaloceanspaces.com/ggit/2026-03/ggit_map_2026-02-20.geojson https://publicgemdata.nyc3.cdn.digitaloceanspaces.com/GOIT/2025-03/goit_2025-04-09.geojson https://publicgemdata.nyc3.digitaloceanspaces.com/GOIT/2025-03/goit_2025-04-09.geojson; do
+            echo "== $u"
+            curl -sS --max-time 300 -D - -o body "$u" | head -20
+            ls -la body; head -c 400 body; echo
+          done
       - name: inspect
+        if: false
         run: |
           python3 - <<'PY'
           import json, collections
