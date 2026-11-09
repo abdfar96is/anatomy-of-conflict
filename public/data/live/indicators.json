@@ -1,7 +1,7 @@
 {
   "source": "World Bank Indicators API v2",
   "api": "https://api.worldbank.org/v2/",
-  "retrieved": "2026-11-03",
+  "retrieved": "2026-11-09",
   "indicators": {
     "pop": {
       "code": "SP.POP.TOTL",
