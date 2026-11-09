@@ -58,6 +58,38 @@ function simplifyRing(ring: Ring, tol: number): Ring {
   return [0, 1, 2, 3].map((i) => ring[Math.round(i * step)]!).concat([ring[0]!]);
 }
 
+/** Douglas–Peucker on an open line (planar lon/lat). Keeps both ends. */
+export function simplifyLine(line: Position[], tol: number): Position[] {
+  const n = line.length;
+  if (n <= 2) return line;
+  const keep = new Uint8Array(n);
+  keep[0] = keep[n - 1] = 1;
+  const t2 = tol * tol;
+  const stack = [0, n - 1];
+  while (stack.length) {
+    const b = stack.pop()!, a = stack.pop()!;
+    const pa = line[a]!, pb = line[b]!;
+    const ax = pa[0]!, ay = pa[1]!, dx = pb[0]! - ax, dy = pb[1]! - ay, len2 = dx * dx + dy * dy;
+    let maxD = -1, idx = -1;
+    for (let i = a + 1; i < b; i++) {
+      const pi = line[i]!;
+      const px = pi[0]! - ax, py = pi[1]! - ay;
+      let d;
+      if (len2 === 0) d = px * px + py * py;
+      else {
+        const t = Math.max(0, Math.min(1, (px * dx + py * dy) / len2));
+        const qx = t * dx - px, qy = t * dy - py;
+        d = qx * qx + qy * qy;
+      }
+      if (d > maxD) { maxD = d; idx = i; }
+    }
+    if (maxD > t2) { keep[idx] = 1; stack.push(a, idx, idx, b); }
+  }
+  const out: Position[] = [];
+  for (let i = 0; i < n; i++) if (keep[i]) out.push(line[i]!);
+  return out;
+}
+
 function simplifyPolygon(poly: Ring[], tol: number): Ring[] {
   const out = poly.map((r) => simplifyRing(r, tol));
   // a ring that flipped orientation would fill the whole sphere — fall back to the original

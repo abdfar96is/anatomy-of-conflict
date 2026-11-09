@@ -2,7 +2,7 @@
 // arcs, markers, labels, badges); tipFor() writes the hover line for any hit. Rebuilt on state change only.
 
 import * as d3 from 'd3';
-import type { Feature } from 'geojson';
+import type { Feature, Position } from 'geojson';
 import type { AtlasState } from '../../../app/store';
 import { CHOKE_STATUS, NUCLEAR_CIVIL, NUCLEAR_STATUS, NUCLEAR_UNIT, SEVERITY, type LensId } from '../../../config';
 import type { Bloc, Country, DB, Disputed, Kind, Plant, TimelineEvent } from '../../../data/types';
@@ -12,6 +12,9 @@ import { esc } from '../../../ui/dom';
 import type { Palette } from '../../../ui/palette';
 import { type LonLat } from './geo';
 import { getBorders, rulerColor, rulerName, statusLabel, unitName, unitsAt, yearEnd, type BorderUnit, type Borders } from '../../../data/borders';
+import {
+  ACCURACY_LABEL, FUEL_LABEL, STATUS_LABEL, capacityClass, fmtCapacity, fmtMtpa, getEnergy, pipeName, type Energy, type Fuel, type LngTerminal, type Pipeline,
+} from '../../../data/energy';
 
 registerStrings({
   ar: {
@@ -55,6 +58,11 @@ registerStrings({
     'map.tip.contestedEdge': 'تقدير مختلف عليه',
     'map.tip.profile': 'يتوفّر ملف تعريفي',
     'map.tip.inGroup': '{lang} — {family}',
+    'map.tip.pp.segment': 'المقطع: {s}',
+    'map.tip.pp.km': 'نحو {v} كم',
+    'map.tip.pp.lng.import': 'محطة استيراد للغاز المسال', 'map.tip.pp.lng.export': 'محطة تصدير للغاز المسال',
+    'map.tip.pp.lng.op': '{v} في الخدمة', 'map.tip.pp.lng.con': '{v} قيد الإنشاء',
+    'map.tip.pp.note': 'يتوفّر ملف موثّق عن هذا الخط',
     'map.kind.treaty': 'موثّقة رسمياً',
     'map.kind.assessed': 'تقدير تحليلي',
     'map.sep': '، ',
@@ -100,6 +108,11 @@ registerStrings({
     'map.tip.contestedEdge': 'Contested assessment',
     'map.tip.profile': 'Country profile available',
     'map.tip.inGroup': '{lang} — {family}',
+    'map.tip.pp.segment': 'Segment: {s}',
+    'map.tip.pp.km': 'About {v} km',
+    'map.tip.pp.lng.import': 'LNG import terminal', 'map.tip.pp.lng.export': 'LNG export terminal',
+    'map.tip.pp.lng.op': '{v} in service', 'map.tip.pp.lng.con': '{v} under construction',
+    'map.tip.pp.note': 'A sourced note on this line is available',
     'map.kind.treaty': 'Formally documented',
     'map.kind.assessed': 'Analytical assessment',
     'map.sep': ', ',
@@ -122,16 +135,21 @@ export interface Poly {
   feature: Feature; fill?: string | null; fillAlpha?: number; stroke?: string; width?: number; strokeAlpha?: number;
   dash?: number[]; hatch?: boolean; hatchAlpha?: number; kind?: Kind; id?: string;
 }
+/** Lines stroked in one style (pipelines). `casing` draws a wider halo under them; items are hit-tested by kind/id. */
+export interface LineItem { kind: Kind; id: string; lines: Position[][] }
+export interface LineSet { items: LineItem[]; color: string; width: number; dash?: number[]; alpha: number; casing?: string }
 export interface Scene {
   fill: Map<string, string>; hatch: Set<string>; hatchAlpha: number; emph: Set<string> | null;
   outlines: Outline[]; polys: Poly[]; under: Poly[]; selPolys: Poly[]; arcs: Arc[]; markers: Marker[]; labels: Label[]; badges: Badge[];
+  /** Base-layer lines, thinnest first, and the selection's lines drawn over everything. */
+  lines: LineSet[]; selLines: LineSet[];
   selRing: { lonlat: LonLat; kind: Kind; id: string } | null; pulse: boolean;
   /** Today's country names would mislead on a historical map: the borders lens turns them off. */
   hideCountryLabels?: boolean;
 }
 
 export function emptyScene(): Scene {
-  return { fill: new Map(), hatch: new Set(), hatchAlpha: 0.5, emph: null, outlines: [], polys: [], under: [], selPolys: [], arcs: [], markers: [], labels: [], badges: [], selRing: null, pulse: false };
+  return { fill: new Map(), hatch: new Set(), hatchAlpha: 0.5, emph: null, outlines: [], polys: [], under: [], selPolys: [], arcs: [], markers: [], labels: [], badges: [], lines: [], selLines: [], selRing: null, pulse: false };
 }
 
 // ---- fixed lens vocabularies (slots are per entity, never by rank)
@@ -202,6 +220,27 @@ export const nuclearCivilFill = (P: Palette, id: keyof typeof NUCLEAR_CIVIL) => 
 export const plantColor = (P: Palette, status: keyof typeof NUCLEAR_UNIT) =>
   status === 'operating' ? P.status.good : status === 'suspended' ? P.status.warn : status === 'building' ? P.accent2 : P.fg3;
 export const plantRadius = (mw: number) => 3 + Math.sqrt(Math.max(0, mw)) / 9;
+
+// ---- pipelines: hue by fuel, weight by capacity, dashes for lines under construction
+const FUEL_SLOT: Record<Fuel, number> = { gas: 1, oil: 4, ngl: 7 };
+export const pipeColor = (P: Palette, fuel: Fuel) => P.cat[FUEL_SLOT[fuel]]!;
+export const fuelVar = (fuel: Fuel) => `var(--cat-${FUEL_SLOT[fuel]})`;
+/** Stroke width by capacity class (0 = no published capacity). */
+export const PIPE_W = [0.6, 0.9, 1.4, 2.1, 3];
+export const PIPE_DASH = [5, 3];
+export const lngColor = (P: Palette) => P.cat[3]!;
+export const lngShape = (t: LngTerminal) => (t.status === 'construction' ? 'dashed' : t.type === 'export' ? 'triangle' : 'square');
+export const lngRadius = (t: LngTerminal) => Math.min(7, 2.6 + Math.sqrt(t.mtpa.operating || t.mtpa.construction) * 0.65);
+
+/** Segments the pipelines lens shows under the current filters. */
+export function visiblePipes(E: Energy, S: Pick<AtlasState, 'filters'>): Pipeline[] {
+  const f = S.filters;
+  return E.pipes.filter((p) => f.pipeFuels.has(p.fuel) && (f.pipeStatus === 'all' || p.status === f.pipeStatus) && (!f.pipeStrategic || E.noteOf.has(p.system)));
+}
+export function visibleLng(E: Energy, S: Pick<AtlasState, 'filters'>): LngTerminal[] {
+  const f = S.filters;
+  return f.pipeLng && f.pipeFuels.has('gas') ? E.lng.filter((t) => f.pipeStatus === 'all' || t.status === f.pipeStatus) : [];
+}
 const mwShown = (p: Plant) => p.mw.operating + p.mw.suspended || p.mw.building;
 /** Historical borders: a colonial power's colour, stronger for its home territory than for its dependencies. */
 const BORDER_STRENGTH: Record<string, number> = { independent: 0.78, colony: 0.55, occupied: 0.55, protectorate: 0.4, mandate: 0.4, 'N/A': 0.3 };
@@ -438,6 +477,37 @@ const BUILD: Record<LensId, Builder> = {
     if (sel) sc.selPolys.push({ feature: sel.feature, stroke: P.sel, width: 2.2 });
   },
 
+  pipelines(sc, DB, S, P) {
+    for (const c of DB.countries.values()) sc.fill.set(c.iso3, P.landMuted);
+    const E = getEnergy();
+    if (!E) return;
+    const groups = new Map<string, LineSet>();
+    for (const p of visiblePipes(E, S)) {
+      const cls = capacityClass(p.boe), strategic = E.noteOf.has(p.system);
+      const key = `${p.fuel}|${p.status}|${cls}|${strategic ? 1 : 0}`;
+      let g = groups.get(key);
+      if (!g) {
+        g = { items: [], color: pipeColor(P, p.fuel), width: PIPE_W[cls]!, dash: p.status === 'construction' ? PIPE_DASH : undefined, alpha: cls ? 0.95 : 0.7, casing: strategic ? P.halo : undefined };
+        groups.set(key, g);
+      }
+      g.items.push({ kind: 'pipeline', id: p.id, lines: p.lines });
+    }
+    // thin lines first so trunk lines sit on top; the sourced strategic lines last of their weight
+    sc.lines = [...groups.values()].sort((a, b) => a.width - b.width || Number(!!a.casing) - Number(!!b.casing));
+    const sel = S.selection?.kind === 'pipeline' ? E.byId.get(S.selection.id) : undefined;
+    if (sel) {
+      const sys = E.bySystem.get(sel.system) ?? [sel];
+      sc.selLines.push({ items: sys.map((p) => ({ kind: 'pipeline', id: p.id, lines: p.lines })), color: P.sel, width: 2.4, alpha: 0.75, casing: P.halo });
+      sc.selLines.push({ items: [{ kind: 'pipeline', id: sel.id, lines: sel.lines }], color: P.sel, width: Math.max(3, PIPE_W[capacityClass(sel.boe)]! + 1.6), alpha: 1, casing: P.halo });
+    }
+    const lng = visibleLng(E, S);
+    const selLng = S.selection?.kind === 'lng' ? E.lngById.get(S.selection.id) : undefined;
+    if (selLng && !lng.includes(selLng)) lng.push(selLng);
+    for (const t of [...lng].sort((a, b) => lngRadius(b) - lngRadius(a))) {
+      sc.markers.push({ lonlat: t.coords, shape: lngShape(t), r: lngRadius(t), color: lngColor(P), kind: 'lng', id: t.id });
+    }
+  },
+
   resources(sc, DB, S, P) {
     const cls = S.filters.resourceClass;
     const best = new Map<string, number>();
@@ -496,7 +566,7 @@ function emphasis(sc: Scene, DB: DB, S: AtlasState, P: Palette) {
     if (sel.kind === 'disputed') { const d = DB.disputedById.get(sel.id); if (d) sc.selPolys.push({ feature: d.feature, stroke: P.sel, width: 2 }); }
     let anchor: LonLat | null = null;
     if (sel.kind === 'event') { const e = DB.eventById.get(sel.id); anchor = e ? eventAnchor(DB, e) : null; }
-    else if (['conflict', 'choke', 'site', 'disputed', 'plant', 'border'].includes(sel.kind)) anchor = DB.anchorOf(sel.kind, sel.id);
+    else if (['conflict', 'choke', 'site', 'disputed', 'plant', 'border', 'lng'].includes(sel.kind)) anchor = DB.anchorOf(sel.kind, sel.id);
     if (anchor) sc.selRing = { lonlat: anchor, kind: sel.kind, id: sel.id };
   }
   if (S.view === 'compare') {
@@ -622,6 +692,22 @@ export function tipFor(hit: Hit, DB: DB, S: AtlasState): string {
       const mw = x.mw.operating + x.mw.suspended;
       const units = (Object.keys(NUCLEAR_UNIT) as (keyof typeof NUCLEAR_UNIT)[]).filter((s) => x.count[s]).map((s) => `${fmtNum(x.count[s])} ${L(NUCLEAR_UNIT[s])}`).join(t('map.sep'));
       return tip(L(x), nameOf(DB, x.iso3, S.lang), units, mw ? t('map.tip.plantMw', { v: fmtNum(mw) }) : x.mw.building ? t('map.tip.plantBuild', { v: fmtNum(x.mw.building) }) : '');
+    }
+    case 'pipeline': {
+      const E = getEnergy(), x = E?.byId.get(hit.id);
+      if (!E || !x) return '';
+      const cap = fmtCapacity(x, S.lang);
+      const places = x.countries.map((iso) => nameOf(DB, iso, S.lang)).join(t('map.sep'));
+      return tip(pipeName(E, x, S.lang), x.segment ? t('map.tip.pp.segment', { s: x.segment }) : '', `${L(FUEL_LABEL[x.fuel])} · ${L(STATUS_LABEL[x.status])}`,
+        [cap, x.km ? t('map.tip.pp.km', { v: fmtNum(x.km) }) : ''].filter(Boolean).join(' · '), places,
+        x.accuracy === 'low' ? L(ACCURACY_LABEL.low) : '', E.noteOf.has(x.system) ? t('map.tip.pp.note') : '');
+    }
+    case 'lng': {
+      const x = getEnergy()?.lngById.get(hit.id);
+      if (!x) return '';
+      return tip(x.name, `${t('map.tip.pp.lng.' + x.type)} · ${L(STATUS_LABEL[x.status])}`,
+        x.mtpa.operating ? t('map.tip.pp.lng.op', { v: fmtMtpa(x.mtpa.operating, S.lang) }) : '', x.mtpa.construction ? t('map.tip.pp.lng.con', { v: fmtMtpa(x.mtpa.construction, S.lang) }) : '',
+        x.iso3 ? nameOf(DB, x.iso3, S.lang) : '');
     }
     case 'site': {
       const x = DB.siteById.get(hit.id);

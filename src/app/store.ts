@@ -18,6 +18,11 @@ export interface Filters {
   nuclearMode: 'military' | 'civil' | 'zones';
   /** Year the Historical borders lens shows (borders as they stood on 31 December). */
   bordersYear: number;
+  /** Pipelines lens: fuels shown, status shown, LNG terminals on/off, sourced strategic lines only. */
+  pipeFuels: Set<string>;
+  pipeStatus: 'all' | 'operating' | 'construction';
+  pipeLng: boolean;
+  pipeStrategic: boolean;
   timelineCats: Set<string> | null;
   ethnicFamily: string | null;
 }
@@ -48,6 +53,7 @@ export const initialState = (): AtlasState => ({
     relKinds: new Set(['treaty', 'assessed']),
     bloc: null, resourceClass: null, religionMode: 'majority', religionTradition: 'sunni',
     overviewMode: 'continent', nuclearMode: 'military', bordersYear: 1914, timelineCats: null, ethnicFamily: null,
+    pipeFuels: new Set(['gas', 'oil', 'ngl']), pipeStatus: 'all', pipeLng: true, pipeStrategic: false,
   },
   layers: { labels: true, graticule: true, boundaries: true, disputed: true, ethnic: false, conflicts: false, arcs: false },
 });
@@ -86,7 +92,7 @@ export const atlas = {
     useAtlas.setState({ filters: { ...useAtlas.getState().filters, [key]: value } });
   },
 
-  toggleInSet(key: 'severity' | 'relTypes' | 'relKinds' | 'timelineCats', item: string): void {
+  toggleInSet(key: 'severity' | 'relTypes' | 'relKinds' | 'timelineCats' | 'pipeFuels', item: string): void {
     const next = new Set(useAtlas.getState().filters[key] ?? []);
     if (next.has(item)) next.delete(item);
     else next.add(item);

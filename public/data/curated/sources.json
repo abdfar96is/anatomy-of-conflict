@@ -117,6 +117,62 @@
       }
     },
     {
+      "id": "gem-pipelines",
+      "file": "energy/pipelines.topo.json",
+      "title": {
+        "ar": "خطوط أنابيب الغاز والنفط وسوائل الغاز العاملة وقيد الإنشاء — Global Energy Monitor",
+        "en": "Operating and under-construction gas, oil and NGL pipelines — Global Energy Monitor"
+      },
+      "publisher": {
+        "ar": "Global Energy Monitor: متتبّع البنية التحتية للغاز (GGIT) ومتتبّع البنية التحتية للنفط (GOIT)",
+        "en": "Global Energy Monitor: Global Gas Infrastructure Tracker (GGIT) and Global Oil Infrastructure Tracker (GOIT)"
+      },
+      "url": "https://globalenergymonitor.org/projects/global-gas-infrastructure-tracker/download-data/",
+      "license": "CC BY 4.0",
+      "published": "2026-07-21",
+      "lastRetrieved": "2026-11-09",
+      "resolution": {
+        "ar": "4,076 مقطعاً (مشروعاً) بمسار مرسوم، لكل منها الوقود والحالة والسعة والطول والدول والمالك وسنة التشغيل ودقة رسم المسار. الخطوط مبسّطة للعرض.",
+        "en": "4,076 segments (projects) with a mapped route, each with fuel, status, capacity, length, states, owner, start year and route accuracy. Lines simplified for display."
+      },
+      "methodology": {
+        "ar": "من ملفي GeoJSON الرسميين: أنابيب الغاز (إصدار نوفمبر 2025) وأنابيب النفط وسوائل الغاز (إصدار يونيو 2026 المصحّح، ملف 21 يوليو 2026). أُبقي على المقاطع العاملة وقيد الإنشاء التي لها مسار فقط، ووُصلت القطع المتتالية، وحُذفت الزوائد الأقصر من 5 كم، وبُسّطت الخطوط بأداة mapshaper بفاصل 2.5 كم. أسماء الخطوط البارزة بالعربية والملاحظات الموثّقة على تسعة خطوط استراتيجية من إعداد الأطلس في energy/meta.json.",
+        "en": "From the two official GeoJSON files: gas pipelines (November 2025 release) and oil and NGL pipelines (corrected June 2026 release, file of 21 July 2026). Only operating and under-construction segments with a route are kept; consecutive pieces are joined, stubs under 5 km dropped, and lines simplified with mapshaper at a 2.5 km interval. Arabic names of prominent lines and the sourced notes on nine strategic lines are the atlas's own, in energy/meta.json."
+      },
+      "limitations": {
+        "ar": "لا تظهر الخطوط المتوقفة أو المجمّدة أو المقترحة أو الملغاة (مثل نورد ستريم وخط يامال–أوروبا)، ولا المقاطع التي ليس لها مسار عند GEM (نحو 790 مقطعاً عاملاً أو قيد الإنشاء، بعضها توسعات سعة لخطوط مرسومة). دقة المسارات متفاوتة: بعضها خط مستقيم بين الطرفين. الحالة كما في إصدار GEM، وقد يختلف التدفق الفعلي (مثل توقف خط بسبب نزاع)؛ الملاحظات الموثّقة تذكر ذلك حيث تحقّقنا منه. سعة النفط وسوائل الغاز بتحويل GEM إلى برميل مكافئ نفط يومياً.",
+        "en": "Idle, mothballed, proposed and cancelled lines (such as Nord Stream and Yamal–Europe) are not shown, nor segments without a route in GEM (about 790 operating or under-construction segments, some of them capacity expansions of mapped lines). Route accuracy varies: some are straight lines between the ends. Status is as of the GEM release; actual flows can differ (a line halted by conflict, for example); the sourced notes say so where we checked. Oil and NGL capacity is GEM's conversion to barrels of oil equivalent a day."
+      }
+    },
+    {
+      "id": "gem-lng",
+      "file": "energy/lng.json",
+      "title": {
+        "ar": "محطات تصدير الغاز المسال واستيراده العاملة وقيد الإنشاء — Global Energy Monitor",
+        "en": "Operating and under-construction LNG export and import terminals — Global Energy Monitor"
+      },
+      "publisher": {
+        "ar": "Global Energy Monitor: متتبّع البنية التحتية للغاز (GGIT)",
+        "en": "Global Energy Monitor: Global Gas Infrastructure Tracker (GGIT)"
+      },
+      "url": "https://globalenergymonitor.org/projects/global-gas-infrastructure-tracker/download-data/",
+      "license": "CC BY 4.0",
+      "published": "2026-10-19",
+      "lastRetrieved": "2026-11-09",
+      "resolution": {
+        "ar": "327 محطة (لكل محطة ونوعها: تصدير أو استيراد) بموقعها وسعتها العاملة وقيد الإنشاء بالمليون طن سنوياً.",
+        "en": "327 terminals (one per terminal and type, export or import) with location and capacity in service and under construction, in million tonnes a year."
+      },
+      "methodology": {
+        "ar": "من ملف GeoJSON الرسمي (إصدار أكتوبر 2026): جُمعت الوحدات العاملة وقيد الإنشاء لكل محطة ونوع.",
+        "en": "From the official GeoJSON file (October 2026 release): operating and under-construction units summed per terminal and type."
+      },
+      "limitations": {
+        "ar": "بعض المواقع تقريبية في المصدر. لا تظهر المحطات المقترحة أو المتوقفة.",
+        "en": "Some locations are approximate in the source. Proposed and idle terminals are not shown."
+      }
+    },
+    {
       "id": "wb-indicators",
       "file": "live/indicators.json",
       "title": {

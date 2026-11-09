@@ -342,6 +342,8 @@ button.dz-pn-b:hover { background: var(--surface-2); }
 .pill.pl-operating { color: var(--good); }
 .pill.pl-suspended { color: var(--warn); }
 .pill.pl-building { color: var(--accent-2); }
+.pill.pp-operating { color: var(--good); }
+.pill.pp-construction { color: var(--accent-2); }
 .pill.pl-shutdown { color: var(--fg-3); }
 .dz-units td, .dz-units th { white-space: nowrap; }
 .dz-units td:nth-child(3) { white-space: normal; font-size: var(--fs-xs); color: var(--fg-2); }

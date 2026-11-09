@@ -21,6 +21,15 @@ test('a share link opens the dossier in Arabic, and English flips the layout', a
   expect(errors).toEqual([]);
 });
 
+test('a pipeline share link loads the energy data on demand and opens the line', async ({ page }) => {
+  const errors = watchErrors(page);
+  await page.goto('/#pipeline-P0547');
+  await expect(page.locator('#legend')).toContainText('كم', { timeout: 30_000 });
+  await expect(page.locator('#dossier')).toContainText('كركوك');
+  await expect(page.locator('#dossier a[href="https://creativecommons.org/licenses/by/4.0/"]')).toHaveCount(1);
+  expect(errors).toEqual([]);
+});
+
 for (const view of ['network', 'timeline', 'sources']) {
   test(`#view-${view} opens the view`, async ({ page }) => {
     const errors = watchErrors(page);

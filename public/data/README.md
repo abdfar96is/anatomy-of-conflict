@@ -6,6 +6,7 @@
 | `live/` | Population, GDP, refugees, internal displacement and battle deaths from the [World Bank's open data](https://data.worldbank.org/), refreshed weekly | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — World Bank; each series keeps its original publisher (UN, UNHCR, IDMC, UCDP) |
 | `history/` | Historical borders of states and dependent territories, 1886–2019, from [CShapes 2.0](https://icr.ethz.ch/data/cshapes/) (ETH Zurich), simplified; Arabic names and ruler colours in `meta.json` | [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) — non-commercial, share-alike; cite Schvitz et al. (2022) |
 | `curated/nuclear_plants.json` | Nuclear power plants and their units, derived from [GeoNuclearData](https://github.com/cristianst85/GeoNuclearData) with documented updates | [ODbL 1.0](https://opendatacommons.org/licenses/odbl/1-0/) — a derived database; contents under the [DbCL 1.0](https://opendatacommons.org/licenses/dbcl/1-0/) |
+| `energy/` | Oil, gas and NGL pipelines and LNG terminals that are operating or under construction, from [Global Energy Monitor](https://globalenergymonitor.org/)'s gas and oil infrastructure trackers, simplified; Arabic names and sourced notes in `meta.json` | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — Global Energy Monitor |
 | `curated/` | The atlas content: conflicts, ethnic groups, religions, relations, resources, chokepoints, timeline, sources | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — a compilation adapted from «الأطلس الجيوسياسي والعرقي الديني العالمي» |
 
 Changes this project made to the compiled content are listed in `curated/corrections.json` and on the atlas's Sources page, as CC BY 4.0 asks. Each record names its own sources in `sources.json`; those sources keep their own terms.
@@ -95,3 +96,35 @@ The data is under **CC BY-NC-SA 4.0**: attribution, non-commercial use, and shar
 Cite: Schvitz, Rüegger, Girardin, Cederman, Weidmann and Gleditsch (2022), *Mapping the International System, 1886–2019: The CShapes 2.0 Dataset*, Journal of Conflict Resolution 66(1): 144–61.
 
 `npm run check-data` checks that every unit has the fields the lens reads, an Arabic name and a start that does not fall after its end.
+
+## Pipelines and LNG terminals (`energy/`)
+
+The Oil & gas pipelines lens loads these three files on demand. They come from the official downloads of Global Energy Monitor's trackers, which are under **CC BY 4.0** (stated on the Copyright sheet of each file):
+
+- Gas pipelines: Global Gas Infrastructure Tracker, November 2025 release
+- Oil and NGL pipelines: Global Oil Infrastructure Tracker, June 2026 release (the corrected file of 21 July 2026)
+- LNG terminals: Global Gas Infrastructure Tracker, October 2026 release
+
+- **`pipelines.topo.json`** (object `pipelines`) keeps only the segments that are operating or under construction and have a mapped route. Pieces that meet end to end are joined, stubs under 5 km are dropped, and the lines are simplified with mapshaper (`-simplify interval=2500`, no topology, quantisation 1e5); lines crossing the antimeridian are split. Each geometry is one GEM project row (a line, or one phase or branch of a larger system) with these fields:
+  - `id`: GEM ProjectID
+  - `n`: PipelineName (segments of one system share it); `sg`: SegmentName
+  - `f`: `gas`, `oil` or `ngl`; `st`: `operating` or `construction`
+  - `boe`: capacity in barrels of oil equivalent a day (GEM's conversion); `bcm`: capacity in bcm a year (gas)
+  - `km`: length (GEM's published length, or its estimate from the route)
+  - `c`: states on the route, in order, as ISO3 codes
+  - `y`: start year (or expected start)
+  - `o`: owner, with shares other than 100 %
+  - `w`: GEM.wiki page
+  - `acc`: route accuracy (`exact`, `high`, `medium`, `low`)
+  - `a`, `b`: start and end locations; `d`: diameter
+- **`lng.json`** has one entry per terminal and type (export or import), summing its operating and under-construction units: `id`, `n` (name), `t` (type), `st` (status), `iso`, `lon`, `lat`, `op` and `con` (capacity in million tonnes a year), `units`, `y` (first year in service), `yc` (planned start), `loc`, `o` (owner), `w` (GEM.wiki page), `fl` (floating), `approx` (approximate location).
+- **`meta.json`** holds:
+  - the three sources with their licence and citation
+  - the atlas's Arabic names for prominent systems
+  - sourced notes on nine strategic lines (East–West, Habshan–Fujairah, SUMED, Kirkuk–Ceyhan, Druzhba, TurkStream, Greater Nile, Arish–Ashkelon, the Myanmar–China lines), each linked to chokepoints and conflicts and checked against the sources on the date given
+
+Idle, mothballed, proposed and cancelled lines (Nord Stream, Yamal–Europe, Kirkuk–Baniyas, for example) are not shown. GEM's status is as of each release; actual flows can differ, and the notes say so where they were checked. Some routes are only straight lines between the ends (`acc: low`), and the dossier says so.
+
+Cite: Global Energy Monitor, Global Gas Infrastructure Tracker (November 2025 release for pipelines, October 2026 for LNG terminals); Global Oil Infrastructure Tracker - Oil/NGL Pipelines - June 2026 release.
+
+`npm run check-data` checks that every segment is a line with a known fuel and status, a unique id and known states; that LNG terminals have a type, status and valid coordinates; and that every Arabic name and note points to a line in the data, with known chokepoints and conflicts and at least one https source.
