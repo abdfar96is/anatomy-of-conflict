@@ -18,10 +18,11 @@ export interface Filters {
   nuclearMode: 'military' | 'civil' | 'zones';
   /** Year the Historical borders lens shows (borders as they stood on 31 December). */
   bordersYear: number;
-  /** Pipelines lens: fuels shown, status shown, LNG terminals on/off, sourced strategic lines only. */
+  /** Pipelines lens: fuels shown, status shown, LNG terminals on/off, halted lines on/off, sourced strategic lines only. */
   pipeFuels: Set<string>;
   pipeStatus: 'all' | 'operating' | 'construction';
   pipeLng: boolean;
+  pipeHalted: boolean;
   pipeStrategic: boolean;
   timelineCats: Set<string> | null;
   ethnicFamily: string | null;
@@ -53,7 +54,7 @@ export const initialState = (): AtlasState => ({
     relKinds: new Set(['treaty', 'assessed']),
     bloc: null, resourceClass: null, religionMode: 'majority', religionTradition: 'sunni',
     overviewMode: 'continent', nuclearMode: 'military', bordersYear: 1914, timelineCats: null, ethnicFamily: null,
-    pipeFuels: new Set(['gas', 'oil', 'ngl']), pipeStatus: 'all', pipeLng: true, pipeStrategic: false,
+    pipeFuels: new Set(['gas', 'oil', 'ngl']), pipeStatus: 'all', pipeLng: true, pipeHalted: false, pipeStrategic: false,
   },
   layers: { labels: true, graticule: true, boundaries: true, disputed: true, ethnic: false, conflicts: false, arcs: false },
 });

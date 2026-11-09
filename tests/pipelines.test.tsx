@@ -14,7 +14,7 @@ import { atlas, initialState } from '../src/app/store';
 import { DbContext } from '../src/app/useT';
 import { LENSES } from '../src/config';
 import { build } from '../src/data/build';
-import { buildEnergy, capacityClass, fmtCapacity, setEnergy, type Energy, type EnergyMeta } from '../src/data/energy';
+import { buildEnergy, capacityClass, fmtCapacity, isHalted, setEnergy, type Energy, type EnergyMeta } from '../src/data/energy';
 import { topoLines, type Topology } from '../src/data/topo';
 import type { DB } from '../src/data/types';
 import { Dossier } from '../src/features/dossier';
@@ -56,9 +56,14 @@ describe('TopoJSON lines', () => {
 });
 
 describe('the GEM model', () => {
-  test('operating and under-construction segments of gas, oil and NGL, and LNG terminals', () => {
-    expect(E.pipes.length).toBe(4076);
-    expect(new Set(E.pipes.map((p) => p.status))).toEqual(new Set(['operating', 'construction']));
+  test('operating, under-construction and halted segments of gas, oil and NGL, and LNG terminals', () => {
+    expect(E.pipes.length).toBe(4121);
+    expect(E.pipes.filter((p) => !isHalted(p)).length).toBe(4076);
+    expect(new Set(E.pipes.map((p) => p.status))).toEqual(new Set(['operating', 'construction', 'idle', 'mothballed']));
+    // a stop year only on halted lines; Nord Stream is mothballed since 2022, Kirkuk–Baniyas since 2003
+    expect(E.pipes.every((p) => p.stopYear == null || isHalted(p))).toBe(true);
+    expect(system('Nord Stream Gas Pipeline')[0]).toMatchObject({ status: 'mothballed', stopYear: 2022 });
+    expect(system('Kirkuk-Baniyas Oil Pipelines')[0]).toMatchObject({ status: 'mothballed', stopYear: 2003 });
     expect(new Set(E.pipes.map((p) => p.fuel))).toEqual(new Set(['gas', 'oil', 'ngl']));
     expect(E.lng.length).toBe(327);
     expect(E.pipes.every((p) => p.lines.length > 0 && p.lines.every((l) => l.length >= 2))).toBe(true);
@@ -79,8 +84,9 @@ describe('the GEM model', () => {
     expect([capacityClass(undefined), capacityClass(5e4), capacityClass(2e5), capacityClass(5e5), capacityClass(2e6)]).toEqual([0, 1, 2, 3, 4]);
   });
 
-  test('nine sourced strategic lines, each with sources and a check date', () => {
-    expect(E.meta.notes).toHaveLength(9);
+  test('fourteen sourced strategic lines, five of them halted, each with sources and a check date', () => {
+    expect(E.meta.notes).toHaveLength(14);
+    expect(E.meta.notes.filter((n) => n.pipelines.every((name) => system(name).every(isHalted)))).toHaveLength(5);
     for (const n of E.meta.notes) {
       expect(n.sources.length).toBeGreaterThan(0);
       expect(n.verified).toMatch(/^\d{4}-\d{2}-\d{2}$/);
@@ -105,9 +111,9 @@ describe('the lens', () => {
     expect(LENSES[LENSES.length - 1]!.id).toBe('pipelines');
   });
 
-  test('draws every segment, coloured by fuel, dashed under construction, LNG terminals as markers', () => {
+  test('draws every active segment, coloured by fuel, dashed under construction, LNG terminals as markers', () => {
     const sc = buildScene(db, S(), P);
-    expect(items(sc)).toHaveLength(E.pipes.length);
+    expect(items(sc)).toHaveLength(E.pipes.filter((p) => !isHalted(p)).length);
     const gas = sc.lines.find((l) => l.items.some((it) => E.byId.get(it.id)!.fuel === 'gas'))!;
     const oil = sc.lines.find((l) => l.items.some((it) => E.byId.get(it.id)!.fuel === 'oil'))!;
     expect(gas.color).not.toBe(oil.color);
@@ -126,9 +132,41 @@ describe('the lens', () => {
     const building = items(buildScene(db, S({ pipeStatus: 'construction' }), P));
     expect(building.length).toBeGreaterThan(0);
     expect(building.every((p) => p.status === 'construction')).toBe(true);
-    const sourced = items(buildScene(db, S({ pipeStrategic: true }), P));
+    const sourced = items(buildScene(db, S({ pipeStrategic: true, pipeHalted: true }), P));
     expect(new Set(sourced.map((p) => p.system))).toEqual(new Set(E.meta.notes.flatMap((n) => n.pipelines)));
     expect(buildScene(db, S({ pipeLng: false }), P).markers.filter((m) => m.kind === 'lng')).toHaveLength(0);
+  });
+
+  test('halted lines are their own layer, off by default, drawn dotted with round caps', () => {
+    expect(items(buildScene(db, S(), P)).some(isHalted)).toBe(false);
+    const sc = buildScene(db, S({ pipeHalted: true }), P);
+    const halted = sc.lines.filter((l) => l.items.some((it) => isHalted(E.byId.get(it.id)!)));
+    expect(halted.flatMap((l) => l.items)).toHaveLength(E.pipes.filter(isHalted).length);
+    for (const l of halted) {
+      expect(l.cap).toBe('round');
+      expect(l.items.every((it) => isHalted(E.byId.get(it.id)!))).toBe(true);
+    }
+    // the status filter applies to active lines only
+    const built = items(buildScene(db, S({ pipeHalted: true, pipeStatus: 'construction' }), P));
+    expect(new Set(built.map((p) => p.status))).toEqual(new Set(['construction', 'idle', 'mothballed']));
+  });
+
+  test('a halted line: tooltip and dossier give its stop year; the card toggles the layer and opens a sourced halted line', () => {
+    const ns = system('Nord Stream Gas Pipeline')[0]!;
+    expect(tipFor({ kind: 'pipeline', id: ns.id }, db, { ...S(), lang: 'en' })).toContain('Natural gas · Mothballed · Stopped since 2022');
+    atlas.set({ lens: 'pipelines', lang: 'en' });
+    withDb(<><Legend /><Dossier /></>);
+    const legend = document.getElementById('legend')!;
+    fireEvent.click(legend.querySelector('[data-key="pipeHalted"]')!);
+    expect(atlas.get().filters.pipeHalted).toBe(true);
+    fireEvent.click(legend.querySelector('[data-key="pipeHalted"]')!);
+    expect(atlas.get().filters.pipeHalted).toBe(false);
+    fireEvent.click(screen.getByRole('button', { name: /Nord Stream/ }));
+    expect(atlas.get().filters.pipeHalted).toBe(true);
+    expect(E.byId.get(atlas.get().selection!.id)!.system).toMatch(/^Nord Stream/);
+    expect(document.getElementById('dz-panel')!.textContent).toContain('gross sabotage');
+    act(() => { atlas.select('pipeline', ns.id, { fly: false }); });
+    expect(document.getElementById('dz-panel')!.textContent).toContain('Stopped2022');
   });
 
   test('a selected segment highlights its whole system', () => {

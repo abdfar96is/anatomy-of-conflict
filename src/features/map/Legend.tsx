@@ -11,10 +11,10 @@ import { Icon } from '../../ui/Icon';
 import { catVar, edgeVar, pal, resClassVar, sevVar, traditionColor, type Palette } from '../../ui/palette';
 import {
   BLOC_T, CHOKE_T, CONTINENTS, ETHNIC_CLASSES, GDP_RANGE, INCOME, POP_RANGE, RES_SHAPE,
-  PIPE_DASH, PIPE_W, activeBloc, bi, borderFill, decadeWindow, ethnicClass, fuelVar, landTint, lngColor, nuclearCivilFill, nuclearFill, nuclearZoneFill, plantColor, seqFill,
+  PIPE_DASH, PIPE_DOTS, PIPE_W, activeBloc, bi, borderFill, decadeWindow, ethnicClass, fuelVar, landTint, lngColor, nuclearCivilFill, nuclearFill, nuclearZoneFill, plantColor, seqFill,
   visibleConflicts, visibleLng, visiblePipes, windowEvents,
 } from './engine/scene';
-import { FUELS, FUEL_LABEL, PIPE_STATUS, STATUS_LABEL, capacityClass, systemName } from '../../data/energy';
+import { FUELS, FUEL_LABEL, PIPE_STATUS, STATUS_LABEL, capacityClass, isHalted, systemName } from '../../data/energy';
 import { useEnergy } from '../pipelines/useEnergy';
 import '../pipelines/strings';
 import { getBorders, unitsAt } from '../../data/borders';
@@ -413,8 +413,10 @@ function PipelinesCard({ S, P, T: { t, pick: L, fmt, lang } }: Ctx) {
   const f = S.filters;
   const shown = visiblePipes(E, S), lng = visibleLng(E, S);
   // counts under the other filter, so each chip says what turning it on would add
-  const byStatus = E.pipes.filter((p) => f.pipeFuels.has(p.fuel) && (!f.pipeStrategic || E.noteOf.has(p.system)));
-  const byFuel = E.pipes.filter((p) => (f.pipeStatus === 'all' || p.status === f.pipeStatus) && (!f.pipeStrategic || E.noteOf.has(p.system)));
+  const sourced = (p: (typeof E.pipes)[number]) => !f.pipeStrategic || E.noteOf.has(p.system);
+  const byStatus = E.pipes.filter((p) => !isHalted(p) && f.pipeFuels.has(p.fuel) && sourced(p));
+  const byFuel = E.pipes.filter((p) => (isHalted(p) ? f.pipeHalted : f.pipeStatus === 'all' || p.status === f.pipeStatus) && sourced(p));
+  const halted = E.pipes.filter((p) => isHalted(p) && f.pipeFuels.has(p.fuel) && sourced(p));
   const fuels = FUELS.map((id) => (
     <Chip key={id} act="toggle" k="pipeFuels" val={id} pressed={f.pipeFuels.has(id)} label={L(FUEL_LABEL[id])} n={byFuel.filter((p) => p.fuel === id).length}
       lead={<LineGlyph color={fuelVar(id)} width={2.6} round />} onClick={() => atlas.toggleInSet('pipeFuels', id)} />
@@ -429,14 +431,20 @@ function PipelinesCard({ S, P, T: { t, pick: L, fmt, lang } }: Ctx) {
   const weights = [4, 3, 2, 1, 0].map((cls) => (
     <KeyRow key={cls} lead={<LineGlyph color="var(--fg-2)" width={PIPE_W[cls]! * 1.3} round />} label={t('pp.w' + cls)} n={shown.filter((p) => capacityClass(p.boe) === cls).length} />
   ));
-  // one row per sourced system, opening its largest segment
+  // one row per sourced system, opening its largest segment (a halted one turns its layer on)
   const notes = E.meta.notes.map((n) => {
     const segs = n.pipelines.flatMap((name) => E.bySystem.get(name) ?? []);
     const top = segs.reduce<(typeof segs)[number] | undefined>((a, b) => (!a || (b.km ?? 0) > (a.km ?? 0) ? b : a), undefined);
     if (!top) return null;
     return (
-      <li key={n.pipelines[0]}><button type="button" className="bd-change pp-note" onClick={() => { atlas.set({ lens: 'pipelines' }); atlas.select('pipeline', top.id, { fly: true }); }}>
-        <svg className="glyph line" width="18" height="10" viewBox="0 0 18 10" aria-hidden="true"><line x1="2" y1="5" x2="16" y2="5" style={{ stroke: fuelVar(top.fuel), strokeWidth: 3, strokeLinecap: 'round' }} /></svg>
+      <li key={n.pipelines[0]}><button type="button" className="bd-change pp-note" onClick={() => {
+        atlas.set({ lens: 'pipelines' });
+        if (isHalted(top) && !atlas.get().filters.pipeHalted) atlas.setFilter('pipeHalted', true);
+        atlas.select('pipeline', top.id, { fly: true });
+      }}>
+        <svg className="glyph line" width="18" height="10" viewBox="0 0 18 10" aria-hidden="true">
+          <line x1="2" y1="5" x2="16" y2="5" style={{ stroke: fuelVar(top.fuel), strokeWidth: 3, strokeLinecap: 'round', strokeDasharray: isHalted(top) ? '0.1 4.5' : undefined }} />
+        </svg>
         <span>{systemName(E, top.system, lang)}</span>
       </button></li>
     );
@@ -449,6 +457,8 @@ function PipelinesCard({ S, P, T: { t, pick: L, fmt, lang } }: Ctx) {
         <Chips label={t('pp.show')}>
           <Chip act="layer" k="pipeLng" pressed={f.pipeLng} label={t('pp.lng')} n={lng.length || undefined} lead={<Glyph shape="triangle" color={lngColor(P)} size={12} />}
             onClick={() => atlas.setFilter('pipeLng', !f.pipeLng)} />
+          <Chip act="layer" k="pipeHalted" pressed={f.pipeHalted} label={t('pp.halted')} n={halted.length}
+            lead={<LineGlyph color="var(--fg-2)" width={2.4} dash={PIPE_DOTS.join(' ')} round />} onClick={() => atlas.setFilter('pipeHalted', !f.pipeHalted)} />
           <Chip act="layer" k="pipeStrategic" pressed={f.pipeStrategic} label={t('pp.strategic')} n={E.meta.notes.length}
             onClick={() => atlas.setFilter('pipeStrategic', !f.pipeStrategic)} />
         </Chips>
@@ -457,6 +467,7 @@ function PipelinesCard({ S, P, T: { t, pick: L, fmt, lang } }: Ctx) {
         <Keys>{weights}</Keys>
         <Keys>
           <KeyRow lead={<LineGlyph color="var(--fg-2)" width={2} dash={PIPE_DASH.join(' ')} />} label={t('pp.dashed')} />
+          {f.pipeHalted ? <KeyRow lead={<LineGlyph color="var(--fg-2)" width={2.4} dash={PIPE_DOTS.join(' ')} round />} label={t('pp.dotted')} n={shown.filter(isHalted).length} /> : null}
           <KeyRow lead={<span className="pp-cased" aria-hidden="true"><LineGlyph color="var(--fg-2)" width={2.4} round /></span>} label={t('pp.cased')} />
           {f.pipeLng && f.pipeFuels.has('gas') ? <>
             <KeyRow lead={<Glyph shape="triangle" color={lngColor(P)} />} label={t('pp.lngExport')} n={lng.filter((x) => x.type === 'export' && x.status === 'operating').length} />
@@ -467,6 +478,7 @@ function PipelinesCard({ S, P, T: { t, pick: L, fmt, lang } }: Ctx) {
         <p className="lc-note">{t('pp.total', { n: fmt.num(shown.length), km: fmt.num(Math.round(km / 1000) * 1000) })}</p>
       </Sec>
       <Sec label={t('pp.notes')}><ul className="bd-changes">{notes}</ul></Sec>
+      {f.pipeHalted ? <Note text={t('pp.haltedNote')} /> : null}
       <Note text={t('pp.note')} />
     </>
   );

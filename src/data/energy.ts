@@ -1,5 +1,6 @@
 // Oil and gas pipelines and LNG terminals (Global Energy Monitor trackers): the segments that are operating or under
-// construction, with a mapped route. Loaded on demand the first time the Pipelines lens opens, like the borders.
+// construction, plus the halted ones (idle or mothballed) as an optional layer, each with a mapped route. Loaded on
+// demand the first time the Pipelines lens opens, like the borders.
 
 import type { Position } from 'geojson';
 import { fmtCompact, fmtNum, type Bi, type Lang } from '../i18n/format';
@@ -7,14 +8,17 @@ import { topoLines, type Topology } from './topo';
 
 export const FUELS = ['gas', 'oil', 'ngl'] as const;
 export type Fuel = (typeof FUELS)[number];
+/** Active statuses (the status filter) and halted ones (their own layer): idle, or mothballed for the longer term. */
 export const PIPE_STATUS = ['operating', 'construction'] as const;
-export type PipeStatus = (typeof PIPE_STATUS)[number];
+export const HALTED_STATUS = ['idle', 'mothballed'] as const;
+export type PipeStatus = (typeof PIPE_STATUS)[number] | (typeof HALTED_STATUS)[number];
+export const isHalted = (p: { status: PipeStatus }) => p.status === 'idle' || p.status === 'mothballed';
 export type RouteAccuracy = 'low' | 'medium' | 'high' | 'exact';
 
 /** Compact properties as stored in energy/pipelines.topo.json (see public/data/README.md). */
 interface RawPipe {
   id: string; n: string; sg?: string; f: Fuel; st: PipeStatus; boe?: number; bcm?: number; km?: number; c?: string;
-  y?: number; o?: string; w?: string; acc?: string; a?: string; b?: string; d?: string;
+  y?: number; z?: number; o?: string; w?: string; acc?: string; a?: string; b?: string; d?: string;
 }
 /** One segment (a GEM project row): a line, or one phase or branch of a larger system. */
 export interface Pipeline {
@@ -25,18 +29,21 @@ export interface Pipeline {
   fuel: Fuel; status: PipeStatus;
   /** Capacity in barrels of oil equivalent a day (GEM's conversion), and in bcm a year for gas. */
   boe?: number; bcm?: number;
-  km?: number; countries: string[]; year?: number; owner?: string; wiki?: string;
+  km?: number; countries: string[]; year?: number;
+  /** Year operations ended, for halted segments (GEM StopYear). */
+  stopYear?: number;
+  owner?: string; wiki?: string;
   accuracy: RouteAccuracy; from?: string; to?: string; diameter?: string;
   lines: Position[][];
 }
 export interface LngTerminal {
-  id: string; name: string; type: 'import' | 'export'; status: PipeStatus; iso3?: string; coords: [number, number];
+  id: string; name: string; type: 'import' | 'export'; status: (typeof PIPE_STATUS)[number]; iso3?: string; coords: [number, number];
   /** Capacity in million tonnes a year: in operation, and under construction. */
   mtpa: { operating: number; construction: number };
   units: number; year?: number; yearPlanned?: number; location?: string; owner?: string; wiki?: string; floating: boolean; approximate: boolean;
 }
 interface RawLng {
-  id: string; n: string; t: 'import' | 'export'; st: PipeStatus; iso?: string; lon: number; lat: number; op: number; con: number; units: number;
+  id: string; n: string; t: 'import' | 'export'; st: (typeof PIPE_STATUS)[number]; iso?: string; lon: number; lat: number; op: number; con: number; units: number;
   y?: number; yc?: number; loc?: string; o?: string; w?: string; fl?: number; approx?: number;
 }
 export interface EnergySource { name: string; publisher: string; release: string; file: string; url: string; license: string; licenseUrl: string; citation: string }
@@ -62,7 +69,7 @@ export interface Energy {
 export function buildEnergy(topo: Topology, lngRows: RawLng[], meta: EnergyMeta): Energy {
   const pipes: Pipeline[] = topoLines<RawPipe>(topo, 'pipelines').map(({ properties: p, geometry: g }) => ({
     id: p.id, system: p.n, segment: p.sg, fuel: p.f, status: p.st, boe: p.boe, bcm: p.bcm, km: p.km,
-    countries: p.c ? p.c.split(',') : [], year: p.y, owner: p.o, wiki: p.w,
+    countries: p.c ? p.c.split(',') : [], year: p.y, stopYear: p.z, owner: p.o, wiki: p.w,
     accuracy: (p.acc === 'exact' || p.acc === 'high' || p.acc === 'medium' ? p.acc : 'low'), from: p.a, to: p.b, diameter: p.d,
     lines: g.type === 'LineString' ? [g.coordinates] : g.coordinates,
   }));
@@ -125,6 +132,8 @@ export const FUEL_LABEL: Record<Fuel, Bi> = {
 export const STATUS_LABEL: Record<PipeStatus, Bi> = {
   operating: { ar: 'عامل', en: 'Operating' },
   construction: { ar: 'قيد الإنشاء', en: 'Under construction' },
+  idle: { ar: 'متوقف', en: 'Idle' },
+  mothballed: { ar: 'مجمّد', en: 'Mothballed' },
 };
 export const ACCURACY_LABEL: Record<RouteAccuracy, Bi> = {
   exact: { ar: 'مسار دقيق (بالأمتار)', en: 'Exact route (within metres)' },
