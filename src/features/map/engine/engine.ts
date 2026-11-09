@@ -673,7 +673,7 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
     const w = ls.width * lineZoom() + (over?.extra ?? 0);
     // round joins and caps cost a lot to rasterise across thousands of parts: only when the map is still
     ctx.lineJoin = interacting ? 'bevel' : 'round';
-    ctx.lineCap = (ls.dash && !over) || interacting ? 'butt' : 'round';
+    ctx.lineCap = ls.cap === 'round' && !interacting ? 'round' : (ls.dash && !over) || interacting ? 'butt' : 'round';
     if (ls.casing) {
       ctx.globalAlpha = 0.85; ctx.strokeStyle = ls.casing; ctx.lineWidth = w + 2.4; ctx.setLineDash([]);
       ctx.stroke(path);
@@ -681,7 +681,8 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
     ctx.globalAlpha = over?.alpha ?? ls.alpha;
     ctx.strokeStyle = over?.color ?? ls.color;
     ctx.lineWidth = w;
-    ctx.setLineDash(over ? [] : ls.dash ?? []);
+    // dotted lines need round caps; while moving (butt caps) their dots become short dashes so they stay visible
+    ctx.setLineDash(over ? [] : ls.cap === 'round' && interacting ? [1.6, 2.4] : ls.dash ?? []);
     ctx.stroke(path);
     ctx.setLineDash([]);
     ctx.globalAlpha = 1;

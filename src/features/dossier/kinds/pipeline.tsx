@@ -3,7 +3,7 @@
 // same line; and the tracker with its licence and citation.
 
 import {
-  ACCURACY_LABEL, FUEL_LABEL, STATUS_LABEL, fmtCapacity, getEnergy, pipeName, wikiUrl, type Energy, type Pipeline,
+  ACCURACY_LABEL, FUEL_LABEL, STATUS_LABEL, fmtCapacity, getEnergy, isHalted, pipeName, wikiUrl, type Energy, type Pipeline,
 } from '../../../data/energy';
 import { Icon } from '../../../ui/Icon';
 import { fuelVar } from '../../map/engine/scene';
@@ -40,7 +40,8 @@ function body(E: Energy, p: Pipeline, k: Kit) {
     k.fact(t('pp.dz.status'), L(STATUS_LABEL[p.status]), { text: true }),
     cap ? k.fact(t('pp.dz.capacity'), k.numUnit(cap), { tipText: t('pp.dz.capTip') }) : null,
     p.km ? k.fact(t('pp.dz.length'), k.numUnit(`${fmt.num(p.km)} ${t('pp.dz.km')}`)) : null,
-    p.year ? k.fact(t(p.status === 'operating' ? 'pp.dz.start' : 'pp.dz.expected'), <span className="data">{p.year}</span>) : null,
+    p.year ? k.fact(t(p.status === 'construction' ? 'pp.dz.expected' : 'pp.dz.start'), <span className="data">{p.year}</span>) : null,
+    isHalted(p) && p.stopYear ? k.fact(t('pp.dz.stopped'), <span className="data">{p.stopYear}</span>) : null,
     p.diameter ? k.fact(t('pp.dz.diameter'), <bdi>{lang === 'ar' ? p.diameter.replace(/ in$/, ' بوصة').replace(/ mm$/, ' ملم').replace(/, /g, '، ') : p.diameter}</bdi>, { text: true }) : null,
     p.owner ? k.fact(t('pp.dz.owner'), <bdi>{p.owner}</bdi>, { text: true, wide: true }) : null,
     route ? k.fact(t('pp.dz.route'), <bdi>{route}</bdi>, { text: true, wide: true }) : null,

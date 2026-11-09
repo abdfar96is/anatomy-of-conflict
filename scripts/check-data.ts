@@ -206,7 +206,8 @@ export function checkData(dataDir: string): Problem[] {
       if (g.type !== 'LineString' && g.type !== 'MultiLineString') problems.push({ file, path: at, message: 'not a line', value: g.type });
       for (const k of ['id', 'n', 'f', 'st']) if (p[k] == null) problems.push({ file, path: `${at}.properties.${k}`, message: 'missing' });
       if (!['gas', 'oil', 'ngl'].includes(p.f as string)) problems.push({ file, path: `${at}.properties.f`, message: 'unknown fuel', value: p.f });
-      if (!['operating', 'construction'].includes(p.st as string)) problems.push({ file, path: `${at}.properties.st`, message: 'status outside operating / construction', value: p.st });
+      if (!['operating', 'construction', 'idle', 'mothballed'].includes(p.st as string)) problems.push({ file, path: `${at}.properties.st`, message: 'status outside operating / construction / idle / mothballed', value: p.st });
+      if (p.z != null && p.st !== 'idle' && p.st !== 'mothballed') problems.push({ file, path: `${at}.properties.z`, message: 'a stop year on a line that is not halted', value: p.z });
       if (ids.has(p.id as string)) problems.push({ file, path: `${at}.properties.id`, message: 'duplicate id', value: p.id });
       ids.add(p.id as string); systems.add(p.n as string);
       if (typeof p.c === 'string') p.c.split(',').forEach((iso) => country(file, `${at}.properties.c`, iso));

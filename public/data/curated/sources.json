@@ -120,8 +120,8 @@
       "id": "gem-pipelines",
       "file": "energy/pipelines.topo.json",
       "title": {
-        "ar": "خطوط أنابيب الغاز والنفط وسوائل الغاز العاملة وقيد الإنشاء — Global Energy Monitor",
-        "en": "Operating and under-construction gas, oil and NGL pipelines — Global Energy Monitor"
+        "ar": "خطوط أنابيب الغاز والنفط وسوائل الغاز العاملة وقيد الإنشاء والمتوقفة — Global Energy Monitor",
+        "en": "Operating, under-construction and halted gas, oil and NGL pipelines — Global Energy Monitor"
       },
       "publisher": {
         "ar": "Global Energy Monitor: متتبّع البنية التحتية للغاز (GGIT) ومتتبّع البنية التحتية للنفط (GOIT)",
@@ -132,16 +132,16 @@
       "published": "2026-07-21",
       "lastRetrieved": "2026-11-09",
       "resolution": {
-        "ar": "4,076 مقطعاً (مشروعاً) بمسار مرسوم، لكل منها الوقود والحالة والسعة والطول والدول والمالك وسنة التشغيل ودقة رسم المسار. الخطوط مبسّطة للعرض.",
-        "en": "4,076 segments (projects) with a mapped route, each with fuel, status, capacity, length, states, owner, start year and route accuracy. Lines simplified for display."
+        "ar": "4,076 مقطعاً عاملاً أو قيد الإنشاء و45 مقطعاً متوقفاً أو مجمّداً (طبقة اختيارية)، بمسار مرسوم، لكل منها الوقود والحالة والسعة والطول والدول والمالك وسنة التشغيل ودقة رسم المسار. الخطوط مبسّطة للعرض.",
+        "en": "4,076 operating or under-construction segments and 45 idle or mothballed ones (an optional layer), with a mapped route, each with fuel, status, capacity, length, states, owner, start year and route accuracy. Lines simplified for display."
       },
       "methodology": {
-        "ar": "من ملفي GeoJSON الرسميين: أنابيب الغاز (إصدار نوفمبر 2025) وأنابيب النفط وسوائل الغاز (إصدار يونيو 2026 المصحّح، ملف 21 يوليو 2026). أُبقي على المقاطع العاملة وقيد الإنشاء التي لها مسار فقط، ووُصلت القطع المتتالية، وحُذفت الزوائد الأقصر من 5 كم، وبُسّطت الخطوط بأداة mapshaper بفاصل 2.5 كم. أسماء الخطوط البارزة بالعربية والملاحظات الموثّقة على تسعة خطوط استراتيجية من إعداد الأطلس في energy/meta.json.",
-        "en": "From the two official GeoJSON files: gas pipelines (November 2025 release) and oil and NGL pipelines (corrected June 2026 release, file of 21 July 2026). Only operating and under-construction segments with a route are kept; consecutive pieces are joined, stubs under 5 km dropped, and lines simplified with mapshaper at a 2.5 km interval. Arabic names of prominent lines and the sourced notes on nine strategic lines are the atlas's own, in energy/meta.json."
+        "ar": "من ملفي GeoJSON الرسميين: أنابيب الغاز (إصدار نوفمبر 2025) وأنابيب النفط وسوائل الغاز (إصدار يونيو 2026 المصحّح، ملف 21 يوليو 2026). أُبقي على المقاطع العاملة وقيد الإنشاء والمتوقفة والمجمّدة التي لها مسار، ووُصلت القطع المتتالية، وحُذفت الزوائد الأقصر من 5 كم، وبُسّطت الخطوط بأداة mapshaper بفاصل 2.5 كم. أسماء الخطوط البارزة بالعربية والملاحظات الموثّقة على أربعة عشر خطاً استراتيجياً من إعداد الأطلس في energy/meta.json.",
+        "en": "From the two official GeoJSON files: gas pipelines (November 2025 release) and oil and NGL pipelines (corrected June 2026 release, file of 21 July 2026). Operating, under-construction, idle and mothballed segments with a route are kept; consecutive pieces are joined, stubs under 5 km dropped, and lines simplified with mapshaper at a 2.5 km interval. Arabic names of prominent lines and the sourced notes on fourteen strategic lines are the atlas's own, in energy/meta.json."
       },
       "limitations": {
-        "ar": "لا تظهر الخطوط المتوقفة أو المجمّدة أو المقترحة أو الملغاة (مثل نورد ستريم وخط يامال–أوروبا)، ولا المقاطع التي ليس لها مسار عند GEM (نحو 790 مقطعاً عاملاً أو قيد الإنشاء، بعضها توسعات سعة لخطوط مرسومة). دقة المسارات متفاوتة: بعضها خط مستقيم بين الطرفين. الحالة كما في إصدار GEM، وقد يختلف التدفق الفعلي (مثل توقف خط بسبب نزاع)؛ الملاحظات الموثّقة تذكر ذلك حيث تحقّقنا منه. سعة النفط وسوائل الغاز بتحويل GEM إلى برميل مكافئ نفط يومياً.",
-        "en": "Idle, mothballed, proposed and cancelled lines (such as Nord Stream and Yamal–Europe) are not shown, nor segments without a route in GEM (about 790 operating or under-construction segments, some of them capacity expansions of mapped lines). Route accuracy varies: some are straight lines between the ends. Status is as of the GEM release; actual flows can differ (a line halted by conflict, for example); the sourced notes say so where we checked. Oil and NGL capacity is GEM's conversion to barrels of oil equivalent a day."
+        "ar": "الخطوط المتوقفة والمجمّدة (مثل نورد ستريم وخط يامال–أوروبا) طبقة اختيارية مطفأة افتراضياً، ولا تظهر المقترحة أو الملغاة أو المفكّكة، ولا المقاطع التي ليس لها مسار عند GEM (نحو 790 مقطعاً عاملاً أو قيد الإنشاء، بعضها توسعات سعة لخطوط مرسومة). دقة المسارات متفاوتة: بعضها خط مستقيم بين الطرفين. الحالة كما في إصدار GEM، وقد يختلف التدفق الفعلي (مثل توقف خط بسبب نزاع)؛ الملاحظات الموثّقة تذكر ذلك حيث تحقّقنا منه. سعة النفط وسوائل الغاز بتحويل GEM إلى برميل مكافئ نفط يومياً.",
+        "en": "Idle and mothballed lines (such as Nord Stream and Yamal–Europe) are an optional layer, off by default; proposed, cancelled and retired lines are not shown, nor segments without a route in GEM (about 790 operating or under-construction segments, some of them capacity expansions of mapped lines). Route accuracy varies: some are straight lines between the ends. Status is as of the GEM release; actual flows can differ (a line halted by conflict, for example); the sourced notes say so where we checked. Oil and NGL capacity is GEM's conversion to barrels of oil equivalent a day."
       }
     },
     {

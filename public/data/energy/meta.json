@@ -73,7 +73,21 @@
     "Trans Mountain Oil Pipeline": "خط ترانس ماونتن للنفط",
     "Trans-Alaska Oil Pipeline System": "خط ألاسكا للنفط",
     "Langeled Gas Pipeline": "خط لانغليد للغاز",
-    "Baltic Pipe Project": "خط البلطيق للغاز (بالتيك بايب)"
+    "Baltic Pipe Project": "خط البلطيق للغاز (بالتيك بايب)",
+    "Nord Stream Gas Pipeline": "خط السيل الشمالي (نورد ستريم) للغاز",
+    "Nord Stream 2 Gas Pipeline": "خط السيل الشمالي 2 (نورد ستريم 2) للغاز",
+    "Yamal-Europe Gas Pipeline": "خط يامال–أوروبا للغاز",
+    "Soyuz Gas Pipeline": "خط سويوز للغاز",
+    "Russian Federation – Turkey Natural Gas Main Transmission Line": "خط الغاز الرئيسي بين روسيا وتركيا",
+    "Iraqi Pipeline in Saudi Arabia (IPSA)": "خط الأنابيب العراقي عبر السعودية (إبسا)",
+    "Kirkuk-Baniyas Oil Pipelines": "خط كركوك–بانياس للنفط",
+    "Kirkuk—Tripoli Oil Pipeline": "خط كركوك–طرابلس للنفط",
+    "Marib-Ras Isa Oil Pipeline": "خط مأرب–رأس عيسى للنفط",
+    "Masila-Ash Shihr Oil Pipeline": "خط المسيلة–الشحر للنفط",
+    "Shabwah-Bir Ali Pipeline": "خط شبوة–بئر علي للنفط",
+    "Yemen LNG Gas Pipeline": "خط غاز اليمن المسال",
+    "Odessa–Brody Oil Pipeline": "خط أوديسا–برودي للنفط",
+    "Trans-Caribbean Gas Pipeline": "خط الغاز العابر للكاريبي"
   },
   "notes": [
     {
@@ -231,6 +245,108 @@
         {
           "title": "MP-IDSA, 10 January 2012: China's pipelines in Myanmar",
           "url": "https://idsa.in/?p=43773"
+        }
+      ],
+      "verified": "2026-11-09"
+    },
+    {
+      "pipelines": ["Nord Stream Gas Pipeline", "Nord Stream 2 Gas Pipeline"],
+      "chokepoints": [],
+      "conflicts": ["russia-ukraine"],
+      "ar": "السيل الشمالي 1 والسيل الشمالي 2: كلٌّ منهما خطّان تحت بحر البلطيق من روسيا إلى ألمانيا بطاقة 55 مليار م³ سنوياً، ولم يدخل السيل الشمالي 2 الخدمة قط. في سبتمبر 2022 مزّقت سلسلة انفجارات في المياه السويدية والدنماركية الخطوط، فخرج خطّا السيل الشمالي 1 عن العمل ومعهما أحد خطّي السيل الشمالي 2. وجد المحققون السويديون آثار متفجرات ووصفوا الحادثة بأنها تخريب جسيم، ثم أغلقت السويد والدنمارك تحقيقيهما في فبراير 2024، وبقي التحقيق الألماني مفتوحاً.",
+      "en": "Nord Stream 1 and Nord Stream 2: each a pair of lines under the Baltic Sea from Russia to Germany with a capacity of 55 bcm a year; Nord Stream 2 never entered service. In September 2022 a series of blasts in Swedish and Danish waters ruptured the pipelines, leaving both strings of Nord Stream 1 and one of the two strings of Nord Stream 2 inoperable. Swedish investigators found traces of explosives and called it gross sabotage; Sweden and Denmark closed their investigations in February 2024, while Germany's remained open.",
+      "sources": [
+        {
+          "title": "bne IntelliNews, 13 January 2025: TurkStream is now the only route for Russian gas to Europe",
+          "url": "https://www.intellinews.com/turkstream-is-now-the-only-route-for-russian-gas-to-europe-361174/"
+        },
+        {
+          "title": "The Maritime Executive, 18 November 2022: Sweden finds explosive traces, calling Nord Stream gross sabotage",
+          "url": "https://www.maritime-executive.com/article/sweden-finds-explosive-traces-calling-nord-stream-gross-sabotage"
+        },
+        {
+          "title": "The Business Standard (Reuters), 7 February 2024: Sweden ends investigation into Nord Stream pipeline blasts",
+          "url": "https://www.tbsnews.net/world/sweden-ends-investigation-nord-stream-pipeline-blasts-788822"
+        },
+        {
+          "title": "ProtoThema (Reuters), 27 February 2024: Denmark ends probe into deliberate Nord Stream pipeline blasts",
+          "url": "https://en.protothema.gr/reuters-denmark-ends-probe-into-deliberate-nord-stream-pipeline-blasts/"
+        }
+      ],
+      "verified": "2026-11-09"
+    },
+    {
+      "pipelines": ["Yamal-Europe Gas Pipeline"],
+      "chokepoints": [],
+      "conflicts": ["russia-ukraine"],
+      "ar": "ينقل حتى 33 مليار م³ سنوياً من شبه جزيرة يامال وغرب سيبيريا عبر بيلاروس وبولندا إلى ألمانيا. أوقفت غازبروم الإمدادات عبره في أبريل 2022، وفي مايو فرضت روسيا عقوبات على شركة EuRoPol GAZ مالكة القسم البولندي ردّاً على العقوبات الغربية بسبب غزو أوكرانيا، فأعلنت غازبروم أنها لن تنقل الغاز عبر هذا القسم. وفي نوفمبر 2022 وضعت بولندا يدها على حصة غازبروم في الشركة.",
+      "en": "Can carry up to 33 billion cubic metres a year from Russia's Yamal peninsula and western Siberia through Belarus and Poland to Germany. Gazprom halted supplies through it in April 2022; in May Russia sanctioned EuRoPol GAZ, owner of the Polish section, in retaliation for Western sanctions over the invasion of Ukraine, and Gazprom said it would no longer send gas through that section. In November 2022 Poland seized Gazprom's share in EuRoPol GAZ.",
+      "sources": [
+        {
+          "title": "The Moscow Times, 12 May 2022: Russia's Gazprom halts gas transports to Europe via Poland pipeline",
+          "url": "https://www.themoscowtimes.com/2022/06/25/russias-gazprom-halts-gas-transports-to-europe-via-poland-pipeline"
+        },
+        {
+          "title": "The Peninsula (AFP), 14 November 2022: Poland seizes Gazprom share in Yamal pipeline section",
+          "url": "https://s.thepeninsula.qa/article/14/11/2022/poland-seizes-gazprom-share-in-yamal-pipeline-section"
+        }
+      ],
+      "verified": "2026-11-09"
+    },
+    {
+      "pipelines": ["Iraqi Pipeline in Saudi Arabia (IPSA)"],
+      "chokepoints": ["hormuz"],
+      "conflicts": ["gulf-security"],
+      "ar": "بناه العراق عبر الأراضي السعودية إلى مرفأ المعجز على البحر الأحمر بكلفة لا تقل عن 2.25 مليار دولار وطاقة 1.6 مليون برميل يومياً. عمل بكامل طاقته أقل من عام، من سبتمبر 1989 حتى 13 أغسطس 1990، حين أوقفته السعودية بعد العقوبات الأممية التي تلت غزو العراق للكويت، ثم أعلنت تملّكه في يونيو 2001. استخدمته السعودية لاحقاً لنقل الغاز إلى محطات الكهرباء في غرب المملكة، وجرّبت فتحه في 2012 منفذاً لتصدير مزيد من نفطها إن حاولت إيران إغلاق مضيق هرمز.",
+      "en": "Built by Iraq across Saudi Arabia to the Red Sea terminal of Mu'jiz, at a cost of at least $2.25 billion and with a capacity of 1.6 million barrels a day. It ran fully for less than a year, from September 1989 until 13 August 1990, when Saudi Arabia shut it after the UN sanctions that followed Iraq's invasion of Kuwait; in June 2001 Saudi Arabia took ownership of it. Saudi Arabia later used it to carry gas to power plants in the west of the country and test-opened it in 2012, as a way to export more crude should Iran try to block the Strait of Hormuz.",
+      "sources": [
+        {
+          "title": "Gulf News (Reuters), 12 June 2001: Saudi Arabia seizes Iraqi pipeline on its territory",
+          "url": "https://gulfnews.com/uae/saudi-arabia-seizes-iraqi-pipeline-on-its-territory-1.418782"
+        },
+        {
+          "title": "Hydrocarbon Processing, August 2017: Iraq wants to reopen old Saudi crude exports pipeline",
+          "url": "https://hydrocarbonprocessing.com/news/2017/08/iraq-wants-to-reopen-old-saudi-crude-exports-pipeline/"
+        }
+      ],
+      "verified": "2026-11-09"
+    },
+    {
+      "pipelines": ["Kirkuk-Baniyas Oil Pipelines"],
+      "chokepoints": ["hormuz"],
+      "conflicts": ["syria-transition", "iran-us-israel"],
+      "ar": "بُني عام 1952 من حقول كركوك إلى ميناء بانياس السوري على المتوسط، بطاقة 300 ألف برميل يومياً، وهو خارج الخدمة منذ تضرّره خلال الغزو الأمريكي للعراق في 2003. اتفق العراق وسوريا في 29 يونيو 2026 على إعادة تأهيله، وبدأت الدراسات التحضيرية في يوليو؛ وتقدّر وزارة الخارجية الأمريكية طاقته الأولية بعد التأهيل بما يصل إلى مليوني برميل يومياً، وتتراوح تقديرات الكلفة المذكورة بين 6 و8 مليارات دولار. يمرّ نحو 95% من صادرات النفط العراقية عبر مضيق هرمز.",
+      "en": "Built in 1952 from the Kirkuk fields to Syria's Mediterranean port of Baniyas, with a capacity of 300,000 barrels a day; out of service since it was damaged during the 2003 US-led invasion of Iraq. Iraq and Syria agreed on 29 June 2026 to rehabilitate it, and preparatory studies began in July; the US State Department puts its initial capacity once restored at up to 2 million barrels a day, and cost estimates cited range from 6 to 8 billion dollars. Roughly 95% of Iraq's oil exports pass through the Strait of Hormuz.",
+      "sources": [
+        {
+          "title": "Shafaq News, 29 June 2026: Iraq, Syria to rehabilitate Kirkuk-Baniyas oil pipeline",
+          "url": "https://www.shafaq.com/en/Iraq/Iraq-Syria-to-rehabilitate-Kirkuk-Baniyas-oil-pipeline"
+        },
+        {
+          "title": "Shafaq News, 22 July 2026: Preparatory studies begin on Kirkuk-Baniyas pipeline rehabilitation",
+          "url": "https://shafaq.com/en/Report/Preparatory-studies-begin-on-Kirkuk-Baniyas-pipeline-rehabilitation"
+        },
+        {
+          "title": "Shafaq News, 20 September 2026: Syria advances Kirkuk-Baniyas pipeline project with Iraq",
+          "url": "https://shafaq.com/en/Economy/Syria-advances-Kirkuk-Baniyas-pipeline-project-with-Iraq"
+        }
+      ],
+      "verified": "2026-11-09"
+    },
+    {
+      "pipelines": ["Masila-Ash Shihr Oil Pipeline"],
+      "chokepoints": [],
+      "conflicts": ["yemen"],
+      "ar": "ينقل الخام من منشأة المعالجة المركزية في المسيلة إلى ميناء الشحر في حضرموت، حيث يقع مرفأ الضبة للتصدير في مناطق الحكومة المعترف بها دولياً. في أواخر 2022 هاجم الحوثيون موانئ النفط في هذه المناطق للضغط من أجل مكاسب اقتصادية في محادثات الهدنة الأممية؛ وفي 21 نوفمبر 2022 أصابت قذيفة أطلقتها مسيّرة مدخل مرفأ الضبة بينما كانت ناقلة تستعد للتحميل، وقال مسؤولون إن الهجمات عطّلت صادرات النفط الخام وخنقت إيرادات الدولة. يصنّف GEM الخط متوقفاً منذ 2022.",
+      "en": "Carries crude from the Masila central processing facility to the port of al-Shihr in Hadramout, home of the al-Dhabba export terminal in government-held territory. In late 2022 the Houthis attacked oil ports in government-held areas to press for economic gains in UN-led truce talks; on 21 November 2022 a projectile fired from a drone hit the entrance of al-Dhabba as a tanker came to load, and officials said the attacks disrupted crude exports and choked state revenues. GEM lists the line as idle since 2022.",
+      "sources": [
+        {
+          "title": "Al Jazeera, 22 November 2022: Houthis attack Yemeni oil terminal in latest assault",
+          "url": "https://www.aljazeera.com/news/2022/11/22/houthis-attack-yemeni-oil-terminal-in-latest-assault"
+        },
+        {
+          "title": "gCaptain (Reuters), 21 November 2022: Drone-fired rocket hits offshore oil terminal in Yemen",
+          "url": "https://gcaptain.com/drone-fired-rocket-hits-offshore-oil-terminal-in-yemen"
         }
       ],
       "verified": "2026-11-09"

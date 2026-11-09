@@ -13,7 +13,7 @@ import type { Palette } from '../../../ui/palette';
 import { type LonLat } from './geo';
 import { getBorders, rulerColor, rulerName, statusLabel, unitName, unitsAt, yearEnd, type BorderUnit, type Borders } from '../../../data/borders';
 import {
-  ACCURACY_LABEL, FUEL_LABEL, STATUS_LABEL, capacityClass, fmtCapacity, fmtMtpa, getEnergy, pipeName, type Energy, type Fuel, type LngTerminal, type Pipeline,
+  ACCURACY_LABEL, FUEL_LABEL, STATUS_LABEL, capacityClass, fmtCapacity, fmtMtpa, getEnergy, isHalted, pipeName, type Energy, type Fuel, type LngTerminal, type Pipeline,
 } from '../../../data/energy';
 
 registerStrings({
@@ -63,6 +63,7 @@ registerStrings({
     'map.tip.pp.lng.import': 'محطة استيراد للغاز المسال', 'map.tip.pp.lng.export': 'محطة تصدير للغاز المسال',
     'map.tip.pp.lng.op': '{v} في الخدمة', 'map.tip.pp.lng.con': '{v} قيد الإنشاء',
     'map.tip.pp.note': 'يتوفّر ملف موثّق عن هذا الخط',
+    'map.tip.pp.stopped': 'متوقف منذ {y}',
     'map.kind.treaty': 'موثّقة رسمياً',
     'map.kind.assessed': 'تقدير تحليلي',
     'map.sep': '، ',
@@ -113,6 +114,7 @@ registerStrings({
     'map.tip.pp.lng.import': 'LNG import terminal', 'map.tip.pp.lng.export': 'LNG export terminal',
     'map.tip.pp.lng.op': '{v} in service', 'map.tip.pp.lng.con': '{v} under construction',
     'map.tip.pp.note': 'A sourced note on this line is available',
+    'map.tip.pp.stopped': 'Stopped since {y}',
     'map.kind.treaty': 'Formally documented',
     'map.kind.assessed': 'Analytical assessment',
     'map.sep': ', ',
@@ -137,7 +139,7 @@ export interface Poly {
 }
 /** Lines stroked in one style (pipelines). `casing` draws a wider halo under them; items are hit-tested by kind/id. */
 export interface LineItem { kind: Kind; id: string; lines: Position[][] }
-export interface LineSet { items: LineItem[]; color: string; width: number; dash?: number[]; alpha: number; casing?: string }
+export interface LineSet { items: LineItem[]; color: string; width: number; dash?: number[]; alpha: number; casing?: string; cap?: 'round' }
 export interface Scene {
   fill: Map<string, string>; hatch: Set<string>; hatchAlpha: number; emph: Set<string> | null;
   outlines: Outline[]; polys: Poly[]; under: Poly[]; selPolys: Poly[]; arcs: Arc[]; markers: Marker[]; labels: Label[]; badges: Badge[];
@@ -228,6 +230,8 @@ export const fuelVar = (fuel: Fuel) => `var(--cat-${FUEL_SLOT[fuel]})`;
 /** Stroke width by capacity class (0 = no published capacity). */
 export const PIPE_W = [0.6, 0.9, 1.4, 2.1, 3];
 export const PIPE_DASH = [5, 3];
+/** Halted lines: round dots, so they read apart from the dashes of lines under construction. */
+export const PIPE_DOTS = [0.1, 3.6];
 export const lngColor = (P: Palette) => P.cat[3]!;
 export const lngShape = (t: LngTerminal) => (t.status === 'construction' ? 'dashed' : t.type === 'export' ? 'triangle' : 'square');
 export const lngRadius = (t: LngTerminal) => Math.min(7, 2.6 + Math.sqrt(t.mtpa.operating || t.mtpa.construction) * 0.65);
@@ -235,7 +239,8 @@ export const lngRadius = (t: LngTerminal) => Math.min(7, 2.6 + Math.sqrt(t.mtpa.
 /** Segments the pipelines lens shows under the current filters. */
 export function visiblePipes(E: Energy, S: Pick<AtlasState, 'filters'>): Pipeline[] {
   const f = S.filters;
-  return E.pipes.filter((p) => f.pipeFuels.has(p.fuel) && (f.pipeStatus === 'all' || p.status === f.pipeStatus) && (!f.pipeStrategic || E.noteOf.has(p.system)));
+  return E.pipes.filter((p) => f.pipeFuels.has(p.fuel) && (isHalted(p) ? f.pipeHalted : f.pipeStatus === 'all' || p.status === f.pipeStatus)
+    && (!f.pipeStrategic || E.noteOf.has(p.system)));
 }
 export function visibleLng(E: Energy, S: Pick<AtlasState, 'filters'>): LngTerminal[] {
   const f = S.filters;
@@ -487,7 +492,9 @@ const BUILD: Record<LensId, Builder> = {
       const key = `${p.fuel}|${p.status}|${cls}|${strategic ? 1 : 0}`;
       let g = groups.get(key);
       if (!g) {
-        g = { items: [], color: pipeColor(P, p.fuel), width: PIPE_W[cls]!, dash: p.status === 'construction' ? PIPE_DASH : undefined, alpha: cls ? 0.95 : 0.7, casing: strategic ? P.halo : undefined };
+        g = isHalted(p)
+          ? { items: [], color: pipeColor(P, p.fuel), width: Math.max(1.6, PIPE_W[cls]!), dash: PIPE_DOTS, cap: 'round', alpha: 0.8, casing: strategic ? P.halo : undefined }
+          : { items: [], color: pipeColor(P, p.fuel), width: PIPE_W[cls]!, dash: p.status === 'construction' ? PIPE_DASH : undefined, alpha: cls ? 0.95 : 0.7, casing: strategic ? P.halo : undefined };
         groups.set(key, g);
       }
       g.items.push({ kind: 'pipeline', id: p.id, lines: p.lines });
@@ -698,7 +705,8 @@ export function tipFor(hit: Hit, DB: DB, S: AtlasState): string {
       if (!E || !x) return '';
       const cap = fmtCapacity(x, S.lang);
       const places = x.countries.map((iso) => nameOf(DB, iso, S.lang)).join(t('map.sep'));
-      return tip(pipeName(E, x, S.lang), x.segment ? t('map.tip.pp.segment', { s: x.segment }) : '', `${L(FUEL_LABEL[x.fuel])} · ${L(STATUS_LABEL[x.status])}`,
+      return tip(pipeName(E, x, S.lang), x.segment ? t('map.tip.pp.segment', { s: x.segment }) : '',
+        `${L(FUEL_LABEL[x.fuel])} · ${L(STATUS_LABEL[x.status])}${isHalted(x) && x.stopYear ? ` · ${t('map.tip.pp.stopped', { y: x.stopYear })}` : ''}`,
         [cap, x.km ? t('map.tip.pp.km', { v: fmtNum(x.km) }) : ''].filter(Boolean).join(' · '), places,
         x.accuracy === 'low' ? L(ACCURACY_LABEL.low) : '', E.noteOf.has(x.system) ? t('map.tip.pp.note') : '');
     }
