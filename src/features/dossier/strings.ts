@@ -130,7 +130,7 @@ registerStrings({
     'dz.h.title': 'أحداث مرتبطة بالدولة',
     'dz.h.none': 'لا يرتبط بهذه الدولة أيّ حدث في الخط الزمني لهذه النسخة ({n} حدثاً بين {from} و{to}). هذا غياب بيانات لا غياب تاريخ.',
 
-    'dz.cf.t.status': 'الوضع', 'dz.cf.t.parties': 'الأطراف', 'dz.cf.t.roots': 'الجذور', 'dz.cf.t.related': 'مرتبط',
+    'dz.cf.t.status': 'الوضع', 'dz.cf.t.parties': 'الأطراف', 'dz.cf.t.roots': 'الجذور', 'dz.cf.t.related': 'مرتبط', 'dz.cf.t.energy': 'الطاقة',
     'dz.cf.asOf': 'الوضع كما هو بتاريخ {d}',
     'dz.cf.started': 'بدأ', 'dz.cf.phase': 'المرحلة الحالية منذ',
     'dz.cf.now': 'الوضع الراهن',
@@ -319,7 +319,7 @@ registerStrings({
     'dz.h.title': 'Events involving this state',
     'dz.h.none': 'No timeline event in this edition ({n} events, {from}–{to}) is tied to this state. This is an absence of data, not of history.',
 
-    'dz.cf.t.status': 'Status', 'dz.cf.t.parties': 'Parties', 'dz.cf.t.roots': 'Roots', 'dz.cf.t.related': 'Related',
+    'dz.cf.t.status': 'Status', 'dz.cf.t.parties': 'Parties', 'dz.cf.t.roots': 'Roots', 'dz.cf.t.related': 'Related', 'dz.cf.t.energy': 'Energy',
     'dz.cf.asOf': 'Status as of {d}',
     'dz.cf.started': 'Began', 'dz.cf.phase': 'Current phase since',
     'dz.cf.now': 'Current situation',

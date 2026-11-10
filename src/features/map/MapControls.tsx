@@ -11,7 +11,7 @@ import './strings';
 /** What the controls need from the map engine. */
 export interface MapControlsApi { zoom(f: number): void; reset(): void }
 
-const LAYERS = ['labels', 'graticule', 'boundaries', 'disputed'] as const;
+const LAYERS = ['labels', 'graticule', 'boundaries', 'disputed', 'conflicts'] as const;
 const stop = (e: SyntheticEvent) => e.stopPropagation();
 
 export function MapControls({ api }: { api: MapControlsApi }) {

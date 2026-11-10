@@ -160,6 +160,10 @@
 .dz-hum-v .data { font-size: var(--fs-md); }
 .dz-hum-y { display: block; font-size: var(--fs-xs); color: var(--fg-3); }
 .dz-hum tbody th .dz-chip { margin: 0; }
+/* conflict dossier, Energy tab: capacity of each state involved */
+.dz-pwr td { vertical-align: middle; }
+.dz-pwr .dz-hum-v.data { font-size: var(--fs-md); }
+.dz-pwr-top { display: inline-flex; align-items: center; gap: 5px; color: var(--fg-2); }
 
 /* ---------- exposure strip: six counters divided by hairlines ---------- */
 .dz-x-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line-2); border-block: 1px solid var(--line-2); }

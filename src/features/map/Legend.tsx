@@ -15,7 +15,7 @@ import { catVar, edgeVar, pal, resClassVar, sevVar, traditionColor, type Palette
 import {
   BLOC_T, CHOKE_T, CONTINENTS, ETHNIC_CLASSES, GDP_RANGE, INCOME, POP_RANGE, RES_SHAPE,
   PIPE_DASH, PIPE_DOTS, PIPE_W, activeBloc, bi, borderFill, decadeWindow, ethnicClass, fuelVar, landTint, lngColor, nuclearCivilFill, nuclearFill, nuclearZoneFill, plantColor, seqFill,
-  visibleConflicts, visibleFields, visibleLng, visiblePipes, visiblePlants, visibleFacilities, windowEvents, POWER_R, layerVar, powerHalted, powerVar,
+  ACTIVE_SEVERITY, activeConflicts, visibleConflicts, visibleFields, visibleLng, visiblePipes, visiblePlants, visibleFacilities, windowEvents, POWER_R, layerVar, powerHalted, powerVar,
 } from './engine/scene';
 import { FUELS, FUEL_LABEL, PIPE_STATUS, STATUS_LABEL, capacityClass, isHalted, systemName } from '../../data/energy';
 import { useEnergy } from '../pipelines/useEnergy';
@@ -134,10 +134,35 @@ function Ramp({ lo, hi, label, P }: { lo: string; hi: string; label?: string; P:
 }
 
 // ---- per-lens card bodies
-type LegendState = Pick<AtlasState, 'filters' | 'selection' | 'year' | 'yearFilter'>;
+type LegendState = Pick<AtlasState, 'filters' | 'selection' | 'year' | 'yearFilter' | 'layers'>;
 interface Ctx { DB: DB; S: LegendState; P: Palette; T: ReturnType<typeof useT> }
 
 const setOverviewMode = (v: AtlasState['filters']['overviewMode']) => atlas.setFilter('overviewMode', v);
+
+/** The conflicts layer in an infrastructure lens: its chip for the Show group… */
+function ConflictsChip({ DB, S }: { DB: DB; S: LegendState }) {
+  const { t } = useT();
+  const on = S.layers.conflicts;
+  return (
+    <Chip act="layer" k="conflicts" pressed={on} label={t('map.lyr.conflicts')} n={activeConflicts(DB, S).length}
+      lead={<Glyph shape="pulse" color={sevVar('war')} size={12} />} onClick={() => atlas.setLayer('conflicts', !on)} />
+  );
+}
+/** …and, while it is on, the severities it draws. */
+function ConflictsKey({ DB, S }: { DB: DB; S: LegendState }) {
+  const { t, pick: L } = useT();
+  if (!S.layers.conflicts) return null;
+  const list = activeConflicts(DB, S);
+  return (
+    <>
+      <Keys>{ACTIVE_SEVERITY.map((id) => {
+        const s = SEVERITY.find((x) => x.id === id)!;
+        return <KeyRow key={id} lead={<Glyph shape={s.shape} color={sevVar(id)} />} label={L(s)} n={list.filter((c) => c.severity === id).length} />;
+      })}</Keys>
+      <Note text={t('map.lc.conflictsKey')} />
+    </>
+  );
+}
 const setReligionMode = (v: AtlasState['filters']['religionMode']) => atlas.setFilter('religionMode', v);
 const setNuclearMode = (v: AtlasState['filters']['nuclearMode']) => atlas.setFilter('nuclearMode', v);
 
@@ -464,7 +489,7 @@ const BODY: Record<(typeof LENSES)[number]['id'], (c: Ctx) => ReactNode> = {
 };
 
 /** The pipelines card: a component of its own, since it loads the data on first use. */
-function PipelinesCard({ S, P, T: { t, pick: L, fmt, lang } }: Ctx) {
+function PipelinesCard({ DB, S, P, T: { t, pick: L, fmt, lang } }: Ctx) {
   const { E, failed } = useEnergy();
   if (!E) return <Note text={failed ? t('pp.failed') : t('pp.loading')} />;
   const f = S.filters;
@@ -524,7 +549,9 @@ function PipelinesCard({ S, P, T: { t, pick: L, fmt, lang } }: Ctx) {
             lead={<LineGlyph color={haltedVar} width={2.4} dash={PIPE_DOTS.join(' ')} round />} onClick={() => atlas.setFilter('pipeHalted', !f.pipeHalted)} />
           <Chip act="layer" k="pipeStrategic" pressed={f.pipeStrategic} label={t('pp.strategic')} n={E.meta.notes.length}
             onClick={() => atlas.setFilter('pipeStrategic', !f.pipeStrategic)} />
+          <ConflictsChip DB={DB} S={S} />
         </Chips>
+        <ConflictsKey DB={DB} S={S} />
       </Sec>
       <Sec label={t('pp.weight')}>
         <Keys>{weights}</Keys>
@@ -592,7 +619,7 @@ function PowerCard(c: Ctx) {
 }
 
 /** Mines and heavy industry: layer chips, status, the mothballed layer and the size note. */
-function IndustrySites({ S, T: { t, pick: L, fmt } }: Ctx) {
+function IndustrySites({ DB, S, T: { t, pick: L, fmt } }: Ctx) {
   const { X, failed } = useIndustry();
   if (!X) return <Note text={failed ? t('in.failed') : t('in.loading')} />;
   const f = S.filters;
@@ -621,7 +648,9 @@ function IndustrySites({ S, T: { t, pick: L, fmt } }: Ctx) {
         <Chips label={t('pw.show')}>
           <Chip act="layer" k="powerHalted" pressed={f.powerHalted} label={t('in.halted')} n={halted.length}
             lead={<PlantDot color="var(--fg-3)" r={3.5} />} onClick={() => atlas.setFilter('powerHalted', !f.powerHalted)} />
+          <ConflictsChip DB={DB} S={S} />
         </Chips>
+        <ConflictsKey DB={DB} S={S} />
       </Sec>
       <Sec label={t('pw.size')}>
         <Keys>
@@ -639,7 +668,7 @@ function IndustrySites({ S, T: { t, pick: L, fmt } }: Ctx) {
 }
 
 /** Power plants: type chips, status, the mothballed layer, and the size key. */
-function PowerPlants({ S, P, T: { t, pick: L, fmt } }: Ctx) {
+function PowerPlants({ DB, S, P, T: { t, pick: L, fmt } }: Ctx) {
   const { W, failed } = usePower();
   useIndustry();
   if (!W) return <Note text={failed ? t('pw.failed') : t('pw.loading')} />;
@@ -685,7 +714,9 @@ function PowerPlants({ S, P, T: { t, pick: L, fmt } }: Ctx) {
         <Chips label={t('pw.show')}>
           <Chip act="layer" k="powerHalted" pressed={f.powerHalted} label={t('pw.halted')} n={halted.length}
             lead={<PlantDot color={steel} r={3.5} />} onClick={() => atlas.setFilter('powerHalted', !f.powerHalted)} />
+          <ConflictsChip DB={DB} S={S} />
         </Chips>
+        <ConflictsKey DB={DB} S={S} />
       </Sec>
       <Sec label={t('pw.size')}>
         <Keys>{sizes}</Keys>
@@ -742,6 +773,7 @@ export function Legend() {
   const selection = useAtlas((s) => s.selection);
   const year = useAtlas((s) => s.year);
   const yearFilter = useAtlas((s) => s.yearFilter);
+  const layers = useAtlas((s) => s.layers);
   useSyncExternalStore(subscribeTheme, themeSnapshot, () => 'system|light');
   const [collapsed, setCollapsed] = useState(initialCollapsed);
   const [tab, setTab] = useState<'key' | 'list'>('key');
@@ -749,7 +781,7 @@ export function Legend() {
   const lens = LENSES.find((l) => l.id === lensId) ?? LENSES[0];
   let body: ReactNode = null;
   try {
-    body = BODY[lens.id]({ DB, S: { filters, selection, year, yearFilter }, P: pal(), T });
+    body = BODY[lens.id]({ DB, S: { filters, selection, year, yearFilter, layers }, P: pal(), T });
   } catch (err) {
     console.error('[atlas] lens card failed', err);
   }
