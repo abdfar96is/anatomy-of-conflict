@@ -20,6 +20,7 @@ import type { DB } from '../src/data/types';
 import { Dossier } from '../src/features/dossier';
 import { buildScene, tipFor } from '../src/features/map/engine/scene';
 import { Legend } from '../src/features/map/Legend';
+import { PICTO, PICTO_GROUPS, SITE_PICTO } from '../src/ui/pictograms';
 import { ShellOverlays } from '../src/features/shell';
 import '../src/i18n/core';
 import type { Palette } from '../src/ui/palette';
@@ -181,13 +182,30 @@ describe('the lens', () => {
     expect(document.getElementById('dz-panel')!.textContent).toContain('Stopped2022');
   });
 
-  test('oil and gas sites in the resources lens are drawn as a barrel and a flame, in the pipelines\' fuel colours', () => {
+  test('resource sites are pictograms: every type in the data has one; oil and gas take the pipelines\' fuel colours', () => {
     const s = initialState();
     const sc = buildScene(db, { ...s, lens: 'resources' }, P);
+    const types = new Set(db.resources.sites.map((x) => x.type));
+    for (const type of types) {
+      const sp = SITE_PICTO[type];
+      expect(sp, type).toBeDefined();
+      expect(PICTO[sp!.picto], sp!.picto).toBeDefined();
+      expect(PICTO_GROUPS.some((g) => g.id === sp!.group), sp!.group).toBe(true);
+    }
     const shapeOf = (type: string) => new Set(sc.markers.filter((m) => m.kind === 'site' && db.siteById.get(m.id)!.type === type).map((m) => `${m.shape} ${m.color}`));
-    expect(shapeOf('oil')).toEqual(new Set([`barrel ${P.cat[4]}`]));
-    expect(shapeOf('gas')).toEqual(new Set([`flame ${P.cat[1]}`]));
-    expect([...shapeOf('copper')].some((x) => x.startsWith('barrel') || x.startsWith('flame'))).toBe(false);
+    expect(shapeOf('oil')).toEqual(new Set([`picto:barrel ${P.cat[4]}`]));
+    expect(shapeOf('gas')).toEqual(new Set([`picto:flame ${P.cat[1]}`]));
+    expect(shapeOf('gold')).toEqual(new Set([`picto:bars ${SITE_PICTO.gold!.color}`]));
+    expect(shapeOf('uranium')).toEqual(new Set([`picto:radiation ${SITE_PICTO.uranium!.color}`]));
+  });
+
+  test('the resources card keys the pictograms of the class shown', () => {
+    atlas.set({ lens: 'resources', lang: 'en' });
+    withDb(<Legend />);
+    const labels = () => [...document.querySelectorAll('#legend .lc-picto .k-l')].map((x) => x.textContent);
+    expect(labels()).toEqual(expect.arrayContaining(['Oil', 'Natural gas', 'Gold', 'Copper', 'Uranium', 'Battery metals']));
+    act(() => { atlas.setFilter('resourceClass', 'precious'); });
+    expect(labels()).toEqual(['Gold', 'Silver, platinum', 'Diamonds', 'Jade']);
   });
 
   test('a selected segment highlights its whole system', () => {

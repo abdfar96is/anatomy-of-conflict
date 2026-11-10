@@ -9,6 +9,8 @@ import type { Country, Kind, LiveKey } from '../../data/types';
 import { esc } from '../../ui/dom';
 import { Icon } from '../../ui/Icon';
 import { resClassVar, sevVar } from '../../ui/palette';
+import { Picto } from '../../ui/Picto';
+import { SITE_PICTO } from '../../ui/pictograms';
 import type { CatX, ChokeX, ConflictX, Ctx, DatasetX, EventX, Group, Provenance, RefX, ResEntryX, Site } from './model';
 import { FAMILY, NE } from './strings';
 
@@ -268,8 +270,14 @@ export function kit(c: Ctx, actions: KitActions) {
     kind: 'choke', id: p.id, isos: p.borderStates, glyph: <Icon name="anchor" size={15} />, title: L(p), meta: chokePill(p),
     sub: <span className="dz-one">{Lk(p, 'risk')}</span>,
   });
+  /** A site's pictogram where its type has one (the map's marker), else its class colour. */
+  const sitePicto = (type: string) => {
+    const sp = SITE_PICTO[type];
+    if (!sp) return sw(resColor(type));
+    return <Picto id={sp.picto} color={sp.fuel === 'oil' ? 'var(--cat-4)' : sp.fuel === 'gas' ? 'var(--cat-1)' : sp.color!} size={16} />;
+  };
   const siteRow = (s: Site) => rowBtn({
-    kind: 'site', id: s.id, isos: [s.iso3], glyph: sw(resColor(s.type)), title: L(s),
+    kind: 'site', id: s.id, isos: [s.iso3], glyph: sitePicto(s.type), title: L(s),
     meta: <span className="dz-meta-t">{resTypeName(s.type)}</span>, sub: <span className="dz-one">{Lk(s, 'note')}</span>,
   });
   const groupRow = (g: Group) => rowBtn({

@@ -10,6 +10,7 @@ import { fmtCompact, fmtDate, fmtGdp, fmtNum, fmtPct, type Bi, type Lang } from 
 import { pick, pickKey, registerStrings, translate } from '../../../i18n/strings';
 import { esc } from '../../../ui/dom';
 import type { Palette } from '../../../ui/palette';
+import { SITE_PICTO, type SitePicto } from '../../../ui/pictograms';
 import { type LonLat } from './geo';
 import { getBorders, rulerColor, rulerName, statusLabel, unitName, unitsAt, yearEnd, type BorderUnit, type Borders } from '../../../data/borders';
 import {
@@ -242,8 +243,8 @@ export const PIPE_DOTS = [0.1, 3.6];
 export const lngColor = (P: Palette) => P.cat[3]!;
 /** Halted lines read as grey steel, keeping a trace of their fuel colour. */
 export const haltedColor = (P: Palette, fuel: Fuel) => d3.interpolateLab(pipeColor(P, fuel), P.fg3)(0.65);
-/** Resource sites drawn as a pictogram: an oil barrel, a gas flame. */
-export const SITE_ICON: Record<string, { shape: string; fuel: Fuel }> = { oil: { shape: 'barrel', fuel: 'oil' }, 'oil-shale': { shape: 'barrel', fuel: 'oil' }, gas: { shape: 'flame', fuel: 'gas' } };
+/** A resource site's pictogram colour: oil and gas take the pipelines' fuel colours, the rest their own. */
+export const sitePictoColor = (P: Palette, sp: SitePicto) => (sp.fuel ? pipeColor(P, sp.fuel) : sp.color ?? P.cat[0]!);
 export const lngShape = (t: LngTerminal) => (t.status === 'construction' ? 'dashed' : t.type === 'export' ? 'triangle' : 'square');
 export const lngRadius = (t: LngTerminal) => Math.min(7, 2.6 + Math.sqrt(t.mtpa.operating || t.mtpa.construction) * 0.65);
 
@@ -542,9 +543,9 @@ const BUILD: Record<LensId, Builder> = {
     for (const s of DB.resources.sites) {
       const k = DB.resources.classOf[s.type] ?? '';
       if (cls && k !== cls) continue;
-      const icon = SITE_ICON[s.type];
-      sc.markers.push(icon
-        ? { lonlat: s.coords ?? null, shape: icon.shape, r: 6.5, color: pipeColor(P, icon.fuel), kind: 'site', id: s.id }
+      const sp = SITE_PICTO[s.type];
+      sc.markers.push(sp
+        ? { lonlat: s.coords ?? null, shape: `picto:${sp.picto}`, r: 6.5, color: sitePictoColor(P, sp), kind: 'site', id: s.id }
         : { lonlat: s.coords ?? null, shape: RES_SHAPE[k] || 'disc', r: 5, color: P.resClass[k] || P.cat[0]!, kind: 'site', id: s.id });
     }
   },

@@ -8,10 +8,12 @@ import { useDb, useT } from '../../app/useT';
 import { CHOKE_STATUS, LENSES, NUCLEAR_CIVIL, NUCLEAR_STATUS, NUCLEAR_UNIT, RESOURCE_CLASSES, SEVERITY } from '../../config';
 import type { DB } from '../../data/types';
 import { Icon } from '../../ui/Icon';
+import { Picto } from '../../ui/Picto';
+import { PICTO_GROUPS, SITE_PICTO } from '../../ui/pictograms';
 import { catVar, edgeVar, pal, resClassVar, sevVar, traditionColor, type Palette } from '../../ui/palette';
 import {
   BLOC_T, CHOKE_T, CONTINENTS, ETHNIC_CLASSES, GDP_RANGE, INCOME, POP_RANGE, RES_SHAPE,
-  PIPE_DASH, PIPE_DOTS, PIPE_W, SITE_ICON, activeBloc, bi, borderFill, decadeWindow, ethnicClass, fuelVar, landTint, lngColor, nuclearCivilFill, nuclearFill, nuclearZoneFill, plantColor, seqFill,
+  PIPE_DASH, PIPE_DOTS, PIPE_W, activeBloc, bi, borderFill, decadeWindow, ethnicClass, fuelVar, landTint, lngColor, nuclearCivilFill, nuclearFill, nuclearZoneFill, plantColor, seqFill,
   visibleConflicts, visibleLng, visiblePipes, windowEvents,
 } from './engine/scene';
 import { FUELS, FUEL_LABEL, PIPE_STATUS, STATUS_LABEL, capacityClass, isHalted, systemName } from '../../data/energy';
@@ -41,21 +43,6 @@ export function Glyph({ shape, color, size = 14 }: { shape: string; color: strin
     case 'hex': body = <path d="M0-5.4L4.7-2.7V2.7L0 5.4-4.7 2.7V-2.7z" style={f} />; break;
     case 'pin': body = <circle r="3.8" style={f} />; break;
     case 'choke': body = <circle r="5" style={{ fill: `color-mix(in srgb, ${color} 22%, transparent)`, stroke: color, strokeWidth: 2 }} />; break;
-    case 'barrel': {
-      const dark = `color-mix(in srgb, ${color} 45%, black)`, light = `color-mix(in srgb, ${color} 40%, white)`;
-      body = <>
-        <path d="M-3.1-4.75Q-4.3 0-3.1 4.75H3.1Q4.3 0 3.1-4.75Z" style={{ fill: color, stroke: dark, strokeWidth: 0.8 }} />
-        <path d="M-3.9-1.9H3.9M-3.9 1.9H3.9" style={{ stroke: dark, strokeWidth: 1 }} />
-        <ellipse cy="-4.75" rx="3.1" ry="1" style={{ fill: light, stroke: dark, strokeWidth: 0.7 }} />
-      </>;
-      break;
-    }
-    case 'flame': {
-      const dark = `color-mix(in srgb, ${color} 45%, black)`, light = `color-mix(in srgb, ${color} 40%, white)`;
-      const d = 'M1-6.5C2.75-3.75 5-1.25 4.25 2 3.6 4.75 1.5 5.5 0 5.5-1.75 5.5-4.1 4.4-4.25 1.75-4.4-.25-3-1.75-2.25-3.5-1.75-1.75-1-1.25-.25-1.75.75-3 1.25-4.5 1-6.5Z';
-      body = <><path d={d} style={{ fill: color, stroke: dark, strokeWidth: 0.8 }} /><path d={d} transform="translate(0 2.1) scale(.5)" style={{ fill: light }} /></>;
-      break;
-    }
     default: body = <circle r="4.6" style={f} />;
   }
   return <svg className="glyph" width={size} height={size} viewBox="-7 -7 14 14" aria-hidden="true">{body}</svg>;
@@ -382,13 +369,18 @@ const BODY: Record<(typeof LENSES)[number]['id'], (c: Ctx) => ReactNode> = {
         <Chip key={c.id} act="set" k="resourceClass" val={c.id} pressed={cls === c.id} label={L(c)} n={n.get(c.id) || 0}
           lead={<Glyph shape={RES_SHAPE[c.id] ?? 'disc'} color={resClassVar(c.id)} />} onClick={() => atlas.setFilter('resourceClass', c.id)} />
       )));
-    const sites = DB.resources.sites;
-    const icons = !cls || cls === 'energy' ? (
-      <Keys>
-        <KeyRow lead={<Glyph shape="barrel" color="var(--cat-4)" size={16} />} label={t('map.rs.oil')} n={sites.filter((s) => SITE_ICON[s.type]?.shape === 'barrel').length} />
-        <KeyRow lead={<Glyph shape="flame" color="var(--cat-1)" size={16} />} label={t('map.rs.gas')} n={sites.filter((s) => SITE_ICON[s.type]?.shape === 'flame').length} />
-      </Keys>
-    ) : null;
+    // one key row per pictogram group shown under the class filter, in a fixed order
+    const counts = new Map<string, number>();
+    for (const s of DB.resources.sites) {
+      const sp = SITE_PICTO[s.type];
+      if (sp && (!cls || DB.resources.classOf[s.type] === cls)) counts.set(sp.group, (counts.get(sp.group) || 0) + 1);
+    }
+    const rows = PICTO_GROUPS.filter((g) => counts.has(g.id)).map((g) => {
+      const sp = Object.values(SITE_PICTO).find((x) => x.group === g.id)!;
+      const color = sp.fuel === 'oil' ? 'var(--cat-4)' : sp.fuel === 'gas' ? 'var(--cat-1)' : sp.color!;
+      return <KeyRow key={g.id} lead={<Picto id={sp.picto} color={color} size={17} />} label={L(g.label)} n={counts.get(g.id)} />;
+    });
+    const icons = rows.length ? <><ul className="lc-keys lc-picto">{rows}</ul><Note text={t('map.rs.groups')} /></> : null;
     return (
       <>
         <Sec label={t('map.rs.class')}><Chips label={t('map.rs.class')}>{items}</Chips></Sec>
