@@ -2,7 +2,10 @@
 
 import { Fragment, type ReactNode } from 'react';
 import { NUCLEAR_CIVIL, NUCLEAR_NPT, NUCLEAR_STATUS } from '../../../config';
-import { BarList, Donut, Pips } from '../../../ui/charts';
+import { BarList, Donut, Pips, StackBar } from '../../../ui/charts';
+import { POWER_LABEL, POWER_TYPES, fmtMW, powerCountries } from '../../../data/power';
+import { powerVar } from '../../map/engine/scene';
+import '../../power/strings';
 import { esc } from '../../../ui/dom';
 import { Icon } from '../../../ui/Icon';
 import { edgeVar, traditionColor } from '../../../ui/palette';
@@ -247,16 +250,45 @@ function relations(c: Country, k: Kit) {
   return <>{k.sec(null, [k.note(t('dz.r.hint')), k.networkBtn()], { cls: 'first dz-tight' })}{groups}</>;
 }
 
+/** Electricity: the state's capacity in operation by type (GEM's integrated power tracker, loaded on first use). */
+function electricity(c: Country, k: Kit) {
+  const { t, pick: L, fmt } = k;
+  const pc = powerCountries()?.[c.iso3];
+  const op = pc?.op ?? {};
+  const total = POWER_TYPES.reduce((a, ty) => a + (op[ty] ?? 0), 0);
+  if (!total) return null;
+  const con = POWER_TYPES.reduce((a, ty) => a + (pc?.con?.[ty] ?? 0), 0);
+  const gw = (mw: number) => fmt.num(mw / 1000, mw < 10000 ? 1 : 0);
+  // the share sits in the label (the text face), the GW in the value column (numbers only, for the number face)
+  const rows = POWER_TYPES.filter((ty) => op[ty]).sort((a, b) => op[b]! - op[a]!).map((ty) => {
+    const share = (100 * op[ty]!) / total;
+    return {
+      name: L(POWER_LABEL[ty]), value: share, color: powerVar(ty),
+      label: <>{L(POWER_LABEL[ty])}{' '}<span className="dz-alt">{fmt.pct(share, share < 1 ? 1 : 0)}</span></>,
+      valueLabel: fmt.num(op[ty]! / 1000, op[ty]! < 10000 ? 1 : 0),
+      tip: `<b>${esc(L(POWER_LABEL[ty]))}</b> ${esc(fmtMW(op[ty]!, k.lang))}`,
+    };
+  });
+  return k.sec(t('pw.dz.mixTitle'), [
+    <StackBar key="s" parts={rows.map((r) => ({ label: r.name, value: r.value, color: r.color }))} total={100} label={t('pw.dz.mixTitle')} />,
+    <BarList key="b" rows={rows} max={100} unit="%" />,
+    k.note(`${t('pw.dz.mixUnit')} ${con ? t('pw.dz.mixTotal', { v: gw(total), c: gw(con) }) : t('pw.dz.mixTotal0', { v: gw(total) })}`),
+    k.note(t('pw.dz.mixNote')),
+  ], { id: 'electricity' });
+}
+
 function resources(c: Country, k: Kit) {
   const { t, pick: L, db } = k;
   const entries = [...c.resources as ResEntryX[]].sort((a, b) => (a.rank || 99) - (b.rank || 99));
   const sites = c.sites.map((id) => db.siteById.get(id)).filter((s) => !!s);
   const chokes = c.chokepoints.map((id) => db.chokeById.get(id)).filter((p) => !!p);
-  if (!entries.length && !sites.length && !chokes.length) return k.sec(null, k.empty(t('dz.res.none')), { cls: 'first' });
+  const power = electricity(c, k);
+  if (!entries.length && !sites.length && !chokes.length) return power ? <>{k.sec(null, k.empty(t('dz.res.none')), { cls: 'first' })}{power}</> : k.sec(null, k.empty(t('dz.res.none')), { cls: 'first' });
   return <>
     {k.sec(t('dz.res.entries'), entries.length ? k.rows(entries.map((e, i) => k.resourceEntry(e, i))) : k.empty(t('dz.res.none')), { id: 'entries', count: entries.length, cls: 'first' })}
     {sites.length ? k.sec(t('dz.res.sites'), k.rows(sites.map(k.siteRow)), { count: sites.length }) : null}
     {chokes.length ? k.sec(t('dz.res.chokes'), k.rows(chokes.map(k.chokeRow)), { id: 'chokes', count: chokes.length }) : null}
+    {power}
     {entries.length ? k.sec(null, k.note(L(db.resources.note))) : null}
   </>;
 }

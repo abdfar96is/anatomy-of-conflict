@@ -17,7 +17,7 @@ import {
   ACCURACY_LABEL, FIELD_FUEL_LABEL, FIELD_STATUS_LABEL, FUEL_LABEL, STATUS_LABEL, capacityClass, fmtCapacity, fmtMtpa, getEnergy, isHalted, pipeName,
   type Energy, type Fuel, type LngTerminal, type OilField, type Pipeline,
 } from '../../../data/energy';
-import { POWER_LABEL, POWER_PICTO, POWER_SLOT, POWER_STATUS_LABEL, fmtMW, getPower, powerClass, type Power, type PowerPlant, type PowerType } from '../../../data/power';
+import { POWER_LABEL, POWER_PICTO, POWER_SLOT, POWER_STATUS_LABEL, fmtMW, getPower, getPowerCountries, powerClass, summaryRamp, summaryValue, type Power, type PowerPlant, type PowerType } from '../../../data/power';
 import { INDUSTRY_STATUS_LABEL, LAYER, LAYER_ONE, facilityClass, fmtTonnes, getIndustry, type Facility, type Industry, type IndustryLayer } from '../../../data/industry';
 import '../../power/strings';
 
@@ -164,6 +164,8 @@ export interface PointItem {
   lonlat: LonLat; kind: Kind; id: string; color: string; color2?: string; r: number; picto: string; pictoColor: string; rp: number; big: boolean;
   /** Drawn as a ring (under construction). */
   hollow?: boolean;
+  /** Drawn even when the scene's far view keeps only the large points (the selection). */
+  keep?: boolean;
 }
 export interface Scene {
   fill: Map<string, string>; hatch: Set<string>; hatchAlpha: number; emph: Set<string> | null;
@@ -171,6 +173,8 @@ export interface Scene {
   /** Base-layer lines, thinnest first, and the selection's lines drawn over everything. */
   lines: LineSet[]; selLines: LineSet[]; points: PointItem[];
   selRing: { lonlat: LonLat; kind: Kind; id: string } | null; pulse: boolean;
+  /** Zoomed out (below `k`, the map's zoom factor): the states take these fills, and only large or kept points stay. */
+  far?: { fill: Map<string, string>; k: number };
   /** Today's country names would mislead on a historical map: the borders lens turns them off. */
   hideCountryLabels?: boolean;
 }
@@ -296,6 +300,8 @@ export const powerColor = (P: Palette, t: PowerType) => P.cat[POWER_SLOT[t]]!;
 export const powerVar = (t: PowerType) => `var(--cat-${POWER_SLOT[t]})`;
 export const powerHalted = (P: Palette, t: PowerType) => d3.interpolateLab(powerColor(P, t), P.fg3)(0.65);
 export const POWER_R = [1.8, 2.5, 3.3, 4.3, 5.6];
+/** Below this zoom factor the power mode shows the country summary. */
+export const FAR_K = 2.6;
 export const POWER_RP = [4.4, 5, 5.8, 7, 8.6];
 /** Plants the Power & industry lens shows: by type, by status (mothballed ones with their own layer). */
 export function visiblePlants(W: Power, S: Pick<AtlasState, 'filters'>): PowerPlant[] {
@@ -579,14 +585,24 @@ const BUILD: Record<LensId, Builder> = {
       // a selected plant stays drawn whatever the filters
       const sel = S.selection?.kind === 'station' ? W.byId.get(S.selection.id) : undefined;
       if (sel && !plants.includes(sel)) plants.push(sel);
-      for (const p of plants) points.push(powerPoint(P, p));
+      for (const p of plants) points.push(p === sel ? { ...powerPoint(P, p), keep: true } : powerPoint(P, p));
+    }
+    // zoomed out in power mode: the states by the chosen summary, with only the largest plants as landmarks
+    const C = getPowerCountries(), m = S.filters.powerSummary;
+    if (C && m !== 'off' && S.filters.industryMode === 'power') {
+      const fill = new Map<string, string>();
+      for (const c of DB.countries.values()) {
+        const v = summaryValue(C[c.iso3], m);
+        fill.set(c.iso3, v == null ? P.landMuted : seqFill(P, summaryRamp(m, v)));
+      }
+      sc.far = { fill, k: FAR_K };
     }
     const X = getIndustry();
     if (X) {
       const sites = S.filters.industryMode === 'industry' ? visibleFacilities(X, S) : [];
       const sel = S.selection?.kind === 'facility' ? X.byId.get(S.selection.id) : undefined;
       if (sel && !sites.includes(sel)) sites.push(sel);
-      for (const x of sites) points.push(facilityPoint(P, x));
+      for (const x of sites) points.push(x === sel ? { ...facilityPoint(P, x), keep: true } : facilityPoint(P, x));
     }
     sc.points = points.sort((a, b) => a.r - b.r);
   },
@@ -747,6 +763,18 @@ function countryLine(c: Country, DB: DB, S: AtlasState): string[] {
         : f.religionMode === 'diversity' ? t('map.tip.diversity', { v: fmtNum(r.diversity, 2) })
           : t('map.tip.majority', { name: tr(r.majority), pct: fmtPct(r.majorityShare) });
       return [line, r.contested ? t('map.tip.contested') : ''];
+    }
+    case 'industry': {
+      // the power mode's country summary: GW in operation and its renewable and coal shares, GW being built
+      const pc = getPowerCountries()?.[c.iso3];
+      if (S.filters.industryMode !== 'power' || !pc) return [];
+      const tot = summaryValue(pc, 'total'), con = summaryValue(pc, 'con');
+      if (tot == null && con == null) return [t('map.tip.pw.none')];
+      return [
+        tot != null ? t('map.tip.pw.total', { v: fmtNum(tot, tot < 10 ? 1 : 0) }) : '',
+        tot != null ? t('map.tip.pw.shares', { r: fmtPct(summaryValue(pc, 'renew')!), c: fmtPct(summaryValue(pc, 'coal')!) }) : '',
+        con != null ? t('map.tip.pw.building', { v: fmtNum(con, con < 10 ? 1 : 0) }) : '',
+      ];
     }
     case 'ethnic':
       return [c.groups.length ? t('map.tip.groups', { list: list3(c.groups.map((id) => Lk(DB.ethnic.groups.get(id), 'name'))) }) : t('map.tip.groups0')];

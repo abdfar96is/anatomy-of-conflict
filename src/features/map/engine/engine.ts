@@ -602,8 +602,11 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
     ctx.strokeStyle = P.coast;
     ctx.lineWidth = 1.3;
     ctx.stroke(all);
+    // zoomed out with a far view: the states fade from their near fills to the far ones over the last fifth of the zoom range
+    const t = farness(sc);
     for (const [iso, p] of paths) {
       let col = sc.fill.get(iso) || P.land;
+      if (t > 0) { const f = sc.far!.fill.get(iso) || col; col = t >= 1 ? f : d3.interpolateRgb(col, f)(t); }
       if (sc.emph && !sc.emph.has(iso)) col = dim(col, X);
       ctx.fillStyle = col;
       ctx.fill(p);
@@ -761,10 +764,19 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
    * Base-layer points: a dot in the fuel colour (split in two for oil-and-gas fields), or the pictogram for the largest
    * ones and for all once the map is zoomed in (from about 4×). While the map moves, small points are left out.
    */
+  /** How far into the scene's far view the map is: 0 near, 1 at a fifth below its zoom threshold or more. */
+  function farness(sc: Scene): number {
+    if (!sc.far) return 0;
+    const k = absScale() / baseScale(), lo = sc.far.k * 0.8;
+    return k >= sc.far.k ? 0 : k <= lo ? 1 : (sc.far.k - k) / (sc.far.k - lo);
+  }
+
   function drawPoints(ctx: CanvasRenderingContext2D, sc: Scene, cen: LonLat, P: Palette) {
     pointHits = [];
     if (!sc.points.length) return;
     const k = absScale() / baseScale(), allPicto = !interacting && k >= 4;
+    // in the far view only the large points (and the selection) stay, as landmarks over the coloured states
+    const far = farness(sc) > 0.5;
     // dots are batched by size (smallest first, so the large ones stay on top): per size, one path for the halos and
     // one per colour, so thousands of points stay cheap
     type Bucket = { halo: Path2D; rings: Path2D; fills: Map<string, Path2D>; strokes: Map<string, Path2D>; halves: { x: number; y: number; p: PointItem }[] };
@@ -772,6 +784,7 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
     const add = (m: Map<string, Path2D>, color: string) => { let path = m.get(color); if (!path) m.set(color, path = new Path2D()); return path; };
     const pictos: { x: number; y: number; p: PointItem }[] = [];
     for (const p of sc.points) {
+      if (far && !p.big && !p.keep) continue;
       if (interacting && p.r < 3 && k < 4) continue;
       const q = projectVisible(p.lonlat, cen);
       if (!q) continue;

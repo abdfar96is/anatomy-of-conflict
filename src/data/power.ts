@@ -128,6 +128,31 @@ export function fmtMW(mw: number, lang: Lang): string {
 /** Size class by capacity: under 100 MW, 500, 1,000, 3,000, and 3,000 or more. */
 export const powerClass = (mw: number) => (mw < 100 ? 0 : mw < 500 ? 1 : mw < 1000 ? 2 : mw < 3000 ? 3 : 4);
 
+/** Capacity by type of a state: every operating and under-construction unit GEM lists, whatever its size (power/countries.json). */
+export interface PowerCountry { op?: Partial<Record<PowerType, number>>; con?: Partial<Record<PowerType, number>> }
+export type PowerCountries = Record<string, PowerCountry>;
+export const RENEWABLE: PowerType[] = ['hydro', 'wind', 'solar', 'geo', 'bio'];
+const sumOf = (m?: Partial<Record<PowerType, number>>) => Object.values(m ?? {}).reduce((a, b) => a + (b ?? 0), 0);
+/** The country summary's metrics: GW in operation, renewable and coal shares of it, GW under construction. */
+export const SUMMARY_METRICS = ['total', 'renew', 'coal', 'con'] as const;
+export type SummaryMetric = (typeof SUMMARY_METRICS)[number];
+export function summaryValue(c: PowerCountry | undefined, m: SummaryMetric): number | null {
+  const op = sumOf(c?.op);
+  if (m === 'con') { const con = sumOf(c?.con); return con > 0 ? con / 1000 : null; }
+  if (op < 50) return null;
+  if (m === 'total') return op / 1000;
+  const part = m === 'coal' ? c!.op!.coal ?? 0 : RENEWABLE.reduce((a, t) => a + (c!.op![t] ?? 0), 0);
+  return (100 * part) / op;
+}
+/** Position on the sequential ramp (0–1): logarithmic for GW, linear for shares. */
+export function summaryRamp(m: SummaryMetric, v: number): number {
+  if (m === 'renew' || m === 'coal') return v / 100;
+  const hi = m === 'total' ? 3000 : 500;
+  return Math.max(0, Math.min(1, (Math.log10(Math.max(v, 0.1)) + 1) / (Math.log10(hi) + 1)));
+}
+/** The ramp's two ends, by metric. */
+export const SUMMARY_ENDS: Record<SummaryMetric, [string, string]> = { total: ['0.1', '3,000'], renew: ['0%', '100%'], coal: ['0%', '100%'], con: ['0.1', '500'] };
+
 // ---- on-demand loading, shared by the map, legend and dossier
 
 let state: Power | null = null;
@@ -162,6 +187,23 @@ export function loadPower(): Promise<Power> {
   }
   return loading;
 }
+
+let countries: PowerCountries | null = null;
+let countriesLoading = false;
+/** The per-state totals: null until loaded (loading starts on the first call). Small, so the country dossier asks too. */
+export function powerCountries(): PowerCountries | null {
+  if (!countries && !countriesLoading) {
+    countriesLoading = true;
+    fetch(base() + 'countries.json').then((r) => { if (!r.ok) throw new Error(`power/countries.json: HTTP ${r.status}`); return r.json(); })
+      .then((v: PowerCountries) => { countries = v; notify(); })
+      .catch(() => { countriesLoading = false; });
+  }
+  return countries;
+}
+/** The per-state totals if loaded (no side effect: for the scene). */
+export const getPowerCountries = () => countries;
+/** For tests: install the per-state totals. */
+export function setPowerCountries(v: PowerCountries | null) { countries = v; countriesLoading = !!v; notify(); }
 
 /** A plant's detail: undefined while its state's file loads (it starts loading here), null if it failed. */
 export function plantDetail(p: PowerPlant): PowerDetail | null | undefined {
