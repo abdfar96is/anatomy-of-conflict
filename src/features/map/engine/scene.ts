@@ -18,7 +18,7 @@ import {
   type Energy, type Fuel, type LngTerminal, type OilField, type Pipeline,
 } from '../../../data/energy';
 import { POWER_LABEL, POWER_PICTO, POWER_SLOT, POWER_STATUS_LABEL, fmtMW, getPower, getPowerCountries, inYear, powerClass, summaryRamp, summaryValue, type Power, type PowerCountries, type PowerPlant, type PowerType } from '../../../data/power';
-import { INDUSTRY_STATUS_LABEL, LAYER, LAYER_ONE, facilityClass, fmtTonnes, getIndustry, type Facility, type Industry, type IndustryLayer } from '../../../data/industry';
+import { INDUSTRY_STATUS_LABEL, LAYER, LAYER_ONE, facilityClass, fmtTonnes, getIndustry, sizeOf, type Facility, type Industry, type IndustryLayer } from '../../../data/industry';
 import '../../power/strings';
 
 registerStrings({
@@ -151,7 +151,7 @@ export interface Poly {
  * a soft wider band. With `tube`, the engine draws them as a pipe once the map is zoomed in: a shaded tube, then a raised
  * one with a shadow and joint rings (`sections`: pipe lengths with gaps, for lines under construction).
  */
-export interface LineItem { kind: Kind; id: string; lines: Position[][] }
+export interface LineItem { kind: Kind; id: string; lines: Position[][]; /** The figure behind it, for ranking (capacity). */ v?: number }
 export interface LineSet {
   items: LineItem[]; color: string; width: number; dash?: number[]; alpha: number; casing?: string; cap?: 'round';
   glow?: string; tube?: 'solid' | 'sections';
@@ -166,6 +166,8 @@ export interface PointItem {
   hollow?: boolean;
   /** Drawn even when the scene's far view keeps only the large points (the selection). */
   keep?: boolean;
+  /** The figure behind its size (capacity, output), for ranking. */
+  v?: number;
 }
 export interface Scene {
   fill: Map<string, string>; hatch: Set<string>; hatchAlpha: number; emph: Set<string> | null;
@@ -292,7 +294,7 @@ export function fieldPoint(P: Palette, x: OilField): PointItem {
   const cls = fieldClass(x.boe), steel = x.status === 'mothballed';
   const oil = steel ? haltedColor(P, 'oil') : pipeColor(P, 'oil'), gas = steel ? haltedColor(P, 'gas') : pipeColor(P, 'gas');
   return {
-    lonlat: x.coords, kind: 'field', id: x.id, r: FIELD_R[cls]!, rp: FIELD_RP[cls]!, big: cls === 4,
+    lonlat: x.coords, kind: 'field', id: x.id, r: FIELD_R[cls]!, rp: FIELD_RP[cls]!, big: cls === 4, v: x.boe,
     color: x.fuel === 'gas' ? gas : oil, color2: x.fuel === 'oilgas' && !steel ? gas : undefined,
     picto: x.product === 'gas' ? 'flame' : 'barrel', pictoColor: x.product === 'gas' ? gas : oil,
   };
@@ -326,7 +328,7 @@ export function visiblePlants(W: Power, S: Timed): PowerPlant[] {
 export function powerPoint(P: Palette, p: PowerPlant): PointItem {
   const cls = powerClass(p.mw), c = p.status === 'mothballed' ? powerHalted(P, p.type) : powerColor(P, p.type);
   return {
-    lonlat: p.coords, kind: 'station', id: p.id, r: POWER_R[cls]!, rp: POWER_RP[cls]!, big: cls === 4,
+    lonlat: p.coords, kind: 'station', id: p.id, r: POWER_R[cls]!, rp: POWER_RP[cls]!, big: cls === 4, v: p.mw,
     color: c, picto: POWER_PICTO[p.type], pictoColor: c, hollow: p.status === 'construction' || undefined,
   };
 }
@@ -344,7 +346,7 @@ export function facilityPoint(P: Palette, x: Facility): PointItem {
   const cls = facilityClass(x), base = layerColor(P, x.l);
   const c = x.st === 'mothballed' ? d3.interpolateLab(base, P.fg3)(0.65) : base;
   return {
-    lonlat: [x.lon, x.lat], kind: 'facility', id: x.id, r: POWER_R[cls]!, rp: POWER_RP[cls]!, big: cls === 4,
+    lonlat: [x.lon, x.lat], kind: 'facility', id: x.id, r: POWER_R[cls]!, rp: POWER_RP[cls]!, big: cls === 4, v: sizeOf(x),
     color: c, picto: LAYER[x.l].picto, pictoColor: c, hollow: x.st === 'construction' || undefined,
   };
 }
@@ -642,7 +644,7 @@ const BUILD: Record<LensId, Builder> = {
             : { items: [], color: pipeColor(P, p.fuel), width: PIPE_W[cls]!, alpha: cls ? 0.95 : 0.7, glow, tube: 'solid' };
         groups.set(key, g);
       }
-      g.items.push({ kind: 'pipeline', id: p.id, lines: p.lines });
+      g.items.push({ kind: 'pipeline', id: p.id, lines: p.lines, v: p.boe });
     }
     // thin lines first so trunk lines sit on top; the sourced strategic lines last of their weight
     sc.lines = [...groups.values()].sort((a, b) => a.width - b.width || Number(!!a.glow) - Number(!!b.glow));

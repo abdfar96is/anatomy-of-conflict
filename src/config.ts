@@ -130,6 +130,7 @@ export const ICONS: Record<string, string> = {
   lng:     '<path d="M12 3.5c3 3.6 5 6.4 5 9.2a5 5 0 0 1-10 0c0-2.8 2-5.6 5-9.2z"/><path d="M9.6 14.2c.4 1.3 1.3 2 2.6 2.2"/>',
   derrick: '<path d="M8 21l4-17 4 17M9.4 15h5.2M10.6 10h2.8M5 21h14"/>',
   bolt:    '<path d="M13 2.5L5 13.5h6l-1 8 8-11h-6z"/>',
+  list:    '<path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1.2"/><circle cx="4.5" cy="12" r="1.2"/><circle cx="4.5" cy="18" r="1.2"/>',
   factory: '<path d="M3 21V10l5 3V10l5 3V10l5 3V4h3v17z"/><path d="M7 17h2M12 17h2M17 17h2"/>',
   atom:    '<circle cx="12" cy="12" r="1.6"/><ellipse cx="12" cy="12" rx="9" ry="3.6"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(-60 12 12)"/>',
   gem:     '<path d="M7 4h10l4 5-9 11L3 9z"/><path d="M3 9h18M9.5 4L8 9l4 11 4-11-1.5-5"/>',
