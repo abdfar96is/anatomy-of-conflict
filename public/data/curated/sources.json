@@ -201,6 +201,34 @@
       }
     },
     {
+      "id": "gem-gipt",
+      "file": "power/plants.json",
+      "title": {
+        "ar": "محطات الكهرباء العاملة وقيد الإنشاء والمجمّدة بأنواعها الثمانية — Global Energy Monitor",
+        "en": "Operating, under-construction and mothballed power plants of eight types — Global Energy Monitor"
+      },
+      "publisher": {
+        "ar": "Global Energy Monitor: المتتبّع المتكامل لمحطات الكهرباء (GIPT)",
+        "en": "Global Energy Monitor: Global Integrated Power Tracker (GIPT)"
+      },
+      "url": "https://globalenergymonitor.org/projects/global-integrated-power-tracker",
+      "license": "CC BY 4.0",
+      "published": "2026-09",
+      "lastRetrieved": "2026-11-10",
+      "resolution": {
+        "ar": "29,027 محطة أو مشروعاً في 188 دولة: 7,564 مزرعة رياح، و7,465 محطة شمسية، و5,226 كهرومائية، و5,086 تعمل بالغاز أو النفط، و2,467 بالفحم، و702 بالطاقة الحيوية، و315 حرارية جوفية، و202 نووية؛ لكل منها نوعها وحالتها وقدرتها وموقعها، وفي ملف تفاصيل لكل دولة: القدرة حسب الحالة والنوع، والوحدات، والتقنية، والوقود، وسنوات التشغيل والتقاعد المخطّط، والمالك والشركة الأم، والنهر للمحطات الكهرومائية.",
+        "en": "29,027 plants or projects in 188 states: 7,564 wind farms, 7,465 solar plants, 5,226 hydropower, 5,086 oil and gas, 2,467 coal, 702 bioenergy, 315 geothermal and 202 nuclear; each with its type, status, capacity and location, and in a detail file per state the capacity by status and type, units, technology, fuel, years in service and of planned retirement, owner and parent, and the river for hydropower."
+      },
+      "methodology": {
+        "ar": "من ملف Excel الرسمي (إصدار سبتمبر 2026 V2)، الذي يجمع متتبّعات GEM الثمانية للكهرباء: جُمعت الوحدات العاملة وقيد الإنشاء والمجمّدة لكل موقع GEM (محطة أو مشروع)، ونوع المحطة ما تغلب قدرته، وموقعها موقع أكبر وحداتها. أُبقي على المحطات الشمسية والريحية والحيوية من 50 ميغاواط والبقية من 20 ميغاواط، وعلى كل المحطات النووية والحرارية الجوفية. الأسماء العربية من اسم GEM المحلي في الدول العربية.",
+        "en": "From the official Excel file (September 2026 V2 release), which brings together GEM's eight power trackers: the operating, under-construction and mothballed units of each GEM location (a plant or project) are summed, the plant's type is the one with the most capacity, and its location is its largest unit's. Solar, wind and bioenergy plants are kept from 50 MW and the rest from 20 MW, with all nuclear and geothermal plants. Arabic names are GEM's local names in Arab states."
+      },
+      "limitations": {
+        "ar": "لا تظهر المحطات المقترحة أو الملغاة أو المتقاعدة، ولا الصغيرة دون العتبة (65,948 موقعاً)، ولا 18,730 وحدة شمسية مصدرها جزئياً Solar Asset Mapper من TransitionZero لأن ترخيصها غير تجاري (CC BY-NC 4.0). عتبات GEM نفسها تختلف بالنوع (الفحم من 30 ميغاواط، والغاز من 50 أو 20 في أوروبا). كثير من المواقع تقريبي، والقدرة الاسمية لا تعني الإنتاج الفعلي. الأسماء بالإنجليزية إلا حيث يذكر GEM اسماً عربياً.",
+        "en": "Proposed, cancelled and retired plants are not shown, nor those under the threshold (65,948 locations), nor 18,730 solar units partly sourced from TransitionZero's Solar Asset Mapper, as its licence is non-commercial (CC BY-NC 4.0). GEM's own thresholds differ by type (coal from 30 MW, gas from 50 MW or 20 MW in Europe). Many locations are approximate, and nameplate capacity is not output. Names are in English except where GEM gives an Arabic one."
+      }
+    },
+    {
       "id": "wb-indicators",
       "file": "live/indicators.json",
       "title": {

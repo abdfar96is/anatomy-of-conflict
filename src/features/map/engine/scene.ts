@@ -17,6 +17,8 @@ import {
   ACCURACY_LABEL, FIELD_FUEL_LABEL, FIELD_STATUS_LABEL, FUEL_LABEL, STATUS_LABEL, capacityClass, fmtCapacity, fmtMtpa, getEnergy, isHalted, pipeName,
   type Energy, type Fuel, type LngTerminal, type OilField, type Pipeline,
 } from '../../../data/energy';
+import { POWER_LABEL, POWER_PICTO, POWER_SLOT, POWER_STATUS_LABEL, fmtMW, getPower, powerClass, type Power, type PowerPlant, type PowerType } from '../../../data/power';
+import '../../power/strings';
 
 registerStrings({
   ar: {
@@ -159,6 +161,8 @@ export interface LineSet {
  */
 export interface PointItem {
   lonlat: LonLat; kind: Kind; id: string; color: string; color2?: string; r: number; picto: string; pictoColor: string; rp: number; big: boolean;
+  /** Drawn as a ring (under construction). */
+  hollow?: boolean;
 }
 export interface Scene {
   fill: Map<string, string>; hatch: Set<string>; hatchAlpha: number; emph: Set<string> | null;
@@ -286,6 +290,26 @@ export function fieldPoint(P: Palette, x: OilField): PointItem {
     picto: x.product === 'gas' ? 'flame' : 'barrel', pictoColor: x.product === 'gas' ? gas : oil,
   };
 }
+// ---- power plants: hue by type (the palette's fixed order), size by capacity, rings under construction, steel when mothballed
+export const powerColor = (P: Palette, t: PowerType) => P.cat[POWER_SLOT[t]]!;
+export const powerVar = (t: PowerType) => `var(--cat-${POWER_SLOT[t]})`;
+export const powerHalted = (P: Palette, t: PowerType) => d3.interpolateLab(powerColor(P, t), P.fg3)(0.65);
+export const POWER_R = [1.8, 2.5, 3.3, 4.3, 5.6];
+export const POWER_RP = [4.4, 5, 5.8, 7, 8.6];
+/** Plants the Power & industry lens shows: by type, by status (mothballed ones with their own layer). */
+export function visiblePlants(W: Power, S: Pick<AtlasState, 'filters'>): PowerPlant[] {
+  const f = S.filters;
+  return W.plants.filter((p) => f.powerTypes.has(p.type)
+    && (p.status === 'mothballed' ? f.powerHalted : f.powerStatus === 'all' || p.status === f.powerStatus));
+}
+export function powerPoint(P: Palette, p: PowerPlant): PointItem {
+  const cls = powerClass(p.mw), c = p.status === 'mothballed' ? powerHalted(P, p.type) : powerColor(P, p.type);
+  return {
+    lonlat: p.coords, kind: 'station', id: p.id, r: POWER_R[cls]!, rp: POWER_RP[cls]!, big: cls === 4,
+    color: c, picto: POWER_PICTO[p.type], pictoColor: c, hollow: p.status === 'construction' || undefined,
+  };
+}
+
 export function visibleLng(E: Energy, S: Pick<AtlasState, 'filters'>): LngTerminal[] {
   const f = S.filters;
   return f.pipeLng && f.pipeFuels.has('gas') ? E.lng.filter((t) => f.pipeStatus === 'all' || t.status === f.pipeStatus) : [];
@@ -526,6 +550,17 @@ const BUILD: Record<LensId, Builder> = {
     if (sel) sc.selPolys.push({ feature: sel.feature, stroke: P.sel, width: 2.2 });
   },
 
+  industry(sc, DB, S, P) {
+    for (const c of DB.countries.values()) sc.fill.set(c.iso3, P.landMuted);
+    const W = getPower();
+    if (!W) return;
+    const plants = visiblePlants(W, S);
+    // a selected plant stays drawn whatever the filters
+    const sel = S.selection?.kind === 'station' ? W.byId.get(S.selection.id) : undefined;
+    if (sel && !plants.includes(sel)) plants.push(sel);
+    sc.points = plants.map((p) => powerPoint(P, p)).sort((a, b) => a.r - b.r);
+  },
+
   pipelines(sc, DB, S, P) {
     for (const c of DB.countries.values()) sc.fill.set(c.iso3, P.landMuted);
     const E = getEnergy();
@@ -628,7 +663,7 @@ function emphasis(sc: Scene, DB: DB, S: AtlasState, P: Palette) {
     if (sel.kind === 'disputed') { const d = DB.disputedById.get(sel.id); if (d) sc.selPolys.push({ feature: d.feature, stroke: P.sel, width: 2 }); }
     let anchor: LonLat | null = null;
     if (sel.kind === 'event') { const e = DB.eventById.get(sel.id); anchor = e ? eventAnchor(DB, e) : null; }
-    else if (['conflict', 'choke', 'site', 'disputed', 'plant', 'border', 'lng', 'field'].includes(sel.kind)) anchor = DB.anchorOf(sel.kind, sel.id);
+    else if (['conflict', 'choke', 'site', 'disputed', 'plant', 'border', 'lng', 'field', 'station'].includes(sel.kind)) anchor = DB.anchorOf(sel.kind, sel.id);
     if (anchor) sc.selRing = { lonlat: anchor, kind: sel.kind, id: sel.id };
   }
   if (S.view === 'compare') {
@@ -771,6 +806,13 @@ export function tipFor(hit: Hit, DB: DB, S: AtlasState): string {
       const out = [x.liquids ? t('map.tip.fd.liq', { v: fmtNum(x.liquids, x.liquids < 10 ? 1 : 0) }) : '', x.gas ? t('map.tip.fd.gas', { v: fmtNum(x.gas) }) : ''].filter(Boolean).join(' · ');
       return tip(x.name, `${L(FIELD_FUEL_LABEL[x.fuel])} · ${L(FIELD_STATUS_LABEL[x.status])}${x.project ? ` · ${t('map.tip.fd.project', { n: x.units.length })}` : ''}`,
         out ? (x.year ? `${out} (${x.year})` : out) : '', x.countries.map((iso) => nameOf(DB, iso, S.lang)).join(t('map.sep')), x.operator ? t('map.tip.fd.op', { v: x.operator }) : '');
+    }
+    case 'station': {
+      const x = getPower()?.byId.get(hit.id);
+      if (!x) return '';
+      const name = S.lang === 'ar' && x.nameAr ? x.nameAr : x.name;
+      return tip(name, `${L(POWER_LABEL[x.type])} · ${L(POWER_STATUS_LABEL[x.status])}`, fmtMW(x.mw, S.lang),
+        x.iso3 ? nameOf(DB, x.iso3, S.lang) : '');
     }
     case 'lng': {
       const x = getEnergy()?.lngById.get(hit.id);

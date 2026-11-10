@@ -14,10 +14,13 @@ import { catVar, edgeVar, pal, resClassVar, sevVar, traditionColor, type Palette
 import {
   BLOC_T, CHOKE_T, CONTINENTS, ETHNIC_CLASSES, GDP_RANGE, INCOME, POP_RANGE, RES_SHAPE,
   PIPE_DASH, PIPE_DOTS, PIPE_W, activeBloc, bi, borderFill, decadeWindow, ethnicClass, fuelVar, landTint, lngColor, nuclearCivilFill, nuclearFill, nuclearZoneFill, plantColor, seqFill,
-  visibleConflicts, visibleFields, visibleLng, visiblePipes, windowEvents,
+  visibleConflicts, visibleFields, visibleLng, visiblePipes, visiblePlants, windowEvents, POWER_R, powerHalted, powerVar,
 } from './engine/scene';
 import { FUELS, FUEL_LABEL, PIPE_STATUS, STATUS_LABEL, capacityClass, isHalted, systemName } from '../../data/energy';
 import { useEnergy } from '../pipelines/useEnergy';
+import { POWER_LABEL, POWER_PICTO, POWER_STATUS_LABEL, POWER_TYPES, powerClass } from '../../data/power';
+import { usePower } from '../power/usePower';
+import '../power/strings';
 import '../pipelines/strings';
 import { getBorders, unitsAt } from '../../data/borders';
 import { changeLine } from '../borders/changes';
@@ -62,6 +65,17 @@ function FieldDot({ colors, r = 4 }: { colors: string[]; r?: number }) {
       <circle r={r + 0.9} style={{ fill: 'var(--label-halo)' }} />
       <circle r={r} style={{ fill: colors[0] }} />
       {colors[1] ? <path d={`M0 ${-r}A${r} ${r} 0 0 1 0 ${r}Z`} style={{ fill: colors[1] }} /> : null}
+    </svg>
+  );
+}
+
+/** A plant's dot: filled, or a ring for one under construction. */
+function PlantDot({ color, r = 4, ring = false }: { color: string; r?: number; ring?: boolean }) {
+  return (
+    <svg className="glyph" width={2 * r + 6} height={14} viewBox={`${-r - 3} -7 ${2 * r + 6} 14`} aria-hidden="true">
+      {ring
+        ? <><circle r={r} style={{ fill: 'none', stroke: 'var(--label-halo)', strokeWidth: 2.8 }} /><circle r={r} style={{ fill: 'none', stroke: color, strokeWidth: 1.3 }} /></>
+        : <><circle r={r + 0.9} style={{ fill: 'var(--label-halo)' }} /><circle r={r} style={{ fill: color }} /></>}
     </svg>
   );
 }
@@ -329,6 +343,7 @@ const BODY: Record<(typeof LENSES)[number]['id'], (c: Ctx) => ReactNode> = {
   },
 
   pipelines: (c) => <PipelinesCard {...c} />,
+  industry: (c) => <PowerCard {...c} />,
 
   powers({ DB, S, P, T: { t, pick: L } }) {
     const f = S.filters;
@@ -532,6 +547,56 @@ function PipelinesCard({ S, P, T: { t, pick: L, fmt, lang } }: Ctx) {
       {fields.length ? <Note text={t('pp.fieldsNote')} /> : null}
       {f.pipeHalted ? <Note text={t('pp.haltedNote')} /> : null}
       <Note text={t('pp.note')} />
+    </>
+  );
+}
+
+/** The Power & industry card: plant types, status, the mothballed layer, and the size key. */
+function PowerCard({ S, P, T: { t, pick: L, fmt } }: Ctx) {
+  const { W, failed } = usePower();
+  if (!W) return <Note text={failed ? t('pw.failed') : t('pw.loading')} />;
+  const f = S.filters;
+  const shown = visiblePlants(W, S);
+  // counts under the other filter, so each chip says what turning it on would add
+  const active = W.plants.filter((p) => p.status !== 'mothballed');
+  const byStatus = active.filter((p) => f.powerTypes.has(p.type));
+  const byType = active.filter((p) => f.powerStatus === 'all' || p.status === f.powerStatus);
+  const halted = W.plants.filter((p) => p.status === 'mothballed' && f.powerTypes.has(p.type));
+  const types = POWER_TYPES.map((id) => (
+    <Chip key={id} act="toggle" k="powerTypes" val={id} pressed={f.powerTypes.has(id)} label={L(POWER_LABEL[id])} n={byType.filter((p) => p.type === id).length}
+      lead={<Picto id={POWER_PICTO[id]} color={powerVar(id)} size={15} />} onClick={() => atlas.toggleInSet('powerTypes', id)} />
+  ));
+  const statuses = (['all', 'operating', 'construction'] as const).map((id) => (
+    <Chip key={id} act="set" k="powerStatus" val={id} pressed={f.powerStatus === id} label={id === 'all' ? t('pw.all') : L(POWER_STATUS_LABEL[id])}
+      n={id === 'all' ? byStatus.length : byStatus.filter((p) => p.status === id).length}
+      lead={id === 'all' ? undefined : <PlantDot color="var(--fg-2)" r={3.5} ring={id === 'construction'} />}
+      onClick={() => atlas.setFilter('powerStatus', id)} />
+  ));
+  const sizes = [4, 3, 2, 1, 0].map((cls) => (
+    <KeyRow key={cls} lead={<PlantDot color="var(--fg-2)" r={POWER_R[cls]} />} label={t('pw.s' + cls)} n={shown.filter((p) => powerClass(p.mw) === cls).length} />
+  ));
+  const gw = shown.reduce((a, p) => a + (p.status === 'operating' ? p.mw : 0), 0) / 1000;
+  const steel = powerHalted(P, 'coal');
+  return (
+    <>
+      <Sec label={t('pw.types')}><Chips label={t('pw.types')}>{types}</Chips></Sec>
+      <Sec label={t('pw.status')}><Chips label={t('pw.status')}>{statuses}</Chips></Sec>
+      <Sec label={t('pw.show')}>
+        <Chips label={t('pw.show')}>
+          <Chip act="layer" k="powerHalted" pressed={f.powerHalted} label={t('pw.halted')} n={halted.length}
+            lead={<PlantDot color={steel} r={3.5} />} onClick={() => atlas.setFilter('powerHalted', !f.powerHalted)} />
+        </Chips>
+      </Sec>
+      <Sec label={t('pw.size')}>
+        <Keys>{sizes}</Keys>
+        <Keys>
+          <KeyRow lead={<PlantDot color="var(--fg-2)" r={3.5} ring />} label={t('pw.ring')} />
+          <KeyRow lead={<span className="sizes" aria-hidden="true"><Picto id="sun" color={powerVar('solar')} size={15} /><Picto id="atom" color={powerVar('nuclear')} size={15} /></span>} label={t('pw.picto')} />
+        </Keys>
+        <p className="lc-note">{t('pw.total', { n: fmt.num(shown.length), gw: fmt.num(Math.round(gw)) })}</p>
+      </Sec>
+      <Note text={t('pw.colorNote')} />
+      <Note text={t('pw.note')} />
     </>
   );
 }

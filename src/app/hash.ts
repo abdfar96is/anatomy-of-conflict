@@ -39,6 +39,11 @@ export function parseHash(token: string, db: DB): ParsedHash | null {
     // once the data is in, the map flies there now; before that, the lens flies when the data arrives
     return { patch: { lens: 'pipelines', selection: sel, view: null }, ...(db.exists(sel.kind, rest) ? { fly: sel } : {}) };
   }
+  // Power plants likewise load with their lens.
+  if (head === 'station' && /^L\d{12}$/.test(rest)) {
+    const sel = { kind: 'station' as Kind, id: rest };
+    return { patch: { lens: 'industry', selection: sel, view: null }, ...(db.exists('station', rest) ? { fly: sel } : {}) };
+  }
   // A selection link shows that record on the map, so it closes any open view.
   if ((KINDS as readonly string[]).includes(head) && db.exists(head as Kind, rest)) {
     const sel = { kind: head as Kind, id: rest };

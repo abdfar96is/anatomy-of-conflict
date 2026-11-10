@@ -42,7 +42,7 @@ const K_MIN = 0.8, K_MAX = 60, K_FIT_MAX = 28;
 const HOME: LonLat = [35, 25];
 const TOL_COARSE = 0.12, TOL_FINE = 0.02;
 const SCENE_KEYS = new Set<keyof AtlasState>(['lens', 'selection', 'filters', 'layers', 'year', 'yearFilter', 'theme', 'compare', 'view', 'lang']);
-const POINT_KINDS: Kind[] = ['conflict', 'choke', 'site', 'plant', 'lng', 'field'];
+const POINT_KINDS: Kind[] = ['conflict', 'choke', 'site', 'plant', 'lng', 'field', 'station'];
 /** Grid cell size (degrees) of the line hit-test index. */
 const LINE_CELL = 2;
 const lineCell = (lon: number, lat: number) => (Math.floor(lat / LINE_CELL) + 46) * 182 + Math.floor(lon / LINE_CELL) + 91;
@@ -765,20 +765,44 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
     pointHits = [];
     if (!sc.points.length) return;
     const k = absScale() / baseScale(), allPicto = !interacting && k >= 4;
+    // dots are batched by size (smallest first, so the large ones stay on top): per size, one path for the halos and
+    // one per colour, so thousands of points stay cheap
+    type Bucket = { halo: Path2D; rings: Path2D; fills: Map<string, Path2D>; strokes: Map<string, Path2D>; halves: { x: number; y: number; p: PointItem }[] };
+    const buckets = new Map<number, Bucket>();
+    const add = (m: Map<string, Path2D>, color: string) => { let path = m.get(color); if (!path) m.set(color, path = new Path2D()); return path; };
+    const pictos: { x: number; y: number; p: PointItem }[] = [];
     for (const p of sc.points) {
       if (interacting && p.r < 3 && k < 4) continue;
       const q = projectVisible(p.lonlat, cen);
       if (!q) continue;
       const [x, y] = q;
-      if (allPicto || p.big) {
-        ctx.save(); ctx.translate(x, y); drawPicto(ctx, p.picto, p.rp, p.pictoColor, P); ctx.restore();
-        pointHits.push({ x, y, r: p.rp, p });
-        continue;
+      if (allPicto || p.big) { pictos.push({ x, y, p }); pointHits.push({ x, y, r: p.rp, p }); continue; }
+      let b = buckets.get(p.r);
+      if (!b) buckets.set(p.r, b = { halo: new Path2D(), rings: new Path2D(), fills: new Map(), strokes: new Map(), halves: [] });
+      if (p.hollow) {
+        b.rings.moveTo(x + p.r, y); b.rings.arc(x, y, p.r, 0, TAU);
+        const path = add(b.strokes, p.color);
+        path.moveTo(x + p.r, y); path.arc(x, y, p.r, 0, TAU);
+      } else {
+        b.halo.moveTo(x + p.r + 0.9, y); b.halo.arc(x, y, p.r + 0.9, 0, TAU);
+        const path = add(b.fills, p.color);
+        path.moveTo(x + p.r, y); path.arc(x, y, p.r, 0, TAU);
+        if (p.color2) b.halves.push({ x, y, p });
       }
-      ctx.beginPath(); ctx.arc(x, y, p.r + 0.9, 0, TAU); ctx.fillStyle = P.halo; ctx.fill();
-      ctx.beginPath(); ctx.arc(x, y, p.r, 0, TAU); ctx.fillStyle = p.color; ctx.fill();
-      if (p.color2) { ctx.beginPath(); ctx.arc(x, y, p.r, -Math.PI / 2, Math.PI / 2); ctx.closePath(); ctx.fillStyle = p.color2; ctx.fill(); }
-      pointHits.push({ x, y, r: p.r, p });
+      pointHits.push({ x, y, r: Math.max(p.r, 2.5), p });
+    }
+    for (const b of buckets.values()) {
+      ctx.fillStyle = P.halo; ctx.fill(b.halo);
+      for (const [color, path] of b.fills) { ctx.fillStyle = color; ctx.fill(path); }
+      for (const { x, y, p } of b.halves) { ctx.beginPath(); ctx.arc(x, y, p.r, -Math.PI / 2, Math.PI / 2); ctx.closePath(); ctx.fillStyle = p.color2!; ctx.fill(); }
+      // rings (under construction): a dark band under a coloured one, so they read on land and sea
+      ctx.strokeStyle = P.halo; ctx.lineWidth = 2.8; ctx.stroke(b.rings);
+      ctx.lineWidth = 1.3;
+      for (const [color, path] of b.strokes) { ctx.strokeStyle = color; ctx.stroke(path); }
+    }
+    for (const { x, y, p } of pictos) {
+      ctx.save(); ctx.translate(x, y); drawPicto(ctx, p.picto, p.rp, p.pictoColor, P); ctx.restore();
+      if (p.hollow) ring(ctx, x, y, p.rp + 1.6, p.pictoColor, 1.1, P.halo);
     }
   }
 
@@ -1025,7 +1049,7 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
       }
     }
     for (const ls of sc.selLines) drawLineSet(ctx, ls, cen);
-    if (hover?.kind === 'field') {
+    if (hover?.kind === 'field' || hover?.kind === 'station') {
       const h = pointHits.find((x) => x.p.id === hover!.id);
       if (h) ring(ctx, h.x, h.y, h.r + 3, P.fg, 1.3, P.halo);
     }
