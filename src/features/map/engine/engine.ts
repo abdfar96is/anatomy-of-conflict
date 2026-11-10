@@ -42,7 +42,7 @@ const K_MIN = 0.8, K_MAX = 60, K_FIT_MAX = 28;
 const HOME: LonLat = [35, 25];
 const TOL_COARSE = 0.12, TOL_FINE = 0.02;
 const SCENE_KEYS = new Set<keyof AtlasState>(['lens', 'selection', 'filters', 'layers', 'year', 'yearFilter', 'theme', 'compare', 'view', 'lang']);
-const POINT_KINDS: Kind[] = ['conflict', 'choke', 'site', 'plant', 'lng', 'field', 'station'];
+const POINT_KINDS: Kind[] = ['conflict', 'choke', 'site', 'plant', 'lng', 'field', 'station', 'facility'];
 /** Grid cell size (degrees) of the line hit-test index. */
 const LINE_CELL = 2;
 const lineCell = (lon: number, lat: number) => (Math.floor(lat / LINE_CELL) + 46) * 182 + Math.floor(lon / LINE_CELL) + 91;
@@ -1049,7 +1049,7 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
       }
     }
     for (const ls of sc.selLines) drawLineSet(ctx, ls, cen);
-    if (hover?.kind === 'field' || hover?.kind === 'station') {
+    if (hover?.kind === 'field' || hover?.kind === 'station' || hover?.kind === 'facility') {
       const h = pointHits.find((x) => x.p.id === hover!.id);
       if (h) ring(ctx, h.x, h.y, h.r + 3, P.fg, 1.3, P.halo);
     }

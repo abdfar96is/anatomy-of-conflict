@@ -7,6 +7,7 @@ import type { Prefs } from '../../app/prefs';
 import { LENSES, NUCLEAR_UNIT, RELIGION_FAMILIES, SEVERITY, VIEWS, type LensId, type ViewId } from '../../config';
 import { FIELD_FUEL_LABEL, FIELD_STATUS_LABEL, FUEL_LABEL, STATUS_LABEL, getEnergy } from '../../data/energy';
 import { POWER_LABEL, POWER_STATUS_LABEL, fmtMW, getPower, type Power } from '../../data/power';
+import { INDUSTRY_STATUS_LABEL, LAYER_ONE, facilityClass, getIndustry, sizeOf, type Facility, type Industry } from '../../data/industry';
 import type { DB, Kind } from '../../data/types';
 import { normalize, type Lang } from '../../i18n/format';
 import { esc } from '../../ui/dom';
@@ -52,6 +53,14 @@ function membersLabel(n: number, lang: Lang): string {
 
 const matches = (text: string, q: string) => !!q && normalize(text).includes(normalize(q));
 /** Normalised search keys of the power plants (English and Arabic names), built once per model. */
+const siteKeyCache = new WeakMap<Industry, string[]>();
+function siteKeys(X: Industry): string[] {
+  let k = siteKeyCache.get(X);
+  if (!k) siteKeyCache.set(X, k = X.sites.map((x) => normalize([x.n, x.ar, x.o].filter(Boolean).join(' '))));
+  return k;
+}
+/** Sites rank by their size class, so a large steel plant and a large coal mine come before small ones. */
+const sizeRank = (x: Facility) => facilityClass(x) * 1e9 + sizeOf(x);
 const plantKeyCache = new WeakMap<Power, string[]>();
 function plantKeys(W: Power): string[] {
   let k = plantKeyCache.get(W);
@@ -108,6 +117,10 @@ function subOf(db: DB, T: T, kind: Kind, id: string): string {
     case 'lng': {
       const x = getEnergy()?.lngById.get(id);
       return !x ? '' : [x.iso3 && db.countries.has(x.iso3) ? countryName(x.iso3) : '', L(STATUS_LABEL[x.status])].filter(Boolean).join(' · ');
+    }
+    case 'facility': {
+      const x = getIndustry()?.byId.get(id);
+      return !x ? '' : [x.c && db.countries.has(x.c) ? countryName(x.c) : '', L(LAYER_ONE[x.l]), L(INDUSTRY_STATUS_LABEL[x.st])].filter(Boolean).join(' · ');
     }
     case 'station': {
       const x = getPower()?.byId.get(id);
@@ -229,6 +242,13 @@ function PaletteBox() {
       const keys = plantKeys(W);
       const plants = W.plants.filter((_, i) => keys[i]!.includes(nq)).sort((a, b) => b.mw - a.mw).slice(0, 6);
       if (plants.length) groups.push({ label: t('kinds.station'), items: plants.map((p) => dataItem(db, T, 'station', p.id, q)) });
+    }
+    // mines and industrial plants, once loaded: by name (Arabic too) or owner, the largest of each layer first
+    const X = getIndustry();
+    if (X && nq.length >= 2) {
+      const keys = siteKeys(X);
+      const sites = X.sites.filter((_, i) => keys[i]!.includes(nq)).sort((a, b) => sizeRank(b) - sizeRank(a)).slice(0, 6);
+      if (sites.length) groups.push({ label: t('kinds.facility'), items: sites.map((x) => dataItem(db, T, 'facility', x.id, q)) });
     }
     const cmds = commands(T, { lens, view, theme, projection, tour }, tours).filter((c) => normalize(c.label).includes(nq));
     if (cmds.length) groups.push({ label: t('sh.gActions'), items: cmds.slice(0, 8).map((c, n) => cmdItem(T, c, q, n)) });

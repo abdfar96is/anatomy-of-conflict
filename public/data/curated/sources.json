@@ -229,6 +229,34 @@
       }
     },
     {
+      "id": "gem-industry",
+      "file": "industry/sites.json",
+      "title": {
+        "ar": "مناجم الفحم وخام الحديد ومحطات الفحم البحرية ومصانع الصلب والإسمنت والكيماويات — Global Energy Monitor",
+        "en": "Coal and iron ore mines, coal terminals, and steel, cement and chemical plants — Global Energy Monitor"
+      },
+      "publisher": {
+        "ar": "Global Energy Monitor: متتبّعات مناجم الفحم، ومحطات الفحم البحرية، ومناجم خام الحديد، والحديد والصلب، والإسمنت والخرسانة، والكيماويات",
+        "en": "Global Energy Monitor: Global Coal Mine, Coal Terminals, Iron Ore Mines, Iron and Steel, Cement and Concrete, and Chemicals trackers"
+      },
+      "url": "https://globalenergymonitor.org/projects/global-coal-mine-tracker",
+      "license": "CC BY 4.0",
+      "published": "2026-11",
+      "lastRetrieved": "2026-11-10",
+      "resolution": {
+        "ar": "11,449 منشأة في 169 دولة: 4,556 منجم فحم، و3,609 مصنع إسمنت، و1,066 مصنع حديد وصلب، و1,071 مصنع كيماويات، و771 منجم خام حديد، و376 محطة فحم بحرية؛ لكل منها حالتها وموقعها وقدرتها أو إنتاجها والمالك والشركة الأم، وما يضيفه كل متتبّع (نوع الفحم وانبعاثات الميثان المقدّرة للمناجم، ومعدات الإنتاج للصلب، والأفران والكلنكر للإسمنت، والقدرة حسب المنتج للكيماويات).",
+        "en": "11,449 sites in 169 states: 4,556 coal mines, 3,609 cement plants, 1,066 iron and steel plants, 1,071 chemical plants, 771 iron ore mines and 376 coal terminals; each with its status, location, capacity or output, owner and parent, and what each tracker adds (coal type and estimated methane for mines, production equipment for steel, kilns and clinker for cement, capacity by product for chemicals)."
+      },
+      "methodology": {
+        "ar": "من ملفات Excel الرسمية لستة متتبّعات: مناجم الفحم (أغسطس 2026)، ومحطات الفحم البحرية (ديسمبر 2024)، ومناجم خام الحديد (سبتمبر 2026)، والحديد والصلب (سبتمبر 2026)، والإسمنت والخرسانة (يوليو 2026)، والكيماويات (نوفمبر 2026). أُبقي على المنشآت العاملة وقيد الإنشاء والمجمّدة التي لها إحداثيات؛ وجُمعت توسعات المنجم الواحد ووحدات المحطة الواحدة، وأُخذت حالة مصنع الصلب وقدرته من ورقة القدرات وإنتاجه من ورقة الإنتاج، وقدرة مصنع الكيماويات من مجموع منتجاته العاملة. الأسماء العربية من اسم GEM المحلي حين يكون بالعربية.",
+        "en": "From the official Excel files of six trackers: coal mines (August 2026), coal terminals (December 2024), iron ore mines (September 2026), iron and steel (September 2026), cement and concrete (July 2026) and chemicals (November 2026). Operating, under-construction and mothballed sites with coordinates are kept; a mine's expansions and a terminal's units are grouped, a steel plant's status and capacity come from the capacities sheet and its output from the production sheet, and a chemical plant's capacity is the sum of its operating products. Arabic names are GEM's local names where they are in Arabic."
+      },
+      "limitations": {
+        "ar": "لا تظهر المنشآت المقترحة أو الملغاة أو المغلقة أو المتقاعدة. لمتتبّع خام الحديد حالة «مقترح» فقط دون «قيد الإنشاء». متتبّع محطات الفحم البحرية أقدم الستة (ديسمبر 2024)، وبعض محطاته موانئ متعددة البضائع بقدرتها الكلية. متتبّع الكيماويات يغطي الأمونيا والميثانول والأوليفينات والعطريات فقط. الوحدات تختلف بالطبقة (مليون طن للفحم والإسمنت، وألف طن لخام الحديد والصلب والكيماويات)، فحجم النقطة يقارن داخل الطبقة فقط. بعض المواقع تقريبي.",
+        "en": "Proposed, cancelled, closed and retired sites are not shown. The iron ore tracker has a proposed status but no under-construction one. The coal terminals tracker is the oldest of the six (December 2024), and some of its terminals are multi-cargo ports with their full capacity. The chemicals tracker covers ammonia, methanol, olefins and aromatics only. Units differ by layer (million tonnes for coal and cement, thousand tonnes for iron ore, steel and chemicals), so dot size compares within a layer only. Some locations are approximate."
+      }
+    },
+    {
       "id": "wb-indicators",
       "file": "live/indicators.json",
       "title": {

@@ -41,6 +41,7 @@ registerStrings({
     'kind.lng': 'محطة غاز مسال',
     'kind.field': 'حقل نفط أو غاز',
     'kind.station': 'محطة كهرباء',
+    'kind.facility': 'منجم أو مصنع',
   },
   en: {
     'tr.tour': 'Tour',
@@ -73,6 +74,7 @@ registerStrings({
     'kind.lng': 'LNG terminal',
     'kind.field': 'Oil or gas field',
     'kind.station': 'Power plant',
+    'kind.facility': 'Mine or plant',
   },
 });
 

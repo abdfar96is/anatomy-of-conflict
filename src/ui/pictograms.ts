@@ -136,6 +136,32 @@ export const PICTO: Record<string, PictoLayer[]> = {
     { d: ORBIT, stroke: 'light', width: 0.9, t: rot(-60) },
     { d: 'M-1.5 0a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0-3 0Z', fill: 'base', stroke: 'light', width: 0.5 },
   ],
+  // iron ore mining: a pickaxe
+  pickaxe: [
+    { d: 'M-.75-3.4H.75V6.4H-.75Z', fill: 'light', stroke: 'dark', width: 0.6, t: rot(-30, 0, 0) },
+    { d: 'M-6.2-1.2Q-.2-7.6 6.2-1.2L5.4-.2Q-.2-4.6-5.4-.2Z', fill: 'base', stroke: 'dark', width: 0.7, t: rot(-30, 0, 0) },
+  ],
+  // iron and steel: an I-beam seen end on
+  beam: [
+    { d: 'M-5.4-5.6H5.4V-3.4H1.2V3.4H5.4V5.6H-5.4V3.4H-1.2V-3.4H-5.4Z', fill: 'base', stroke: 'dark', width: 0.8 },
+    { d: 'M-4.6-4.5H4.6', stroke: 'light', width: 0.7 },
+  ],
+  // cement: two silos, the taller with its domed top
+  silo: [
+    { d: 'M-5.4 6.2V-1.4Q-3.6-3.4-1.8-1.4V6.2Z', fill: 'base', stroke: 'dark', width: 0.7 },
+    { d: 'M-1.2 6.2V-3.8Q1.6-6.8 4.4-3.8V6.2Z', fill: 'base', stroke: 'dark', width: 0.7 },
+    { d: 'M-1.2 0H4.4M-1.2 3H4.4M-5.4 2.4H-1.8', stroke: 'dark', width: 0.6 },
+  ],
+  // chemicals: a conical flask with its liquid
+  flask: [
+    { d: 'M-1.7-6.2H1.7V-2.4L5.2 4.4Q5.9 6.2 4 6.2H-4Q-5.9 6.2-5.2 4.4L-1.7-2.4Z', fill: 'light', stroke: 'dark', width: 0.8 },
+    { d: 'M-3.5 1.6H3.5L4.6 4.4Q5 5.4 4 5.4H-4Q-5 5.4-4.6 4.4Z', fill: 'base' },
+  ],
+  // coal terminals: a bulk carrier with a heap of coal on deck
+  ship: [
+    { d: 'M-6.4 1.2L-4.8 5.6H4.6L6.4 1.2Z', fill: 'base', stroke: 'dark', width: 0.8 },
+    { d: 'M-4.4 1.2L-2.8-2.4-.8-1.2 1.2-3.6 3.6 1.2Z', fill: '#3b3f44', stroke: '#1d1f22', width: 0.5 },
+  ],
   // semiconductors: a chip with its pins
   chip: [
     { d: 'M-2.2-3.8V-6M0-3.8V-6M2.2-3.8V-6M-2.2 3.8V6M0 3.8V6M2.2 3.8V6M-3.8-2.2H-6M-3.8 0H-6M-3.8 2.2H-6M3.8-2.2H6M3.8 0H6M3.8 2.2H6', stroke: '#9fb0bc', width: 1 },

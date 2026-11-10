@@ -14,12 +14,14 @@ import { catVar, edgeVar, pal, resClassVar, sevVar, traditionColor, type Palette
 import {
   BLOC_T, CHOKE_T, CONTINENTS, ETHNIC_CLASSES, GDP_RANGE, INCOME, POP_RANGE, RES_SHAPE,
   PIPE_DASH, PIPE_DOTS, PIPE_W, activeBloc, bi, borderFill, decadeWindow, ethnicClass, fuelVar, landTint, lngColor, nuclearCivilFill, nuclearFill, nuclearZoneFill, plantColor, seqFill,
-  visibleConflicts, visibleFields, visibleLng, visiblePipes, visiblePlants, windowEvents, POWER_R, powerHalted, powerVar,
+  visibleConflicts, visibleFields, visibleLng, visiblePipes, visiblePlants, visibleFacilities, windowEvents, POWER_R, layerVar, powerHalted, powerVar,
 } from './engine/scene';
 import { FUELS, FUEL_LABEL, PIPE_STATUS, STATUS_LABEL, capacityClass, isHalted, systemName } from '../../data/energy';
 import { useEnergy } from '../pipelines/useEnergy';
 import { POWER_LABEL, POWER_PICTO, POWER_STATUS_LABEL, POWER_TYPES, powerClass } from '../../data/power';
 import { usePower } from '../power/usePower';
+import { useIndustry } from '../power/useIndustry';
+import { INDUSTRY_LAYERS, INDUSTRY_STATUS_LABEL, LAYER, LAYER_LABEL } from '../../data/industry';
 import '../power/strings';
 import '../pipelines/strings';
 import { getBorders, unitsAt } from '../../data/borders';
@@ -552,8 +554,69 @@ function PipelinesCard({ S, P, T: { t, pick: L, fmt, lang } }: Ctx) {
 }
 
 /** The Power & industry card: plant types, status, the mothballed layer, and the size key. */
-function PowerCard({ S, P, T: { t, pick: L, fmt } }: Ctx) {
+function PowerCard(c: Ctx) {
+  const { S, T: { t } } = c;
+  const mode = S.filters.industryMode;
+  const modes = (['power', 'industry'] as const).map((id) => (
+    <Chip key={id} act="set" k="industryMode" val={id} pressed={mode === id} label={t('in.' + id)}
+      lead={<Icon name={id === 'power' ? 'bolt' : 'factory'} size={14} />} onClick={() => atlas.setFilter('industryMode', id)} />
+  ));
+  return (
+    <>
+      <Sec label={t('in.mode')}><Chips label={t('in.mode')}>{modes}</Chips></Sec>
+      {mode === 'power' ? <PowerPlants {...c} /> : <IndustrySites {...c} />}
+    </>
+  );
+}
+
+/** Mines and heavy industry: layer chips, status, the mothballed layer and the size note. */
+function IndustrySites({ S, T: { t, pick: L, fmt } }: Ctx) {
+  const { X, failed } = useIndustry();
+  if (!X) return <Note text={failed ? t('in.failed') : t('in.loading')} />;
+  const f = S.filters;
+  const shown = visibleFacilities(X, S);
+  const active = X.sites.filter((x) => x.st !== 'mothballed');
+  const byLayer = active.filter((x) => f.powerStatus === 'all' || x.st === f.powerStatus);
+  const byStatus = active.filter((x) => f.industryLayers.has(x.l));
+  const halted = X.sites.filter((x) => x.st === 'mothballed' && f.industryLayers.has(x.l));
+  const layers = INDUSTRY_LAYERS.map((id) => (
+    <Chip key={id} act="toggle" k="industryLayers" val={id} pressed={f.industryLayers.has(id)} label={L(LAYER_LABEL[id])} n={byLayer.filter((x) => x.l === id).length}
+      lead={<Picto id={LAYER[id].picto} color={layerVar(id)} size={15} />} onClick={() => atlas.toggleInSet('industryLayers', id)} />
+  ));
+  const statuses = (['all', 'operating', 'construction'] as const).map((id) => (
+    <Chip key={id} act="set" k="powerStatus" val={id} pressed={f.powerStatus === id} label={id === 'all' ? t('pw.all') : L(INDUSTRY_STATUS_LABEL[id])}
+      n={id === 'all' ? byStatus.length : byStatus.filter((x) => x.st === id).length}
+      lead={id === 'all' ? undefined : <PlantDot color="var(--fg-2)" r={3.5} ring={id === 'construction'} />}
+      onClick={() => atlas.setFilter('powerStatus', id)} />
+  ));
+  return (
+    <>
+      <Sec label={t('in.layers')}><Chips label={t('in.layers')}>{layers}</Chips></Sec>
+      <Sec label={t('pw.status')}><Chips label={t('pw.status')}>{statuses}</Chips></Sec>
+      <Sec label={t('pw.show')}>
+        <Chips label={t('pw.show')}>
+          <Chip act="layer" k="powerHalted" pressed={f.powerHalted} label={t('in.halted')} n={halted.length}
+            lead={<PlantDot color="var(--fg-3)" r={3.5} />} onClick={() => atlas.setFilter('powerHalted', !f.powerHalted)} />
+        </Chips>
+      </Sec>
+      <Sec label={t('pw.size')}>
+        <Keys>
+          <KeyRow lead={<span className="sizes" aria-hidden="true"><PlantDot color="var(--fg-2)" r={POWER_R[0]} /><PlantDot color="var(--fg-2)" r={POWER_R[4]} /></span>} label={t('in.size')} />
+          <KeyRow lead={<PlantDot color="var(--fg-2)" r={3.5} ring />} label={t('pw.ring')} />
+          <KeyRow lead={<span className="sizes" aria-hidden="true"><Picto id="beam" color={layerVar('st')} size={15} /><Picto id="silo" color={layerVar('ce')} size={15} /></span>} label={t('in.picto')} />
+        </Keys>
+        <p className="lc-note">{t('in.total', { n: fmt.num(shown.length) })}</p>
+      </Sec>
+      <Note text={t('in.colorNote')} />
+      <Note text={t('in.note')} />
+    </>
+  );
+}
+
+/** Power plants: type chips, status, the mothballed layer, and the size key. */
+function PowerPlants({ S, P, T: { t, pick: L, fmt } }: Ctx) {
   const { W, failed } = usePower();
+  useIndustry();
   if (!W) return <Note text={failed ? t('pw.failed') : t('pw.loading')} />;
   const f = S.filters;
   const shown = visiblePlants(W, S);

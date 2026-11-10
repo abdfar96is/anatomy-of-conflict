@@ -304,6 +304,28 @@ export function checkData(dataDir: string): Problem[] {
     }
     for (const [key, left] of expected) for (const id of left) problems.push({ file: `power/detail/${key}.json`, path: id, message: 'plant missing from its detail file' });
   }
+  // 8. Mines and heavy industry (industry/): layers, statuses, places and capacities.
+  const sitesFile = path.join(dataDir, 'industry', 'sites.json');
+  if (fs.existsSync(sitesFile)) {
+    const sf = 'industry/sites.json';
+    const metaText = fs.readFileSync(path.join(dataDir, 'industry', 'meta.json'), 'utf8').replace(/\r\n/g, '\n');
+    const meta = JSON.parse(metaText) as { sources: Record<string, unknown> };
+    if (metaText !== formatJson(meta)) layout.push({ file: 'industry/meta.json', path: '', message: 'not in the canonical layout; run npm run format-data' });
+    const sites = JSON.parse(fs.readFileSync(sitesFile, 'utf8')) as Rec[];
+    const seen = new Set<string>();
+    sites.forEach((x, i) => {
+      const at = `[${i}]`;
+      for (const k of ['id', 'l', 'n', 'st', 'lon', 'lat']) if (x[k] == null || x[k] === '') problems.push({ file: sf, path: `${at}.${k}`, message: 'missing' });
+      if (seen.has(x.id as string)) problems.push({ file: sf, path: `${at}.id`, message: 'duplicate id', value: x.id });
+      seen.add(x.id as string);
+      if (!['cm', 'ct', 'io', 'st', 'ce', 'ch'].includes(x.l as string)) problems.push({ file: sf, path: `${at}.l`, message: 'unknown layer', value: x.l });
+      else if (!meta.sources[x.l as string]) problems.push({ file: 'industry/meta.json', path: `sources.${x.l}`, message: 'no source for this layer' });
+      if (!['operating', 'construction', 'mothballed'].includes(x.st as string)) problems.push({ file: sf, path: `${at}.st`, message: 'status outside operating / construction / mothballed', value: x.st });
+      if (Math.abs(Number(x.lon)) > 180 || Math.abs(Number(x.lat)) > 90) problems.push({ file: sf, path: at, message: 'coordinates out of range', value: [x.lon, x.lat] });
+      if (x.c != null) country(sf, `${at}.c`, x.c);
+      for (const k of ['cap', 'capc', 'prod']) if (x[k] != null && !(Number(x[k]) > 0)) problems.push({ file: sf, path: `${at}.${k}`, message: 'not a positive number', value: x[k] });
+    });
+  }
   return [...layout, ...problems];
 }
 

@@ -29,6 +29,9 @@ export interface Filters {
   powerTypes: Set<string>;
   powerStatus: 'all' | 'operating' | 'construction';
   powerHalted: boolean;
+  /** What the Power & industry lens shows: power plants, or mines and heavy industry (and which layers of them). */
+  industryMode: 'power' | 'industry';
+  industryLayers: Set<string>;
   timelineCats: Set<string> | null;
   ethnicFamily: string | null;
 }
@@ -61,6 +64,7 @@ export const initialState = (): AtlasState => ({
     overviewMode: 'continent', nuclearMode: 'military', bordersYear: 1914, timelineCats: null, ethnicFamily: null,
     pipeFuels: new Set(['gas', 'oil', 'ngl']), pipeStatus: 'all', pipeLng: true, pipeFields: true, pipeHalted: false, pipeStrategic: false,
     powerTypes: new Set(['hydro', 'gas', 'wind', 'solar', 'geo', 'bio', 'nuclear', 'coal']), powerStatus: 'all', powerHalted: false,
+    industryMode: 'power', industryLayers: new Set(['cm', 'io', 'st', 'ce', 'ch', 'ct']),
   },
   layers: { labels: true, graticule: true, boundaries: true, disputed: true, ethnic: false, conflicts: false, arcs: false },
 });
@@ -99,7 +103,7 @@ export const atlas = {
     useAtlas.setState({ filters: { ...useAtlas.getState().filters, [key]: value } });
   },
 
-  toggleInSet(key: 'severity' | 'relTypes' | 'relKinds' | 'timelineCats' | 'pipeFuels' | 'powerTypes', item: string): void {
+  toggleInSet(key: 'severity' | 'relTypes' | 'relKinds' | 'timelineCats' | 'pipeFuels' | 'powerTypes' | 'industryLayers', item: string): void {
     const next = new Set(useAtlas.getState().filters[key] ?? []);
     if (next.has(item)) next.delete(item);
     else next.add(item);

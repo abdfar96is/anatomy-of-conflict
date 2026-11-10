@@ -18,6 +18,7 @@ import {
   type Energy, type Fuel, type LngTerminal, type OilField, type Pipeline,
 } from '../../../data/energy';
 import { POWER_LABEL, POWER_PICTO, POWER_SLOT, POWER_STATUS_LABEL, fmtMW, getPower, powerClass, type Power, type PowerPlant, type PowerType } from '../../../data/power';
+import { INDUSTRY_STATUS_LABEL, LAYER, LAYER_ONE, facilityClass, fmtTonnes, getIndustry, type Facility, type Industry, type IndustryLayer } from '../../../data/industry';
 import '../../power/strings';
 
 registerStrings({
@@ -310,6 +311,24 @@ export function powerPoint(P: Palette, p: PowerPlant): PointItem {
   };
 }
 
+// ---- mines and heavy industry: hue and pictogram by layer, size by capacity within the layer
+export const layerColor = (P: Palette, l: IndustryLayer) => P.cat[LAYER[l].slot]!;
+export const layerVar = (l: IndustryLayer) => `var(--cat-${LAYER[l].slot})`;
+/** Sites the industry mode shows: by layer and by status (mothballed ones with the mothballed layer). */
+export function visibleFacilities(X: Industry, S: Pick<AtlasState, 'filters'>): Facility[] {
+  const f = S.filters;
+  return X.sites.filter((x) => f.industryLayers.has(x.l)
+    && (x.st === 'mothballed' ? f.powerHalted : f.powerStatus === 'all' || x.st === f.powerStatus));
+}
+export function facilityPoint(P: Palette, x: Facility): PointItem {
+  const cls = facilityClass(x), base = layerColor(P, x.l);
+  const c = x.st === 'mothballed' ? d3.interpolateLab(base, P.fg3)(0.65) : base;
+  return {
+    lonlat: [x.lon, x.lat], kind: 'facility', id: x.id, r: POWER_R[cls]!, rp: POWER_RP[cls]!, big: cls === 4,
+    color: c, picto: LAYER[x.l].picto, pictoColor: c, hollow: x.st === 'construction' || undefined,
+  };
+}
+
 export function visibleLng(E: Energy, S: Pick<AtlasState, 'filters'>): LngTerminal[] {
   const f = S.filters;
   return f.pipeLng && f.pipeFuels.has('gas') ? E.lng.filter((t) => f.pipeStatus === 'all' || t.status === f.pipeStatus) : [];
@@ -552,13 +571,24 @@ const BUILD: Record<LensId, Builder> = {
 
   industry(sc, DB, S, P) {
     for (const c of DB.countries.values()) sc.fill.set(c.iso3, P.landMuted);
+    const points: PointItem[] = [];
+    // power plants, or mines and heavy industry: one mode at a time, so the two colour sets never share the map
     const W = getPower();
-    if (!W) return;
-    const plants = visiblePlants(W, S);
-    // a selected plant stays drawn whatever the filters
-    const sel = S.selection?.kind === 'station' ? W.byId.get(S.selection.id) : undefined;
-    if (sel && !plants.includes(sel)) plants.push(sel);
-    sc.points = plants.map((p) => powerPoint(P, p)).sort((a, b) => a.r - b.r);
+    if (W) {
+      const plants = S.filters.industryMode === 'power' ? visiblePlants(W, S) : [];
+      // a selected plant stays drawn whatever the filters
+      const sel = S.selection?.kind === 'station' ? W.byId.get(S.selection.id) : undefined;
+      if (sel && !plants.includes(sel)) plants.push(sel);
+      for (const p of plants) points.push(powerPoint(P, p));
+    }
+    const X = getIndustry();
+    if (X) {
+      const sites = S.filters.industryMode === 'industry' ? visibleFacilities(X, S) : [];
+      const sel = S.selection?.kind === 'facility' ? X.byId.get(S.selection.id) : undefined;
+      if (sel && !sites.includes(sel)) sites.push(sel);
+      for (const x of sites) points.push(facilityPoint(P, x));
+    }
+    sc.points = points.sort((a, b) => a.r - b.r);
   },
 
   pipelines(sc, DB, S, P) {
@@ -663,7 +693,7 @@ function emphasis(sc: Scene, DB: DB, S: AtlasState, P: Palette) {
     if (sel.kind === 'disputed') { const d = DB.disputedById.get(sel.id); if (d) sc.selPolys.push({ feature: d.feature, stroke: P.sel, width: 2 }); }
     let anchor: LonLat | null = null;
     if (sel.kind === 'event') { const e = DB.eventById.get(sel.id); anchor = e ? eventAnchor(DB, e) : null; }
-    else if (['conflict', 'choke', 'site', 'disputed', 'plant', 'border', 'lng', 'field', 'station'].includes(sel.kind)) anchor = DB.anchorOf(sel.kind, sel.id);
+    else if (['conflict', 'choke', 'site', 'disputed', 'plant', 'border', 'lng', 'field', 'station', 'facility'].includes(sel.kind)) anchor = DB.anchorOf(sel.kind, sel.id);
     if (anchor) sc.selRing = { lonlat: anchor, kind: sel.kind, id: sel.id };
   }
   if (S.view === 'compare') {
@@ -806,6 +836,13 @@ export function tipFor(hit: Hit, DB: DB, S: AtlasState): string {
       const out = [x.liquids ? t('map.tip.fd.liq', { v: fmtNum(x.liquids, x.liquids < 10 ? 1 : 0) }) : '', x.gas ? t('map.tip.fd.gas', { v: fmtNum(x.gas) }) : ''].filter(Boolean).join(' · ');
       return tip(x.name, `${L(FIELD_FUEL_LABEL[x.fuel])} · ${L(FIELD_STATUS_LABEL[x.status])}${x.project ? ` · ${t('map.tip.fd.project', { n: x.units.length })}` : ''}`,
         out ? (x.year ? `${out} (${x.year})` : out) : '', x.countries.map((iso) => nameOf(DB, iso, S.lang)).join(t('map.sep')), x.operator ? t('map.tip.fd.op', { v: x.operator }) : '');
+    }
+    case 'facility': {
+      const x = getIndustry()?.byId.get(hit.id);
+      if (!x) return '';
+      const v = x.cap || x.capc, line = v ? t('map.tip.fc.cap', { v: fmtTonnes(x, v, S.lang) }) : x.prod ? t('map.tip.fc.prod', { v: fmtTonnes(x, x.prod, S.lang) }) : '';
+      return tip(S.lang === 'ar' && x.ar ? x.ar : x.n, `${L(LAYER_ONE[x.l])} · ${L(INDUSTRY_STATUS_LABEL[x.st])}`, line,
+        x.c ? nameOf(DB, x.c, S.lang) : '');
     }
     case 'station': {
       const x = getPower()?.byId.get(hit.id);

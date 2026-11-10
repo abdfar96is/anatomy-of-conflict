@@ -8,6 +8,7 @@
 | `curated/nuclear_plants.json` | Nuclear power plants and their units, derived from [GeoNuclearData](https://github.com/cristianst85/GeoNuclearData) with documented updates | [ODbL 1.0](https://opendatacommons.org/licenses/odbl/1-0/) — a derived database; contents under the [DbCL 1.0](https://opendatacommons.org/licenses/dbcl/1-0/) |
 | `energy/` | Oil, gas and NGL pipelines (operating, under construction, and halted as an optional layer), LNG terminals, and oil and gas fields, from [Global Energy Monitor](https://globalenergymonitor.org/)'s gas and oil infrastructure trackers and its oil and gas extraction tracker, simplified; Arabic names and sourced notes in `meta.json` | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — Global Energy Monitor |
 | `power/` | Power plants of eight types (operating, under construction, and mothballed as an optional layer), from [Global Energy Monitor](https://globalenergymonitor.org/)'s Global Integrated Power Tracker; a map file and one detail file per state | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — Global Energy Monitor |
+| `industry/` | Coal and iron ore mines, coal terminals, and iron and steel, cement and chemical plants, from six [Global Energy Monitor](https://globalenergymonitor.org/) trackers | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — Global Energy Monitor |
 | `curated/` | The atlas content: conflicts, ethnic groups, religions, relations, resources, chokepoints, timeline, sources | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — a compilation adapted from «الأطلس الجيوسياسي والعرقي الديني العالمي» |
 
 Changes this project made to the compiled content are listed in `curated/corrections.json` and on the atlas's Sources page, as CC BY 4.0 asks. Each record names its own sources in `sources.json`; those sources keep their own terms.
@@ -174,3 +175,35 @@ There is one entry per GEM location (a plant, or a project of several phases). I
 Cite: Global Energy Monitor, Global Integrated Power Tracker, September 2026 release.
 
 `npm run check-data` checks that the columns line up, that type and status codes and states are known and coordinates valid, and that every plant is in the detail file of its state, and only there.
+
+## Mines and heavy industry (`industry/`)
+
+The industry mode of the Power & industry lens loads these files the first time it opens. They come from the official downloads of six Global Energy Monitor trackers, each under **CC BY 4.0** (stated on its About sheet):
+
+- Coal mines (`cm`): Global Coal Mine Tracker, August 2026 release (non-closed mines)
+- Coal terminals (`ct`): Global Coal Terminals Tracker, December 2024 release
+- Iron ore mines (`io`): Global Iron Ore Mines Tracker, September 2026 (V1) release
+- Iron and steel plants (`st`): Global Iron and Steel Tracker, September 2026 (V1) release (plant data, capacities and production)
+- Cement plants (`ce`): Global Cement and Concrete Tracker, July 2026 (V1) release
+- Chemical plants (`ch`): Global Chemicals Tracker, November 2026 (V1) release (ammonia, methanol, olefins and aromatics)
+
+Sites that are operating, under construction or mothballed and have coordinates are kept. A coal mine counts as under construction when GEM lists it as proposed with the detail "Construction". A mine's expansions (rows under the same mine id) and a terminal's units are grouped, taking the status of the most advanced. A steel plant's status and capacity come from the capacities sheet ("operating pre-retirement" counts as operating), and its output is the latest year of crude steel on the production sheet. A chemical plant's capacity is the sum of its operating products.
+
+- **`sites.json`** (minified) has one entry per site:
+  - `id`: GEM id (`M…` mine, `T…` terminal, `P…` plant or asset), unique across layers; `l`: layer
+  - `n`: name; `ar`: GEM's local name when it is Arabic (not Persian or Urdu)
+  - `st`: `operating`, `construction` or `mothballed`
+  - `lon`, `lat`, `approx`; `c`: ISO3 code of the state (French overseas regions under FRA); `sub`: province
+  - `cap`: capacity in operation; `capc`: capacity under construction (expansions, units, plants); `prod`, `py`: output and its year. Units are million tonnes a year for coal mines, terminals and cement, and thousand tonnes a year for iron ore, steel and chemicals.
+  - `o`, `par`: owner and parent; `y`: first year in operation; `ccs`: carbon capture or use; `w`: GEM.wiki page when it is not the name with underscores, `''` when GEM gives none
+  - Coal mines: `mt` mine type, `ct` coal type, `res` proven and probable reserves (Mt), `ch4` GEM's methane emissions estimate (million tonnes a year), `wf` workforce, `cf` coalfield, `dest` main consumer
+  - Coal terminals: `port`, `tt` terminal type, `pt` cargo, `src` coal source
+  - Iron ore mines: `res` reserves (thousand tonnes)
+  - Steel: `iron` iron capacity, `eq` production equipment, `prd` products, `wf` workforce
+  - Cement: `clk` clinker capacity, `pt` plant type, `kil` kilns
+  - Chemicals: `pc` capacity by product, `prd` products, `fs` feedstock, `pt` plant type
+- **`meta.json`** holds the six sources with their licence and citation.
+
+Cite each tracker as its About sheet recommends, for example: Global Energy Monitor, Global Coal Mine Tracker, August 2026 release.
+
+`npm run check-data` checks that every site has a unique id, a known layer with a source, a known status and state, valid coordinates and positive capacities.
