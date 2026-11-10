@@ -173,6 +173,34 @@
       }
     },
     {
+      "id": "gem-goget",
+      "file": "energy/fields.json",
+      "title": {
+        "ar": "حقول النفط والغاز ومشاريع استخراجها المنتجة وقيد التطوير والمجمّدة — Global Energy Monitor",
+        "en": "Producing, in-development and mothballed oil and gas fields and extraction projects — Global Energy Monitor"
+      },
+      "publisher": {
+        "ar": "Global Energy Monitor: متتبّع استخراج النفط والغاز العالمي (GOGET)",
+        "en": "Global Energy Monitor: Global Oil and Gas Extraction Tracker (GOGET)"
+      },
+      "url": "https://globalenergymonitor.org/projects/global-oil-and-gas-extraction-tracker/tracker/",
+      "license": "CC BY 4.0",
+      "published": "2026-03",
+      "lastRetrieved": "2026-11-10",
+      "resolution": {
+        "ar": "6,783 وحدة في 87 دولة: 6,485 حقلاً و298 مشروعاً يجمع عدة حقول (مثل الغوار وحقل الشمال)، بموقعها ووقودها وحالتها ومشغّلها وحوضها وآخر إنتاج سنوي منشور (لـ5,674 وحدة) وأحدث رقم للاحتياطي (لـ3,751 وحدة) وسنوات الاكتشاف وقرار الاستثمار وبدء الإنتاج.",
+        "en": "6,783 units in 87 states: 6,485 fields and 298 projects grouping several fields (such as Ghawar and North Field), with location, fuel, status, operator, basin, the latest published yearly production (for 5,674 units), the latest reserves figure (for 3,751) and the years of discovery, final investment decision and production start."
+      },
+      "methodology": {
+        "ar": "من ملف Excel الرسمي (إصدار مارس 2026): الحقول والمشاريع المنتجة وقيد التطوير والمجمّدة التي لها إحداثيات، من أوراق البيانات الرئيسية والإنتاج والاحتياطي. الإنتاج آخر سنة منشورة لكل وحدة: السوائل بالمليون برميل والغاز بالمليون م³، ويجمعهما الأطلس بالبرميل المكافئ (164.2 م³ للبرميل، اصطلاح SPE) لتحديد حجم النقطة فقط. الاحتياطي أحدث رقم منشور بتصنيفه كما هو.",
+        "en": "From the official Excel file (March 2026 release): producing, in-development and mothballed fields and projects with coordinates, from the main, production and reserves sheets. Production is each unit's latest published year: liquids in million barrels and gas in million m³, which the atlas sums in barrels of oil equivalent (164.2 m³ to the barrel, the SPE convention) only to size the dot. Reserves are the latest published figure with its class as given."
+      },
+      "limitations": {
+        "ar": "يشمل GEM ما ينتج مليون برميل مكافئ سنوياً أو أكثر أو يبلغ احتياطيه 25 مليون برميل مكافئ، فتغيب الحقول الصغيرة. لا تظهر الحقول المكتشفة غير المطوّرة ولا المتروكة ولا التي بلا إحداثيات (465 حقلاً). بعض المواقع تقريبية. يظهر المشروع وبعض حقوله معاً، فلا تُجمع أرقام الإنتاج. تصنيفات الاحتياطي متباينة المصادر ولا تصلح للمقارنة المباشرة. الأسماء بالإنجليزية كما في المصدر.",
+        "en": "GEM covers units producing 1 million boe a year or more or holding 25 million boe of reserves, so small fields are missing. Discovered but undeveloped fields, abandoned ones and those without coordinates (465 fields) are not shown. Some locations are approximate. A project and some of its fields appear together, so production figures should not be added up. Reserve classes come from varied sources and do not compare directly. Names are in English as in the source."
+      }
+    },
+    {
       "id": "wb-indicators",
       "file": "live/indicators.json",
       "title": {

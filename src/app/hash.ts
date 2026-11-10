@@ -34,7 +34,7 @@ export function parseHash(token: string, db: DB): ParsedHash | null {
     return { patch: { lens: 'borders', selection: sel, view: null } };
   }
   // Pipelines and LNG terminals load with their lens too; the map flies to them once the data is in.
-  if ((head === 'pipeline' && /^P\d+$/.test(rest)) || (head === 'lng' && /^T\d+-[ie]$/.test(rest))) {
+  if ((head === 'pipeline' && /^P\d+$/.test(rest)) || (head === 'lng' && /^T\d+-[ie]$/.test(rest)) || (head === 'field' && /^L\d+$/.test(rest))) {
     const sel = { kind: head as Kind, id: rest };
     // once the data is in, the map flies there now; before that, the lens flies when the data arrives
     return { patch: { lens: 'pipelines', selection: sel, view: null }, ...(db.exists(sel.kind, rest) ? { fly: sel } : {}) };

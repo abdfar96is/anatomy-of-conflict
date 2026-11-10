@@ -12,8 +12,8 @@ import './strings';
 type Theme = Prefs['theme'];
 
 // Lens a selection kind belongs to (country keeps the current lens).
-export const KIND_LENS: Partial<Record<Kind, LensId>> = { conflict: 'conflicts', group: 'ethnic', religion: 'religion', choke: 'chokepoints', disputed: 'disputed', event: 'history', bloc: 'powers', site: 'resources', plant: 'nuclear', border: 'borders', pipeline: 'pipelines', lng: 'pipelines' };
-export const KIND_ICON: Record<Kind, string> = { country: 'globe', conflict: 'flame', group: 'people', religion: 'pie', choke: 'anchor', disputed: 'hatch', event: 'clock', bloc: 'network', site: 'gem', plant: 'atom', border: 'borders', pipeline: 'pipeline', lng: 'lng' };
+export const KIND_LENS: Partial<Record<Kind, LensId>> = { conflict: 'conflicts', group: 'ethnic', religion: 'religion', choke: 'chokepoints', disputed: 'disputed', event: 'history', bloc: 'powers', site: 'resources', plant: 'nuclear', border: 'borders', pipeline: 'pipelines', lng: 'pipelines', field: 'pipelines' };
+export const KIND_ICON: Record<Kind, string> = { country: 'globe', conflict: 'flame', group: 'people', religion: 'pie', choke: 'anchor', disputed: 'hatch', event: 'clock', bloc: 'network', site: 'gem', plant: 'atom', border: 'borders', pipeline: 'pipeline', lng: 'lng', field: 'derrick' };
 const THEMES: readonly Theme[] = ['system', 'dark', 'light'];
 export const THEME_ICON: Record<Theme, string> = { system: 'auto', dark: 'moon', light: 'sun' };
 

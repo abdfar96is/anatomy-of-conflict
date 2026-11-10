@@ -55,6 +55,17 @@ function LineGlyph({ color, dash = '', width = 2, round = false }: { color: stri
   return <svg className="glyph line" width="26" height="10" viewBox="0 0 26 10" aria-hidden="true"><line x1="2" y1="5" x2="24" y2="5" style={style} /></svg>;
 }
 
+/** A field as the map draws it: a dot in its fuel colour, split in two for oil-and-gas fields. */
+function FieldDot({ colors, r = 4 }: { colors: string[]; r?: number }) {
+  return (
+    <svg className="glyph" width={2 * r + 4} height={14} viewBox={`${-r - 2} -7 ${2 * r + 4} 14`} aria-hidden="true">
+      <circle r={r + 0.9} style={{ fill: 'var(--label-halo)' }} />
+      <circle r={r} style={{ fill: colors[0] }} />
+      {colors[1] ? <path d={`M0 ${-r}A${r} ${r} 0 0 1 0 ${r}Z`} style={{ fill: colors[1] }} /> : null}
+    </svg>
+  );
+}
+
 /** A short pipe as the map draws it zoomed in: rim, body, light core (and a soft glow for the sourced lines). */
 function TubeGlyph({ color, dash = '', glow = false }: { color: string; dash?: string; glow?: boolean }) {
   const line = (stroke: string, width: number, extra: CSSProperties = {}) =>
@@ -434,13 +445,13 @@ const BODY: Record<(typeof LENSES)[number]['id'], (c: Ctx) => ReactNode> = {
 };
 
 /** The pipelines card: a component of its own, since it loads the data on first use. */
-function PipelinesCard({ DB, S, P, T: { t, pick: L, fmt, lang } }: Ctx) {
+function PipelinesCard({ S, P, T: { t, pick: L, fmt, lang } }: Ctx) {
   const { E, failed } = useEnergy();
   if (!E) return <Note text={failed ? t('pp.failed') : t('pp.loading')} />;
   const f = S.filters;
-  const shown = visiblePipes(E, S), lng = visibleLng(E, S), fields = visibleFields(DB, S);
-  const allFields = visibleFields(DB, { filters: { ...f, pipeFields: true } });
-  const isOil = (s: (typeof fields)[number]) => SITE_PICTO[s.type]?.fuel === 'oil';
+  const shown = visiblePipes(E, S), lng = visibleLng(E, S), fields = visibleFields(E, S);
+  const allFields = visibleFields(E, { filters: { ...f, pipeFields: true } });
+  const fieldsOf = (fuel: string) => fields.filter((x) => x.fuel === fuel).length;
   // counts under the other filter, so each chip says what turning it on would add
   const sourced = (p: (typeof E.pipes)[number]) => !f.pipeStrategic || E.noteOf.has(p.system);
   const byStatus = E.pipes.filter((p) => !isHalted(p) && f.pipeFuels.has(p.fuel) && sourced(p));
@@ -502,8 +513,13 @@ function PipelinesCard({ DB, S, P, T: { t, pick: L, fmt, lang } }: Ctx) {
           {f.pipeHalted ? <KeyRow lead={<LineGlyph color={haltedVar} width={2.4} dash={PIPE_DOTS.join(' ')} round />} label={t('pp.dotted')} n={shown.filter(isHalted).length} /> : null}
           <KeyRow lead={<TubeGlyph color="var(--cat-4)" glow />} label={t('pp.cased')} />
           <KeyRow lead={<TubeGlyph color="var(--cat-1)" />} label={t('pp.tube')} />
-          {fields.some(isOil) ? <KeyRow lead={<Picto id="barrel" color="var(--cat-4)" size={16} />} label={t('pp.fieldOil')} n={fields.filter(isOil).length} /> : null}
-          {fields.some((s) => !isOil(s)) ? <KeyRow lead={<Picto id="flame" color="var(--cat-1)" size={16} />} label={t('pp.fieldGas')} n={fields.filter((s) => !isOil(s)).length} /> : null}
+          {fields.length ? <>
+            <KeyRow lead={<FieldDot colors={['var(--cat-4)']} />} label={t('pp.fieldOil')} n={fieldsOf('oil')} />
+            <KeyRow lead={<FieldDot colors={['var(--cat-1)']} />} label={t('pp.fieldGas')} n={fieldsOf('gas')} />
+            <KeyRow lead={<FieldDot colors={['var(--cat-4)', 'var(--cat-1)']} />} label={t('pp.fieldBoth')} n={fieldsOf('oilgas')} />
+            <KeyRow lead={<span className="sizes" aria-hidden="true"><FieldDot colors={['var(--fg-3)']} r={2} /><FieldDot colors={['var(--fg-3)']} r={5} /></span>} label={t('pp.fieldSize')} />
+            <KeyRow lead={<span className="sizes" aria-hidden="true"><Picto id="barrel" color="var(--cat-4)" size={15} /><Picto id="flame" color="var(--cat-1)" size={15} /></span>} label={t('pp.fieldPicto')} />
+          </> : null}
           {f.pipeLng && f.pipeFuels.has('gas') ? <>
             <KeyRow lead={<Glyph shape="triangle" color={lngColor(P)} />} label={t('pp.lngExport')} n={lng.filter((x) => x.type === 'export' && x.status === 'operating').length} />
             <KeyRow lead={<Glyph shape="square" color={lngColor(P)} />} label={t('pp.lngImport')} n={lng.filter((x) => x.type === 'import' && x.status === 'operating').length} />

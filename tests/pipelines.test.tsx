@@ -1,5 +1,5 @@
 // The Oil & gas pipelines lens: TopoJSON lines, the GEM model, the map scene and its filters, tooltip, lens card,
-// pipeline and LNG dossiers, share links and data checks.
+// pipeline, LNG terminal and field dossiers, share links and data checks.
 
 import fs from 'node:fs';
 import os from 'node:os';
@@ -14,11 +14,11 @@ import { atlas, initialState } from '../src/app/store';
 import { DbContext } from '../src/app/useT';
 import { LENSES } from '../src/config';
 import { build } from '../src/data/build';
-import { buildEnergy, capacityClass, fmtCapacity, isHalted, setEnergy, type Energy, type EnergyMeta } from '../src/data/energy';
+import { M3_PER_BOE, buildEnergy, capacityClass, fmtCapacity, isHalted, setEnergy, splitFieldName, type Energy, type EnergyMeta } from '../src/data/energy';
 import { topoLines, type Topology } from '../src/data/topo';
 import type { DB } from '../src/data/types';
 import { Dossier } from '../src/features/dossier';
-import { buildScene, tipFor } from '../src/features/map/engine/scene';
+import { buildScene, fieldClass, tipFor } from '../src/features/map/engine/scene';
 import { Legend } from '../src/features/map/Legend';
 import { PICTO, PICTO_GROUPS, SITE_PICTO } from '../src/ui/pictograms';
 import { ShellOverlays } from '../src/features/shell';
@@ -30,13 +30,15 @@ const read = (f: string) => JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'ener
 let db: DB, E: Energy;
 beforeAll(() => {
   db = build(readRaw());
-  E = buildEnergy(read('pipelines.topo.json') as Topology, read('lng.json'), read('meta.json') as EnergyMeta);
+  E = buildEnergy(read('pipelines.topo.json') as Topology, read('lng.json'), read('meta.json') as EnergyMeta, read('fields.json'));
   setEnergy(E);
 });
 afterEach(() => { atlas.reset(); localStorage.clear(); });
 afterAll(() => setEnergy(null));
 const withDb = (ui: ReactNode) => render(<DbContext.Provider value={db}>{ui}</DbContext.Provider>);
 const system = (name: string) => E.bySystem.get(name)!;
+const GHAWAR = 'L100000314112', NORTH_FIELD = 'L100000312464', NF_ALPHA = 'L100000312476', RUMAILA = 'L100000312002', ANNERVEEN = 'L100000300889';
+const field = (id: string) => E.fieldById.get(id)!;
 
 describe('TopoJSON lines', () => {
   test('LineString and MultiLineString geometries decode, polygons are left to topoFeatures', () => {
@@ -93,6 +95,36 @@ describe('the GEM model', () => {
       expect(n.verified).toMatch(/^\d{4}-\d{2}-\d{2}$/);
       for (const name of n.pipelines) expect(E.noteOf.get(name)).toBe(n);
     }
+  });
+});
+
+describe('the GEM fields', () => {
+  test('producing, in-development and mothballed fields, with projects that group their units', () => {
+    expect(E.fields.length).toBeGreaterThan(6000);
+    expect(new Set(E.fields.map((x) => x.status))).toEqual(new Set(['operating', 'construction', 'mothballed']));
+    expect(new Set(E.fields.map((x) => x.fuel))).toEqual(new Set(['oil', 'gas', 'oilgas']));
+    const nf = field(NORTH_FIELD);
+    expect(nf.project).toBe(true);
+    expect(nf.countries).toEqual(['QAT']);
+    expect(nf.units).toContain(NF_ALPHA);
+    expect(field(NF_ALPHA).parent).toBe(NORTH_FIELD);
+    // every unit of a project points back to it
+    for (const p of E.fields.filter((x) => x.project)) for (const u of p.units) expect(field(u).parent).toBe(p.id);
+    expect(field(GHAWAR).boe).toBeGreaterThan(1000);
+  });
+
+  test('production in boe sums liquids and gas at 164.2 m³ to the barrel; the pictogram follows the larger', () => {
+    const both = E.fields.find((x) => x.liquids && x.gas && x.boe && x.boe > 10)!;
+    expect(both.boe).toBeCloseTo(both.liquids! + both.gas! / M3_PER_BOE, 0);
+    expect(field(RUMAILA).product).toBe('oil');
+    expect(field('L100000312248').product).toBe('gas'); // South Pars phases 6-8
+    expect(E.fields.filter((x) => x.liquids === 0 || x.gas === 0 || x.boe === 0)).toHaveLength(0);
+  });
+
+  test("names split into the field and its place; GEM.wiki pages follow the name", () => {
+    expect(splitFieldName('Bacalhau Oil and Gas Field (Rio Grande do Norte, Brazil)')).toEqual(['Bacalhau Oil and Gas Field', 'Rio Grande do Norte, Brazil']);
+    expect(splitFieldName('Rumaila')).toEqual(['Rumaila', '']);
+    expect(field(RUMAILA).wiki).toBe('Rumaila_Oil_Field_(Iraq)');
   });
 });
 
@@ -208,30 +240,53 @@ describe('the lens', () => {
     expect(labels()).toEqual(['Gold', 'Silver, platinum', 'Diamonds', 'Jade']);
   });
 
-  test('the pipelines lens shows the oil and gas fields as barrels and flames, by fuel, and can hide them', () => {
-    const fieldsOf = (sc: ReturnType<typeof buildScene>) => sc.markers.filter((m) => m.kind === 'site').map((m) => db.siteById.get(m.id)!);
-    const all = fieldsOf(buildScene(db, S(), P));
-    expect(all.length).toBe(db.resources.sites.filter((x) => ['oil', 'gas', 'oil-shale'].includes(x.type)).length);
-    expect(all.find((x) => x.id === 'ghawar')).toBeDefined();
-    expect(buildScene(db, S(), P).markers.find((m) => m.kind === 'site' && m.id === 'south-pars')!.shape).toBe('picto:flame');
-    expect(fieldsOf(buildScene(db, S({ pipeFuels: new Set(['gas']) }), P)).every((x) => x.type === 'gas')).toBe(true);
-    expect(fieldsOf(buildScene(db, S({ pipeFields: false }), P))).toHaveLength(0);
+  test('the pipelines lens draws the GEM fields as points, by fuel, sized by production, and can hide them', () => {
+    const ids = (sc: ReturnType<typeof buildScene>) => sc.points.filter((x) => x.kind === 'field').map((x) => x.id);
+    const sc = buildScene(db, S(), P);
+    // no atlas resource sites in this lens: GEM's fields replace them
+    expect(sc.markers.filter((m) => m.kind === 'site')).toHaveLength(0);
+    expect(ids(sc)).toHaveLength(E.fields.filter((x) => x.status !== 'mothballed').length);
+    const ghawar = sc.points.find((x) => x.id === GHAWAR)!;
+    expect(ghawar).toMatchObject({ big: true, picto: 'barrel', color: P.cat[4], color2: P.cat[1] });
+    expect(sc.points.find((x) => x.id === RUMAILA)).toMatchObject({ big: true, picto: 'barrel', color: P.cat[4], color2: undefined });
+    expect(fieldClass(undefined)).toBe(0);
+    // smallest first, so the large ones are drawn on top
+    expect(sc.points.map((x) => x.r)).toEqual([...sc.points.map((x) => x.r)].sort((a, b) => a - b));
+    // gas only: gas fields and oil-and-gas ones
+    const gas = buildScene(db, S({ pipeFuels: new Set(['gas']) }), P);
+    expect(ids(gas).every((id) => field(id).fuel !== 'oil')).toBe(true);
+    expect(ids(gas)).toContain(NORTH_FIELD);
+    // status chips filter the fields too; mothballed ones come with the halted layer, in steel
+    expect(ids(buildScene(db, S({ pipeStatus: 'construction' }), P)).every((id) => field(id).status === 'construction')).toBe(true);
+    expect(ids(sc)).not.toContain(ANNERVEEN);
+    const halted = buildScene(db, S({ pipeHalted: true }), P);
+    expect(halted.points.find((x) => x.id === ANNERVEEN)!.color2).toBeUndefined();
+    expect(ids(buildScene(db, S({ pipeFields: false }), P))).toHaveLength(0);
     // a selected field stays on the map with the layer off
-    expect(fieldsOf(buildScene(db, S({ pipeFields: false }, { kind: 'site', id: 'ghawar' }), P)).map((x) => x.id)).toEqual(['ghawar']);
-    // fields sit under the LNG terminals
-    const kinds = buildScene(db, S(), P).markers.map((m) => m.kind);
-    expect(kinds.lastIndexOf('site')).toBeLessThan(kinds.indexOf('lng'));
+    expect(ids(buildScene(db, S({ pipeFields: false }, { kind: 'field', id: GHAWAR }), P))).toEqual([GHAWAR]);
   });
 
   test('the card toggles the fields and keys them', () => {
     atlas.set({ lens: 'pipelines', lang: 'en' });
     withDb(<Legend />);
     const legend = document.getElementById('legend')!;
-    expect(legend.textContent).toContain('Oil field or facility');
-    expect(legend.textContent).toContain('Gas field or facility');
+    expect(legend.textContent).toContain('Oil field');
+    expect(legend.textContent).toContain('Oil and gas field');
+    expect(legend.textContent).toContain('Dot size: yearly production');
+    expect(legend.textContent).toContain('Global Oil and Gas Extraction Tracker');
     fireEvent.click(legend.querySelector('[data-key="pipeFields"]')!);
     expect(atlas.get().filters.pipeFields).toBe(false);
-    expect(legend.textContent).not.toContain('Oil field or facility');
+    expect(legend.textContent).not.toContain('Dot size: yearly production');
+  });
+
+  test('a field tooltip gives its kind, status, production and year, state and operator', () => {
+    atlas.set({ lang: 'en' });
+    const tip = tipFor({ kind: 'field', id: RUMAILA }, db, { ...atlas.get(), lens: 'pipelines' });
+    expect(tip).toContain('Rumaila Oil Field (Iraq)');
+    expect(tip).toContain('Producing');
+    expect(tip).toMatch(/million barrels of liquids a year \(\d{4}\)/);
+    expect(tip).toContain('Iraq');
+    expect(tipFor({ kind: 'field', id: NORTH_FIELD }, db, { ...atlas.get(), lens: 'pipelines' })).toContain('a project of 15 units');
   });
 
   test('a selected segment highlights its whole system', () => {
@@ -299,6 +354,54 @@ describe('the lens', () => {
     expect(document.getElementById('dz-panel')!.textContent).toContain('Mt a year');
   });
 
+  test('the field dossier: facts, production, reserves, its project and the licensed source', () => {
+    atlas.set({ lang: 'en', lens: 'pipelines' });
+    withDb(<Dossier />);
+    act(() => { atlas.select('field', NF_ALPHA, { fly: false }); });
+    const head = document.getElementById('dossier')!.textContent!;
+    expect(head).toContain('North Field Alpha Oil and Gas Field');
+    expect(head).toContain('Oil or gas field');
+    expect(head).toContain('Qatar');
+    const panel = document.getElementById('dz-panel')!;
+    expect(panel.textContent).toContain('Liquids production');
+    expect(panel.textContent).toContain('million m³ a year');
+    expect(panel.textContent).toContain('Part of a project');
+    expect(panel.textContent).toContain('Global Energy Monitor — Global Oil and Gas Extraction Tracker');
+    expect(panel.querySelector('a[href="https://www.gem.wiki/North_Field_Alpha_Oil_and_Gas_Field_(Qatar)"]')).not.toBeNull();
+    // the project row opens the project, which lists its units, largest first, and warns of the overlap
+    fireEvent.click(panel.querySelector(`[data-sel-kind="field"][data-sel-id="${NORTH_FIELD}"]`)!);
+    expect(atlas.get().selection).toEqual({ kind: 'field', id: NORTH_FIELD });
+    const p2 = document.getElementById('dz-panel')!;
+    expect(p2.textContent).toContain('Units of this project');
+    const units = [...p2.querySelectorAll('[data-sel-kind="field"]')].map((x) => (x as HTMLElement).dataset.selId!);
+    expect(units).toHaveLength(15);
+    expect(units.map((id) => field(id).boe ?? 0)).toEqual([...units.map((id) => field(id).boe ?? 0)].sort((a, b) => b - a));
+    expect(p2.textContent).toContain('should not be added together');
+    expect(document.getElementById('dossier')!.textContent).toContain('A project of several fields');
+  });
+
+  test('the field dossier in Arabic', () => {
+    atlas.set({ lang: 'ar', lens: 'pipelines' });
+    withDb(<Dossier />);
+    act(() => { atlas.select('field', RUMAILA, { fly: false }); });
+    expect(document.getElementById('dossier')!.textContent).toContain('حقل نفط أو غاز');
+    expect(document.getElementById('dossier')!.textContent).toContain('العراق');
+    expect(document.getElementById('dz-panel')!.textContent).toContain('مليون برميل سنوياً');
+  });
+
+  test('the search palette finds a field and opens it in the pipelines lens', () => {
+    atlas.set({ lang: 'en' });
+    withDb(<><div id="app" /><ShellOverlays /></>);
+    fireEvent.keyDown(document.body, { key: '/', code: 'Slash' });
+    fireEvent.change(document.getElementById('pal-in')!, { target: { value: 'Ghawar' } });
+    const heads = [...document.querySelectorAll('.pal-gh')].map((h) => h.textContent);
+    expect(heads).toContain('Oil and gas fields');
+    const opt = [...document.querySelectorAll('[role="option"]')].find((o) => o.textContent!.includes('Ghawar Oil and Gas Project'))!;
+    fireEvent.click(opt);
+    expect(atlas.get().lens).toBe('pipelines');
+    expect(atlas.get().selection).toEqual({ kind: 'field', id: GHAWAR });
+  });
+
   test('the search palette finds a line by its Arabic name and opens it in the pipelines lens', () => {
     withDb(<><div id="app" /><ShellOverlays /></>);
     fireEvent.keyDown(document.body, { key: '/', code: 'Slash' });
@@ -318,6 +421,11 @@ describe('the lens', () => {
     expect(parseHash('pipeline-P0547', db)).toEqual({ patch: { lens: 'pipelines', selection: sel, view: null }, fly: sel });
     expect(parseHash('lng-T100000130208-e', db)?.patch?.selection).toEqual({ kind: 'lng', id: 'T100000130208-e' });
     expect(parseHash('pipeline-x', db)).toBeNull();
+    setEnergy(null);
+    expect(parseHash(`field-${GHAWAR}`, db)).toEqual({ patch: { lens: 'pipelines', selection: { kind: 'field', id: GHAWAR }, view: null } });
+    setEnergy(E);
+    expect(parseHash(`field-${GHAWAR}`, db)?.fly).toEqual({ kind: 'field', id: GHAWAR });
+    expect(parseHash('field-x', db)).toBeNull();
   });
 });
 
@@ -331,6 +439,12 @@ describe('check-data on the energy files', () => {
     meta.notes[0].pipelines.push('No Such Pipeline');
     meta.notes[0].chokepoints.push('nowhere');
     fs.writeFileSync(f, formatJson(meta));
+    // a field that names a missing project, and a project whose unit does not point back
+    const ff = path.join(dir, 'energy/fields.json');
+    const fields = JSON.parse(fs.readFileSync(ff, 'utf8'));
+    fields.find((x: { id: string }) => x.id === RUMAILA).p = 'L1';
+    fields.find((x: { id: string }) => x.id === NF_ALPHA).p = GHAWAR;
+    fs.writeFileSync(ff, JSON.stringify(fields));
   });
   afterAll(() => fs.rmSync(dir, { recursive: true, force: true }));
 
@@ -338,5 +452,11 @@ describe('check-data on the energy files', () => {
     const lines = checkData(dir).map((p) => `${p.file} › ${p.path} › ${p.message}`);
     expect(lines).toContain('energy/meta.json › notes[0].pipelines[1] › no pipeline of this name');
     expect(lines).toContain('energy/meta.json › notes[0].chokepoints[2] › unknown chokepoint id');
+  });
+
+  test('reports a field in an unknown project and a project unit that does not point back', () => {
+    const lines = checkData(dir).map((p) => `${p.file} › ${p.message} › ${JSON.stringify(p.value)}`);
+    expect(lines).toContain('energy/fields.json › no project of this id › "L1"');
+    expect(lines).toContain(`energy/fields.json › unit missing or not linked back to this project › "${NF_ALPHA}"`);
   });
 });

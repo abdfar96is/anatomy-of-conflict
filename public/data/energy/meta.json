@@ -29,6 +29,16 @@
       "license": "CC BY 4.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
       "citation": "Global Energy Monitor, Global Gas Infrastructure Tracker, October 2026 release."
+    },
+    "goget": {
+      "name": "Global Oil and Gas Extraction Tracker",
+      "publisher": "Global Energy Monitor",
+      "release": "2026-03",
+      "file": "Global-Oil-and-Gas-Extraction-Tracker-March-2026.xlsx",
+      "url": "https://globalenergymonitor.org/projects/global-oil-and-gas-extraction-tracker/tracker/",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "citation": "Global Energy Monitor, Global Oil and Gas Extraction Tracker, 2026 release (March 2026)."
     }
   },
   "wiki": "https://www.gem.wiki/",

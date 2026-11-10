@@ -15,7 +15,7 @@ export function useEnergy(): { E: Energy | null; failed: boolean } {
         atlas.setFilter('pipeStatus', atlas.get().filters.pipeStatus);
         // a share link selected a line before its data arrived: show it now
         const sel = atlas.get().selection;
-        if (sel && (sel.kind === 'pipeline' || sel.kind === 'lng') && atlas.get().lens === 'pipelines') emit('flyto', sel);
+        if (sel && (sel.kind === 'pipeline' || sel.kind === 'lng' || sel.kind === 'field') && atlas.get().lens === 'pipelines') emit('flyto', sel);
       }).catch(() => {});
     }
   }, [E]);

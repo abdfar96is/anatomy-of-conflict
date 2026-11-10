@@ -7,7 +7,7 @@ import { normalize, type Lang } from '../i18n/format';
 import { CONFLICT_FILES } from './files';
 import { NUCLEAR_UNIT } from '../config';
 import { getBorders, successors, unitName } from './borders';
-import { getEnergy, pipeAnchor, pipeName, type LngTerminal, type Pipeline } from './energy';
+import { getEnergy, pipeAnchor, pipeName, type LngTerminal, type OilField, type Pipeline } from './energy';
 import type { Conflict, Country, DB, Disputed, Group, IndexRow, Kind, LiveKey, NuclearUnitStatus, Plant, RawData, SearchEntry, Stat } from './types';
 
 const EARTH_R = 6371;
@@ -270,6 +270,7 @@ export function build(input: RawData): DB {
       case 'border': return getBorders()?.byId.get(id);
       case 'pipeline': return getEnergy()?.byId.get(id);
       case 'lng': return getEnergy()?.lngById.get(id);
+      case 'field': return getEnergy()?.fieldById.get(id);
       default: return undefined;
     }
   };
@@ -297,6 +298,7 @@ export function build(input: RawData): DB {
       case 'border': { const u = getBorders()?.byId.get(id); return u ? successors(u, DB) : []; }
       case 'pipeline': return (x as unknown as Pipeline).countries;
       case 'lng': { const t = x as unknown as LngTerminal; return t.iso3 ? [t.iso3] : []; }
+      case 'field': return (x as unknown as OilField).countries;
       default: return [];
     }
   };
@@ -316,6 +318,7 @@ export function build(input: RawData): DB {
     if (kind === 'border') { const B = getBorders(), u = B?.byId.get(id); return B && u ? unitName(B, u, lang) : id; }
     if (kind === 'pipeline') { const E = getEnergy(), p = E?.byId.get(id); return E && p ? pipeName(E, p, lang) : id; }
     if (kind === 'lng') return getEnergy()?.lngById.get(id)?.name ?? id;
+    if (kind === 'field') return getEnergy()?.fieldById.get(id)?.name ?? id;
     const x = DB.get(kind, id) as Record<string, unknown> | undefined;
     if (!x) return id;
     const ar = lang === 'ar';

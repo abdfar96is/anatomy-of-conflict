@@ -113,7 +113,7 @@ export const RESOURCE_CLASSES = [
 ];
 
 // Selection kinds and their hash prefixes: #country-SAU, #conflict-sudan, #group-kurds …
-export const KINDS = ['country', 'conflict', 'group', 'religion', 'choke', 'disputed', 'event', 'bloc', 'site', 'plant', 'border', 'pipeline', 'lng'] as const;
+export const KINDS = ['country', 'conflict', 'group', 'religion', 'choke', 'disputed', 'event', 'bloc', 'site', 'plant', 'border', 'pipeline', 'lng', 'field'] as const;
 
 // 24×24 stroke icons (stroke = currentColor). Use ui.icon(name).
 export const ICONS: Record<string, string> = {
@@ -127,6 +127,7 @@ export const ICONS: Record<string, string> = {
   borders: '<path d="M4 5.5l5-2 6 2 5-2v15l-5 2-6-2-5 2z"/><path d="M9 3.5v15M15 5.5v15" stroke-dasharray="2 2"/>',
   pipeline: '<path d="M3 8h7a3 3 0 0 1 3 3v2a3 3 0 0 0 3 3h5"/><path d="M3 5.5v5M21 13.5v5M7.5 6v4"/>',
   lng:     '<path d="M12 3.5c3 3.6 5 6.4 5 9.2a5 5 0 0 1-10 0c0-2.8 2-5.6 5-9.2z"/><path d="M9.6 14.2c.4 1.3 1.3 2 2.6 2.2"/>',
+  derrick: '<path d="M8 21l4-17 4 17M9.4 15h5.2M10.6 10h2.8M5 21h14"/>',
   atom:    '<circle cx="12" cy="12" r="1.6"/><ellipse cx="12" cy="12" rx="9" ry="3.6"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(-60 12 12)"/>',
   gem:     '<path d="M7 4h10l4 5-9 11L3 9z"/><path d="M3 9h18M9.5 4L8 9l4 11 4-11-1.5-5"/>',
   anchor:  '<circle cx="12" cy="5" r="2"/><path d="M12 7v13M8 10h8M4.5 13.5C5 17.5 8.3 20 12 20s7-2.5 7.5-6.5"/>',

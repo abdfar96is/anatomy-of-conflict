@@ -21,7 +21,7 @@ import {
   capOf, focusGeometry, inBounds, packFeature, packLines, segDist, simplifyFeature, simplifyLine, traceFlat, traceGlobe, traceLinesFlat,
   traceLinesGlobe, viewAngle, type Bounds, type Cap, type FastQ, type LonLat, type Packed, type PackedRing,
 } from './geo';
-import { buildScene, emptyScene, eventAnchor, tipFor, type Arc, type Hit, type LineItem, type LineSet, type Marker, type Poly, type Scene } from './scene';
+import { buildScene, emptyScene, eventAnchor, tipFor, type Arc, type Hit, type LineItem, type LineSet, type Marker, type PointItem, type Poly, type Scene } from './scene';
 
 registerStrings({
   ar: { 'map.aria': 'خريطة تفاعلية. اسحب لتحريكها، والأسهم للتنقّل، و+ و− للتكبير والتصغير، و0 لإعادة الضبط.' },
@@ -42,7 +42,7 @@ const K_MIN = 0.8, K_MAX = 60, K_FIT_MAX = 28;
 const HOME: LonLat = [35, 25];
 const TOL_COARSE = 0.12, TOL_FINE = 0.02;
 const SCENE_KEYS = new Set<keyof AtlasState>(['lens', 'selection', 'filters', 'layers', 'year', 'yearFilter', 'theme', 'compare', 'view', 'lang']);
-const POINT_KINDS: Kind[] = ['conflict', 'choke', 'site', 'plant', 'lng'];
+const POINT_KINDS: Kind[] = ['conflict', 'choke', 'site', 'plant', 'lng', 'field'];
 /** Grid cell size (degrees) of the line hit-test index. */
 const LINE_CELL = 2;
 const lineCell = (lon: number, lat: number) => (Math.floor(lat / LINE_CELL) + 46) * 182 + Math.floor(lon / LINE_CELL) + 91;
@@ -172,6 +172,8 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
   type LineRec = { lines: Position[][]; pk: Partial<Record<Level, PackedRing[]>>; ext: Partial<Record<Level, Float32Array>>; cap: Cap | null };
   const lineRecs = new WeakMap<Position[][], LineRec>();
   let lineGrid: { sc: Scene; cells: Map<number, [LineItem, number, number][]> } | null = null;
+  // base-layer points (oil and gas fields) where the last base frame drew them, for picking and hover rings
+  let pointHits: { x: number; y: number; r: number; p: PointItem }[] = [];
   let drag: Drag | null = null;
   const ptrs = new Map<number, { x: number; y: number }>();
   let hoverReq: [number, number, number, number, boolean] | null = null, hoverRaf = 0;
@@ -552,6 +554,7 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
     for (const p of sc.under) drawPoly(ctx, clipPath, cen, level, p, P);
     for (const p of sc.polys) drawPoly(ctx, clipPath, cen, level, p, P);
     for (const ls of sc.lines) drawLineSet(ctx, ls, cen);
+    drawPoints(ctx, sc, cen, P);
     if (mode === 'globe') drawLimb(ctx, X);
     drawLabels(ctx, sc, S, P, X, cen);
   }
@@ -752,6 +755,31 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
     }
     ctx.setLineDash([]);
     ctx.globalAlpha = 1;
+  }
+
+  /**
+   * Base-layer points: a dot in the fuel colour (split in two for oil-and-gas fields), or the pictogram for the largest
+   * ones and for all once the map is zoomed in (from about 4×). While the map moves, small points are left out.
+   */
+  function drawPoints(ctx: CanvasRenderingContext2D, sc: Scene, cen: LonLat, P: Palette) {
+    pointHits = [];
+    if (!sc.points.length) return;
+    const k = absScale() / baseScale(), allPicto = !interacting && k >= 4;
+    for (const p of sc.points) {
+      if (interacting && p.r < 3 && k < 4) continue;
+      const q = projectVisible(p.lonlat, cen);
+      if (!q) continue;
+      const [x, y] = q;
+      if (allPicto || p.big) {
+        ctx.save(); ctx.translate(x, y); drawPicto(ctx, p.picto, p.rp, p.pictoColor, P); ctx.restore();
+        pointHits.push({ x, y, r: p.rp, p });
+        continue;
+      }
+      ctx.beginPath(); ctx.arc(x, y, p.r + 0.9, 0, TAU); ctx.fillStyle = P.halo; ctx.fill();
+      ctx.beginPath(); ctx.arc(x, y, p.r, 0, TAU); ctx.fillStyle = p.color; ctx.fill();
+      if (p.color2) { ctx.beginPath(); ctx.arc(x, y, p.r, -Math.PI / 2, Math.PI / 2); ctx.closePath(); ctx.fillStyle = p.color2; ctx.fill(); }
+      pointHits.push({ x, y, r: p.r, p });
+    }
   }
 
   /** Segment grid of the scene's lines: cell → [item, part, vertex index of the segment's end]. */
@@ -997,6 +1025,10 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
       }
     }
     for (const ls of sc.selLines) drawLineSet(ctx, ls, cen);
+    if (hover?.kind === 'field') {
+      const h = pointHits.find((x) => x.p.id === hover!.id);
+      if (h) ring(ctx, h.x, h.y, h.r + 3, P.fg, 1.3, P.halo);
+    }
 
     if (hl) {
       ctx.strokeStyle = P.accent2;
@@ -1170,6 +1202,11 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
       }
     }
     if (best) return { kind: best.kind, id: best.id, conflict: best.conflict };
+    // base-layer points, topmost (largest, drawn last) first
+    for (let i = pointHits.length - 1; i >= 0; i--) {
+      const h = pointHits[i]!;
+      if (Math.hypot(h.x - x, h.y - y) <= Math.max(h.r, 3) + slop) return { kind: h.p.kind, id: h.p.id };
+    }
     const line = pickLine(x, y, touch);
     if (line) return line;
     const ll = invert(x, y);

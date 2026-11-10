@@ -6,7 +6,7 @@
 | `live/` | Population, GDP, refugees, internal displacement and battle deaths from the [World Bank's open data](https://data.worldbank.org/), refreshed weekly | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — World Bank; each series keeps its original publisher (UN, UNHCR, IDMC, UCDP) |
 | `history/` | Historical borders of states and dependent territories, 1886–2019, from [CShapes 2.0](https://icr.ethz.ch/data/cshapes/) (ETH Zurich), simplified; Arabic names and ruler colours in `meta.json` | [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) — non-commercial, share-alike; cite Schvitz et al. (2022) |
 | `curated/nuclear_plants.json` | Nuclear power plants and their units, derived from [GeoNuclearData](https://github.com/cristianst85/GeoNuclearData) with documented updates | [ODbL 1.0](https://opendatacommons.org/licenses/odbl/1-0/) — a derived database; contents under the [DbCL 1.0](https://opendatacommons.org/licenses/dbcl/1-0/) |
-| `energy/` | Oil, gas and NGL pipelines (operating, under construction, and halted as an optional layer) and LNG terminals, from [Global Energy Monitor](https://globalenergymonitor.org/)'s gas and oil infrastructure trackers, simplified; Arabic names and sourced notes in `meta.json` | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — Global Energy Monitor |
+| `energy/` | Oil, gas and NGL pipelines (operating, under construction, and halted as an optional layer), LNG terminals, and oil and gas fields, from [Global Energy Monitor](https://globalenergymonitor.org/)'s gas and oil infrastructure trackers and its oil and gas extraction tracker, simplified; Arabic names and sourced notes in `meta.json` | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — Global Energy Monitor |
 | `curated/` | The atlas content: conflicts, ethnic groups, religions, relations, resources, chokepoints, timeline, sources | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — a compilation adapted from «الأطلس الجيوسياسي والعرقي الديني العالمي» |
 
 Changes this project made to the compiled content are listed in `curated/corrections.json` and on the atlas's Sources page, as CC BY 4.0 asks. Each record names its own sources in `sources.json`; those sources keep their own terms.
@@ -97,13 +97,14 @@ Cite: Schvitz, Rüegger, Girardin, Cederman, Weidmann and Gleditsch (2022), *Map
 
 `npm run check-data` checks that every unit has the fields the lens reads, an Arabic name and a start that does not fall after its end.
 
-## Pipelines and LNG terminals (`energy/`)
+## Pipelines, LNG terminals and fields (`energy/`)
 
-The Oil & gas pipelines lens loads these three files on demand. They come from the official downloads of Global Energy Monitor's trackers, which are under **CC BY 4.0** (stated on the Copyright sheet of each file):
+The Oil & gas pipelines lens loads these four files on demand. They come from the official downloads of Global Energy Monitor's trackers, which are under **CC BY 4.0** (stated on the Copyright sheet of each file):
 
 - Gas pipelines: Global Gas Infrastructure Tracker, November 2025 release
 - Oil and NGL pipelines: Global Oil Infrastructure Tracker, June 2026 release (the corrected file of 21 July 2026)
 - LNG terminals: Global Gas Infrastructure Tracker, October 2026 release
+- Oil and gas fields: Global Oil and Gas Extraction Tracker, March 2026 release
 
 - **`pipelines.topo.json`** (object `pipelines`) keeps the segments that are operating, under construction, idle or mothballed and have a mapped route. Pieces that meet end to end are joined, stubs under 5 km are dropped, and the lines are simplified with mapshaper (`-simplify interval=2500`, no topology, quantisation 1e5); lines crossing the antimeridian are split. Each geometry is one GEM project row (a line, or one phase or branch of a larger system) with these fields:
   - `id`: GEM ProjectID
@@ -118,13 +119,25 @@ The Oil & gas pipelines lens loads these three files on demand. They come from t
   - `acc`: route accuracy (`exact`, `high`, `medium`, `low`)
   - `a`, `b`: start and end locations; `d`: diameter
 - **`lng.json`** has one entry per terminal and type (export or import), summing its operating and under-construction units: `id`, `n` (name), `t` (type), `st` (status), `iso`, `lon`, `lat`, `op` and `con` (capacity in million tonnes a year), `units`, `y` (first year in service), `yc` (planned start), `loc`, `o` (owner), `w` (GEM.wiki page), `fl` (floating), `approx` (approximate location).
+- **`fields.json`** (minified) has one entry per extraction unit that is producing (`operating`), in development (`construction`) or mothballed and has coordinates, from the main, production and reserves sheets. GEM tracks fields, and also projects that group several fields under one development (Ghawar, North Field, South Pars); a project is an entry of its own (`pj: 1`) with its fields in `u`, and each such field points back to it in `p`. GEM reports some production only for the project, so both are kept, and a project's figures overlap its fields'. Fields:
+  - `id`: GEM Unit ID or Project ID; `n`: name as GEM gives it, with the place in brackets
+  - `f`: `o`, `g` or `og` (oil, gas, both); `st`: status
+  - `lon`, `lat`; `approx`: the location is approximate; `c`: ISO3 code of the state
+  - `op`: operator; `b`: basin; `sea`: 1 offshore, 0 onshore; `unc`: unconventional
+  - `dy`, `fy`, `py`: years of discovery, final investment decision and production start (or expected start)
+  - `lq`: liquids in million barrels a year; `gs`: gas in million m³ a year; `y`: the year of both (the latest GEM publishes; projects give none). Where GEM splits the output (crude, condensate, NGL; associated and non-associated gas), liquids are summed and gas takes the most general row. A recorded zero is dropped, leaving `y`.
+  - `boe`: the atlas's sum of both in million barrels of oil equivalent a year, at 164.2 m³ of gas to the barrel (5.8 thousand cubic feet, the SPE convention), used only to size the dot
+  - `rs`: the latest reserves figure as `[fuel, class, quantity, unit, year]`, verbatim; classes vary from source to source (2P, remaining, in place, Russian A+B+C1...) and do not compare directly
+  - `w`: GEM.wiki page, stored only when it is not the name with underscores; `''` when GEM gives none
 - **`meta.json`** holds:
-  - the three sources with their licence and citation
+  - the four sources with their licence and citation
   - the atlas's Arabic names for prominent systems
   - sourced notes on fourteen strategic lines, each linked to chokepoints and conflicts and checked against the sources on the date given: nine active (East–West, Habshan–Fujairah, SUMED, Kirkuk–Ceyhan, Druzhba, TurkStream, Greater Nile, Arish–Ashkelon, the Myanmar–China lines) and five halted (Nord Stream 1 and 2, Yamal–Europe, IPSA, Kirkuk–Baniyas, Masila–al-Shihr)
 
 Idle and mothballed lines (Nord Stream, Yamal–Europe, Kirkuk–Baniyas, for example) are a layer of their own, off by default and drawn dotted; proposed, shelved, cancelled and retired lines are not included. GEM's status is as of each release; actual flows can differ, and the notes say so where they were checked. Some routes are only straight lines between the ends (`acc: low`), and the dossier says so.
 
-Cite: Global Energy Monitor, Global Gas Infrastructure Tracker (November 2025 release for pipelines, October 2026 for LNG terminals); Global Oil Infrastructure Tracker - Oil/NGL Pipelines - June 2026 release.
+Cite: Global Energy Monitor, Global Gas Infrastructure Tracker (November 2025 release for pipelines, October 2026 for LNG terminals); Global Oil Infrastructure Tracker - Oil/NGL Pipelines - June 2026 release; Global Oil and Gas Extraction Tracker, 2026 release (March 2026).
 
-`npm run check-data` checks that every segment is a line with a known fuel and status, a unique id and known states, and a stop year only if it is halted; that LNG terminals have a type, status and valid coordinates; and that every Arabic name and note points to a line in the data, with known chokepoints and conflicts and at least one https source.
+Fields follow GEM's coverage: units producing 1 million boe a year or more, or holding 25 million boe of reserves. Discovered but undeveloped fields, abandoned ones and the 465 fields without coordinates are left out. Mothballed fields go with the halted layer. Names stay in English as GEM gives them.
+
+`npm run check-data` checks that every segment is a line with a known fuel and status, a unique id and known states, and a stop year only if it is halted; that LNG terminals have a type, status and valid coordinates; that every Arabic name and note points to a line in the data, with known chokepoints and conflicts and at least one https source; and that fields have a unique id, a known kind, status and state, valid coordinates and positive production, and that projects and their fields point to each other.

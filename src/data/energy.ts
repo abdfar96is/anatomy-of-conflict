@@ -1,5 +1,6 @@
-// Oil and gas pipelines and LNG terminals (Global Energy Monitor trackers): the segments that are operating or under
-// construction, plus the halted ones (idle or mothballed) as an optional layer, each with a mapped route. Loaded on
+// Oil and gas pipelines, LNG terminals and oil and gas fields (Global Energy Monitor trackers): the pipeline segments
+// that are operating or under construction, plus the halted ones (idle or mothballed) as an optional layer, each with a
+// mapped route; the extraction tracker's producing, in-development and mothballed fields and projects. Loaded on
 // demand the first time the Pipelines lens opens, like the borders.
 
 import type { Position } from 'geojson';
@@ -46,10 +47,43 @@ interface RawLng {
   id: string; n: string; t: 'import' | 'export'; st: (typeof PIPE_STATUS)[number]; iso?: string; lon: number; lat: number; op: number; con: number; units: number;
   y?: number; yc?: number; loc?: string; o?: string; w?: string; fl?: number; approx?: number;
 }
+/** A GEM extraction unit: an oil or gas field, or a project grouping several (Ghawar, North Field). */
+export interface OilField {
+  id: string; name: string; fuel: 'oil' | 'gas' | 'oilgas'; status: PipeStatus; coords: [number, number]; countries: string[];
+  operator?: string; basin?: string; discovery?: number; fid?: number; start?: number; offshore?: boolean;
+  approximate: boolean; unconventional: boolean;
+  /** Latest production: liquids in million barrels a year, gas in million m³ a year, and both in million boe a year. */
+  liquids?: number; gas?: number; boe?: number; year?: number;
+  /** What it mostly produces (by boe), for its pictogram. */
+  product: 'oil' | 'gas';
+  reserves?: { fuel: string; cls: string; qty: number; unit: string; year?: number };
+  /** The GEM.wiki page (null when GEM has none). */
+  wiki: string | null;
+  project: boolean; units: string[]; parent?: string;
+}
+interface RawField {
+  id: string; n: string; f: 'o' | 'g' | 'og'; st: PipeStatus; lon: number; lat: number; c?: string; op?: string; b?: string;
+  dy?: number; fy?: number; py?: number; sea?: number; approx?: number; unc?: number; boe?: number; lq?: number; gs?: number; y?: number;
+  rs?: [string, string, number, string, number?]; w?: string; pj?: number; u?: string[]; p?: string;
+}
+/** Gas volumes to barrels of oil equivalent: 1 boe = 5.8 thousand cubic feet = 164.2 m³ (the SPE convention). */
+export const M3_PER_BOE = 164.2;
+export const FIELD_FUEL_LABEL: Record<OilField['fuel'], Bi> = {
+  oil: { ar: 'نفط', en: 'Oil' }, gas: { ar: 'غاز', en: 'Gas' }, oilgas: { ar: 'نفط وغاز', en: 'Oil and gas' },
+};
+/** GEM's unit name split into the name and its place: "Bacalhau Oil and Gas Field (Rio Grande do Norte, Brazil)". */
+export function splitFieldName(name: string): [string, string] {
+  const m = name.match(/^(.*\S)\s*\(([^()]+)\)$/);
+  return m ? [m[1]!, m[2]!] : [name, ''];
+}
+export const FIELD_STATUS_LABEL: Partial<Record<PipeStatus, Bi>> = {
+  operating: { ar: 'منتج', en: 'Producing' }, construction: { ar: 'قيد التطوير', en: 'In development' }, mothballed: { ar: 'مجمّد', en: 'Mothballed' },
+};
+
 export interface EnergySource { name: string; publisher: string; release: string; file: string; url: string; license: string; licenseUrl: string; citation: string }
 export interface PipeNote { pipelines: string[]; chokepoints: string[]; conflicts: string[]; ar: string; en: string; sources: { title: string; url: string }[]; verified?: string }
 export interface EnergyMeta {
-  sources: { ggit: EnergySource; goit: EnergySource; lng: EnergySource };
+  sources: { ggit: EnergySource; goit: EnergySource; lng: EnergySource; goget: EnergySource };
   wiki: string; simplified: string;
   /** Arabic names of prominent systems, by GEM PipelineName. */
   names: Record<string, string>;
@@ -63,10 +97,11 @@ export interface Energy {
   meta: EnergyMeta;
   /** Sourced note on a system, by GEM PipelineName. */
   noteOf: Map<string, PipeNote>;
+  fields: OilField[]; fieldById: Map<string, OilField>;
 }
 
-/** Build the model from the three files (pure; exported for tests). */
-export function buildEnergy(topo: Topology, lngRows: RawLng[], meta: EnergyMeta): Energy {
+/** Build the model from the four files (pure; exported for tests). */
+export function buildEnergy(topo: Topology, lngRows: RawLng[], meta: EnergyMeta, fieldRows: RawField[] = []): Energy {
   const pipes: Pipeline[] = topoLines<RawPipe>(topo, 'pipelines').map(({ properties: p, geometry: g }) => ({
     id: p.id, system: p.n, segment: p.sg, fuel: p.f, status: p.st, boe: p.boe, bcm: p.bcm, km: p.km,
     countries: p.c ? p.c.split(',') : [], year: p.y, stopYear: p.z, owner: p.o, wiki: p.w,
@@ -81,7 +116,24 @@ export function buildEnergy(topo: Topology, lngRows: RawLng[], meta: EnergyMeta)
   }));
   const noteOf = new Map<string, PipeNote>();
   for (const n of meta.notes) for (const name of n.pipelines) noteOf.set(name, n);
-  return { pipes, byId: new Map(pipes.map((p) => [p.id, p])), bySystem, lng, lngById: new Map(lng.map((t) => [t.id, t])), meta, noteOf };
+  const fields: OilField[] = fieldRows.map((r) => {
+    const fuel = r.f === 'o' ? 'oil' : r.f === 'g' ? 'gas' : 'oilgas';
+    const gasBoe = (r.gs ?? 0) / M3_PER_BOE;
+    const product = r.lq || r.gs ? ((r.lq ?? 0) >= gasBoe ? 'oil' : 'gas') : fuel === 'gas' ? 'gas' : 'oil';
+    return {
+      id: r.id, name: r.n, fuel, status: r.st, coords: [r.lon, r.lat], countries: r.c ? r.c.split(',') : [],
+      operator: r.op, basin: r.b, discovery: r.dy, fid: r.fy, start: r.py, offshore: r.sea == null ? undefined : r.sea === 1,
+      approximate: !!r.approx, unconventional: !!r.unc, liquids: r.lq, gas: r.gs, boe: r.boe, year: r.y, product,
+      reserves: r.rs ? { fuel: r.rs[0], cls: r.rs[1], qty: r.rs[2], unit: r.rs[3], year: r.rs[4] } : undefined,
+      // GEM.wiki pages are the unit's name with underscores, stored only where they differ ('' when there is none)
+      wiki: r.w === '' ? null : r.w ?? r.n.replace(/ /g, '_'),
+      project: !!r.pj, units: r.u ?? [], parent: r.p,
+    };
+  });
+  return {
+    pipes, byId: new Map(pipes.map((p) => [p.id, p])), bySystem, lng, lngById: new Map(lng.map((t) => [t.id, t])), meta, noteOf,
+    fields, fieldById: new Map(fields.map((x) => [x.id, x])),
+  };
 }
 
 /** A system's name: the atlas's Arabic name where it has one, else GEM's English name. */
@@ -161,8 +213,8 @@ export function loadEnergy(base = import.meta.env.BASE_URL + 'data/'): Promise<E
   if (!loading) {
     failed = false;
     const get = <T,>(f: string) => fetch(base + 'energy/' + f).then((r) => { if (!r.ok) throw new Error(`energy/${f}: HTTP ${r.status}`); return r.json() as Promise<T>; });
-    loading = Promise.all([get<Topology>('pipelines.topo.json'), get<RawLng[]>('lng.json'), get<EnergyMeta>('meta.json')])
-      .then(([topo, lng, meta]) => { state = buildEnergy(topo, lng, meta); notify(); return state; })
+    loading = Promise.all([get<Topology>('pipelines.topo.json'), get<RawLng[]>('lng.json'), get<EnergyMeta>('meta.json'), get<RawField[]>('fields.json')])
+      .then(([topo, lng, meta, fields]) => { state = buildEnergy(topo, lng, meta, fields); notify(); return state; })
       .catch((err) => { loading = null; failed = true; notify(); throw err; });
   }
   return loading;

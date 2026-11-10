@@ -375,7 +375,7 @@ export function kit(c: Ctx, actions: KitActions) {
   return {
     ...c, ...actions, SEV, hl, sw, listJoin, nameC, tradName, resTypeName, resColor, ne, famName, sevName,
     sevGlyph, sevPill, confPill, unverifiedPill, chokePill, kindPill, coord, numUnit, cchip, cchips, kchip,
-    sec, prose, empty, caveat, note, bullets, rows, fact, facts, factSource, statSource, stat, figureNotes, conflictRow, chokeRow, siteRow, groupRow,
+    sec, prose, empty, caveat, note, bullets, rows, rowBtn, fact, facts, factSource, statSource, stat, figureNotes, conflictRow, chokeRow, siteRow, groupRow,
     catTag, eventList, srcName, refItem, provenance, resourceEntry, altSpan, networkBtn, yearBtn, barRowProps,
   };
 }

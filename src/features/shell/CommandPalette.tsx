@@ -5,7 +5,7 @@ import { atlas, useAtlas } from '../../app/store';
 import { useDb, useT } from '../../app/useT';
 import type { Prefs } from '../../app/prefs';
 import { LENSES, NUCLEAR_UNIT, RELIGION_FAMILIES, SEVERITY, VIEWS, type LensId, type ViewId } from '../../config';
-import { FUEL_LABEL, STATUS_LABEL, getEnergy } from '../../data/energy';
+import { FIELD_FUEL_LABEL, FIELD_STATUS_LABEL, FUEL_LABEL, STATUS_LABEL, getEnergy } from '../../data/energy';
 import type { DB, Kind } from '../../data/types';
 import { normalize, type Lang } from '../../i18n/format';
 import { esc } from '../../ui/dom';
@@ -101,6 +101,10 @@ function subOf(db: DB, T: T, kind: Kind, id: string): string {
       const x = getEnergy()?.lngById.get(id);
       return !x ? '' : [x.iso3 && db.countries.has(x.iso3) ? countryName(x.iso3) : '', L(STATUS_LABEL[x.status])].filter(Boolean).join(' · ');
     }
+    case 'field': {
+      const x = getEnergy()?.fieldById.get(id);
+      return !x ? '' : [x.countries.filter((iso) => db.countries.has(iso)).map(countryName).join(ar ? '، ' : ', '), L(FIELD_FUEL_LABEL[x.fuel]), L(FIELD_STATUS_LABEL[x.status])].filter(Boolean).join(' · ');
+    }
     default: return '';
   }
 }
@@ -194,7 +198,7 @@ function PaletteBox() {
     }
     for (const [kind, items] of byKind) groups.push({ label: t('kinds.' + kind), items });
     const nq = normalize(q);
-    // pipelines and LNG terminals, once their lens has loaded them: one row per line system (its longest segment)
+    // pipelines, LNG terminals and fields, once their lens has loaded them: one row per line system (its longest segment)
     const E = getEnergy();
     if (E && nq.length >= 2) {
       const hit = (...names: (string | undefined)[]) => names.some((n) => n && normalize(n).includes(nq));
@@ -203,6 +207,9 @@ function PaletteBox() {
       if (pipes.length) groups.push({ label: t('kinds.pipeline'), items: pipes.map((p) => dataItem(db, T, 'pipeline', p.id, q)) });
       const lng = E.lng.filter((x) => hit(x.name)).slice(0, 6);
       if (lng.length) groups.push({ label: t('kinds.lng'), items: lng.map((x) => dataItem(db, T, 'lng', x.id, q)) });
+      // fields and projects, the largest producers first
+      const fields = E.fields.filter((x) => hit(x.name, x.operator)).sort((a, b) => (b.boe ?? 0) - (a.boe ?? 0)).slice(0, 6);
+      if (fields.length) groups.push({ label: t('kinds.field'), items: fields.map((x) => dataItem(db, T, 'field', x.id, q)) });
     }
     const cmds = commands(T, { lens, view, theme, projection, tour }, tours).filter((c) => normalize(c.label).includes(nq));
     if (cmds.length) groups.push({ label: t('sh.gActions'), items: cmds.slice(0, 8).map((c, n) => cmdItem(T, c, q, n)) });
