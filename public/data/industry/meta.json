@@ -1,0 +1,65 @@
+{
+  "sources": {
+    "cm": {
+      "name": "Global Coal Mine Tracker",
+      "release": "2026-08",
+      "file": "Global Coal Mine Tracker, August 2026.xlsx",
+      "url": "https://globalenergymonitor.org/projects/global-coal-mine-tracker",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "publisher": "Global Energy Monitor",
+      "citation": "Global Energy Monitor, Global Coal Mine Tracker, August 2026 release."
+    },
+    "ct": {
+      "name": "Global Coal Terminals Tracker",
+      "release": "2024-12",
+      "file": "Global-Coal-Terminals-Tracker-December-2024.xlsx",
+      "url": "https://globalenergymonitor.org/projects/global-coal-terminals-tracker/",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "publisher": "Global Energy Monitor",
+      "citation": "Global Energy Monitor, Global Coal Terminals Tracker, December 2024 release."
+    },
+    "io": {
+      "name": "Global Iron Ore Mines Tracker",
+      "release": "2026-09",
+      "file": "Global Iron Ore Mines Tracker - September 2026 - Standard Copy (V1).xlsx",
+      "url": "https://globalenergymonitor.org/projects/global-iron-ore-mines-tracker",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "publisher": "Global Energy Monitor",
+      "citation": "Global Energy Monitor, Global Iron Ore Mines Tracker, September 2026 (V1) release."
+    },
+    "st": {
+      "name": "Global Iron and Steel Tracker",
+      "release": "2026-09",
+      "file": "Plant-level data - Global Iron and Steel Tracker - September 2026 (V1).xlsx",
+      "url": "https://globalenergymonitor.org/projects/global-iron-and-steel-tracker",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "publisher": "Global Energy Monitor",
+      "citation": "Global Energy Monitor, Global Iron and Steel Tracker, September 2026 (V1) release."
+    },
+    "ce": {
+      "name": "Global Cement and Concrete Tracker",
+      "release": "2026-07",
+      "file": "Plant-level data - Global Cement and Concrete Tracker - July 2026 - Standard Copy V1.xlsx",
+      "url": "https://globalenergymonitor.org/projects/global-cement-concrete-tracker",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "publisher": "Global Energy Monitor",
+      "citation": "Global Energy Monitor, Global Cement and Concrete Tracker, July 2026 (V1) release."
+    },
+    "ch": {
+      "name": "Global Chemicals Tracker",
+      "release": "2026-11",
+      "file": "Plant-level-data-Global-Chemicals-Tracker-November-2026-V1.xlsx",
+      "url": "http://www.globalenergymonitor.org/projects/global-chemicals-tracker",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "publisher": "Global Energy Monitor",
+      "citation": "Global Energy Monitor, Global Chemicals Tracker, November 2026 (V1) release."
+    }
+  },
+  "wiki": "https://www.gem.wiki/"
+}

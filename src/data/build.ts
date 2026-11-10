@@ -9,6 +9,7 @@ import { NUCLEAR_UNIT } from '../config';
 import { getBorders, successors, unitName } from './borders';
 import { getEnergy, pipeAnchor, pipeName, type LngTerminal, type OilField, type Pipeline } from './energy';
 import { getPower, type PowerPlant } from './power';
+import { getIndustry, type Facility } from './industry';
 import type { Conflict, Country, DB, Disputed, Group, IndexRow, Kind, LiveKey, NuclearUnitStatus, Plant, RawData, SearchEntry, Stat } from './types';
 
 const EARTH_R = 6371;
@@ -273,6 +274,7 @@ export function build(input: RawData): DB {
       case 'lng': return getEnergy()?.lngById.get(id);
       case 'field': return getEnergy()?.fieldById.get(id);
       case 'station': return getPower()?.byId.get(id);
+      case 'facility': return getIndustry()?.byId.get(id);
       default: return undefined;
     }
   };
@@ -302,6 +304,7 @@ export function build(input: RawData): DB {
       case 'lng': { const t = x as unknown as LngTerminal; return t.iso3 ? [t.iso3] : []; }
       case 'field': return (x as unknown as OilField).countries;
       case 'station': { const p = x as unknown as PowerPlant; return p.iso3 ? [p.iso3] : []; }
+      case 'facility': { const f = x as unknown as Facility; return f.c ? [f.c] : []; }
       default: return [];
     }
   };
@@ -322,6 +325,7 @@ export function build(input: RawData): DB {
     if (kind === 'pipeline') { const E = getEnergy(), p = E?.byId.get(id); return E && p ? pipeName(E, p, lang) : id; }
     if (kind === 'lng') return getEnergy()?.lngById.get(id)?.name ?? id;
     if (kind === 'field') return getEnergy()?.fieldById.get(id)?.name ?? id;
+    if (kind === 'facility') { const f = getIndustry()?.byId.get(id); return f ? (lang === 'ar' && f.ar) || f.n : id; }
     if (kind === 'station') { const p = getPower()?.byId.get(id); return p ? (lang === 'ar' && p.nameAr) || p.name : id; }
     const x = DB.get(kind, id) as Record<string, unknown> | undefined;
     if (!x) return id;
