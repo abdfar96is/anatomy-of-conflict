@@ -324,7 +324,7 @@ export function build(input: RawData): DB {
     if (kind === 'border') { const B = getBorders(), u = B?.byId.get(id); return B && u ? unitName(B, u, lang) : id; }
     if (kind === 'pipeline') { const E = getEnergy(), p = E?.byId.get(id); return E && p ? pipeName(E, p, lang) : id; }
     if (kind === 'lng') return getEnergy()?.lngById.get(id)?.name ?? id;
-    if (kind === 'field') return getEnergy()?.fieldById.get(id)?.name ?? id;
+    if (kind === 'field') { const f = getEnergy()?.fieldById.get(id); return f ? (lang === 'ar' && f.nameAr) || f.name : id; }
     if (kind === 'facility') { const f = getIndustry()?.byId.get(id); return f ? (lang === 'ar' && f.ar) || f.n : id; }
     if (kind === 'station') { const p = getPower()?.byId.get(id); return p ? (lang === 'ar' && p.nameAr) || p.name : id; }
     const x = DB.get(kind, id) as Record<string, unknown> | undefined;

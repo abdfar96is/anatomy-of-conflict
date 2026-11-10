@@ -240,6 +240,12 @@ export function checkData(dataDir: string): Problem[] {
         if (x.u != null && !x.pj) problems.push({ file: ff, path: `${at}.u`, message: 'units on a unit that is not a project' });
       });
       const byId = new Map(fields.map((x) => [x.id as string, x]));
+      // the atlas's landmark names: each a field in the data, with an Arabic and an English name
+      const lm = (JSON.parse(fs.readFileSync(path.join(energyDir, 'meta.json'), 'utf8')) as { landmarks?: Record<string, { ar?: string; en?: string }> }).landmarks ?? {};
+      for (const [id, n] of Object.entries(lm)) {
+        if (!byId.has(id)) problems.push({ file: 'energy/meta.json', path: `landmarks.${id}`, message: 'no field of this id' });
+        if (!n.ar?.trim() || !n.en?.trim()) problems.push({ file: 'energy/meta.json', path: `landmarks.${id}`, message: 'a landmark needs an Arabic and an English name' });
+      }
       fields.forEach((x, i) => {
         if (x.p != null && !byId.get(x.p as string)?.pj) problems.push({ file: ff, path: `[${i}].p`, message: 'no project of this id', value: x.p });
         ((x.u as string[] | undefined) ?? []).forEach((id, j) => { if (byId.get(id)?.p !== x.id) problems.push({ file: ff, path: `[${i}].u[${j}]`, message: 'unit missing or not linked back to this project', value: id }); });
@@ -307,6 +313,12 @@ export function checkData(dataDir: string): Problem[] {
       }
     }
     for (const [key, left] of expected) for (const id of left) problems.push({ file: `power/detail/${key}.json`, path: id, message: 'plant missing from its detail file' });
+    const plantIds = new Set(W.id.map((n) => `L${100000000000 + n}`));
+    const plm = (JSON.parse(metaText) as { landmarks?: Record<string, { ar?: string; en?: string }> }).landmarks ?? {};
+    for (const [id, n] of Object.entries(plm)) {
+      if (!plantIds.has(id)) problems.push({ file: 'power/meta.json', path: `landmarks.${id}`, message: 'no plant of this id' });
+      if (!n.ar?.trim() || !n.en?.trim()) problems.push({ file: 'power/meta.json', path: `landmarks.${id}`, message: 'a landmark needs an Arabic and an English name' });
+    }
     // per-state totals for the country summary
     const cf = path.join(powerDir, 'countries.json');
     if (fs.existsSync(cf)) {

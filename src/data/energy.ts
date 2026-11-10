@@ -59,6 +59,8 @@ export interface OilField {
   reserves?: { fuel: string; cls: string; qty: number; unit: string; year?: number };
   /** The GEM.wiki page (null when GEM has none). */
   wiki: string | null;
+  /** The atlas's Arabic name for a landmark field (energy/meta.json `landmarks`). */
+  nameAr?: string;
   project: boolean; units: string[]; parent?: string;
 }
 interface RawField {
@@ -88,6 +90,8 @@ export interface EnergyMeta {
   /** Arabic names of prominent systems, by GEM PipelineName. */
   names: Record<string, string>;
   notes: PipeNote[];
+  /** The atlas's short names of landmark fields, by GEM unit id: map labels, and the Arabic name. */
+  landmarks?: Record<string, Bi>;
 }
 export interface Energy {
   pipes: Pipeline[]; byId: Map<string, Pipeline>;
@@ -127,6 +131,7 @@ export function buildEnergy(topo: Topology, lngRows: RawLng[], meta: EnergyMeta,
       reserves: r.rs ? { fuel: r.rs[0], cls: r.rs[1], qty: r.rs[2], unit: r.rs[3], year: r.rs[4] } : undefined,
       // GEM.wiki pages are the unit's name with underscores, stored only where they differ ('' when there is none)
       wiki: r.w === '' ? null : r.w ?? r.n.replace(/ /g, '_'),
+      nameAr: meta.landmarks?.[r.id]?.ar,
       project: !!r.pj, units: r.u ?? [], parent: r.p,
     };
   });

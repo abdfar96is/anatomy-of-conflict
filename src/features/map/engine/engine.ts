@@ -43,6 +43,8 @@ const K_MIN = 0.8, K_MAX = 60, K_FIT_MAX = 28;
 const HOME: LonLat = [35, 25];
 const TOL_COARSE = 0.12, TOL_FINE = 0.02;
 const SCENE_KEYS = new Set<keyof AtlasState>(['lens', 'selection', 'filters', 'layers', 'year', 'yearFilter', 'theme', 'compare', 'view', 'lang']);
+/** Landmark names show from this zoom factor (about a region filling the screen). */
+const PIN_K = 2.2;
 const POINT_KINDS: Kind[] = ['conflict', 'choke', 'site', 'plant', 'lng', 'field', 'station', 'facility'];
 /** Grid cell size (degrees) of the line hit-test index. */
 const LINE_CELL = 2;
@@ -964,6 +966,37 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
       const r = opts.find((o) => grid.free(o)) || opts.reduce((a, b) => (grid.cost(b) < grid.cost(a) ? b : a));
       grid.mark(r);
       drawText(ctx, [label], (r[0] + r[2]) / 2, (r[1] + r[3]) / 2, size, font, P.fg, P.halo);
+    }
+
+    // landmark names (fields, dams, plants) from mid zoom: beside their point where there is room, the largest first;
+    // their points keep their footprint clear first, so one name never covers another landmark
+    const k = absScale() / baseScale();
+    if (sc.pins.length && k >= PIN_K) {
+      const placed: [Pt, (typeof sc.pins)[number]][] = [];
+      const far = farness(sc) > 0.5;
+      for (const pin of [...sc.pins].sort((a, b) => b.pri - a.pri)) {
+        if (far && !pin.big) continue; // in the far view only the large points are drawn
+        const p = projectVisible(pin.lonlat, cen);
+        if (!p || p[0] < 0 || p[0] > W || p[1] < 0 || p[1] > H) continue;
+        // the footprint inset by half a cell and the names set a cell beyond it, so the grid never puts the two in one cell
+        grid.mark([p[0] - pin.r + 4, p[1] - pin.r + 4, p[0] + pin.r - 4, p[1] + pin.r - 4]);
+        placed.push([p, pin]);
+      }
+      const size = 11, font = `600 ${size}px ${X.font}`, endSide = dir() === 'rtl' ? -1 : 1;
+      for (const [p, pin] of placed) {
+        const w = textW(ctx, font, pin.text), h = size + 4;
+        const opts: Rect[] = [];
+        for (const sd of [endSide, -endSide]) {
+          const x0 = sd > 0 ? p[0] + pin.r + 6 : p[0] - pin.r - 6 - w;
+          opts.push([x0 - 2, p[1] - h / 2, x0 + w + 2, p[1] + h / 2]);
+        }
+        opts.push([p[0] - w / 2 - 2, p[1] + pin.r + 4, p[0] + w / 2 + 2, p[1] + pin.r + 4 + h]);
+        opts.push([p[0] - w / 2 - 2, p[1] - pin.r - 4 - h, p[0] + w / 2 + 2, p[1] - pin.r - 4]);
+        const r = opts.find((o) => grid.free(o));
+        if (!r) continue;
+        grid.mark(r);
+        drawText(ctx, [pin.text], (r[0] + r[2]) / 2, (r[1] + r[3]) / 2, size, font, P.fg, P.halo);
+      }
     }
 
     // lens labels (ethnic group names) before country names
