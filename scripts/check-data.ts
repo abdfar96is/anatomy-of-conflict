@@ -257,6 +257,53 @@ export function checkData(dataDir: string): Problem[] {
       n.sources.forEach((s, j) => { if (!/^https:\/\//.test(s.url)) problems.push({ file: 'energy/meta.json', path: `${at}.sources[${j}].url`, message: 'not an https link', value: s.url }); });
     });
   }
+  // 7. Power plants (power/): the columns line up, codes and states are known, and every plant has its detail entry.
+  const powerDir = path.join(dataDir, 'power');
+  if (fs.existsSync(path.join(powerDir, 'plants.json'))) {
+    const pf = 'power/plants.json';
+    const metaText = fs.readFileSync(path.join(powerDir, 'meta.json'), 'utf8').replace(/\r\n/g, '\n');
+    if (metaText !== formatJson(JSON.parse(metaText))) layout.push({ file: 'power/meta.json', path: '', message: 'not in the canonical layout; run npm run format-data' });
+    const W = JSON.parse(fs.readFileSync(path.join(powerDir, 'plants.json'), 'utf8')) as {
+      iso: string[]; id: number[]; n: string[]; t: string; s: string; mw: number[]; x: number[]; y: number[]; c: number[]; ar: [number, string][];
+    };
+    const n = W.id.length;
+    for (const [k, v] of Object.entries({ n: W.n, t: W.t, s: W.s, mw: W.mw, x: W.x, y: W.y, c: W.c })) {
+      if (v.length !== n) problems.push({ file: pf, path: k, message: `${v.length} values for ${n} plants` });
+    }
+    W.iso.forEach((iso, i) => country(pf, `iso[${i}]`, iso));
+    const ids = new Set<number>();
+    const expected = new Map<string, Set<string>>();
+    for (let i = 0; i < n; i++) {
+      const at = `[${i}]`, id = W.id[i]!;
+      if (ids.has(id)) problems.push({ file: pf, path: `id${at}`, message: 'duplicate id', value: id });
+      ids.add(id);
+      if (!W.n[i]?.trim()) problems.push({ file: pf, path: `n${at}`, message: 'missing name' });
+      if (!'cgnhswbe'.includes(W.t[i]!)) problems.push({ file: pf, path: `t${at}`, message: 'unknown type code', value: W.t[i] });
+      if (!'ocm'.includes(W.s[i]!)) problems.push({ file: pf, path: `s${at}`, message: 'unknown status code', value: W.s[i] });
+      if (!(W.mw[i]! >= 0)) problems.push({ file: pf, path: `mw${at}`, message: 'not a capacity', value: W.mw[i] });
+      if (Math.abs(W.x[i]!) > 180000 || Math.abs(W.y[i]!) > 90000) problems.push({ file: pf, path: at, message: 'coordinates out of range', value: [W.x[i], W.y[i]] });
+      const c = W.c[i]!;
+      if (c < -1 || c >= W.iso.length) problems.push({ file: pf, path: `c${at}`, message: 'no such state', value: c });
+      const shard = c >= 0 ? W.iso[c]! : '_';
+      if (!expected.has(shard)) expected.set(shard, new Set());
+      expected.get(shard)!.add(`L${100000000000 + id}`);
+    }
+    W.ar.forEach(([i, name], j) => { if (!(i >= 0 && i < n) || !name.trim()) problems.push({ file: pf, path: `ar[${j}]`, message: 'not a plant and a name', value: [i, name] }); });
+    const detailDir = path.join(powerDir, 'detail');
+    const shards = fs.existsSync(detailDir) ? fs.readdirSync(detailDir).filter((f) => f.endsWith('.json')) : [];
+    for (const f of shards) {
+      const key = f.replace(/\.json$/, ''), file = `power/detail/${f}`;
+      const want = expected.get(key);
+      if (!want) { problems.push({ file, path: '', message: 'no plant of this state in plants.json' }); continue; }
+      const d = JSON.parse(fs.readFileSync(path.join(detailDir, f), 'utf8')) as Record<string, Rec>;
+      for (const [id, x] of Object.entries(d)) {
+        if (!want.delete(id)) problems.push({ file, path: id, message: 'not a plant of this state in plants.json' });
+        if (!(Number(x.u) >= 1)) problems.push({ file, path: `${id}.u`, message: 'no units' });
+        if (typeof x.c === 'string') x.c.split(',').forEach((iso) => country(file, `${id}.c`, iso));
+      }
+    }
+    for (const [key, left] of expected) for (const id of left) problems.push({ file: `power/detail/${key}.json`, path: id, message: 'plant missing from its detail file' });
+  }
   return [...layout, ...problems];
 }
 

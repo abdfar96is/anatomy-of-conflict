@@ -29,19 +29,21 @@ import { fieldPanel } from './kinds/field';
 import { lngPanel } from './kinds/lng';
 import { pipelinePanel } from './kinds/pipeline';
 import { plantPanel } from './kinds/plant';
+import { powerPanel } from './kinds/power';
+import { powerVersion, subscribePower } from '../../data/power';
 import { sitePanel } from './kinds/site';
 import type { Panel, Sel } from './model';
 import { isEmpty, kit, type Kit } from './parts';
 import './strings';
 import { useSheet } from './useSheet';
 
-const KIND_ICON: Record<Kind, string> = { country: 'globe', conflict: 'flame', group: 'people', religion: 'pie', choke: 'anchor', disputed: 'hatch', event: 'clock', bloc: 'network', site: 'gem', plant: 'atom', border: 'borders', pipeline: 'pipeline', lng: 'lng', field: 'derrick' };
+const KIND_ICON: Record<Kind, string> = { country: 'globe', conflict: 'flame', group: 'people', religion: 'pie', choke: 'anchor', disputed: 'hatch', event: 'clock', bloc: 'network', site: 'gem', plant: 'atom', border: 'borders', pipeline: 'pipeline', lng: 'lng', field: 'derrick', station: 'bolt' };
 // Lens a selection kind belongs to (SPEC); country keeps the current lens.
-const LENS_OF: Partial<Record<Kind, LensId>> = { conflict: 'conflicts', group: 'ethnic', religion: 'religion', choke: 'chokepoints', disputed: 'disputed', event: 'history', bloc: 'powers', site: 'resources', plant: 'nuclear', border: 'borders', pipeline: 'pipelines', lng: 'pipelines', field: 'pipelines' };
+const LENS_OF: Partial<Record<Kind, LensId>> = { conflict: 'conflicts', group: 'ethnic', religion: 'religion', choke: 'chokepoints', disputed: 'disputed', event: 'history', bloc: 'powers', site: 'resources', plant: 'nuclear', border: 'borders', pipeline: 'pipelines', lng: 'pipelines', field: 'pipelines', station: 'industry' };
 const PANELS: Record<Kind, (id: string, k: Kit) => Panel | null> = {
   country: countryPanel, conflict: conflictPanel, group: groupPanel, religion: religionPanel, choke: chokePanel,
   disputed: disputedPanel, event: eventPanel, bloc: blocPanel, site: sitePanel, plant: plantPanel, border: borderPanel,
-  pipeline: pipelinePanel, lng: lngPanel, field: fieldPanel,
+  pipeline: pipelinePanel, lng: lngPanel, field: fieldPanel, station: powerPanel,
 };
 const LEAVE_MS = 260;
 
@@ -86,6 +88,7 @@ export function Dossier() {
   // a historical unit's panel waits for the borders data, which loads on demand
   useSyncExternalStore(subscribeBorders, getBorders, getBorders);
   useSyncExternalStore(subscribeEnergy, getEnergy, getEnergy);
+  useSyncExternalStore(subscribePower, powerVersion, powerVersion);
   const live = sel && db.exists(sel.kind, sel.id) ? sel : null;
   const liveKey = keyOf(live);
 

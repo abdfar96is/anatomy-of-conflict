@@ -40,6 +40,7 @@ registerStrings({
     'kind.pipeline': 'خط أنابيب',
     'kind.lng': 'محطة غاز مسال',
     'kind.field': 'حقل نفط أو غاز',
+    'kind.station': 'محطة كهرباء',
   },
   en: {
     'tr.tour': 'Tour',
@@ -71,6 +72,7 @@ registerStrings({
     'kind.pipeline': 'Pipeline',
     'kind.lng': 'LNG terminal',
     'kind.field': 'Oil or gas field',
+    'kind.station': 'Power plant',
   },
 });
 

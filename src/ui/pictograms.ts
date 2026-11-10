@@ -20,6 +20,19 @@ const FLAME = 'M1-6.5C2.75-3.75 5-1.25 4.25 2 3.6 4.75 1.5 5.5 0 5.5-1.75 5.5-4.
 const GEM = 'M-5.6-1.8L-3-5H3L5.6-1.8 0 6Z';
 const bar = (cx: number, yb: number, yt: number) => `M${cx - 3} ${yb}L${cx - 2.2} ${yt}H${cx + 2.2}L${cx + 3} ${yb}Z`;
 const ROT30: PictoLayer['t'] = [0.866, 0.5, -0.5, 0.866, 0, 0];
+/** Rotation by `deg` about (px, py), as a PictoLayer transform. */
+const rot = (deg: number, px = 0, py = 0): PictoLayer['t'] => {
+  const c = Math.cos((deg * Math.PI) / 180), s = Math.sin((deg * Math.PI) / 180);
+  return [+c.toFixed(4), +s.toFixed(4), +(-s).toFixed(4), +c.toFixed(4), +(px - c * px + s * py).toFixed(4), +(py - s * px - c * py).toFixed(4)];
+};
+/** Eight rays round a disc: thin triangles from radius 4 to 6.4. */
+const SUN_RAYS = Array.from({ length: 8 }, (_, i) => {
+  const a = (i * Math.PI) / 4, ca = Math.cos(a), sa = Math.sin(a), w = 0.95;
+  const p = (r: number, o: number) => `${(ca * r - sa * o).toFixed(2)} ${(sa * r + ca * o).toFixed(2)}`;
+  return `M${p(4, -w)}L${p(6.5, 0)}L${p(4, w)}Z`;
+}).join('');
+const BLADE = 'M0-1C1-2.6.8-4.8 0-6.6-.8-4.8-1-2.6 0-1Z';
+const ORBIT = 'M-5.4 0a5.4 2 0 1 0 10.8 0a5.4 2 0 1 0-10.8 0Z';
 
 export const PICTO: Record<string, PictoLayer[]> = {
   // oil: a barrel with two hoops and its lid
@@ -95,6 +108,33 @@ export const PICTO: Record<string, PictoLayer[]> = {
     { d: 'M-4.4-3.6Q-3.2-5.6 0-5.1 3.2-5.6 4.4-3.6L5.4 4.6Q0 6.8-5.4 4.6Z', fill: 'base', stroke: 'dark', width: 0.8 },
     { d: 'M-2.6-4.2H2.6', stroke: 'dark', width: 1.1 },
     { d: 'M-1.6 1.6a1.6 1.6 0 1 0 3.2 0a1.6 1.6 0 1 0-3.2 0Z', fill: 'light' },
+  ],
+  // solar power: the sun, a disc with eight rays
+  sun: [
+    { d: SUN_RAYS, fill: 'base', stroke: 'dark', width: 0.5 },
+    { d: 'M-3.3 0a3.3 3.3 0 1 0 6.6 0a3.3 3.3 0 1 0-6.6 0Z', fill: 'base', stroke: 'dark', width: 0.8 },
+    { d: 'M-1.6-.6a1.4 1.4 0 1 0 2 0', stroke: 'light', width: 0.8 },
+  ],
+  // wind power: a three-bladed turbine on its mast
+  turbine: [
+    { d: 'M-.75 6.4L-.35-.6H.35L.75 6.4Z', fill: 'light', stroke: 'dark', width: 0.6 },
+    { d: BLADE, fill: 'base', stroke: 'dark', width: 0.6 },
+    { d: BLADE, fill: 'base', stroke: 'dark', width: 0.6, t: rot(120, 0, -1) },
+    { d: BLADE, fill: 'base', stroke: 'dark', width: 0.6, t: rot(240, 0, -1) },
+    { d: 'M-.9-1a.9.9 0 1 0 1.8 0a.9.9 0 1 0-1.8 0Z', fill: 'light', stroke: 'dark', width: 0.5 },
+  ],
+  // bioenergy: a leaf with its midrib
+  leaf: [
+    { d: 'M-4.8 5.4C-5.8-1.4-1.4-5.8 5.6-5.8 5.8 1.2 1.6 5.6-4.8 5.4Z', fill: 'base', stroke: 'dark', width: 0.8 },
+    { d: 'M-4.8 5.4L3-3M-1.6 2.2L-1.2-1.4M.8-.4L3.2-.2', stroke: 'dark', width: 0.8 },
+  ],
+  // nuclear power: an atom, three orbits round its nucleus on a dark disc
+  atom: [
+    { d: 'M-6.2 0a6.2 6.2 0 1 0 12.4 0a6.2 6.2 0 1 0-12.4 0Z', fill: 'dark' },
+    { d: ORBIT, stroke: 'light', width: 0.9 },
+    { d: ORBIT, stroke: 'light', width: 0.9, t: rot(60) },
+    { d: ORBIT, stroke: 'light', width: 0.9, t: rot(-60) },
+    { d: 'M-1.5 0a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0-3 0Z', fill: 'base', stroke: 'light', width: 0.5 },
   ],
   // semiconductors: a chip with its pins
   chip: [

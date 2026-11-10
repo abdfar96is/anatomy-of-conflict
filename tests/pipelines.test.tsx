@@ -140,8 +140,8 @@ describe('the lens', () => {
   };
   const items = (sc: ReturnType<typeof buildScene>) => sc.lines.flatMap((l) => l.items.map((it) => E.byId.get(it.id)!));
 
-  test('is the last lens on the rail', () => {
-    expect(LENSES[LENSES.length - 1]!.id).toBe('pipelines');
+  test('sits on the rail just before Power & industry', () => {
+    expect(LENSES.map((l) => l.id).slice(-2)).toEqual(['pipelines', 'industry']);
   });
 
   test('draws every active segment, coloured by fuel, dashed under construction, LNG terminals as markers', () => {

@@ -13,6 +13,7 @@ export const LENSES = [
   { id: 'history',     ar: 'الخط الزمني',             en: 'Timeline',               icon: 'clock',   sub: { ar: '1900 — اليوم', en: '1900 — today' } },
   { id: 'borders',     ar: 'الحدود التاريخية',         en: 'Historical borders',     icon: 'borders', sub: { ar: 'الدول والمستعمرات 1886–2019', en: 'States and colonies, 1886–2019' } },
   { id: 'pipelines',   ar: 'أنابيب النفط والغاز',       en: 'Oil & gas pipelines',    icon: 'pipeline', sub: { ar: 'الخطوط العاملة وقيد الإنشاء', en: 'Operating and under construction' } },
+  { id: 'industry',    ar: 'الطاقة والصناعة',         en: 'Power & industry',       icon: 'bolt',    sub: { ar: 'محطات الكهرباء بأنواعها', en: 'Power plants of every kind' } },
 ] as const;
 
 // Full-panel views that open over the stage.
@@ -113,7 +114,7 @@ export const RESOURCE_CLASSES = [
 ];
 
 // Selection kinds and their hash prefixes: #country-SAU, #conflict-sudan, #group-kurds …
-export const KINDS = ['country', 'conflict', 'group', 'religion', 'choke', 'disputed', 'event', 'bloc', 'site', 'plant', 'border', 'pipeline', 'lng', 'field'] as const;
+export const KINDS = ['country', 'conflict', 'group', 'religion', 'choke', 'disputed', 'event', 'bloc', 'site', 'plant', 'border', 'pipeline', 'lng', 'field', 'station'] as const;
 
 // 24×24 stroke icons (stroke = currentColor). Use ui.icon(name).
 export const ICONS: Record<string, string> = {
@@ -128,6 +129,7 @@ export const ICONS: Record<string, string> = {
   pipeline: '<path d="M3 8h7a3 3 0 0 1 3 3v2a3 3 0 0 0 3 3h5"/><path d="M3 5.5v5M21 13.5v5M7.5 6v4"/>',
   lng:     '<path d="M12 3.5c3 3.6 5 6.4 5 9.2a5 5 0 0 1-10 0c0-2.8 2-5.6 5-9.2z"/><path d="M9.6 14.2c.4 1.3 1.3 2 2.6 2.2"/>',
   derrick: '<path d="M8 21l4-17 4 17M9.4 15h5.2M10.6 10h2.8M5 21h14"/>',
+  bolt:    '<path d="M13 2.5L5 13.5h6l-1 8 8-11h-6z"/>',
   atom:    '<circle cx="12" cy="12" r="1.6"/><ellipse cx="12" cy="12" rx="9" ry="3.6"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(-60 12 12)"/>',
   gem:     '<path d="M7 4h10l4 5-9 11L3 9z"/><path d="M3 9h18M9.5 4L8 9l4 11 4-11-1.5-5"/>',
   anchor:  '<circle cx="12" cy="5" r="2"/><path d="M12 7v13M8 10h8M4.5 13.5C5 17.5 8.3 20 12 20s7-2.5 7.5-6.5"/>',

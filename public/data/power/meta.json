@@ -1,0 +1,13 @@
+{
+  "source": {
+    "name": "Global Integrated Power Tracker",
+    "publisher": "Global Energy Monitor",
+    "release": "2026-09",
+    "file": "Global Integrated Power September 2026 V2.xlsx",
+    "url": "https://globalenergymonitor.org/projects/global-integrated-power-tracker",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "citation": "Global Energy Monitor, Global Integrated Power Tracker, September 2026 release."
+  },
+  "wiki": "https://www.gem.wiki/"
+}

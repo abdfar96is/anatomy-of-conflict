@@ -7,6 +7,7 @@
 | `history/` | Historical borders of states and dependent territories, 1886–2019, from [CShapes 2.0](https://icr.ethz.ch/data/cshapes/) (ETH Zurich), simplified; Arabic names and ruler colours in `meta.json` | [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) — non-commercial, share-alike; cite Schvitz et al. (2022) |
 | `curated/nuclear_plants.json` | Nuclear power plants and their units, derived from [GeoNuclearData](https://github.com/cristianst85/GeoNuclearData) with documented updates | [ODbL 1.0](https://opendatacommons.org/licenses/odbl/1-0/) — a derived database; contents under the [DbCL 1.0](https://opendatacommons.org/licenses/dbcl/1-0/) |
 | `energy/` | Oil, gas and NGL pipelines (operating, under construction, and halted as an optional layer), LNG terminals, and oil and gas fields, from [Global Energy Monitor](https://globalenergymonitor.org/)'s gas and oil infrastructure trackers and its oil and gas extraction tracker, simplified; Arabic names and sourced notes in `meta.json` | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — Global Energy Monitor |
+| `power/` | Power plants of eight types (operating, under construction, and mothballed as an optional layer), from [Global Energy Monitor](https://globalenergymonitor.org/)'s Global Integrated Power Tracker; a map file and one detail file per state | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — Global Energy Monitor |
 | `curated/` | The atlas content: conflicts, ethnic groups, religions, relations, resources, chokepoints, timeline, sources | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — a compilation adapted from «الأطلس الجيوسياسي والعرقي الديني العالمي» |
 
 Changes this project made to the compiled content are listed in `curated/corrections.json` and on the atlas's Sources page, as CC BY 4.0 asks. Each record names its own sources in `sources.json`; those sources keep their own terms.
@@ -141,3 +142,35 @@ Cite: Global Energy Monitor, Global Gas Infrastructure Tracker (November 2025 re
 Fields follow GEM's coverage: units producing 1 million boe a year or more, or holding 25 million boe of reserves. Discovered but undeveloped fields, abandoned ones and the 465 fields without coordinates are left out. Mothballed fields go with the halted layer. Names stay in English as GEM gives them.
 
 `npm run check-data` checks that every segment is a line with a known fuel and status, a unique id and known states, and a stop year only if it is halted; that LNG terminals have a type, status and valid coordinates; that every Arabic name and note points to a line in the data, with known chokepoints and conflicts and at least one https source; and that fields have a unique id, a known kind, status and state, valid coordinates and positive production, and that projects and their fields point to each other.
+
+## Power plants (`power/`)
+
+The Power & industry lens loads these files on demand. They come from the official download of Global Energy Monitor's **Global Integrated Power Tracker** (September 2026 V2 release, **CC BY 4.0**), which brings together GEM's eight power trackers: coal, oil and gas, nuclear, hydropower, utility-scale solar, wind, bioenergy and geothermal.
+
+There is one entry per GEM location (a plant, or a project of several phases). Its units that are operating, under construction or mothballed are summed. The plant takes the type with the most capacity, and the location of its largest unit. Proposed, cancelled, shelved and retired units are left out. Solar, wind and bioenergy plants under 50 MW and other plants under 20 MW are dropped; every nuclear and geothermal plant is kept. GEM's own thresholds come first (coal from 30 MW; oil and gas from 50 MW, or 20 MW in the EU and UK; wind from 10 MW; hydropower from 30 MW; bioenergy from 20 MW). Units with a TransitionZero id (`TZ:`) are left out: GEM sourced them partly from TransitionZero's Solar Asset Mapper, which is under CC BY-NC 4.0.
+
+- **`plants.json`** (minified) holds what the map, tooltip and search need, as parallel columns:
+  - `id`: GEM location id less 10¹¹ (`L100000601194` is 601194)
+  - `n`: name as GEM gives it
+  - `t`: one letter per plant: `c` coal, `g` oil and gas, `n` nuclear, `h` hydropower, `s` solar, `w` wind, `b` bioenergy, `e` geothermal
+  - `s`: one letter per plant: `o` operating, `c` under construction, `m` mothballed
+  - `mw`: capacity of those units in MW
+  - `x`, `y`: longitude and latitude × 1,000
+  - `c`: index into `iso` (the ISO3 codes), or −1
+  - `ar`: `[position, Arabic name]` for plants in Arab League states whose GEM local name is in Arabic (not Persian or Urdu)
+- **`detail/<ISO3>.json`** (minified, `_` for the one plant without a state) maps each plant id to the rest:
+  - `op`, `con`, `mb`: MW operating, under construction and mothballed
+  - `mix`: `[type, MW]` for the 200 plants that mix types
+  - `approx`, `c`, `sub`: approximate location, states (two for binational dams) and province
+  - `y`, `yc`, `ry`: first year in service, expected year of the first unit under construction, and earliest planned retirement
+  - `tech`, `fuel`: technology and fuel as GEM gives them (the dossier translates the common ones)
+  - `u`: number of units
+  - `o`, `par`: owner and, where different, parent
+  - `riv`: river (hydropower)
+  - `chp`, `ccs`, `cap`: combined heat and power, carbon capture, and the industry a captive plant serves
+  - `w`: GEM.wiki page, stored only when it is not the name with underscores; `''` when GEM gives none
+- **`meta.json`** holds the source with its licence and citation.
+
+Cite: Global Energy Monitor, Global Integrated Power Tracker, September 2026 release.
+
+`npm run check-data` checks that the columns line up, that type and status codes and states are known and coordinates valid, and that every plant is in the detail file of its state, and only there.
