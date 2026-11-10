@@ -99,6 +99,14 @@ describe('the industry mode', () => {
     expect(ids(buildScene(db, S({ industryLayers: new Set() }, { kind: 'facility', id: HELWAN }), P))).toEqual([HELWAN]);
   });
 
+  test('with the timeline on, sites show from their first year; undated ones are left out', () => {
+    const sc = buildScene(db, { ...S({ industryMode: 'industry' }), year: 1960, yearFilter: true }, P);
+    const shown = ids(sc).map(site);
+    expect(shown.length).toBeGreaterThan(100);
+    expect(shown.every((x) => x.y! <= 1960)).toBe(true);
+    expect(ids(buildScene(db, { ...S({ industryMode: 'industry' }), year: 2020, yearFilter: true }, P)).length).toBeGreaterThan(shown.length);
+  });
+
   test('a site tooltip gives its name, layer, status, capacity and state; the Arabic name in Arabic', () => {
     atlas.set({ lang: 'en' });
     const tip = tipFor({ kind: 'facility', id: KUSMUNDA }, db, { ...atlas.get(), lens: 'industry' });

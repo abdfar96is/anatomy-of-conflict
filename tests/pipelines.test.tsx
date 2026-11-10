@@ -289,6 +289,17 @@ describe('the lens', () => {
     expect(tipFor({ kind: 'field', id: NORTH_FIELD }, db, { ...atlas.get(), lens: 'pipelines' })).toContain('a project of 15 units');
   });
 
+  test('with the timeline on, lines, fields and terminals show as of the year', () => {
+    const at = (y: number) => ({ ...S(), year: y, yearFilter: true });
+    const sc = buildScene(db, at(1990), P);
+    const segs = items(sc);
+    expect(segs.length).toBeGreaterThan(100);
+    expect(segs.every((p) => p.year! <= 1990)).toBe(true);
+    expect(items(buildScene(db, at(2020), P)).length).toBeGreaterThan(segs.length);
+    expect(sc.points.filter((x) => x.kind === 'field').every((x) => field(x.id).start! <= 1990)).toBe(true);
+    expect(sc.markers.filter((m) => m.kind === 'lng').every((m) => (E.lngById.get(m.id)!.year ?? 0) <= 1990)).toBe(true);
+  });
+
   test('a selected segment highlights its whole system', () => {
     const seg = system('Druzhba Oil Pipeline')[0]!;
     const sc = buildScene(db, S({}, { kind: 'pipeline', id: seg.id }), P);

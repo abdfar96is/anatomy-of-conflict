@@ -8,7 +8,8 @@ import { fmtNum, type Bi, type Lang } from '../i18n/format';
 
 export const POWER_TYPES = ['hydro', 'gas', 'wind', 'solar', 'geo', 'bio', 'nuclear', 'coal'] as const;
 export type PowerType = (typeof POWER_TYPES)[number];
-export type PowerStatus = 'operating' | 'construction' | 'mothballed';
+/** Retired plants are in the data only for the timeline: they show while the map is set to a year before their retirement. */
+export type PowerStatus = 'operating' | 'construction' | 'mothballed' | 'retired';
 /** Categorical colour slot of each type: the palette's fixed order, validated for neighbours in both themes. */
 export const POWER_SLOT: Record<PowerType, number> = { hydro: 1, gas: 2, wind: 3, solar: 4, geo: 5, bio: 6, nuclear: 7, coal: 8 };
 /** The map pictogram of each type (ui/pictograms.ts). */
@@ -16,7 +17,7 @@ export const POWER_PICTO: Record<PowerType, string> = {
   hydro: 'hydro', gas: 'flame', wind: 'turbine', solar: 'sun', geo: 'geothermal', bio: 'leaf', nuclear: 'atom', coal: 'coal',
 };
 const CODE: Record<string, PowerType> = { c: 'coal', g: 'gas', n: 'nuclear', h: 'hydro', s: 'solar', w: 'wind', b: 'bio', e: 'geo' };
-const STATUS: Record<string, PowerStatus> = { o: 'operating', c: 'construction', m: 'mothballed' };
+const STATUS: Record<string, PowerStatus> = { o: 'operating', c: 'construction', m: 'mothballed', r: 'retired' };
 
 export const POWER_LABEL: Record<PowerType, Bi> = {
   coal: { ar: 'فحم', en: 'Coal' }, gas: { ar: 'غاز ونفط', en: 'Oil and gas' }, nuclear: { ar: 'نووي', en: 'Nuclear' },
@@ -31,6 +32,7 @@ export const POWER_PLANT_LABEL: Record<PowerType, Bi> = {
 };
 export const POWER_STATUS_LABEL: Record<PowerStatus, Bi> = {
   operating: { ar: 'عاملة', en: 'Operating' }, construction: { ar: 'قيد الإنشاء', en: 'Under construction' }, mothballed: { ar: 'مجمّدة', en: 'Mothballed' },
+  retired: { ar: 'متقاعدة', en: 'Retired' },
 };
 
 /** GEM's technologies in Arabic; any other stays as GEM gives it. */
@@ -83,11 +85,13 @@ export interface PowerPlant {
   /** Capacity of its units that are operating, under construction or mothballed, in MW. */
   mw: number;
   coords: [number, number]; iso3?: string;
+  /** First year in service (or expected, under construction), and the year a retired plant closed: the timeline's years. */
+  start?: number; end?: number;
 }
 /** The rest, from power/detail/<ISO3>.json. */
 export interface PowerDetail {
   /** MW operating, under construction and mothballed. */
-  op?: number; con?: number; mb?: number;
+  op?: number; con?: number; mb?: number; ret?: number;
   /** Capacity by type, for the few plants that mix them (largest first). */
   mix?: [PowerType, number][];
   approx?: number; c?: string; sub?: string;
@@ -99,7 +103,7 @@ export interface PowerDetail {
   /** GEM.wiki page when it is not the name with underscores; '' when GEM has none. */
   w?: string;
 }
-interface RawIndex { iso: string[]; id: number[]; n: string[]; t: string; s: string; mw: number[]; x: number[]; y: number[]; c: number[]; ar: [number, string][] }
+interface RawIndex { iso: string[]; id: number[]; n: string[]; t: string; s: string; mw: number[]; x: number[]; y: number[]; c: number[]; y0: number[]; y1: number[]; ar: [number, string][] }
 export interface PowerMeta {
   source: { name: string; publisher: string; release: string; file: string; url: string; license: string; licenseUrl: string; citation: string };
   wiki: string;
@@ -115,6 +119,7 @@ export function buildPower(raw: RawIndex, meta: PowerMeta): Power {
   const plants: PowerPlant[] = raw.id.map((n, i) => ({
     id: plantId(n), name: raw.n[i]!, nameAr: ar.get(i), type: CODE[raw.t[i]!]!, status: STATUS[raw.s[i]!]!, mw: raw.mw[i]!,
     coords: [raw.x[i]! / 1000, raw.y[i]! / 1000], iso3: raw.c[i]! >= 0 ? raw.iso[raw.c[i]!] : undefined,
+    start: raw.y0[i] || undefined, end: raw.y1[i] || undefined,
   }));
   return { plants, byId: new Map(plants.map((p) => [p.id, p])), meta };
 }
@@ -125,6 +130,15 @@ export function fmtMW(mw: number, lang: Lang): string {
   if (mw >= 10000) return `${fmtNum(mw / 1000, lang, 1)} ${ar ? 'غيغاواط' : 'GW'}`;
   return `${fmtNum(mw, lang, mw < 10 ? 1 : 0)} ${ar ? 'ميغاواط' : 'MW'}`;
 }
+/**
+ * Whether a dated item stands on the map: always without the timeline; with it, from its first year until the year it
+ * retired (items with no known first year are left out, and the card says how many).
+ */
+export function inYear(S: { yearFilter?: boolean; year?: number }, start?: number, end?: number): boolean {
+  if (!S.yearFilter || S.year == null) return !end;
+  return !!start && start <= S.year && (!end || S.year < end);
+}
+
 /** Size class by capacity: under 100 MW, 500, 1,000, 3,000, and 3,000 or more. */
 export const powerClass = (mw: number) => (mw < 100 ? 0 : mw < 500 ? 1 : mw < 1000 ? 2 : mw < 3000 ? 3 : 4);
 

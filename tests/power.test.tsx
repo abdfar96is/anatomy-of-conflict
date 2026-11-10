@@ -13,7 +13,7 @@ import { atlas, initialState } from '../src/app/store';
 import { DbContext } from '../src/app/useT';
 import { LENSES } from '../src/config';
 import { build } from '../src/data/build';
-import { POWER_SLOT, POWER_TYPES, buildPower, fmtMW, fuelText, plantId, powerClass, setPower, setPowerCountries, summaryRamp, summaryValue, techText, type Power, type PowerCountries, type PowerMeta } from '../src/data/power';
+import { POWER_SLOT, POWER_TYPES, buildPower, fmtMW, fuelText, inYear, plantId, powerClass, setPower, setPowerCountries, summaryRamp, summaryValue, techText, type Power, type PowerCountries, type PowerMeta } from '../src/data/power';
 import type { DB } from '../src/data/types';
 import { Dossier } from '../src/features/dossier';
 import { buildScene, tipFor } from '../src/features/map/engine/scene';
@@ -26,7 +26,7 @@ import { DATA_DIR, readRaw } from './helpers/readRaw';
 
 const read = (f: string) => JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'power', f), 'utf8'));
 const THREE_GORGES = 'L100000601194', MOTUO = 'L100000601028', BARAKAH = 'L100000500011', HASSYAN = 'L100000103749', OROT_RABIN = 'L100000102838';
-const MOTHBALLED = 'L100000100136';
+const MOTHBALLED = 'L100000100136', COTTAM = 'L100000103752';
 let db: DB, W: Power;
 beforeAll(() => {
   db = build(readRaw());
@@ -43,7 +43,7 @@ describe('the GEM power model', () => {
   test('plants of eight types, operating, under construction or mothballed, each in a known state', () => {
     expect(W.plants.length).toBeGreaterThan(25000);
     expect(new Set(W.plants.map((p) => p.type))).toEqual(new Set(POWER_TYPES));
-    expect(new Set(W.plants.map((p) => p.status))).toEqual(new Set(['operating', 'construction', 'mothballed']));
+    expect(new Set(W.plants.map((p) => p.status))).toEqual(new Set(['operating', 'construction', 'mothballed', 'retired']));
     expect(new Set(W.plants.map((p) => p.id)).size).toBe(W.plants.length);
     for (const p of W.plants) {
       expect(p.id).toMatch(/^L\d{12}$/);
@@ -100,7 +100,8 @@ describe('the lens', () => {
 
   test('draws the active plants by type and size, rings under construction; the largest as symbols', () => {
     const sc = buildScene(db, S(), P);
-    expect(ids(sc)).toHaveLength(W.plants.filter((p) => p.status !== 'mothballed').length);
+    expect(ids(sc)).toHaveLength(W.plants.filter((p) => p.status !== 'mothballed' && p.status !== 'retired').length);
+    expect(ids(sc)).not.toContain(COTTAM);
     expect(sc.points.find((x) => x.id === THREE_GORGES)).toMatchObject({ color: P.cat[1], picto: 'hydro', big: true, hollow: undefined });
     expect(sc.points.find((x) => x.id === BARAKAH)).toMatchObject({ color: P.cat[7], picto: 'atom', big: true });
     expect(sc.points.find((x) => x.id === MOTUO)).toMatchObject({ hollow: true });
@@ -272,6 +273,58 @@ describe('the country summary', () => {
     expect(sec.textContent).toContain('Electricity: capacity in operation by type');
     expect(sec.textContent).toContain('Oil and gas');
     expect(sec.textContent).toMatch(/[\d.]+ GW in operation in all/);
+  });
+});
+
+describe('the timeline', () => {
+  const P = {
+    land: '#2a3440', landMuted: '#20262e', fg: '#ffffff', fg2: '#cccccc', fg3: '#999999', sel: '#ffd040', halo: '#000000',
+    cat: ['#000', '#3987e5', '#d95926', '#199e70', '#c98500', '#d55181', '#2f9e3a', '#9085e9', '#e66767'],
+    seq: (t: number) => `rgb(${Math.round(t * 255)}, 0, 0)`, status: { good: '#00ff00', warn: '#ffaa00', critical: '#ff0000' }, resClass: {},
+  } as unknown as Palette;
+  const S = (year: number | null, filters: Partial<ReturnType<typeof initialState>['filters']> = {}) => {
+    const s = initialState();
+    return { ...s, lens: 'industry' as const, year: year ?? 2026, yearFilter: year != null, filters: { ...s.filters, powerSummary: 'off' as const, ...filters } };
+  };
+  const ids = (sc: ReturnType<typeof buildScene>) => sc.points.filter((x) => x.kind === 'station').map((x) => x.id);
+
+  test('a dated item stands from its first year until it retired; undated ones only without the timeline', () => {
+    expect(inYear({ yearFilter: false, year: 1990 }, 2000)).toBe(true);
+    expect(inYear({ yearFilter: false, year: 1990 }, 1960, 2019)).toBe(false);
+    expect(inYear({ yearFilter: true, year: 1990 }, 1960, 2019)).toBe(true);
+    expect(inYear({ yearFilter: true, year: 2019 }, 1960, 2019)).toBe(false);
+    expect(inYear({ yearFilter: true, year: 1990 }, 2000)).toBe(false);
+    expect(inYear({ yearFilter: true, year: 1990 }, undefined)).toBe(false);
+  });
+
+  test('retired plants are kept with their years and show only in the years they ran', () => {
+    expect(plant(COTTAM)).toMatchObject({ status: 'retired', type: 'coal', start: 1969, end: 2019, iso3: 'GBR' });
+    expect(ids(buildScene(db, S(2000), P))).toContain(COTTAM);
+    expect(ids(buildScene(db, S(2020), P))).not.toContain(COTTAM);
+    // in 1980 there is no utility solar or wind on the map, and nothing that started later
+    const y1980 = ids(buildScene(db, S(1980), P)).map(plant);
+    expect(y1980.length).toBeGreaterThan(2000);
+    expect(y1980.every((p) => p.start! <= 1980)).toBe(true);
+    expect(y1980.filter((p) => p.type === 'solar')).toHaveLength(0);
+    expect(ids(buildScene(db, S(1980), P)).length).toBeLessThan(ids(buildScene(db, S(2020), P)).length);
+  });
+
+  test('the far summary sums the plants standing that year', () => {
+    const sc = buildScene(db, S(1980, { powerSummary: 'renew' }), P);
+    const now = buildScene(db, S(null, { powerSummary: 'renew' }), P);
+    expect(sc.far!.fill.get('DEU')).not.toBe(now.far!.fill.get('DEU'));
+  });
+
+  test('the card offers to play the build-out, and says what the year shows and leaves out', () => {
+    atlas.set({ lens: 'industry', lang: 'en' });
+    withDb(<Legend />);
+    const legend = document.getElementById('legend')!;
+    fireEvent.click(legend.querySelector('.tl-play')!);
+    expect(atlas.get()).toMatchObject({ yearFilter: true, year: 1950, playing: true });
+    act(() => { atlas.set({ playing: false, year: 1990 }); });
+    expect(legend.textContent).toContain('The map as of 1990');
+    expect(legend.textContent).toMatch(/[\d,]+ items with no known start year are left out/);
+    expect(legend.textContent).toContain('GEM tracks coal retirements only since 2000');
   });
 });
 

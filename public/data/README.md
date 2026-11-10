@@ -148,19 +148,20 @@ Fields follow GEM's coverage: units producing 1 million boe a year or more, or h
 
 The Power & industry lens loads these files on demand. They come from the official download of Global Energy Monitor's **Global Integrated Power Tracker** (September 2026 V2 release, **CC BY 4.0**), which brings together GEM's eight power trackers: coal, oil and gas, nuclear, hydropower, utility-scale solar, wind, bioenergy and geothermal.
 
-There is one entry per GEM location (a plant, or a project of several phases). Its units that are operating, under construction or mothballed are summed. The plant takes the type with the most capacity, and the location of its largest unit. Proposed, cancelled, shelved and retired units are left out. Solar, wind and bioenergy plants under 50 MW and other plants under 20 MW are dropped; every nuclear and geothermal plant is kept. GEM's own thresholds come first (coal from 30 MW; oil and gas from 50 MW, or 20 MW in the EU and UK; wind from 10 MW; hydropower from 30 MW; bioenergy from 20 MW). Units with a TransitionZero id (`TZ:`) are left out: GEM sourced them partly from TransitionZero's Solar Asset Mapper, which is under CC BY-NC 4.0.
+There is one entry per GEM location (a plant, or a project of several phases). Its units that are operating, under construction or mothballed are summed. A location whose units are all retired is kept as a retired plant when GEM gives its start and retirement years, for the timeline only (GEM tracks coal retirements since 2000, others in part). The plant takes the type with the most capacity, and the location of its largest unit. Proposed, cancelled, shelved and retired units are left out. Solar, wind and bioenergy plants under 50 MW and other plants under 20 MW are dropped; every nuclear and geothermal plant is kept. GEM's own thresholds come first (coal from 30 MW; oil and gas from 50 MW, or 20 MW in the EU and UK; wind from 10 MW; hydropower from 30 MW; bioenergy from 20 MW). Units with a TransitionZero id (`TZ:`) are left out: GEM sourced them partly from TransitionZero's Solar Asset Mapper, which is under CC BY-NC 4.0.
 
 - **`plants.json`** (minified) holds what the map, tooltip and search need, as parallel columns:
   - `id`: GEM location id less 10¹¹ (`L100000601194` is 601194)
   - `n`: name as GEM gives it
   - `t`: one letter per plant: `c` coal, `g` oil and gas, `n` nuclear, `h` hydropower, `s` solar, `w` wind, `b` bioenergy, `e` geothermal
-  - `s`: one letter per plant: `o` operating, `c` under construction, `m` mothballed
+  - `s`: one letter per plant: `o` operating, `c` under construction, `m` mothballed, `r` retired (shown only with the timeline)
   - `mw`: capacity of those units in MW
   - `x`, `y`: longitude and latitude × 1,000
   - `c`: index into `iso` (the ISO3 codes), or −1
+  - `y0`: first year in service of its operating or mothballed units (for a plant under construction, its expected year), 0 when unknown; `y1`: the year a retired plant closed, 0 otherwise. With the map's year filter on, a plant shows from `y0` until `y1`.
   - `ar`: `[position, Arabic name]` for plants in Arab League states whose GEM local name is in Arabic (not Persian or Urdu)
 - **`detail/<ISO3>.json`** (minified, `_` for the one plant without a state) maps each plant id to the rest:
-  - `op`, `con`, `mb`: MW operating, under construction and mothballed
+  - `op`, `con`, `mb`, `ret`: MW operating, under construction, mothballed and retired
   - `mix`: `[type, MW]` for the 200 plants that mix types
   - `approx`, `c`, `sub`: approximate location, states (two for binational dams) and province
   - `y`, `yc`, `ry`: first year in service, expected year of the first unit under construction, and earliest planned retirement
