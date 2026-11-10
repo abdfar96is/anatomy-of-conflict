@@ -39,6 +39,7 @@ registerStrings({
     'kind.border': 'وحدة تاريخية',
     'kind.pipeline': 'خط أنابيب',
     'kind.lng': 'محطة غاز مسال',
+    'kind.field': 'حقل نفط أو غاز',
   },
   en: {
     'tr.tour': 'Tour',
@@ -69,6 +70,7 @@ registerStrings({
     'kind.border': 'Historical unit',
     'kind.pipeline': 'Pipeline',
     'kind.lng': 'LNG terminal',
+    'kind.field': 'Oil or gas field',
   },
 });
 

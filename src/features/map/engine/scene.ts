@@ -14,7 +14,8 @@ import { SITE_PICTO, type SitePicto } from '../../../ui/pictograms';
 import { type LonLat } from './geo';
 import { getBorders, rulerColor, rulerName, statusLabel, unitName, unitsAt, yearEnd, type BorderUnit, type Borders } from '../../../data/borders';
 import {
-  ACCURACY_LABEL, FUEL_LABEL, STATUS_LABEL, capacityClass, fmtCapacity, fmtMtpa, getEnergy, isHalted, pipeName, type Energy, type Fuel, type LngTerminal, type Pipeline,
+  ACCURACY_LABEL, FIELD_FUEL_LABEL, FIELD_STATUS_LABEL, FUEL_LABEL, STATUS_LABEL, capacityClass, fmtCapacity, fmtMtpa, getEnergy, isHalted, pipeName,
+  type Energy, type Fuel, type LngTerminal, type OilField, type Pipeline,
 } from '../../../data/energy';
 
 registerStrings({
@@ -65,6 +66,8 @@ registerStrings({
     'map.tip.pp.lng.op': '{v} في الخدمة', 'map.tip.pp.lng.con': '{v} قيد الإنشاء',
     'map.tip.pp.note': 'يتوفّر ملف موثّق عن هذا الخط',
     'map.tip.pp.stopped': 'متوقف منذ {y}',
+    'map.tip.fd.liq': '{v} مليون برميل سوائل سنوياً', 'map.tip.fd.gas': '{v} مليون م³ غاز سنوياً',
+    'map.tip.fd.project': 'مشروع يضم {n} وحدات', 'map.tip.fd.op': 'المشغّل: {v}',
     'map.kind.treaty': 'موثّقة رسمياً',
     'map.kind.assessed': 'تقدير تحليلي',
     'map.sep': '، ',
@@ -116,6 +119,8 @@ registerStrings({
     'map.tip.pp.lng.op': '{v} in service', 'map.tip.pp.lng.con': '{v} under construction',
     'map.tip.pp.note': 'A sourced note on this line is available',
     'map.tip.pp.stopped': 'Stopped since {y}',
+    'map.tip.fd.liq': '{v} million barrels of liquids a year', 'map.tip.fd.gas': '{v} million m³ of gas a year',
+    'map.tip.fd.project': 'a project of {n} units', 'map.tip.fd.op': 'Operator: {v}',
     'map.kind.treaty': 'Formally documented',
     'map.kind.assessed': 'Analytical assessment',
     'map.sep': ', ',
@@ -148,18 +153,25 @@ export interface LineSet {
   items: LineItem[]; color: string; width: number; dash?: number[]; alpha: number; casing?: string; cap?: 'round';
   glow?: string; tube?: 'solid' | 'sections';
 }
+/**
+ * A point drawn in the base layer with the lines (oil and gas fields, thousands of them): a dot in its fuel colour
+ * (two-tone with `color2`), or its pictogram when it is large (`big`) or the map is zoomed in.
+ */
+export interface PointItem {
+  lonlat: LonLat; kind: Kind; id: string; color: string; color2?: string; r: number; picto: string; pictoColor: string; rp: number; big: boolean;
+}
 export interface Scene {
   fill: Map<string, string>; hatch: Set<string>; hatchAlpha: number; emph: Set<string> | null;
   outlines: Outline[]; polys: Poly[]; under: Poly[]; selPolys: Poly[]; arcs: Arc[]; markers: Marker[]; labels: Label[]; badges: Badge[];
   /** Base-layer lines, thinnest first, and the selection's lines drawn over everything. */
-  lines: LineSet[]; selLines: LineSet[];
+  lines: LineSet[]; selLines: LineSet[]; points: PointItem[];
   selRing: { lonlat: LonLat; kind: Kind; id: string } | null; pulse: boolean;
   /** Today's country names would mislead on a historical map: the borders lens turns them off. */
   hideCountryLabels?: boolean;
 }
 
 export function emptyScene(): Scene {
-  return { fill: new Map(), hatch: new Set(), hatchAlpha: 0.5, emph: null, outlines: [], polys: [], under: [], selPolys: [], arcs: [], markers: [], labels: [], badges: [], lines: [], selLines: [], selRing: null, pulse: false };
+  return { fill: new Map(), hatch: new Set(), hatchAlpha: 0.5, emph: null, outlines: [], polys: [], under: [], selPolys: [], arcs: [], markers: [], labels: [], badges: [], lines: [], selLines: [], points: [], selRing: null, pulse: false };
 }
 
 // ---- fixed lens vocabularies (slots are per entity, never by rank)
@@ -254,11 +266,25 @@ export function visiblePipes(E: Energy, S: Pick<AtlasState, 'filters'>): Pipelin
   return E.pipes.filter((p) => f.pipeFuels.has(p.fuel) && (isHalted(p) ? f.pipeHalted : f.pipeStatus === 'all' || p.status === f.pipeStatus)
     && (!f.pipeStrategic || E.noteOf.has(p.system)));
 }
-/** The atlas's oil and gas sites (resources register) the pipelines lens shows under its fuel filter. */
-export function visibleFields(DB: DB, S: Pick<AtlasState, 'filters'>) {
+/** GEM oil and gas fields the pipelines lens shows: by fuel, by status (mothballed ones with the halted layer). */
+export function visibleFields(E: Energy, S: Pick<AtlasState, 'filters'>): OilField[] {
   const f = S.filters;
   if (!f.pipeFields) return [];
-  return DB.resources.sites.filter((s) => { const fuel = SITE_PICTO[s.type]?.fuel; return !!fuel && !!s.coords && f.pipeFuels.has(fuel); });
+  return E.fields.filter((x) => (x.fuel === 'oilgas' ? f.pipeFuels.has('oil') || f.pipeFuels.has('gas') : f.pipeFuels.has(x.fuel))
+    && (x.status === 'mothballed' ? f.pipeHalted : f.pipeStatus === 'all' || x.status === f.pipeStatus));
+}
+/** Size class of a field by production (million boe a year): 0 unknown, then under 5, 25, 100, and 100 or more. */
+export const fieldClass = (boe?: number) => (!boe ? 0 : boe < 5 ? 1 : boe < 25 ? 2 : boe < 100 ? 3 : 4);
+export const FIELD_R = [2, 2.5, 3.2, 4.2, 5.4];
+export const FIELD_RP = [4.6, 5, 5.6, 6.6, 8];
+export function fieldPoint(P: Palette, x: OilField): PointItem {
+  const cls = fieldClass(x.boe), steel = x.status === 'mothballed';
+  const oil = steel ? haltedColor(P, 'oil') : pipeColor(P, 'oil'), gas = steel ? haltedColor(P, 'gas') : pipeColor(P, 'gas');
+  return {
+    lonlat: x.coords, kind: 'field', id: x.id, r: FIELD_R[cls]!, rp: FIELD_RP[cls]!, big: cls === 4,
+    color: x.fuel === 'gas' ? gas : oil, color2: x.fuel === 'oilgas' && !steel ? gas : undefined,
+    picto: x.product === 'gas' ? 'flame' : 'barrel', pictoColor: x.product === 'gas' ? gas : oil,
+  };
 }
 export function visibleLng(E: Energy, S: Pick<AtlasState, 'filters'>): LngTerminal[] {
   const f = S.filters;
@@ -528,14 +554,11 @@ const BUILD: Record<LensId, Builder> = {
       sc.selLines.push({ items: sys.map((p) => ({ kind: 'pipeline', id: p.id, lines: p.lines })), color: P.sel, width: 2.4, alpha: 0.75, casing: P.halo });
       sc.selLines.push({ items: [{ kind: 'pipeline', id: sel.id, lines: sel.lines }], color: P.sel, width: Math.max(3, PIPE_W[capacityClass(sel.boe)]! + 1.6), alpha: 1, casing: P.halo });
     }
-    // oil and gas fields and facilities under the terminals; a selected one stays drawn whatever the filters
-    const fields = visibleFields(DB, S);
-    const selSite = S.selection?.kind === 'site' ? DB.siteById.get(S.selection.id) : undefined;
-    if (selSite && SITE_PICTO[selSite.type]?.fuel && !fields.includes(selSite)) fields.push(selSite);
-    for (const s of fields) {
-      const sp = SITE_PICTO[s.type]!;
-      sc.markers.push({ lonlat: s.coords ?? null, shape: `picto:${sp.picto}`, r: 6.5, color: sitePictoColor(P, sp), kind: 'site', id: s.id });
-    }
+    // GEM oil and gas fields, drawn with the lines (smallest first); a selected one stays drawn whatever the filters
+    const fields = visibleFields(E, S);
+    const selField = S.selection?.kind === 'field' ? E.fieldById.get(S.selection.id) : undefined;
+    if (selField && !fields.includes(selField)) fields.push(selField);
+    sc.points = fields.map((x) => fieldPoint(P, x)).sort((a, b) => a.r - b.r);
     const lng = visibleLng(E, S);
     const selLng = S.selection?.kind === 'lng' ? E.lngById.get(S.selection.id) : undefined;
     if (selLng && !lng.includes(selLng)) lng.push(selLng);
@@ -605,7 +628,7 @@ function emphasis(sc: Scene, DB: DB, S: AtlasState, P: Palette) {
     if (sel.kind === 'disputed') { const d = DB.disputedById.get(sel.id); if (d) sc.selPolys.push({ feature: d.feature, stroke: P.sel, width: 2 }); }
     let anchor: LonLat | null = null;
     if (sel.kind === 'event') { const e = DB.eventById.get(sel.id); anchor = e ? eventAnchor(DB, e) : null; }
-    else if (['conflict', 'choke', 'site', 'disputed', 'plant', 'border', 'lng'].includes(sel.kind)) anchor = DB.anchorOf(sel.kind, sel.id);
+    else if (['conflict', 'choke', 'site', 'disputed', 'plant', 'border', 'lng', 'field'].includes(sel.kind)) anchor = DB.anchorOf(sel.kind, sel.id);
     if (anchor) sc.selRing = { lonlat: anchor, kind: sel.kind, id: sel.id };
   }
   if (S.view === 'compare') {
@@ -741,6 +764,13 @@ export function tipFor(hit: Hit, DB: DB, S: AtlasState): string {
         `${L(FUEL_LABEL[x.fuel])} · ${L(STATUS_LABEL[x.status])}${isHalted(x) && x.stopYear ? ` · ${t('map.tip.pp.stopped', { y: x.stopYear })}` : ''}`,
         [cap, x.km ? t('map.tip.pp.km', { v: fmtNum(x.km) }) : ''].filter(Boolean).join(' · '), places,
         x.accuracy === 'low' ? L(ACCURACY_LABEL.low) : '', E.noteOf.has(x.system) ? t('map.tip.pp.note') : '');
+    }
+    case 'field': {
+      const x = getEnergy()?.fieldById.get(hit.id);
+      if (!x) return '';
+      const out = [x.liquids ? t('map.tip.fd.liq', { v: fmtNum(x.liquids, x.liquids < 10 ? 1 : 0) }) : '', x.gas ? t('map.tip.fd.gas', { v: fmtNum(x.gas) }) : ''].filter(Boolean).join(' · ');
+      return tip(x.name, `${L(FIELD_FUEL_LABEL[x.fuel])} · ${L(FIELD_STATUS_LABEL[x.status])}${x.project ? ` · ${t('map.tip.fd.project', { n: x.units.length })}` : ''}`,
+        out ? (x.year ? `${out} (${x.year})` : out) : '', x.countries.map((iso) => nameOf(DB, iso, S.lang)).join(t('map.sep')), x.operator ? t('map.tip.fd.op', { v: x.operator }) : '');
     }
     case 'lng': {
       const x = getEnergy()?.lngById.get(hit.id);

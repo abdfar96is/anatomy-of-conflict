@@ -185,7 +185,7 @@ export function checkData(dataDir: string): Problem[] {
       if (typeof p.start === 'string' && typeof p.end === 'string' && p.start > p.end) problems.push({ file: 'history/cshapes.topo.json', path: `objects.borders.geometries[${i}]`, message: 'starts after it ends', value: [p.start, p.end] });
     });
   }
-  // 6. Pipelines and LNG terminals (energy/): fields the lens reads, known states, and the curated notes' links.
+  // 6. Pipelines, LNG terminals and fields (energy/): fields the lens reads, known states, and the curated notes' links.
   const energyDir = path.join(dataDir, 'energy');
   if (fs.existsSync(path.join(energyDir, 'pipelines.topo.json'))) {
     const topo = JSON.parse(fs.readFileSync(path.join(energyDir, 'pipelines.topo.json'), 'utf8')) as { objects: Record<string, { geometries: { type: string | null; properties?: Rec }[] }> };
@@ -220,6 +220,31 @@ export function checkData(dataDir: string): Problem[] {
       if (Math.abs(Number(t.lon)) > 180 || Math.abs(Number(t.lat)) > 90) problems.push({ file: 'energy/lng.json', path: at, message: 'coordinates out of range', value: [t.lon, t.lat] });
       if (t.iso != null) country('energy/lng.json', `${at}.iso`, t.iso);
     });
+    // oil and gas fields (minified, so not held to the canonical layout): kinds, statuses, places and project links
+    const fieldsFile = path.join(energyDir, 'fields.json');
+    if (fs.existsSync(fieldsFile)) {
+      const ff = 'energy/fields.json';
+      const fields = JSON.parse(fs.readFileSync(fieldsFile, 'utf8')) as Rec[];
+      const fieldIds = new Set<string>();
+      fields.forEach((x, i) => {
+        const at = `[${i}]`;
+        for (const k of ['id', 'n', 'f', 'st', 'lon', 'lat']) if (x[k] == null) problems.push({ file: ff, path: `${at}.${k}`, message: 'missing' });
+        if (fieldIds.has(x.id as string)) problems.push({ file: ff, path: `${at}.id`, message: 'duplicate id', value: x.id });
+        fieldIds.add(x.id as string);
+        if (!['o', 'g', 'og'].includes(x.f as string)) problems.push({ file: ff, path: `${at}.f`, message: 'fuel outside o / g / og', value: x.f });
+        if (!['operating', 'construction', 'mothballed'].includes(x.st as string)) problems.push({ file: ff, path: `${at}.st`, message: 'status outside operating / construction / mothballed', value: x.st });
+        if (Math.abs(Number(x.lon)) > 180 || Math.abs(Number(x.lat)) > 90) problems.push({ file: ff, path: at, message: 'coordinates out of range', value: [x.lon, x.lat] });
+        if (typeof x.c === 'string') x.c.split(',').forEach((iso) => country(ff, `${at}.c`, iso));
+        for (const k of ['boe', 'lq', 'gs']) if (x[k] != null && !(Number(x[k]) > 0)) problems.push({ file: ff, path: `${at}.${k}`, message: 'not a positive number', value: x[k] });
+        if (x.p != null && x.pj) problems.push({ file: ff, path: `${at}.p`, message: 'a project inside a project', value: x.p });
+        if (x.u != null && !x.pj) problems.push({ file: ff, path: `${at}.u`, message: 'units on a unit that is not a project' });
+      });
+      const byId = new Map(fields.map((x) => [x.id as string, x]));
+      fields.forEach((x, i) => {
+        if (x.p != null && !byId.get(x.p as string)?.pj) problems.push({ file: ff, path: `[${i}].p`, message: 'no project of this id', value: x.p });
+        ((x.u as string[] | undefined) ?? []).forEach((id, j) => { if (byId.get(id)?.p !== x.id) problems.push({ file: ff, path: `[${i}].u[${j}]`, message: 'unit missing or not linked back to this project', value: id }); });
+      });
+    }
     const chokeIds = new Set((files['chokepoints.json'] as { points: Rec[] }).points.map((p) => p.id as string));
     for (const name of Object.keys(meta.names)) if (!systems.has(name)) problems.push({ file: 'energy/meta.json', path: `names["${name}"]`, message: 'no pipeline of this name' });
     meta.notes.forEach((n, i) => {
