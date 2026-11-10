@@ -15,6 +15,7 @@ import type { Lang } from '../../../i18n/format';
 import { pickKey, registerStrings, translate } from '../../../i18n/strings';
 import { cssVar, reducedMotion } from '../../../ui/dom';
 import { pal, type Palette } from '../../../ui/palette';
+import { PICTO, pictoColor, type PictoLayer } from '../../../ui/pictograms';
 import { hideTip, showTip } from '../../../ui/tooltip';
 import {
   capOf, focusGeometry, inBounds, packFeature, packLines, segDist, simplifyFeature, simplifyLine, traceFlat, traceGlobe, traceLinesFlat,
@@ -46,6 +47,17 @@ const POINT_KINDS: Kind[] = ['conflict', 'choke', 'site', 'plant', 'lng'];
 const LINE_CELL = 2;
 const lineCell = (lon: number, lat: number) => (Math.floor(lat / LINE_CELL) + 46) * 182 + Math.floor(lon / LINE_CELL) + 91;
 const clamp = (v: number, a: number, b: number) => Math.max(a, Math.min(b, v));
+const PICTO_PATHS = new Map<PictoLayer, Path2D>();
+/** A pictogram layer as a Path2D (with its transform), built once. */
+function pictoPath(l: PictoLayer): Path2D {
+  let p = PICTO_PATHS.get(l);
+  if (!p) {
+    const raw = new Path2D(l.d);
+    if (l.t) { p = new Path2D(); p.addPath(raw, new DOMMatrix(l.t)); } else p = raw;
+    PICTO_PATHS.set(l, p);
+  }
+  return p;
+}
 const SHADES = new Map<string, [string, string]>();
 /** A colour's darker and lighter shades: a pipe's rim and highlight, a pictogram's outline and detail. */
 function shadesOf(c: string): [string, string] {
@@ -1066,24 +1078,26 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
         }
         ctx.closePath();
         break;
-      // an oil barrel: staves bulging slightly at the middle
-      case 'barrel':
-        ctx.moveTo(-0.62 * r, -0.95 * r); ctx.quadraticCurveTo(-0.86 * r, 0, -0.62 * r, 0.95 * r);
-        ctx.lineTo(0.62 * r, 0.95 * r); ctx.quadraticCurveTo(0.86 * r, 0, 0.62 * r, -0.95 * r); ctx.closePath();
-        break;
-      // a gas flame: the tip leans over and a second tongue rises on the left, so it never reads as a drop
-      case 'flame':
-        ctx.moveTo(0.2 * r, -1.3 * r);
-        ctx.bezierCurveTo(0.55 * r, -0.75 * r, 1 * r, -0.25 * r, 0.85 * r, 0.4 * r);
-        ctx.bezierCurveTo(0.72 * r, 0.95 * r, 0.3 * r, 1.1 * r, 0, 1.1 * r);
-        ctx.bezierCurveTo(-0.35 * r, 1.1 * r, -0.82 * r, 0.88 * r, -0.85 * r, 0.35 * r);
-        ctx.bezierCurveTo(-0.88 * r, -0.05 * r, -0.6 * r, -0.35 * r, -0.45 * r, -0.7 * r);
-        ctx.bezierCurveTo(-0.35 * r, -0.35 * r, -0.2 * r, -0.25 * r, -0.05 * r, -0.35 * r);
-        ctx.bezierCurveTo(0.15 * r, -0.6 * r, 0.25 * r, -0.9 * r, 0.2 * r, -1.3 * r);
-        ctx.closePath();
-        break;
       default: ctx.arc(0, 0, r, 0, TAU);
     }
+  }
+
+  /** A resource pictogram (pictograms.ts) at radius r around the current origin, with a halo around its silhouette. */
+  function drawPicto(ctx: CanvasRenderingContext2D, id: string, r: number, color: string, P: Palette) {
+    const layers = PICTO[id];
+    if (!layers) return;
+    const k = r / 6, [dark, light] = shadesOf(color);
+    ctx.save();
+    ctx.scale(k, k);
+    ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+    ctx.strokeStyle = P.halo; ctx.lineWidth = 3 / k;
+    for (const l of layers) if (l.fill) ctx.stroke(pictoPath(l));
+    for (const l of layers) {
+      const p = pictoPath(l);
+      if (l.fill) { ctx.fillStyle = pictoColor(l.fill, color, dark, light); ctx.fill(p); }
+      if (l.stroke) { ctx.strokeStyle = pictoColor(l.stroke, color, dark, light); ctx.lineWidth = l.width ?? 1; ctx.stroke(p); }
+    }
+    ctx.restore();
   }
 
   function drawMarker(ctx: CanvasRenderingContext2D, m: Marker, cen: LonLat, P: Palette, X: Colors, now: number) {
@@ -1099,6 +1113,7 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
     const halo = (w: number) => { ctx.strokeStyle = P.halo; ctx.lineWidth = w; ctx.stroke(); };
     const fill = (col: string | CanvasPattern) => { ctx.fillStyle = col; ctx.fill(); };
     const line = (col: string, w: number, dash?: number[]) => { ctx.setLineDash(dash || []); ctx.strokeStyle = col; ctx.lineWidth = w; ctx.stroke(); ctx.setLineDash([]); };
+    if (m.shape.startsWith('picto:')) { drawPicto(ctx, m.shape.slice(6), r, m.color, P); if (on) { shapePath(ctx, 'disc', r + 4); line(P.fg, 1.3); } ctx.restore(); return; }
     switch (m.shape) {
       case 'pulse': {
         shapePath(ctx, 'disc', r * 0.85); halo(3); fill(m.color);
@@ -1127,23 +1142,6 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
         break;
       }
       case 'hatchdot': shapePath(ctx, 'disc', r); halo(3); fill(X.surface); fill(hatchPattern(ctx, P)); line(P.hatch, 1.1); break;
-      case 'barrel': {
-        const [dark, light] = shadesOf(m.color);
-        shapePath(ctx, 'barrel', r); halo(3); fill(m.color); line(dark, 0.9);
-        // two hoops and the lid
-        ctx.beginPath();
-        for (const y of [-0.38 * r, 0.38 * r]) { ctx.moveTo(-0.8 * r, y); ctx.lineTo(0.8 * r, y); }
-        line(dark, 1.1);
-        ctx.beginPath(); ctx.ellipse(0, -0.95 * r, 0.62 * r, 0.2 * r, 0, 0, TAU); fill(light); line(dark, 0.8);
-        break;
-      }
-      case 'flame': {
-        const [dark, light] = shadesOf(m.color);
-        shapePath(ctx, 'flame', r); halo(3); fill(m.color); line(dark, 0.9);
-        // the inner, hotter flame
-        ctx.save(); ctx.translate(0, 0.42 * r); ctx.scale(0.5, 0.5); shapePath(ctx, 'flame', r); fill(light); ctx.restore();
-        break;
-      }
       case 'pin': {
         const isSel = S.selection?.kind === m.kind && S.selection.id === m.id;
         shapePath(ctx, 'disc', r); halo(3); fill(isSel ? P.accent : m.color);

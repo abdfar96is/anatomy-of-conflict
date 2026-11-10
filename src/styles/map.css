@@ -116,6 +116,8 @@
 #legend .sw-round { border-radius: 50%; }
 #legend .glyph { flex: none; display: block; overflow: visible; }
 #legend .glyph.line { width: 26px; }
+/* resource pictograms: a two-column key */
+#legend .lc-picto { display: grid; grid-template-columns: 1fr 1fr; column-gap: 10px; }
 #legend .bd-change.pp-note { display: flex; align-items: center; gap: 8px; }
 #legend .pp-note .glyph.line { width: 18px; }
 #legend .weights, #legend .sizes { display: inline-flex; align-items: center; gap: 3px; flex: none; }
