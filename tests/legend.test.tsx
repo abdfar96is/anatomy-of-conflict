@@ -61,6 +61,71 @@ describe('Legend', () => {
     fireEvent.click(screen.getByRole('button', { name: /حرب نشطة/ }));
     expect(atlas.get().filters.severity.has('war')).toBe(false);
   });
+
+  test('a section label folds its section, and the choice outlives the card', () => {
+    atlas.set({ lens: 'conflicts' });
+    const { unmount } = withDb(<Legend />);
+    const fold = () => document.querySelector<HTMLButtonElement>('#legend [data-fold="map.cf.sev"] [data-act="fold"]')!;
+    const chips = () => document.querySelector('#legend [data-fold="map.cf.sev"] .lc-sec-b')!;
+    expect(fold()).toHaveAttribute('aria-expanded', 'true');
+    expect(chips()).not.toHaveAttribute('hidden');
+    fireEvent.click(fold());
+    expect(fold()).toHaveAttribute('aria-expanded', 'false');
+    expect(chips()).toHaveAttribute('hidden');
+    unmount();
+    withDb(<Legend />);
+    expect(fold()).toHaveAttribute('aria-expanded', 'false');
+    fireEvent.click(fold());
+    expect(chips()).not.toHaveAttribute('hidden');
+  });
+
+  test('source and coverage notes sit folded under "About the data", with a link to every source', () => {
+    atlas.set({ lens: 'religion' });
+    withDb(<Legend />);
+    const about = document.querySelector<HTMLDetailsElement>('#legend details.lc-about')!;
+    expect(about).not.toBeNull();
+    expect(about.open).toBe(false);
+    expect(about.querySelector('summary')).toHaveTextContent('عن البيانات');
+    expect(about.querySelectorAll('.lc-note').length).toBeGreaterThan(0);
+    // nothing about the data outside it
+    expect(document.querySelectorAll('#legend .lc-key > .lc-note').length).toBe(0);
+    fireEvent.click(about.querySelector('[data-act="sources"]')!);
+    expect(atlas.get().view).toBe('sources');
+  });
+
+  test('on a narrow screen the card is a sheet: dragging the header settles it at full height, or closes it', () => {
+    vi.stubGlobal('matchMedia', (q: string) => ({ matches: q.includes('max-width: 760px'), media: q, addEventListener() {}, removeEventListener() {} }));
+    try {
+      atlas.set({ lens: 'conflicts' });
+      withDb(<Legend />);
+      const card = document.getElementById('legend')!;
+      const head = card.querySelector<HTMLButtonElement>('.lc-head')!;
+      // narrow screens start closed; a tap opens it at half height
+      expect(card).toHaveClass('collapsed');
+      expect(card.querySelector('.lc-grip')).not.toBeNull();
+      fireEvent.click(head);
+      expect(card).toHaveClass('sheet-half');
+      const dragBy = (dy: number) => {
+        fireEvent.pointerDown(head, { clientY: 500, button: 0, pointerId: 1 });
+        fireEvent.pointerMove(head, { clientY: 500 - dy / 2, pointerId: 1 });
+        fireEvent.pointerMove(head, { clientY: 500 - dy, pointerId: 1 });
+        fireEvent.pointerUp(head, { clientY: 500 - dy, pointerId: 1 });
+        fireEvent.click(head);
+      };
+      // jsdom has no layout: the card measures 0 high, so a drag ends at whatever height it moved by
+      Object.defineProperty(card, 'offsetParent', { configurable: true, get: () => ({ clientHeight: 600 }) });
+      Object.defineProperty(head, 'offsetHeight', { configurable: true, get: () => 50 });
+      card.getBoundingClientRect = () => ({ height: parseFloat(card.style.height) || 260 }) as DOMRect;
+      dragBy(400);
+      expect(card).toHaveClass('sheet-full');
+      expect(card.style.height).toBe('');
+      dragBy(-600);
+      expect(card).toHaveClass('collapsed');
+      expect(head).toHaveAttribute('aria-expanded', 'false');
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
 });
 
 describe('MapControls', () => {

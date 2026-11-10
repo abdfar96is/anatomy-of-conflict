@@ -2,7 +2,7 @@
 // view panel and talks to the rest of the app only through the store.
 
 import * as d3 from 'd3';
-import { useState, useSyncExternalStore, type CSSProperties, type ReactNode, type SyntheticEvent } from 'react';
+import { useRef, useState, useSyncExternalStore, type CSSProperties, type PointerEvent as ReactPointerEvent, type ReactNode, type SyntheticEvent } from 'react';
 import { atlas, useAtlas, type AtlasState } from '../../app/store';
 import { useDb, useT } from '../../app/useT';
 import { CHOKE_STATUS, LENSES, NUCLEAR_CIVIL, NUCLEAR_STATUS, NUCLEAR_UNIT, RESOURCE_CLASSES, SEVERITY } from '../../config';
@@ -109,9 +109,74 @@ function Chip({ act, k = '', val = '', pressed, label, n, lead, onClick }: ChipP
   );
 }
 
-const Sec = ({ label, wrap, children }: { label?: string; wrap?: string; children: ReactNode }) => (
-  <div className="lc-sec" data-wrap={wrap}>{label ? <p className="lc-label">{label}</p> : null}{children}</div>
-);
+// ---- folding: a section the reader closes stays closed (per section key, across lenses and visits)
+const FOLD_PREF = 'atlas-map-folds';
+/** Long sections that start closed: the plant size classes and the list of sourced pipeline systems. */
+const FOLD_DEFAULT: Record<string, boolean> = { 'pw.size': true, 'pp.notes': true };
+function readFolds(): Record<string, boolean> {
+  try {
+    const v: unknown = JSON.parse(localStorage.getItem(FOLD_PREF) ?? '{}');
+    return v && typeof v === 'object' ? (v as Record<string, boolean>) : {};
+  } catch {
+    return {};
+  }
+}
+function useFold(id: string | undefined): [boolean, () => void] {
+  const [folded, setFolded] = useState(() => (id ? readFolds()[id] ?? FOLD_DEFAULT[id] ?? false : false));
+  const toggle = () => {
+    if (!id) return;
+    const v = !folded;
+    setFolded(v);
+    try { localStorage.setItem(FOLD_PREF, JSON.stringify({ ...readFolds(), [id]: v })); } catch { /* storage unavailable: lasts this visit */ }
+  };
+  return [folded, toggle];
+}
+
+/**
+ * A card section. With `k` (the label's string key) its label is a button that folds the section; `label` overrides
+ * the text when it takes parameters.
+ */
+function Sec({ k, label, wrap, children }: { k?: string; label?: string; wrap?: string; children: ReactNode }) {
+  const { t } = useT();
+  const [folded, toggle] = useFold(k);
+  const text = label ?? (k ? t(k) : '');
+  if (!k) return <div className="lc-sec" data-wrap={wrap}>{text ? <p className="lc-label">{text}</p> : null}{children}</div>;
+  return (
+    <div className="lc-sec" data-wrap={wrap} data-fold={k}>
+      <button type="button" className="lc-label lc-fold" aria-expanded={!folded} data-act="fold" onClick={toggle}>
+        <span>{text}</span><Icon name="chevron" size={12} />
+      </button>
+      <div className="lc-sec-b" hidden={folded}>{children}</div>
+    </div>
+  );
+}
+
+const ABOUT_PREF = 'atlas-map-about';
+/**
+ * Where the data comes from, what it covers and how it is drawn, folded behind "About the data" so the key stays short;
+ * it ends with a link to the full list of sources and licences.
+ */
+function About({ notes }: { notes: (string | false | null | undefined)[] }) {
+  const { t } = useT();
+  const [open, setOpen] = useState(() => { try { return localStorage.getItem(ABOUT_PREF) === '1'; } catch { return false; } });
+  const list = notes.filter((x): x is string => !!x);
+  if (!list.length) return null;
+  const onToggle = (e: SyntheticEvent<HTMLDetailsElement>) => {
+    const v = e.currentTarget.open;
+    if (v === open) return;
+    setOpen(v);
+    try { localStorage.setItem(ABOUT_PREF, v ? '1' : '0'); } catch { /* storage unavailable: lasts this visit */ }
+  };
+  return (
+    <details className="lc-about" open={open} onToggle={onToggle}>
+      <summary data-act="about"><Icon name="info" size={14} /><span>{t('map.lc.about')}</span><Icon name="chevron" size={12} /></summary>
+      <div className="lc-about-b">
+        {list.map((x, i) => <p key={i} className="lc-note">{x}</p>)}
+        <button type="button" className="lc-link" data-act="sources" onClick={() => atlas.openView('sources')}>{t('map.lc.sources')}</button>
+      </div>
+    </details>
+  );
+}
 const Chips = ({ label, children }: { label: string; children: ReactNode }) => <div className="chips" role="group" aria-label={label}>{children}</div>;
 function KeyRow({ lead, label, n }: { lead: ReactNode; label: string; n?: number }) {
   const { fmt } = useT();
@@ -161,9 +226,9 @@ const BODY: Record<(typeof LENSES)[number]['id'], (c: Ctx) => ReactNode> = {
     }
     return (
       <>
-        <Sec label={t('map.lc.colorBy')}><Chips label={t('map.lc.colorBy')}>{modes}</Chips></Sec>
+        <Sec k="map.lc.colorBy"><Chips label={t('map.lc.colorBy')}>{modes}</Chips></Sec>
         <Sec>{key}<Keys><KeyRow lead={<span className="dot-accent" aria-hidden="true" />} label={t('map.ov.profile')} /></Keys></Sec>
-        <Note text={DB.live ? t('map.ov.noteLive', { d: fmt.date(DB.live.retrieved) }) : t('map.ov.note')} />
+        <About notes={[DB.live ? t('map.ov.noteLive', { d: fmt.date(DB.live.retrieved) }) : t('map.ov.note')]} />
       </>
     );
   },
@@ -181,10 +246,11 @@ const BODY: Record<(typeof LENSES)[number]['id'], (c: Ctx) => ReactNode> = {
     const selC = S.selection?.kind === 'conflict' && DB.conflictById.has(S.selection.id);
     return (
       <>
-        <Sec label={t('map.cf.sev')} wrap="2"><Chips label={t('map.cf.sev')}>{items}</Chips></Sec>
-        <Sec label={t('map.cf.ramp')}><Ramp lo="1" hi={fmt.num(max)} label={t('map.cf.ramp')} P={P} /></Sec>
+        <Sec k="map.cf.sev" wrap="2"><Chips label={t('map.cf.sev')}>{items}</Chips></Sec>
+        <Sec k="map.cf.ramp"><Ramp lo="1" hi={fmt.num(max)} label={t('map.cf.ramp')} P={P} /></Sec>
         {selC && <Note text={t('map.cf.powers')} />}
-        <Note text={[t('map.cf.asOf', { d: fmt.date(DB.conflictsAsOf) }), S.yearFilter ? t('map.cf.yearOn', { y: S.year }) : ''].join(' ').trim()} />
+        {S.yearFilter ? <Note text={t('map.cf.yearOn', { y: S.year })} /> : null}
+        <About notes={[t('map.cf.asOf', { d: fmt.date(DB.conflictsAsOf) })]} />
       </>
     );
   },
@@ -217,7 +283,7 @@ const BODY: Record<(typeof LENSES)[number]['id'], (c: Ctx) => ReactNode> = {
     }
     return (
       <>
-        <Sec label={t('map.lc.colorBy')}><Chips label={t('map.lc.colorBy')}>{modes}</Chips></Sec>
+        <Sec k="map.lc.colorBy"><Chips label={t('map.lc.colorBy')}>{modes}</Chips></Sec>
         <Sec>
           {key}
           <Keys>
@@ -225,7 +291,7 @@ const BODY: Record<(typeof LENSES)[number]['id'], (c: Ctx) => ReactNode> = {
             <KeyRow lead={<span className="bang" aria-hidden="true">!</span>} label={t('map.rl.contested')} />
           </Keys>
         </Sec>
-        <Note text={L(DB.religion.coverageNote)} />
+        <About notes={[L(DB.religion.coverageNote)]} />
       </>
     );
   },
@@ -242,7 +308,7 @@ const BODY: Record<(typeof LENSES)[number]['id'], (c: Ctx) => ReactNode> = {
     const meta = DB.ethnic.meta && typeof DB.ethnic.meta === 'object' ? DB.ethnic.meta : null;
     return (
       <>
-        <Sec label={t('map.et.family')}><Chips label={t('map.et.family')}>{items}</Chips></Sec>
+        <Sec k="map.et.family"><Chips label={t('map.et.family')}>{items}</Chips></Sec>
         <Caveat text={Lk(meta, 'warning')} />
       </>
     );
@@ -257,7 +323,7 @@ const BODY: Record<(typeof LENSES)[number]['id'], (c: Ctx) => ReactNode> = {
             <KeyRow lead={<Sw bg="" cls="sw-hatch sw-round" />} label={t('map.dp.point')} />
           </Keys>
         </Sec>
-        <Note text={t('map.dp.note', { n: fmt.num(DB.disputed.length) })} />
+        <About notes={[t('map.dp.note', { n: fmt.num(DB.disputed.length) })]} />
       </>
     );
   },
@@ -268,14 +334,15 @@ const BODY: Record<(typeof LENSES)[number]['id'], (c: Ctx) => ReactNode> = {
       <Chip key={id} act="set" k="nuclearMode" val={id} pressed={m === id} label={t('map.nc.' + id)} onClick={() => setNuclearMode(id)} />
     ));
     const all = [...DB.countries.values()];
-    let key: ReactNode, note: string;
+    let key: ReactNode, note: string, hint = '';
     if (m === 'military') {
       key = <Keys>{(Object.keys(NUCLEAR_STATUS) as (keyof typeof NUCLEAR_STATUS)[]).map((id) => (
         <KeyRow key={id} lead={<Sw bg={nuclearFill(P, id)} cls={`sw-land${'unconfirmed' in NUCLEAR_STATUS[id] ? ' sw-overhatch' : ''}`} />} label={L(NUCLEAR_STATUS[id])}
           n={all.filter((c) => c.nuclear.weapons === id).length} />
       ))}</Keys>;
       const total = Object.values(DB.nuclear.warheads.values).reduce((a, b) => a + b, 0);
-      note = [t('map.nc.warheads', { n: fmt.num(total), y: DB.nuclear.warheads.year }), t('map.nc.hatch'), L(DB.nuclear.note)].join(' ');
+      hint = t('map.nc.hatch');
+      note = [t('map.nc.warheads', { n: fmt.num(total), y: DB.nuclear.warheads.year }), L(DB.nuclear.note)].join(' ');
     } else if (m === 'civil') {
       key = <Keys>{(Object.keys(NUCLEAR_CIVIL) as (keyof typeof NUCLEAR_CIVIL)[]).map((id) => (
         <KeyRow key={id} lead={<Sw bg={nuclearCivilFill(P, id)} cls={`sw-land${id === 'phased-out' ? ' sw-overhatch' : ''}`} />} label={L(NUCLEAR_CIVIL[id])}
@@ -297,9 +364,10 @@ const BODY: Record<(typeof LENSES)[number]['id'], (c: Ctx) => ReactNode> = {
     }
     return (
       <>
-        <Sec label={t('map.lc.colorBy')}><Chips label={t('map.lc.colorBy')}>{modes}</Chips></Sec>
+        <Sec k="map.lc.colorBy"><Chips label={t('map.lc.colorBy')}>{modes}</Chips></Sec>
         <Sec>{key}</Sec>
-        <Note text={note} />
+        <Note text={hint} />
+        <About notes={[note]} />
       </>
     );
   },
@@ -331,9 +399,9 @@ const BODY: Record<(typeof LENSES)[number]['id'], (c: Ctx) => ReactNode> = {
     const changes = B.changes.get(y) ?? [];
     return (
       <>
-        <Sec label={t('bd.lg.year', { y })}><Keys>{rows}</Keys></Sec>
+        <Sec k="bd.lg.year" label={t('bd.lg.year', { y })}><Keys>{rows}</Keys></Sec>
         <Note text={t('bd.lg.shade')} />
-        <Sec label={t('bd.lg.changes', { y })}>
+        <Sec k="bd.lg.changes" label={t('bd.lg.changes', { y })}>
           {changes.length
             ? <ul className="bd-changes">{changes.slice(0, 12).map((c, i) => (
               <li key={`${c.unit.id}:${c.kind}:${i}`}><button type="button" className="bd-change" onClick={() => atlas.select('border', c.unit.id, { fly: true })}>
@@ -342,7 +410,7 @@ const BODY: Record<(typeof LENSES)[number]['id'], (c: Ctx) => ReactNode> = {
             ))}{changes.length > 12 ? <li className="bd-more">{t('bd.more', { n: changes.length - 12 })}</li> : null}</ul>
             : <p className="lc-note">{t('bd.lg.none')}</p>}
         </Sec>
-        <Note text={t('bd.lg.note')} />
+        <About notes={[t('bd.lg.note')]} />
       </>
     );
   },
@@ -371,12 +439,12 @@ const BODY: Record<(typeof LENSES)[number]['id'], (c: Ctx) => ReactNode> = {
     ));
     return (
       <>
-        <Sec label={t('map.pw.bloc')}>
+        <Sec k="map.pw.bloc">
           <Chips label={t('map.pw.bloc')}>{blocs}</Chips>
           {bloc ? <Keys><KeyRow lead={<Sw bg={seqFill(P, BLOC_T)} cls="sw-land" />} label={t('map.pw.member')} /></Keys> : null}
         </Sec>
-        <Sec label={t('map.pw.types')}><Chips label={t('map.pw.types')}>{types}</Chips></Sec>
-        <Sec label={t('map.pw.kinds')}>
+        <Sec k="map.pw.types"><Chips label={t('map.pw.types')}>{types}</Chips></Sec>
+        <Sec k="map.pw.kinds">
           <Chips label={t('map.pw.kinds')}>{kinds}</Chips>
           <Keys>
             <KeyRow lead={<LineGlyph color="var(--fg-2)" dash="1.2 3" width={2} round />} label={t('map.pw.contested')} />
@@ -414,10 +482,10 @@ const BODY: Record<(typeof LENSES)[number]['id'], (c: Ctx) => ReactNode> = {
     const icons = rows.length ? <><ul className="lc-keys lc-picto">{rows}</ul><Note text={t('map.rs.groups')} /></> : null;
     return (
       <>
-        <Sec label={t('map.rs.class')}><Chips label={t('map.rs.class')}>{items}</Chips></Sec>
+        <Sec k="map.rs.class"><Chips label={t('map.rs.class')}>{items}</Chips></Sec>
         {icons ? <Sec>{icons}</Sec> : null}
-        <Sec label={t('map.rs.ramp')}><Ramp lo={t('map.rs.low')} hi={t('map.rs.first')} label={t('map.rs.ramp')} P={P} /></Sec>
-        <Note text={L(DB.resources.coverageNote)} />
+        <Sec k="map.rs.ramp"><Ramp lo={t('map.rs.low')} hi={t('map.rs.first')} label={t('map.rs.ramp')} P={P} /></Sec>
+        <About notes={[L(DB.resources.coverageNote)]} />
       </>
     );
   },
@@ -431,7 +499,7 @@ const BODY: Record<(typeof LENSES)[number]['id'], (c: Ctx) => ReactNode> = {
     ));
     return (
       <>
-        <Sec label={t('map.ck.status')}><Keys>{rows}</Keys></Sec>
+        <Sec k="map.ck.status"><Keys>{rows}</Keys></Sec>
         <Sec>
           <Keys>
             <KeyRow lead={<span className="sizes" aria-hidden="true"><Glyph shape="choke" color="var(--fg-3)" size={10} /><Glyph shape="choke" color="var(--fg-3)" size={18} /></span>} label={t('map.ck.size')} />
@@ -439,7 +507,7 @@ const BODY: Record<(typeof LENSES)[number]['id'], (c: Ctx) => ReactNode> = {
             <KeyRow lead={<Sw bg={seqFill(P, CHOKE_T)} cls="sw-land" />} label={t('map.ck.border')} />
           </Keys>
         </Sec>
-        <Note text={L(DB.chokeNote)} />
+        <About notes={[L(DB.chokeNote)]} />
       </>
     );
   },
@@ -453,12 +521,12 @@ const BODY: Record<(typeof LENSES)[number]['id'], (c: Ctx) => ReactNode> = {
     return (
       <>
         <Sec><p className="lc-stat"><span>{t('map.hs.window', { a, b })}</span><span>{t('map.hs.count', { n: fmt.num(evs.length) })}</span></p></Sec>
-        <Sec label={t('map.hs.ramp')}>
+        <Sec k="map.hs.ramp">
           <Ramp lo="1" hi={fmt.num(max)} label={t('map.hs.ramp')} P={P} />
           <Keys><KeyRow lead={<Glyph shape="pin" color="var(--fg-2)" />} label={t('map.hs.event')} /></Keys>
         </Sec>
         <Note text={t('map.hs.hint')} />
-        <Note text={L(DB.timeline.boundaryLimitation)} />
+        <About notes={[L(DB.timeline.boundaryLimitation)]} />
       </>
     );
   },
@@ -513,9 +581,9 @@ function PipelinesCard({ S, P, T: { t, pick: L, fmt, lang } }: Ctx) {
   });
   return (
     <>
-      <Sec label={t('pp.fuel')}><Chips label={t('pp.fuel')}>{fuels}</Chips></Sec>
-      <Sec label={t('pp.status')}><Chips label={t('pp.status')}>{statuses}</Chips></Sec>
-      <Sec label={t('pp.show')}>
+      <Sec k="pp.fuel"><Chips label={t('pp.fuel')}>{fuels}</Chips></Sec>
+      <Sec k="pp.status"><Chips label={t('pp.status')}>{statuses}</Chips></Sec>
+      <Sec k="pp.show">
         <Chips label={t('pp.show')}>
           <Chip act="layer" k="pipeLng" pressed={f.pipeLng} label={t('pp.lng')} n={lng.length || undefined} lead={<Glyph shape="triangle" color={lngColor(P)} size={12} />}
             onClick={() => atlas.setFilter('pipeLng', !f.pipeLng)} />
@@ -527,7 +595,7 @@ function PipelinesCard({ S, P, T: { t, pick: L, fmt, lang } }: Ctx) {
             onClick={() => atlas.setFilter('pipeStrategic', !f.pipeStrategic)} />
         </Chips>
       </Sec>
-      <Sec label={t('pp.weight')}>
+      <Sec k="pp.weight">
         <Keys>{weights}</Keys>
         <Keys>
           <KeyRow lead={<LineGlyph color="var(--fg-2)" width={2} dash={PIPE_DASH.join(' ')} />} label={t('pp.dashed')} />
@@ -549,11 +617,9 @@ function PipelinesCard({ S, P, T: { t, pick: L, fmt, lang } }: Ctx) {
         </Keys>
         <p className="lc-note">{t('pp.total', { n: fmt.num(shown.length), km: fmt.num(Math.round(km / 1000) * 1000) })}</p>
       </Sec>
-      <Sec label={t('pp.notes')}><ul className="bd-changes">{notes}</ul></Sec>
+      <Sec k="pp.notes"><ul className="bd-changes">{notes}</ul></Sec>
       <TimelineNote S={S} undated={undated} caveat={t('pp.tl.caveat')} />
-      {fields.length ? <Note text={t('pp.fieldsNote')} /> : null}
-      {f.pipeHalted ? <Note text={t('pp.haltedNote')} /> : null}
-      <Note text={t('pp.note')} />
+      <About notes={[t('pp.note'), fields.length > 0 && t('pp.fieldsNote'), f.pipeHalted && t('pp.haltedNote')]} />
     </>
   );
 }
@@ -586,7 +652,7 @@ function PowerCard(c: Ctx) {
   ));
   return (
     <>
-      <Sec label={t('in.mode')}><Chips label={t('in.mode')}>{modes}</Chips></Sec>
+      <Sec k="in.mode"><Chips label={t('in.mode')}>{modes}</Chips></Sec>
       {mode === 'power' ? <PowerPlants {...c} /> : <IndustrySites {...c} />}
     </>
   );
@@ -616,15 +682,15 @@ function IndustrySites({ S, T: { t, pick: L, fmt } }: Ctx) {
   ));
   return (
     <>
-      <Sec label={t('in.layers')}><Chips label={t('in.layers')}>{layers}</Chips></Sec>
-      <Sec label={t('pw.status')}><Chips label={t('pw.status')}>{statuses}</Chips></Sec>
-      <Sec label={t('pw.show')}>
+      <Sec k="in.layers"><Chips label={t('in.layers')}>{layers}</Chips></Sec>
+      <Sec k="pw.status"><Chips label={t('pw.status')}>{statuses}</Chips></Sec>
+      <Sec k="pw.show">
         <Chips label={t('pw.show')}>
           <Chip act="layer" k="powerHalted" pressed={f.powerHalted} label={t('in.halted')} n={halted.length}
             lead={<PlantDot color="var(--fg-3)" r={3.5} />} onClick={() => atlas.setFilter('powerHalted', !f.powerHalted)} />
         </Chips>
       </Sec>
-      <Sec label={t('pw.size')}>
+      <Sec k="pw.size">
         <Keys>
           <KeyRow lead={<span className="sizes" aria-hidden="true"><PlantDot color="var(--fg-2)" r={POWER_R[0]} /><PlantDot color="var(--fg-2)" r={POWER_R[4]} /></span>} label={t('in.size')} />
           <KeyRow lead={<PlantDot color="var(--fg-2)" r={3.5} ring />} label={t('pw.ring')} />
@@ -633,8 +699,7 @@ function IndustrySites({ S, T: { t, pick: L, fmt } }: Ctx) {
         <p className="lc-note">{t('in.total', { n: fmt.num(shown.length) })}</p>
       </Sec>
       <TimelineNote S={S} undated={undated} caveat={t('in.tl.caveat')} />
-      <Note text={t('in.colorNote')} />
-      <Note text={t('in.note')} />
+      <About notes={[t('in.note'), t('in.colorNote')]} />
     </>
   );
 }
@@ -675,20 +740,20 @@ function PowerPlants({ S, P, T: { t, pick: L, fmt } }: Ctx) {
   ));
   return (
     <>
-      <Sec label={t('pw.sum')}>
+      <Sec k="pw.sum">
         <Chips label={t('pw.sum')}>{summary}</Chips>
         {sm !== 'off' ? <Ramp lo={SUMMARY_ENDS[sm][0]} hi={SUMMARY_ENDS[sm][1]} label={t('pw.sum.unit.' + sm)} P={P} /> : null}
         {sm !== 'off' ? <p className="lc-note">{t('pw.sum.unit.' + sm)}</p> : null}
       </Sec>
-      <Sec label={t('pw.types')}><Chips label={t('pw.types')}>{types}</Chips></Sec>
-      <Sec label={t('pw.status')}><Chips label={t('pw.status')}>{statuses}</Chips></Sec>
-      <Sec label={t('pw.show')}>
+      <Sec k="pw.types"><Chips label={t('pw.types')}>{types}</Chips></Sec>
+      <Sec k="pw.status"><Chips label={t('pw.status')}>{statuses}</Chips></Sec>
+      <Sec k="pw.show">
         <Chips label={t('pw.show')}>
           <Chip act="layer" k="powerHalted" pressed={f.powerHalted} label={t('pw.halted')} n={halted.length}
             lead={<PlantDot color={steel} r={3.5} />} onClick={() => atlas.setFilter('powerHalted', !f.powerHalted)} />
         </Chips>
       </Sec>
-      <Sec label={t('pw.size')}>
+      <Sec k="pw.size">
         <Keys>{sizes}</Keys>
         <Keys>
           <KeyRow lead={<PlantDot color="var(--fg-2)" r={3.5} ring />} label={t('pw.ring')} />
@@ -697,9 +762,7 @@ function PowerPlants({ S, P, T: { t, pick: L, fmt } }: Ctx) {
         <p className="lc-note">{t('pw.total', { n: fmt.num(shown.length), gw: fmt.num(Math.round(gw)) })}</p>
       </Sec>
       <TimelineNote S={S} undated={undated} caveat={t('pw.tl.caveat')} />
-      {sm !== 'off' ? <Note text={S.yearFilter ? t('pw.sum.noteYear') : t('pw.sum.note')} /> : null}
-      <Note text={t('pw.colorNote')} />
-      <Note text={t('pw.note')} />
+      <About notes={[t('pw.note'), sm !== 'off' && (S.yearFilter ? t('pw.sum.noteYear') : t('pw.sum.note')), t('pw.colorNote')]} />
     </>
   );
 }
@@ -735,6 +798,17 @@ function initialCollapsed(): boolean {
 // keep wheel/drag on the card from reaching the map and the document-level listeners
 const stop = (e: SyntheticEvent) => e.stopPropagation();
 
+// ---- the card as a bottom sheet on narrow screens: drag the header up or down, it settles at half or full height
+const NARROW = '(max-width: 760px)';
+const narrowQuery = () => (typeof matchMedia === 'function' ? matchMedia(NARROW) : null);
+function subscribeNarrow(cb: () => void) {
+  const mq = narrowQuery();
+  mq?.addEventListener?.('change', cb);
+  return () => { mq?.removeEventListener?.('change', cb); };
+}
+const narrowSnapshot = () => !!narrowQuery()?.matches;
+interface Drag { y: number; h: number; head: number; max: number; moved: boolean }
+
 export function Legend() {
   const DB = useDb();
   const T = useT();
@@ -744,8 +818,13 @@ export function Legend() {
   const year = useAtlas((s) => s.year);
   const yearFilter = useAtlas((s) => s.yearFilter);
   useSyncExternalStore(subscribeTheme, themeSnapshot, () => 'system|light');
+  const narrow = useSyncExternalStore(subscribeNarrow, narrowSnapshot, () => false);
   const [collapsed, setCollapsed] = useState(initialCollapsed);
   const [tab, setTab] = useState<'key' | 'list'>('key');
+  const [sheet, setSheet] = useState<'half' | 'full'>('half');
+  const card = useRef<HTMLElement>(null);
+  const drag = useRef<Drag | null>(null);
+  const dragged = useRef(false);
 
   const lens = LENSES.find((l) => l.id === lensId) ?? LENSES[0];
   let body: ReactNode = null;
@@ -755,16 +834,55 @@ export function Legend() {
     console.error('[atlas] lens card failed', err);
   }
 
-  const toggle = () => {
-    const v = !collapsed;
+  const collapse = (v: boolean) => {
     try { localStorage.setItem(PREF, v ? '1' : '0'); } catch { /* storage unavailable: the choice lasts this visit */ }
     setCollapsed(v);
   };
+  const toggle = () => {
+    // a drag ends in a click on the header: it has already set the size
+    if (dragged.current) { dragged.current = false; return; }
+    if (collapsed) setSheet('half');
+    collapse(!collapsed);
+  };
+  const onDown = (e: ReactPointerEvent<HTMLButtonElement>) => {
+    dragged.current = false;
+    const el = card.current;
+    if (!narrow || !el || e.button > 0) return;
+    const host = el.offsetParent as HTMLElement | null;
+    drag.current = {
+      y: e.clientY, h: el.getBoundingClientRect().height, head: e.currentTarget.offsetHeight,
+      max: (host?.clientHeight ?? window.innerHeight) - 16, moved: false,
+    };
+    e.currentTarget.setPointerCapture?.(e.pointerId);
+  };
+  const onMove = (e: ReactPointerEvent<HTMLButtonElement>) => {
+    const d = drag.current, el = card.current;
+    if (!d || !el) return;
+    const dy = d.y - e.clientY;
+    if (!d.moved && Math.abs(dy) < 6) return;
+    if (!d.moved) { d.moved = true; if (collapsed) setCollapsed(false); el.classList.add('dragging'); }
+    el.style.height = `${Math.max(d.head, Math.min(d.max, d.h + dy))}px`;
+  };
+  const onUp = () => {
+    const d = drag.current, el = card.current;
+    drag.current = null;
+    if (!d?.moved || !el) return;
+    dragged.current = true;
+    const h = el.getBoundingClientRect().height;
+    el.style.height = '';
+    el.classList.remove('dragging');
+    if (h < d.head + 48) { collapse(true); return; }
+    setSheet(h > d.max * 0.72 ? 'full' : 'half');
+    collapse(false);
+  };
 
+  const cls = ['lcard', collapsed ? 'collapsed' : narrow ? `sheet-${sheet}` : ''].filter(Boolean).join(' ');
   return (
-    <section id="legend" className={collapsed ? 'lcard collapsed' : 'lcard'} data-lens={lens.id} aria-label={`${T.t('map.lc.key')}: ${T.pick(lens)}`}
+    <section id="legend" ref={card} className={cls} data-lens={lens.id} aria-label={`${T.t('map.lc.key')}: ${T.pick(lens)}`}
       onPointerDown={stop} onWheel={stop} onDoubleClick={stop}>
-      <button className="lc-head" type="button" aria-expanded={!collapsed} aria-controls="lc-body" onClick={toggle}>
+      <button className="lc-head" type="button" aria-expanded={!collapsed} aria-controls="lc-body" onClick={toggle}
+        onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={onUp}>
+        {narrow ? <span className="lc-grip" aria-hidden="true" title={T.t('map.lc.grip')} /> : null}
         <span className="lc-ico"><Icon name={lens.icon} size={18} /></span>
         <span className="lc-tt"><span className="lc-title">{T.pick(lens)}</span><span className="lc-sub">{T.pick(lens.sub)}</span></span>
         <span className="lc-chev"><Icon name="chevron" size={16} /></span>
@@ -780,7 +898,7 @@ export function Legend() {
           </div>
         ) : null}
         {/* the key stays mounted while the list shows: its hooks load the lens data */}
-        <div hidden={IN_VIEW_LENSES.has(lens.id) && tab === 'list'}>{body}</div>
+        <div className="lc-key" hidden={IN_VIEW_LENSES.has(lens.id) && tab === 'list'}>{body}</div>
         {IN_VIEW_LENSES.has(lens.id) && tab === 'list' ? <InViewList /> : null}
       </div>
     </section>
