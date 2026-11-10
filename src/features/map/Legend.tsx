@@ -21,6 +21,7 @@ import { FUELS, FUEL_LABEL, PIPE_STATUS, STATUS_LABEL, capacityClass, isHalted, 
 import { useEnergy } from '../pipelines/useEnergy';
 import { POWER_LABEL, POWER_PICTO, POWER_STATUS_LABEL, POWER_TYPES, SUMMARY_ENDS, inYear, powerClass } from '../../data/power';
 import { usePower } from '../power/usePower';
+import { InViewList } from './InView';
 import { useIndustry } from '../power/useIndustry';
 import { INDUSTRY_LAYERS, INDUSTRY_STATUS_LABEL, LAYER, LAYER_LABEL } from '../../data/industry';
 import '../power/strings';
@@ -717,6 +718,8 @@ const themeSnapshot = () => `${document.documentElement.dataset.theme ?? 'system
 
 // ---- lens card
 const PREF = 'atlas-map-legend';
+/** Lenses whose records sit on the map as points, markers or lines: their card offers the "In view" list. */
+const IN_VIEW_LENSES = new Set<string>(['industry', 'pipelines', 'conflicts', 'nuclear', 'resources', 'chokepoints']);
 
 function initialCollapsed(): boolean {
   try {
@@ -741,6 +744,7 @@ export function Legend() {
   const yearFilter = useAtlas((s) => s.yearFilter);
   useSyncExternalStore(subscribeTheme, themeSnapshot, () => 'system|light');
   const [collapsed, setCollapsed] = useState(initialCollapsed);
+  const [tab, setTab] = useState<'key' | 'list'>('key');
 
   const lens = LENSES.find((l) => l.id === lensId) ?? LENSES[0];
   let body: ReactNode = null;
@@ -764,7 +768,19 @@ export function Legend() {
         <span className="lc-tt"><span className="lc-title">{T.pick(lens)}</span><span className="lc-sub">{T.pick(lens.sub)}</span></span>
         <span className="lc-chev"><Icon name="chevron" size={16} /></span>
       </button>
-      <div className="lc-body scroll" id="lc-body" hidden={collapsed}>{body}</div>
+      <div className="lc-body scroll" id="lc-body" hidden={collapsed}>
+        {IN_VIEW_LENSES.has(lens.id) ? (
+          <div className="chips iv-tabs" role="group" aria-label={T.t('map.iv.tabs')}>
+            <button type="button" className="chip" aria-pressed={tab === 'key'} data-act="iv" data-val="key" onClick={() => setTab('key')}>{T.t('map.iv.key')}</button>
+            <button type="button" className="chip" aria-pressed={tab === 'list'} data-act="iv" data-val="list" onClick={() => setTab('list')}>
+              <Icon name="list" size={13} />{T.t('map.iv.list')}
+            </button>
+          </div>
+        ) : null}
+        {/* the key stays mounted while the list shows: its hooks load the lens data */}
+        <div hidden={IN_VIEW_LENSES.has(lens.id) && tab === 'list'}>{body}</div>
+        {IN_VIEW_LENSES.has(lens.id) && tab === 'list' ? <InViewList /> : null}
+      </div>
     </section>
   );
 }

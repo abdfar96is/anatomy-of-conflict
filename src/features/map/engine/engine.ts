@@ -9,6 +9,7 @@ import type { Feature, Geometry, Position } from 'geojson';
 import { onStateChange } from '../../../app/compat';
 import { emit, on } from '../../../app/events';
 import { atlas, type AtlasState } from '../../../app/store';
+import { setInView, type InViewItem } from '../inview';
 import { getEnergy } from '../../../data/energy';
 import type { Country, DB, Kind } from '../../../data/types';
 import type { Lang } from '../../../i18n/format';
@@ -157,6 +158,8 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
   let hover: Hit | null = null, tipHtml = '';
   let hl: { iso3: string[]; lonlat?: [number, number] } | null = null;
   let interacting = false, endTimer: ReturnType<typeof setTimeout> | undefined;
+  /** The pending "In view" update (see scheduleInView). */
+  let inViewTimer = 0;
   let motion: Motion | null = null;
   let frame = 0, needBase = false, needOver = false, lastNow = 0;
   let colors: Colors | null = null, hatch: { key: string; pat: CanvasPattern } | null = null;
@@ -508,12 +511,40 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
     if (!scene) {
       try { scene = buildScene(DB, atlas.get(), pal()); } catch (err) { console.error('[atlas] map scene failed', err); scene = emptyScene(); }
     }
-    if (needBase) renderBase(scene);
+    if (needBase) { renderBase(scene); scheduleInView(); }
     if (needBase || needOver) renderOverlay(scene, now);
     needBase = needOver = false;
     if (moving) frame = requestAnimationFrame(loop);
     else if (pulsing()) { needOver = true; frame = requestAnimationFrame(loop); }
     else lastNow = 0;
+  }
+
+  // ---- what the frame shows, for the lens card's "In view" list: worked out a moment after the map settles
+  function scheduleInView() {
+    clearTimeout(inViewTimer);
+    inViewTimer = window.setTimeout(() => { if (!interacting && !motion && !destroyed) computeInView(); }, 300);
+  }
+  function computeInView() {
+    const sc = scene;
+    if (!sc || !W) return;
+    const cen = centerLL();
+    const inside = (ll: LonLat | null | undefined) => {
+      const q = projectVisible(ll, cen);
+      return !!q && q[0] >= 0 && q[0] <= W && q[1] >= 0 && q[1] <= H;
+    };
+    const out: InViewItem[] = [];
+    // lines first, then points, then markers: the list groups kinds in this order
+    for (const ls of sc.lines) {
+      for (const it of ls.items) {
+        // a line is in view when its ends or the middle of its longest part are
+        const part = it.lines.reduce((a, b) => (b.length > a.length ? b : a), it.lines[0] ?? []);
+        const probe = [part[0], part[Math.floor(part.length / 2)], part[part.length - 1]];
+        if (probe.some((pt) => pt && inside(pt as LonLat))) out.push({ kind: it.kind, id: it.id, r: ls.width, v: it.v ?? 0 });
+      }
+    }
+    for (const p of sc.points) if (inside(p.lonlat)) out.push({ kind: p.kind, id: p.id, r: p.r, v: p.v ?? 0 });
+    for (const m of sc.markers) if (m.id && inside(m.lonlat)) out.push({ kind: m.kind, id: m.id, r: m.r, v: 0 });
+    setInView(out);
   }
 
   function pulsing() { return !!scene?.pulse && !reducedMotion() && !atlas.get().view && !document.hidden; }
@@ -1728,6 +1759,7 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
   function destroy() {
     if (destroyed) return;
     destroyed = true;
+    clearTimeout(inViewTimer);
     ac.abort();
     ro.disconnect();
     unbindStore();

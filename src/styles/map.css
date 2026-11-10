@@ -170,3 +170,18 @@
 #legend .bd-change:hover, #legend .bd-change:focus-visible { background: var(--surface-2, rgba(127,127,127,.12)); color: var(--fg); }
 #legend .bd-date { color: var(--fg-3); font-size: var(--fs-xs); margin-inline-end: 4px; }
 #legend .bd-more { font-size: var(--fs-xs); color: var(--fg-3); padding-inline-start: 4px; }
+
+/* lens card: the Key / In view switch and the In view list */
+#legend .iv-tabs { margin-bottom: 10px; }
+#legend .iv-tabs .chip svg { margin-inline-end: 4px; }
+#legend .iv-group + .iv-group { margin-top: 10px; }
+#legend .iv-list { max-height: none; }
+#legend .bd-change.iv-row { display: flex; align-items: flex-start; gap: 8px; }
+#legend .iv-row > svg { flex: none; margin-top: 3px; color: var(--fg-3); }
+#legend .iv-txt { display: grid; min-width: 0; }
+#legend .iv-name { color: var(--fg); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#legend .iv-sub { font-size: var(--fs-xs, 12px); color: var(--fg-3); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#legend .iv-more { margin-top: 4px; padding: 2px 4px; font-size: var(--fs-sm); color: var(--accent); }
+#legend .iv-more:hover { text-decoration: underline; }
+#legend .iv-h { display: flex; justify-content: space-between; gap: 8px; }
+#legend .iv-h .n { font-family: var(--font-data, inherit); color: var(--fg-3); }

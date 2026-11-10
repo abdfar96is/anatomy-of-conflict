@@ -69,7 +69,7 @@ function plantKeys(W: Power): string[] {
 }
 
 /** The grey second line of a record: where it is, or what it is. */
-function subOf(db: DB, T: T, kind: Kind, id: string): string {
+export function subOf(db: DB, T: T, kind: Kind, id: string): string {
   const { lang, pick: L, pickKey: Lk, fmt } = T;
   const ar = lang === 'ar';
   const countryName = (iso: string) => db.nameOf('country', iso, lang);

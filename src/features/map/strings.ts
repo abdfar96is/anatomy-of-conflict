@@ -5,6 +5,9 @@ import { registerStrings } from '../../i18n/strings';
 registerStrings({
   ar: {
     'map.ctl': 'أدوات الخريطة',
+    'map.iv.tabs': 'عرض البطاقة', 'map.iv.key': 'المفتاح', 'map.iv.list': 'في المنظر',
+    'map.iv.empty': 'لا شيء من هذه العدسة في المنظر الحالي؛ حرّك الخريطة أو صغّرها.', 'map.iv.more': 'عرض {n} أخرى', 'map.iv.less': 'عرض أقل',
+    'map.iv.note': 'ما يظهر في إطار الخريطة الآن، الأكبر أولاً في كل نوع، ويتحدّث كلما حرّكت الخريطة. انقر سطراً لفتح ملفه.',
     'map.tl.play': 'شاهد النمو منذ 1950', 'map.tl.playTip': 'يفعّل فلترة الخريطة بالسنة ويشغّل الخط الزمني من 1950 حتى اليوم',
     'map.tl.on': 'الخريطة كما في {y}: ما بدأ تشغيله حتى ذلك العام.', 'map.tl.undated': 'ولا يظهر {n} عنصراً لا يعرف المصدر سنة تشغيله.',
     'map.zoomIn': 'تكبير',
@@ -77,6 +80,9 @@ registerStrings({
   },
   en: {
     'map.ctl': 'Map controls',
+    'map.iv.tabs': 'Card view', 'map.iv.key': 'Key', 'map.iv.list': 'In view',
+    'map.iv.empty': 'Nothing of this lens in the current view; move the map or zoom out.', 'map.iv.more': 'Show {n} more', 'map.iv.less': 'Show fewer',
+    'map.iv.note': 'What the map frame shows now, the largest of each kind first; it updates as you move the map. Click a row to open its record.',
     'map.tl.play': 'Watch the build-out since 1950', 'map.tl.playTip': 'Turns on the map year filter and plays the timeline from 1950 to today',
     'map.tl.on': 'The map as of {y}: what had started by then.', 'map.tl.undated': '{n} items with no known start year are left out.',
     'map.zoomIn': 'Zoom in',
