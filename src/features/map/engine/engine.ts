@@ -46,6 +46,13 @@ const POINT_KINDS: Kind[] = ['conflict', 'choke', 'site', 'plant', 'lng'];
 const LINE_CELL = 2;
 const lineCell = (lon: number, lat: number) => (Math.floor(lat / LINE_CELL) + 46) * 182 + Math.floor(lon / LINE_CELL) + 91;
 const clamp = (v: number, a: number, b: number) => Math.max(a, Math.min(b, v));
+const SHADES = new Map<string, [string, string]>();
+/** A colour's darker and lighter shades: a pipe's rim and highlight, a pictogram's outline and detail. */
+function shadesOf(c: string): [string, string] {
+  let s = SHADES.get(c);
+  if (!s) SHADES.set(c, (s = [d3.interpolateLab(c, '#000')(0.55), d3.interpolateLab(c, '#fff')(0.6)]));
+  return s;
+}
 const clampK = (k: number) => clamp(k, K_MIN, K_MAX);
 const dir = (): 'rtl' | 'ltr' => (atlas.get().lang === 'ar' ? 'rtl' : 'ltr');
 const t = (key: string) => translate(atlas.get().lang, key);
@@ -664,26 +671,73 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
     }
   }
 
-  /** Lines thicken a little as the map zooms in, so trunk lines stay legible against the land. */
-  const lineZoom = () => clamp(Math.pow(absScale() / baseScale(), 0.32), 1, 2.4);
+  /** Lines thicken as the map zooms in, so trunk lines stay legible and have room to read as pipes. */
+  const lineZoom = () => clamp(Math.pow(absScale() / baseScale(), 0.4), 1, 3);
+
+  /**
+   * How much of a pipe a tube line set shows: 0 a flat line (the world view, and always while the map moves),
+   * 1 a shaded tube (regional view), 2 a raised tube with a cast shadow and joint rings (close up).
+   */
+  function tubeLevel(): 0 | 1 | 2 {
+    if (interacting) return 0;
+    const k = absScale() / baseScale();
+    return k >= 7 ? 2 : k >= 2.5 ? 1 : 0;
+  }
 
   function drawLineSet(ctx: CanvasRenderingContext2D, ls: LineSet, cen: LonLat, over?: { color: string; extra: number; alpha: number }) {
     const path = new Path2D();
     traceItems(path, ls.items, cen);
     const w = ls.width * lineZoom() + (over?.extra ?? 0);
+    // lines too thin to show their roundness stay flat at any zoom
+    const level = !over && ls.tube && w >= 2 ? tubeLevel() : 0;
+    const sections = level > 0 && ls.tube === 'sections' ? [w * 3.4, w * 1.4] : null;
     // round joins and caps cost a lot to rasterise across thousands of parts: only when the map is still
     ctx.lineJoin = interacting ? 'bevel' : 'round';
+    if (ls.glow && !over) {
+      ctx.globalAlpha = 0.5; ctx.strokeStyle = ls.glow; ctx.lineWidth = w + (level ? 4.4 : 3);
+      ctx.lineCap = sections || interacting ? 'butt' : 'round'; ctx.setLineDash(sections ?? []);
+      ctx.stroke(path);
+    }
     ctx.lineCap = ls.cap === 'round' && !interacting ? 'round' : (ls.dash && !over) || interacting ? 'butt' : 'round';
     if (ls.casing) {
       ctx.globalAlpha = 0.85; ctx.strokeStyle = ls.casing; ctx.lineWidth = w + 2.4; ctx.setLineDash([]);
       ctx.stroke(path);
     }
+    if (level) { drawTube(ctx, path, ls.color, w, level, sections); return; }
     ctx.globalAlpha = over?.alpha ?? ls.alpha;
     ctx.strokeStyle = over?.color ?? ls.color;
     ctx.lineWidth = w;
     // dotted lines need round caps; while moving (butt caps) their dots become short dashes so they stay visible
     ctx.setLineDash(over ? [] : ls.cap === 'round' && interacting ? [1.6, 2.4] : ls.dash ?? []);
     ctx.stroke(path);
+    ctx.setLineDash([]);
+    ctx.globalAlpha = 1;
+  }
+
+  /**
+   * A pipe drawn in strokes: (close up) a shadow cast down and to the side away from a top-left light, a dark rim, the
+   * body, a light core (nudged toward the light close up) and joint rings. `sections` draws pipe lengths with gaps.
+   */
+  function drawTube(ctx: CanvasRenderingContext2D, path: Path2D, color: string, w: number, level: 1 | 2, sections: number[] | null) {
+    const [rim, hi] = shadesOf(color);
+    ctx.lineCap = sections ? 'butt' : 'round';
+    ctx.setLineDash(sections ?? []);
+    if (level === 2) {
+      ctx.save(); ctx.translate(w * 0.45, w * 0.55);
+      ctx.globalAlpha = pal().dark ? 0.5 : 0.25; ctx.strokeStyle = '#000'; ctx.lineWidth = w + 2;
+      ctx.stroke(path); ctx.restore();
+    }
+    ctx.globalAlpha = 1;
+    ctx.strokeStyle = rim; ctx.lineWidth = w + 1.6; ctx.stroke(path);
+    ctx.strokeStyle = color; ctx.lineWidth = w; ctx.stroke(path);
+    ctx.save();
+    if (level === 2) ctx.translate(-w * 0.16, -w * 0.2);
+    ctx.globalAlpha = 0.9; ctx.strokeStyle = hi; ctx.lineWidth = Math.max(0.7, w * 0.3); ctx.stroke(path);
+    ctx.restore();
+    if (level === 2 && !sections) {
+      ctx.lineCap = 'butt'; ctx.setLineDash([Math.max(1, w * 0.28), Math.max(14, w * 7)]);
+      ctx.globalAlpha = 0.9; ctx.strokeStyle = rim; ctx.lineWidth = w + 1.8; ctx.stroke(path);
+    }
     ctx.setLineDash([]);
     ctx.globalAlpha = 1;
   }
@@ -1012,6 +1066,22 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
         }
         ctx.closePath();
         break;
+      // an oil barrel: staves bulging slightly at the middle
+      case 'barrel':
+        ctx.moveTo(-0.62 * r, -0.95 * r); ctx.quadraticCurveTo(-0.86 * r, 0, -0.62 * r, 0.95 * r);
+        ctx.lineTo(0.62 * r, 0.95 * r); ctx.quadraticCurveTo(0.86 * r, 0, 0.62 * r, -0.95 * r); ctx.closePath();
+        break;
+      // a gas flame: the tip leans over and a second tongue rises on the left, so it never reads as a drop
+      case 'flame':
+        ctx.moveTo(0.2 * r, -1.3 * r);
+        ctx.bezierCurveTo(0.55 * r, -0.75 * r, 1 * r, -0.25 * r, 0.85 * r, 0.4 * r);
+        ctx.bezierCurveTo(0.72 * r, 0.95 * r, 0.3 * r, 1.1 * r, 0, 1.1 * r);
+        ctx.bezierCurveTo(-0.35 * r, 1.1 * r, -0.82 * r, 0.88 * r, -0.85 * r, 0.35 * r);
+        ctx.bezierCurveTo(-0.88 * r, -0.05 * r, -0.6 * r, -0.35 * r, -0.45 * r, -0.7 * r);
+        ctx.bezierCurveTo(-0.35 * r, -0.35 * r, -0.2 * r, -0.25 * r, -0.05 * r, -0.35 * r);
+        ctx.bezierCurveTo(0.15 * r, -0.6 * r, 0.25 * r, -0.9 * r, 0.2 * r, -1.3 * r);
+        ctx.closePath();
+        break;
       default: ctx.arc(0, 0, r, 0, TAU);
     }
   }
@@ -1057,6 +1127,23 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
         break;
       }
       case 'hatchdot': shapePath(ctx, 'disc', r); halo(3); fill(X.surface); fill(hatchPattern(ctx, P)); line(P.hatch, 1.1); break;
+      case 'barrel': {
+        const [dark, light] = shadesOf(m.color);
+        shapePath(ctx, 'barrel', r); halo(3); fill(m.color); line(dark, 0.9);
+        // two hoops and the lid
+        ctx.beginPath();
+        for (const y of [-0.38 * r, 0.38 * r]) { ctx.moveTo(-0.8 * r, y); ctx.lineTo(0.8 * r, y); }
+        line(dark, 1.1);
+        ctx.beginPath(); ctx.ellipse(0, -0.95 * r, 0.62 * r, 0.2 * r, 0, 0, TAU); fill(light); line(dark, 0.8);
+        break;
+      }
+      case 'flame': {
+        const [dark, light] = shadesOf(m.color);
+        shapePath(ctx, 'flame', r); halo(3); fill(m.color); line(dark, 0.9);
+        // the inner, hotter flame
+        ctx.save(); ctx.translate(0, 0.42 * r); ctx.scale(0.5, 0.5); shapePath(ctx, 'flame', r); fill(light); ctx.restore();
+        break;
+      }
       case 'pin': {
         const isSel = S.selection?.kind === m.kind && S.selection.id === m.id;
         shapePath(ctx, 'disc', r); halo(3); fill(isSel ? P.accent : m.color);

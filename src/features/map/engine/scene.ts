@@ -137,9 +137,16 @@ export interface Poly {
   feature: Feature; fill?: string | null; fillAlpha?: number; stroke?: string; width?: number; strokeAlpha?: number;
   dash?: number[]; hatch?: boolean; hatchAlpha?: number; kind?: Kind; id?: string;
 }
-/** Lines stroked in one style (pipelines). `casing` draws a wider halo under them; items are hit-tested by kind/id. */
+/**
+ * Lines stroked in one style (pipelines); items are hit-tested by kind/id. `casing` draws a wider halo under them, `glow`
+ * a soft wider band. With `tube`, the engine draws them as a pipe once the map is zoomed in: a shaded tube, then a raised
+ * one with a shadow and joint rings (`sections`: pipe lengths with gaps, for lines under construction).
+ */
 export interface LineItem { kind: Kind; id: string; lines: Position[][] }
-export interface LineSet { items: LineItem[]; color: string; width: number; dash?: number[]; alpha: number; casing?: string; cap?: 'round' }
+export interface LineSet {
+  items: LineItem[]; color: string; width: number; dash?: number[]; alpha: number; casing?: string; cap?: 'round';
+  glow?: string; tube?: 'solid' | 'sections';
+}
 export interface Scene {
   fill: Map<string, string>; hatch: Set<string>; hatchAlpha: number; emph: Set<string> | null;
   outlines: Outline[]; polys: Poly[]; under: Poly[]; selPolys: Poly[]; arcs: Arc[]; markers: Marker[]; labels: Label[]; badges: Badge[];
@@ -233,6 +240,10 @@ export const PIPE_DASH = [5, 3];
 /** Halted lines: round dots, so they read apart from the dashes of lines under construction. */
 export const PIPE_DOTS = [0.1, 3.6];
 export const lngColor = (P: Palette) => P.cat[3]!;
+/** Halted lines read as grey steel, keeping a trace of their fuel colour. */
+export const haltedColor = (P: Palette, fuel: Fuel) => d3.interpolateLab(pipeColor(P, fuel), P.fg3)(0.65);
+/** Resource sites drawn as a pictogram: an oil barrel, a gas flame. */
+export const SITE_ICON: Record<string, { shape: string; fuel: Fuel }> = { oil: { shape: 'barrel', fuel: 'oil' }, 'oil-shale': { shape: 'barrel', fuel: 'oil' }, gas: { shape: 'flame', fuel: 'gas' } };
 export const lngShape = (t: LngTerminal) => (t.status === 'construction' ? 'dashed' : t.type === 'export' ? 'triangle' : 'square');
 export const lngRadius = (t: LngTerminal) => Math.min(7, 2.6 + Math.sqrt(t.mtpa.operating || t.mtpa.construction) * 0.65);
 
@@ -492,15 +503,18 @@ const BUILD: Record<LensId, Builder> = {
       const key = `${p.fuel}|${p.status}|${cls}|${strategic ? 1 : 0}`;
       let g = groups.get(key);
       if (!g) {
+        const glow = strategic ? P.sel : undefined;
         g = isHalted(p)
-          ? { items: [], color: pipeColor(P, p.fuel), width: Math.max(1.6, PIPE_W[cls]!), dash: PIPE_DOTS, cap: 'round', alpha: 0.8, casing: strategic ? P.halo : undefined }
-          : { items: [], color: pipeColor(P, p.fuel), width: PIPE_W[cls]!, dash: p.status === 'construction' ? PIPE_DASH : undefined, alpha: cls ? 0.95 : 0.7, casing: strategic ? P.halo : undefined };
+          ? { items: [], color: haltedColor(P, p.fuel), width: Math.max(1.6, PIPE_W[cls]!), dash: PIPE_DOTS, cap: 'round', alpha: 0.85, glow, tube: 'solid' }
+          : p.status === 'construction'
+            ? { items: [], color: pipeColor(P, p.fuel), width: PIPE_W[cls]!, dash: PIPE_DASH, alpha: cls ? 0.95 : 0.7, glow, tube: 'sections' }
+            : { items: [], color: pipeColor(P, p.fuel), width: PIPE_W[cls]!, alpha: cls ? 0.95 : 0.7, glow, tube: 'solid' };
         groups.set(key, g);
       }
       g.items.push({ kind: 'pipeline', id: p.id, lines: p.lines });
     }
     // thin lines first so trunk lines sit on top; the sourced strategic lines last of their weight
-    sc.lines = [...groups.values()].sort((a, b) => a.width - b.width || Number(!!a.casing) - Number(!!b.casing));
+    sc.lines = [...groups.values()].sort((a, b) => a.width - b.width || Number(!!a.glow) - Number(!!b.glow));
     const sel = S.selection?.kind === 'pipeline' ? E.byId.get(S.selection.id) : undefined;
     if (sel) {
       const sys = E.bySystem.get(sel.system) ?? [sel];
@@ -528,7 +542,10 @@ const BUILD: Record<LensId, Builder> = {
     for (const s of DB.resources.sites) {
       const k = DB.resources.classOf[s.type] ?? '';
       if (cls && k !== cls) continue;
-      sc.markers.push({ lonlat: s.coords ?? null, shape: RES_SHAPE[k] || 'disc', r: 5, color: P.resClass[k] || P.cat[0]!, kind: 'site', id: s.id });
+      const icon = SITE_ICON[s.type];
+      sc.markers.push(icon
+        ? { lonlat: s.coords ?? null, shape: icon.shape, r: 6.5, color: pipeColor(P, icon.fuel), kind: 'site', id: s.id }
+        : { lonlat: s.coords ?? null, shape: RES_SHAPE[k] || 'disc', r: 5, color: P.resClass[k] || P.cat[0]!, kind: 'site', id: s.id });
     }
   },
 
