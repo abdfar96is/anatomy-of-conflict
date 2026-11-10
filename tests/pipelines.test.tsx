@@ -208,6 +208,32 @@ describe('the lens', () => {
     expect(labels()).toEqual(['Gold', 'Silver, platinum', 'Diamonds', 'Jade']);
   });
 
+  test('the pipelines lens shows the oil and gas fields as barrels and flames, by fuel, and can hide them', () => {
+    const fieldsOf = (sc: ReturnType<typeof buildScene>) => sc.markers.filter((m) => m.kind === 'site').map((m) => db.siteById.get(m.id)!);
+    const all = fieldsOf(buildScene(db, S(), P));
+    expect(all.length).toBe(db.resources.sites.filter((x) => ['oil', 'gas', 'oil-shale'].includes(x.type)).length);
+    expect(all.find((x) => x.id === 'ghawar')).toBeDefined();
+    expect(buildScene(db, S(), P).markers.find((m) => m.kind === 'site' && m.id === 'south-pars')!.shape).toBe('picto:flame');
+    expect(fieldsOf(buildScene(db, S({ pipeFuels: new Set(['gas']) }), P)).every((x) => x.type === 'gas')).toBe(true);
+    expect(fieldsOf(buildScene(db, S({ pipeFields: false }), P))).toHaveLength(0);
+    // a selected field stays on the map with the layer off
+    expect(fieldsOf(buildScene(db, S({ pipeFields: false }, { kind: 'site', id: 'ghawar' }), P)).map((x) => x.id)).toEqual(['ghawar']);
+    // fields sit under the LNG terminals
+    const kinds = buildScene(db, S(), P).markers.map((m) => m.kind);
+    expect(kinds.lastIndexOf('site')).toBeLessThan(kinds.indexOf('lng'));
+  });
+
+  test('the card toggles the fields and keys them', () => {
+    atlas.set({ lens: 'pipelines', lang: 'en' });
+    withDb(<Legend />);
+    const legend = document.getElementById('legend')!;
+    expect(legend.textContent).toContain('Oil field or facility');
+    expect(legend.textContent).toContain('Gas field or facility');
+    fireEvent.click(legend.querySelector('[data-key="pipeFields"]')!);
+    expect(atlas.get().filters.pipeFields).toBe(false);
+    expect(legend.textContent).not.toContain('Oil field or facility');
+  });
+
   test('a selected segment highlights its whole system', () => {
     const seg = system('Druzhba Oil Pipeline')[0]!;
     const sc = buildScene(db, S({}, { kind: 'pipeline', id: seg.id }), P);

@@ -254,6 +254,12 @@ export function visiblePipes(E: Energy, S: Pick<AtlasState, 'filters'>): Pipelin
   return E.pipes.filter((p) => f.pipeFuels.has(p.fuel) && (isHalted(p) ? f.pipeHalted : f.pipeStatus === 'all' || p.status === f.pipeStatus)
     && (!f.pipeStrategic || E.noteOf.has(p.system)));
 }
+/** The atlas's oil and gas sites (resources register) the pipelines lens shows under its fuel filter. */
+export function visibleFields(DB: DB, S: Pick<AtlasState, 'filters'>) {
+  const f = S.filters;
+  if (!f.pipeFields) return [];
+  return DB.resources.sites.filter((s) => { const fuel = SITE_PICTO[s.type]?.fuel; return !!fuel && !!s.coords && f.pipeFuels.has(fuel); });
+}
 export function visibleLng(E: Energy, S: Pick<AtlasState, 'filters'>): LngTerminal[] {
   const f = S.filters;
   return f.pipeLng && f.pipeFuels.has('gas') ? E.lng.filter((t) => f.pipeStatus === 'all' || t.status === f.pipeStatus) : [];
@@ -521,6 +527,14 @@ const BUILD: Record<LensId, Builder> = {
       const sys = E.bySystem.get(sel.system) ?? [sel];
       sc.selLines.push({ items: sys.map((p) => ({ kind: 'pipeline', id: p.id, lines: p.lines })), color: P.sel, width: 2.4, alpha: 0.75, casing: P.halo });
       sc.selLines.push({ items: [{ kind: 'pipeline', id: sel.id, lines: sel.lines }], color: P.sel, width: Math.max(3, PIPE_W[capacityClass(sel.boe)]! + 1.6), alpha: 1, casing: P.halo });
+    }
+    // oil and gas fields and facilities under the terminals; a selected one stays drawn whatever the filters
+    const fields = visibleFields(DB, S);
+    const selSite = S.selection?.kind === 'site' ? DB.siteById.get(S.selection.id) : undefined;
+    if (selSite && SITE_PICTO[selSite.type]?.fuel && !fields.includes(selSite)) fields.push(selSite);
+    for (const s of fields) {
+      const sp = SITE_PICTO[s.type]!;
+      sc.markers.push({ lonlat: s.coords ?? null, shape: `picto:${sp.picto}`, r: 6.5, color: sitePictoColor(P, sp), kind: 'site', id: s.id });
     }
     const lng = visibleLng(E, S);
     const selLng = S.selection?.kind === 'lng' ? E.lngById.get(S.selection.id) : undefined;

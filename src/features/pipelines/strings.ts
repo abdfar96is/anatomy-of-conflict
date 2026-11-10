@@ -6,7 +6,9 @@ registerStrings({
   ar: {
     'pp.loading': 'جارٍ تحميل خطوط الأنابيب…', 'pp.failed': 'تعذّر تحميل بيانات خطوط الأنابيب',
     'pp.fuel': 'الوقود', 'pp.status': 'الحالة', 'pp.all': 'الكل', 'pp.show': 'إظهار',
-    'pp.lng': 'محطات الغاز المسال', 'pp.strategic': 'الخطوط الموثّقة فقط', 'pp.halted': 'الخطوط المتوقفة',
+    'pp.lng': 'محطات الغاز المسال', 'pp.strategic': 'الخطوط الموثّقة فقط', 'pp.halted': 'الخطوط المتوقفة', 'pp.fields': 'حقول النفط والغاز',
+    'pp.fieldOil': 'حقل أو منشأة نفط', 'pp.fieldGas': 'حقل أو منشأة غاز',
+    'pp.fieldsNote': 'الحقول والمنشآت من سجلّ الموارد في الأطلس: أبرز الحقول وبعض منشآت التصدير، لا كل حقول العالم. انقر أحدها لملفه.',
     'pp.weight': 'سماكة الخط: السعة (برميل مكافئ نفط يومياً)',
     'pp.w0': 'سعة غير منشورة', 'pp.w1': 'أقل من 100 ألف', 'pp.w2': '100 – 400 ألف', 'pp.w3': '400 ألف – مليون', 'pp.w4': 'أكثر من مليون',
     'pp.cased': 'خط عليه ملف موثّق', 'pp.dashed': 'الخط المتقطّع: قيد الإنشاء', 'pp.dotted': 'الخط المنقّط: متوقف أو مجمّد (أنبوب رمادي عند التكبير)',
@@ -32,7 +34,9 @@ registerStrings({
   en: {
     'pp.loading': 'Loading pipelines…', 'pp.failed': 'The pipeline data could not be loaded',
     'pp.fuel': 'Fuel', 'pp.status': 'Status', 'pp.all': 'All', 'pp.show': 'Show',
-    'pp.lng': 'LNG terminals', 'pp.strategic': 'Sourced lines only', 'pp.halted': 'Halted lines',
+    'pp.lng': 'LNG terminals', 'pp.strategic': 'Sourced lines only', 'pp.halted': 'Halted lines', 'pp.fields': 'Oil and gas fields',
+    'pp.fieldOil': 'Oil field or facility', 'pp.fieldGas': 'Gas field or facility',
+    'pp.fieldsNote': "Fields and facilities from the atlas's resources register: the leading fields and some export facilities, not every field in the world. Click one for its profile.",
     'pp.weight': 'Line weight: capacity (barrels of oil equivalent a day)',
     'pp.w0': 'No published capacity', 'pp.w1': 'Under 100,000', 'pp.w2': '100,000 – 400,000', 'pp.w3': '400,000 – 1 million', 'pp.w4': 'Over 1 million',
     'pp.cased': 'Line with a sourced note', 'pp.dashed': 'Dashed: under construction', 'pp.dotted': 'Dotted: idle or mothballed (a grey pipe when zoomed in)',

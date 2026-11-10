@@ -14,7 +14,7 @@ import { catVar, edgeVar, pal, resClassVar, sevVar, traditionColor, type Palette
 import {
   BLOC_T, CHOKE_T, CONTINENTS, ETHNIC_CLASSES, GDP_RANGE, INCOME, POP_RANGE, RES_SHAPE,
   PIPE_DASH, PIPE_DOTS, PIPE_W, activeBloc, bi, borderFill, decadeWindow, ethnicClass, fuelVar, landTint, lngColor, nuclearCivilFill, nuclearFill, nuclearZoneFill, plantColor, seqFill,
-  visibleConflicts, visibleLng, visiblePipes, windowEvents,
+  visibleConflicts, visibleFields, visibleLng, visiblePipes, windowEvents,
 } from './engine/scene';
 import { FUELS, FUEL_LABEL, PIPE_STATUS, STATUS_LABEL, capacityClass, isHalted, systemName } from '../../data/energy';
 import { useEnergy } from '../pipelines/useEnergy';
@@ -434,11 +434,13 @@ const BODY: Record<(typeof LENSES)[number]['id'], (c: Ctx) => ReactNode> = {
 };
 
 /** The pipelines card: a component of its own, since it loads the data on first use. */
-function PipelinesCard({ S, P, T: { t, pick: L, fmt, lang } }: Ctx) {
+function PipelinesCard({ DB, S, P, T: { t, pick: L, fmt, lang } }: Ctx) {
   const { E, failed } = useEnergy();
   if (!E) return <Note text={failed ? t('pp.failed') : t('pp.loading')} />;
   const f = S.filters;
-  const shown = visiblePipes(E, S), lng = visibleLng(E, S);
+  const shown = visiblePipes(E, S), lng = visibleLng(E, S), fields = visibleFields(DB, S);
+  const allFields = visibleFields(DB, { filters: { ...f, pipeFields: true } });
+  const isOil = (s: (typeof fields)[number]) => SITE_PICTO[s.type]?.fuel === 'oil';
   // counts under the other filter, so each chip says what turning it on would add
   const sourced = (p: (typeof E.pipes)[number]) => !f.pipeStrategic || E.noteOf.has(p.system);
   const byStatus = E.pipes.filter((p) => !isHalted(p) && f.pipeFuels.has(p.fuel) && sourced(p));
@@ -485,6 +487,8 @@ function PipelinesCard({ S, P, T: { t, pick: L, fmt, lang } }: Ctx) {
         <Chips label={t('pp.show')}>
           <Chip act="layer" k="pipeLng" pressed={f.pipeLng} label={t('pp.lng')} n={lng.length || undefined} lead={<Glyph shape="triangle" color={lngColor(P)} size={12} />}
             onClick={() => atlas.setFilter('pipeLng', !f.pipeLng)} />
+          <Chip act="layer" k="pipeFields" pressed={f.pipeFields} label={t('pp.fields')} n={allFields.length || undefined}
+            lead={<Picto id="barrel" color="var(--cat-4)" size={14} />} onClick={() => atlas.setFilter('pipeFields', !f.pipeFields)} />
           <Chip act="layer" k="pipeHalted" pressed={f.pipeHalted} label={t('pp.halted')} n={halted.length}
             lead={<LineGlyph color={haltedVar} width={2.4} dash={PIPE_DOTS.join(' ')} round />} onClick={() => atlas.setFilter('pipeHalted', !f.pipeHalted)} />
           <Chip act="layer" k="pipeStrategic" pressed={f.pipeStrategic} label={t('pp.strategic')} n={E.meta.notes.length}
@@ -498,6 +502,8 @@ function PipelinesCard({ S, P, T: { t, pick: L, fmt, lang } }: Ctx) {
           {f.pipeHalted ? <KeyRow lead={<LineGlyph color={haltedVar} width={2.4} dash={PIPE_DOTS.join(' ')} round />} label={t('pp.dotted')} n={shown.filter(isHalted).length} /> : null}
           <KeyRow lead={<TubeGlyph color="var(--cat-4)" glow />} label={t('pp.cased')} />
           <KeyRow lead={<TubeGlyph color="var(--cat-1)" />} label={t('pp.tube')} />
+          {fields.some(isOil) ? <KeyRow lead={<Picto id="barrel" color="var(--cat-4)" size={16} />} label={t('pp.fieldOil')} n={fields.filter(isOil).length} /> : null}
+          {fields.some((s) => !isOil(s)) ? <KeyRow lead={<Picto id="flame" color="var(--cat-1)" size={16} />} label={t('pp.fieldGas')} n={fields.filter((s) => !isOil(s)).length} /> : null}
           {f.pipeLng && f.pipeFuels.has('gas') ? <>
             <KeyRow lead={<Glyph shape="triangle" color={lngColor(P)} />} label={t('pp.lngExport')} n={lng.filter((x) => x.type === 'export' && x.status === 'operating').length} />
             <KeyRow lead={<Glyph shape="square" color={lngColor(P)} />} label={t('pp.lngImport')} n={lng.filter((x) => x.type === 'import' && x.status === 'operating').length} />
@@ -507,6 +513,7 @@ function PipelinesCard({ S, P, T: { t, pick: L, fmt, lang } }: Ctx) {
         <p className="lc-note">{t('pp.total', { n: fmt.num(shown.length), km: fmt.num(Math.round(km / 1000) * 1000) })}</p>
       </Sec>
       <Sec label={t('pp.notes')}><ul className="bd-changes">{notes}</ul></Sec>
+      {fields.length ? <Note text={t('pp.fieldsNote')} /> : null}
       {f.pipeHalted ? <Note text={t('pp.haltedNote')} /> : null}
       <Note text={t('pp.note')} />
     </>
