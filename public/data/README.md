@@ -160,6 +160,7 @@ There is one entry per GEM location (a plant, or a project of several phases). I
   - `x`, `y`: longitude and latitude × 1,000
   - `c`: index into `iso` (the ISO3 codes), or −1
   - `y0`: first year in service of its operating or mothballed units (for a plant under construction, its expected year), 0 when unknown; `y1`: the year a retired plant closed, 0 otherwise. With the map's year filter on, a plant shows from `y0` until `y1`.
+  - `pa`: index into `parents`, the company each plant answers to (its first, largest parent, else its first owner, without the share), or −1; it lights up a company's sites across the infrastructure lenses
   - `ar`: `[position, Arabic name]` for plants in Arab League states whose GEM local name is in Arabic (not Persian or Urdu)
 - **`detail/<ISO3>.json`** (minified, `_` for the one plant without a state) maps each plant id to the rest:
   - `op`, `con`, `mb`, `ret`: MW operating, under construction, mothballed and retired

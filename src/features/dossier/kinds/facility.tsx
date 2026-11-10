@@ -7,6 +7,8 @@ import { INDUSTRY_STATUS_LABEL, LAYER, LAYER_ONE, fmtTonnes, getIndustry, termTe
 import { Icon } from '../../../ui/Icon';
 import { Picto } from '../../../ui/Picto';
 import { layerVar } from '../../map/engine/scene';
+import { OwnerButton } from '../../power/owner';
+import { ownerKey } from '../../../data/owner';
 import type { Panel } from '../model';
 import type { Kit } from '../parts';
 import '../../power/strings';
@@ -68,6 +70,7 @@ function body(X: Industry, x: Facility, k: Kit) {
   const wiki = x.w === '' ? null : X.meta.wiki + (x.w ?? x.n.replace(/ /g, '_'));
   return <>
     {k.sec(null, [facts, x.ccs ? k.note(t('in.dz.ccs')) : null, x.approx ? k.note(t('in.dz.approx')) : null], { cls: 'first' })}
+    {k.sec(null, <OwnerButton owner={ownerKey(x.par || x.o)} />)}
     {x.pc && x.pc.length > 1 ? k.sec(t('in.dz.byProduct'), k.facts(x.pc.map(([p, v]) => k.fact(termText(p, lang), tonnes(v))))) : null}
     {x.c ? k.sec(t('in.dz.location'), [k.cchips([x.c]), x.sub ? <p className="dz-note" key="sub"><bdi>{x.sub}</bdi></p> : null]) : null}
     {k.sec(t('in.dz.src'), [

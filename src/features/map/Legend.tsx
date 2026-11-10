@@ -22,6 +22,7 @@ import { useEnergy } from '../pipelines/useEnergy';
 import { POWER_LABEL, POWER_PICTO, POWER_STATUS_LABEL, POWER_TYPES, SUMMARY_ENDS, inYear, powerClass } from '../../data/power';
 import { usePower } from '../power/usePower';
 import { InViewList } from './InView';
+import { OwnerChip } from '../power/owner';
 import { useIndustry } from '../power/useIndustry';
 import { INDUSTRY_LAYERS, INDUSTRY_STATUS_LABEL, LAYER, LAYER_LABEL } from '../../data/industry';
 import '../power/strings';
@@ -769,6 +770,7 @@ export function Legend() {
         <span className="lc-chev"><Icon name="chevron" size={16} /></span>
       </button>
       <div className="lc-body scroll" id="lc-body" hidden={collapsed}>
+        {lens.id === 'industry' || lens.id === 'pipelines' ? <OwnerChip /> : null}
         {IN_VIEW_LENSES.has(lens.id) ? (
           <div className="chips iv-tabs" role="group" aria-label={T.t('map.iv.tabs')}>
             <button type="button" className="chip" aria-pressed={tab === 'key'} data-act="iv" data-val="key" onClick={() => setTab('key')}>{T.t('map.iv.key')}</button>

@@ -7,6 +7,8 @@ import {
 } from '../../../data/energy';
 import { Icon } from '../../../ui/Icon';
 import { fuelVar } from '../../map/engine/scene';
+import { OwnerButton } from '../../power/owner';
+import { ownerKey } from '../../../data/owner';
 import type { ChokeX, ConflictX, Panel } from '../model';
 import type { Kit } from '../parts';
 import '../../pipelines/strings';
@@ -54,6 +56,7 @@ function body(E: Energy, p: Pipeline, k: Kit) {
   const wiki = wikiUrl(E, p.wiki);
   return <>
     {k.sec(null, facts, { cls: 'first' })}
+    {k.sec(null, <OwnerButton owner={ownerKey(p.owner)} />)}
     {p.countries.length ? k.sec(t('pp.dz.countries'), k.cchips(p.countries), { count: p.countries.length }) : null}
     {note ? k.sec(t('pp.dz.about'), [
       k.prose(L(note), { clamp: false }),

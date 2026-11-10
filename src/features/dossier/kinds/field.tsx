@@ -8,6 +8,8 @@ import {
 import { Icon } from '../../../ui/Icon';
 import { Picto } from '../../../ui/Picto';
 import { fuelVar } from '../../map/engine/scene';
+import { OwnerButton } from '../../power/owner';
+import { ownerKey } from '../../../data/owner';
 import type { Panel } from '../model';
 import type { Kit } from '../parts';
 import '../../pipelines/strings';
@@ -97,6 +99,7 @@ function body(E: Energy, x: OilField, k: Kit) {
   const wiki = x.wiki ? E.meta.wiki + x.wiki : null;
   return <>
     {k.sec(null, [facts, ...notes], { cls: 'first' })}
+    {k.sec(null, <OwnerButton owner={ownerKey(x.operator)} />)}
     {x.countries.length ? k.sec(t('pp.dz.location'), k.cchips(x.countries)) : null}
     {parent ? k.sec(t('pp.dz.fdParent'), k.rows([row(parent)])) : null}
     {units.length ? k.sec(t('pp.dz.fdUnits'), k.rows(units.map(row)), { count: units.length }) : null}
