@@ -42,13 +42,14 @@ export function fieldPanel(id: string, k: Kit): Panel | null {
   const E = getEnergy();
   const x = E?.fieldById.get(id);
   if (!E || !x) return null;
-  const { t, pick: L } = k;
-  const [name, place] = splitFieldName(x.name);
+  const { t, pick: L, lang } = k;
+  const [en, place] = splitFieldName(x.name);
+  const name = lang === 'ar' && x.nameAr ? x.nameAr : en;
   return {
     head: {
       region: [x.project ? t('pp.dz.fdProject') : '', x.countries.map(k.nameC).join(t('map.sep'))].filter(Boolean).join(' · '),
       title: name,
-      plate: [place ? <bdi key="p" className="dz-alt" lang="en">{place}</bdi> : null, k.coord(x.coords)],
+      plate: [name !== en ? <bdi key="n" className="dz-alt" lang="en">{en}</bdi> : null, place ? <bdi key="p" className="dz-alt" lang="en">{place}</bdi> : null, k.coord(x.coords)],
       badges: [<span key="s" className={`pill dz-pill pp-${x.status}`}>{L(FIELD_STATUS_LABEL[x.status])}</span>],
     },
     tabs: [{ id: 'main', render: () => body(E, x, k) }],

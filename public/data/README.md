@@ -133,6 +133,7 @@ The Oil & gas pipelines lens loads these four files on demand. They come from th
   - `w`: GEM.wiki page, stored only when it is not the name with underscores; `''` when GEM gives none
 - **`meta.json`** holds:
   - the four sources with their licence and citation
+  - `landmarks`: the atlas's short Arabic and English names of 57 prominent fields and projects (Ghawar, North Field, Rumaila, Kirkuk …), by GEM unit id: labels on the map from mid zoom, and the field's Arabic name in its dossier, tooltip and search
   - the atlas's Arabic names for prominent systems
   - sourced notes on fourteen strategic lines, each linked to chokepoints and conflicts and checked against the sources on the date given: nine active (East–West, Habshan–Fujairah, SUMED, Kirkuk–Ceyhan, Druzhba, TurkStream, Greater Nile, Arish–Ashkelon, the Myanmar–China lines) and five halted (Nord Stream 1 and 2, Yamal–Europe, IPSA, Kirkuk–Baniyas, Masila–al-Shihr)
 
@@ -172,7 +173,7 @@ There is one entry per GEM location (a plant, or a project of several phases). I
   - `chp`, `ccs`, `cap`: combined heat and power, carbon capture, and the industry a captive plant serves
   - `w`: GEM.wiki page, stored only when it is not the name with underscores; `''` when GEM gives none
 - **`countries.json`** (minified) holds each state's capacity by type in MW, `op` in operation and `con` under construction, summed over every unit GEM lists however small (TransitionZero-sourced units still left out; binational dams split by each state's share). It feeds the country summary the lens shows when zoomed out (capacity in operation, renewable share, coal share, capacity under construction) and the electricity section of the country dossier. Rooftop (distributed) solar is not in the tracker's units, so solar's share is below the real one in some states.
-- **`meta.json`** holds the source with its licence and citation.
+- **`meta.json`** holds the source with its licence and citation, and `landmarks`: the atlas's short Arabic and English names of 54 prominent plants (dams, nuclear and solar plants, the region's largest stations), by location id. They label the map from mid zoom, and give a plant its Arabic name where GEM gives none.
 
 Cite: Global Energy Monitor, Global Integrated Power Tracker, September 2026 release.
 

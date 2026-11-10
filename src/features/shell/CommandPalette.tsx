@@ -233,7 +233,7 @@ function PaletteBox() {
       const lng = E.lng.filter((x) => hit(x.name)).slice(0, 6);
       if (lng.length) groups.push({ label: t('kinds.lng'), items: lng.map((x) => dataItem(db, T, 'lng', x.id, q)) });
       // fields and projects, the largest producers first
-      const fields = E.fields.filter((x) => hit(x.name, x.operator)).sort((a, b) => (b.boe ?? 0) - (a.boe ?? 0)).slice(0, 6);
+      const fields = E.fields.filter((x) => hit(x.name, x.nameAr, x.operator)).sort((a, b) => (b.boe ?? 0) - (a.boe ?? 0)).slice(0, 6);
       if (fields.length) groups.push({ label: t('kinds.field'), items: fields.map((x) => dataItem(db, T, 'field', x.id, q)) });
     }
     // power plants, once their lens has loaded them: by name (Arabic too), the largest first

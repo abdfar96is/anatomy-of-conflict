@@ -7,7 +7,7 @@ import { act, fireEvent, render } from '@testing-library/react';
 import type { ReactNode } from 'react';
 import { afterAll, afterEach, beforeAll, describe, expect, test } from 'vitest';
 import { on } from '../src/app/events';
-import { atlas } from '../src/app/store';
+import { atlas, initialState } from '../src/app/store';
 import { DbContext } from '../src/app/useT';
 import { build } from '../src/data/build';
 import { buildEnergy, setEnergy, type EnergyMeta } from '../src/data/energy';
@@ -17,6 +17,8 @@ import type { DB } from '../src/data/types';
 import { InViewList } from '../src/features/map/InView';
 import { setInView } from '../src/features/map/inview';
 import { Legend } from '../src/features/map/Legend';
+import { buildScene, tipFor } from '../src/features/map/engine/scene';
+import type { Palette } from '../src/ui/palette';
 import '../src/i18n/core';
 import { DATA_DIR, readRaw } from './helpers/readRaw';
 
@@ -75,6 +77,39 @@ describe('the In view list', () => {
     expect(names()).toHaveLength(8);
     fireEvent.click(document.querySelector('.iv-more')!);
     expect(names()).toHaveLength(30);
+  });
+});
+
+describe('landmark names', () => {
+  const P = {
+    land: '#2a3440', landMuted: '#20262e', fg: '#ffffff', fg2: '#cccccc', fg3: '#999999', sel: '#ffd040', halo: '#000000',
+    cat: ['#000', '#3987e5', '#d95926', '#199e70', '#c98500', '#d55181', '#2f9e3a', '#9085e9', '#e66767'],
+    seq: () => '#555555', status: { good: '#00ff00', warn: '#ffaa00', critical: '#ff0000' }, resClass: {},
+  } as unknown as Palette;
+  const S = (lens: 'industry' | 'pipelines', lang: 'ar' | 'en') => {
+    const s = initialState();
+    return { ...s, lens, lang, filters: { ...s.filters, powerSummary: 'off' as const } };
+  };
+
+  test('the scene names landmark plants and fields in the reader\'s language, the largest first claiming room', () => {
+    const power = buildScene(db, S('industry', 'ar'), P);
+    expect(power.pins.map((p) => p.text)).toEqual(expect.arrayContaining(['سد الخوانق الثلاثة', 'السد العالي', 'براكة', 'سد النهضة']));
+    expect(power.pins.find((p) => p.text === 'سد الخوانق الثلاثة')).toMatchObject({ big: true, pri: 22500 });
+    expect(buildScene(db, S('industry', 'en'), P).pins.map((p) => p.text)).toContain('Aswan High Dam');
+    const oil = buildScene(db, S('pipelines', 'ar'), P);
+    expect(oil.pins.map((p) => p.text)).toEqual(expect.arrayContaining(['الغوار', 'حقل الشمال', 'الرميلة', 'كركوك']));
+    // a landmark hidden by the filters is not named
+    expect(buildScene(db, { ...S('pipelines', 'ar'), filters: { ...S('pipelines', 'ar').filters, pipeFields: false } }, P).pins).toHaveLength(0);
+  });
+
+  test('landmark fields take their Arabic name in the dossier, tooltip and record name', () => {
+    expect(db.nameOf('field', GHAWAR, 'ar')).toBe('الغوار');
+    expect(db.nameOf('field', GHAWAR, 'en')).toBe('Ghawar Oil and Gas Project (Saudi Arabia)');
+    atlas.set({ lang: 'ar' });
+    expect(tipFor({ kind: 'field', id: GHAWAR }, db, { ...atlas.get(), lens: 'pipelines' })).toContain('الغوار');
+    // a plant GEM names in Arabic keeps GEM's name; one it does not takes the atlas's
+    expect(db.nameOf('station', BARAKAH, 'ar')).toBe('براكة');
+    expect(db.nameOf('station', HASSYAN, 'ar')).toBe('محطة حصيان لإنتاج الطاقة');
   });
 });
 

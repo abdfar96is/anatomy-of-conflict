@@ -107,6 +107,8 @@ interface RawIndex { iso: string[]; id: number[]; n: string[]; t: string; s: str
 export interface PowerMeta {
   source: { name: string; publisher: string; release: string; file: string; url: string; license: string; licenseUrl: string; citation: string };
   wiki: string;
+  /** The atlas's short names of landmark plants, by GEM location id: map labels, and the Arabic name where GEM gives none. */
+  landmarks?: Record<string, Bi>;
 }
 export interface Power { plants: PowerPlant[]; byId: Map<string, PowerPlant>; meta: PowerMeta }
 
@@ -117,7 +119,7 @@ export const plantId = (n: number) => `L${100000000000 + n}`;
 export function buildPower(raw: RawIndex, meta: PowerMeta): Power {
   const ar = new Map(raw.ar);
   const plants: PowerPlant[] = raw.id.map((n, i) => ({
-    id: plantId(n), name: raw.n[i]!, nameAr: ar.get(i), type: CODE[raw.t[i]!]!, status: STATUS[raw.s[i]!]!, mw: raw.mw[i]!,
+    id: plantId(n), name: raw.n[i]!, nameAr: ar.get(i) ?? meta.landmarks?.[plantId(n)]?.ar, type: CODE[raw.t[i]!]!, status: STATUS[raw.s[i]!]!, mw: raw.mw[i]!,
     coords: [raw.x[i]! / 1000, raw.y[i]! / 1000], iso3: raw.c[i]! >= 0 ? raw.iso[raw.c[i]!] : undefined,
     start: raw.y0[i] || undefined, end: raw.y1[i] || undefined,
   }));

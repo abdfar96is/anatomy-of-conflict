@@ -140,6 +140,8 @@ export interface Arc {
   kind: 'power' | 'edge'; id: string; conflict?: string;
 }
 export interface Label { lonlat: LonLat; text: string; style: string; pri: number; areaKm2: number; kind: Kind; id: string }
+/** A landmark's name on the map (a field, a dam, a plant), beside its point from mid zoom when there is room. */
+export interface Pin { lonlat: LonLat; text: string; pri: number; r: number; /** Its point stays in the far view. */ big?: boolean }
 export interface Badge { iso3: string; type: 'intel' | 'contested' | 'cmp'; n?: number }
 export interface Outline { iso3: string[]; color: string; width: number; dash?: number[]; sel?: boolean }
 export interface Poly {
@@ -174,6 +176,8 @@ export interface Scene {
   outlines: Outline[]; polys: Poly[]; under: Poly[]; selPolys: Poly[]; arcs: Arc[]; markers: Marker[]; labels: Label[]; badges: Badge[];
   /** Base-layer lines, thinnest first, and the selection's lines drawn over everything. */
   lines: LineSet[]; selLines: LineSet[]; points: PointItem[];
+  /** Landmark names, the most important first claiming room. */
+  pins: Pin[];
   selRing: { lonlat: LonLat; kind: Kind; id: string } | null; pulse: boolean;
   /** Zoomed out (below `k`, the map's zoom factor): the states take these fills, and only large or kept points stay. */
   far?: { fill: Map<string, string>; k: number };
@@ -182,7 +186,7 @@ export interface Scene {
 }
 
 export function emptyScene(): Scene {
-  return { fill: new Map(), hatch: new Set(), hatchAlpha: 0.5, emph: null, outlines: [], polys: [], under: [], selPolys: [], arcs: [], markers: [], labels: [], badges: [], lines: [], selLines: [], points: [], selRing: null, pulse: false };
+  return { fill: new Map(), hatch: new Set(), hatchAlpha: 0.5, emph: null, outlines: [], polys: [], under: [], selPolys: [], arcs: [], markers: [], labels: [], badges: [], lines: [], selLines: [], points: [], pins: [], selRing: null, pulse: false };
 }
 
 // ---- fixed lens vocabularies (slots are per entity, never by rank)
@@ -604,6 +608,11 @@ const BUILD: Record<LensId, Builder> = {
       const sel = S.selection?.kind === 'station' ? W.byId.get(S.selection.id) : undefined;
       if (sel && !plants.includes(sel)) plants.push(sel);
       for (const p of plants) points.push(p === sel ? { ...powerPoint(P, p), keep: true } : powerPoint(P, p));
+      const LM = W.meta.landmarks ?? {};
+      for (const p of plants) {
+        const lm = LM[p.id];
+        if (lm) sc.pins.push({ lonlat: p.coords, text: pick(S.lang, lm), pri: p.mw, r: POWER_RP[powerClass(p.mw)]!, big: powerClass(p.mw) === 4 });
+      }
     }
     // zoomed out in power mode: the states by the chosen summary, with only the largest plants as landmarks; with the
     // timeline on, the summary sums the plants standing that year instead of today's totals
@@ -659,6 +668,11 @@ const BUILD: Record<LensId, Builder> = {
     const selField = S.selection?.kind === 'field' ? E.fieldById.get(S.selection.id) : undefined;
     if (selField && !fields.includes(selField)) fields.push(selField);
     sc.points = fields.map((x) => fieldPoint(P, x)).sort((a, b) => a.r - b.r);
+    const LM = E.meta.landmarks ?? {};
+    for (const x of fields) {
+      const lm = LM[x.id];
+      if (lm) sc.pins.push({ lonlat: x.coords, text: pick(S.lang, lm), pri: x.boe ?? 0, r: FIELD_RP[fieldClass(x.boe)]! });
+    }
     const lng = visibleLng(E, S);
     const selLng = S.selection?.kind === 'lng' ? E.lngById.get(S.selection.id) : undefined;
     if (selLng && !lng.includes(selLng)) lng.push(selLng);
@@ -881,7 +895,7 @@ export function tipFor(hit: Hit, DB: DB, S: AtlasState): string {
       const x = getEnergy()?.fieldById.get(hit.id);
       if (!x) return '';
       const out = [x.liquids ? t('map.tip.fd.liq', { v: fmtNum(x.liquids, x.liquids < 10 ? 1 : 0) }) : '', x.gas ? t('map.tip.fd.gas', { v: fmtNum(x.gas) }) : ''].filter(Boolean).join(' · ');
-      return tip(x.name, `${L(FIELD_FUEL_LABEL[x.fuel])} · ${L(FIELD_STATUS_LABEL[x.status])}${x.project ? ` · ${t('map.tip.fd.project', { n: x.units.length })}` : ''}`,
+      return tip((S.lang === 'ar' && x.nameAr) || x.name, `${L(FIELD_FUEL_LABEL[x.fuel])} · ${L(FIELD_STATUS_LABEL[x.status])}${x.project ? ` · ${t('map.tip.fd.project', { n: x.units.length })}` : ''}`,
         out ? (x.year ? `${out} (${x.year})` : out) : '', x.countries.map((iso) => nameOf(DB, iso, S.lang)).join(t('map.sep')), x.operator ? t('map.tip.fd.op', { v: x.operator }) : '');
     }
     case 'facility': {
