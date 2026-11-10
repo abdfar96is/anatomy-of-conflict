@@ -206,6 +206,8 @@ describe('the lens', () => {
     expect(atlas.get().filters.pipeHalted).toBe(true);
     fireEvent.click(legend.querySelector('[data-key="pipeHalted"]')!);
     expect(atlas.get().filters.pipeHalted).toBe(false);
+    // the list of sourced lines starts folded
+    fireEvent.click(legend.querySelector('[data-fold="pp.notes"] [data-act="fold"]')!);
     fireEvent.click(screen.getByRole('button', { name: /Nord Stream/ }));
     expect(atlas.get().filters.pipeHalted).toBe(true);
     expect(E.byId.get(atlas.get().selection!.id)!.system).toMatch(/^Nord Stream/);
@@ -327,6 +329,8 @@ describe('the lens', () => {
     expect(legend.textContent).toContain('Sourced strategic lines');
     fireEvent.click(legend.querySelector('[data-key="pipeFuels"][data-val="ngl"]')!);
     expect(atlas.get().filters.pipeFuels.has('ngl')).toBe(false);
+    expect(screen.queryByRole('button', { name: /Kirkuk-Ceyhan/ })).toBeNull();
+    fireEvent.click(legend.querySelector('[data-fold="pp.notes"] [data-act="fold"]')!);
     fireEvent.click(screen.getByRole('button', { name: /Kirkuk-Ceyhan/ }));
     expect(atlas.get().selection?.kind).toBe('pipeline');
     expect(E.byId.get(atlas.get().selection!.id)!.system).toBe('Kirkuk-Ceyhan Oil Pipeline');
