@@ -13,7 +13,7 @@ import { atlas, initialState } from '../src/app/store';
 import { DbContext } from '../src/app/useT';
 import { LENSES } from '../src/config';
 import { build } from '../src/data/build';
-import { POWER_SLOT, POWER_TYPES, buildPower, fmtMW, fuelText, plantId, powerClass, setPower, techText, type Power, type PowerMeta } from '../src/data/power';
+import { POWER_SLOT, POWER_TYPES, buildPower, fmtMW, fuelText, plantId, powerClass, setPower, setPowerCountries, summaryRamp, summaryValue, techText, type Power, type PowerCountries, type PowerMeta } from '../src/data/power';
 import type { DB } from '../src/data/types';
 import { Dossier } from '../src/features/dossier';
 import { buildScene, tipFor } from '../src/features/map/engine/scene';
@@ -32,9 +32,10 @@ beforeAll(() => {
   db = build(readRaw());
   W = buildPower(read('plants.json'), read('meta.json') as PowerMeta);
   setPower(W, { CHN: read('detail/CHN.json'), ARE: read('detail/ARE.json'), ISR: read('detail/ISR.json') });
+  setPowerCountries(read('countries.json') as PowerCountries);
 });
 afterEach(() => { atlas.reset(); localStorage.clear(); });
-afterAll(() => setPower(null));
+afterAll(() => { setPower(null); setPowerCountries(null); });
 const withDb = (ui: ReactNode) => render(<DbContext.Provider value={db}>{ui}</DbContext.Provider>);
 const plant = (id: string) => W.byId.get(id)!;
 
@@ -202,6 +203,75 @@ describe('the lens', () => {
     setPower(W, { ARE: read('detail/ARE.json') });
     expect(parseHash(`station-${BARAKAH}`, db)).toEqual({ patch: { lens: 'industry', selection: sel, view: null }, fly: sel });
     expect(parseHash('station-x', db)).toBeNull();
+  });
+});
+
+describe('the country summary', () => {
+  const P = {
+    land: '#2a3440', landMuted: '#20262e', fg: '#ffffff', fg2: '#cccccc', fg3: '#999999', sel: '#ffd040', halo: '#000000',
+    cat: ['#000', '#3987e5', '#d95926', '#199e70', '#c98500', '#d55181', '#2f9e3a', '#9085e9', '#e66767'],
+    seq: (t: number) => `rgb(${Math.round(t * 255)}, 0, 0)`, status: { good: '#00ff00', warn: '#ffaa00', critical: '#ff0000' }, resClass: {},
+  } as unknown as Palette;
+  const S = (filters: Partial<ReturnType<typeof initialState>['filters']> = {}, selection: ReturnType<typeof initialState>['selection'] = null) => {
+    const s = initialState();
+    return { ...s, lens: 'industry' as const, selection, filters: { ...s.filters, ...filters } };
+  };
+  const C = () => read('countries.json') as PowerCountries;
+
+  test('per-state totals: GW in operation, renewable and coal shares, GW under construction', () => {
+    const sau = C().SAU!, chn = C().CHN!;
+    expect(summaryValue(sau, 'total')).toBeGreaterThan(80);
+    expect(summaryValue(sau, 'coal')).toBe(0);
+    expect(summaryValue(chn, 'total')).toBeGreaterThan(summaryValue(C().USA, 'total')!);
+    expect(summaryValue(chn, 'renew')).toBeGreaterThan(20);
+    expect(summaryValue(chn, 'con')).toBeGreaterThan(50);
+    expect(summaryValue(undefined, 'total')).toBeNull();
+    expect(summaryRamp('renew', 50)).toBe(0.5);
+    expect(summaryRamp('total', 3000)).toBeCloseTo(1);
+    expect(summaryRamp('total', 0.01)).toBe(0);
+  });
+
+  test('zoomed out, the power mode colours the states by the chosen measure; off or in industry mode it does not', () => {
+    const sc = buildScene(db, S(), P);
+    expect(sc.far?.k).toBeGreaterThan(1);
+    expect(sc.far!.fill.get('CHN')).not.toBe(P.landMuted);
+    const renew = buildScene(db, S({ powerSummary: 'renew' }), P);
+    expect(renew.far!.fill.get('SAU')).not.toBe(renew.far!.fill.get('NOR'));
+    expect(buildScene(db, S({ powerSummary: 'off' }), P).far).toBeUndefined();
+    expect(buildScene(db, S({ industryMode: 'industry' }), P).far).toBeUndefined();
+    // the selected plant stays drawn in the far view
+    expect(buildScene(db, S({}, { kind: 'station', id: HASSYAN }), P).points.find((x) => x.id === HASSYAN)!.keep).toBe(true);
+  });
+
+  test('a state tooltip in the lens gives its capacity, shares and capacity being built', () => {
+    atlas.set({ lang: 'en' });
+    const tip = tipFor({ kind: 'country', id: 'CHN' }, db, { ...atlas.get(), lens: 'industry' });
+    expect(tip).toMatch(/[\d,]+ GW in operation/);
+    expect(tip).toMatch(/Renewables \d+% · coal \d+%/);
+    expect(tip).toMatch(/GW under construction/);
+  });
+
+  test('the card picks the measure and shows its ramp', () => {
+    atlas.set({ lens: 'industry', lang: 'en' });
+    withDb(<Legend />);
+    const legend = document.getElementById('legend')!;
+    expect(legend.textContent).toContain('States when zoomed out');
+    fireEvent.click(legend.querySelector('[data-key="powerSummary"][data-val="coal"]')!);
+    expect(atlas.get().filters.powerSummary).toBe('coal');
+    expect(legend.textContent).toContain('Coal in the capacity in operation');
+    fireEvent.click(legend.querySelector('[data-key="powerSummary"][data-val="off"]')!);
+    expect(legend.querySelector('.lc-ramp')).toBeNull();
+  });
+
+  test('the country dossier lists its electricity capacity by type', () => {
+    atlas.set({ lang: 'en', lens: 'industry' });
+    withDb(<Dossier />);
+    act(() => { atlas.select('country', 'SAU', { fly: false }); });
+    fireEvent.click([...document.querySelectorAll('#dossier [role="tab"]')].find((x) => x.textContent!.includes('Resources'))!);
+    const sec = document.getElementById('dz-a-electricity')!;
+    expect(sec.textContent).toContain('Electricity: capacity in operation by type');
+    expect(sec.textContent).toContain('Oil and gas');
+    expect(sec.textContent).toMatch(/[\d.]+ GW in operation in all/);
   });
 });
 

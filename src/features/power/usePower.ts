@@ -3,12 +3,14 @@
 import { useEffect, useSyncExternalStore } from 'react';
 import { emit } from '../../app/events';
 import { atlas } from '../../app/store';
-import { getPower, loadPower, powerFailed, powerVersion, subscribePower, type Power } from '../../data/power';
+import { getPower, loadPower, powerCountries, powerFailed, powerVersion, subscribePower, type Power } from '../../data/power';
 
 export function usePower(): { W: Power | null; failed: boolean; version: number } {
   const W = useSyncExternalStore(subscribePower, getPower, getPower);
   const failed = useSyncExternalStore(subscribePower, powerFailed, powerFailed);
   const version = useSyncExternalStore(subscribePower, powerVersion, powerVersion);
+  // the per-state totals for the country summary (small; the scene reads them once in)
+  useEffect(() => { powerCountries(); }, []);
   useEffect(() => {
     // the map scene is rebuilt from the store: nudge it once the data is in
     if (!W) {

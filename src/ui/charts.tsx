@@ -35,7 +35,7 @@ export function Donut({ parts, size = 132, thickness = 16, total, center, sub, l
 }
 
 export interface BarRow {
-  label: string; value: number; color?: string; valueLabel?: ReactNode; tip?: string; rowProps?: HTMLAttributes<HTMLLIElement>;
+  label: ReactNode; value: number; color?: string; valueLabel?: ReactNode; tip?: string; rowProps?: HTMLAttributes<HTMLLIElement>;
 }
 
 /** Horizontal bar list. `max` defaults to the largest value; `tip` is tooltip HTML (escape data in it). */

@@ -18,7 +18,7 @@ import {
 } from './engine/scene';
 import { FUELS, FUEL_LABEL, PIPE_STATUS, STATUS_LABEL, capacityClass, isHalted, systemName } from '../../data/energy';
 import { useEnergy } from '../pipelines/useEnergy';
-import { POWER_LABEL, POWER_PICTO, POWER_STATUS_LABEL, POWER_TYPES, powerClass } from '../../data/power';
+import { POWER_LABEL, POWER_PICTO, POWER_STATUS_LABEL, POWER_TYPES, SUMMARY_ENDS, powerClass } from '../../data/power';
 import { usePower } from '../power/usePower';
 import { useIndustry } from '../power/useIndustry';
 import { INDUSTRY_LAYERS, INDUSTRY_STATUS_LABEL, LAYER, LAYER_LABEL } from '../../data/industry';
@@ -640,8 +640,17 @@ function PowerPlants({ S, P, T: { t, pick: L, fmt } }: Ctx) {
   ));
   const gw = shown.reduce((a, p) => a + (p.status === 'operating' ? p.mw : 0), 0) / 1000;
   const steel = powerHalted(P, 'coal');
+  const sm = f.powerSummary;
+  const summary = (['total', 'renew', 'coal', 'con', 'off'] as const).map((id) => (
+    <Chip key={id} act="set" k="powerSummary" val={id} pressed={sm === id} label={t('pw.sum.' + id)} onClick={() => atlas.setFilter('powerSummary', id)} />
+  ));
   return (
     <>
+      <Sec label={t('pw.sum')}>
+        <Chips label={t('pw.sum')}>{summary}</Chips>
+        {sm !== 'off' ? <Ramp lo={SUMMARY_ENDS[sm][0]} hi={SUMMARY_ENDS[sm][1]} label={t('pw.sum.unit.' + sm)} P={P} /> : null}
+        {sm !== 'off' ? <p className="lc-note">{t('pw.sum.unit.' + sm)}</p> : null}
+      </Sec>
       <Sec label={t('pw.types')}><Chips label={t('pw.types')}>{types}</Chips></Sec>
       <Sec label={t('pw.status')}><Chips label={t('pw.status')}>{statuses}</Chips></Sec>
       <Sec label={t('pw.show')}>
@@ -658,6 +667,7 @@ function PowerPlants({ S, P, T: { t, pick: L, fmt } }: Ctx) {
         </Keys>
         <p className="lc-note">{t('pw.total', { n: fmt.num(shown.length), gw: fmt.num(Math.round(gw)) })}</p>
       </Sec>
+      {sm !== 'off' ? <Note text={t('pw.sum.note')} /> : null}
       <Note text={t('pw.colorNote')} />
       <Note text={t('pw.note')} />
     </>

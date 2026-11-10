@@ -170,11 +170,12 @@ There is one entry per GEM location (a plant, or a project of several phases). I
   - `riv`: river (hydropower)
   - `chp`, `ccs`, `cap`: combined heat and power, carbon capture, and the industry a captive plant serves
   - `w`: GEM.wiki page, stored only when it is not the name with underscores; `''` when GEM gives none
+- **`countries.json`** (minified) holds each state's capacity by type in MW, `op` in operation and `con` under construction, summed over every unit GEM lists however small (TransitionZero-sourced units still left out; binational dams split by each state's share). It feeds the country summary the lens shows when zoomed out (capacity in operation, renewable share, coal share, capacity under construction) and the electricity section of the country dossier. Rooftop (distributed) solar is not in the tracker's units, so solar's share is below the real one in some states.
 - **`meta.json`** holds the source with its licence and citation.
 
 Cite: Global Energy Monitor, Global Integrated Power Tracker, September 2026 release.
 
-`npm run check-data` checks that the columns line up, that type and status codes and states are known and coordinates valid, and that every plant is in the detail file of its state, and only there.
+`npm run check-data` checks that the columns line up, that type and status codes and states are known and coordinates valid, that every plant is in the detail file of its state, and only there, and that the state totals have known states and types and positive capacities.
 
 ## Mines and heavy industry (`industry/`)
 

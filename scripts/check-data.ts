@@ -303,6 +303,21 @@ export function checkData(dataDir: string): Problem[] {
       }
     }
     for (const [key, left] of expected) for (const id of left) problems.push({ file: `power/detail/${key}.json`, path: id, message: 'plant missing from its detail file' });
+    // per-state totals for the country summary
+    const cf = path.join(powerDir, 'countries.json');
+    if (fs.existsSync(cf)) {
+      const C = JSON.parse(fs.readFileSync(cf, 'utf8')) as Record<string, Record<string, Record<string, number>>>;
+      for (const [iso, d] of Object.entries(C)) {
+        country('power/countries.json', iso, iso);
+        for (const [k, m] of Object.entries(d)) {
+          if (k !== 'op' && k !== 'con') { problems.push({ file: 'power/countries.json', path: `${iso}.${k}`, message: 'not op or con' }); continue; }
+          for (const [ty, mw] of Object.entries(m)) {
+            if (!['coal', 'gas', 'nuclear', 'hydro', 'solar', 'wind', 'bio', 'geo'].includes(ty)) problems.push({ file: 'power/countries.json', path: `${iso}.${k}.${ty}`, message: 'unknown type' });
+            if (!(mw > 0)) problems.push({ file: 'power/countries.json', path: `${iso}.${k}.${ty}`, message: 'not a positive capacity', value: mw });
+          }
+        }
+      }
+    }
   }
   // 8. Mines and heavy industry (industry/): layers, statuses, places and capacities.
   const sitesFile = path.join(dataDir, 'industry', 'sites.json');
