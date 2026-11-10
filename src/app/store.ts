@@ -34,6 +34,8 @@ export interface Filters {
   /** Power mode zoomed out: the states coloured by a summary metric ('off' keeps the plants). */
   powerSummary: 'off' | 'total' | 'renew' | 'coal' | 'con';
   industryLayers: Set<string>;
+  /** Infrastructure lenses: the company whose sites are lit while the rest dim (null for none). */
+  ownerFocus: string | null;
   timelineCats: Set<string> | null;
   ethnicFamily: string | null;
 }
@@ -66,7 +68,7 @@ export const initialState = (): AtlasState => ({
     overviewMode: 'continent', nuclearMode: 'military', bordersYear: 1914, timelineCats: null, ethnicFamily: null,
     pipeFuels: new Set(['gas', 'oil', 'ngl']), pipeStatus: 'all', pipeLng: true, pipeFields: true, pipeHalted: false, pipeStrategic: false,
     powerTypes: new Set(['hydro', 'gas', 'wind', 'solar', 'geo', 'bio', 'nuclear', 'coal']), powerStatus: 'all', powerHalted: false,
-    industryMode: 'power', powerSummary: 'total', industryLayers: new Set(['cm', 'io', 'st', 'ce', 'ch', 'ct']),
+    industryMode: 'power', powerSummary: 'total', industryLayers: new Set(['cm', 'io', 'st', 'ce', 'ch', 'ct']), ownerFocus: null,
   },
   layers: { labels: true, graticule: true, boundaries: true, disputed: true, ethnic: false, conflicts: false, arcs: false },
 });

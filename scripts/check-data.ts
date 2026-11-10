@@ -270,10 +270,10 @@ export function checkData(dataDir: string): Problem[] {
     const metaText = fs.readFileSync(path.join(powerDir, 'meta.json'), 'utf8').replace(/\r\n/g, '\n');
     if (metaText !== formatJson(JSON.parse(metaText))) layout.push({ file: 'power/meta.json', path: '', message: 'not in the canonical layout; run npm run format-data' });
     const W = JSON.parse(fs.readFileSync(path.join(powerDir, 'plants.json'), 'utf8')) as {
-      iso: string[]; id: number[]; n: string[]; t: string; s: string; mw: number[]; x: number[]; y: number[]; c: number[]; y0: number[]; y1: number[]; ar: [number, string][];
+      iso: string[]; id: number[]; n: string[]; t: string; s: string; mw: number[]; x: number[]; y: number[]; c: number[]; y0: number[]; y1: number[]; ar: [number, string][]; pa: number[]; parents: string[];
     };
     const n = W.id.length;
-    for (const [k, v] of Object.entries({ n: W.n, t: W.t, s: W.s, mw: W.mw, x: W.x, y: W.y, c: W.c, y0: W.y0, y1: W.y1 })) {
+    for (const [k, v] of Object.entries({ n: W.n, t: W.t, s: W.s, mw: W.mw, x: W.x, y: W.y, c: W.c, y0: W.y0, y1: W.y1, pa: W.pa })) {
       if (v.length !== n) problems.push({ file: pf, path: k, message: `${v.length} values for ${n} plants` });
     }
     W.iso.forEach((iso, i) => country(pf, `iso[${i}]`, iso));
@@ -292,6 +292,7 @@ export function checkData(dataDir: string): Problem[] {
       if (y1 && !(y1 >= y0)) problems.push({ file: pf, path: `y1${at}`, message: 'retired before it started', value: [y0, y1] });
       if (!(W.mw[i]! >= 0)) problems.push({ file: pf, path: `mw${at}`, message: 'not a capacity', value: W.mw[i] });
       if (Math.abs(W.x[i]!) > 180000 || Math.abs(W.y[i]!) > 90000) problems.push({ file: pf, path: at, message: 'coordinates out of range', value: [W.x[i], W.y[i]] });
+      if (W.pa[i]! < -1 || W.pa[i]! >= W.parents.length) problems.push({ file: pf, path: `pa${at}`, message: 'no such owner', value: W.pa[i] });
       const c = W.c[i]!;
       if (c < -1 || c >= W.iso.length) problems.push({ file: pf, path: `c${at}`, message: 'no such state', value: c });
       const shard = c >= 0 ? W.iso[c]! : '_';

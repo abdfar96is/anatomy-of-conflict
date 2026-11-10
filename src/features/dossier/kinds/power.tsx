@@ -6,6 +6,7 @@ import { POWER_LABEL, POWER_PICTO, POWER_STATUS_LABEL, fmtMW, fuelText, getPower
 import { Icon } from '../../../ui/Icon';
 import { Picto } from '../../../ui/Picto';
 import { powerVar } from '../../map/engine/scene';
+import { OwnerButton } from '../../power/owner';
 import type { Panel } from '../model';
 import type { Kit } from '../parts';
 import '../../power/strings';
@@ -75,6 +76,7 @@ function body(W: Power, p: PowerPlant, d: PowerDetail | null | undefined, k: Kit
       d.cap ? k.note(t('pw.dz.captive', { v: d.cap })) : null,
       d.approx ? k.note(t('pw.dz.approx')) : null,
     ], { cls: 'first' })}
+    {p.owner ? k.sec(null, <OwnerButton owner={p.owner} />) : null}
     {mix ? k.sec(t('pw.dz.mix'), mix) : null}
     {p.iso3 ? k.sec(t('pw.dz.location'), [k.cchips(d.c ? d.c.split(',') : [p.iso3]), d.sub ? <p className="dz-note" key="sub"><bdi>{d.sub}</bdi></p> : null]) : null}
     {source}

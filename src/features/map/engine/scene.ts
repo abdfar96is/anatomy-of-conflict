@@ -19,6 +19,7 @@ import {
 } from '../../../data/energy';
 import { POWER_LABEL, POWER_PICTO, POWER_SLOT, POWER_STATUS_LABEL, fmtMW, getPower, getPowerCountries, inYear, powerClass, summaryRamp, summaryValue, type Power, type PowerCountries, type PowerPlant, type PowerType } from '../../../data/power';
 import { INDUSTRY_STATUS_LABEL, LAYER, LAYER_ONE, facilityClass, fmtTonnes, getIndustry, sizeOf, type Facility, type Industry, type IndustryLayer } from '../../../data/industry';
+import { ownerKey, ownerNorm } from '../../../data/owner';
 import '../../power/strings';
 
 registerStrings({
@@ -170,6 +171,8 @@ export interface PointItem {
   keep?: boolean;
   /** The figure behind its size (capacity, output), for ranking. */
   v?: number;
+  /** The company it answers to (data/owner.ts), for the owner focus. */
+  own?: string;
 }
 export interface Scene {
   fill: Map<string, string>; hatch: Set<string>; hatchAlpha: number; emph: Set<string> | null;
@@ -181,6 +184,8 @@ export interface Scene {
   selRing: { lonlat: LonLat; kind: Kind; id: string } | null; pulse: boolean;
   /** Zoomed out (below `k`, the map's zoom factor): the states take these fills, and only large or kept points stay. */
   far?: { fill: Map<string, string>; k: number };
+  /** Points other than the selected one, or than the focused owner's, are drawn faint. */
+  focus?: { id?: string; owner?: string };
   /** Today's country names would mislead on a historical map: the borders lens turns them off. */
   hideCountryLabels?: boolean;
 }
@@ -298,7 +303,7 @@ export function fieldPoint(P: Palette, x: OilField): PointItem {
   const cls = fieldClass(x.boe), steel = x.status === 'mothballed';
   const oil = steel ? haltedColor(P, 'oil') : pipeColor(P, 'oil'), gas = steel ? haltedColor(P, 'gas') : pipeColor(P, 'gas');
   return {
-    lonlat: x.coords, kind: 'field', id: x.id, r: FIELD_R[cls]!, rp: FIELD_RP[cls]!, big: cls === 4, v: x.boe,
+    lonlat: x.coords, kind: 'field', id: x.id, r: FIELD_R[cls]!, rp: FIELD_RP[cls]!, big: cls === 4, v: x.boe, own: ownerNorm(ownerKey(x.operator)),
     color: x.fuel === 'gas' ? gas : oil, color2: x.fuel === 'oilgas' && !steel ? gas : undefined,
     picto: x.product === 'gas' ? 'flame' : 'barrel', pictoColor: x.product === 'gas' ? gas : oil,
   };
@@ -311,6 +316,12 @@ export const POWER_R = [1.8, 2.5, 3.3, 4.3, 5.6];
 /** Below this zoom factor the power mode shows the country summary. */
 export const FAR_K = 2.6;
 export const POWER_RP = [4.4, 5, 5.8, 7, 8.6];
+/** What the points dim around: the selected point, or the sites of the owner in focus (or nothing). */
+function focusOf(S: AtlasState, points: PointItem[]): Scene['focus'] {
+  const owner = ownerNorm(S.filters.ownerFocus);
+  const id = S.selection && points.some((p) => p.kind === S.selection!.kind && p.id === S.selection!.id) ? S.selection.id : undefined;
+  return owner || id ? { owner, id } : undefined;
+}
 /** Per-state capacity by type of the given plants (the timeline's summary): those under construction apart. */
 function countriesOf(plants: PowerPlant[]): PowerCountries {
   const out: PowerCountries = {};
@@ -332,7 +343,7 @@ export function visiblePlants(W: Power, S: Timed): PowerPlant[] {
 export function powerPoint(P: Palette, p: PowerPlant): PointItem {
   const cls = powerClass(p.mw), c = p.status === 'mothballed' ? powerHalted(P, p.type) : powerColor(P, p.type);
   return {
-    lonlat: p.coords, kind: 'station', id: p.id, r: POWER_R[cls]!, rp: POWER_RP[cls]!, big: cls === 4, v: p.mw,
+    lonlat: p.coords, kind: 'station', id: p.id, r: POWER_R[cls]!, rp: POWER_RP[cls]!, big: cls === 4, v: p.mw, own: ownerNorm(p.owner),
     color: c, picto: POWER_PICTO[p.type], pictoColor: c, hollow: p.status === 'construction' || undefined,
   };
 }
@@ -350,7 +361,7 @@ export function facilityPoint(P: Palette, x: Facility): PointItem {
   const cls = facilityClass(x), base = layerColor(P, x.l);
   const c = x.st === 'mothballed' ? d3.interpolateLab(base, P.fg3)(0.65) : base;
   return {
-    lonlat: [x.lon, x.lat], kind: 'facility', id: x.id, r: POWER_R[cls]!, rp: POWER_RP[cls]!, big: cls === 4, v: sizeOf(x),
+    lonlat: [x.lon, x.lat], kind: 'facility', id: x.id, r: POWER_R[cls]!, rp: POWER_RP[cls]!, big: cls === 4, v: sizeOf(x), own: ownerNorm(ownerKey(x.par || x.o)),
     color: c, picto: LAYER[x.l].picto, pictoColor: c, hollow: x.st === 'construction' || undefined,
   };
 }
@@ -633,6 +644,7 @@ const BUILD: Record<LensId, Builder> = {
       for (const x of sites) points.push(x === sel ? { ...facilityPoint(P, x), keep: true } : facilityPoint(P, x));
     }
     sc.points = points.sort((a, b) => a.r - b.r);
+    sc.focus = focusOf(S, sc.points);
   },
 
   pipelines(sc, DB, S, P) {
@@ -640,9 +652,12 @@ const BUILD: Record<LensId, Builder> = {
     const E = getEnergy();
     if (!E) return;
     const groups = new Map<string, LineSet>();
+    // a selection or an owner in focus dims the other lines (the selected system is drawn over all)
+    const owner = ownerNorm(S.filters.ownerFocus), dimAll = S.selection?.kind === 'pipeline' || S.selection?.kind === 'field' || S.selection?.kind === 'lng';
     for (const p of visiblePipes(E, S)) {
       const cls = capacityClass(p.boe), strategic = E.noteOf.has(p.system);
-      const key = `${p.fuel}|${p.status}|${cls}|${strategic ? 1 : 0}`;
+      const faint = owner ? ownerNorm(ownerKey(p.owner)) !== owner : dimAll;
+      const key = `${p.fuel}|${p.status}|${cls}|${strategic ? 1 : 0}|${faint ? 1 : 0}`;
       let g = groups.get(key);
       if (!g) {
         const glow = strategic ? P.sel : undefined;
@@ -651,6 +666,7 @@ const BUILD: Record<LensId, Builder> = {
           : p.status === 'construction'
             ? { items: [], color: pipeColor(P, p.fuel), width: PIPE_W[cls]!, dash: PIPE_DASH, alpha: cls ? 0.95 : 0.7, glow, tube: 'sections' }
             : { items: [], color: pipeColor(P, p.fuel), width: PIPE_W[cls]!, alpha: cls ? 0.95 : 0.7, glow, tube: 'solid' };
+        if (faint) { g.alpha *= 0.35; g.glow = undefined; }
         groups.set(key, g);
       }
       g.items.push({ kind: 'pipeline', id: p.id, lines: p.lines, v: p.boe });
@@ -668,6 +684,7 @@ const BUILD: Record<LensId, Builder> = {
     const selField = S.selection?.kind === 'field' ? E.fieldById.get(S.selection.id) : undefined;
     if (selField && !fields.includes(selField)) fields.push(selField);
     sc.points = fields.map((x) => fieldPoint(P, x)).sort((a, b) => a.r - b.r);
+    sc.focus = focusOf(S, sc.points);
     const LM = E.meta.landmarks ?? {};
     for (const x of fields) {
       const lm = LM[x.id];

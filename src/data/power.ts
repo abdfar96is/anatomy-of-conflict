@@ -87,6 +87,8 @@ export interface PowerPlant {
   coords: [number, number]; iso3?: string;
   /** First year in service (or expected, under construction), and the year a retired plant closed: the timeline's years. */
   start?: number; end?: number;
+  /** The company it answers to: its first parent (else owner), without the share. */
+  owner?: string;
 }
 /** The rest, from power/detail/<ISO3>.json. */
 export interface PowerDetail {
@@ -103,7 +105,7 @@ export interface PowerDetail {
   /** GEM.wiki page when it is not the name with underscores; '' when GEM has none. */
   w?: string;
 }
-interface RawIndex { iso: string[]; id: number[]; n: string[]; t: string; s: string; mw: number[]; x: number[]; y: number[]; c: number[]; y0: number[]; y1: number[]; ar: [number, string][] }
+interface RawIndex { iso: string[]; id: number[]; n: string[]; t: string; s: string; mw: number[]; x: number[]; y: number[]; c: number[]; y0: number[]; y1: number[]; ar: [number, string][]; pa?: number[]; parents?: string[] }
 export interface PowerMeta {
   source: { name: string; publisher: string; release: string; file: string; url: string; license: string; licenseUrl: string; citation: string };
   wiki: string;
@@ -122,6 +124,7 @@ export function buildPower(raw: RawIndex, meta: PowerMeta): Power {
     id: plantId(n), name: raw.n[i]!, nameAr: ar.get(i) ?? meta.landmarks?.[plantId(n)]?.ar, type: CODE[raw.t[i]!]!, status: STATUS[raw.s[i]!]!, mw: raw.mw[i]!,
     coords: [raw.x[i]! / 1000, raw.y[i]! / 1000], iso3: raw.c[i]! >= 0 ? raw.iso[raw.c[i]!] : undefined,
     start: raw.y0[i] || undefined, end: raw.y1[i] || undefined,
+    owner: raw.pa && raw.parents && raw.pa[i]! >= 0 ? raw.parents[raw.pa[i]!] : undefined,
   }));
   return { plants, byId: new Map(plants.map((p) => [p.id, p])), meta };
 }

@@ -810,19 +810,26 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
     const k = absScale() / baseScale(), allPicto = !interacting && k >= 4;
     // in the far view only the large points (and the selection) stay, as landmarks over the coloured states
     const far = farness(sc) > 0.5;
+    // a selection or an owner in focus: the other points are drawn faint, under the lit ones
+    const f = sc.focus;
+    const faint = (p: PointItem) => !!f && p.id !== f.id && (f.owner ? p.own !== f.owner : true);
+    // on a light map the light halo does little for pale hues: each dot gets an outline in its own darker shade
+    const light = d3.hsl(P.land).l > 0.6;
     // dots are batched by size (smallest first, so the large ones stay on top): per size, one path for the halos and
     // one per colour, so thousands of points stay cheap
     type Bucket = { halo: Path2D; rings: Path2D; fills: Map<string, Path2D>; strokes: Map<string, Path2D>; halves: { x: number; y: number; p: PointItem }[] };
-    const buckets = new Map<number, Bucket>();
+    const layers = [new Map<number, Bucket>(), new Map<number, Bucket>()]; // faint, lit
     const add = (m: Map<string, Path2D>, color: string) => { let path = m.get(color); if (!path) m.set(color, path = new Path2D()); return path; };
-    const pictos: { x: number; y: number; p: PointItem }[] = [];
+    const pictos: { x: number; y: number; p: PointItem; dim: boolean }[] = [];
     for (const p of sc.points) {
       if (far && !p.big && !p.keep) continue;
       if (interacting && p.r < 3 && k < 4) continue;
       const q = projectVisible(p.lonlat, cen);
       if (!q) continue;
       const [x, y] = q;
-      if (allPicto || p.big) { pictos.push({ x, y, p }); pointHits.push({ x, y, r: p.rp, p }); continue; }
+      const dim = faint(p);
+      if (allPicto || p.big) { pictos.push({ x, y, p, dim }); pointHits.push({ x, y, r: p.rp, p }); continue; }
+      const buckets = layers[dim ? 0 : 1]!;
       let b = buckets.get(p.r);
       if (!b) buckets.set(p.r, b = { halo: new Path2D(), rings: new Path2D(), fills: new Map(), strokes: new Map(), halves: [] });
       if (p.hollow) {
@@ -837,19 +844,31 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
       }
       pointHits.push({ x, y, r: Math.max(p.r, 2.5), p });
     }
-    for (const b of buckets.values()) {
-      ctx.fillStyle = P.halo; ctx.fill(b.halo);
-      for (const [color, path] of b.fills) { ctx.fillStyle = color; ctx.fill(path); }
-      for (const { x, y, p } of b.halves) { ctx.beginPath(); ctx.arc(x, y, p.r, -Math.PI / 2, Math.PI / 2); ctx.closePath(); ctx.fillStyle = p.color2!; ctx.fill(); }
-      // rings (under construction): a dark band under a coloured one, so they read on land and sea
-      ctx.strokeStyle = P.halo; ctx.lineWidth = 2.8; ctx.stroke(b.rings);
-      ctx.lineWidth = 1.3;
-      for (const [color, path] of b.strokes) { ctx.strokeStyle = color; ctx.stroke(path); }
+    layers.forEach((buckets, lit) => {
+      ctx.globalAlpha = lit ? 1 : 0.28;
+      for (const b of buckets.values()) {
+        ctx.fillStyle = P.halo; ctx.fill(b.halo);
+        for (const [color, path] of b.fills) {
+          ctx.fillStyle = color; ctx.fill(path);
+          if (light) { ctx.strokeStyle = shadesOf(color)[0]; ctx.lineWidth = 0.8; ctx.stroke(path); }
+        }
+        for (const { x, y, p } of b.halves) { ctx.beginPath(); ctx.arc(x, y, p.r, -Math.PI / 2, Math.PI / 2); ctx.closePath(); ctx.fillStyle = p.color2!; ctx.fill(); }
+        // rings (under construction): a dark band under a coloured one, so they read on land and sea
+        ctx.strokeStyle = P.halo; ctx.lineWidth = 2.8; ctx.stroke(b.rings);
+        ctx.lineWidth = 1.3;
+        for (const [color, path] of b.strokes) { ctx.strokeStyle = light ? shadesOf(color)[0] : color; ctx.stroke(path); }
+      }
+    });
+    // symbols: the faint first, then the lit
+    for (const pass of [true, false]) {
+      ctx.globalAlpha = pass ? 0.28 : 1;
+      for (const { x, y, p, dim } of pictos) {
+        if (dim !== pass) continue;
+        ctx.save(); ctx.translate(x, y); drawPicto(ctx, p.picto, p.rp, p.pictoColor, P); ctx.restore();
+        if (p.hollow) ring(ctx, x, y, p.rp + 1.6, p.pictoColor, 1.1, P.halo);
+      }
     }
-    for (const { x, y, p } of pictos) {
-      ctx.save(); ctx.translate(x, y); drawPicto(ctx, p.picto, p.rp, p.pictoColor, P); ctx.restore();
-      if (p.hollow) ring(ctx, x, y, p.rp + 1.6, p.pictoColor, 1.1, P.halo);
-    }
+    ctx.globalAlpha = 1;
   }
 
   /** Segment grid of the scene's lines: cell → [item, part, vertex index of the segment's end]. */
