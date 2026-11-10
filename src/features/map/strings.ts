@@ -5,6 +5,8 @@ import { registerStrings } from '../../i18n/strings';
 registerStrings({
   ar: {
     'map.ctl': 'أدوات الخريطة',
+    'map.tl.play': 'شاهد النمو منذ 1950', 'map.tl.playTip': 'يفعّل فلترة الخريطة بالسنة ويشغّل الخط الزمني من 1950 حتى اليوم',
+    'map.tl.on': 'الخريطة كما في {y}: ما بدأ تشغيله حتى ذلك العام.', 'map.tl.undated': 'ولا يظهر {n} عنصراً لا يعرف المصدر سنة تشغيله.',
     'map.zoomIn': 'تكبير',
     'map.zoomOut': 'تصغير',
     'map.reset': 'إعادة ضبط العرض',
@@ -75,6 +77,8 @@ registerStrings({
   },
   en: {
     'map.ctl': 'Map controls',
+    'map.tl.play': 'Watch the build-out since 1950', 'map.tl.playTip': 'Turns on the map year filter and plays the timeline from 1950 to today',
+    'map.tl.on': 'The map as of {y}: what had started by then.', 'map.tl.undated': '{n} items with no known start year are left out.',
     'map.zoomIn': 'Zoom in',
     'map.zoomOut': 'Zoom out',
     'map.reset': 'Reset view',

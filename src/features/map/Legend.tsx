@@ -7,6 +7,7 @@ import { atlas, useAtlas, type AtlasState } from '../../app/store';
 import { useDb, useT } from '../../app/useT';
 import { CHOKE_STATUS, LENSES, NUCLEAR_CIVIL, NUCLEAR_STATUS, NUCLEAR_UNIT, RESOURCE_CLASSES, SEVERITY } from '../../config';
 import type { DB } from '../../data/types';
+import { esc } from '../../ui/dom';
 import { Icon } from '../../ui/Icon';
 import { Picto } from '../../ui/Picto';
 import { PICTO_GROUPS, SITE_PICTO } from '../../ui/pictograms';
@@ -18,7 +19,7 @@ import {
 } from './engine/scene';
 import { FUELS, FUEL_LABEL, PIPE_STATUS, STATUS_LABEL, capacityClass, isHalted, systemName } from '../../data/energy';
 import { useEnergy } from '../pipelines/useEnergy';
-import { POWER_LABEL, POWER_PICTO, POWER_STATUS_LABEL, POWER_TYPES, SUMMARY_ENDS, powerClass } from '../../data/power';
+import { POWER_LABEL, POWER_PICTO, POWER_STATUS_LABEL, POWER_TYPES, SUMMARY_ENDS, inYear, powerClass } from '../../data/power';
 import { usePower } from '../power/usePower';
 import { useIndustry } from '../power/useIndustry';
 import { INDUSTRY_LAYERS, INDUSTRY_STATUS_LABEL, LAYER, LAYER_LABEL } from '../../data/industry';
@@ -467,13 +468,14 @@ function PipelinesCard({ S, P, T: { t, pick: L, fmt, lang } }: Ctx) {
   if (!E) return <Note text={failed ? t('pp.failed') : t('pp.loading')} />;
   const f = S.filters;
   const shown = visiblePipes(E, S), lng = visibleLng(E, S), fields = visibleFields(E, S);
-  const allFields = visibleFields(E, { filters: { ...f, pipeFields: true } });
+  const allFields = visibleFields(E, { ...S, filters: { ...f, pipeFields: true } });
   const fieldsOf = (fuel: string) => fields.filter((x) => x.fuel === fuel).length;
   // counts under the other filter, so each chip says what turning it on would add
-  const sourced = (p: (typeof E.pipes)[number]) => !f.pipeStrategic || E.noteOf.has(p.system);
+  const sourced = (p: (typeof E.pipes)[number]) => (!f.pipeStrategic || E.noteOf.has(p.system)) && inYear(S, p.year);
   const byStatus = E.pipes.filter((p) => !isHalted(p) && f.pipeFuels.has(p.fuel) && sourced(p));
   const byFuel = E.pipes.filter((p) => (isHalted(p) ? f.pipeHalted : f.pipeStatus === 'all' || p.status === f.pipeStatus) && sourced(p));
   const halted = E.pipes.filter((p) => isHalted(p) && f.pipeFuels.has(p.fuel) && sourced(p));
+  const undated = E.pipes.filter((p) => !p.year && f.pipeFuels.has(p.fuel)).length + (f.pipeFields ? E.fields.filter((x) => !x.start).length : 0);
   const fuels = FUELS.map((id) => (
     <Chip key={id} act="toggle" k="pipeFuels" val={id} pressed={f.pipeFuels.has(id)} label={L(FUEL_LABEL[id])} n={byFuel.filter((p) => p.fuel === id).length}
       lead={<TubeGlyph color={fuelVar(id)} />} onClick={() => atlas.toggleInSet('pipeFuels', id)} />
@@ -546,11 +548,30 @@ function PipelinesCard({ S, P, T: { t, pick: L, fmt, lang } }: Ctx) {
         <p className="lc-note">{t('pp.total', { n: fmt.num(shown.length), km: fmt.num(Math.round(km / 1000) * 1000) })}</p>
       </Sec>
       <Sec label={t('pp.notes')}><ul className="bd-changes">{notes}</ul></Sec>
+      <TimelineNote S={S} undated={undated} caveat={t('pp.tl.caveat')} />
       {fields.length ? <Note text={t('pp.fieldsNote')} /> : null}
       {f.pipeHalted ? <Note text={t('pp.haltedNote')} /> : null}
       <Note text={t('pp.note')} />
     </>
   );
+}
+
+/**
+ * The timeline in an infrastructure lens: off, a button that plays the build-out from 1950; on, the year the map shows,
+ * what has no known year, and what the data cannot show of the past.
+ */
+function TimelineNote({ S, undated, caveat }: { S: LegendState; undated: number; caveat: string }) {
+  const { t, fmt } = useT();
+  if (!S.yearFilter) {
+    return (
+      <div className="chips">
+        <button type="button" className="chip tl-play" data-tip={esc(t('map.tl.playTip'))} onClick={() => atlas.set({ yearFilter: true, year: 1950, playing: true })}>
+          <Icon name="play" size={13} />{t('map.tl.play')}
+        </button>
+      </div>
+    );
+  }
+  return <Note text={[t('map.tl.on', { y: S.year }), undated ? t('map.tl.undated', { n: fmt.num(undated) }) : '', caveat].filter(Boolean).join(' ')} />;
 }
 
 /** The Power & industry card: plant types, status, the mothballed layer, and the size key. */
@@ -575,10 +596,12 @@ function IndustrySites({ S, T: { t, pick: L, fmt } }: Ctx) {
   if (!X) return <Note text={failed ? t('in.failed') : t('in.loading')} />;
   const f = S.filters;
   const shown = visibleFacilities(X, S);
-  const active = X.sites.filter((x) => x.st !== 'mothballed');
+  const dated = X.sites.filter((x) => inYear(S, x.y));
+  const active = dated.filter((x) => x.st !== 'mothballed');
   const byLayer = active.filter((x) => f.powerStatus === 'all' || x.st === f.powerStatus);
   const byStatus = active.filter((x) => f.industryLayers.has(x.l));
-  const halted = X.sites.filter((x) => x.st === 'mothballed' && f.industryLayers.has(x.l));
+  const halted = dated.filter((x) => x.st === 'mothballed' && f.industryLayers.has(x.l));
+  const undated = X.sites.filter((x) => !x.y && f.industryLayers.has(x.l)).length;
   const layers = INDUSTRY_LAYERS.map((id) => (
     <Chip key={id} act="toggle" k="industryLayers" val={id} pressed={f.industryLayers.has(id)} label={L(LAYER_LABEL[id])} n={byLayer.filter((x) => x.l === id).length}
       lead={<Picto id={LAYER[id].picto} color={layerVar(id)} size={15} />} onClick={() => atlas.toggleInSet('industryLayers', id)} />
@@ -607,6 +630,7 @@ function IndustrySites({ S, T: { t, pick: L, fmt } }: Ctx) {
         </Keys>
         <p className="lc-note">{t('in.total', { n: fmt.num(shown.length) })}</p>
       </Sec>
+      <TimelineNote S={S} undated={undated} caveat={t('in.tl.caveat')} />
       <Note text={t('in.colorNote')} />
       <Note text={t('in.note')} />
     </>
@@ -620,21 +644,24 @@ function PowerPlants({ S, P, T: { t, pick: L, fmt } }: Ctx) {
   if (!W) return <Note text={failed ? t('pw.failed') : t('pw.loading')} />;
   const f = S.filters;
   const shown = visiblePlants(W, S);
-  // counts under the other filter, so each chip says what turning it on would add
-  const active = W.plants.filter((p) => p.status !== 'mothballed');
+  // counts under the other filter (and the timeline's year), so each chip says what turning it on would add
+  const dated = W.plants.filter((p) => inYear(S, p.start, p.end));
+  const status = (p: (typeof dated)[number]) => (p.status === 'retired' ? 'operating' : p.status);
+  const active = dated.filter((p) => p.status !== 'mothballed');
   const byStatus = active.filter((p) => f.powerTypes.has(p.type));
-  const byType = active.filter((p) => f.powerStatus === 'all' || p.status === f.powerStatus);
-  const halted = W.plants.filter((p) => p.status === 'mothballed' && f.powerTypes.has(p.type));
+  const byType = active.filter((p) => f.powerStatus === 'all' || status(p) === f.powerStatus);
+  const halted = dated.filter((p) => p.status === 'mothballed' && f.powerTypes.has(p.type));
   const types = POWER_TYPES.map((id) => (
     <Chip key={id} act="toggle" k="powerTypes" val={id} pressed={f.powerTypes.has(id)} label={L(POWER_LABEL[id])} n={byType.filter((p) => p.type === id).length}
       lead={<Picto id={POWER_PICTO[id]} color={powerVar(id)} size={15} />} onClick={() => atlas.toggleInSet('powerTypes', id)} />
   ));
   const statuses = (['all', 'operating', 'construction'] as const).map((id) => (
     <Chip key={id} act="set" k="powerStatus" val={id} pressed={f.powerStatus === id} label={id === 'all' ? t('pw.all') : L(POWER_STATUS_LABEL[id])}
-      n={id === 'all' ? byStatus.length : byStatus.filter((p) => p.status === id).length}
+      n={id === 'all' ? byStatus.length : byStatus.filter((p) => status(p) === id).length}
       lead={id === 'all' ? undefined : <PlantDot color="var(--fg-2)" r={3.5} ring={id === 'construction'} />}
       onClick={() => atlas.setFilter('powerStatus', id)} />
   ));
+  const undated = W.plants.filter((p) => !p.start && p.status !== 'retired' && f.powerTypes.has(p.type)).length;
   const sizes = [4, 3, 2, 1, 0].map((cls) => (
     <KeyRow key={cls} lead={<PlantDot color="var(--fg-2)" r={POWER_R[cls]} />} label={t('pw.s' + cls)} n={shown.filter((p) => powerClass(p.mw) === cls).length} />
   ));
@@ -667,7 +694,8 @@ function PowerPlants({ S, P, T: { t, pick: L, fmt } }: Ctx) {
         </Keys>
         <p className="lc-note">{t('pw.total', { n: fmt.num(shown.length), gw: fmt.num(Math.round(gw)) })}</p>
       </Sec>
-      {sm !== 'off' ? <Note text={t('pw.sum.note')} /> : null}
+      <TimelineNote S={S} undated={undated} caveat={t('pw.tl.caveat')} />
+      {sm !== 'off' ? <Note text={S.yearFilter ? t('pw.sum.noteYear') : t('pw.sum.note')} /> : null}
       <Note text={t('pw.colorNote')} />
       <Note text={t('pw.note')} />
     </>

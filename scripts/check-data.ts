@@ -264,10 +264,10 @@ export function checkData(dataDir: string): Problem[] {
     const metaText = fs.readFileSync(path.join(powerDir, 'meta.json'), 'utf8').replace(/\r\n/g, '\n');
     if (metaText !== formatJson(JSON.parse(metaText))) layout.push({ file: 'power/meta.json', path: '', message: 'not in the canonical layout; run npm run format-data' });
     const W = JSON.parse(fs.readFileSync(path.join(powerDir, 'plants.json'), 'utf8')) as {
-      iso: string[]; id: number[]; n: string[]; t: string; s: string; mw: number[]; x: number[]; y: number[]; c: number[]; ar: [number, string][];
+      iso: string[]; id: number[]; n: string[]; t: string; s: string; mw: number[]; x: number[]; y: number[]; c: number[]; y0: number[]; y1: number[]; ar: [number, string][];
     };
     const n = W.id.length;
-    for (const [k, v] of Object.entries({ n: W.n, t: W.t, s: W.s, mw: W.mw, x: W.x, y: W.y, c: W.c })) {
+    for (const [k, v] of Object.entries({ n: W.n, t: W.t, s: W.s, mw: W.mw, x: W.x, y: W.y, c: W.c, y0: W.y0, y1: W.y1 })) {
       if (v.length !== n) problems.push({ file: pf, path: k, message: `${v.length} values for ${n} plants` });
     }
     W.iso.forEach((iso, i) => country(pf, `iso[${i}]`, iso));
@@ -279,7 +279,11 @@ export function checkData(dataDir: string): Problem[] {
       ids.add(id);
       if (!W.n[i]?.trim()) problems.push({ file: pf, path: `n${at}`, message: 'missing name' });
       if (!'cgnhswbe'.includes(W.t[i]!)) problems.push({ file: pf, path: `t${at}`, message: 'unknown type code', value: W.t[i] });
-      if (!'ocm'.includes(W.s[i]!)) problems.push({ file: pf, path: `s${at}`, message: 'unknown status code', value: W.s[i] });
+      if (!'ocmr'.includes(W.s[i]!)) problems.push({ file: pf, path: `s${at}`, message: 'unknown status code', value: W.s[i] });
+      const y0 = W.y0[i]!, y1 = W.y1[i]!;
+      if (y0 && !(y0 > 1850 && y0 < 2100)) problems.push({ file: pf, path: `y0${at}`, message: 'not a year', value: y0 });
+      if ((W.s[i] === 'r') !== !!y1) problems.push({ file: pf, path: `y1${at}`, message: 'a retirement year for retired plants, and only for them', value: y1 });
+      if (y1 && !(y1 >= y0)) problems.push({ file: pf, path: `y1${at}`, message: 'retired before it started', value: [y0, y1] });
       if (!(W.mw[i]! >= 0)) problems.push({ file: pf, path: `mw${at}`, message: 'not a capacity', value: W.mw[i] });
       if (Math.abs(W.x[i]!) > 180000 || Math.abs(W.y[i]!) > 90000) problems.push({ file: pf, path: at, message: 'coordinates out of range', value: [W.x[i], W.y[i]] });
       const c = W.c[i]!;

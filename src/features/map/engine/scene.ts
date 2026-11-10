@@ -17,7 +17,7 @@ import {
   ACCURACY_LABEL, FIELD_FUEL_LABEL, FIELD_STATUS_LABEL, FUEL_LABEL, STATUS_LABEL, capacityClass, fmtCapacity, fmtMtpa, getEnergy, isHalted, pipeName,
   type Energy, type Fuel, type LngTerminal, type OilField, type Pipeline,
 } from '../../../data/energy';
-import { POWER_LABEL, POWER_PICTO, POWER_SLOT, POWER_STATUS_LABEL, fmtMW, getPower, getPowerCountries, powerClass, summaryRamp, summaryValue, type Power, type PowerPlant, type PowerType } from '../../../data/power';
+import { POWER_LABEL, POWER_PICTO, POWER_SLOT, POWER_STATUS_LABEL, fmtMW, getPower, getPowerCountries, inYear, powerClass, summaryRamp, summaryValue, type Power, type PowerCountries, type PowerPlant, type PowerType } from '../../../data/power';
 import { INDUSTRY_STATUS_LABEL, LAYER, LAYER_ONE, facilityClass, fmtTonnes, getIndustry, type Facility, type Industry, type IndustryLayer } from '../../../data/industry';
 import '../../power/strings';
 
@@ -270,17 +270,19 @@ export const lngShape = (t: LngTerminal) => (t.status === 'construction' ? 'dash
 export const lngRadius = (t: LngTerminal) => Math.min(7, 2.6 + Math.sqrt(t.mtpa.operating || t.mtpa.construction) * 0.65);
 
 /** Segments the pipelines lens shows under the current filters. */
-export function visiblePipes(E: Energy, S: Pick<AtlasState, 'filters'>): Pipeline[] {
+/** The lens filters, and the timeline when it is on (dated items only, as of its year). */
+type Timed = Pick<AtlasState, 'filters'> & Partial<Pick<AtlasState, 'year' | 'yearFilter'>>;
+export function visiblePipes(E: Energy, S: Timed): Pipeline[] {
   const f = S.filters;
   return E.pipes.filter((p) => f.pipeFuels.has(p.fuel) && (isHalted(p) ? f.pipeHalted : f.pipeStatus === 'all' || p.status === f.pipeStatus)
-    && (!f.pipeStrategic || E.noteOf.has(p.system)));
+    && (!f.pipeStrategic || E.noteOf.has(p.system)) && inYear(S, p.year));
 }
 /** GEM oil and gas fields the pipelines lens shows: by fuel, by status (mothballed ones with the halted layer). */
-export function visibleFields(E: Energy, S: Pick<AtlasState, 'filters'>): OilField[] {
+export function visibleFields(E: Energy, S: Timed): OilField[] {
   const f = S.filters;
   if (!f.pipeFields) return [];
   return E.fields.filter((x) => (x.fuel === 'oilgas' ? f.pipeFuels.has('oil') || f.pipeFuels.has('gas') : f.pipeFuels.has(x.fuel))
-    && (x.status === 'mothballed' ? f.pipeHalted : f.pipeStatus === 'all' || x.status === f.pipeStatus));
+    && (x.status === 'mothballed' ? f.pipeHalted : f.pipeStatus === 'all' || x.status === f.pipeStatus) && inYear(S, x.start));
 }
 /** Size class of a field by production (million boe a year): 0 unknown, then under 5, 25, 100, and 100 or more. */
 export const fieldClass = (boe?: number) => (!boe ? 0 : boe < 5 ? 1 : boe < 25 ? 2 : boe < 100 ? 3 : 4);
@@ -303,11 +305,23 @@ export const POWER_R = [1.8, 2.5, 3.3, 4.3, 5.6];
 /** Below this zoom factor the power mode shows the country summary. */
 export const FAR_K = 2.6;
 export const POWER_RP = [4.4, 5, 5.8, 7, 8.6];
+/** Per-state capacity by type of the given plants (the timeline's summary): those under construction apart. */
+function countriesOf(plants: PowerPlant[]): PowerCountries {
+  const out: PowerCountries = {};
+  for (const p of plants) {
+    if (!p.iso3) continue;
+    const c = (out[p.iso3] ??= {});
+    const m = p.status === 'construction' ? (c.con ??= {}) : (c.op ??= {});
+    m[p.type] = (m[p.type] ?? 0) + p.mw;
+  }
+  return out;
+}
 /** Plants the Power & industry lens shows: by type, by status (mothballed ones with their own layer). */
-export function visiblePlants(W: Power, S: Pick<AtlasState, 'filters'>): PowerPlant[] {
+export function visiblePlants(W: Power, S: Timed): PowerPlant[] {
   const f = S.filters;
-  return W.plants.filter((p) => f.powerTypes.has(p.type)
-    && (p.status === 'mothballed' ? f.powerHalted : f.powerStatus === 'all' || p.status === f.powerStatus));
+  // with the timeline on, a retired plant counts as operating for the status chips (it was, in the years it shows)
+  return W.plants.filter((p) => f.powerTypes.has(p.type) && inYear(S, p.start, p.end)
+    && (p.status === 'mothballed' ? f.powerHalted : f.powerStatus === 'all' || (p.status === 'retired' ? 'operating' : p.status) === f.powerStatus));
 }
 export function powerPoint(P: Palette, p: PowerPlant): PointItem {
   const cls = powerClass(p.mw), c = p.status === 'mothballed' ? powerHalted(P, p.type) : powerColor(P, p.type);
@@ -321,10 +335,10 @@ export function powerPoint(P: Palette, p: PowerPlant): PointItem {
 export const layerColor = (P: Palette, l: IndustryLayer) => P.cat[LAYER[l].slot]!;
 export const layerVar = (l: IndustryLayer) => `var(--cat-${LAYER[l].slot})`;
 /** Sites the industry mode shows: by layer and by status (mothballed ones with the mothballed layer). */
-export function visibleFacilities(X: Industry, S: Pick<AtlasState, 'filters'>): Facility[] {
+export function visibleFacilities(X: Industry, S: Timed): Facility[] {
   const f = S.filters;
   return X.sites.filter((x) => f.industryLayers.has(x.l)
-    && (x.st === 'mothballed' ? f.powerHalted : f.powerStatus === 'all' || x.st === f.powerStatus));
+    && (x.st === 'mothballed' ? f.powerHalted : f.powerStatus === 'all' || x.st === f.powerStatus) && inYear(S, x.y));
 }
 export function facilityPoint(P: Palette, x: Facility): PointItem {
   const cls = facilityClass(x), base = layerColor(P, x.l);
@@ -335,9 +349,9 @@ export function facilityPoint(P: Palette, x: Facility): PointItem {
   };
 }
 
-export function visibleLng(E: Energy, S: Pick<AtlasState, 'filters'>): LngTerminal[] {
+export function visibleLng(E: Energy, S: Timed): LngTerminal[] {
   const f = S.filters;
-  return f.pipeLng && f.pipeFuels.has('gas') ? E.lng.filter((t) => f.pipeStatus === 'all' || t.status === f.pipeStatus) : [];
+  return f.pipeLng && f.pipeFuels.has('gas') ? E.lng.filter((t) => (f.pipeStatus === 'all' || t.status === f.pipeStatus) && inYear(S, t.year ?? t.yearPlanned)) : [];
 }
 const mwShown = (p: Plant) => p.mw.operating + p.mw.suspended || p.mw.building;
 /** Historical borders: a colonial power's colour, stronger for its home territory than for its dependencies. */
@@ -580,15 +594,18 @@ const BUILD: Record<LensId, Builder> = {
     const points: PointItem[] = [];
     // power plants, or mines and heavy industry: one mode at a time, so the two colour sets never share the map
     const W = getPower();
+    let shown: PowerPlant[] = [];
     if (W) {
       const plants = S.filters.industryMode === 'power' ? visiblePlants(W, S) : [];
+      shown = [...plants];
       // a selected plant stays drawn whatever the filters
       const sel = S.selection?.kind === 'station' ? W.byId.get(S.selection.id) : undefined;
       if (sel && !plants.includes(sel)) plants.push(sel);
       for (const p of plants) points.push(p === sel ? { ...powerPoint(P, p), keep: true } : powerPoint(P, p));
     }
-    // zoomed out in power mode: the states by the chosen summary, with only the largest plants as landmarks
-    const C = getPowerCountries(), m = S.filters.powerSummary;
+    // zoomed out in power mode: the states by the chosen summary, with only the largest plants as landmarks; with the
+    // timeline on, the summary sums the plants standing that year instead of today's totals
+    const C = S.yearFilter ? (W ? countriesOf(shown) : null) : getPowerCountries(), m = S.filters.powerSummary;
     if (C && m !== 'off' && S.filters.industryMode === 'power') {
       const fill = new Map<string, string>();
       for (const c of DB.countries.values()) {
