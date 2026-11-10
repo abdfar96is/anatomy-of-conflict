@@ -99,7 +99,7 @@ describe('the lens', () => {
   const P = {
     land: '#2a3440', landMuted: '#20262e', fg: '#ffffff', fg2: '#cccccc', fg3: '#999999', sel: '#ffd040', halo: '#000000',
     cat: ['#000', '#3987e5', '#d95926', '#199e70', '#c98500', '#d55181', '#2f9e3a', '#9085e9', '#e66767'],
-    seq: () => '#555555', status: { good: '#00ff00', warn: '#ffaa00', critical: '#ff0000' },
+    seq: () => '#555555', status: { good: '#00ff00', warn: '#ffaa00', critical: '#ff0000' }, resClass: {},
   } as unknown as Palette;
   const S = (filters: Partial<ReturnType<typeof initialState>['filters']> = {}, selection: ReturnType<typeof initialState>['selection'] = null) => {
     const s = initialState();
@@ -123,8 +123,18 @@ describe('the lens', () => {
       expect(!!l.dash).toBe(st.has('construction'));
     }
     expect(sc.markers.filter((m) => m.kind === 'lng')).toHaveLength(E.lng.length);
-    // the sourced lines carry a casing
-    expect(sc.lines.filter((l) => l.casing).flatMap((l) => l.items).every((it) => E.noteOf.has(E.byId.get(it.id)!.system))).toBe(true);
+    // the sourced lines, and only they, carry a glow in the selection colour
+    const glowing = sc.lines.filter((l) => l.glow).flatMap((l) => l.items).map((it) => E.byId.get(it.id)!);
+    expect(glowing.length).toBeGreaterThan(0);
+    expect(glowing.every((p) => E.noteOf.has(p.system))).toBe(true);
+    expect(sc.lines.filter((l) => !l.glow).flatMap((l) => l.items).some((it) => E.noteOf.has(E.byId.get(it.id)!.system))).toBe(false);
+    expect(new Set(sc.lines.filter((l) => l.glow).map((l) => l.glow))).toEqual(new Set([P.sel]));
+    expect(sc.lines.some((l) => l.casing)).toBe(false);
+    // every set can be drawn as a pipe once zoomed in: whole lengths, or sections for lines under construction
+    for (const l of sc.lines) {
+      const st = E.byId.get(l.items[0]!.id)!.status;
+      expect(l.tube).toBe(st === 'construction' ? 'sections' : 'solid');
+    }
   });
 
   test('filters: fuel, status, sourced lines only, LNG terminals off', () => {
@@ -144,6 +154,8 @@ describe('the lens', () => {
     expect(halted.flatMap((l) => l.items)).toHaveLength(E.pipes.filter(isHalted).length);
     for (const l of halted) {
       expect(l.cap).toBe('round');
+      // grey steel, not the fuel colour
+      expect(Object.values(P.cat)).not.toContain(l.color);
       expect(l.items.every((it) => isHalted(E.byId.get(it.id)!))).toBe(true);
     }
     // the status filter applies to active lines only
@@ -167,6 +179,15 @@ describe('the lens', () => {
     expect(document.getElementById('dz-panel')!.textContent).toContain('gross sabotage');
     act(() => { atlas.select('pipeline', ns.id, { fly: false }); });
     expect(document.getElementById('dz-panel')!.textContent).toContain('Stopped2022');
+  });
+
+  test('oil and gas sites in the resources lens are drawn as a barrel and a flame, in the pipelines\' fuel colours', () => {
+    const s = initialState();
+    const sc = buildScene(db, { ...s, lens: 'resources' }, P);
+    const shapeOf = (type: string) => new Set(sc.markers.filter((m) => m.kind === 'site' && db.siteById.get(m.id)!.type === type).map((m) => `${m.shape} ${m.color}`));
+    expect(shapeOf('oil')).toEqual(new Set([`barrel ${P.cat[4]}`]));
+    expect(shapeOf('gas')).toEqual(new Set([`flame ${P.cat[1]}`]));
+    expect([...shapeOf('copper')].some((x) => x.startsWith('barrel') || x.startsWith('flame'))).toBe(false);
   });
 
   test('a selected segment highlights its whole system', () => {
@@ -245,8 +266,12 @@ describe('the lens', () => {
     expect(E.byId.get(atlas.get().selection!.id)!.system).toBe('Druzhba Oil Pipeline');
   });
 
-  test('share links open the lens on a line or a terminal, before the data loads', () => {
-    expect(parseHash('pipeline-P0547', db)).toEqual({ patch: { lens: 'pipelines', selection: { kind: 'pipeline', id: 'P0547' }, view: null } });
+  test('share links open the lens on a line or a terminal before the data loads, and fly there once it is in', () => {
+    const sel = { kind: 'pipeline', id: 'P0547' };
+    setEnergy(null);
+    expect(parseHash('pipeline-P0547', db)).toEqual({ patch: { lens: 'pipelines', selection: sel, view: null } });
+    setEnergy(E);
+    expect(parseHash('pipeline-P0547', db)).toEqual({ patch: { lens: 'pipelines', selection: sel, view: null }, fly: sel });
     expect(parseHash('lng-T100000130208-e', db)?.patch?.selection).toEqual({ kind: 'lng', id: 'T100000130208-e' });
     expect(parseHash('pipeline-x', db)).toBeNull();
   });

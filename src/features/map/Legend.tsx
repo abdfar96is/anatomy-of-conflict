@@ -11,7 +11,7 @@ import { Icon } from '../../ui/Icon';
 import { catVar, edgeVar, pal, resClassVar, sevVar, traditionColor, type Palette } from '../../ui/palette';
 import {
   BLOC_T, CHOKE_T, CONTINENTS, ETHNIC_CLASSES, GDP_RANGE, INCOME, POP_RANGE, RES_SHAPE,
-  PIPE_DASH, PIPE_DOTS, PIPE_W, activeBloc, bi, borderFill, decadeWindow, ethnicClass, fuelVar, landTint, lngColor, nuclearCivilFill, nuclearFill, nuclearZoneFill, plantColor, seqFill,
+  PIPE_DASH, PIPE_DOTS, PIPE_W, SITE_ICON, activeBloc, bi, borderFill, decadeWindow, ethnicClass, fuelVar, landTint, lngColor, nuclearCivilFill, nuclearFill, nuclearZoneFill, plantColor, seqFill,
   visibleConflicts, visibleLng, visiblePipes, windowEvents,
 } from './engine/scene';
 import { FUELS, FUEL_LABEL, PIPE_STATUS, STATUS_LABEL, capacityClass, isHalted, systemName } from '../../data/energy';
@@ -41,6 +41,21 @@ export function Glyph({ shape, color, size = 14 }: { shape: string; color: strin
     case 'hex': body = <path d="M0-5.4L4.7-2.7V2.7L0 5.4-4.7 2.7V-2.7z" style={f} />; break;
     case 'pin': body = <circle r="3.8" style={f} />; break;
     case 'choke': body = <circle r="5" style={{ fill: `color-mix(in srgb, ${color} 22%, transparent)`, stroke: color, strokeWidth: 2 }} />; break;
+    case 'barrel': {
+      const dark = `color-mix(in srgb, ${color} 45%, black)`, light = `color-mix(in srgb, ${color} 40%, white)`;
+      body = <>
+        <path d="M-3.1-4.75Q-4.3 0-3.1 4.75H3.1Q4.3 0 3.1-4.75Z" style={{ fill: color, stroke: dark, strokeWidth: 0.8 }} />
+        <path d="M-3.9-1.9H3.9M-3.9 1.9H3.9" style={{ stroke: dark, strokeWidth: 1 }} />
+        <ellipse cy="-4.75" rx="3.1" ry="1" style={{ fill: light, stroke: dark, strokeWidth: 0.7 }} />
+      </>;
+      break;
+    }
+    case 'flame': {
+      const dark = `color-mix(in srgb, ${color} 45%, black)`, light = `color-mix(in srgb, ${color} 40%, white)`;
+      const d = 'M1-6.5C2.75-3.75 5-1.25 4.25 2 3.6 4.75 1.5 5.5 0 5.5-1.75 5.5-4.1 4.4-4.25 1.75-4.4-.25-3-1.75-2.25-3.5-1.75-1.75-1-1.25-.25-1.75.75-3 1.25-4.5 1-6.5Z';
+      body = <><path d={d} style={{ fill: color, stroke: dark, strokeWidth: 0.8 }} /><path d={d} transform="translate(0 2.1) scale(.5)" style={{ fill: light }} /></>;
+      break;
+    }
     default: body = <circle r="4.6" style={f} />;
   }
   return <svg className="glyph" width={size} height={size} viewBox="-7 -7 14 14" aria-hidden="true">{body}</svg>;
@@ -51,6 +66,18 @@ function LineGlyph({ color, dash = '', width = 2, round = false }: { color: stri
   if (dash) style.strokeDasharray = dash;
   if (round) style.strokeLinecap = 'round';
   return <svg className="glyph line" width="26" height="10" viewBox="0 0 26 10" aria-hidden="true"><line x1="2" y1="5" x2="24" y2="5" style={style} /></svg>;
+}
+
+/** A short pipe as the map draws it zoomed in: rim, body, light core (and a soft glow for the sourced lines). */
+function TubeGlyph({ color, dash = '', glow = false }: { color: string; dash?: string; glow?: boolean }) {
+  const line = (stroke: string, width: number, extra: CSSProperties = {}) =>
+    <line x1="4" y1="5" x2="22" y2="5" style={{ stroke, strokeWidth: width, strokeLinecap: dash ? 'butt' : 'round', strokeDasharray: dash || undefined, ...extra }} />;
+  return (
+    <svg className="glyph line" width="26" height="10" viewBox="0 0 26 10" aria-hidden="true">
+      {glow ? line('var(--sel)', 8, { opacity: 0.5 }) : null}
+      {line(`color-mix(in srgb, ${color} 45%, black)`, 5.6)}{line(color, 4)}{line(`color-mix(in srgb, ${color} 40%, white)`, 1.2, { opacity: 0.9 })}
+    </svg>
+  );
 }
 
 const Sw = ({ bg, cls = '' }: { bg: string; cls?: string }) => <span className={`sw ${cls}`} style={{ background: bg }} aria-hidden="true" />;
@@ -355,9 +382,17 @@ const BODY: Record<(typeof LENSES)[number]['id'], (c: Ctx) => ReactNode> = {
         <Chip key={c.id} act="set" k="resourceClass" val={c.id} pressed={cls === c.id} label={L(c)} n={n.get(c.id) || 0}
           lead={<Glyph shape={RES_SHAPE[c.id] ?? 'disc'} color={resClassVar(c.id)} />} onClick={() => atlas.setFilter('resourceClass', c.id)} />
       )));
+    const sites = DB.resources.sites;
+    const icons = !cls || cls === 'energy' ? (
+      <Keys>
+        <KeyRow lead={<Glyph shape="barrel" color="var(--cat-4)" size={16} />} label={t('map.rs.oil')} n={sites.filter((s) => SITE_ICON[s.type]?.shape === 'barrel').length} />
+        <KeyRow lead={<Glyph shape="flame" color="var(--cat-1)" size={16} />} label={t('map.rs.gas')} n={sites.filter((s) => SITE_ICON[s.type]?.shape === 'flame').length} />
+      </Keys>
+    ) : null;
     return (
       <>
         <Sec label={t('map.rs.class')}><Chips label={t('map.rs.class')}>{items}</Chips></Sec>
+        {icons ? <Sec>{icons}</Sec> : null}
         <Sec label={t('map.rs.ramp')}><Ramp lo={t('map.rs.low')} hi={t('map.rs.first')} label={t('map.rs.ramp')} P={P} /></Sec>
         <Note text={L(DB.resources.coverageNote)} />
       </>
@@ -419,7 +454,7 @@ function PipelinesCard({ S, P, T: { t, pick: L, fmt, lang } }: Ctx) {
   const halted = E.pipes.filter((p) => isHalted(p) && f.pipeFuels.has(p.fuel) && sourced(p));
   const fuels = FUELS.map((id) => (
     <Chip key={id} act="toggle" k="pipeFuels" val={id} pressed={f.pipeFuels.has(id)} label={L(FUEL_LABEL[id])} n={byFuel.filter((p) => p.fuel === id).length}
-      lead={<LineGlyph color={fuelVar(id)} width={2.6} round />} onClick={() => atlas.toggleInSet('pipeFuels', id)} />
+      lead={<TubeGlyph color={fuelVar(id)} />} onClick={() => atlas.toggleInSet('pipeFuels', id)} />
   ));
   const statuses = (['all', ...PIPE_STATUS] as const).map((id) => (
     <Chip key={id} act="set" k="pipeStatus" val={id} pressed={f.pipeStatus === id} label={id === 'all' ? t('pp.all') : L(STATUS_LABEL[id])}
@@ -428,6 +463,7 @@ function PipelinesCard({ S, P, T: { t, pick: L, fmt, lang } }: Ctx) {
       onClick={() => atlas.setFilter('pipeStatus', id)} />
   ));
   const km = shown.reduce((a, p) => a + (p.km ?? 0), 0);
+  const haltedVar = 'color-mix(in srgb, var(--cat-1) 35%, var(--fg-3))';
   const weights = [4, 3, 2, 1, 0].map((cls) => (
     <KeyRow key={cls} lead={<LineGlyph color="var(--fg-2)" width={PIPE_W[cls]! * 1.3} round />} label={t('pp.w' + cls)} n={shown.filter((p) => capacityClass(p.boe) === cls).length} />
   ));
@@ -458,7 +494,7 @@ function PipelinesCard({ S, P, T: { t, pick: L, fmt, lang } }: Ctx) {
           <Chip act="layer" k="pipeLng" pressed={f.pipeLng} label={t('pp.lng')} n={lng.length || undefined} lead={<Glyph shape="triangle" color={lngColor(P)} size={12} />}
             onClick={() => atlas.setFilter('pipeLng', !f.pipeLng)} />
           <Chip act="layer" k="pipeHalted" pressed={f.pipeHalted} label={t('pp.halted')} n={halted.length}
-            lead={<LineGlyph color="var(--fg-2)" width={2.4} dash={PIPE_DOTS.join(' ')} round />} onClick={() => atlas.setFilter('pipeHalted', !f.pipeHalted)} />
+            lead={<LineGlyph color={haltedVar} width={2.4} dash={PIPE_DOTS.join(' ')} round />} onClick={() => atlas.setFilter('pipeHalted', !f.pipeHalted)} />
           <Chip act="layer" k="pipeStrategic" pressed={f.pipeStrategic} label={t('pp.strategic')} n={E.meta.notes.length}
             onClick={() => atlas.setFilter('pipeStrategic', !f.pipeStrategic)} />
         </Chips>
@@ -467,8 +503,9 @@ function PipelinesCard({ S, P, T: { t, pick: L, fmt, lang } }: Ctx) {
         <Keys>{weights}</Keys>
         <Keys>
           <KeyRow lead={<LineGlyph color="var(--fg-2)" width={2} dash={PIPE_DASH.join(' ')} />} label={t('pp.dashed')} />
-          {f.pipeHalted ? <KeyRow lead={<LineGlyph color="var(--fg-2)" width={2.4} dash={PIPE_DOTS.join(' ')} round />} label={t('pp.dotted')} n={shown.filter(isHalted).length} /> : null}
-          <KeyRow lead={<span className="pp-cased" aria-hidden="true"><LineGlyph color="var(--fg-2)" width={2.4} round /></span>} label={t('pp.cased')} />
+          {f.pipeHalted ? <KeyRow lead={<LineGlyph color={haltedVar} width={2.4} dash={PIPE_DOTS.join(' ')} round />} label={t('pp.dotted')} n={shown.filter(isHalted).length} /> : null}
+          <KeyRow lead={<TubeGlyph color="var(--cat-4)" glow />} label={t('pp.cased')} />
+          <KeyRow lead={<TubeGlyph color="var(--cat-1)" />} label={t('pp.tube')} />
           {f.pipeLng && f.pipeFuels.has('gas') ? <>
             <KeyRow lead={<Glyph shape="triangle" color={lngColor(P)} />} label={t('pp.lngExport')} n={lng.filter((x) => x.type === 'export' && x.status === 'operating').length} />
             <KeyRow lead={<Glyph shape="square" color={lngColor(P)} />} label={t('pp.lngImport')} n={lng.filter((x) => x.type === 'import' && x.status === 'operating').length} />

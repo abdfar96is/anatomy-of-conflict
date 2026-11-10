@@ -116,11 +116,8 @@
 #legend .sw-round { border-radius: 50%; }
 #legend .glyph { flex: none; display: block; overflow: visible; }
 #legend .glyph.line { width: 26px; }
-/* a sourced strategic line: the same halo casing the map draws under it */
-#legend .pp-cased { display: inline-flex; }
 #legend .bd-change.pp-note { display: flex; align-items: center; gap: 8px; }
 #legend .pp-note .glyph.line { width: 18px; }
-#legend .pp-cased line { filter: drop-shadow(0 0 1.2px var(--label-halo)) drop-shadow(0 0 1.2px var(--label-halo)); }
 #legend .weights, #legend .sizes { display: inline-flex; align-items: center; gap: 3px; flex: none; }
 #legend .weights .glyph.line { width: 16px; }
 #legend .dot-accent { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex: none; margin-inline: 2.5px; box-shadow: 0 0 0 1.5px var(--label-halo); }
