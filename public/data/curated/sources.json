@@ -108,8 +108,8 @@
         "en": "Version 5.2.0-pre from the natural-earth-vector repository on GitHub. The scalerank field shows the major rivers when zoomed out and the rest when zoomed in."
       },
       "limitations": {
-        "ar": "خطوط مركزية مبسّطة لا ضفاف، وبلا أسماء عربية في هذا المقياس، فلا تُكتب أسماء الأنهار على الخريطة.",
-        "en": "Simplified centrelines, not banks, and without Arabic names at this scale, so the map does not label rivers."
+        "ar": "خطوط مركزية مبسّطة لا ضفاف. لا أسماء عربية للأنهار في هذا المقياس، فأسماء الأنهار الكبرى الـ59 على الخريطة (geo/water.json) من إعداد الأطلس.",
+        "en": "Simplified centrelines, not banks. Natural Earth has no Arabic river names at this scale, so the names of the 59 major rivers on the map (geo/water.json) are the atlas's own."
       },
       "fieldsUsed": ["scalerank"]
     },
@@ -137,6 +137,31 @@
         "en": "Populations are Natural Earth's approximate estimates (POP_MAX), used only for ranking; the Arabic names are Natural Earth's as given."
       },
       "fieldsUsed": ["NAME", "NAME_AR", "POP_MAX", "SCALERANK", "FEATURECLA"]
+    },
+    {
+      "id": "ne-marine",
+      "file": "water.json",
+      "title": {
+        "ar": "أسماء البحار والمحيطات والخلجان — Natural Earth مقياس 1:50m",
+        "en": "Sea, ocean and gulf names — Natural Earth 1:50m"
+      },
+      "publisher": "Natural Earth",
+      "url": "https://www.naturalearthdata.com/downloads/",
+      "license": "Public domain",
+      "lastRetrieved": "2026-11-11",
+      "resolution": {
+        "ar": "116 اسماً، لكل منها نقطة واحدة لكتابة الاسم",
+        "en": "116 names, each with one point to set the name at"
+      },
+      "methodology": {
+        "ar": "من ملف المسطحات المائية (geography_marine_polys) في النسخة 5.2.0-pre من مستودع natural-earth-vector على GitHub، بأسمائه العربية. نقطة الاسم أبعد نقطة داخل المسطح عن سواحله، وحُدّدت يدوياً للخليج العربي والبحر الأحمر والبحر الأبيض المتوسط وخليج عدن. يُستعمل حقل scalerank لإظهار الأكبر عند التصغير.",
+        "en": "From the marine polygons (geography_marine_polys) of version 5.2.0-pre of the natural-earth-vector repository on GitHub, with their Arabic names. Each name sits at the point inside the water farthest from its coasts, set by hand for the Persian Gulf, the Red Sea, the Mediterranean and the Gulf of Aden. The scalerank field shows the largest when zoomed out."
+      },
+      "limitations": {
+        "ar": "الأسماء العربية والإنجليزية كما ترد في Natural Earth.",
+        "en": "The Arabic and English names are Natural Earth's as given."
+      },
+      "fieldsUsed": ["name", "name_ar", "featurecla", "scalerank"]
     },
     {
       "id": "cshapes",

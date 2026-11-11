@@ -369,7 +369,7 @@ export function checkData(dataDir: string): Problem[] {
     });
   }
 
-  // 9. Natural Earth base layers (geo/rivers.json, geo/cities.json): the columns the map reads, in range.
+  // 9. Natural Earth base layers (geo/rivers.json, geo/cities.json, geo/water.json): the columns the map reads, in range.
   const inRange = (lon: unknown, lat: unknown) => Number.isFinite(lon) && Number.isFinite(lat) && Math.abs(lon as number) <= 180 && Math.abs(lat as number) <= 90;
   const riversFile = path.join(dataDir, 'geo', 'rivers.json');
   if (fs.existsSync(riversFile)) {
@@ -397,6 +397,31 @@ export function checkData(dataDir: string): Problem[] {
       else prev = pop as number;
       if (!Number.isInteger(rank) || (rank as number) < 0 || (rank as number) > 10) problems.push({ file: cf, path: `${at}[5]`, message: 'scale rank outside 0–10', value: rank });
       if (cap !== 0 && cap !== 1) problems.push({ file: cf, path: `${at}[6]`, message: 'capital flag not 0 or 1', value: cap });
+    });
+  }
+  const waterFile = path.join(dataDir, 'geo', 'water.json');
+  if (fs.existsSync(waterFile)) {
+    const wf = 'geo/water.json';
+    const W = JSON.parse(fs.readFileSync(waterFile, 'utf8')) as { seas: unknown[][]; rivers: unknown[][] };
+    const named = (at: string, ar: unknown, en: unknown) => {
+      if (typeof ar !== 'string' || !/[\u0600-\u06ff]/.test(ar)) problems.push({ file: wf, path: `${at}[0]`, message: 'no Arabic name', value: ar });
+      if (typeof en !== 'string' || !en) problems.push({ file: wf, path: `${at}[1]`, message: 'no name' });
+    };
+    W.seas.forEach(([ar, en, cla, rank, lon, lat], i) => {
+      const at = `seas[${i}]`;
+      named(at, ar, en);
+      if (!['ocean', 'sea', 'gulf', 'bay', 'strait', 'channel', 'sound', 'river'].includes(cla as string)) problems.push({ file: wf, path: `${at}[2]`, message: 'unknown kind of water', value: cla });
+      if (!Number.isInteger(rank) || (rank as number) < 0 || (rank as number) > 6) problems.push({ file: wf, path: `${at}[3]`, message: 'scale rank outside 0–6', value: rank });
+      if (!inRange(lon, lat)) problems.push({ file: wf, path: at, message: 'coordinates out of range', value: [lon, lat] });
+    });
+    W.rivers.forEach(([ar, en, rank, places], i) => {
+      const at = `rivers[${i}]`;
+      named(at, ar, en);
+      if (!Number.isInteger(rank) || (rank as number) < 1 || (rank as number) > 6) problems.push({ file: wf, path: `${at}[2]`, message: 'scale rank outside 1–6', value: rank });
+      if (!Array.isArray(places) || !places.length) problems.push({ file: wf, path: `${at}[3]`, message: 'no place for the name' });
+      else (places as number[][]).forEach((pl, j) => {
+        if (pl.length !== 4 || !inRange(pl[0], pl[1]) || !inRange(pl[2], pl[3])) problems.push({ file: wf, path: `${at}[3][${j}]`, message: 'a place is [lon, lat, lon2, lat2] in range', value: pl });
+      });
     });
   }
   return [...layout, ...problems];

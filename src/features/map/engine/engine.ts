@@ -10,7 +10,7 @@ import { onStateChange } from '../../../app/compat';
 import { emit, on } from '../../../app/events';
 import { atlas, type AtlasState } from '../../../app/store';
 import { setInView, type InViewItem } from '../inview';
-import { getCities, getRivers, subscribeBasemap, type River } from '../../../data/basemap';
+import { getCities, getRivers, getWater, subscribeBasemap, type River } from '../../../data/basemap';
 import { getEnergy } from '../../../data/energy';
 import type { Country, DB, Kind } from '../../../data/types';
 import type { Lang } from '../../../i18n/format';
@@ -92,7 +92,7 @@ interface ShapeRec { full: Feature; coarse: Feature; fine: Feature | null; cap: 
 interface GeoRec extends ShapeRec { iso3: string; c: Country; focus?: Geometry | null; bbox: Bounds; cap: { center: LonLat; r: number }; ub: Bounds; area: number }
 interface PolyMeta extends ShapeRec { bbox: Bounds; area: number }
 interface Colors {
-  P: Palette; bg: string; surface: string; ink: string; font: string; fontData: string; oceanHi: string; river: string;
+  P: Palette; bg: string; surface: string; ink: string; font: string; fontData: string; oceanHi: string; river: string; waterInk: string;
   glow: string; glow0: string; limb0: string; limb: string; rim: string; dimTo: string; warn: string;
 }
 interface Motion { step(now: number): boolean }
@@ -455,6 +455,8 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
       oceanHi: d3.interpolateLab(P.ocean, dark ? P.fg3 : surface)(dark ? 0.1 : 0.55),
       // rivers: the sea's hue, lifted toward blue so they read as water on any land fill
       river: d3.interpolateLab(P.ocean, dark ? '#6aa6dc' : '#3f87c4')(dark ? 0.6 : 0.55),
+      // water names: the rivers' blue, softened toward the muted ink
+      waterInk: d3.interpolateLab(P.fg3, dark ? '#7fb4e4' : '#2f6fa8')(dark ? 0.55 : 0.6),
       glow: rgba(P.fg3, dark ? 0.2 : 0.16),
       glow0: rgba(P.fg3, 0),
       limb0: rgba(dark ? cssVar('--bg') : P.fg3, 0),
@@ -678,7 +680,7 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
       riverSets = { src: R, sets: [...by].sort((a, b) => a[0] - b[0]) };
     }
     const k = absScale() / baseScale();
-    const maxRank = k < 1.5 ? 2 : k < 2.5 ? 3 : k < 4 ? 4 : k < 7 ? 5 : 6;
+    const maxRank = riverRank(k);
     const zw = Math.sqrt(lineZoom());
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
@@ -1132,7 +1134,69 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
       }
     }
     if (S.layers.cities) drawCities(ctx, grid, P, X, cen, k);
+    if (S.layers.rivers) drawRiverNames(ctx, grid, P, X, cen, k);
+    if (S.layers.seas) drawSeaNames(ctx, grid, P, X, cen, k);
     drawBadges(ctx, sc, P, X, cen, grid);
+  }
+
+  /** River ranks shown at a zoom (the river lines and their names). */
+  function riverRank(k: number) { return k < 1.5 ? 2 : k < 2.5 ? 3 : k < 4 ? 4 : k < 7 ? 5 : 6; }
+
+  /**
+   * Major rivers' names along the river (turned to read left to right, set just above the line), after every other
+   * name: half way down its longest line, or a third or two thirds of the way where that is taken, or not at all.
+   */
+  function drawRiverNames(ctx: CanvasRenderingContext2D, grid: Grid, P: Palette, X: Colors, cen: LonLat, k: number) {
+    const Wt = getWater();
+    if (!Wt) return;
+    const max = riverRank(k), ar = atlas.get().lang === 'ar';
+    const size = 10.5, font = `italic 500 ${size}px ${X.font}`, h = size + 3;
+    for (const r of Wt.rivers) {
+      if (r.rank > max) continue;
+      const text = ar ? r.ar : r.en, w = textW(ctx, font, text);
+      for (const [lon, lat, lon2, lat2] of r.places) {
+        const a = projectVisible([lon, lat], cen), b = projectVisible([lon2, lat2], cen);
+        if (!a || !b || a[0] < 0 || a[0] > W || a[1] < 0 || a[1] > H) continue;
+        let ang = Math.atan2(b[1] - a[1], b[0] - a[0]);
+        if (ang > Math.PI / 2) ang -= Math.PI;
+        if (ang < -Math.PI / 2) ang += Math.PI;
+        // set off the line by half a line height, on the upper side
+        const off = h / 2 + 1, x = a[0] + Math.sin(ang) * off, y = a[1] - Math.cos(ang) * off;
+        const c = Math.abs(Math.cos(ang)), s = Math.abs(Math.sin(ang));
+        const hx = (c * w + s * h) / 2 + 1, hy = (s * w + c * h) / 2 + 1;
+        const box: Rect = [x - hx, y - hy, x + hx, y + hy];
+        if (!grid.free(box)) continue;
+        grid.mark(box);
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.rotate(ang);
+        drawText(ctx, [text], 0, 0, size, font, X.waterInk, P.halo);
+        ctx.restore();
+        break;
+      }
+    }
+  }
+
+  /**
+   * Sea and ocean names, after every other name and only where they fit: the oceans at every zoom, the large seas
+   * and gulfs from the world view, the smaller ones (and straits) as the map zooms in.
+   */
+  function drawSeaNames(ctx: CanvasRenderingContext2D, grid: Grid, P: Palette, X: Colors, cen: LonLat, k: number) {
+    const Wt = getWater();
+    if (!Wt) return;
+    const max = k < 2 ? 1 : k < 3 ? 2 : k < 5 ? 3 : 4, ar = atlas.get().lang === 'ar';
+    for (const s of Wt.seas) {
+      if (s.rank > max) continue;
+      const p = projectVisible([s.lon, s.lat], cen);
+      if (!p || p[0] < 0 || p[0] > W || p[1] < 0 || p[1] > H) continue;
+      const size = s.cla === 'ocean' ? 13 : s.rank <= 1 ? 11.5 : 10.5, font = `italic 500 ${size}px ${X.font}`;
+      const { lines, w } = wrapLabel(ctx, font, ar ? s.ar : s.en, s.cla === 'ocean' ? 140 : 100);
+      const hh = (lines.length * size * 1.2) / 2 + 1;
+      const box: Rect = [p[0] - w / 2 - 2, p[1] - hh, p[0] + w / 2 + 2, p[1] + hh];
+      if (!grid.free(box)) continue;
+      grid.mark(box);
+      drawText(ctx, lines, p[0], p[1], size, font, X.waterInk, P.halo);
+    }
   }
 
   /**

@@ -43,8 +43,8 @@ export interface Filters {
 }
 export interface Layers {
   labels: boolean; graticule: boolean; boundaries: boolean; disputed: boolean; ethnic: boolean; conflicts: boolean; arcs: boolean;
-  /** Natural Earth base layers, off until asked for (their files load then). */
-  rivers: boolean; cities: boolean;
+  /** Natural Earth base layers: rivers and cities off until asked for (their files load then), sea names on. */
+  rivers: boolean; cities: boolean; seas: boolean;
 }
 
 export interface AtlasState extends Prefs {
@@ -76,7 +76,7 @@ export const initialState = (): AtlasState => ({
     powerTypes: new Set(['hydro', 'gas', 'wind', 'solar', 'geo', 'bio', 'nuclear', 'coal']), powerStatus: 'all', powerHalted: false,
     industryMode: 'power', powerSummary: 'total', industryLayers: new Set(['cm', 'io', 'st', 'ce', 'ch', 'ct']), ownerFocus: null,
   },
-  layers: { labels: true, graticule: true, boundaries: true, disputed: true, ethnic: false, conflicts: false, arcs: false, rivers: false, cities: false },
+  layers: { labels: true, graticule: true, boundaries: true, disputed: true, ethnic: false, conflicts: false, arcs: false, rivers: false, cities: false, seas: true },
 });
 
 export const useAtlas = create<AtlasState>()(() => ({ ...initialState(), ...loadPrefs() }));
