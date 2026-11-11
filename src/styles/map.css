@@ -150,6 +150,9 @@
 #legend .bd-change.pp-note { display: flex; align-items: center; gap: 8px; }
 #legend .pp-note .glyph.line { width: 18px; }
 #legend .weights, #legend .sizes { display: inline-flex; align-items: center; gap: 3px; flex: none; }
+/* nuclear warheads: a circle scaled as on the map, in a fixed box so the names line up */
+#legend .nc-head { width: 26px; height: 26px; display: inline-grid; place-items: center; flex: none; }
+#legend .nc-head > span { display: block; border-radius: 50%; background: color-mix(in srgb, var(--fg) 16%, transparent); box-shadow: inset 0 0 0 1.2px var(--fg); }
 #legend .weights .glyph.line { width: 16px; }
 #legend .dot-accent { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex: none; margin-inline: 2.5px; box-shadow: 0 0 0 1.5px var(--label-halo); }
 #legend .bang {

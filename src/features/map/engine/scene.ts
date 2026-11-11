@@ -186,12 +186,17 @@ export interface Scene {
   far?: { fill: Map<string, string>; k: number };
   /** Points other than the selected one, or than the focused owner's, are drawn faint. */
   focus?: { id?: string; owner?: string };
+  /** Proportional circles over states (nuclear warheads), with their figure below. */
+  bubbles: Bubble[];
   /** Today's country names would mislead on a historical map: the borders lens turns them off. */
   hideCountryLabels?: boolean;
 }
 
+/** A circle whose area stands for a state's figure, at the state's label point. */
+export interface Bubble { lonlat: LonLat; r: number; text: string; iso3: string }
+
 export function emptyScene(): Scene {
-  return { fill: new Map(), hatch: new Set(), hatchAlpha: 0.5, emph: null, outlines: [], polys: [], under: [], selPolys: [], arcs: [], markers: [], labels: [], badges: [], lines: [], selLines: [], points: [], pins: [], selRing: null, pulse: false };
+  return { fill: new Map(), hatch: new Set(), hatchAlpha: 0.5, emph: null, outlines: [], polys: [], under: [], selPolys: [], arcs: [], markers: [], labels: [], badges: [], lines: [], selLines: [], points: [], pins: [], bubbles: [], selRing: null, pulse: false };
 }
 
 // ---- fixed lens vocabularies (slots are per entity, never by rank)
@@ -262,6 +267,34 @@ export const nuclearCivilFill = (P: Palette, id: keyof typeof NUCLEAR_CIVIL) => 
 export const plantColor = (P: Palette, status: keyof typeof NUCLEAR_UNIT) =>
   status === 'operating' ? P.status.good : status === 'suspended' ? P.status.warn : status === 'building' ? P.accent2 : P.fg3;
 export const plantRadius = (mw: number) => 3 + Math.sqrt(Math.max(0, mw)) / 9;
+/** The largest warhead circle (the largest arsenal), in pixels; the others by area. */
+export const WARHEAD_R = 38;
+export const warheadRadius = (n: number, max: number) => WARHEAD_R * Math.sqrt(n / max);
+
+/** A plant's units in service in a year: started by then and not yet shut for good (idle spells are not recorded). */
+export const unitsInYear = (p: Plant, year: number) =>
+  p.units.filter((u) => u.status !== 'building' && u.from != null && u.from <= year && (u.to == null || year < u.to));
+/**
+ * The plants the civil mode draws, each with the status and capacity it is drawn with: today's, or with the timeline on,
+ * those with a unit in service that year, sized by the units then in service.
+ */
+export function visibleNuclear(DB: DB, S: Pick<AtlasState, 'year' | 'yearFilter'>): { p: Plant; status: keyof typeof NUCLEAR_UNIT; mw: number }[] {
+  if (!S.yearFilter) return DB.nuclear.plants.map((p) => ({ p, status: p.status, mw: mwShown(p) }));
+  const out: { p: Plant; status: keyof typeof NUCLEAR_UNIT; mw: number }[] = [];
+  for (const p of DB.nuclear.plants) {
+    const us = unitsInYear(p, S.year);
+    if (us.length) out.push({ p, status: 'operating', mw: us.reduce((a, u) => a + (u.mw ?? 0), 0) });
+  }
+  return out;
+}
+/** A plant as a point: colour by status, a ring under construction or shut, the atom when zoomed in or large. */
+export function nuclearPoint(P: Palette, p: Plant, status: keyof typeof NUCLEAR_UNIT, mw: number): PointItem {
+  const cls = powerClass(mw), c = plantColor(P, status);
+  return {
+    lonlat: p.coords, kind: 'plant', id: p.id, r: POWER_R[cls]!, rp: POWER_RP[cls]!, big: cls === 4, v: mw,
+    color: c, picto: 'atom', pictoColor: c, hollow: status === 'building' || status === 'shutdown' || undefined,
+  };
+}
 
 // ---- pipelines: hue by fuel, weight by capacity, dashes for lines under construction
 const FUEL_SLOT: Record<Fuel, number> = { gas: 1, oil: 4, ngl: 7 };
@@ -578,7 +611,7 @@ const BUILD: Record<LensId, Builder> = {
       if (mode === 'military' && n.weapons) {
         sc.fill.set(c.iso3, nuclearFill(P, n.weapons));
         if ('unconfirmed' in NUCLEAR_STATUS[n.weapons]) sc.hatch.add(c.iso3);
-      } else if (mode === 'civil' && n.civil) {
+      } else if (mode === 'civil' && n.civil && !S.yearFilter) {
         sc.fill.set(c.iso3, nuclearCivilFill(P, n.civil));
         if (n.civil === 'phased-out') sc.hatch.add(c.iso3);
       } else if (mode === 'zones' && n.zones[0]) {
@@ -586,12 +619,28 @@ const BUILD: Record<LensId, Builder> = {
       }
     }
     sc.hatchAlpha = 0.5;
-    // plants: every plant in civil mode (largest first, so small ones sit on top); elsewhere only a selected one
-    const selPlant = S.selection?.kind === 'plant' ? S.selection.id : null;
-    const shown = mode === 'civil' ? DB.nuclear.plants : DB.nuclear.plants.filter((p) => p.id === selPlant);
-    for (const p of [...shown].sort((a, b) => mwShown(b) - mwShown(a))) {
-      sc.markers.push({ lonlat: p.coords, shape: NUCLEAR_UNIT[p.status].shape, r: plantRadius(mwShown(p)), color: plantColor(P, p.status), kind: 'plant', id: p.id });
+    // the arsenals: a circle per armed state, its area by the warheads
+    if (mode === 'military') {
+      const W = DB.nuclear.warheads.values, max = Math.max(1, ...Object.values(W));
+      for (const [iso, n] of Object.entries(W).sort((a, b) => b[1] - a[1])) {
+        const ll = llOf(DB.countries.get(iso));
+        if (ll) sc.bubbles.push({ lonlat: ll, r: warheadRadius(n, max), text: fmtNum(n, S.lang), iso3: iso });
+      }
     }
+    // plants: every plant in civil mode (with the timeline, those in service that year); elsewhere only a selected one.
+    // With the timeline on, the states are coloured by whether they ran a reactor that year.
+    const selPlant = S.selection?.kind === 'plant' ? S.selection.id : null;
+    const shown = mode === 'civil' ? visibleNuclear(DB, S) : DB.nuclear.plants.filter((p) => p.id === selPlant).map((p) => ({ p, status: p.status, mw: mwShown(p) }));
+    if (mode === 'civil' && S.yearFilter) for (const { p } of shown) sc.fill.set(p.iso3, nuclearCivilFill(P, 'operating'));
+    const sel = selPlant ? DB.plantById.get(selPlant) : undefined;
+    if (sel && !shown.some((x) => x.p === sel)) shown.push({ p: sel, status: sel.status, mw: mwShown(sel) });
+    for (const { p, status, mw } of shown) {
+      sc.points.push(p === sel ? { ...nuclearPoint(P, p, status, mw), keep: true } : nuclearPoint(P, p, status, mw));
+      // names from mid zoom, the largest first (shut plants only with the timeline, when they were running)
+      if (status !== 'shutdown') sc.pins.push({ lonlat: p.coords, text: pick(S.lang, p), pri: mw, r: POWER_RP[powerClass(mw)]!, big: powerClass(mw) === 4 });
+    }
+    sc.points.sort((a, b) => (a.v ?? 0) - (b.v ?? 0));
+    if (sel) sc.focus = { id: sel.id };
   },
 
   borders(sc, DB, S, P) {

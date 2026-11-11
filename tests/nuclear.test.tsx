@@ -15,7 +15,7 @@ import { LENSES } from '../src/config';
 import { build } from '../src/data/build';
 import type { DB, NuclearFile } from '../src/data/types';
 import { Dossier } from '../src/features/dossier';
-import { buildScene, tipFor } from '../src/features/map/engine/scene';
+import { WARHEAD_R, buildScene, tipFor, visibleNuclear } from '../src/features/map/engine/scene';
 import { Legend } from '../src/features/map/Legend';
 import { useGlobalKeys } from '../src/features/shell/keyboard';
 import '../src/i18n/core';
@@ -193,17 +193,78 @@ describe('nuclear power plants', () => {
     }
   });
 
-  test('civil mode draws every plant, sized by capacity; other modes only a selected plant', () => {
+  test('civil mode draws every plant as a point sized by capacity, with names; other modes only a selected plant', () => {
     const P = { land: '#2a3440', landMuted: '#20262e', accent2: '#40a0c0', fg3: '#999999', cat: Array(9).fill('#888888'), seq: () => '#555555', status: { good: '#00ff00', warn: '#ffaa00', critical: '#ff0000' } } as unknown as Palette;
     const s = initialState();
     const civil = buildScene(db, { ...s, lens: 'nuclear', filters: { ...s.filters, nuclearMode: 'civil' } }, P);
-    const plants = civil.markers.filter((m) => m.kind === 'plant');
+    const plants = civil.points.filter((m) => m.kind === 'plant');
     expect(plants.length).toBe(db.nuclear.plants.length);
-    const r = (id: string) => plants.find((m) => m.id === id)!.r;
-    expect(r('kashiwazaki-kariwa')).toBeGreaterThan(r('borssele'));
-    expect(plants.find((m) => m.id === 'zaporizhzhia')!.shape).toBe('dashed');
+    const pt = (id: string) => plants.find((m) => m.id === id)!;
+    expect(pt('kashiwazaki-kariwa').r).toBeGreaterThan(pt('borssele').r);
+    expect(pt('kashiwazaki-kariwa')).toMatchObject({ picto: 'atom', big: true });
+    // idle: filled in the warning colour; under construction and shut: rings
+    expect(pt('zaporizhzhia')).toMatchObject({ color: P.status.warn, hollow: undefined });
+    expect(pt('el-dabaa').hollow).toBe(true);
+    expect(pt('calder-hall')).toMatchObject({ hollow: true, color: P.fg3 });
+    // names for the plants in service or being built, not the shut ones
+    expect(civil.pins.map((x) => x.text)).toEqual(expect.arrayContaining(['زابوريجيا', 'الضبعة']));
+    expect(civil.pins.some((x) => x.text === 'كالدر هول')).toBe(false);
     const military = buildScene(db, { ...s, lens: 'nuclear', selection: { kind: 'plant', id: 'bushehr' } }, P);
-    expect(military.markers.filter((m) => m.kind === 'plant').map((m) => m.id)).toEqual(['bushehr']);
+    expect(military.points.map((m) => m.id)).toEqual(['bushehr']);
+    expect(military.points[0]!.keep).toBe(true);
+    expect(military.focus).toEqual({ id: 'bushehr' });
+  });
+
+  test('military mode draws a circle per arsenal, its area by the warheads', () => {
+    const P = { land: '#2a3440', landMuted: '#20262e', accent2: '#40a0c0', fg3: '#999999', cat: Array(9).fill('#888888'), seq: () => '#555555', status: { good: '#00ff00', warn: '#ffaa00', critical: '#ff0000' } } as unknown as Palette;
+    const s = initialState();
+    const sc = buildScene(db, { ...s, lens: 'nuclear', lang: 'en' }, P);
+    const W = db.nuclear.warheads.values;
+    expect(sc.bubbles.map((b) => b.iso3)).toEqual(Object.keys(W).sort((a, b) => W[b]! - W[a]!));
+    const r = (iso: string) => sc.bubbles.find((b) => b.iso3 === iso)!.r;
+    expect(r('RUS')).toBe(WARHEAD_R);
+    expect((r('USA') / r('RUS')) ** 2).toBeCloseTo(W.USA! / W.RUS!, 5);
+    expect(sc.bubbles.find((b) => b.iso3 === 'PRK')!.text).toBe(String(W.PRK));
+    expect(buildScene(db, { ...s, lens: 'nuclear', filters: { ...s.filters, nuclearMode: 'civil' } }, P).bubbles).toEqual([]);
+  });
+
+  test('with the timeline on, civil mode shows the plants in service that year, sized by the units then running', () => {
+    const P = { land: '#2a3440', landMuted: '#20262e', accent2: '#40a0c0', fg3: '#999999', cat: Array(9).fill('#888888'), seq: (t: number) => `seq${t}`, status: { good: '#00ff00', warn: '#ffaa00', critical: '#ff0000' } } as unknown as Palette;
+    const s = initialState();
+    const at = (year: number) => ({ ...s, lens: 'nuclear' as const, yearFilter: true, year, filters: { ...s.filters, nuclearMode: 'civil' as const } });
+    const ids = (year: number) => visibleNuclear(db, at(year)).map((x) => x.p.id);
+    expect(ids(1955)).toEqual(['obninsk']);
+    expect(ids(1960)).toEqual(expect.arrayContaining(['obninsk', 'calder-hall', 'shippingport', 'marcoule']));
+    expect(ids(1960)).not.toContain('barakah');
+    expect(visibleNuclear(db, at(1960)).find((x) => x.p.id === 'calder-hall')!.mw).toBe(140);
+    // shut in 2020: running in 2019, gone in 2020
+    expect(ids(2019)).toContain('fessenheim');
+    expect(ids(2020)).not.toContain('fessenheim');
+    expect(ids(2005)).toContain('ignalina');
+    expect(ids(2010)).not.toContain('ignalina');
+    // units under construction never show on the timeline
+    expect(ids(2026)).not.toContain('el-dabaa');
+    // the states that ran reactors that year are coloured
+    const sc = buildScene(db, at(1960), P);
+    expect([...sc.fill.keys()].sort()).toEqual(['FRA', 'GBR', 'RUS', 'USA']);
+    expect(sc.points.every((x) => !x.hollow)).toBe(true);
+  });
+
+  test('the card: the arsenals by size, and the plants with the timeline', () => {
+    atlas.set({ lens: 'nuclear', lang: 'en' });
+    render(<DbContext.Provider value={db}><Legend /></DbContext.Provider>);
+    const legend = document.getElementById('legend')!;
+    const heads = [...legend.querySelectorAll('[data-fold="map.nc.heads"] li')].map((li) => li.textContent);
+    expect(heads[0]).toMatch(/^Russia/);
+    expect(heads).toHaveLength(9);
+    act(() => { atlas.setFilter('nuclearMode', 'civil'); });
+    expect(legend.querySelector('.tl-play')).not.toBeNull();
+    expect(legend.textContent).toContain('The atom when zoomed in');
+    act(() => { atlas.set({ yearFilter: true, year: 1970 }); });
+    expect(legend.textContent).toContain('Plants in service in 1970');
+    expect(legend.textContent).toContain('idle spells are not recorded');
+    act(() => { atlas.setFilter('nuclearMode', 'military'); });
+    expect(legend.textContent).toContain('does not change with the timeline');
   });
 
   test('tooltip, search and the plant dossier', () => {
