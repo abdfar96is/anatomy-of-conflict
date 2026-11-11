@@ -15,7 +15,7 @@ import { LENSES } from '../src/config';
 import { build } from '../src/data/build';
 import type { DB, NuclearFile } from '../src/data/types';
 import { Dossier } from '../src/features/dossier';
-import { WARHEAD_R, buildScene, tipFor, visibleNuclear } from '../src/features/map/engine/scene';
+import { WARHEAD_R, buildScene, tipFor, treatyFill, visibleNuclear } from '../src/features/map/engine/scene';
 import { Legend } from '../src/features/map/Legend';
 import { useGlobalKeys } from '../src/features/shell/keyboard';
 import '../src/i18n/core';
@@ -136,8 +136,37 @@ describe('the lens', () => {
     const w = [...sec.querySelectorAll('.dz-fact')].find((f) => f.querySelector('dt')?.textContent === en('dz.nc.warheads'))!;
     expect(w.querySelector('dd')!.textContent).toBe('902026 · SIPRI');
     expect(sec.querySelectorAll('.dz-pv a').length).toBeGreaterThan(0);
+    // Israel outside the NPT, signed the CTBT without ratifying
+    expect(sec.textContent).toContain('Non-Proliferation TreatyNever joined');
+    expect(sec.textContent).toContain('Comprehensive Nuclear-Test-Ban TreatySigned, not ratified (1996)');
+    // a state with no weapons and no reactors still has its treaty statuses, each with its source
     act(() => { atlas.select('country', 'SAU', { fly: false }); });
-    expect(document.getElementById('dz-a-nuclear')).toBeNull();
+    const sau = document.getElementById('dz-a-nuclear')!;
+    expect(sau.textContent).toContain('Party (1988)');
+    expect(sau.textContent).toContain('Not signed');
+    expect(sau.textContent).toContain('Not a party and not signed');
+    expect([...sau.querySelectorAll('a')].map((a) => a.getAttribute('href'))).toContain('https://en.wikipedia.org/wiki/List_of_parties_to_the_Comprehensive_Nuclear-Test-Ban_Treaty');
+  });
+
+  test('treaties mode: states by their status under the chosen treaty; the CTBT hatches the Annex 2 holdouts', () => {
+    const P = { land: '#2a3440', landMuted: '#20262e', accent2: '#40a0c0', fg3: '#999999', cat: Array(9).fill('#888888'), seq: () => '#555555', status: { good: '#00ff00', warn: '#ffaa00', critical: '#ff0000' } } as unknown as Palette;
+    const s = initialState();
+    const at = (tr: 'npt' | 'ctbt' | 'tpnw') => buildScene(db, { ...s, lens: 'nuclear', filters: { ...s.filters, nuclearMode: 'treaties', nuclearTreaty: tr } }, P);
+    const npt = at('npt');
+    expect(npt.fill.get('PRK')).toBe(treatyFill(P, 'npt', 'withdrawn'));
+    expect(npt.fill.get('IND')).toBe(treatyFill(P, 'npt', 'non-party'));
+    expect(npt.fill.get('FRA')).toBe(treatyFill(P, 'npt', 'nws'));
+    expect(npt.hatch.has('TWN')).toBe(true);
+    const ctbt = at('ctbt');
+    expect(ctbt.fill.get('RUS')).toBe(treatyFill(P, 'ctbt', 'revoked'));
+    // the Annex 2 states that have not ratified, the ones that keep the treaty out of force
+    expect(['USA', 'CHN', 'IND', 'PAK', 'PRK', 'ISR', 'IRN', 'EGY', 'RUS'].every((iso) => ctbt.hatch.has(iso))).toBe(true);
+    expect(ctbt.hatch.has('FRA')).toBe(false);
+    const tpnw = at('tpnw');
+    expect(tpnw.fill.has('USA')).toBe(false);
+    expect(tpnw.fill.get('MEX')).toBe(treatyFill(P, 'tpnw', 'party'));
+    expect(tipFor({ kind: 'country', id: 'RUS' }, db, { ...s, lang: 'en', lens: 'nuclear', filters: { ...s.filters, nuclearMode: 'treaties', nuclearTreaty: 'ctbt' } }))
+      .toContain('CTBT: Withdrew its ratification (2023)');
   });
 });
 

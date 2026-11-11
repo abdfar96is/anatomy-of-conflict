@@ -2,7 +2,7 @@
 // Only the fields the app relies on are checked; any other field is allowed.
 
 import { z } from 'zod';
-import { NUCLEAR_CIVIL, NUCLEAR_NPT, NUCLEAR_STATUS, NUCLEAR_UNIT, SEVERITY } from '../src/config';
+import { NUCLEAR_CIVIL, NUCLEAR_NPT, NUCLEAR_STATUS, NUCLEAR_UNIT, SEVERITY, TREATY_STATUS } from '../src/config';
 
 const bi = z.object({ ar: z.string(), en: z.string() });
 const id = z.string().min(1);
@@ -98,6 +98,12 @@ export const SCHEMAS: Record<string, z.ZodType> = {
       note: bi.optional(), ...provenance,
     })),
     zones: z.array(z.looseObject({ id, ar: z.string(), en: z.string(), treaty: bi, year: z.number().int(), members: z.array(iso).min(1), sources: z.array(url).min(1) })),
+    treaties: z.looseObject({
+      asOf: day, publisher: z.string(), sources: z.array(url).min(3), note: bi.optional(),
+      npt: z.record(iso, z.tuple([z.enum(Object.keys(TREATY_STATUS.npt) as [string, ...string[]]), z.number().int().nullable()])),
+      ctbt: z.record(iso, z.tuple([z.enum(Object.keys(TREATY_STATUS.ctbt) as [string, ...string[]]), z.number().int().nullable(), z.union([z.literal(0), z.literal(1)])])),
+      tpnw: z.record(iso, z.tuple([z.enum(Object.keys(TREATY_STATUS.tpnw) as [string, ...string[]]), z.number().int().nullable()])),
+    }).optional(),
   }),
   'nuclear_plants.json': z.looseObject({
     source: z.looseObject({ base: z.looseObject({ name: z.string(), version: z.string(), date: day, url, license: z.string() }), changes: bi, limits: bi }),

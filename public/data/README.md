@@ -63,6 +63,12 @@ The Nuclear lens reads this file. `countries.<ISO3>` holds:
 
 `warheads` holds SIPRI's per-state estimates for one year, as total inventory. They must sum to SIPRI's world total for that year, and a test checks this. `zones` lists the nuclear-weapon-free zones with the states inside each treaty's scope. Membership of a zone does not mean a state has ratified the treaty. No military sites are recorded.
 
+`treaties` holds each state's status under three treaties, keyed by ISO3, with the year of the step that set it. The data comes from Wikipedia's lists of parties as of 11 November 2026, which follow the UN depositaries' records; the URLs are in `sources`.
+
+- `npt` (Non-Proliferation Treaty): `[status, year]`. The status is `nws` (one of the five recognised nuclear-weapon states), `party`, `abiding`, `withdrawn` or `non-party`. Taiwan is `abiding`: it ratified as the Republic of China before 1971 and says it abides by the treaty. North Korea is `withdrawn` (2003). India, Israel, Pakistan and South Sudan are `non-party`.
+- `ctbt` (Comprehensive Nuclear-Test-Ban Treaty): `[status, year, annex2]`. The status is `ratified`, `signed`, `revoked` or `none`. `annex2` is 1 for the 44 states whose ratification the treaty needs before it can enter into force. Russia is `revoked` (2023). The Wikipedia page warns that it may not have been updated since June 2025.
+- `tpnw` (Treaty on the Prohibition of Nuclear Weapons): `[status, year]`, where the status is `party` or `signed`. States not listed have neither signed nor joined.
+
 ## Nuclear power plants (`curated/nuclear_plants.json`)
 
 This file is derived from GeoNuclearData 0.17.17 (3 March 2024) and stays under that database's ODbL 1.0 licence. It holds one plant per site, and each plant lists its units with:

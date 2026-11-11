@@ -1,7 +1,7 @@
 // Country dossier: summary, religion, peoples, conflicts, relations, resources and history tabs.
 
 import { Fragment, type ReactNode } from 'react';
-import { NUCLEAR_CIVIL, NUCLEAR_NPT, NUCLEAR_STATUS } from '../../../config';
+import { NUCLEAR_CIVIL, NUCLEAR_NPT, NUCLEAR_STATUS, NUCLEAR_TREATIES, TREATY_STATUS, type TreatyId } from '../../../config';
 import { BarList, Donut, Pips, StackBar } from '../../../ui/charts';
 import { POWER_LABEL, POWER_TYPES, fmtMW, powerCountries } from '../../../data/power';
 import { powerVar } from '../../map/engine/scene';
@@ -141,8 +141,17 @@ function nuclear(c: Country, k: Kit) {
   const n = c.nuclear;
   const zones = n.zones.map((id) => db.nuclear.zoneById.get(id)).filter((z) => !!z);
   const plants = n.plants.map((id) => db.plantById.get(id)).filter((p) => !!p).sort((a, b) => (b.mw.operating + b.mw.suspended) - (a.mw.operating + a.mw.suspended));
-  if (!n.weapons && !n.civil && !n.warheads && !zones.length && !n.plants.length && (!n.npt || n.npt === 'party')) return null;
+  const T = db.nuclear.treaties;
+  const inTreaties = !!T && (['npt', 'ctbt', 'tpnw'] as const).some((tr) => T[tr][c.iso3]);
+  if (!n.weapons && !n.civil && !n.warheads && !zones.length && !n.plants.length && (!n.npt || n.npt === 'party') && !inTreaties) return null;
   const w = db.nuclear.warheads, fl = db.nuclear.fleet;
+  // a treaty's status and its year (of ratification, signature or withdrawal), from the parties lists
+  const treaty = (tr: TreatyId, i: number) => {
+    const v = T?.[tr][c.iso3];
+    return k.fact(L(NUCLEAR_TREATIES[tr]), v ? `${L(TREATY_STATUS[tr][v[0]])}${v[1] ? ` (${v[1]})` : ''}` : t('dz.nc.notParty'), {
+      text: true, wide: true, source: T ? { label: T.publisher, url: T.sources[i]!, tip: L(T.note) } : undefined,
+    });
+  };
   const host = n.host ? db.countries.get(n.host) : undefined;
   const facts = k.facts([
     k.fact(t('dz.nc.status'), n.weapons ? L(NUCLEAR_STATUS[n.weapons]) : t('dz.nc.noWeapons'), { text: true, wide: true }),
@@ -150,7 +159,9 @@ function nuclear(c: Country, k: Kit) {
       year: w.year, tipText: L(w.metric), source: { label: w.publisher, url: w.sources[0], tip: L(w.metric) },
     }) : null,
     host ? k.fact(t('dz.nc.host'), k.cchip(host.iso3), { text: true }) : null,
-    k.fact(t('dz.nc.npt'), n.npt ? L(NUCLEAR_NPT[n.npt]) : '—', { text: true }),
+    T?.npt[c.iso3] ? treaty('npt', 0) : k.fact(t('dz.nc.npt'), n.npt ? L(NUCLEAR_NPT[n.npt]) : '—', { text: true }),
+    T ? treaty('ctbt', 1) : null,
+    T ? treaty('tpnw', 2) : null,
     k.fact(t('dz.nc.civil'), n.civil ? L(NUCLEAR_CIVIL[n.civil]) : t('dz.nc.noCivil'), { text: true }),
     ...(n.fleet && (n.fleet.reactors || n.fleet.building) ? [
       k.fact(t('dz.nc.fleet'), <span className="data">{fmt.num(n.fleet.reactors)}</span>, { year: fl.year, tipText: L(fl.note), source: { label: fl.publisher, url: fl.sources[0], tip: L(fl.note) } }),

@@ -4,7 +4,7 @@
 import * as d3 from 'd3';
 import type { Feature, Position } from 'geojson';
 import type { AtlasState } from '../../../app/store';
-import { CHOKE_STATUS, NUCLEAR_CIVIL, NUCLEAR_STATUS, NUCLEAR_UNIT, SEVERITY, type LensId } from '../../../config';
+import { CHOKE_STATUS, NUCLEAR_CIVIL, NUCLEAR_STATUS, NUCLEAR_TREATIES, NUCLEAR_UNIT, SEVERITY, TREATY_STATUS, type LensId, type TreatyId } from '../../../config';
 import type { Bloc, Country, DB, Disputed, Kind, Plant, TimelineEvent } from '../../../data/types';
 import { fmtCompact, fmtDate, fmtGdp, fmtNum, fmtPct, type Bi, type Lang } from '../../../i18n/format';
 import { pick, pickKey, registerStrings, translate } from '../../../i18n/strings';
@@ -32,6 +32,7 @@ registerStrings({
     'map.tip.nuc.warheads': 'نحو {n} رأس نووي (تقدير SIPRI، {y})',
     'map.tip.nuc.civil0': 'لا مفاعلات طاقة مسجّلة',
     'map.tip.nuc.zone0': 'خارج المناطق الخالية من السلاح النووي',
+    'map.tip.nuc.notParty': 'ليست طرفاً ولم توقّع', 'map.tip.nuc.annex2': 'من دول المرفق 2: المعاهدة تنتظر تصديقها',
     'map.tip.plantMw': '{v} ميغاواط في الخدمة',
     'map.tip.bdRuled': '{s} · تحت حكم {r}', 'map.tip.bdPeriod': 'بهذه الحدود من {a} إلى {b}', 'map.tip.bdCap': 'العاصمة: {c}', 'map.tip.plantBuild': '{v} ميغاواط قيد الإنشاء',
     'map.tip.conflicts0': 'ليست طرفاً في أي ملف نزاع مرصود',
@@ -85,6 +86,7 @@ registerStrings({
     'map.tip.nuc.warheads': 'About {n} nuclear warheads (SIPRI estimate, {y})',
     'map.tip.nuc.civil0': 'No power reactors recorded',
     'map.tip.nuc.zone0': 'Outside the nuclear-weapon-free zones',
+    'map.tip.nuc.notParty': 'Not a party and not signed', 'map.tip.nuc.annex2': 'An Annex 2 state: the treaty awaits its ratification',
     'map.tip.plantMw': '{v} MWe in service',
     'map.tip.bdRuled': '{s} · ruled by {r}', 'map.tip.bdPeriod': 'With these borders from {a} to {b}', 'map.tip.bdCap': 'Capital: {c}', 'map.tip.plantBuild': '{v} MWe under construction',
     'map.tip.conflicts0': 'Not a party to any tracked conflict',
@@ -262,6 +264,18 @@ export function nuclearFill(P: Palette, id: keyof typeof NUCLEAR_STATUS): string
   const base = s.tone === 'accent' ? (P.cat[7] ?? P.accent2) : P.status[s.tone];
   return mix(P.land, base, s.strength);
 }
+/** A state's fill for its status under a treaty (the land colour pulled toward the status's tone). */
+export function treatyFill(P: Palette, tr: TreatyId, status: string): string {
+  const s = TREATY_STATUS[tr][status];
+  if (!s) return P.land;
+  const base = s.tone === 'accent' ? (P.cat[7] ?? P.accent2) : P.status[s.tone];
+  return mix(P.land, base, s.strength);
+}
+/** A state's status under a treaty: [status, year] (the CTBT adds 1 for an Annex 2 state), or undefined. */
+export const treatyOf = (DB: DB, tr: TreatyId, iso: string) => DB.nuclear.treaties?.[tr][iso];
+/** CTBT: an Annex 2 state that has not ratified, so the treaty cannot enter into force. */
+export const blocksCtbt = (v: readonly unknown[] | undefined) => !!v && v[2] === 1 && v[0] !== 'ratified';
+
 export const nuclearCivilFill = (P: Palette, id: keyof typeof NUCLEAR_CIVIL) => (id === 'phased-out' ? P.landMuted : seqFill(P, NUCLEAR_CIVIL[id].t));
 /** Plant markers: shape by status (NUCLEAR_UNIT), size by the capacity in service (or under construction). */
 export const plantColor = (P: Palette, status: keyof typeof NUCLEAR_UNIT) =>
@@ -616,6 +630,12 @@ const BUILD: Record<LensId, Builder> = {
         if (n.civil === 'phased-out') sc.hatch.add(c.iso3);
       } else if (mode === 'zones' && n.zones[0]) {
         sc.fill.set(c.iso3, nuclearZoneFill(P, n.zones[0]));
+      } else if (mode === 'treaties') {
+        const tr = S.filters.nuclearTreaty, v = treatyOf(DB, tr, c.iso3);
+        if (v) {
+          sc.fill.set(c.iso3, treatyFill(P, tr, v[0]));
+          if (TREATY_STATUS[tr][v[0]]?.hatch || (tr === 'ctbt' && blocksCtbt(v))) sc.hatch.add(c.iso3);
+        }
       }
     }
     sc.hatchAlpha = 0.5;
@@ -916,6 +936,12 @@ function countryLine(c: Country, DB: DB, S: AtlasState): string[] {
     case 'nuclear': {
       const n = c.nuclear;
       if (f.nuclearMode === 'civil') return [n.civil ? L(NUCLEAR_CIVIL[n.civil]) : t('map.tip.nuc.civil0')];
+      if (f.nuclearMode === 'treaties') {
+        const tr = f.nuclearTreaty, v = treatyOf(DB, tr, c.iso3);
+        const name = L(NUCLEAR_TREATIES[tr].short);
+        if (!v) return [`${name}: ${t('map.tip.nuc.notParty')}`];
+        return [`${name}: ${L(TREATY_STATUS[tr][v[0]])}${v[1] ? ` (${v[1]})` : ''}`, tr === 'ctbt' && blocksCtbt(v) ? t('map.tip.nuc.annex2') : ''];
+      }
       if (f.nuclearMode === 'zones') {
         const z = n.zones.map((id) => DB.nuclear.zoneById.get(id)).filter((x) => !!x);
         return [z.length ? z.map((x) => `${L(x.treaty)} (${x.year})`).join(t('map.sep')) : t('map.tip.nuc.zone0')];
