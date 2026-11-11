@@ -15,7 +15,9 @@ export interface Filters {
   religionMode: 'majority' | 'share' | 'diversity';
   religionTradition: string;
   overviewMode: 'continent' | 'income' | 'population' | 'gdp';
-  nuclearMode: 'military' | 'civil' | 'zones';
+  nuclearMode: 'military' | 'civil' | 'zones' | 'treaties';
+  /** The treaty the nuclear lens's treaties mode shows. */
+  nuclearTreaty: 'npt' | 'ctbt' | 'tpnw';
   /** Year the Historical borders lens shows (borders as they stood on 31 December). */
   bordersYear: number;
   /** Pipelines lens: fuels shown, status shown, LNG terminals, oil and gas fields and halted lines on/off, sourced strategic lines only. */
@@ -69,7 +71,7 @@ export const initialState = (): AtlasState => ({
     relTypes: new Set(['alliance', 'military', 'economic', 'influence', 'proxy', 'rivalry', 'territorial', 'diplomatic']),
     relKinds: new Set(['treaty', 'assessed']),
     bloc: null, resourceClass: null, religionMode: 'majority', religionTradition: 'sunni',
-    overviewMode: 'continent', nuclearMode: 'military', bordersYear: 1914, timelineCats: null, ethnicFamily: null,
+    overviewMode: 'continent', nuclearMode: 'military', nuclearTreaty: 'npt', bordersYear: 1914, timelineCats: null, ethnicFamily: null,
     pipeFuels: new Set(['gas', 'oil', 'ngl']), pipeStatus: 'all', pipeLng: true, pipeFields: true, pipeHalted: false, pipeStrategic: false,
     powerTypes: new Set(['hydro', 'gas', 'wind', 'solar', 'geo', 'bio', 'nuclear', 'coal']), powerStatus: 'all', powerHalted: false,
     industryMode: 'power', powerSummary: 'total', industryLayers: new Set(['cm', 'io', 'st', 'ce', 'ch', 'ct']), ownerFocus: null,

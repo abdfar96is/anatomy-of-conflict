@@ -5,7 +5,7 @@ import * as d3 from 'd3';
 import { useRef, useState, useSyncExternalStore, type CSSProperties, type PointerEvent as ReactPointerEvent, type ReactNode, type SyntheticEvent } from 'react';
 import { atlas, useAtlas, type AtlasState } from '../../app/store';
 import { useDb, useT } from '../../app/useT';
-import { CHOKE_STATUS, LENSES, NUCLEAR_CIVIL, NUCLEAR_STATUS, NUCLEAR_UNIT, RESOURCE_CLASSES, SEVERITY } from '../../config';
+import { CHOKE_STATUS, LENSES, NUCLEAR_CIVIL, NUCLEAR_STATUS, NUCLEAR_TREATIES, NUCLEAR_UNIT, RESOURCE_CLASSES, SEVERITY, TREATY_STATUS } from '../../config';
 import type { DB } from '../../data/types';
 import { esc } from '../../ui/dom';
 import { Icon } from '../../ui/Icon';
@@ -15,7 +15,7 @@ import { catVar, edgeVar, pal, resClassVar, sevVar, traditionColor, type Palette
 import {
   BLOC_T, CHOKE_T, CONTINENTS, ETHNIC_CLASSES, GDP_RANGE, INCOME, POP_RANGE, RES_SHAPE,
   PIPE_DASH, PIPE_DOTS, PIPE_W, activeBloc, bi, borderFill, decadeWindow, ethnicClass, fuelVar, landTint, lngColor, nuclearCivilFill, nuclearFill, nuclearZoneFill, plantColor, seqFill,
-  ACTIVE_SEVERITY, activeConflicts, visibleConflicts, visibleFields, visibleNuclear, warheadRadius, visibleLng, visiblePipes, visiblePlants, visibleFacilities, windowEvents, POWER_R, layerVar, powerHalted, powerVar,
+  ACTIVE_SEVERITY, activeConflicts, treatyFill, visibleConflicts, visibleFields, visibleNuclear, warheadRadius, visibleLng, visiblePipes, visiblePlants, visibleFacilities, windowEvents, POWER_R, layerVar, powerHalted, powerVar,
 } from './engine/scene';
 import { FUELS, FUEL_LABEL, PIPE_STATUS, STATUS_LABEL, capacityClass, isHalted, systemName } from '../../data/energy';
 import { useEnergy } from '../pipelines/useEnergy';
@@ -355,7 +355,7 @@ const BODY: Record<(typeof LENSES)[number]['id'], (c: Ctx) => ReactNode> = {
 
   nuclear({ DB, S, P, T: { t, pick: L, pickKey: Lk, fmt } }) {
     const m = S.filters.nuclearMode;
-    const modes = (['military', 'civil', 'zones'] as const).map((id) => (
+    const modes = (['military', 'civil', 'zones', 'treaties'] as const).map((id) => (
       <Chip key={id} act="set" k="nuclearMode" val={id} pressed={m === id} label={t('map.nc.' + id)} onClick={() => setNuclearMode(id)} />
     ));
     const all = [...DB.countries.values()];
@@ -401,6 +401,23 @@ const BODY: Record<(typeof LENSES)[number]['id'], (c: Ctx) => ReactNode> = {
       </Keys></>;
       undated = plants.reduce((a, p) => a + p.units.filter((u) => u.status !== 'building' && u.from == null).length, 0);
       note = t('map.nc.civilNote', { d: fmt.date(DB.nuclear.plantSource.base.date) });
+    } else if (m === 'treaties' && DB.nuclear.treaties) {
+      // the treaty chosen, its statuses with how many states hold each, and (CTBT) the Annex 2 states still out
+      const T = DB.nuclear.treaties, tr = S.filters.nuclearTreaty, vals = Object.values(T[tr]);
+      const pick = (['npt', 'ctbt', 'tpnw'] as const).map((id) => (
+        <Chip key={id} act="set" k="nuclearTreaty" val={id} pressed={tr === id} label={L(NUCLEAR_TREATIES[id].short)} onClick={() => atlas.setFilter('nuclearTreaty', id)} />
+      ));
+      key = <>
+        <Chips label={t('map.nc.treaty')}>{pick}</Chips>
+        <Keys>{Object.keys(TREATY_STATUS[tr]).map((st) => (
+          <KeyRow key={st} lead={<Sw bg={treatyFill(P, tr, st)} cls={`sw-land${TREATY_STATUS[tr][st]!.hatch ? ' sw-overhatch' : ''}`} />} label={L(TREATY_STATUS[tr][st])}
+            n={vals.filter((v) => v[0] === st).length} />
+        ))}
+          {tr === 'tpnw' ? <KeyRow lead={<Sw bg={P.land} cls="sw-land" />} label={t('map.nc.none')} /> : null}
+        </Keys>
+      </>;
+      hint = [t('map.nc.opened', { name: L(NUCLEAR_TREATIES[tr]), y: NUCLEAR_TREATIES[tr].year }), tr === 'ctbt' ? t('map.nc.annex2') : ''].filter(Boolean).join(' ');
+      note = [L(T.note), T.sources.join(' · ')].filter(Boolean).join(' ');
     } else {
       key = <Keys>{DB.nuclear.zones.map((z) => (
         <KeyRow key={z.id} lead={<Sw bg={nuclearZoneFill(P, z.id)} cls="sw-land" />} label={`${L(z)} · ${L(z.treaty)} (${z.year})`} n={z.members.length} />

@@ -106,6 +106,9 @@ export function checkData(dataDir: string): Problem[] {
   }
   for (const iso of Object.keys(nuclear.warheads.values)) country('nuclear.json', `warheads.values.${iso}`, iso);
   nuclear.zones.forEach((zn, i) => each('nuclear.json', zn.members, `zones[${i}].members`, country));
+  // the treaties' parties lists: known states only
+  const treaties = (nuclear as { treaties?: Record<'npt' | 'ctbt' | 'tpnw', Record<string, unknown>> }).treaties;
+  if (treaties) for (const tr of ['npt', 'ctbt', 'tpnw'] as const) for (const iso of Object.keys(treaties[tr] ?? {})) country('nuclear.json', `treaties.${tr}.${iso}`, iso);
   for (const iso of Object.keys((nuclear as unknown as { fleet: { values: Rec } }).fleet.values)) country('nuclear.json', `fleet.values.${iso}`, iso);
   const plants = (files['nuclear_plants.json'] as { plants: Rec[] }).plants;
   plants.forEach((p, i) => { country('nuclear_plants.json', `plants[${i}].iso3`, p.iso3); each('nuclear_plants.json', p.conflictIds, `plants[${i}].conflictIds`, conflict); });

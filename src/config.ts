@@ -89,6 +89,35 @@ export const NUCLEAR_NPT = {
   withdrawn:   { ar: 'أعلنت الانسحاب (2003)',     en: 'Announced withdrawal (2003)' },
 } as const;
 
+// Treaties (curated/nuclear.json `treaties`): each state's status under the NPT, the CTBT and the TPNW. The map
+// colours a status by tone and strength over the land colour; `hatch` marks statuses with a caveat.
+export const NUCLEAR_TREATIES = {
+  npt:  { ar: 'معاهدة عدم الانتشار', short: { ar: 'عدم الانتشار', en: 'NPT' }, en: 'Non-Proliferation Treaty', year: 1968 },
+  ctbt: { ar: 'معاهدة الحظر الشامل للتجارب النووية', short: { ar: 'حظر التجارب', en: 'CTBT' }, en: 'Comprehensive Nuclear-Test-Ban Treaty', year: 1996 },
+  tpnw: { ar: 'معاهدة حظر الأسلحة النووية', short: { ar: 'حظر الأسلحة', en: 'TPNW' }, en: 'Treaty on the Prohibition of Nuclear Weapons', year: 2017 },
+} as const;
+export type TreatyId = keyof typeof NUCLEAR_TREATIES;
+type TreatyStatus = { ar: string; en: string; tone: 'good' | 'warn' | 'critical' | 'accent'; strength: number; hatch?: boolean };
+export const TREATY_STATUS: Record<TreatyId, Record<string, TreatyStatus>> = {
+  npt: {
+    nws:         { ar: 'طرف، دولة نووية معترف بها', en: 'Party, recognised nuclear-weapon state', tone: 'accent', strength: 0.6 },
+    party:       { ar: 'طرف',                      en: 'Party',                                  tone: 'good',   strength: 0.45 },
+    abiding:     { ar: 'ليست طرفاً وتعلن التزامها', en: 'Not a party, says it abides by it',      tone: 'good',   strength: 0.25, hatch: true },
+    withdrawn:   { ar: 'انسحبت',                    en: 'Withdrew',                               tone: 'critical', strength: 0.6 },
+    'non-party': { ar: 'لم تنضمّ قط',               en: 'Never joined',                           tone: 'warn',   strength: 0.6 },
+  },
+  ctbt: {
+    ratified: { ar: 'صادقت',            en: 'Ratified',                  tone: 'good',     strength: 0.45 },
+    signed:   { ar: 'وقّعت ولم تصادق',   en: 'Signed, not ratified',      tone: 'warn',     strength: 0.35 },
+    revoked:  { ar: 'سحبت تصديقها',      en: 'Withdrew its ratification', tone: 'critical', strength: 0.6 },
+    none:     { ar: 'لم توقّع',          en: 'Not signed',                tone: 'warn',     strength: 0.65 },
+  },
+  tpnw: {
+    party:  { ar: 'طرف',              en: 'Party',                tone: 'good', strength: 0.45 },
+    signed: { ar: 'وقّعت ولم تصادق',   en: 'Signed, not ratified', tone: 'good', strength: 0.2 },
+  },
+};
+
 // Religion families: traditions roll up to these for the majority map. Order is the categorical slot order.
 export const RELIGION_FAMILIES = [
   { id: 'islam',        ar: 'الإسلام',            en: 'Islam',          slot: 3, members: ['sunni', 'shia', 'islam_other'] },

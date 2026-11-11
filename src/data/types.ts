@@ -87,6 +87,11 @@ export interface NuclearFile {
   warheads: { year: number; metric: Bi; publisher: string; sources: string[]; verified?: string; values: Record<string, number> };
   countries: Record<string, NuclearRecord>;
   zones: NuclearZone[];
+  /** Each state's status under the NPT, the CTBT (with whether it is an Annex 2 state) and the TPNW, with the year. */
+  treaties?: {
+    asOf: string; publisher: string; sources: string[]; note?: Bi;
+    npt: Record<string, [string, number | null]>; ctbt: Record<string, [string, number | null, 0 | 1]>; tpnw: Record<string, [string, number | null]>;
+  };
 }
 /** A country's nuclear profile in the model: its record, the NPT status filled in for states, warheads and zones. */
 export interface CountryNuclear extends Omit<NuclearRecord, 'npt'> {
