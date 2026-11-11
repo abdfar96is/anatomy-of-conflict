@@ -138,6 +138,7 @@ export const ICONS: Record<string, string> = {
   clock:   '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/>',
   search:  '<circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/>',
   close:   '<path d="M6 6l12 12M18 6L6 18"/>',
+  download: '<path d="M12 4v11M7.5 10.5L12 15l4.5-4.5M5 19.5h14"/>',
   plus:    '<path d="M12 5v14M5 12h14"/>',
   minus:   '<path d="M5 12h14"/>',
   home:    '<path d="M4 11l8-6.5 8 6.5M6.5 9.5V19h11V9.5"/>',
