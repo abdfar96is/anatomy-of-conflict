@@ -277,6 +277,13 @@ export function checkData(dataDir: string): Problem[] {
       if (v.length !== n) problems.push({ file: pf, path: k, message: `${v.length} values for ${n} plants` });
     }
     W.iso.forEach((iso, i) => country(pf, `iso[${i}]`, iso));
+    // the nuclear plants' links to their GEM entries: each a nuclear station of this file, claimed by one plant only
+    const nuclearIds = new Set(W.id.filter((_, i) => W.t[i] === 'n').map((v) => `L${100000000000 + v}`)), claimed = new Set<string>();
+    plants.forEach((p, i) => (p.gem as string[] | undefined)?.forEach((g, j) => {
+      if (!nuclearIds.has(g)) problems.push({ file: 'nuclear_plants.json', path: `plants[${i}].gem[${j}]`, message: 'not a nuclear plant in power/plants.json', value: g });
+      if (claimed.has(g)) problems.push({ file: 'nuclear_plants.json', path: `plants[${i}].gem[${j}]`, message: 'linked from two plants', value: g });
+      claimed.add(g);
+    }));
     const ids = new Set<number>();
     const expected = new Map<string, Set<string>>();
     for (let i = 0; i < n; i++) {

@@ -328,6 +328,35 @@ describe('the timeline', () => {
   });
 });
 
+describe('nuclear plants across the two lenses', () => {
+  test('a nuclear station opens its file in the Nuclear lens, and the file opens the station', () => {
+    atlas.set({ lang: 'en', lens: 'industry', selection: { kind: 'station', id: BARAKAH } });
+    withDb(<Dossier />);
+    const toNuclear = document.querySelector<HTMLButtonElement>('#dossier [data-act="nuclear"]')!;
+    expect(toNuclear).toHaveTextContent('Nuclear file: Barakah');
+    fireEvent.click(toNuclear);
+    expect(atlas.get()).toMatchObject({ lens: 'nuclear', selection: { kind: 'plant', id: 'barakah' } });
+    expect(atlas.get().filters.nuclearMode).toBe('civil');
+    const toStation = document.querySelector<HTMLButtonElement>(`#dossier [data-act="gem"][data-id="${BARAKAH}"]`)!;
+    expect(toStation).toHaveTextContent('Barakah');
+    expect(document.getElementById('dz-panel')!.textContent).toContain('capacity, unit counts and how sites are split can differ');
+    fireEvent.click(toStation);
+    expect(atlas.get()).toMatchObject({ lens: 'industry', selection: { kind: 'station', id: BARAKAH } });
+    // a station of another type has no nuclear file
+    act(() => { atlas.select('station', HASSYAN, { fly: false }); });
+    expect(document.querySelector('#dossier [data-act="nuclear"]')).toBeNull();
+  });
+
+  test("a conflict's Energy tab lists the nuclear plants tied to it", () => {
+    atlas.set({ lang: 'en', selection: { kind: 'conflict', id: 'russia-ukraine' } });
+    withDb(<Dossier />);
+    fireEvent.click(screen.getByRole('tab', { name: /^Energy/ }));
+    const chips = [...document.querySelectorAll('#dossier [data-sel-kind="plant"]')].map((x) => x.getAttribute('data-sel-id'));
+    expect(chips).toEqual(expect.arrayContaining(['zaporizhzhia', 'kursk', 'chernobyl', 'khmelnytskyi', 'rivne', 'south-ukraine']));
+    expect(chips).not.toContain('bushehr');
+  });
+});
+
 describe('conflicts over the infrastructure', () => {
   const P = {
     land: '#2a3440', landMuted: '#20262e', fg: '#ffffff', fg2: '#cccccc', fg3: '#999999', sel: '#ffd040', halo: '#000000',

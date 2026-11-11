@@ -265,6 +265,9 @@ describe('nuclear power plants', () => {
     expect(legend.textContent).toContain('idle spells are not recorded');
     act(() => { atlas.setFilter('nuclearMode', 'military'); });
     expect(legend.textContent).toContain('does not change with the timeline');
+    // the conflicts layer, as in the infrastructure lenses
+    fireEvent.click(legend.querySelector('[data-key="conflicts"]')!);
+    expect(atlas.get().layers.conflicts).toBe(true);
   });
 
   test('tooltip, search and the plant dossier', () => {
@@ -307,15 +310,17 @@ describe('check-data on the nuclear file', () => {
     const pf = path.join(dir, 'curated/nuclear_plants.json');
     const pl = JSON.parse(fs.readFileSync(pf, 'utf8'));
     pl.plants[0].iso3 = 'QQQ';
+    pl.plants[1].gem = ['L1'];
     fs.writeFileSync(pf, formatJson(pl));
   });
   afterAll(() => fs.rmSync(dir, { recursive: true, force: true }));
 
-  test('reports unknown country codes', () => {
+  test('reports unknown country codes and a link to no GEM nuclear plant', () => {
     expect(checkData(dir).map((p) => `${p.file} › ${p.path} › ${p.message}`)).toEqual([
       'nuclear.json › countries.BEL.host › unknown country code',
       expect.stringMatching(/^nuclear\.json › zones\[0\]\.members\[\d+\] › unknown country code$/),
       'nuclear_plants.json › plants[0].iso3 › unknown country code',
+      'nuclear_plants.json › plants[1].gem[0] › not a nuclear plant in power/plants.json',
     ]);
   });
 });

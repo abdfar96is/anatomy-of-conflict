@@ -61,7 +61,8 @@
           "iaea": 1053,
           "changed": { "year": 2024, "sources": ["https://reactoratlas.com/en/year/2024"] }
         }
-      ]
+      ],
+      "gem": ["L100000500011"]
     },
     {
       "id": "atucha",
@@ -88,7 +89,8 @@
           "from": 2016,
           "iaea": 5
         }
-      ]
+      ],
+      "gem": ["L100000500166"]
     },
     {
       "id": "carem",
@@ -123,7 +125,8 @@
           "from": 1984,
           "iaea": 4
         }
-      ]
+      ],
+      "gem": ["L100000500169"]
     },
     {
       "id": "armenian-metsamor",
@@ -151,7 +154,8 @@
           "from": 1980,
           "iaea": 2
         }
-      ]
+      ],
+      "gem": ["L100000500203"]
     },
     {
       "id": "br-3-mol",
@@ -170,7 +174,8 @@
           "to": 1987,
           "iaea": 8
         }
-      ]
+      ],
+      "gem": ["L100000500264"]
     },
     {
       "id": "doel",
@@ -220,7 +225,8 @@
           "from": 1985,
           "iaea": 14
         }
-      ]
+      ],
+      "gem": ["L100000500101"]
     },
     {
       "id": "tihange",
@@ -259,7 +265,8 @@
           "from": 1985,
           "iaea": 15
         }
-      ]
+      ],
+      "gem": ["L100000500099"]
     },
     {
       "id": "rooppur",
@@ -284,7 +291,8 @@
           "mw": 1080,
           "iaea": 1079
         }
-      ]
+      ],
+      "gem": ["L100000500091"]
     },
     {
       "id": "kozloduy",
@@ -351,7 +359,8 @@
           "from": 1993,
           "iaea": 21
         }
-      ]
+      ],
+      "gem": ["L100000500097"]
     },
     {
       "id": "belarusian-ostrovets",
@@ -378,7 +387,8 @@
           "from": 2023,
           "iaea": 1061
         }
-      ]
+      ],
+      "gem": ["L100000500085"]
     },
     {
       "id": "angra",
@@ -413,7 +423,8 @@
           "mw": 1340,
           "iaea": 26
         }
-      ]
+      ],
+      "gem": ["L100000500026"]
     },
     {
       "id": "bruce",
@@ -494,7 +505,8 @@
           "from": 1987,
           "iaea": 42
         }
-      ]
+      ],
+      "gem": ["L100000500123"]
     },
     {
       "id": "darlington",
@@ -539,7 +551,8 @@
           "from": 1993,
           "iaea": 46
         }
-      ]
+      ],
+      "gem": ["L100000500138"]
     },
     {
       "id": "darlington-new",
@@ -560,7 +573,8 @@
             ]
           }
         }
-      ]
+      ],
+      "gem": ["L100000500280"]
     },
     {
       "id": "douglas-point",
@@ -579,7 +593,8 @@
           "to": 1984,
           "iaea": 40
         }
-      ]
+      ],
+      "gem": ["L100000500225"]
     },
     {
       "id": "gentilly",
@@ -608,7 +623,8 @@
           "to": 2012,
           "iaea": 32
         }
-      ]
+      ],
+      "gem": ["L100000500167"]
     },
     {
       "id": "pickering",
@@ -695,7 +711,8 @@
           "from": 1986,
           "iaea": 36
         }
-      ]
+      ],
+      "gem": ["L100000500185"]
     },
     {
       "id": "point-lepreau",
@@ -713,7 +730,8 @@
           "from": 1983,
           "iaea": 37
         }
-      ]
+      ],
+      "gem": ["L100000500163"]
     },
     {
       "id": "rolphton",
@@ -732,7 +750,8 @@
           "to": 1987,
           "iaea": 29
         }
-      ]
+      ],
+      "gem": ["L100000500253"]
     },
     {
       "id": "beznau",
@@ -759,7 +778,8 @@
           "from": 1972,
           "iaea": 57
         }
-      ]
+      ],
+      "gem": ["L100000500207"]
     },
     {
       "id": "g-sgen",
@@ -777,7 +797,8 @@
           "from": 1979,
           "iaea": 58
         }
-      ]
+      ],
+      "gem": ["L100000500106"]
     },
     {
       "id": "leibstadt",
@@ -795,7 +816,8 @@
           "from": 1984,
           "iaea": 59
         }
-      ]
+      ],
+      "gem": ["L100000500051"]
     },
     {
       "id": "lucens",
@@ -813,7 +835,8 @@
           "to": 1969,
           "iaea": 966
         }
-      ]
+      ],
+      "gem": ["L100000500266"]
     },
     {
       "id": "m-hleberg",
@@ -832,7 +855,8 @@
           "to": 2019,
           "iaea": 56
         }
-      ]
+      ],
+      "gem": ["L100000500208"]
     },
     {
       "id": "bailong",
@@ -852,7 +876,8 @@
             "sources": ["https://reactoratlas.com/en/reactor/china-bailong-nuclear-power-plant"]
           }
         }
-      ]
+      ],
+      "gem": ["L100000500348"]
     },
     {
       "id": "changjiang",
@@ -905,7 +930,8 @@
           "mw": 1000,
           "iaea": 942
         }
-      ]
+      ],
+      "gem": ["L100000500314", "L100000500319"]
     },
     {
       "id": "china-experimental-fast-reactor",
@@ -949,7 +975,8 @@
           "from": 1994,
           "iaea": 64
         }
-      ]
+      ],
+      "gem": ["L100000500119"]
     },
     {
       "id": "fangchenggang",
@@ -995,7 +1022,8 @@
           "iaea": 946,
           "changed": { "year": 2024, "sources": ["https://reactoratlas.com/en/year/2024"] }
         }
-      ]
+      ],
+      "gem": ["L100000500313"]
     },
     {
       "id": "fangjiashan",
@@ -1022,7 +1050,8 @@
           "from": 2015,
           "iaea": 913
         }
-      ]
+      ],
+      "gem": ["L100000500366"]
     },
     {
       "id": "fuqing",
@@ -1085,7 +1114,8 @@
           "from": 2022,
           "iaea": 938
         }
-      ]
+      ],
+      "gem": ["L100000500356"]
     },
     {
       "id": "haiyang",
@@ -1128,7 +1158,8 @@
           "mw": 1161,
           "iaea": 994
         }
-      ]
+      ],
+      "gem": ["L100000500320"]
     },
     {
       "id": "hongyanhe",
@@ -1191,7 +1222,8 @@
           "from": 2022,
           "iaea": 998
         }
-      ]
+      ],
+      "gem": ["L100000500304"]
     },
     {
       "id": "jinqimen",
@@ -1222,7 +1254,8 @@
             "sources": ["https://reactoratlas.com/en/reactor/china-jinqimen-nuclear-power-plant"]
           }
         }
-      ]
+      ],
+      "gem": ["L100000500397"]
     },
     {
       "id": "lianjiang",
@@ -1253,7 +1286,8 @@
             "sources": ["https://reactoratlas.com/en/reactor/china-lianjiang-nuclear-power-plant"]
           }
         }
-      ]
+      ],
+      "gem": ["L100000500341"]
     },
     {
       "id": "lingao",
@@ -1298,7 +1332,8 @@
           "from": 2011,
           "iaea": 875
         }
-      ]
+      ],
+      "gem": ["L100000500317"]
     },
     {
       "id": "lufeng",
@@ -1351,7 +1386,8 @@
             "sources": ["https://reactoratlas.com/en/reactor/china-lufeng-nuclear-power-plant"]
           }
         }
-      ]
+      ],
+      "gem": ["L100000500355"]
     },
     {
       "id": "ningde",
@@ -1418,7 +1454,8 @@
           "from": 2016,
           "iaea": 924
         }
-      ]
+      ],
+      "gem": ["L100000500358"]
     },
     {
       "id": "qinshan",
@@ -1490,7 +1527,8 @@
           "from": 2003,
           "iaea": 840
         }
-      ]
+      ],
+      "gem": ["L100000500303"]
     },
     {
       "id": "sanao",
@@ -1530,7 +1568,8 @@
           "mw": 1117,
           "iaea": 1107
         }
-      ]
+      ],
+      "gem": ["L100000500352"]
     },
     {
       "id": "sanmen",
@@ -1573,7 +1612,8 @@
           "mw": 1163,
           "iaea": 996
         }
-      ]
+      ],
+      "gem": ["L100000500354"]
     },
     {
       "id": "shidao-bay",
@@ -1633,7 +1673,8 @@
           "from": 2023,
           "iaea": 957
         }
-      ]
+      ],
+      "gem": ["L100000500309"]
     },
     {
       "id": "taipingling",
@@ -1684,7 +1725,8 @@
           "iaea": 1091,
           "changed": { "year": 2026, "sources": ["https://reactoratlas.com/en/year/2026"] }
         }
-      ]
+      ],
+      "gem": ["L100000500357"]
     },
     {
       "id": "taishan",
@@ -1711,7 +1753,8 @@
           "from": 2019,
           "iaea": 919
         }
-      ]
+      ],
+      "gem": ["L100000500298"]
     },
     {
       "id": "tianwan",
@@ -1790,7 +1833,8 @@
           "mw": 1171,
           "iaea": 1110
         }
-      ]
+      ],
+      "gem": ["L100000500302"]
     },
     {
       "id": "xiapu",
@@ -1852,7 +1896,8 @@
             "sources": ["https://reactoratlas.com/en/reactor/china-xudapu-nuclear-power-plant"]
           }
         }
-      ]
+      ],
+      "gem": ["L100000500353"]
     },
     {
       "id": "xuwei",
@@ -1874,7 +1919,8 @@
             ]
           }
         }
-      ]
+      ],
+      "gem": ["L100001047874"]
     },
     {
       "id": "yangjiang",
@@ -1937,7 +1983,8 @@
           "from": 2019,
           "iaea": 934
         }
-      ]
+      ],
+      "gem": ["L100000500359"]
     },
     {
       "id": "zhangzhou",
@@ -1988,7 +2035,8 @@
           "iaea": 1090,
           "changed": { "year": 2025, "sources": ["https://reactoratlas.com/en/year/2025"] }
         }
-      ]
+      ],
+      "gem": ["L100000500350"]
     },
     {
       "id": "zhaoyuan",
@@ -2008,7 +2056,8 @@
             "sources": ["https://reactoratlas.com/en/reactor/china-zhaoyuan-nuclear-power-plant"]
           }
         }
-      ]
+      ],
+      "gem": ["L100000500408"]
     },
     {
       "id": "dukovany",
@@ -2053,7 +2102,8 @@
           "from": 1987,
           "iaea": 81
         }
-      ]
+      ],
+      "gem": ["L100000500200"]
     },
     {
       "id": "temelin",
@@ -2080,7 +2130,8 @@
           "from": 2003,
           "iaea": 75
         }
-      ]
+      ],
+      "gem": ["L100000500096"]
     },
     {
       "id": "avr-julich",
@@ -2099,7 +2150,8 @@
           "to": 1988,
           "iaea": 114
         }
-      ]
+      ],
+      "gem": ["L100000500263"]
     },
     {
       "id": "biblis",
@@ -2128,7 +2180,8 @@
           "to": 2011,
           "iaea": 91
         }
-      ]
+      ],
+      "gem": ["L100000500042"]
     },
     {
       "id": "brokdorf",
@@ -2147,7 +2200,8 @@
           "to": 2021,
           "iaea": 107
         }
-      ]
+      ],
+      "gem": ["L100000500022"]
     },
     {
       "id": "brunsb-ttel",
@@ -2166,7 +2220,8 @@
           "to": 2011,
           "iaea": 86
         }
-      ]
+      ],
+      "gem": ["L100000500161"]
     },
     {
       "id": "emsland",
@@ -2185,7 +2240,8 @@
           "to": 2023,
           "iaea": 108
         }
-      ]
+      ],
+      "gem": ["L100000500028"]
     },
     {
       "id": "grafenrheinfeld",
@@ -2204,7 +2260,8 @@
           "to": 2015,
           "iaea": 97
         }
-      ]
+      ],
+      "gem": ["L100000500039"]
     },
     {
       "id": "greifswald",
@@ -2263,7 +2320,8 @@
           "to": 1989,
           "iaea": 127
         }
-      ]
+      ],
+      "gem": ["L100000500202"]
     },
     {
       "id": "grohnde",
@@ -2282,7 +2340,8 @@
           "to": 2021,
           "iaea": 101
         }
-      ]
+      ],
+      "gem": ["L100000500023"]
     },
     {
       "id": "gundremmingen",
@@ -2320,7 +2379,8 @@
           "to": 2021,
           "iaea": 102
         }
-      ]
+      ],
+      "gem": ["L100000500030"]
     },
     {
       "id": "isar",
@@ -2349,7 +2409,8 @@
           "to": 2023,
           "iaea": 106
         }
-      ]
+      ],
+      "gem": ["L100000500016"]
     },
     {
       "id": "karlsruhe",
@@ -2377,7 +2438,8 @@
           "to": 1984,
           "iaea": 93
         }
-      ]
+      ],
+      "gem": ["L100000500247", "L100000500259"]
     },
     {
       "id": "kr-mmel",
@@ -2396,7 +2458,8 @@
           "to": 2011,
           "iaea": 94
         }
-      ]
+      ],
+      "gem": ["L100000500173"]
     },
     {
       "id": "lingen",
@@ -2415,7 +2478,8 @@
           "to": 1977,
           "iaea": 133
         }
-      ]
+      ],
+      "gem": ["L100000500233"]
     },
     {
       "id": "mulheim-karlich",
@@ -2434,7 +2498,8 @@
           "to": 1988,
           "iaea": 96
         }
-      ]
+      ],
+      "gem": ["L100000500040"]
     },
     {
       "id": "neckarwestheim",
@@ -2463,7 +2528,8 @@
           "to": 2023,
           "iaea": 119
         }
-      ]
+      ],
+      "gem": ["L100000500029"]
     },
     {
       "id": "obrigheim",
@@ -2481,7 +2547,8 @@
           "to": 2005,
           "iaea": 121
         }
-      ]
+      ],
+      "gem": ["L100000500209"]
     },
     {
       "id": "philippsburg",
@@ -2510,7 +2577,8 @@
           "to": 2019,
           "iaea": 98
         }
-      ]
+      ],
+      "gem": ["L100000500015"]
     },
     {
       "id": "rheinsberg",
@@ -2529,7 +2597,8 @@
           "to": 1990,
           "iaea": 122
         }
-      ]
+      ],
+      "gem": ["L100000500240"]
     },
     {
       "id": "stade",
@@ -2547,7 +2616,8 @@
           "to": 2003,
           "iaea": 83
         }
-      ]
+      ],
+      "gem": ["L100000500179"]
     },
     {
       "id": "thtr-300-hamm-uentrop",
@@ -2566,7 +2636,8 @@
           "to": 1988,
           "iaea": 92
         }
-      ]
+      ],
+      "gem": ["L100000500222"]
     },
     {
       "id": "unterweser",
@@ -2585,7 +2656,8 @@
           "to": 2011,
           "iaea": 90
         }
-      ]
+      ],
+      "gem": ["L100000500024"]
     },
     {
       "id": "wurgassen",
@@ -2603,7 +2675,8 @@
           "to": 1994,
           "iaea": 136
         }
-      ]
+      ],
+      "gem": ["L100000500176"]
     },
     {
       "id": "el-dabaa",
@@ -2647,7 +2720,8 @@
           "mw": 1100,
           "iaea": 1120
         }
-      ]
+      ],
+      "gem": ["L100000500092"]
     },
     {
       "id": "almaraz",
@@ -2674,7 +2748,8 @@
           "from": 1984,
           "iaea": 154
         }
-      ]
+      ],
+      "gem": ["L100000500113"]
     },
     {
       "id": "asco",
@@ -2701,7 +2776,8 @@
           "from": 1986,
           "iaea": 156
         }
-      ]
+      ],
+      "gem": ["L100000500115"]
     },
     {
       "id": "cofrentes",
@@ -2719,7 +2795,8 @@
           "from": 1985,
           "iaea": 140
         }
-      ]
+      ],
+      "gem": ["L100000500081"]
     },
     {
       "id": "jose-cabrera-zorita",
@@ -2738,7 +2815,8 @@
           "to": 2006,
           "iaea": 139
         }
-      ]
+      ],
+      "gem": ["L100000500234"]
     },
     {
       "id": "santa-maria-de-garona",
@@ -2757,7 +2835,8 @@
           "to": 2017,
           "iaea": 149
         }
-      ]
+      ],
+      "gem": ["L100000500201"]
     },
     {
       "id": "trillo",
@@ -2775,7 +2854,8 @@
           "from": 1988,
           "iaea": 141
         }
-      ]
+      ],
+      "gem": ["L100000500105"]
     },
     {
       "id": "vandellos",
@@ -2802,7 +2882,8 @@
           "from": 1988,
           "iaea": 146
         }
-      ]
+      ],
+      "gem": ["L100000500114"]
     },
     {
       "id": "loviisa",
@@ -2829,7 +2910,8 @@
           "from": 1981,
           "iaea": 158
         }
-      ]
+      ],
+      "gem": ["L100000500194"]
     },
     {
       "id": "olkiluoto",
@@ -2865,7 +2947,8 @@
           "from": 2023,
           "iaea": 860
         }
-      ]
+      ],
+      "gem": ["L100000500004"]
     },
     {
       "id": "belleville",
@@ -2892,7 +2975,8 @@
           "from": 1989,
           "iaea": 212
         }
-      ]
+      ],
+      "gem": ["L100000500035"]
     },
     {
       "id": "blayais",
@@ -2937,7 +3021,8 @@
           "from": 1983,
           "iaea": 190
         }
-      ]
+      ],
+      "gem": ["L100000500134"]
     },
     {
       "id": "brennilis",
@@ -2956,7 +3041,8 @@
           "to": 1985,
           "iaea": 217
         }
-      ]
+      ],
+      "gem": ["L100000500244"]
     },
     {
       "id": "bugey",
@@ -3011,7 +3097,8 @@
           "from": 1980,
           "iaea": 168
         }
-      ]
+      ],
+      "gem": ["L100000500136"]
     },
     {
       "id": "cattenom",
@@ -3056,7 +3143,8 @@
           "from": 1992,
           "iaea": 223
         }
-      ]
+      ],
+      "gem": ["L100000500038"]
     },
     {
       "id": "chinon",
@@ -3131,7 +3219,8 @@
           "from": 1988,
           "iaea": 214
         }
-      ]
+      ],
+      "gem": ["L100000500133"]
     },
     {
       "id": "chooz",
@@ -3168,7 +3257,8 @@
           "from": 2000,
           "iaea": 226
         }
-      ]
+      ],
+      "gem": ["L100000500007"]
     },
     {
       "id": "civaux",
@@ -3195,7 +3285,8 @@
           "from": 2002,
           "iaea": 228
         }
-      ]
+      ],
+      "gem": ["L100000500006"]
     },
     {
       "id": "cruas",
@@ -3240,7 +3331,8 @@
           "from": 1985,
           "iaea": 201
         }
-      ]
+      ],
+      "gem": ["L100000500130"]
     },
     {
       "id": "dampierre",
@@ -3285,7 +3377,8 @@
           "from": 1981,
           "iaea": 186
         }
-      ]
+      ],
+      "gem": ["L100000500137"]
     },
     {
       "id": "fessenheim",
@@ -3314,7 +3407,8 @@
           "to": 2020,
           "iaea": 164
         }
-      ]
+      ],
+      "gem": ["L100000500129"]
     },
     {
       "id": "flamanville",
@@ -3351,7 +3445,8 @@
           "iaea": 873,
           "changed": { "year": 2024, "sources": ["https://reactoratlas.com/en/year/2024"] }
         }
-      ]
+      ],
+      "gem": ["L100000500005"]
     },
     {
       "id": "golfech",
@@ -3378,7 +3473,8 @@
           "from": 1994,
           "iaea": 224
         }
-      ]
+      ],
+      "gem": ["L100000500036"]
     },
     {
       "id": "gravelines",
@@ -3441,7 +3537,8 @@
           "from": 1985,
           "iaea": 209
         }
-      ]
+      ],
+      "gem": ["L100000500135"]
     },
     {
       "id": "marcoule",
@@ -3478,7 +3575,8 @@
           "to": 2010,
           "iaea": 162
         }
-      ]
+      ],
+      "gem": ["L100000500237", "L100000500241"]
     },
     {
       "id": "nogent",
@@ -3505,7 +3603,8 @@
           "from": 1989,
           "iaea": 216
         }
-      ]
+      ],
+      "gem": ["L100000500037"]
     },
     {
       "id": "paluel",
@@ -3550,7 +3649,8 @@
           "from": 1986,
           "iaea": 194
         }
-      ]
+      ],
+      "gem": ["L100000500032"]
     },
     {
       "id": "penly",
@@ -3577,7 +3677,8 @@
           "from": 1992,
           "iaea": 222
         }
-      ]
+      ],
+      "gem": ["L100000500033"]
     },
     {
       "id": "st-alban",
@@ -3604,7 +3705,8 @@
           "from": 1987,
           "iaea": 205
         }
-      ]
+      ],
+      "gem": ["L100000500034"]
     },
     {
       "id": "st-laurent",
@@ -3651,7 +3753,8 @@
           "from": 1983,
           "iaea": 177
         }
-      ]
+      ],
+      "gem": ["L100000500131"]
     },
     {
       "id": "superphenix",
@@ -3670,7 +3773,8 @@
           "to": 1998,
           "iaea": 178
         }
-      ]
+      ],
+      "gem": ["L100000500107"]
     },
     {
       "id": "tricastin",
@@ -3715,7 +3819,8 @@
           "from": 1981,
           "iaea": 180
         }
-      ]
+      ],
+      "gem": ["L100000500132"]
     },
     {
       "id": "berkeley",
@@ -3744,7 +3849,8 @@
           "to": 1988,
           "iaea": 265
         }
-      ]
+      ],
+      "gem": ["L100000500228"]
     },
     {
       "id": "bradwell",
@@ -3773,7 +3879,8 @@
           "to": 2002,
           "iaea": 267
         }
-      ]
+      ],
+      "gem": ["L100000500236"]
     },
     {
       "id": "calder-hall",
@@ -3822,7 +3929,8 @@
           "to": 2003,
           "iaea": 234
         }
-      ]
+      ],
+      "gem": ["L100000500239"]
     },
     {
       "id": "chapelcross",
@@ -3871,7 +3979,8 @@
           "to": 2004,
           "iaea": 255
         }
-      ]
+      ],
+      "gem": ["L100000500242"]
     },
     {
       "id": "dounreay",
@@ -3898,7 +4007,8 @@
           "to": 1994,
           "iaea": 243
         }
-      ]
+      ],
+      "gem": ["L100000500229"]
     },
     {
       "id": "dungeness",
@@ -3947,7 +4057,8 @@
           "to": 2021,
           "iaea": 249
         }
-      ]
+      ],
+      "gem": ["L100000500372"]
     },
     {
       "id": "hartlepool",
@@ -3974,7 +4085,8 @@
           "from": 1989,
           "iaea": 251
         }
-      ]
+      ],
+      "gem": ["L100000500373"]
     },
     {
       "id": "heysham",
@@ -4019,7 +4131,8 @@
           "from": 1989,
           "iaea": 260
         }
-      ]
+      ],
+      "gem": ["L100000500374"]
     },
     {
       "id": "hinkley-point",
@@ -4068,7 +4181,8 @@
           "to": 2022,
           "iaea": 245
         }
-      ]
+      ],
+      "gem": ["L100000500375"]
     },
     {
       "id": "hinkley-point-c",
@@ -4142,7 +4256,8 @@
           "to": 2022,
           "iaea": 247
         }
-      ]
+      ],
+      "gem": ["L100000500376"]
     },
     {
       "id": "oldbury",
@@ -4171,7 +4286,8 @@
           "to": 2011,
           "iaea": 238
         }
-      ]
+      ],
+      "gem": ["L100000500377"]
     },
     {
       "id": "sizewell",
@@ -4209,7 +4325,8 @@
           "from": 1995,
           "iaea": 263
         }
-      ]
+      ],
+      "gem": ["L100000500378"]
     },
     {
       "id": "torness",
@@ -4236,7 +4353,8 @@
           "from": 1989,
           "iaea": 262
         }
-      ]
+      ],
+      "gem": ["L100000500188"]
     },
     {
       "id": "trawsfynydd",
@@ -4265,7 +4383,8 @@
           "to": 1991,
           "iaea": 274
         }
-      ]
+      ],
+      "gem": ["L100000500215"]
     },
     {
       "id": "windscale",
@@ -4284,7 +4403,8 @@
           "to": 1981,
           "iaea": 268
         }
-      ]
+      ],
+      "gem": ["L100000500251"]
     },
     {
       "id": "winfrith",
@@ -4302,7 +4422,8 @@
           "to": 1990,
           "iaea": 239
         }
-      ]
+      ],
+      "gem": ["L100000500238"]
     },
     {
       "id": "wylfa",
@@ -4331,7 +4452,8 @@
           "to": 2012,
           "iaea": 241
         }
-      ]
+      ],
+      "gem": ["L100000500175"]
     },
     {
       "id": "paks",
@@ -4387,7 +4509,8 @@
           "from": 1987,
           "iaea": 281
         }
-      ]
+      ],
+      "gem": ["L100000500197"]
     },
     {
       "id": "kaiga",
@@ -4454,7 +4577,8 @@
           "from": 2011,
           "iaea": 292
         }
-      ]
+      ],
+      "gem": ["L100000500220"]
     },
     {
       "id": "kakrapar",
@@ -4499,7 +4623,8 @@
           "iaea": 987,
           "changed": { "year": 2024, "sources": ["https://reactoratlas.com/en/year/2024"] }
         }
-      ]
+      ],
+      "gem": ["L100000500044"]
     },
     {
       "id": "kalpakkam",
@@ -4534,7 +4659,8 @@
           "from": 1986,
           "iaea": 305
         }
-      ]
+      ],
+      "gem": ["L100000500206", "L100000500218"]
     },
     {
       "id": "kudankulam",
@@ -4593,7 +4719,8 @@
           "mw": 917,
           "iaea": 1109
         }
-      ]
+      ],
+      "gem": ["L100000500108"]
     },
     {
       "id": "narora",
@@ -4620,7 +4747,8 @@
           "from": 1992,
           "iaea": 307
         }
-      ]
+      ],
+      "gem": ["L100000500219"]
     },
     {
       "id": "rajasthan",
@@ -4701,7 +4829,8 @@
           "mw": 630,
           "iaea": 299
         }
-      ]
+      ],
+      "gem": ["L100000500164"]
     },
     {
       "id": "tarapur",
@@ -4746,7 +4875,8 @@
           "from": 2005,
           "iaea": 301
         }
-      ]
+      ],
+      "gem": ["L100000500186"]
     },
     {
       "id": "bushehr",
@@ -4783,7 +4913,17 @@
           "mw": 974,
           "iaea": 311
         }
-      ]
+      ],
+      "gem": ["L100000500104"],
+      "conflictIds": ["iran-us-israel"],
+      "sources": [
+        "https://www.aljazeera.com/news/2026/4/4/iaea-says-projectile-hits-near-irans-bushehr-nuclear-plant-killing-one",
+        "https://www.al-monitor.com/originals/2026/03/un-watchdog-says-projectile-struck-iran-nuclear-power-plant"
+      ],
+      "note": {
+        "ar": "أصابت مقذوفات مباني المحطة أو محيطها أربع مرات بين منتصف مارس و4 أبريل 2026 بحسب الوكالة الدولية للطاقة الذرية. وألحقت ضربة أبريل ضرراً بمبنى مساعد وقتلت أحد أفراد الأمن، دون ضرر بالمفاعل أو ارتفاع في الإشعاع، وقال غروسي إن هذه الهجمات «يجب أن تتوقف».",
+        "en": "Projectiles hit the plant's premises or its surroundings four times between mid-March and 4 April 2026, by the IAEA's account. The April strike damaged an auxiliary building and killed a security guard, with no damage to the reactor and no rise in radiation; Grossi said the attacks \"must stop\"."
+      }
     },
     {
       "id": "caorso",
@@ -4802,7 +4942,8 @@
           "to": 1990,
           "iaea": 327
         }
-      ]
+      ],
+      "gem": ["L100000500148"]
     },
     {
       "id": "garigliano",
@@ -4821,7 +4962,8 @@
           "to": 1982,
           "iaea": 325
         }
-      ]
+      ],
+      "gem": ["L100000500235"]
     },
     {
       "id": "latina",
@@ -4840,7 +4982,8 @@
           "to": 1987,
           "iaea": 318
         }
-      ]
+      ],
+      "gem": ["L100000500227"]
     },
     {
       "id": "trino",
@@ -4859,7 +5002,8 @@
           "to": 1990,
           "iaea": 326
         }
-      ]
+      ],
+      "gem": ["L100000500214"]
     },
     {
       "id": "fugen",
@@ -4878,7 +5022,8 @@
           "to": 2003,
           "iaea": 345
         }
-      ]
+      ],
+      "gem": ["L100000500232"]
     },
     {
       "id": "fukushima-daiichi",
@@ -4947,7 +5092,8 @@
           "to": 2013,
           "iaea": 342
         }
-      ]
+      ],
+      "gem": ["L100000500076"]
     },
     {
       "id": "fukushima-daini",
@@ -4996,7 +5142,8 @@
           "to": 2019,
           "iaea": 364
         }
-      ]
+      ],
+      "gem": ["L100000500077"]
     },
     {
       "id": "genkai",
@@ -5043,7 +5190,8 @@
           "from": 1997,
           "iaea": 373
         }
-      ]
+      ],
+      "gem": ["L100000500067"]
     },
     {
       "id": "hamaoka",
@@ -5099,7 +5247,8 @@
           "from": 2005,
           "iaea": 843
         }
-      ]
+      ],
+      "gem": ["L100000500017"]
     },
     {
       "id": "higashi-dori",
@@ -5117,7 +5266,8 @@
           "from": 2005,
           "iaea": 841
         }
-      ]
+      ],
+      "gem": ["L100000500079", "L100000500283"]
     },
     {
       "id": "ikata",
@@ -5155,7 +5305,8 @@
           "from": 1994,
           "iaea": 374
         }
-      ]
+      ],
+      "gem": ["L100000500146"]
     },
     {
       "id": "jpdr",
@@ -5174,7 +5325,8 @@
           "to": 1976,
           "iaea": 333
         }
-      ]
+      ],
+      "gem": ["L100000500254"]
     },
     {
       "id": "kashiwazaki-kariwa",
@@ -5253,7 +5405,8 @@
           "from": 1997,
           "iaea": 384
         }
-      ]
+      ],
+      "gem": ["L100000500018"]
     },
     {
       "id": "mihama",
@@ -5291,7 +5444,8 @@
           "from": 1976,
           "iaea": 338
         }
-      ]
+      ],
+      "gem": ["L100000500155"]
     },
     {
       "id": "monju",
@@ -5301,7 +5455,8 @@
       "coords": [135.988, 35.739],
       "units": [
         { "name": "Monju", "status": "shutdown", "type": "FBR", "mw": 246, "to": 2017, "iaea": 357 }
-      ]
+      ],
+      "gem": ["L100000500224"]
     },
     {
       "id": "ohi",
@@ -5348,7 +5503,8 @@
           "from": 1993,
           "iaea": 379
         }
-      ]
+      ],
+      "gem": ["L100000500066"]
     },
     {
       "id": "ohma",
@@ -5365,7 +5521,8 @@
           "mw": 1328,
           "iaea": 867
         }
-      ]
+      ],
+      "gem": ["L100000500020"]
     },
     {
       "id": "onagawa",
@@ -5406,7 +5563,8 @@
           "from": 2002,
           "iaea": 385
         }
-      ]
+      ],
+      "gem": ["L100000500157"]
     },
     {
       "id": "sendai",
@@ -5433,7 +5591,8 @@
           "from": 1985,
           "iaea": 363
         }
-      ]
+      ],
+      "gem": ["L100000500145"]
     },
     {
       "id": "shika",
@@ -5460,7 +5619,8 @@
           "from": 2006,
           "iaea": 842
         }
-      ]
+      ],
+      "gem": ["L100000500019"]
     },
     {
       "id": "shimane",
@@ -5500,7 +5660,8 @@
           "mw": 1325,
           "iaea": 862
         }
-      ]
+      ],
+      "gem": ["L100000500021"]
     },
     {
       "id": "takahama",
@@ -5545,7 +5706,8 @@
           "from": 1985,
           "iaea": 356
         }
-      ]
+      ],
+      "gem": ["L100000500147"]
     },
     {
       "id": "tokai",
@@ -5573,7 +5735,8 @@
           "from": 1978,
           "iaea": 346
         }
-      ]
+      ],
+      "gem": ["L100000500078"]
     },
     {
       "id": "tomari",
@@ -5609,7 +5772,8 @@
           "from": 2009,
           "iaea": 856
         }
-      ]
+      ],
+      "gem": ["L100000500144"]
     },
     {
       "id": "tsuruga",
@@ -5637,7 +5801,8 @@
           "from": 1987,
           "iaea": 360
         }
-      ]
+      ],
+      "gem": ["L100000500071"]
     },
     {
       "id": "aktau",
@@ -5656,7 +5821,8 @@
           "to": 1999,
           "iaea": 414
         }
-      ]
+      ],
+      "gem": ["L100000500211"]
     },
     {
       "id": "hanbit",
@@ -5719,7 +5885,8 @@
           "from": 2002,
           "iaea": 403
         }
-      ]
+      ],
+      "gem": ["L100000500124"]
     },
     {
       "id": "hanul",
@@ -5821,7 +5988,8 @@
           "mw": 1340,
           "iaea": 888
         }
-      ]
+      ],
+      "gem": ["L100000500012", "L100000500125"]
     },
     {
       "id": "kori",
@@ -5919,7 +6087,8 @@
           "from": 2012,
           "iaea": 865
         }
-      ]
+      ],
+      "gem": ["L100000500010", "L100000500118", "L100000500371"]
     },
     {
       "id": "wolsong",
@@ -5983,7 +6152,8 @@
           "from": 1999,
           "iaea": 401
         }
-      ]
+      ],
+      "gem": ["L100000500126", "L100000500170"]
     },
     {
       "id": "ignalina",
@@ -6012,7 +6182,8 @@
           "to": 2009,
           "iaea": 416
         }
-      ]
+      ],
+      "gem": ["L100000500001"]
     },
     {
       "id": "laguna-verde",
@@ -6039,7 +6210,8 @@
           "from": 1995,
           "iaea": 421
         }
-      ]
+      ],
+      "gem": ["L100000500160"]
     },
     {
       "id": "borssele",
@@ -6057,7 +6229,8 @@
           "from": 1973,
           "iaea": 423
         }
-      ]
+      ],
+      "gem": ["L100000500205"]
     },
     {
       "id": "dodewaard",
@@ -6076,7 +6249,8 @@
           "to": 1997,
           "iaea": 422
         }
-      ]
+      ],
+      "gem": ["L100000500248"]
     },
     {
       "id": "chashma",
@@ -6132,7 +6306,8 @@
             "sources": ["https://reactoratlas.com/en/reactor/pakistan-chashma-nuclear-power-plant"]
           }
         }
-      ]
+      ],
+      "gem": ["L100000500212"]
     },
     {
       "id": "karachi",
@@ -6169,7 +6344,28 @@
           "from": 2022,
           "iaea": 1068
         }
-      ]
+      ],
+      "gem": ["L100000500100"]
+    },
+    {
+      "id": "bonus",
+      "iso3": "PRI",
+      "en": "BONUS",
+      "ar": "بونس",
+      "coords": [-67.268, 18.365],
+      "units": [
+        {
+          "name": "BONUS",
+          "status": "shutdown",
+          "type": "BWR",
+          "model": "Superheater",
+          "mw": 17,
+          "from": 1965,
+          "to": 1968,
+          "iaea": 703
+        }
+      ],
+      "gem": ["L100000500261"]
     },
     {
       "id": "cernavoda",
@@ -6196,7 +6392,8 @@
           "from": 2007,
           "iaea": 443
         }
-      ]
+      ],
+      "gem": ["L100000500162"]
     },
     {
       "id": "akademik-lomonosov",
@@ -6223,7 +6420,8 @@
           "from": 2020,
           "iaea": 896
         }
-      ]
+      ],
+      "gem": ["L100000500250"]
     },
     {
       "id": "brest-od",
@@ -6240,7 +6438,8 @@
           "mw": 300,
           "iaea": 1106
         }
-      ]
+      ],
+      "gem": ["L100000500226"]
     },
     {
       "id": "balakovo",
@@ -6285,7 +6484,8 @@
           "from": 1993,
           "iaea": 527
         }
-      ]
+      ],
+      "gem": ["L100000500089"]
     },
     {
       "id": "beloyarsk",
@@ -6332,7 +6532,8 @@
           "from": 2016,
           "iaea": 451
         }
-      ]
+      ],
+      "gem": ["L100000500168"]
     },
     {
       "id": "bilibino",
@@ -6384,7 +6585,8 @@
           "iaea": 470,
           "changed": { "year": 2025, "sources": ["https://reactoratlas.com/en/year/2025"] }
         }
-      ]
+      ],
+      "gem": ["L100000500258"]
     },
     {
       "id": "cape-nagloynyn-floating",
@@ -6417,7 +6619,8 @@
             ]
           }
         }
-      ]
+      ],
+      "gem": ["L100000500281"]
     },
     {
       "id": "kalinin",
@@ -6462,7 +6665,8 @@
           "from": 2012,
           "iaea": 496
         }
-      ]
+      ],
+      "gem": ["L100000500090"]
     },
     {
       "id": "kola",
@@ -6507,7 +6711,8 @@
           "from": 1984,
           "iaea": 492
         }
-      ]
+      ],
+      "gem": ["L100000500204"]
     },
     {
       "id": "kursk",
@@ -6584,7 +6789,17 @@
           "from": 1986,
           "iaea": 498
         }
-      ]
+      ],
+      "gem": ["L100000500075"],
+      "conflictIds": ["russia-ukraine"],
+      "sources": [
+        "https://world-nuclear-news.org/Articles/IAEA-s-Grossi-visiting-Kursk-nuclear-power-plant",
+        "https://www.aljazeera.com/news/2024/8/27/mapping-russias-kursk-nuclear-power-plant"
+      ],
+      "note": {
+        "ar": "تقدّمت القوات الأوكرانية في أغسطس 2024 داخل مقاطعة كورسك الروسية حتى نحو 50 كم من المحطة، وأبلغت روسيا الوكالة الدولية للطاقة الذرية بالعثور على بقايا طائرة مسيّرة في الموقع. وزارها المدير العام رافائيل غروسي في 27 أغسطس 2024 ووصف قرب محطة من هذا النوع من خط الجبهة بأنه «أمر بالغ الخطورة».",
+        "en": "In August 2024 Ukrainian forces advanced into Russia's Kursk region to about 50 km from the plant, and Russia told the IAEA that drone remains had been found on the site. Director General Rafael Grossi visited on 27 August 2024 and called a plant of this type so close to a front line \"an extremely serious fact\"."
+      }
     },
     {
       "id": "leningrad",
@@ -6671,7 +6886,8 @@
           "from": 1981,
           "iaea": 494
         }
-      ]
+      ],
+      "gem": ["L100000500083"]
     },
     {
       "id": "novovoronezh",
@@ -6746,7 +6962,8 @@
           "from": 1981,
           "iaea": 483
         }
-      ]
+      ],
+      "gem": ["L100000500086"]
     },
     {
       "id": "obninsk",
@@ -6765,7 +6982,8 @@
           "to": 2002,
           "iaea": 447
         }
-      ]
+      ],
+      "gem": ["L100000500265"]
     },
     {
       "id": "rostov",
@@ -6810,7 +7028,8 @@
           "from": 2018,
           "iaea": 507
         }
-      ]
+      ],
+      "gem": ["L100000500087"]
     },
     {
       "id": "smolensk",
@@ -6846,7 +7065,8 @@
           "from": 1990,
           "iaea": 508
         }
-      ]
+      ],
+      "gem": ["L100000500088"]
     },
     {
       "id": "bohunice",
@@ -6903,7 +7123,8 @@
           "to": 1977,
           "iaea": 543
         }
-      ]
+      ],
+      "gem": ["L100000500198"]
     },
     {
       "id": "mochovce",
@@ -6946,7 +7167,8 @@
           "mw": 440,
           "iaea": 545
         }
-      ]
+      ],
+      "gem": ["L100000500199"]
     },
     {
       "id": "krsko",
@@ -6964,7 +7186,8 @@
           "from": 1983,
           "iaea": 542
         }
-      ]
+      ],
+      "gem": ["L100000500165"]
     },
     {
       "id": "barseback",
@@ -6993,7 +7216,8 @@
           "to": 2005,
           "iaea": 540
         }
-      ]
+      ],
+      "gem": ["L100000500181"]
     },
     {
       "id": "forsmark",
@@ -7029,7 +7253,8 @@
           "from": 1985,
           "iaea": 532
         }
-      ]
+      ],
+      "gem": ["L100000500073"]
     },
     {
       "id": "oskarshamn",
@@ -7067,7 +7292,8 @@
           "from": 1985,
           "iaea": 531
         }
-      ]
+      ],
+      "gem": ["L100000500025"]
     },
     {
       "id": "ringhals",
@@ -7114,7 +7340,8 @@
           "from": 1983,
           "iaea": 529
         }
-      ]
+      ],
+      "gem": ["L100000500074"]
     },
     {
       "id": "agesta",
@@ -7132,7 +7359,8 @@
           "to": 1974,
           "iaea": 528
         }
-      ]
+      ],
+      "gem": ["L100000500255"]
     },
     {
       "id": "akkuyu",
@@ -7173,7 +7401,8 @@
           "mw": 1114,
           "iaea": 1082
         }
-      ]
+      ],
+      "gem": ["L100000500093"]
     },
     {
       "id": "chin-shan",
@@ -7202,7 +7431,8 @@
           "to": 2019,
           "iaea": 555
         }
-      ]
+      ],
+      "gem": ["L100000500271"]
     },
     {
       "id": "kuosheng",
@@ -7231,14 +7461,15 @@
           "to": 2023,
           "iaea": 557
         }
-      ]
+      ],
+      "gem": ["L100000500268"]
     },
     {
       "id": "maanshan",
       "iso3": "TWN",
       "en": "Maanshan",
       "ar": "مانشان",
-      "coords": [121.924, 25.038],
+      "coords": [120.75, 21.959],
       "units": [
         {
           "name": "Maanshan-1",
@@ -7262,7 +7493,14 @@
           "iaea": 559,
           "changed": { "year": 2025, "sources": ["https://reactoratlas.com/en/year/2025"] }
         }
-      ]
+      ],
+      "gem": ["L100000500269"],
+      "note": {
+        "ar": "الموقع من متتبّع GEM المتكامل لمحطات الكهرباء: المحطة في أقصى جنوب تايوان (مقاطعة بينغتونغ)، أما قاعدة GeoNuclearData فتضعها خطأً قرب تايبيه في الشمال.",
+        "en": "The location follows GEM's Global Integrated Power Tracker: the plant is at Taiwan's southern tip (Pingtung County); GeoNuclearData places it near Taipei in the north by mistake."
+      },
+      "sources": ["https://globalenergymonitor.org/projects/global-integrated-power-tracker"],
+      "verified": "2026-11-11"
     },
     {
       "id": "chernobyl",
@@ -7311,7 +7549,18 @@
           "to": 1986,
           "iaea": 576
         }
-      ]
+      ],
+      "gem": ["L100000500084"],
+      "conflictIds": ["russia-ukraine"],
+      "sources": [
+        "https://www.iaea.org/sites/default/files/documents/gov2025-11_9.pdf",
+        "https://www.iaea.org/newscenter/pressreleases/update-331-iaea-director-general-statement-on-situation-in-ukraine",
+        "https://www.iaea.org/topics/chornobyl/faqs"
+      ],
+      "note": {
+        "ar": "ضربت طائرة مسيّرة في 14 فبراير 2025 الهيكل الواقي الجديد فوق بقايا الوحدة الرابعة، وأشعلت في كسوته حريقاً استمر أياماً دون تسرّب إشعاعي. وأكدت بعثة للوكالة الدولية للطاقة الذرية أواخر 2025 أن الهيكل فقد وظائف الأمان الأساسية ومنها الاحتواء، وتُقرَّر له إصلاحات مؤقتة في 2026.",
+        "en": "On 14 February 2025 a drone hit the New Safe Confinement over the remains of Unit 4, starting a fire in its cladding that burned for days, with no radioactive release. An IAEA mission in late 2025 found that the structure had lost its primary safety functions, including confinement; temporary repairs are planned for 2026."
+      }
     },
     {
       "id": "khmelnytskyi",
@@ -7354,7 +7603,17 @@
           "mw": 1035,
           "iaea": 582
         }
-      ]
+      ],
+      "gem": ["L100000500095"],
+      "conflictIds": ["russia-ukraine"],
+      "sources": [
+        "https://www.iaea.org/newscenter/pressreleases/update-313-iaea-director-general-statement-on-situation-in-ukraine",
+        "https://www.iaea.org/newscenter/pressreleases/update-334-iaea-director-general-statement-on-situation-in-ukraine"
+      ],
+      "note": {
+        "ar": "بقيت المحطة تزوّد الشبكة طوال الحرب. وتقول الوكالة الدولية للطاقة الذرية إن فريقها في الموقع يحتمي أثناء الإنذارات الجوية وإن طائرات مسيّرة رُصدت قرب المحطة (سبتمبر 2025)، وإنها خفّضت إنتاجها بعد نشاط عسكري واسع طال محطات التحويل التي تعتمد عليها (ديسمبر 2025).",
+        "en": "The plant has kept supplying the grid through the war. The IAEA says its team on site shelters during air-raid alarms and that drones were seen near the plant (September 2025), and that it cut its output after widespread military activity hit the grid substations it depends on (December 2025)."
+      }
     },
     {
       "id": "rivne",
@@ -7399,7 +7658,17 @@
           "from": 2006,
           "iaea": 589
         }
-      ]
+      ],
+      "gem": ["L100000500109"],
+      "conflictIds": ["russia-ukraine"],
+      "sources": [
+        "https://www.iaea.org/newscenter/pressreleases/update-313-iaea-director-general-statement-on-situation-in-ukraine",
+        "https://www.iaea.org/newscenter/pressreleases/update-334-iaea-director-general-statement-on-situation-in-ukraine"
+      ],
+      "note": {
+        "ar": "بقيت المحطة تزوّد الشبكة طوال الحرب. وتقول الوكالة الدولية للطاقة الذرية إن فريقها في الموقع يحتمي أثناء الإنذارات الجوية وإن طائرات مسيّرة رُصدت في محيط المحطة (سبتمبر 2025)، وإنها خفّضت إنتاجها بعد نشاط عسكري واسع طال محطات التحويل التي تعتمد عليها (ديسمبر 2025).",
+        "en": "The plant has kept supplying the grid through the war. The IAEA says its team on site shelters during air-raid alarms and that drones were seen in the plant's surroundings (September 2025), and that it cut its output after widespread military activity hit the grid substations it depends on (December 2025)."
+      }
     },
     {
       "id": "south-ukraine",
@@ -7435,7 +7704,17 @@
           "from": 1989,
           "iaea": 579
         }
-      ]
+      ],
+      "gem": ["L100000500221"],
+      "conflictIds": ["russia-ukraine"],
+      "sources": [
+        "https://www.iaea.org/newscenter/pressreleases/update-313-iaea-director-general-statement-on-situation-in-ukraine",
+        "https://www.iaea.org/sites/default/files/documents/gov2025-54.pdf"
+      ],
+      "note": {
+        "ar": "بقيت المحطة تزوّد الشبكة طوال الحرب، وتقول الوكالة الدولية للطاقة الذرية إن فريقها في الموقع يحتمي أثناء الإنذارات الجوية، ولم تبلّغ عن أضرار مادية فيها من النشاط العسكري في 2025.",
+        "en": "The plant has kept supplying the grid through the war. The IAEA says its team on site shelters during air-raid alarms, and reported no physical damage to it from military activity in 2025."
+      }
     },
     {
       "id": "zaporizhzhia",
@@ -7550,7 +7829,8 @@
         "https://www.yahoo.com/news/iaea-chief-welcomes-cold-shutdown-203034178.html",
         "https://www.ukrinform.net/rubric-economy/3903730-znpp-reactors-should-not-be-restarted-until-war-ends-iaea-chief.html"
       ],
-      "verified": "2026-11-03"
+      "verified": "2026-11-03",
+      "gem": ["L100000500110"]
     },
     {
       "id": "arkansas-nuclear-one",
@@ -7577,26 +7857,8 @@
           "from": 1980,
           "iaea": 689
         }
-      ]
-    },
-    {
-      "id": "bonus",
-      "iso3": "USA",
-      "en": "BONUS",
-      "ar": "بونس",
-      "coords": [-67.268, 18.365],
-      "units": [
-        {
-          "name": "BONUS",
-          "status": "shutdown",
-          "type": "BWR",
-          "model": "Superheater",
-          "mw": 17,
-          "from": 1965,
-          "to": 1968,
-          "iaea": 703
-        }
-      ]
+      ],
+      "gem": ["L100000500102"]
     },
     {
       "id": "beaver-valley",
@@ -7623,7 +7885,8 @@
           "from": 1987,
           "iaea": 712
         }
-      ]
+      ],
+      "gem": ["L100000500122"]
     },
     {
       "id": "big-rock-point",
@@ -7641,7 +7904,8 @@
           "to": 1997,
           "iaea": 601
         }
-      ]
+      ],
+      "gem": ["L100000500245"]
     },
     {
       "id": "braidwood",
@@ -7668,7 +7932,8 @@
           "from": 1988,
           "iaea": 738
         }
-      ]
+      ],
+      "gem": ["L100000500047"]
     },
     {
       "id": "browns-ferry",
@@ -7704,7 +7969,8 @@
           "from": 1977,
           "iaea": 641
         }
-      ]
+      ],
+      "gem": ["L100000500062"]
     },
     {
       "id": "brunswick",
@@ -7731,7 +7997,8 @@
           "from": 1975,
           "iaea": 661
         }
-      ]
+      ],
+      "gem": ["L100000500117"]
     },
     {
       "id": "byron",
@@ -7758,7 +8025,8 @@
           "from": 1987,
           "iaea": 736
         }
-      ]
+      ],
+      "gem": ["L100000500048"]
     },
     {
       "id": "callaway",
@@ -7776,7 +8044,8 @@
           "from": 1984,
           "iaea": 752
         }
-      ]
+      ],
+      "gem": ["L100000500053"]
     },
     {
       "id": "calvert-cliffs",
@@ -7803,7 +8072,8 @@
           "from": 1977,
           "iaea": 656
         }
-      ]
+      ],
+      "gem": ["L100000500143"]
     },
     {
       "id": "carolinas-cvtr",
@@ -7822,7 +8092,8 @@
           "to": 1967,
           "iaea": 600
         }
-      ]
+      ],
+      "gem": ["L100000500256"]
     },
     {
       "id": "catawba",
@@ -7849,7 +8120,8 @@
           "from": 1986,
           "iaea": 714
         }
-      ]
+      ],
+      "gem": ["L100000500070"]
     },
     {
       "id": "clinton",
@@ -7867,7 +8139,8 @@
           "from": 1987,
           "iaea": 742
         }
-      ]
+      ],
+      "gem": ["L100000500058"]
     },
     {
       "id": "columbia",
@@ -7885,7 +8158,8 @@
           "from": 1984,
           "iaea": 702
         }
-      ]
+      ],
+      "gem": ["L100000500057"]
     },
     {
       "id": "comanche-peak",
@@ -7912,7 +8186,8 @@
           "from": 1993,
           "iaea": 730
         }
-      ]
+      ],
+      "gem": ["L100000500050"]
     },
     {
       "id": "cooper",
@@ -7930,7 +8205,8 @@
           "from": 1974,
           "iaea": 642
         }
-      ]
+      ],
+      "gem": ["L100000500158"]
     },
     {
       "id": "crystal-river",
@@ -7949,7 +8225,8 @@
           "to": 2013,
           "iaea": 645
         }
-      ]
+      ],
+      "gem": ["L100000500270"]
     },
     {
       "id": "davis-besse",
@@ -7967,7 +8244,8 @@
           "from": 1978,
           "iaea": 676
         }
-      ]
+      ],
+      "gem": ["L100000500127"]
     },
     {
       "id": "diablo-canyon",
@@ -7994,7 +8272,8 @@
           "from": 1986,
           "iaea": 660
         }
-      ]
+      ],
+      "gem": ["L100000500069"]
     },
     {
       "id": "donald-cook",
@@ -8021,7 +8300,8 @@
           "from": 1978,
           "iaea": 654
         }
-      ]
+      ],
+      "gem": ["L100000500059"]
     },
     {
       "id": "dresden",
@@ -8057,7 +8337,8 @@
           "from": 1971,
           "iaea": 612
         }
-      ]
+      ],
+      "gem": ["L100000500111"]
     },
     {
       "id": "duane-arnold",
@@ -8076,7 +8357,8 @@
           "to": 2020,
           "iaea": 667
         }
-      ]
+      ],
+      "gem": ["L100000500178"]
     },
     {
       "id": "elk-river",
@@ -8094,7 +8376,8 @@
           "to": 1968,
           "iaea": 596
         }
-      ]
+      ],
+      "gem": ["L100000500332"]
     },
     {
       "id": "enrico-fermi",
@@ -8122,7 +8405,8 @@
           "from": 1988,
           "iaea": 674
         }
-      ]
+      ],
+      "gem": ["L100000500056"]
     },
     {
       "id": "farley",
@@ -8149,7 +8433,8 @@
           "from": 1981,
           "iaea": 686
         }
-      ]
+      ],
+      "gem": ["L100000500140"]
     },
     {
       "id": "fitzpatrick",
@@ -8167,7 +8452,8 @@
           "from": 1975,
           "iaea": 668
         }
-      ]
+      ],
+      "gem": ["L100000500154"]
     },
     {
       "id": "fort-calhoun",
@@ -8186,7 +8472,8 @@
           "to": 2016,
           "iaea": 634
         }
-      ]
+      ],
+      "gem": ["L100000500191"]
     },
     {
       "id": "fort-st-vrain",
@@ -8204,7 +8491,8 @@
           "to": 1989,
           "iaea": 623
         }
-      ]
+      ],
+      "gem": ["L100000500216"]
     },
     {
       "id": "grand-gulf",
@@ -8222,7 +8510,8 @@
           "from": 1985,
           "iaea": 715
         }
-      ]
+      ],
+      "gem": ["L100000500003"]
     },
     {
       "id": "h-b-robinson",
@@ -8240,7 +8529,8 @@
           "from": 1971,
           "iaea": 619
         }
-      ]
+      ],
+      "gem": ["L100000500379"]
     },
     {
       "id": "haddam-neck",
@@ -8258,7 +8548,8 @@
           "to": 1996,
           "iaea": 605
         }
-      ]
+      ],
+      "gem": ["L100000500180"]
     },
     {
       "id": "hallam",
@@ -8277,7 +8568,8 @@
           "to": 1964,
           "iaea": 891
         }
-      ]
+      ],
+      "gem": ["L100000500243"]
     },
     {
       "id": "hatch",
@@ -8304,7 +8596,8 @@
           "from": 1979,
           "iaea": 687
         }
-      ]
+      ],
+      "gem": ["L100000500128"]
     },
     {
       "id": "hope-creek",
@@ -8322,7 +8615,8 @@
           "from": 1986,
           "iaea": 680
         }
-      ]
+      ],
+      "gem": ["L100000500031"]
     },
     {
       "id": "humboldt-bay",
@@ -8341,7 +8635,8 @@
           "to": 1976,
           "iaea": 599
         }
-      ]
+      ],
+      "gem": ["L100000500246"]
     },
     {
       "id": "indian-point",
@@ -8380,7 +8675,8 @@
           "to": 2021,
           "iaea": 635
         }
-      ]
+      ],
+      "gem": ["L100000500082"]
     },
     {
       "id": "kewaunee",
@@ -8399,7 +8695,8 @@
           "to": 2013,
           "iaea": 647
         }
-      ]
+      ],
+      "gem": ["L100000500184"]
     },
     {
       "id": "la-crosse",
@@ -8417,7 +8714,8 @@
           "to": 1987,
           "iaea": 710
         }
-      ]
+      ],
+      "gem": ["L100000500249"]
     },
     {
       "id": "lasalle",
@@ -8444,7 +8742,8 @@
           "from": 1984,
           "iaea": 693
         }
-      ]
+      ],
+      "gem": ["L100000500054"]
     },
     {
       "id": "limerick",
@@ -8471,7 +8770,8 @@
           "from": 1990,
           "iaea": 679
         }
-      ]
+      ],
+      "gem": ["L100000500055"]
     },
     {
       "id": "maine-yankee",
@@ -8489,7 +8789,8 @@
           "to": 1997,
           "iaea": 649
         }
-      ]
+      ],
+      "gem": ["L100000500150"]
     },
     {
       "id": "mcguire",
@@ -8516,7 +8817,8 @@
           "from": 1984,
           "iaea": 691
         }
-      ]
+      ],
+      "gem": ["L100000500068"]
     },
     {
       "id": "millstone",
@@ -8552,7 +8854,8 @@
           "from": 1986,
           "iaea": 717
         }
-      ]
+      ],
+      "gem": ["L100000500045"]
     },
     {
       "id": "monticello",
@@ -8570,7 +8873,8 @@
           "from": 1971,
           "iaea": 620
         }
-      ]
+      ],
+      "gem": ["L100000500172"]
     },
     {
       "id": "nine-mile-point",
@@ -8597,7 +8901,8 @@
           "from": 1988,
           "iaea": 711
         }
-      ]
+      ],
+      "gem": ["L100000500009"]
     },
     {
       "id": "north-anna",
@@ -8624,7 +8929,8 @@
           "from": 1980,
           "iaea": 673
         }
-      ]
+      ],
+      "gem": ["L100000500116"]
     },
     {
       "id": "oconee",
@@ -8660,7 +8966,8 @@
           "from": 1974,
           "iaea": 636
         }
-      ]
+      ],
+      "gem": ["L100000500152"]
     },
     {
       "id": "oyster-creek",
@@ -8679,7 +8986,8 @@
           "to": 2018,
           "iaea": 606
         }
-      ]
+      ],
+      "gem": ["L100000500174"]
     },
     {
       "id": "palisades",
@@ -8697,7 +9005,8 @@
           "to": 2022,
           "iaea": 616
         }
-      ]
+      ],
+      "gem": ["L100000500153"]
     },
     {
       "id": "palo-verde",
@@ -8733,7 +9042,8 @@
           "from": 1988,
           "iaea": 791
         }
-      ]
+      ],
+      "gem": ["L100000500008"]
     },
     {
       "id": "pathfinder",
@@ -8752,7 +9062,8 @@
           "to": 1967,
           "iaea": 598
         }
-      ]
+      ],
+      "gem": ["L100000500275"]
     },
     {
       "id": "peach-bottom",
@@ -8788,7 +9099,8 @@
           "from": 1974,
           "iaea": 630
         }
-      ]
+      ],
+      "gem": ["L100000500014"]
     },
     {
       "id": "perry",
@@ -8806,7 +9118,8 @@
           "from": 1987,
           "iaea": 725
         }
-      ]
+      ],
+      "gem": ["L100000500041"]
     },
     {
       "id": "pilgrim",
@@ -8825,7 +9138,8 @@
           "to": 2019,
           "iaea": 639
         }
-      ]
+      ],
+      "gem": ["L100000500171"]
     },
     {
       "id": "piqua",
@@ -8844,7 +9158,8 @@
           "to": 1966,
           "iaea": 894
         }
-      ]
+      ],
+      "gem": ["L100000500262"]
     },
     {
       "id": "point-beach",
@@ -8871,7 +9186,8 @@
           "from": 1972,
           "iaea": 644
         }
-      ]
+      ],
+      "gem": ["L100000500182"]
     },
     {
       "id": "prairie-island",
@@ -8898,7 +9214,8 @@
           "from": 1974,
           "iaea": 648
         }
-      ]
+      ],
+      "gem": ["L100000500187"]
     },
     {
       "id": "quad-cities",
@@ -8925,7 +9242,8 @@
           "from": 1973,
           "iaea": 621
         }
-      ]
+      ],
+      "gem": ["L100000500112"]
     },
     {
       "id": "r-e-ginna",
@@ -8943,7 +9261,8 @@
           "from": 1970,
           "iaea": 609
         }
-      ]
+      ],
+      "gem": ["L100000500183"]
     },
     {
       "id": "rancho-seco",
@@ -8962,7 +9281,8 @@
           "to": 1989,
           "iaea": 651
         }
-      ]
+      ],
+      "gem": ["L100000500141"]
     },
     {
       "id": "river-bend",
@@ -8980,7 +9300,8 @@
           "from": 1986,
           "iaea": 739
         }
-      ]
+      ],
+      "gem": ["L100000500098"]
     },
     {
       "id": "salem",
@@ -9007,7 +9328,8 @@
           "from": 1981,
           "iaea": 650
         }
-      ]
+      ],
+      "gem": ["L100000500060"]
     },
     {
       "id": "san-onofre",
@@ -9046,7 +9368,8 @@
           "to": 2013,
           "iaea": 684
         }
-      ]
+      ],
+      "gem": ["L100000500064"]
     },
     {
       "id": "saxton",
@@ -9064,7 +9387,8 @@
           "to": 1972,
           "iaea": 892
         }
-      ]
+      ],
+      "gem": ["L100000500276"]
     },
     {
       "id": "seabrook",
@@ -9082,7 +9406,8 @@
           "from": 1990,
           "iaea": 727
         }
-      ]
+      ],
+      "gem": ["L100000500046"]
     },
     {
       "id": "sequoyah",
@@ -9109,7 +9434,8 @@
           "from": 1982,
           "iaea": 664
         }
-      ]
+      ],
+      "gem": ["L100000500063"]
     },
     {
       "id": "shearon-harris",
@@ -9127,7 +9453,8 @@
           "from": 1987,
           "iaea": 704
         }
-      ]
+      ],
+      "gem": ["L100000500380"]
     },
     {
       "id": "shippingport",
@@ -9146,7 +9473,8 @@
           "to": 1982,
           "iaea": 890
         }
-      ]
+      ],
+      "gem": ["L100000500274"]
     },
     {
       "id": "shoreham",
@@ -9191,7 +9519,8 @@
           "from": 1989,
           "iaea": 765
         }
-      ]
+      ],
+      "gem": ["L100000500027"]
     },
     {
       "id": "st-lucie",
@@ -9218,7 +9547,8 @@
           "from": 1983,
           "iaea": 698
         }
-      ]
+      ],
+      "gem": ["L100000500103"]
     },
     {
       "id": "summer",
@@ -9236,7 +9566,8 @@
           "from": 1984,
           "iaea": 701
         }
-      ]
+      ],
+      "gem": ["L100000500120"]
     },
     {
       "id": "surry",
@@ -9263,7 +9594,8 @@
           "from": 1973,
           "iaea": 632
         }
-      ]
+      ],
+      "gem": ["L100000500151"]
     },
     {
       "id": "susquehanna",
@@ -9290,7 +9622,8 @@
           "from": 1985,
           "iaea": 697
         }
-      ]
+      ],
+      "gem": ["L100000500013"]
     },
     {
       "id": "three-mile-island",
@@ -9319,7 +9652,8 @@
           "to": 1979,
           "iaea": 657
         }
-      ]
+      ],
+      "gem": ["L100000500142"]
     },
     {
       "id": "trojan",
@@ -9337,7 +9671,8 @@
           "to": 1992,
           "iaea": 675
         }
-      ]
+      ],
+      "gem": ["L100000500072"]
     },
     {
       "id": "turkey-point",
@@ -9364,7 +9699,8 @@
           "from": 1973,
           "iaea": 614
         }
-      ]
+      ],
+      "gem": ["L100001007637"]
     },
     {
       "id": "vallecitos",
@@ -9383,7 +9719,8 @@
           "to": 1963,
           "iaea": 893
         }
-      ]
+      ],
+      "gem": ["L100000500260"]
     },
     {
       "id": "vermont-yankee",
@@ -9402,7 +9739,8 @@
           "to": 2014,
           "iaea": 626
         }
-      ]
+      ],
+      "gem": ["L100000500177"]
     },
     {
       "id": "vogtle",
@@ -9448,7 +9786,8 @@
           "iaea": 1043,
           "changed": { "year": 2024, "sources": ["https://reactoratlas.com/en/year/2024"] }
         }
-      ]
+      ],
+      "gem": ["L100000500049"]
     },
     {
       "id": "waterford",
@@ -9466,7 +9805,8 @@
           "from": 1985,
           "iaea": 695
         }
-      ]
+      ],
+      "gem": ["L100000500043"]
     },
     {
       "id": "watts-bar",
@@ -9493,7 +9833,8 @@
           "from": 2016,
           "iaea": 700
         }
-      ]
+      ],
+      "gem": ["L100000500061"]
     },
     {
       "id": "wolf-creek",
@@ -9511,7 +9852,8 @@
           "from": 1985,
           "iaea": 751
         }
-      ]
+      ],
+      "gem": ["L100000500052"]
     },
     {
       "id": "yankee-rowe",
@@ -9530,7 +9872,8 @@
           "to": 1991,
           "iaea": 638
         }
-      ]
+      ],
+      "gem": ["L100000500230"]
     },
     {
       "id": "zion",
@@ -9559,7 +9902,8 @@
           "to": 1998,
           "iaea": 646
         }
-      ]
+      ],
+      "gem": ["L100000500080"]
     },
     {
       "id": "jizzakh",
@@ -9594,7 +9938,8 @@
             ]
           }
         }
-      ]
+      ],
+      "gem": ["L100001048085"]
     },
     {
       "id": "koeberg",
@@ -9621,7 +9966,8 @@
           "from": 1985,
           "iaea": 837
         }
-      ]
+      ],
+      "gem": ["L100000500139"]
     }
   ]
 }

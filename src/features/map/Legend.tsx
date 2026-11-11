@@ -412,6 +412,7 @@ const BODY: Record<(typeof LENSES)[number]['id'], (c: Ctx) => ReactNode> = {
         <Sec k="map.lc.colorBy"><Chips label={t('map.lc.colorBy')}>{modes}</Chips></Sec>
         <Sec>{key}</Sec>
         {heads}
+        <Sec k="pw.show"><Chips label={t('pw.show')}><ConflictsChip DB={DB} S={S} /></Chips><ConflictsKey DB={DB} S={S} /></Sec>
         <Note text={hint} />
         {m === 'civil' ? <TimelineNote S={S} undated={undated} caveat={t('map.nc.tl.caveat')} />
           : S.yearFilter ? <Note text={t('map.nc.noYear', { y: m === 'military' ? DB.nuclear.warheads.year : new Date().getFullYear() })} /> : null}
