@@ -15,7 +15,7 @@ import { catVar, edgeVar, pal, resClassVar, sevVar, traditionColor, type Palette
 import {
   BLOC_T, CHOKE_T, CONTINENTS, ETHNIC_CLASSES, GDP_RANGE, INCOME, POP_RANGE, RES_SHAPE,
   PIPE_DASH, PIPE_DOTS, PIPE_W, activeBloc, bi, borderFill, decadeWindow, ethnicClass, fuelVar, landTint, lngColor, nuclearCivilFill, nuclearFill, nuclearZoneFill, plantColor, seqFill,
-  ACTIVE_SEVERITY, activeConflicts, visibleConflicts, visibleFields, visibleLng, visiblePipes, visiblePlants, visibleFacilities, windowEvents, POWER_R, layerVar, powerHalted, powerVar,
+  ACTIVE_SEVERITY, activeConflicts, visibleConflicts, visibleFields, visibleNuclear, warheadRadius, visibleLng, visiblePipes, visiblePlants, visibleFacilities, windowEvents, POWER_R, layerVar, powerHalted, powerVar,
 } from './engine/scene';
 import { FUELS, FUEL_LABEL, PIPE_STATUS, STATUS_LABEL, capacityClass, isHalted, systemName } from '../../data/energy';
 import { useEnergy } from '../pipelines/useEnergy';
@@ -353,33 +353,53 @@ const BODY: Record<(typeof LENSES)[number]['id'], (c: Ctx) => ReactNode> = {
     );
   },
 
-  nuclear({ DB, S, P, T: { t, pick: L, fmt } }) {
+  nuclear({ DB, S, P, T: { t, pick: L, pickKey: Lk, fmt } }) {
     const m = S.filters.nuclearMode;
     const modes = (['military', 'civil', 'zones'] as const).map((id) => (
       <Chip key={id} act="set" k="nuclearMode" val={id} pressed={m === id} label={t('map.nc.' + id)} onClick={() => setNuclearMode(id)} />
     ));
     const all = [...DB.countries.values()];
-    let key: ReactNode, note: string, hint = '';
+    let key: ReactNode, note: string, hint = '', heads: ReactNode = null, undated = 0;
     if (m === 'military') {
       key = <Keys>{(Object.keys(NUCLEAR_STATUS) as (keyof typeof NUCLEAR_STATUS)[]).map((id) => (
         <KeyRow key={id} lead={<Sw bg={nuclearFill(P, id)} cls={`sw-land${'unconfirmed' in NUCLEAR_STATUS[id] ? ' sw-overhatch' : ''}`} />} label={L(NUCLEAR_STATUS[id])}
           n={all.filter((c) => c.nuclear.weapons === id).length} />
       ))}</Keys>;
-      const total = Object.values(DB.nuclear.warheads.values).reduce((a, b) => a + b, 0);
+      const W = DB.nuclear.warheads, total = Object.values(W.values).reduce((a, b) => a + b, 0), max = Math.max(1, ...Object.values(W.values));
+      // the arsenals, largest first, each with a circle scaled as on the map (at a third of its size)
+      heads = (
+        <Sec k="map.nc.heads" label={t('map.nc.heads', { y: W.year })}>
+          <Keys>{Object.entries(W.values).sort((a, b) => b[1] - a[1]).map(([iso, n]) => (
+            <KeyRow key={iso} lead={<span className="nc-head" aria-hidden="true"><span style={{ width: 2 * Math.max(1.5, warheadRadius(n, max) / 3), height: 2 * Math.max(1.5, warheadRadius(n, max) / 3) }} /></span>}
+              label={Lk(DB.countries.get(iso), 'name') || iso} n={n} />
+          ))}</Keys>
+          <p className="lc-note">{t('map.nc.headsKey')}</p>
+        </Sec>
+      );
       hint = t('map.nc.hatch');
-      note = [t('map.nc.warheads', { n: fmt.num(total), y: DB.nuclear.warheads.year }), L(DB.nuclear.note)].join(' ');
+      note = [t('map.nc.warheads', { n: fmt.num(total), y: W.year }), L(DB.nuclear.note)].join(' ');
     } else if (m === 'civil') {
       key = <Keys>{(Object.keys(NUCLEAR_CIVIL) as (keyof typeof NUCLEAR_CIVIL)[]).map((id) => (
         <KeyRow key={id} lead={<Sw bg={nuclearCivilFill(P, id)} cls={`sw-land${id === 'phased-out' ? ' sw-overhatch' : ''}`} />} label={L(NUCLEAR_CIVIL[id])}
           n={all.filter((c) => c.nuclear.civil === id).length} />
       ))}</Keys>;
       const plants = DB.nuclear.plants;
-      key = <>{key}<Keys>{(Object.keys(NUCLEAR_UNIT) as (keyof typeof NUCLEAR_UNIT)[]).map((id) => (
-        <KeyRow key={id} lead={<Glyph shape={NUCLEAR_UNIT[id].shape} color={plantColor(P, id)} />} label={t('map.nc.plant', { s: L(NUCLEAR_UNIT[id]) })}
+      // with the timeline on: the states that ran reactors that year and the plants then in service
+      if (S.yearFilter) {
+        const shown = visibleNuclear(DB, S);
+        key = <Keys>
+          <KeyRow lead={<Sw bg={nuclearCivilFill(P, 'operating')} cls="sw-land" />} label={t('map.nc.ranYear', { y: S.year })} n={new Set(shown.map((x) => x.p.iso3)).size} />
+          <KeyRow lead={<PlantDot color={plantColor(P, 'operating')} r={3.5} />} label={t('map.nc.plantsYear', { y: S.year })} n={shown.length} />
+        </Keys>;
+      }
+      key = <>{key}<Keys>{(S.yearFilter ? [] : Object.keys(NUCLEAR_UNIT) as (keyof typeof NUCLEAR_UNIT)[]).map((id) => (
+        <KeyRow key={id} lead={<PlantDot color={plantColor(P, id)} r={3.5} ring={id === 'building' || id === 'shutdown'} />} label={t('map.nc.plant', { s: L(NUCLEAR_UNIT[id]) })}
           n={plants.filter((p) => p.status === id).length} />
       ))}
-        <KeyRow lead={<span className="sizes" aria-hidden="true"><Glyph shape="disc" color="var(--fg-3)" size={8} /><Glyph shape="disc" color="var(--fg-3)" size={18} /></span>} label={t('map.nc.size')} />
+        <KeyRow lead={<span className="sizes" aria-hidden="true"><PlantDot color="var(--fg-2)" r={POWER_R[0]} /><PlantDot color="var(--fg-2)" r={POWER_R[4]} /></span>} label={t('map.nc.size')} />
+        <KeyRow lead={<Picto id="atom" color={plantColor(P, 'operating')} size={15} />} label={t('map.nc.picto')} />
       </Keys></>;
+      undated = plants.reduce((a, p) => a + p.units.filter((u) => u.status !== 'building' && u.from == null).length, 0);
       note = t('map.nc.civilNote', { d: fmt.date(DB.nuclear.plantSource.base.date) });
     } else {
       key = <Keys>{DB.nuclear.zones.map((z) => (
@@ -391,7 +411,10 @@ const BODY: Record<(typeof LENSES)[number]['id'], (c: Ctx) => ReactNode> = {
       <>
         <Sec k="map.lc.colorBy"><Chips label={t('map.lc.colorBy')}>{modes}</Chips></Sec>
         <Sec>{key}</Sec>
+        {heads}
         <Note text={hint} />
+        {m === 'civil' ? <TimelineNote S={S} undated={undated} caveat={t('map.nc.tl.caveat')} />
+          : S.yearFilter ? <Note text={t('map.nc.noYear', { y: m === 'military' ? DB.nuclear.warheads.year : new Date().getFullYear() })} /> : null}
         <About notes={[note]} />
       </>
     );

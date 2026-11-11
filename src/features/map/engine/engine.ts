@@ -593,6 +593,7 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
     if (S.layers.rivers) drawRivers(ctx, cen, X);
     for (const p of sc.under) drawPoly(ctx, clipPath, cen, level, p, P);
     for (const p of sc.polys) drawPoly(ctx, clipPath, cen, level, p, P);
+    drawBubbles(ctx, sc, cen, P);
     for (const ls of sc.lines) drawLineSet(ctx, ls, cen);
     drawPoints(ctx, sc, cen, P);
     if (mode === 'globe') drawLimb(ctx, X);
@@ -689,6 +690,19 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
       traceItems(path, items, cen);
       ctx.lineWidth = (rank <= 1 ? 1.5 : rank <= 3 ? 1.1 : 0.8) * zw;
       ctx.stroke(path);
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  /** Proportional circles (warheads): a light veil with a firm rim, so they read over any state fill; largest first. */
+  function drawBubbles(ctx: CanvasRenderingContext2D, sc: Scene, cen: LonLat, P: Palette) {
+    for (const b of sc.bubbles) {
+      const p = projectVisible(b.lonlat, cen);
+      if (!p) continue;
+      ctx.beginPath();
+      ctx.arc(p[0], p[1], b.r, 0, TAU);
+      ctx.globalAlpha = 0.16; ctx.fillStyle = P.fg; ctx.fill();
+      ctx.globalAlpha = 0.9; ctx.lineWidth = 1.3; ctx.strokeStyle = P.fg; ctx.stroke();
     }
     ctx.globalAlpha = 1;
   }
@@ -1052,6 +1066,16 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
         grid.mark(r);
         drawText(ctx, [pin.text], (r[0] + r[2]) / 2, (r[1] + r[3]) / 2, size, font, P.fg, P.halo);
       }
+    }
+
+    // the circles' figures, always shown, under each circle (the state's name keeps the centre)
+    for (const b of sc.bubbles) {
+      const p = projectVisible(b.lonlat, cen);
+      if (!p) continue;
+      const size = 11.5, font = `600 ${size}px ${X.fontData}`, h = size + 4;
+      const w = textW(ctx, font, b.text), y = p[1] + Math.max(b.r, 9) + 10;
+      grid.mark([p[0] - w / 2 - 2, y - h / 2, p[0] + w / 2 + 2, y + h / 2]);
+      drawText(ctx, [b.text], p[0], y, size, font, P.fg, P.halo);
     }
 
     // lens labels (ethnic group names) before country names

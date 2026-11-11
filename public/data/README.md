@@ -73,6 +73,8 @@ This file is derived from GeoNuclearData 0.17.17 (3 March 2024) and stays under 
 - `from` and `to`: years of service
 - `iaea`: the PRIS id
 
+The file holds every unit of the base data that is operating, idle, under construction or permanently shut, so the timeline can show the fleet as it stood in any year. Three shut units have no start year (Lucens, Saxton and Shoreham), and the timeline leaves them out.
+
 Units whose status changed since March 2024 carry `changed` with the year and the sources. The yearly Reactor Atlas tables cover grid connections and shutdowns in 2024–2026; separate sources cover the Japanese restarts and the Zaporizhzhia cold shutdown. Units under construction missing from the base data were added from the Reactor Atlas plant pages (November 2026), so each state's count of units under construction matches the 2026 table. Each added unit carries its construction-start year and a link to its page. Russia's Baltic 1 is left out because it is no longer counted as under construction. Per-state totals come from the Reactor Atlas 2026 table (`fleet` in `nuclear.json`), and a test checks that each state's civil status agrees with both.
 
 ## Historical borders (`history/`)
