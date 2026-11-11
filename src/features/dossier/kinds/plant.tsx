@@ -1,6 +1,8 @@
 // Nuclear power plant dossier: status, capacity, units with their type, net capacity and years, then sources.
 
+import { atlas } from '../../../app/store';
 import { NUCLEAR_UNIT } from '../../../config';
+import { getPower } from '../../../data/power';
 import type { NuclearUnitStatus, Plant } from '../../../data/types';
 import { Icon } from '../../../ui/Icon';
 import type { ConflictX, Panel } from '../model';
@@ -21,6 +23,13 @@ export function plantPanel(id: string, k: Kit): Panel | null {
     },
     tabs: [{ id: 'main', render: () => body(p, k) }],
   };
+}
+
+/** Open a GEM station in the Power & industry lens (its data loads with the lens; the map flies there once it is in). */
+function openStation(id: string) {
+  atlas.set({ lens: 'industry' });
+  atlas.setFilter('industryMode', 'power');
+  atlas.select('station', id);
 }
 
 const mwOf = (k: Kit, v: number) => <><span className="data">{k.fmt.num(v)}</span>{' '}<span className="dz-unit">{k.t('dz.pl.mw')}</span></>;
@@ -58,6 +67,17 @@ function body(p: Plant, k: Kit) {
     {k.sec(null, facts, { cls: 'first' })}
     {p.note ? k.sec(t('dz.pl.note'), [k.prose(L(p.note), { clamp: false }), p.sources?.length ? k.provenance(p) : null]) : null}
     {conflicts.length ? k.sec(t('dz.pl.conflicts'), <div className="chips dz-chips">{conflicts.map((c) => k.kchip('conflict', c.id, L(c.name), { lead: k.sevGlyph(c.severity, 11), isos: c.countries }))}</div>) : null}
+    {p.gem?.length ? k.sec(t('dz.pl.gem'), [
+      ...p.gem.map((id) => {
+        const s = getPower()?.byId.get(id);
+        return (
+          <button key={id} type="button" className="btn dz-wide-btn" data-act="gem" data-id={id} onClick={() => openStation(id)}>
+            <Icon name="bolt" size={16} /><span>{s ? (L({ ar: s.nameAr, en: s.name }) || s.name) : t('dz.pl.gemOpen')}</span>
+          </button>
+        );
+      }),
+      k.note(t('dz.pl.gemNote')),
+    ]) : null}
     {k.sec(t('dz.pl.unitsTitle'), [
       <div className="dz-hum-wrap" key="t">
         <table className="dz-hum dz-units">

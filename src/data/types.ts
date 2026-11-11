@@ -70,6 +70,8 @@ export interface NuclearUnit {
 }
 export interface NuclearPlant extends Bi, Provenance {
   id: string; iso3: string; coords: [number, number]; units: NuclearUnit[]; note?: Bi; conflictIds?: string[];
+  /** The plant's entries in GEM's power tracker (power/plants.json station ids). */
+  gem?: string[];
 }
 export interface NuclearPlantFile {
   source: { base: { name: string; version: string; date: string; url: string; license: string }; changes: Bi; limits: Bi };
