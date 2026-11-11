@@ -16,7 +16,7 @@ export interface MapControlsApi { zoom(f: number): void; reset(): void }
 const LAYERS = ['labels', 'graticule', 'boundaries', 'disputed', 'conflicts'] as const;
 const stop = (e: SyntheticEvent) => e.stopPropagation();
 /** Natural Earth base layers, listed after the others. */
-const BASE_LAYERS = ['rivers', 'cities'] as const;
+const BASE_LAYERS = ['seas', 'rivers', 'cities'] as const;
 
 export function MapControls({ api }: { api: MapControlsApi }) {
   const { t } = useT();

@@ -7,7 +7,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { afterAll, afterEach, beforeAll, describe, expect, test, vi } from 'vitest';
 import { checkData } from '../scripts/check-data';
 import { atlas, initialState } from '../src/app/store';
-import { buildCities, buildRivers, getCities, getRivers, setBasemap, subscribeBasemap } from '../src/data/basemap';
+import { buildCities, buildRivers, buildWater, getCities, getRivers, setBasemap, subscribeBasemap } from '../src/data/basemap';
 import { MapControls } from '../src/features/map/MapControls';
 import '../src/i18n/core';
 import { DATA_DIR } from './helpers/readRaw';
@@ -35,6 +35,31 @@ describe('the files', () => {
   });
 });
 
+describe('the water names', () => {
+  test("seas carry Natural Earth's Arabic names; the Gulf and the Red Sea sit on their water", () => {
+    const W = buildWater(read('water.json'));
+    const sea = (en: string) => W.seas.find((s) => s.en === en)!;
+    expect(sea('Persian Gulf')).toMatchObject({ ar: 'الخليج العربي', cla: 'gulf', rank: 1 });
+    expect(sea('Red Sea').ar).toBe('البحر الأحمر');
+    expect(sea('Indian Ocean')).toMatchObject({ ar: 'المحيط الهندي', cla: 'ocean', rank: 0 });
+    // the hand-set points lie between the Gulf's shores and in the Red Sea's axis
+    expect(sea('Persian Gulf').lon).toBeGreaterThan(50);
+    expect(sea('Persian Gulf').lat).toBeGreaterThan(26.5);
+    expect(sea('Red Sea').lon).toBeCloseTo(38.6, 1);
+  });
+
+  test('the major rivers have Arabic names and up to three places along their line', () => {
+    const W = buildWater(read('water.json'));
+    const river = (en: string) => W.rivers.find((r) => r.en === en)!;
+    expect(river('Nile')).toMatchObject({ ar: 'النيل', rank: 1 });
+    expect(river('Euphrates').ar).toBe('الفرات');
+    expect(river('Tigris').ar).toBe('دجلة');
+    expect(W.rivers.every((r) => r.places.length >= 1 && r.places.length <= 3)).toBe(true);
+    // the Euphrates' places lie in Iraq and Syria
+    expect(river('Euphrates').places.every(([lon, lat]) => lon > 38 && lon < 48 && lat > 30 && lat < 37)).toBe(true);
+  });
+});
+
 describe('check-data on the base layers', () => {
   let dir: string;
   beforeAll(() => {
@@ -47,6 +72,10 @@ describe('check-data on the base layers', () => {
     cities[5][4] = 99_000_000;
     fs.writeFileSync(rf, JSON.stringify(rivers));
     fs.writeFileSync(cf, JSON.stringify(cities));
+    const wf = path.join(dir, 'geo/water.json'), water = JSON.parse(fs.readFileSync(wf, 'utf8'));
+    water.seas[0][0] = 'Arctic';
+    water.rivers[0][3] = [];
+    fs.writeFileSync(wf, JSON.stringify(water));
   });
   afterAll(() => fs.rmSync(dir, { recursive: true, force: true }));
 
@@ -55,6 +84,8 @@ describe('check-data on the base layers', () => {
     expect(lines).toContain('geo/rivers.json › [0][0] › scale rank outside 1–6');
     expect(lines).toContain('geo/cities.json › [3][1] › no Arabic name');
     expect(lines).toContain('geo/cities.json › [5][4] › not sorted by population, largest first');
+    expect(lines).toContain('geo/water.json › seas[0][0] › no Arabic name');
+    expect(lines).toContain('geo/water.json › rivers[0][3] › no place for the name');
   });
 
   test('passes on the real files', () => {
@@ -82,12 +113,13 @@ describe('the loader', () => {
 });
 
 describe('the layers menu', () => {
-  test('rivers and cities are off by default and switch on from the menu', () => {
-    expect(initialState().layers).toMatchObject({ rivers: false, cities: false });
+  test('rivers and cities are off by default, sea names on, and they switch from the menu', () => {
+    expect(initialState().layers).toMatchObject({ rivers: false, cities: false, seas: true });
     render(<MapControls api={{ zoom() {}, reset() {} }} />);
     fireEvent.click(screen.getByRole('button', { name: 'الطبقات' }));
     fireEvent.click(screen.getByRole('checkbox', { name: 'الأنهار' }));
     fireEvent.click(screen.getByRole('checkbox', { name: 'المدن والعواصم' }));
-    expect(atlas.get().layers).toMatchObject({ rivers: true, cities: true });
+    fireEvent.click(screen.getByRole('checkbox', { name: 'أسماء البحار والمحيطات' }));
+    expect(atlas.get().layers).toMatchObject({ rivers: true, cities: true, seas: false });
   });
 });

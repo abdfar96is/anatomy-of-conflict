@@ -214,15 +214,18 @@ Cite each tracker as its About sheet recommends, for example: Global Energy Moni
 
 `npm run check-data` checks that every site has a unique id, a known layer with a source, a known status and state, valid coordinates and positive capacities.
 
-## Rivers and cities (`geo/rivers.json`, `geo/cities.json`)
+## Rivers, cities and water names (`geo/rivers.json`, `geo/cities.json`, `geo/water.json`)
 
 Two optional base layers from Natural Earth 1:50m, version 5.2.0-pre of the `natural-earth-vector` repository. They are public domain. Each file loads the first time its layer is turned on in the map's layers menu.
 
 - `rivers.json` holds rivers and lake centrelines, one row per Natural Earth feature: `[scalerank, lines]`.
   - `scalerank` runs from 1 (the largest) to 6. The map shows ranks 1–2 in the world view and more as it zooms in.
   - `lines` is a list of `[lon, lat]` lines, simplified with a 0.02° tolerance and rounded to 2 decimals.
-  - The 1:50m file has no Arabic names, so the rivers are not labelled.
+  - The 1:50m file has no Arabic names. The names of the major rivers are in `water.json`.
 - `cities.json` holds populated places, the most populous first, without scientific stations and historic places: `[name, name_ar, lon, lat, pop_max, scalerank, capital]`.
   - `capital` is 1 for national capitals (`Admin-0 capital` and `Admin-0 capital alt`).
   - The map places cities after every other name: a dot and its name where both fit, larger ranks as it zooms in, capitals from the regional view.
   - Populations (`POP_MAX`) are Natural Earth's approximate estimates and are only used for ranking.
+- `water.json` holds the names the map sets on the water, in two lists:
+  - `seas`: `[name_ar, name, featurecla, scalerank, lon, lat]` for 116 oceans, seas, gulfs, bays, straits and channels, with Natural Earth's own Arabic names. Each sits at the point inside its water farthest from the coasts. The points for the Persian Gulf, the Red Sea, the Mediterranean and the Gulf of Aden were set by hand, because the computed ones fall among other names. The layer "Sea and ocean names" is on by default.
+  - `rivers`: `[name_ar, name, scalerank, places]` for 59 major rivers. Natural Earth has no Arabic river names at this scale, so these names are the atlas's own. `places` lists up to three places along the river's longest line (half way, then a third and two thirds of the way). Each place is `[lon, lat, lon2, lat2]`, the place and a point further on that gives the line's direction. The map uses the first place where the name fits, and shows river names with the rivers layer.
