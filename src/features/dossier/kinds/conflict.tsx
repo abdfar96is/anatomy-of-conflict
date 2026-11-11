@@ -1,10 +1,15 @@
-// Conflict dossier: status, parties, roots and related tabs.
+// Conflict dossier: status, parties, roots, energy and related tabs.
 
-import { Fragment } from 'react';
+import { Fragment, type ReactNode } from 'react';
+import { atlas } from '../../../app/store';
 import { DIMENSIONS } from '../../../config';
+import { POWER_LABEL, POWER_PICTO, POWER_TYPES, powerCountries, type PowerType } from '../../../data/power';
 import type { LiveKey } from '../../../data/types';
 import { esc } from '../../../ui/dom';
 import { Icon } from '../../../ui/Icon';
+import { Picto } from '../../../ui/Picto';
+import { powerVar } from '../../map/engine/scene';
+import '../../power/strings';
 import { extPowers, pickList, type ChokeX, type ConflictX, type EventX, type Panel, type ResEntryX } from '../model';
 import type { Kit } from '../parts';
 import { BATTLE_UNDER_ISRAEL } from './country';
@@ -46,6 +51,7 @@ export function conflictPanel(id: string, k: Kit): Panel | null {
       { id: 'status', label: t('dz.cf.t.status'), render: () => status(cf, k) },
       { id: 'parties', label: t('dz.cf.t.parties'), count: pickList(k, cf.parties).length, render: () => parties(cf, k) },
       { id: 'roots', label: t('dz.cf.t.roots'), render: () => roots(cf, k) },
+      { id: 'energy', label: t('dz.cf.t.energy'), render: () => energy(cf, k) },
       { id: 'related', label: t('dz.cf.t.related'), count: rel.events.length + rel.chokes.length + rel.res.length + rel.refs.length, render: () => related(rel, k) },
     ],
   };
@@ -146,5 +152,58 @@ function related(rel: Related, k: Kit) {
     {k.sec(t('dz.cf.chokes'), k.rows(rel.chokes.map(k.chokeRow)), { count: rel.chokes.length })}
     {k.sec(t('dz.cf.resources'), k.rows(rel.res.map((e, i) => k.resourceEntry(e, i, { country: true }))), { count: rel.res.length })}
     {k.sec(t('dz.cf.sources'), rel.refs.length ? <ul className="dz-refs" role="list">{rel.refs.map(k.refItem)}</ul> : null, { count: rel.refs.length })}
+  </>;
+}
+
+/** Show the conflict among a lens's infrastructure: the conflicts layer on, the conflict selected, the map on it. */
+function showWith(cf: ConflictX, lens: 'industry' | 'pipelines') {
+  atlas.set({ lens, layers: { ...atlas.get().layers, conflicts: true } });
+  if (lens === 'industry') atlas.setFilter('industryMode', 'power');
+  else atlas.setFilter('pipeFields', true);
+  atlas.select('conflict', cf.id);
+}
+
+/**
+ * Energy: the power capacity of each state involved (GEM's per-state totals, loaded on first use), and the way onto
+ * the infrastructure lenses with the conflicts drawn over them.
+ */
+function energy(cf: ConflictX, k: Kit) {
+  const { t, pick: L, fmt, db } = k;
+  const pc = powerCountries();
+  const isos = [...new Set(cf.countries)].filter((iso) => db.countries.has(iso));
+  const gw = (mw: number) => (mw ? fmt.num(mw / 1000, mw < 10000 ? 1 : 0) : '—');
+  const sum = (o: Partial<Record<PowerType, number>>) => POWER_TYPES.reduce((a, ty) => a + (o[ty] ?? 0), 0);
+  let table: ReactNode;
+  if (!pc) table = k.note(t('pw.cf.loading'));
+  else {
+    const rows = isos.map((iso) => {
+      const op = pc[iso]?.op ?? {}, con = pc[iso]?.con ?? {};
+      const top = POWER_TYPES.filter((ty) => op[ty]).sort((a, b) => op[b]! - op[a]!)[0];
+      return { iso, op: sum(op), con: sum(con), top };
+    });
+    table = !rows.some((r) => r.op || r.con) ? k.empty(t('pw.cf.none')) : (
+      <div className="dz-hum-wrap">
+        <table className="dz-hum dz-pwr">
+          <thead><tr>
+            <th scope="col">{t('pw.cf.state')}</th><th scope="col">{t('pw.cf.op')}</th><th scope="col">{t('pw.cf.con')}</th><th scope="col">{t('pw.cf.main')}</th>
+          </tr></thead>
+          <tbody>{rows.map((r) => (
+            <tr key={r.iso} data-hl={r.iso}>
+              <th scope="row">{k.cchip(r.iso)}</th>
+              <td><span className="dz-hum-v data">{gw(r.op)}</span></td>
+              <td><span className="dz-hum-v data">{gw(r.con)}</span></td>
+              <td>{r.top ? <span className="dz-pwr-top"><Picto id={POWER_PICTO[r.top]} color={powerVar(r.top)} size={14} />{L(POWER_LABEL[r.top])}</span> : <span className="dz-none">—</span>}</td>
+            </tr>
+          ))}</tbody>
+        </table>
+      </div>
+    );
+  }
+  const btn = (lens: 'industry' | 'pipelines', icon: string, label: string) => (
+    <button key={lens} type="button" className="btn dz-wide-btn" data-act={`cf-${lens}`} onClick={() => showWith(cf, lens)}><Icon name={icon} size={16} /><span>{label}</span></button>
+  );
+  return <>
+    {k.sec(t('pw.cf.title'), [table, pc ? k.note(`${t('pw.cf.unit')} ${t('pw.cf.note')}`) : null], { id: 'power', cls: 'first' })}
+    {k.sec(t('pw.cf.map'), [btn('industry', 'bolt', t('pw.cf.plants')), btn('pipelines', 'derrick', t('pw.cf.pipes'))])}
   </>;
 }

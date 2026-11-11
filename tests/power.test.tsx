@@ -4,7 +4,7 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { act, fireEvent, render } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import type { ReactNode } from 'react';
 import { afterAll, afterEach, beforeAll, describe, expect, test } from 'vitest';
 import { checkData } from '../scripts/check-data';
@@ -16,7 +16,7 @@ import { build } from '../src/data/build';
 import { POWER_SLOT, POWER_TYPES, buildPower, fmtMW, fuelText, inYear, plantId, powerClass, setPower, setPowerCountries, summaryRamp, summaryValue, techText, type Power, type PowerCountries, type PowerMeta } from '../src/data/power';
 import type { DB } from '../src/data/types';
 import { Dossier } from '../src/features/dossier';
-import { buildScene, tipFor } from '../src/features/map/engine/scene';
+import { activeConflicts, buildScene, tipFor } from '../src/features/map/engine/scene';
 import { Legend } from '../src/features/map/Legend';
 import { ShellOverlays } from '../src/features/shell';
 import '../src/i18n/core';
@@ -325,6 +325,66 @@ describe('the timeline', () => {
     expect(legend.textContent).toContain('The map as of 1990');
     expect(legend.textContent).toMatch(/[\d,]+ items with no known start year are left out/);
     expect(legend.textContent).toContain('GEM tracks coal retirements only since 2000');
+  });
+});
+
+describe('conflicts over the infrastructure', () => {
+  const P = {
+    land: '#2a3440', landMuted: '#20262e', fg: '#ffffff', fg2: '#cccccc', fg3: '#999999', sel: '#ffd040', halo: '#000000',
+    cat: ['#000', '#3987e5', '#d95926', '#199e70', '#c98500', '#d55181', '#2f9e3a', '#9085e9', '#e66767'],
+    seq: (t: number) => `rgb(${Math.round(t * 255)}, 0, 0)`, status: { good: '#00ff00', warn: '#ffaa00', critical: '#ff0000' }, resClass: {},
+    sev: { war: '#ff0000', 'armed-conflict': '#ff8800', 'state-collapse': '#ff00aa', 'high-tension': '#ffff00' },
+  } as unknown as Palette;
+  const S = (on: boolean, extra: Partial<ReturnType<typeof initialState>> = {}) => {
+    const s = initialState();
+    return { ...s, lens: 'industry' as const, layers: { ...s.layers, conflicts: on }, ...extra };
+  };
+  const conflictMarkers = (sc: ReturnType<typeof buildScene>) => sc.markers.filter((m) => m.kind === 'conflict');
+
+  test('the conflicts layer draws active fighting over the lens, and a selected conflict whatever its severity', () => {
+    expect(conflictMarkers(buildScene(db, S(false), P))).toHaveLength(0);
+    const sc = buildScene(db, S(true), P);
+    const ids = conflictMarkers(sc).map((m) => m.id);
+    expect(ids).toEqual(expect.arrayContaining(['russia-ukraine', 'sudan', 'yemen', 'haiti']));
+    expect(ids).not.toContain('taiwan-strait');
+    expect(ids).toHaveLength(activeConflicts(db, initialState()).length);
+    expect(sc.pulse).toBe(true);
+    const sel = buildScene(db, S(true, { selection: { kind: 'conflict', id: 'taiwan-strait' } }), P);
+    expect(conflictMarkers(sel).map((m) => m.id)).toContain('taiwan-strait');
+    // the conflicts lens draws its own markers, once
+    const own = buildScene(db, { ...S(true), lens: 'conflicts' }, P);
+    expect(new Set(conflictMarkers(own).map((m) => m.id)).size).toBe(conflictMarkers(own).length);
+  });
+
+  test('the infrastructure card turns the layer on and keys it', () => {
+    atlas.set({ lens: 'industry', lang: 'en' });
+    withDb(<Legend />);
+    const legend = document.getElementById('legend')!;
+    const chip = legend.querySelector('[data-key="conflicts"]')!;
+    expect(chip).toHaveAttribute('aria-pressed', 'false');
+    expect(legend.textContent).not.toContain('click one for the power capacity');
+    fireEvent.click(chip);
+    expect(atlas.get().layers.conflicts).toBe(true);
+    expect(legend.textContent).toContain('Active war');
+    expect(legend.textContent).toContain('click one for the power capacity');
+  });
+
+  test('a conflict dossier gives the power capacity of each state involved and opens the lenses with the layer on', () => {
+    atlas.set({ lang: 'en', selection: { kind: 'conflict', id: 'russia-ukraine' } });
+    withDb(<Dossier />);
+    fireEvent.click(screen.getByRole('tab', { name: /^Energy/ }));
+    const rows = [...document.querySelectorAll('#dossier .dz-pwr tbody tr')];
+    expect(rows.map((r) => r.getAttribute('data-hl'))).toEqual(['RUS', 'UKR']);
+    const [op, con, top] = [...rows[1]!.querySelectorAll('td')].map((td) => td.textContent);
+    // Ukraine: about 31 GW in operation, none under construction, nuclear the largest
+    expect([op, con, top]).toEqual(['31', '—', 'Nuclear']);
+    expect(document.getElementById('dz-panel')!.textContent).toContain('does not say which plants lie where the fighting is');
+    fireEvent.click(document.querySelector('#dossier [data-act="cf-industry"]')!);
+    expect(atlas.get()).toMatchObject({ lens: 'industry', selection: { kind: 'conflict', id: 'russia-ukraine' } });
+    expect(atlas.get().layers.conflicts).toBe(true);
+    expect(atlas.get().filters.industryMode).toBe('power');
+    fireEvent.click(document.querySelector('#dossier [data-act="cf-pipelines"]')!);
+    expect(atlas.get().lens).toBe('pipelines');
   });
 });
 

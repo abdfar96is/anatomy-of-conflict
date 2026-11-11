@@ -443,6 +443,12 @@ export function visibleConflicts(DB: DB, S: Pick<AtlasState, 'filters' | 'yearFi
   return DB.conflicts.filter((c) => S.filters.severity.has(c.severity) && !(S.yearFilter && c.startYear && c.startYear > S.year));
 }
 
+/** The fighting the conflicts layer draws over the other lenses: active wars, armed conflicts and collapsed states. */
+export const ACTIVE_SEVERITY = ['war', 'armed-conflict', 'state-collapse'] as const;
+export function activeConflicts(DB: DB, S: Pick<AtlasState, 'yearFilter' | 'year'>) {
+  return DB.conflicts.filter((c) => (ACTIVE_SEVERITY as readonly string[]).includes(c.severity) && !(S.yearFilter && c.startYear && c.startYear > S.year));
+}
+
 export function decadeWindow(S: Pick<AtlasState, 'year'>): [number, number] { return [S.year - 9, S.year]; }
 
 export function windowEvents(DB: DB, S: Pick<AtlasState, 'filters' | 'year'>) {
@@ -773,9 +779,25 @@ function emphasis(sc: Scene, DB: DB, S: AtlasState, P: Palette) {
   }
 }
 
+/**
+ * The conflicts layer: active fighting as the conflicts lens draws it, over any other lens (the infrastructure lenses
+ * offer it on their card). A selected conflict stays drawn whatever its severity.
+ */
+function conflictLayer(sc: Scene, DB: DB, S: AtlasState, P: Palette) {
+  if (!S.layers.conflicts || S.lens === 'conflicts') return;
+  const list = activeConflicts(DB, S);
+  const sel = S.selection?.kind === 'conflict' ? DB.conflictById.get(S.selection.id) : undefined;
+  if (sel && !list.includes(sel)) list.push(sel);
+  for (const c of [...list].sort((a, b) => a.rank - b.rank)) {
+    sc.markers.push({ lonlat: lonlat(c.coords), shape: SEV_SHAPE[c.severity] ?? 'disc', r: 5.5, color: P.sev[c.severity] ?? '', kind: 'conflict', id: c.id });
+  }
+  if (list.some((c) => SEV_SHAPE[c.severity] === 'pulse')) sc.pulse = true;
+}
+
 export function buildScene(DB: DB, S: AtlasState, P: Palette): Scene {
   const sc = emptyScene();
   (BUILD[S.lens] ?? BUILD.overview)(sc, DB, S, P);
+  conflictLayer(sc, DB, S, P);
   emphasis(sc, DB, S, P);
   return sc;
 }
