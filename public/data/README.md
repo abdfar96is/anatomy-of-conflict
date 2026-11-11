@@ -61,13 +61,27 @@ The Nuclear lens reads this file. `countries.<ISO3>` holds:
 | `npt` | `nws`, `non-party`, `withdrawn` | Only the exceptions; UN member states default to `party` |
 | `note`, `sources`, `verified` | | As for other records |
 
-`warheads` holds SIPRI's per-state estimates for one year, as total inventory. They must sum to SIPRI's world total for that year, and a test checks this. `zones` lists the nuclear-weapon-free zones with the states inside each treaty's scope. Membership of a zone does not mean a state has ratified the treaty. No military sites are recorded.
+`warheads` holds SIPRI's per-state estimates for one year, as total inventory. They must sum to SIPRI's world total for that year, and a test checks this. `zones` lists the nuclear-weapon-free zones with the states inside each treaty's scope. Membership of a zone does not mean a state has ratified the treaty.
 
 `treaties` holds each state's status under three treaties, keyed by ISO3, with the year of the step that set it. The data comes from Wikipedia's lists of parties as of 11 November 2026, which follow the UN depositaries' records; the URLs are in `sources`.
 
 - `npt` (Non-Proliferation Treaty): `[status, year]`. The status is `nws` (one of the five recognised nuclear-weapon states), `party`, `abiding`, `withdrawn` or `non-party`. Taiwan is `abiding`: it ratified as the Republic of China before 1971 and says it abides by the treaty. North Korea is `withdrawn` (2003). India, Israel, Pakistan and South Sudan are `non-party`.
 - `ctbt` (Comprehensive Nuclear-Test-Ban Treaty): `[status, year, annex2]`. The status is `ratified`, `signed`, `revoked` or `none`. `annex2` is 1 for the 44 states whose ratification the treaty needs before it can enter into force. Russia is `revoked` (2023). The Wikipedia page warns that it may not have been updated since June 2025.
 - `tpnw` (Treaty on the Prohibition of Nuclear Weapons): `[status, year]`, where the status is `party` or `signed`. States not listed have neither signed nor joined.
+
+`sites` lists 35 fuel-cycle, weapons and test sites: Iran's enrichment, conversion and heavy-water sites; the arsenal states' main complexes, laboratories and test sites; and reactors destroyed by air strikes (Osirak, Al Kibar). It is a selection of the best-known sites, not a full inventory. Each entry has:
+
+| Field | Values | Meaning |
+|---|---|---|
+| `type` | `enrichment`, `conversion`, `reprocessing`, `reactor`, `complex`, `weapons`, `test` | What the site does (see `NUCLEAR_SITE_TYPE` in `src/config.ts`). It sets the marker's shape |
+| `status` | `active`, `building`, `struck`, `destroyed`, `closed`, `dormant` | Its state. `struck` means hit by air strikes but not destroyed; `dormant` means a test site with no testing under way. It sets the marker's colour |
+| `iso3`, `coords` | | The state it lies in, and `[lon, lat]` from the source page's coordinates |
+| `from`, `to` | year | When it opened, and when it closed or was destroyed, where the source gives them |
+| `note` | | A short account in Arabic and English, written from the source |
+| `conflictIds` | | Conflicts it is tied to (the sites struck in 2025 and 2026 belong to `iran-us-israel`) |
+| `sources` | | The English Wikipedia page each note is written from |
+
+None of the sites carry `verified`: the notes follow the Wikipedia pages as of November 2026, not the primary records behind them. For Natanz and Isfahan, whose pages give no coordinates, the coordinates come from the Wikipedia page summary. Four points are approximate, and their notes say so: Novaya Zemlya (the middle of the archipelago), Lop Nur (the dry lake, with the test site to its north-west), and Pokhran and Reggane (the towns near the test areas).
 
 ## Nuclear power plants (`curated/nuclear_plants.json`)
 

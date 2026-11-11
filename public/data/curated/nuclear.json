@@ -1270,5 +1270,533 @@
       "ZMB": ["signed", 2019],
       "ZWE": ["signed", 2020]
     }
-  }
+  },
+  "sites": [
+    {
+      "id": "natanz",
+      "type": "enrichment",
+      "status": "struck",
+      "iso3": "IRN",
+      "en": "Natanz",
+      "ar": "نطنز",
+      "coords": [51.725, 33.725],
+      "note": {
+        "ar": "منشأة إيران الرئيسية لتخصيب اليورانيوم، تحت الأرض ومحمية بدرع خرساني. قصفتها إسرائيل في يونيو 2025 خلال حرب الاثني عشر يوماً، ثم الولايات المتحدة في 22 يونيو. وأكدت الوكالة الدولية للطاقة الذرية في مارس 2026 أضراراً كبيرة جديدة من حرب 2026 جعلت مداخلها غير قابلة للوصول، دون أن تُدمَّر منشأة التخصيب الأساسية، ثم ضربتها الولايات المتحدة مجدداً في 21 مارس 2026.",
+        "en": "Iran's main uranium enrichment site, underground beneath a concrete shield. Israel bombed it in June 2025, in the Twelve-Day War, and the United States on 22 June. In March 2026 the IAEA confirmed significant new damage from the 2026 war that left its entrances inaccessible, though the core underground plant was not destroyed; the United States struck it again on 21 March 2026."
+      },
+      "conflictIds": ["iran-us-israel"],
+      "sources": ["https://en.wikipedia.org/wiki/Natanz_Nuclear_Facility"]
+    },
+    {
+      "id": "fordow",
+      "type": "enrichment",
+      "status": "struck",
+      "iso3": "IRN",
+      "en": "Fordow",
+      "ar": "فوردو",
+      "coords": [50.998, 34.885],
+      "note": {
+        "ar": "منشأة تخصيب تحت الأرض شمال قم على بعد نحو 30 كم، في قاعدة سابقة للحرس الثوري، وهي ثانية منشأتي التخصيب في إيران. هاجمتها إسرائيل في 13 و16 يونيو 2025 بحسب إيران، ثم شملتها الضربات الأمريكية في يونيو 2025.",
+        "en": "An underground enrichment plant about 30 km north of Qom, at a former Revolutionary Guard base, and Iran's second enrichment site. Israel attacked it on 13 and 16 June 2025, by Iran's account, and it was among the targets of the US strikes in June 2025."
+      },
+      "conflictIds": ["iran-us-israel"],
+      "sources": ["https://en.wikipedia.org/wiki/Fordow_Uranium_Enrichment_Plant"]
+    },
+    {
+      "id": "isfahan",
+      "type": "conversion",
+      "status": "struck",
+      "iso3": "IRN",
+      "en": "Isfahan Nuclear Technology Center",
+      "ar": "مركز أصفهان للتكنولوجيا النووية",
+      "coords": [51.826, 32.574],
+      "note": {
+        "ar": "أكبر مركز علمي نووي في إيران، جنوب شرق أصفهان، وفيه منشأة تحويل اليورانيوم. ضربته إسرائيل في 13 يونيو 2025 فألحقت الضرر بمنشأة التحويل أو دمّرتها، ثم ضربته الولايات المتحدة في 22 يونيو، وأظهرت صور الأقمار الصناعية «أضراراً واسعة».",
+        "en": "Iran's largest nuclear science centre, south-east of Isfahan, home to its uranium conversion plant. Israel struck it on 13 June 2025, damaging or destroying the conversion facility, and the United States struck it on 22 June; satellite imagery showed \"extensive damage\"."
+      },
+      "conflictIds": ["iran-us-israel"],
+      "sources": ["https://en.wikipedia.org/wiki/Isfahan_Nuclear_Technology/Research_Center"]
+    },
+    {
+      "id": "arak",
+      "type": "reactor",
+      "status": "struck",
+      "iso3": "IRN",
+      "en": "Arak (Khondab reactor)",
+      "ar": "آراك (مفاعل خنداب)",
+      "coords": [49.241, 34.373],
+      "note": {
+        "ar": "مفاعل أبحاث بالماء الثقيل قدرته 40 ميغاواط حراري قرب آراك، بجوار مصنع لإنتاج الماء الثقيل. عُطّل عام 2015 بنزع قلبه وملئه بالخرسانة، وضربته إسرائيل في 2025 كي لا يُعاد تأهيله، ثم في مارس 2026.",
+        "en": "A 40 MW (thermal) heavy-water research reactor near Arak, next to a heavy-water production plant. It was disabled in 2015 by removing its core and filling it with concrete; Israel struck it in 2025 to keep it from being restored, and again in March 2026."
+      },
+      "conflictIds": ["iran-us-israel"],
+      "sources": ["https://en.wikipedia.org/wiki/IR-40"]
+    },
+    {
+      "id": "dimona",
+      "type": "complex",
+      "status": "active",
+      "iso3": "ISR",
+      "en": "Dimona",
+      "ar": "ديمونا",
+      "coords": [35.145, 31.001],
+      "note": {
+        "ar": "مركز شمعون بيريز للأبحاث النووية في النقب، على بعد نحو 13 كم جنوب شرق ديمونا، وهو محور برنامج الأسلحة النووية الإسرائيلي. بدأ بناؤه عام 1958 وشُغّل مفاعله بالماء الثقيل بين 1962 و1964.",
+        "en": "The Shimon Peres Negev Nuclear Research Center, about 13 km south-east of Dimona, central to Israel's nuclear weapons programme. Construction began in 1958 and its heavy-water reactor went critical between 1962 and 1964."
+      },
+      "sources": ["https://en.wikipedia.org/wiki/Shimon_Peres_Negev_Nuclear_Research_Center"]
+    },
+    {
+      "id": "yongbyon",
+      "type": "complex",
+      "status": "active",
+      "iso3": "PRK",
+      "en": "Yongbyon",
+      "ar": "يونغبيون",
+      "coords": [125.569, 39.928],
+      "note": {
+        "ar": "المنشأة النووية الرئيسية في كوريا الشمالية، على بعد نحو 100 كم شمال بيونغ يانغ. أنتجت المواد الانشطارية لتجاربها النووية الست بين 2006 و2017، وتطوّر منذ 2009 تقنية محلية لمفاعلات الماء الخفيف.",
+        "en": "North Korea's main nuclear facility, about 100 km north of Pyongyang. It produced the fissile material for the country's six nuclear tests from 2006 to 2017, and since 2009 has been developing its own light-water reactor technology."
+      },
+      "sources": ["https://en.wikipedia.org/wiki/Nyongbyon_Nuclear_Scientific_Research_Center"]
+    },
+    {
+      "id": "punggye-ri",
+      "type": "test",
+      "status": "closed",
+      "iso3": "PRK",
+      "en": "Punggye-ri",
+      "ar": "بونغي ري",
+      "coords": [129.088, 41.278],
+      "from": 2006,
+      "to": 2017,
+      "note": {
+        "ar": "موقع التجارب النووية الوحيد المعروف لكوريا الشمالية، أُجريت فيه ست تجارب بين أكتوبر 2006 وسبتمبر 2017. أعلنت بيونغ يانغ في أبريل 2018 تعليق التجارب وإغلاق الموقع، وأقامت لذلك مراسم في مايو 2018.",
+        "en": "North Korea's only known nuclear test site, where six tests were held between October 2006 and September 2017. In April 2018 Pyongyang announced it would suspend testing and shut the site, holding a closing ceremony in May 2018."
+      },
+      "sources": ["https://en.wikipedia.org/wiki/Punggye-ri_Nuclear_Test_Site"]
+    },
+    {
+      "id": "kahuta",
+      "type": "enrichment",
+      "status": "active",
+      "iso3": "PAK",
+      "en": "Khan Research Laboratories (Kahuta)",
+      "ar": "مختبرات خان للأبحاث (كاهوتا)",
+      "coords": [73.378, 33.621],
+      "from": 1976,
+      "note": {
+        "ar": "مجمّع أبحاث في كاهوتا أُسس عام 1976 منشأةً سرية لتخصيب اليورانيوم بأجهزة الطرد المركزي، رداً على أول تفجير نووي هندي عام 1974، وهو محوري في برنامج الأسلحة النووية الباكستاني.",
+        "en": "A research complex at Kahuta, set up in 1976 as a secret plant to enrich uranium with gas centrifuges in response to India's first nuclear explosion in 1974; central to Pakistan's nuclear weapons programme."
+      },
+      "sources": ["https://en.wikipedia.org/wiki/Khan_Research_Laboratories"]
+    },
+    {
+      "id": "khushab",
+      "type": "reactor",
+      "status": "active",
+      "iso3": "PAK",
+      "en": "Khushab",
+      "ar": "خوشاب",
+      "coords": [72.189, 32.005],
+      "note": {
+        "ar": "مجمّع نووي جنوب بلدة جوهر آباد في إقليم البنجاب، بدأ بناؤه عام 1985 لإنتاج البلوتونيوم والديوتيريوم والتريتيوم.",
+        "en": "A nuclear complex south of Jauharabad in Punjab, built from 1985 to produce plutonium, deuterium and tritium."
+      },
+      "sources": ["https://en.wikipedia.org/wiki/Khushab_Nuclear_complex"]
+    },
+    {
+      "id": "ras-koh",
+      "type": "test",
+      "status": "closed",
+      "iso3": "PAK",
+      "en": "Ras Koh (Chagai)",
+      "ar": "راس كوه (تشاغاي)",
+      "coords": [65.195, 28.829],
+      "from": 1998,
+      "to": 1998,
+      "note": {
+        "ar": "سلسلة جبلية في بلوشستان أجرت فيها باكستان تجاربها النووية عام 1998، وتلتزم الحكومات الباكستانية منذ ذلك العام بوقف تجارب الأسلحة النووية.",
+        "en": "A mountain range in Balochistan where Pakistan held its nuclear tests in 1998, and Pakistani governments have kept a moratorium on nuclear weapons testing since then."
+      },
+      "sources": ["https://en.wikipedia.org/wiki/Ras_Koh_Range"]
+    },
+    {
+      "id": "pokhran",
+      "type": "test",
+      "status": "dormant",
+      "iso3": "IND",
+      "en": "Pokhran",
+      "ar": "بوخران",
+      "coords": [71.92, 26.92],
+      "from": 1974,
+      "to": 1998,
+      "note": {
+        "ar": "ميدان التجارب النووية الهندية قرب بلدة بوخران في صحراء ثار: فيه أول تفجير نووي هندي في مايو 1974 («بوذا المبتسم»)، ثم تجارب 1998. النقطة على البلدة، والميدان على مقربة منها.",
+        "en": "India's nuclear test range near the town of Pokhran in the Thar Desert: the site of India's first nuclear explosion in May 1974 (\"Smiling Buddha\") and of the 1998 tests. The point marks the town; the range lies nearby."
+      },
+      "sources": ["https://en.wikipedia.org/wiki/Pokhran"]
+    },
+    {
+      "id": "barc",
+      "type": "complex",
+      "status": "active",
+      "iso3": "IND",
+      "en": "Bhabha Atomic Research Centre (Trombay)",
+      "ar": "مركز بهابها للأبحاث الذرية (ترومباي)",
+      "coords": [72.925, 19.017],
+      "from": 1954,
+      "note": {
+        "ar": "مركز الأبحاث النووية الرئيسي في الهند، في ترومباي بمومباي، أسسه هومي بهابها في يناير 1954.",
+        "en": "India's main nuclear research centre, at Trombay in Mumbai, founded by Homi Bhabha in January 1954."
+      },
+      "sources": ["https://en.wikipedia.org/wiki/Bhabha_Atomic_Research_Centre"]
+    },
+    {
+      "id": "nevada",
+      "type": "test",
+      "status": "closed",
+      "iso3": "USA",
+      "en": "Nevada Test Site",
+      "ar": "موقع نيفادا للتجارب",
+      "coords": [-116.05, 37.117],
+      "from": 1951,
+      "to": 1992,
+      "note": {
+        "ar": "أُجريت فيه نحو 928 تجربة نووية حتى 1992، حين أوقفت الولايات المتحدة تجاربها تحت الأرض. يُعرف اليوم بموقع نيفادا للأمن القومي، شمال غرب لاس فيغاس.",
+        "en": "About 928 nuclear tests were held here until 1992, when the United States stopped underground testing. It is now the Nevada National Security Site, north-west of Las Vegas."
+      },
+      "sources": ["https://en.wikipedia.org/wiki/Nevada_Test_Site"]
+    },
+    {
+      "id": "trinity",
+      "type": "test",
+      "status": "closed",
+      "iso3": "USA",
+      "en": "Trinity",
+      "ar": "ترينيتي",
+      "coords": [-106.475, 33.677],
+      "from": 1945,
+      "to": 1945,
+      "note": {
+        "ar": "موقع أول تفجير لسلاح نووي في التاريخ، في 16 يوليو 1945 ضمن مشروع مانهاتن، في صحراء خورنادا ديل مويرتو بولاية نيو مكسيكو.",
+        "en": "The site of the first detonation of a nuclear weapon, on 16 July 1945, part of the Manhattan Project, in the Jornada del Muerto desert in New Mexico."
+      },
+      "sources": ["https://en.wikipedia.org/wiki/Trinity_(nuclear_test)"]
+    },
+    {
+      "id": "los-alamos",
+      "type": "weapons",
+      "status": "active",
+      "iso3": "USA",
+      "en": "Los Alamos",
+      "ar": "لوس ألاموس",
+      "coords": [-106.324, 35.876],
+      "note": {
+        "ar": "أحد مختبرات وزارة الطاقة الأمريكية، شمال غرب سانتا في بولاية نيو مكسيكو، ويُعرف بدوره المحوري في تطوير أول قنبلة ذرية.",
+        "en": "A US Department of Energy laboratory north-west of Santa Fe, New Mexico, best known for its central role in developing the first atomic bomb."
+      },
+      "sources": ["https://en.wikipedia.org/wiki/Los_Alamos_National_Laboratory"]
+    },
+    {
+      "id": "pantex",
+      "type": "weapons",
+      "status": "active",
+      "iso3": "USA",
+      "en": "Pantex",
+      "ar": "بانتكس",
+      "coords": [-101.56, 35.312],
+      "note": {
+        "ar": "المنشأة الأمريكية الرئيسية لتجميع الأسلحة النووية وتفكيكها، شمال شرق أماريلو في ولاية تكساس.",
+        "en": "The main US facility for assembling and disassembling nuclear weapons, north-east of Amarillo, Texas."
+      },
+      "sources": ["https://en.wikipedia.org/wiki/Pantex"]
+    },
+    {
+      "id": "hanford",
+      "type": "complex",
+      "status": "closed",
+      "iso3": "USA",
+      "en": "Hanford",
+      "ar": "هانفورد",
+      "coords": [-119.599, 46.648],
+      "from": 1943,
+      "note": {
+        "ar": "مجمّع إنتاج نووي متوقف على نهر كولومبيا بولاية واشنطن، أُسس عام 1943 ضمن مشروع مانهاتن. فيه مفاعل B، أول مفاعل كامل الحجم لإنتاج البلوتونيوم في العالم، واستُخدم بلوتونيومه في أول قنبلة ذرية.",
+        "en": "A decommissioned nuclear production complex on the Columbia River in Washington State, set up in 1943 for the Manhattan Project. Its B Reactor was the world's first full-scale plutonium production reactor, and its plutonium went into the first atomic bomb."
+      },
+      "sources": ["https://en.wikipedia.org/wiki/Hanford_Site"]
+    },
+    {
+      "id": "bikini",
+      "type": "test",
+      "status": "closed",
+      "iso3": "MHL",
+      "en": "Bikini",
+      "ar": "بيكيني",
+      "coords": [165.4, 11.6],
+      "from": 1946,
+      "to": 1958,
+      "note": {
+        "ar": "جزيرة مرجانية في جزر مارشال اختارتها الولايات المتحدة بعد الحرب العالمية الثانية موقعاً للتجارب النووية، وفيها رابع تفجير نووي في التاريخ، تلته 22 أو 23 تجربة أخرى حتى 1958، حين تبيّن أن الغبار المشع أخطر بكثير مما كان يُظن.",
+        "en": "A coral atoll in the Marshall Islands that the United States chose for nuclear testing after the Second World War, holding the fourth nuclear detonation there and 22 or 23 further tests until 1958, when fallout was found to be far more dangerous than thought."
+      },
+      "sources": ["https://en.wikipedia.org/wiki/Bikini_Atoll"]
+    },
+    {
+      "id": "enewetak",
+      "type": "test",
+      "status": "closed",
+      "iso3": "MHL",
+      "en": "Enewetak",
+      "ar": "إنيويتاك",
+      "coords": [162.333, 11.5],
+      "from": 1948,
+      "to": 1958,
+      "note": {
+        "ar": "جزيرة مرجانية في جزر مارشال أُجريت فيها 43 تجربة نووية أمريكية بين 1948 و1958، منها «آيفي مايك»، ودُفنت نفايات التجارب المشعة في فوهة تجربة «كاكتوس».",
+        "en": "A coral atoll in the Marshall Islands where 43 US nuclear tests were held between 1948 and 1958, among them Ivy Mike; radioactive test debris was buried in the crater of the \"Cactus\" test."
+      },
+      "sources": ["https://en.wikipedia.org/wiki/Enewetak_Atoll"]
+    },
+    {
+      "id": "semipalatinsk",
+      "type": "test",
+      "status": "closed",
+      "iso3": "KAZ",
+      "en": "Semipalatinsk",
+      "ar": "سيميبالاتينسك",
+      "coords": [78.717, 50.117],
+      "from": 1949,
+      "to": 1989,
+      "note": {
+        "ar": "ساحة التجارب الرئيسية للأسلحة النووية السوفييتية في كازاخستان، أجرى فيها الاتحاد السوفييتي 468 تجربة بين 1949 و1989 دون اكتراث يُذكر بآثارها على السكان والبيئة.",
+        "en": "The Soviet Union's main nuclear weapons test site, in Kazakhstan, where it held 468 tests from 1949 to 1989 with little regard for their effect on people or the environment."
+      },
+      "sources": ["https://en.wikipedia.org/wiki/Semipalatinsk_Test_Site"]
+    },
+    {
+      "id": "novaya-zemlya",
+      "type": "test",
+      "status": "dormant",
+      "iso3": "RUS",
+      "en": "Novaya Zemlya",
+      "ar": "نوفايا زيمليا",
+      "coords": [57.95, 74.75],
+      "note": {
+        "ar": "أحد موقعي التجارب النووية الرئيسيين للاتحاد السوفييتي إلى جانب سيميبالاتينسك، في أرخبيل بالمحيط المتجمد الشمالي، واستُخدم لأكبر القنابل السوفييتية، ومنها «قنبلة القيصر» في 30 أكتوبر 1961. النقطة على وسط الأرخبيل.",
+        "en": "One of the two main Soviet nuclear test sites, with Semipalatinsk, on an Arctic archipelago; it was used for the largest Soviet bombs, among them the Tsar Bomba of 30 October 1961. The point marks the middle of the archipelago."
+      },
+      "sources": ["https://en.wikipedia.org/wiki/Novaya_Zemlya"]
+    },
+    {
+      "id": "mayak",
+      "type": "complex",
+      "status": "active",
+      "iso3": "RUS",
+      "en": "Mayak",
+      "ar": "ماياك",
+      "coords": [60.848, 55.713],
+      "note": {
+        "ar": "منشأة نووية قرب أوزيورسك في مقاطعة تشيليابينسك، فيها مفاعلات إنتاج ومصنع لإعادة المعالجة سعته الثانية في العالم بعد لاهاي، وكانت محورية في برنامج الأسلحة النووية السوفييتي.",
+        "en": "A nuclear facility near Ozyorsk in Chelyabinsk Oblast with production reactors and a reprocessing plant whose capacity is the world's second after La Hague; historically central to the Soviet nuclear weapons programme."
+      },
+      "sources": ["https://en.wikipedia.org/wiki/Mayak"]
+    },
+    {
+      "id": "sarov",
+      "type": "weapons",
+      "status": "active",
+      "iso3": "RUS",
+      "en": "Sarov (Arzamas-16)",
+      "ar": "ساروف (أرزاماس-16)",
+      "coords": [43.317, 54.933],
+      "from": 1946,
+      "note": {
+        "ar": "مدينة مغلقة هي مركز أبحاث الأسلحة النووية السوفييتية ثم الروسية، أُنشئ فيها عام 1946 معهد الفيزياء التجريبية (VNIIEF) لتصميم الأسلحة النووية.",
+        "en": "A closed town, the centre of Soviet and then Russian nuclear weapons research, where the All-Union Scientific Research Institute of Experimental Physics (VNIIEF) was set up in 1946 to design nuclear weapons."
+      },
+      "sources": ["https://en.wikipedia.org/wiki/Sarov"]
+    },
+    {
+      "id": "sellafield",
+      "type": "reprocessing",
+      "status": "closed",
+      "iso3": "GBR",
+      "en": "Sellafield",
+      "ar": "سيلافيلد",
+      "coords": [-3.498, 54.42],
+      "from": 1952,
+      "to": 2022,
+      "note": {
+        "ar": "موقع نووي متعدد الوظائف على ساحل كمبريا كان يُعرف بويندسكيل. أعاد معالجة الوقود النووي من 1952 حتى 2022، ونشاطه اليوم معالجة النفايات النووية وتخزينها وتفكيك المنشآت.",
+        "en": "A multi-purpose nuclear site on the Cumbrian coast, formerly Windscale. It reprocessed nuclear fuel from 1952 to 2022; its work now is nuclear waste processing and storage, and decommissioning."
+      },
+      "sources": ["https://en.wikipedia.org/wiki/Sellafield"]
+    },
+    {
+      "id": "aldermaston",
+      "type": "weapons",
+      "status": "active",
+      "iso3": "GBR",
+      "en": "Aldermaston (AWE)",
+      "ar": "ألدرماستون (مؤسسة الأسلحة الذرية)",
+      "coords": [-1.141, 51.369],
+      "note": {
+        "ar": "منشأة لوزارة الدفاع البريطانية مسؤولة عن تصميم الرؤوس النووية البريطانية وتصنيعها ودعمها، موقعها الرئيسي في قاعدة ألدرماستون الجوية السابقة.",
+        "en": "A UK Ministry of Defence facility responsible for designing, making and supporting the UK's nuclear warheads, with its main site at the former RAF Aldermaston."
+      },
+      "sources": ["https://en.wikipedia.org/wiki/AWE_Nuclear_Security_Technologies"]
+    },
+    {
+      "id": "maralinga",
+      "type": "test",
+      "status": "closed",
+      "iso3": "AUS",
+      "en": "Maralinga",
+      "ar": "مارالينغا",
+      "coords": [131.583, -30.15],
+      "from": 1956,
+      "note": {
+        "ar": "منطقة صحراوية في جنوب أستراليا أجرت فيها بريطانيا عدة تجارب نووية في الخمسينيات، بدءاً بعملية «بافلو» في سبتمبر 1956.",
+        "en": "A desert area in South Australia where Britain held several nuclear tests in the 1950s, starting with Operation Buffalo in September 1956."
+      },
+      "sources": ["https://en.wikipedia.org/wiki/Maralinga"]
+    },
+    {
+      "id": "emu-field",
+      "type": "test",
+      "status": "closed",
+      "iso3": "AUS",
+      "en": "Emu Field",
+      "ar": "إيمو فيلد",
+      "coords": [132.204, -28.634],
+      "from": 1953,
+      "to": 1953,
+      "note": {
+        "ar": "موقع عملية «توتم»، تجربتين نوويتين بريطانيتين في جنوب أستراليا في أكتوبر 1953.",
+        "en": "The site of Operation Totem, two British nuclear tests in South Australia in October 1953."
+      },
+      "sources": ["https://en.wikipedia.org/wiki/Emu_Field,_South_Australia"]
+    },
+    {
+      "id": "la-hague",
+      "type": "reprocessing",
+      "status": "active",
+      "iso3": "FRA",
+      "en": "La Hague",
+      "ar": "لاهاي",
+      "coords": [-1.879, 49.678],
+      "note": {
+        "ar": "مصنع لإعادة معالجة الوقود النووي في شبه جزيرة كوتنتان تشغّله أورانو، ويملك نحو نصف سعة العالم لإعادة معالجة وقود مفاعلات الماء الخفيف، وعالج وقوداً من فرنسا واليابان وألمانيا ودول أخرى.",
+        "en": "A nuclear fuel reprocessing plant on the Cotentin peninsula, run by Orano, with nearly half the world's capacity for reprocessing light-water reactor fuel; it has treated fuel from France, Japan, Germany and other countries."
+      },
+      "sources": ["https://en.wikipedia.org/wiki/La_Hague_site"]
+    },
+    {
+      "id": "moruroa",
+      "type": "test",
+      "status": "closed",
+      "iso3": "PYF",
+      "en": "Moruroa",
+      "ar": "موروروا",
+      "coords": [-138.833, -21.833],
+      "from": 1966,
+      "to": 1996,
+      "note": {
+        "ar": "جزيرة مرجانية في بولينيزيا الفرنسية أجرت فيها فرنسا، مع جزيرة فانغاتاوفا، تجاربها النووية بين 1966 و1996، وسط احتجاجات دولية أبرزها في 1974 و1995.",
+        "en": "An atoll in French Polynesia where France, together with Fangataufa, held its nuclear tests from 1966 to 1996, amid international protests, notably in 1974 and 1995."
+      },
+      "sources": ["https://en.wikipedia.org/wiki/Moruroa"]
+    },
+    {
+      "id": "reggane",
+      "type": "test",
+      "status": "closed",
+      "iso3": "DZA",
+      "en": "Reggane",
+      "ar": "رقان",
+      "coords": [0.173, 26.72],
+      "from": 1960,
+      "to": 1961,
+      "note": {
+        "ar": "قرب رقان في الصحراء الجزائرية بدأت فرنسا تجاربها النووية، فأجرت أربع تجارب في 1960 و1961 خلال حرب الجزائر، ثم سمحت لها اتفاقيات إيفيان بمواصلة التجارب العسكرية بعد الاستقلال. النقطة على البلدة.",
+        "en": "France began its nuclear testing near Reggane in the Algerian Sahara, holding four tests in 1960 and 1961 during the Algerian War; the Évian Accords then let it continue military testing after independence. The point marks the town."
+      },
+      "sources": ["https://en.wikipedia.org/wiki/Reggane"]
+    },
+    {
+      "id": "lop-nur",
+      "type": "test",
+      "status": "dormant",
+      "iso3": "CHN",
+      "en": "Lop Nur",
+      "ar": "لوب نور",
+      "coords": [90.583, 40.167],
+      "from": 1964,
+      "note": {
+        "ar": "المنطقة الواقعة شمال غرب بحيرة لوب نور الجافة في شينجيانغ هي موقع التجارب النووية الرئيسي للصين، وفيها أُجريت أول تجربة صينية عام 1964. النقطة على البحيرة، والموقع شمال غربها.",
+        "en": "The area north-west of the dried-up Lop Nur lake in Xinjiang is China's main nuclear test site, where China's first test took place in 1964. The point marks the lake; the site lies to its north-west."
+      },
+      "sources": ["https://en.wikipedia.org/wiki/Lop_Nur"]
+    },
+    {
+      "id": "rokkasho",
+      "type": "reprocessing",
+      "status": "building",
+      "iso3": "JPN",
+      "en": "Rokkasho",
+      "ar": "روكاشو",
+      "coords": [141.326, 40.963],
+      "note": {
+        "ar": "مصنع لإعادة المعالجة سعته السنوية 800 طن من اليورانيوم أو 8 أطنان من البلوتونيوم، في محافظة آوموري. بدأ بناؤه عام 1993، وتأجّل موعد تشغيله مرات كثيرة.",
+        "en": "A reprocessing plant in Aomori Prefecture with a yearly capacity of 800 tonnes of uranium or 8 tonnes of plutonium. Construction began in 1993, and its start-up has been postponed many times."
+      },
+      "sources": ["https://en.wikipedia.org/wiki/Rokkasho_Reprocessing_Plant"]
+    },
+    {
+      "id": "osirak",
+      "type": "reactor",
+      "status": "destroyed",
+      "iso3": "IRQ",
+      "en": "Osirak (Tammuz)",
+      "ar": "أوزيراك (تموز)",
+      "coords": [44.519, 33.203],
+      "to": 1981,
+      "note": {
+        "ar": "مفاعل عراقي غير مكتمل جنوب شرق بغداد دمّرته غارة إسرائيلية مفاجئة في 7 يونيو 1981 (عملية أوبرا)، بعد عام من أضرار طفيفة ألحقها به سلاح الجو الإيراني.",
+        "en": "An unfinished Iraqi reactor south-east of Baghdad, destroyed by a surprise Israeli air strike on 7 June 1981 (Operation Opera), a year after the Iranian air force had caused it minor damage."
+      },
+      "sources": ["https://en.wikipedia.org/wiki/Operation_Opera"]
+    },
+    {
+      "id": "al-kibar",
+      "type": "reactor",
+      "status": "destroyed",
+      "iso3": "SYR",
+      "en": "Al Kibar (Deir ez-Zor)",
+      "ar": "الكبر (دير الزور)",
+      "coords": [39.834, 35.708],
+      "to": 2007,
+      "note": {
+        "ar": "مفاعل نووي قيد الإنشاء في منطقة دير الزور دمّرته غارة إسرائيلية في 6 سبتمبر 2007 (عملية البستان). وفي 2026 تبيّن أن سوريا تحتفظ بـ27 طناً من المواد النووية المرتبطة بالموقع، منها الكعكة الصفراء، وتفاوضت الولايات المتحدة وإسرائيل وسوريا على اتفاق لإخراجها من سوريا.",
+        "en": "A nuclear reactor under construction in the Deir ez-Zor region, destroyed by an Israeli air strike on 6 September 2007 (Operation Orchard). In 2026 it emerged that Syria held 27 tonnes of nuclear material tied to the site, including yellowcake, and the United States, Israel and Syria negotiated a deal to remove it from Syria."
+      },
+      "sources": ["https://en.wikipedia.org/wiki/Operation_Outside_the_Box"]
+    },
+    {
+      "id": "pelindaba",
+      "type": "complex",
+      "status": "active",
+      "iso3": "ZAF",
+      "en": "Pelindaba",
+      "ar": "بليندابا",
+      "coords": [27.934, -25.801],
+      "note": {
+        "ar": "مركز الأبحاث النووية الرئيسي في جنوب أفريقيا، وفيه طُوّرت القنابل الذرية الجنوب أفريقية وصُنع جزء منها خلال حقبة الفصل العنصري.",
+        "en": "South Africa's main nuclear research centre, where the country's atomic bombs were partly developed and built during the apartheid era."
+      },
+      "sources": ["https://en.wikipedia.org/wiki/Pelindaba"]
+    }
+  ]
 }

@@ -4,7 +4,7 @@
 import * as d3 from 'd3';
 import type { Feature, Position } from 'geojson';
 import type { AtlasState } from '../../../app/store';
-import { CHOKE_STATUS, NUCLEAR_CIVIL, NUCLEAR_STATUS, NUCLEAR_TREATIES, NUCLEAR_UNIT, SEVERITY, TREATY_STATUS, type LensId, type TreatyId } from '../../../config';
+import { CHOKE_STATUS, NUCLEAR_CIVIL, NUCLEAR_SITE_STATUS, NUCLEAR_SITE_TYPE, NUCLEAR_STATUS, NUCLEAR_TREATIES, NUCLEAR_UNIT, SEVERITY, TREATY_STATUS, type LensId, type TreatyId } from '../../../config';
 import type { Bloc, Country, DB, Disputed, Kind, Plant, TimelineEvent } from '../../../data/types';
 import { fmtCompact, fmtDate, fmtGdp, fmtNum, fmtPct, type Bi, type Lang } from '../../../i18n/format';
 import { pick, pickKey, registerStrings, translate } from '../../../i18n/strings';
@@ -264,6 +264,13 @@ export function nuclearFill(P: Palette, id: keyof typeof NUCLEAR_STATUS): string
   const base = s.tone === 'accent' ? (P.cat[7] ?? P.accent2) : P.status[s.tone];
   return mix(P.land, base, s.strength);
 }
+/** A nuclear site's marker colour: struck or destroyed in the alarm colour, closed muted, active in the lens's violet. */
+export const nsiteColor = (P: Palette, status: string) =>
+  status === 'struck' || status === 'destroyed' ? P.status.critical : status === 'closed' || status === 'dormant' ? P.fg3 : status === 'building' ? P.accent2 : (P.cat[7] ?? P.accent2);
+/** The sites the military and civil modes draw (all of them, with the sites layer on). */
+export const visibleNsites = (DB: DB, S: Pick<AtlasState, 'filters'>) =>
+  S.filters.nuclearSites && (S.filters.nuclearMode === 'military' || S.filters.nuclearMode === 'civil') ? DB.nuclear.sites ?? [] : [];
+
 /** A state's fill for its status under a treaty (the land colour pulled toward the status's tone). */
 export function treatyFill(P: Palette, tr: TreatyId, status: string): string {
   const s = TREATY_STATUS[tr][status];
@@ -661,6 +668,12 @@ const BUILD: Record<LensId, Builder> = {
     }
     sc.points.sort((a, b) => (a.v ?? 0) - (b.v ?? 0));
     if (sel) sc.focus = { id: sel.id };
+    // fuel-cycle, weapons and test sites: a marker shaped by what the site does; a selected one is always drawn
+    const selSite = S.selection?.kind === 'nsite' ? DB.nsiteById.get(S.selection.id) : undefined;
+    const sites = visibleNsites(DB, S);
+    for (const x of selSite && !sites.includes(selSite) ? [...sites, selSite] : sites) {
+      sc.markers.push({ lonlat: x.coords, shape: NUCLEAR_SITE_TYPE[x.type as keyof typeof NUCLEAR_SITE_TYPE]?.shape ?? 'disc', r: 5, color: nsiteColor(P, x.status), kind: 'nsite', id: x.id });
+    }
   },
 
   borders(sc, DB, S, P) {
@@ -834,7 +847,7 @@ function emphasis(sc: Scene, DB: DB, S: AtlasState, P: Palette) {
     if (sel.kind === 'disputed') { const d = DB.disputedById.get(sel.id); if (d) sc.selPolys.push({ feature: d.feature, stroke: P.sel, width: 2 }); }
     let anchor: LonLat | null = null;
     if (sel.kind === 'event') { const e = DB.eventById.get(sel.id); anchor = e ? eventAnchor(DB, e) : null; }
-    else if (['conflict', 'choke', 'site', 'disputed', 'plant', 'border', 'lng', 'field', 'station', 'facility'].includes(sel.kind)) anchor = DB.anchorOf(sel.kind, sel.id);
+    else if (['conflict', 'choke', 'site', 'disputed', 'plant', 'border', 'lng', 'field', 'station', 'facility', 'nsite'].includes(sel.kind)) anchor = DB.anchorOf(sel.kind, sel.id);
     if (anchor) sc.selRing = { lonlat: anchor, kind: sel.kind, id: sel.id };
   }
   if (S.view === 'compare') {
@@ -994,6 +1007,13 @@ export function tipFor(hit: Hit, DB: DB, S: AtlasState): string {
       const mw = x.mw.operating + x.mw.suspended;
       const units = (Object.keys(NUCLEAR_UNIT) as (keyof typeof NUCLEAR_UNIT)[]).filter((s) => x.count[s]).map((s) => `${fmtNum(x.count[s])} ${L(NUCLEAR_UNIT[s])}`).join(t('map.sep'));
       return tip(L(x), nameOf(DB, x.iso3, S.lang), units, mw ? t('map.tip.plantMw', { v: fmtNum(mw) }) : x.mw.building ? t('map.tip.plantBuild', { v: fmtNum(x.mw.building) }) : '');
+    }
+    case 'nsite': {
+      const x = DB.nsiteById.get(hit.id);
+      if (!x) return '';
+      const kind = [L(NUCLEAR_SITE_TYPE[x.type as keyof typeof NUCLEAR_SITE_TYPE]), L(NUCLEAR_SITE_STATUS[x.status as keyof typeof NUCLEAR_SITE_STATUS])].filter(Boolean).join(t('map.sep'));
+      const years = x.from || x.to ? `${x.from ?? '…'}${x.to ? `–${x.to}` : ''}` : '';
+      return tip(L(x), kind, [nameOf(DB, x.iso3, S.lang), years].filter(Boolean).join(t('map.sep')));
     }
     case 'pipeline': {
       const E = getEnergy(), x = E?.byId.get(hit.id);

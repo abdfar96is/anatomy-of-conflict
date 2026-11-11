@@ -110,6 +110,12 @@ export function checkData(dataDir: string): Problem[] {
   const treaties = (nuclear as { treaties?: Record<'npt' | 'ctbt' | 'tpnw', Record<string, unknown>> }).treaties;
   if (treaties) for (const tr of ['npt', 'ctbt', 'tpnw'] as const) for (const iso of Object.keys(treaties[tr] ?? {})) country('nuclear.json', `treaties.${tr}.${iso}`, iso);
   for (const iso of Object.keys((nuclear as unknown as { fleet: { values: Rec } }).fleet.values)) country('nuclear.json', `fleet.values.${iso}`, iso);
+  // the nuclear sites: a known state, known conflicts, and a span that runs forward
+  const nsites = (nuclear as { sites?: Rec[] }).sites ?? [];
+  nsites.forEach((x, i) => {
+    country('nuclear.json', `sites[${i}].iso3`, x.iso3); each('nuclear.json', x.conflictIds, `sites[${i}].conflictIds`, conflict);
+    if (typeof x.from === 'number' && typeof x.to === 'number' && x.to < x.from) problems.push({ file: 'nuclear.json', path: `sites[${i}].to`, message: 'ends before it starts', value: x.to });
+  });
   const plants = (files['nuclear_plants.json'] as { plants: Rec[] }).plants;
   plants.forEach((p, i) => { country('nuclear_plants.json', `plants[${i}].iso3`, p.iso3); each('nuclear_plants.json', p.conflictIds, `plants[${i}].conflictIds`, conflict); });
   const figureNotes = (files['figure_notes.json'] as { countries: Record<string, Record<string, Rec>> } | undefined)?.countries ?? {};
@@ -146,6 +152,7 @@ export function checkData(dataDir: string): Problem[] {
   dupes('resources.json', resources.sites, 'sites');
   dupes('nuclear.json', nuclear.zones, 'zones');
   dupes('nuclear_plants.json', plants, 'plants');
+  dupes('nuclear.json', nsites, 'sites');
   for (const [iso, r] of Object.entries(nuclear.countries)) {
     if (typeof r.verified === 'string' && r.verified > today) problems.push({ file: 'nuclear.json', path: `countries.${iso}.verified`, message: 'date is in the future', value: r.verified });
   }

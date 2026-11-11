@@ -118,6 +118,25 @@ export const TREATY_STATUS: Record<TreatyId, Record<string, TreatyStatus>> = {
   },
 };
 
+// Nuclear sites other than power plants (curated/nuclear.json `sites`): what each does (marker shape) and its state.
+export const NUCLEAR_SITE_TYPE = {
+  enrichment:   { ar: 'تخصيب اليورانيوم',            en: 'Uranium enrichment',           shape: 'diamond' },
+  conversion:   { ar: 'تحويل اليورانيوم',            en: 'Uranium conversion',           shape: 'diamond' },
+  reprocessing: { ar: 'إعادة معالجة الوقود المستهلك', en: 'Spent-fuel reprocessing',      shape: 'square' },
+  reactor:      { ar: 'مفاعل إنتاج أو أبحاث',         en: 'Production or research reactor', shape: 'disc' },
+  complex:      { ar: 'مجمّع نووي',                  en: 'Nuclear complex',              shape: 'hex' },
+  weapons:      { ar: 'تصميم الأسلحة أو تصنيعها',     en: 'Weapons design or production', shape: 'triangle' },
+  test:         { ar: 'موقع تجارب نووية',             en: 'Nuclear test site',            shape: 'ring' },
+} as const;
+export const NUCLEAR_SITE_STATUS = {
+  active:    { ar: 'عامل',             en: 'Active' },
+  closed:    { ar: 'مغلق',             en: 'Closed' },
+  struck:    { ar: 'تعرّض لضربات',      en: 'Struck' },
+  building:  { ar: 'لم يبدأ تشغيله',     en: 'Not yet in operation' },
+  dormant:   { ar: 'لا تجارب جارية',     en: 'No testing under way' },
+  destroyed: { ar: 'دُمّر',             en: 'Destroyed' },
+} as const;
+
 // Religion families: traditions roll up to these for the majority map. Order is the categorical slot order.
 export const RELIGION_FAMILIES = [
   { id: 'islam',        ar: 'الإسلام',            en: 'Islam',          slot: 3, members: ['sunni', 'shia', 'islam_other'] },
@@ -143,7 +162,7 @@ export const RESOURCE_CLASSES = [
 ];
 
 // Selection kinds and their hash prefixes: #country-SAU, #conflict-sudan, #group-kurds …
-export const KINDS = ['country', 'conflict', 'group', 'religion', 'choke', 'disputed', 'event', 'bloc', 'site', 'plant', 'border', 'pipeline', 'lng', 'field', 'station', 'facility'] as const;
+export const KINDS = ['country', 'conflict', 'group', 'religion', 'choke', 'disputed', 'event', 'bloc', 'site', 'plant', 'border', 'pipeline', 'lng', 'field', 'station', 'facility', 'nsite'] as const;
 
 // 24×24 stroke icons (stroke = currentColor). Use ui.icon(name).
 export const ICONS: Record<string, string> = {

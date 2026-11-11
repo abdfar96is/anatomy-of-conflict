@@ -172,6 +172,8 @@ function energy(cf: ConflictX, k: Kit) {
   const pc = powerCountries();
   // nuclear plants the curated file ties to this conflict (in the line of fire, struck, occupied)
   const nuclear = db.nuclear.plants.filter((p) => p.conflictIds?.includes(cf.id));
+  // and the fuel-cycle, weapons and test sites it ties to it (struck, mostly)
+  const nsites = (db.nuclear.sites ?? []).filter((x) => x.conflictIds?.includes(cf.id));
   const isos = [...new Set(cf.countries)].filter((iso) => db.countries.has(iso));
   const gw = (mw: number) => (mw ? fmt.num(mw / 1000, mw < 10000 ? 1 : 0) : '—');
   const sum = (o: Partial<Record<PowerType, number>>) => POWER_TYPES.reduce((a, ty) => a + (o[ty] ?? 0), 0);
@@ -207,6 +209,7 @@ function energy(cf: ConflictX, k: Kit) {
   return <>
     {k.sec(t('pw.cf.title'), [table, pc ? k.note(`${t('pw.cf.unit')} ${t('pw.cf.note')}`) : null], { id: 'power', cls: 'first' })}
     {nuclear.length ? k.sec(t('pw.cf.nuclear'), <div className="chips dz-chips">{nuclear.map((p) => k.kchip('plant', p.id, L(p), { isos: [p.iso3] }))}</div>, { count: nuclear.length }) : null}
+    {nsites.length ? k.sec(t('pw.cf.nsites'), <div className="chips dz-chips">{nsites.map((x) => k.kchip('nsite', x.id, L(x), { lead: <Icon name="atom" size={13} />, isos: [x.iso3] }))}</div>, { count: nsites.length }) : null}
     {k.sec(t('pw.cf.map'), [btn('industry', 'bolt', t('pw.cf.plants')), btn('pipelines', 'derrick', t('pw.cf.pipes'))])}
   </>;
 }

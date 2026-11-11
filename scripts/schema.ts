@@ -2,7 +2,7 @@
 // Only the fields the app relies on are checked; any other field is allowed.
 
 import { z } from 'zod';
-import { NUCLEAR_CIVIL, NUCLEAR_NPT, NUCLEAR_STATUS, NUCLEAR_UNIT, SEVERITY, TREATY_STATUS } from '../src/config';
+import { NUCLEAR_CIVIL, NUCLEAR_NPT, NUCLEAR_SITE_STATUS, NUCLEAR_SITE_TYPE, NUCLEAR_STATUS, NUCLEAR_UNIT, SEVERITY, TREATY_STATUS } from '../src/config';
 
 const bi = z.object({ ar: z.string(), en: z.string() });
 const id = z.string().min(1);
@@ -104,6 +104,13 @@ export const SCHEMAS: Record<string, z.ZodType> = {
       ctbt: z.record(iso, z.tuple([z.enum(Object.keys(TREATY_STATUS.ctbt) as [string, ...string[]]), z.number().int().nullable(), z.union([z.literal(0), z.literal(1)])])),
       tpnw: z.record(iso, z.tuple([z.enum(Object.keys(TREATY_STATUS.tpnw) as [string, ...string[]]), z.number().int().nullable()])),
     }).optional(),
+    sites: z.array(z.looseObject({
+      id, ar: z.string().min(1), en: z.string().min(1), iso3: iso, coords: lonLat,
+      type: z.enum(Object.keys(NUCLEAR_SITE_TYPE) as [string, ...string[]]),
+      status: z.enum(Object.keys(NUCLEAR_SITE_STATUS) as [string, ...string[]]),
+      from: z.number().int().optional(), to: z.number().int().optional(),
+      note: bi, conflictIds: z.array(id).optional(), ...provenance, sources: z.array(url).min(1),
+    })).optional(),
   }),
   'nuclear_plants.json': z.looseObject({
     source: z.looseObject({ base: z.looseObject({ name: z.string(), version: z.string(), date: day, url, license: z.string() }), changes: bi, limits: bi }),
