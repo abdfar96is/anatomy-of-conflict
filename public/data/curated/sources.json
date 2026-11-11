@@ -89,6 +89,56 @@
       }
     },
     {
+      "id": "ne-rivers",
+      "file": "rivers.json",
+      "title": {
+        "ar": "الأنهار ومحاور البحيرات — Natural Earth مقياس 1:50m",
+        "en": "Rivers and lake centrelines — Natural Earth 1:50m"
+      },
+      "publisher": "Natural Earth",
+      "url": "https://www.naturalearthdata.com/downloads/",
+      "license": "Public domain",
+      "lastRetrieved": "2026-11-11",
+      "resolution": {
+        "ar": "1:50,000,000 — مبسّطة (تفاوت 0.02 درجة) ومقرّبة إلى منزلتين عشريتين (~1 كم)",
+        "en": "1:50,000,000 — simplified (0.02° tolerance) and rounded to 2 decimals (~1 km)"
+      },
+      "methodology": {
+        "ar": "النسخة 5.2.0-pre من مستودع natural-earth-vector على GitHub. يُستعمل حقل scalerank لإظهار الأنهار الكبرى عند التصغير وبقيتها عند التكبير.",
+        "en": "Version 5.2.0-pre from the natural-earth-vector repository on GitHub. The scalerank field shows the major rivers when zoomed out and the rest when zoomed in."
+      },
+      "limitations": {
+        "ar": "خطوط مركزية مبسّطة لا ضفاف، وبلا أسماء عربية في هذا المقياس، فلا تُكتب أسماء الأنهار على الخريطة.",
+        "en": "Simplified centrelines, not banks, and without Arabic names at this scale, so the map does not label rivers."
+      },
+      "fieldsUsed": ["scalerank"]
+    },
+    {
+      "id": "ne-places",
+      "file": "cities.json",
+      "title": {
+        "ar": "المدن والعواصم — Natural Earth مقياس 1:50m",
+        "en": "Cities and capitals — Natural Earth 1:50m"
+      },
+      "publisher": "Natural Earth",
+      "url": "https://www.naturalearthdata.com/downloads/",
+      "license": "Public domain",
+      "lastRetrieved": "2026-11-11",
+      "resolution": {
+        "ar": "1,210 مدينة؛ الإحداثيات مقرّبة إلى 3 منازل عشرية",
+        "en": "1,210 places; coordinates rounded to 3 decimals"
+      },
+      "methodology": {
+        "ar": "النسخة 5.2.0-pre من مستودع natural-earth-vector على GitHub، دون المحطات العلمية والمواقع التاريخية. ترتّب المدن حسب عدد السكان (POP_MAX)، وتظهر الكبرى أولاً حيث يتسع المكان.",
+        "en": "Version 5.2.0-pre from the natural-earth-vector repository on GitHub, without scientific stations and historic places. Places are ranked by population (POP_MAX); the largest show first where there is room."
+      },
+      "limitations": {
+        "ar": "أعداد السكان تقديرات Natural Earth التقريبية (POP_MAX) ولا تُستعمل إلا للترتيب، والأسماء العربية من Natural Earth كما هي.",
+        "en": "Populations are Natural Earth's approximate estimates (POP_MAX), used only for ranking; the Arabic names are Natural Earth's as given."
+      },
+      "fieldsUsed": ["NAME", "NAME_AR", "POP_MAX", "SCALERANK", "FEATURECLA"]
+    },
+    {
       "id": "cshapes",
       "file": "history/cshapes.topo.json",
       "title": {

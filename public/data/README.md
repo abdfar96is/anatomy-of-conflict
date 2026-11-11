@@ -2,7 +2,7 @@
 
 | Folder | Content | Licence |
 |---|---|---|
-| `geo/` | Country, boundary and disputed-area shapes from [Natural Earth](https://www.naturalearthdata.com/) | Public domain |
+| `geo/` | Country, boundary and disputed-area shapes, rivers and cities from [Natural Earth](https://www.naturalearthdata.com/) | Public domain |
 | `live/` | Population, GDP, refugees, internal displacement and battle deaths from the [World Bank's open data](https://data.worldbank.org/), refreshed weekly | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — World Bank; each series keeps its original publisher (UN, UNHCR, IDMC, UCDP) |
 | `history/` | Historical borders of states and dependent territories, 1886–2019, from [CShapes 2.0](https://icr.ethz.ch/data/cshapes/) (ETH Zurich), simplified; Arabic names and ruler colours in `meta.json` | [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) — non-commercial, share-alike; cite Schvitz et al. (2022) |
 | `curated/nuclear_plants.json` | Nuclear power plants and their units, derived from [GeoNuclearData](https://github.com/cristianst85/GeoNuclearData) with documented updates | [ODbL 1.0](https://opendatacommons.org/licenses/odbl/1-0/) — a derived database; contents under the [DbCL 1.0](https://opendatacommons.org/licenses/dbcl/1-0/) |
@@ -211,3 +211,16 @@ Sites that are operating, under construction or mothballed and have coordinates 
 Cite each tracker as its About sheet recommends, for example: Global Energy Monitor, Global Coal Mine Tracker, August 2026 release.
 
 `npm run check-data` checks that every site has a unique id, a known layer with a source, a known status and state, valid coordinates and positive capacities.
+
+## Rivers and cities (`geo/rivers.json`, `geo/cities.json`)
+
+Two optional base layers from Natural Earth 1:50m, version 5.2.0-pre of the `natural-earth-vector` repository. They are public domain. Each file loads the first time its layer is turned on in the map's layers menu.
+
+- `rivers.json` holds rivers and lake centrelines, one row per Natural Earth feature: `[scalerank, lines]`.
+  - `scalerank` runs from 1 (the largest) to 6. The map shows ranks 1–2 in the world view and more as it zooms in.
+  - `lines` is a list of `[lon, lat]` lines, simplified with a 0.02° tolerance and rounded to 2 decimals.
+  - The 1:50m file has no Arabic names, so the rivers are not labelled.
+- `cities.json` holds populated places, the most populous first, without scientific stations and historic places: `[name, name_ar, lon, lat, pop_max, scalerank, capital]`.
+  - `capital` is 1 for national capitals (`Admin-0 capital` and `Admin-0 capital alt`).
+  - The map places cities after every other name: a dot and its name where both fit, larger ranks as it zooms in, capitals from the regional view.
+  - Populations (`POP_MAX`) are Natural Earth's approximate estimates and are only used for ranking.
