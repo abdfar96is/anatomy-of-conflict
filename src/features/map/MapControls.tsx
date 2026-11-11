@@ -13,6 +13,8 @@ export interface MapControlsApi { zoom(f: number): void; reset(): void }
 
 const LAYERS = ['labels', 'graticule', 'boundaries', 'disputed'] as const;
 const stop = (e: SyntheticEvent) => e.stopPropagation();
+/** Natural Earth base layers, listed after the others. */
+const BASE_LAYERS = ['rivers', 'cities'] as const;
 
 export function MapControls({ api }: { api: MapControlsApi }) {
   const { t } = useT();
@@ -67,7 +69,7 @@ export function MapControls({ api }: { api: MapControlsApi }) {
       </div>
       <div className="ctl-pop" id="mapctl-layers" role="group" aria-label={t('map.layers')} hidden={!open}>
         <p className="lc-label">{t('map.layers')}</p>
-        {LAYERS.map((k) => (
+        {[...LAYERS, ...BASE_LAYERS].map((k) => (
           <label className="ctl-check" key={k}>
             <input type="checkbox" data-layer={k} checked={layers[k]} onChange={(e) => atlas.setLayer(k, e.target.checked)} />
             <span>{t('map.lyr.' + k)}</span>

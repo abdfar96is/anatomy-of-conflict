@@ -10,6 +10,7 @@ import { onStateChange } from '../../../app/compat';
 import { emit, on } from '../../../app/events';
 import { atlas, type AtlasState } from '../../../app/store';
 import { setInView, type InViewItem } from '../inview';
+import { getCities, getRivers, subscribeBasemap, type River } from '../../../data/basemap';
 import { getEnergy } from '../../../data/energy';
 import type { Country, DB, Kind } from '../../../data/types';
 import type { Lang } from '../../../i18n/format';
@@ -91,7 +92,7 @@ interface ShapeRec { full: Feature; coarse: Feature; fine: Feature | null; cap: 
 interface GeoRec extends ShapeRec { iso3: string; c: Country; focus?: Geometry | null; bbox: Bounds; cap: { center: LonLat; r: number }; ub: Bounds; area: number }
 interface PolyMeta extends ShapeRec { bbox: Bounds; area: number }
 interface Colors {
-  P: Palette; bg: string; surface: string; ink: string; font: string; fontData: string; oceanHi: string;
+  P: Palette; bg: string; surface: string; ink: string; font: string; fontData: string; oceanHi: string; river: string;
   glow: string; glow0: string; limb0: string; limb: string; rim: string; dimTo: string; warn: string;
 }
 interface Motion { step(now: number): boolean }
@@ -176,6 +177,7 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
   // lens lines (pipelines): packed once per item; a 2° grid of their segments for picking, rebuilt per scene
   type LineRec = { lines: Position[][]; pk: Partial<Record<Level, PackedRing[]>>; ext: Partial<Record<Level, Float32Array>>; cap: Cap | null };
   const lineRecs = new WeakMap<Position[][], LineRec>();
+  let riverSets: { src: River[]; sets: [number, { lines: Position[][] }[]][] } | null = null;
   let lineGrid: { sc: Scene; cells: Map<number, [LineItem, number, number][]> } | null = null;
   // base-layer points (oil and gas fields) where the last base frame drew them, for picking and hover rings
   let pointHits: { x: number; y: number; r: number; p: PointItem }[] = [];
@@ -211,6 +213,8 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
 
   bindInput();
   const unbindStore = bindStore();
+  // the base layers' files arrive after the first draw
+  const offBasemap = subscribeBasemap(() => { if (!destroyed) request(true); });
   const ro = new ResizeObserver(() => resize());
   ro.observe(el);
   resize();
@@ -449,6 +453,8 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
       font: cssVar('--font-ui') || 'sans-serif',
       fontData: cssVar('--font-data') || 'monospace',
       oceanHi: d3.interpolateLab(P.ocean, dark ? P.fg3 : surface)(dark ? 0.1 : 0.55),
+      // rivers: the sea's hue, lifted toward blue so they read as water on any land fill
+      river: d3.interpolateLab(P.ocean, dark ? '#6aa6dc' : '#3f87c4')(dark ? 0.6 : 0.55),
       glow: rgba(P.fg3, dark ? 0.2 : 0.16),
       glow0: rgba(P.fg3, 0),
       limb0: rgba(dark ? cssVar('--bg') : P.fg3, 0),
@@ -584,6 +590,7 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
       if (traceShape(g, level, cen, clipPath, p2)) paths.set(g.iso3, p2);
     }
     drawLand(ctx, sc, S, P, X);
+    if (S.layers.rivers) drawRivers(ctx, cen, X);
     for (const p of sc.under) drawPoly(ctx, clipPath, cen, level, p, P);
     for (const p of sc.polys) drawPoly(ctx, clipPath, cen, level, p, P);
     for (const ls of sc.lines) drawLineSet(ctx, ls, cen);
@@ -657,6 +664,35 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
     }
   }
 
+  /**
+   * Natural Earth rivers: the largest from the world view, smaller ones as the map zooms in (by their scale rank),
+   * as thin water lines under everything the lens draws.
+   */
+  function drawRivers(ctx: CanvasRenderingContext2D, cen: LonLat, X: Colors) {
+    const R = getRivers();
+    if (!R) return;
+    if (riverSets?.src !== R) {
+      const by = new Map<number, { lines: Position[][] }[]>();
+      for (const r of R) { let a = by.get(r.rank); if (!a) by.set(r.rank, (a = [])); a.push({ lines: r.lines }); }
+      riverSets = { src: R, sets: [...by].sort((a, b) => a[0] - b[0]) };
+    }
+    const k = absScale() / baseScale();
+    const maxRank = k < 1.5 ? 2 : k < 2.5 ? 3 : k < 4 ? 4 : k < 7 ? 5 : 6;
+    const zw = Math.sqrt(lineZoom());
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round';
+    ctx.strokeStyle = X.river;
+    ctx.globalAlpha = 0.9;
+    for (const [rank, items] of riverSets.sets) {
+      if (rank > maxRank) break;
+      const path = new Path2D();
+      traceItems(path, items, cen);
+      ctx.lineWidth = (rank <= 1 ? 1.5 : rank <= 3 ? 1.1 : 0.8) * zw;
+      ctx.stroke(path);
+    }
+    ctx.globalAlpha = 1;
+  }
+
   function drawPoly(ctx: CanvasRenderingContext2D, clipPath: d3.GeoPath, cen: LonLat, level: Level, p: Poly, P: Palette) {
     ctx.beginPath();
     if (!traceShape(meta(p.feature), level, cen, clipPath, ctx)) return;
@@ -703,7 +739,7 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
    * Trace line items into a path, projected point by point. Items wholly behind the globe are skipped; while the map
    * moves, so are items shorter than a pixel or two, and every item is drawn from its simplified copy.
    */
-  function traceItems(target: Path2D, items: LineItem[], cen: LonLat, level: Level = lod()) {
+  function traceItems(target: Path2D, items: Pick<LineItem, 'lines'>[], cen: LonLat, level: Level = lod()) {
     // while moving, parts under ~3 px across are left out (they come back when the map settles)
     const minDeg = interacting ? 3 / ((absScale() * Math.PI) / 180) : 0;
     const half = Math.PI / 2 + 0.02;
@@ -1071,7 +1107,49 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
         drawText(ctx, lines, p[0], p[1], size, font, forced ? P.fg : muted ? P.fg3 : P.fg2, P.halo);
       }
     }
+    if (S.layers.cities) drawCities(ctx, grid, P, X, cen, k);
     drawBadges(ctx, sc, P, X, cen, grid);
+  }
+
+  /**
+   * Natural Earth cities after every other name, the most populous first, more of them as the map zooms in (by
+   * scale rank; capitals from the regional view): a dot with its name beside it where both fit, else nothing.
+   */
+  function drawCities(ctx: CanvasRenderingContext2D, grid: Grid, P: Palette, X: Colors, cen: LonLat, k: number) {
+    const C = getCities();
+    if (!C) return;
+    const maxRank = k < 1.5 ? 1 : k < 2.5 ? 2 : k < 4 ? 3 : k < 7 ? 4 : 10;
+    const size = 10.5, font = `500 ${size}px ${X.font}`, h = size + 3;
+    const ar = atlas.get().lang === 'ar', endSide = dir() === 'rtl' ? -1 : 1;
+    let n = 0;
+    for (const c of C) {
+      if (c.rank > maxRank && !(c.capital && k >= 2.5)) continue;
+      const p = projectVisible([c.lon, c.lat], cen);
+      if (!p || p[0] < 0 || p[0] > W || p[1] < 0 || p[1] > H) continue;
+      const r = c.capital ? 3 : 2.2;
+      const dot: Rect = [p[0] - r - 1, p[1] - r - 1, p[0] + r + 1, p[1] + r + 1];
+      if (!grid.free(dot)) continue;
+      const text = ar && c.ar ? c.ar : c.en;
+      const w = textW(ctx, font, text);
+      const opts: Rect[] = [endSide, -endSide].map((sd) => {
+        const x0 = sd > 0 ? p[0] + r + 4 : p[0] - r - 4 - w;
+        return [x0 - 1, p[1] - h / 2, x0 + w + 1, p[1] + h / 2];
+      });
+      const at = opts.find((o) => grid.free(o));
+      if (!at) continue;
+      grid.mark(dot);
+      grid.mark(at);
+      ctx.beginPath();
+      ctx.arc(p[0], p[1], r, 0, TAU);
+      ctx.fillStyle = c.capital ? P.halo : P.fg2;
+      ctx.fill();
+      ctx.lineWidth = c.capital ? 1.4 : 1;
+      ctx.strokeStyle = c.capital ? P.fg : P.halo;
+      ctx.stroke();
+      if (c.capital) { ctx.beginPath(); ctx.arc(p[0], p[1], 1.1, 0, TAU); ctx.fillStyle = P.fg; ctx.fill(); }
+      drawText(ctx, [text], (at[0] + at[2]) / 2, (at[1] + at[3]) / 2, size, font, P.fg2, P.halo);
+      if (++n >= 400) break;
+    }
   }
 
   /** Small marks tied to a country's name: profile dot, contested "!", compare numbers. */
@@ -1815,6 +1893,7 @@ export function createMap(mount: HTMLElement, db: DB): MapApi {
     ac.abort();
     ro.disconnect();
     unbindStore();
+    offBasemap();
     if (frame) cancelAnimationFrame(frame);
     if (hoverRaf) cancelAnimationFrame(hoverRaf);
     frame = hoverRaf = 0;

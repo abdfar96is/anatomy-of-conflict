@@ -358,6 +358,37 @@ export function checkData(dataDir: string): Problem[] {
       for (const k of ['cap', 'capc', 'prod']) if (x[k] != null && !(Number(x[k]) > 0)) problems.push({ file: sf, path: `${at}.${k}`, message: 'not a positive number', value: x[k] });
     });
   }
+
+  // 9. Natural Earth base layers (geo/rivers.json, geo/cities.json): the columns the map reads, in range.
+  const inRange = (lon: unknown, lat: unknown) => Number.isFinite(lon) && Number.isFinite(lat) && Math.abs(lon as number) <= 180 && Math.abs(lat as number) <= 90;
+  const riversFile = path.join(dataDir, 'geo', 'rivers.json');
+  if (fs.existsSync(riversFile)) {
+    const rf = 'geo/rivers.json';
+    (JSON.parse(fs.readFileSync(riversFile, 'utf8')) as unknown[][]).forEach(([rank, lines], i) => {
+      if (!Number.isInteger(rank) || (rank as number) < 1 || (rank as number) > 6) problems.push({ file: rf, path: `[${i}][0]`, message: 'scale rank outside 1–6', value: rank });
+      if (!Array.isArray(lines) || !lines.length) { problems.push({ file: rf, path: `[${i}][1]`, message: 'no lines' }); return; }
+      (lines as number[][][]).forEach((l, j) => {
+        if (!Array.isArray(l) || l.length < 2) problems.push({ file: rf, path: `[${i}][1][${j}]`, message: 'a line needs two points' });
+        else if (!l.every((pt) => inRange(pt[0], pt[1]))) problems.push({ file: rf, path: `[${i}][1][${j}]`, message: 'coordinates out of range' });
+      });
+    });
+  }
+  const citiesFile = path.join(dataDir, 'geo', 'cities.json');
+  if (fs.existsSync(citiesFile)) {
+    const cf = 'geo/cities.json';
+    let prev = Infinity;
+    (JSON.parse(fs.readFileSync(citiesFile, 'utf8')) as unknown[][]).forEach(([en, ar, lon, lat, pop, rank, cap], i) => {
+      const at = `[${i}]`;
+      if (typeof en !== 'string' || !en) problems.push({ file: cf, path: `${at}[0]`, message: 'no name' });
+      if (typeof ar !== 'string' || !/[\u0600-\u06ff]/.test(ar)) problems.push({ file: cf, path: `${at}[1]`, message: 'no Arabic name', value: ar });
+      if (!inRange(lon, lat)) problems.push({ file: cf, path: at, message: 'coordinates out of range', value: [lon, lat] });
+      if (!Number.isInteger(pop) || (pop as number) < 0) problems.push({ file: cf, path: `${at}[4]`, message: 'population not a whole number', value: pop });
+      else if ((pop as number) > prev) problems.push({ file: cf, path: `${at}[4]`, message: 'not sorted by population, largest first', value: pop });
+      else prev = pop as number;
+      if (!Number.isInteger(rank) || (rank as number) < 0 || (rank as number) > 10) problems.push({ file: cf, path: `${at}[5]`, message: 'scale rank outside 0–10', value: rank });
+      if (cap !== 0 && cap !== 1) problems.push({ file: cf, path: `${at}[6]`, message: 'capital flag not 0 or 1', value: cap });
+    });
+  }
   return [...layout, ...problems];
 }
 
