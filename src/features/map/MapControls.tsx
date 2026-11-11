@@ -1,11 +1,13 @@
-// The map controls (#mapctl): zoom, reset, projection and the layers popover. They sit inside #stage at the
-// inline-end bottom corner; zoom and reset go to the engine, projection and layers go through the store.
+// The map controls (#mapctl): zoom, reset, projection, the layers popover and saving the map as an image. They sit
+// inside #stage at the inline-end bottom corner; zoom and reset go to the engine, projection and layers go through the
+// store.
 
-import { useEffect, useRef, useState, type SyntheticEvent } from 'react';
+import { useContext, useEffect, useRef, useState, type SyntheticEvent } from 'react';
 import { atlas, useAtlas } from '../../app/store';
-import { useT } from '../../app/useT';
+import { DbContext, useT } from '../../app/useT';
 import { esc } from '../../ui/dom';
 import { Icon } from '../../ui/Icon';
+import { saveMapImage } from './saveImage';
 import './strings';
 
 /** What the controls need from the map engine. */
@@ -19,6 +21,8 @@ export function MapControls({ api }: { api: MapControlsApi }) {
   const globe = useAtlas((s) => s.projection) === 'globe';
   const layers = useAtlas((s) => s.layers);
   const [open, setOpenState] = useState(false);
+  const [saving, setSaving] = useState(false);
+  const db = useContext(DbContext);
   const box = useRef<HTMLDivElement>(null);
   const layersBtn = useRef<HTMLButtonElement>(null);
   // where focus goes once the popover has opened or closed
@@ -63,6 +67,10 @@ export function MapControls({ api }: { api: MapControlsApi }) {
         <button ref={layersBtn} className="btn icon ctl" type="button" data-ctl="layers" aria-label={t('map.layers')} data-tip={esc(t('map.layers'))}
           aria-expanded={open} aria-pressed={open} aria-controls="mapctl-layers" onClick={() => setOpen(!open)}>
           <Icon name="layers" size={18} />
+        </button>
+        <button className="btn icon ctl" type="button" data-ctl="image" aria-label={t('map.img')} data-tip={esc(t('map.img'))} disabled={saving}
+          onClick={() => { setSaving(true); void saveMapImage(db).finally(() => setSaving(false)); }}>
+          <Icon name="download" size={18} />
         </button>
       </div>
       <div className="ctl-pop" id="mapctl-layers" role="group" aria-label={t('map.layers')} hidden={!open}>
