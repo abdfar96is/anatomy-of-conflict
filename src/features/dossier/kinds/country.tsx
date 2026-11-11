@@ -140,10 +140,11 @@ function nuclear(c: Country, k: Kit) {
   const { t, pick: L, fmt, db } = k;
   const n = c.nuclear;
   const zones = n.zones.map((id) => db.nuclear.zoneById.get(id)).filter((z) => !!z);
+  const sites = (db.nuclear.sites ?? []).filter((x) => x.iso3 === c.iso3);
   const plants = n.plants.map((id) => db.plantById.get(id)).filter((p) => !!p).sort((a, b) => (b.mw.operating + b.mw.suspended) - (a.mw.operating + a.mw.suspended));
   const T = db.nuclear.treaties;
   const inTreaties = !!T && (['npt', 'ctbt', 'tpnw'] as const).some((tr) => T[tr][c.iso3]);
-  if (!n.weapons && !n.civil && !n.warheads && !zones.length && !n.plants.length && (!n.npt || n.npt === 'party') && !inTreaties) return null;
+  if (!n.weapons && !n.civil && !n.warheads && !zones.length && !n.plants.length && !sites.length && (!n.npt || n.npt === 'party') && !inTreaties) return null;
   const w = db.nuclear.warheads, fl = db.nuclear.fleet;
   // a treaty's status and its year (of ratification, signature or withdrawal), from the parties lists
   const treaty = (tr: TreatyId, i: number) => {
@@ -176,6 +177,7 @@ function nuclear(c: Country, k: Kit) {
     facts,
     n.note ? k.prose(L(n.note), { cls: 'sm', clamp: false }) : null,
     plants.length ? <div className="chips dz-chips" key="pl" aria-label={t('dz.nc.plants')}>{plants.map((p) => k.kchip('plant', p.id, L(p), { lead: <Icon name="atom" size={13} />, isos: [p.iso3] }))}</div> : null,
+    sites.length ? <div className="chips dz-chips" key="ns" aria-label={t('dz.nc.sites')}>{sites.map((x) => k.kchip('nsite', x.id, L(x), { lead: <Icon name="atom" size={13} />, isos: [x.iso3] }))}</div> : null,
     record?.sources?.length ? k.provenance(record) : zoneSources.length ? k.provenance({ sources: zoneSources }) : null,
   ], { id: 'nuclear' });
 }

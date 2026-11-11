@@ -5,7 +5,7 @@ import * as d3 from 'd3';
 import { useRef, useState, useSyncExternalStore, type CSSProperties, type PointerEvent as ReactPointerEvent, type ReactNode, type SyntheticEvent } from 'react';
 import { atlas, useAtlas, type AtlasState } from '../../app/store';
 import { useDb, useT } from '../../app/useT';
-import { CHOKE_STATUS, LENSES, NUCLEAR_CIVIL, NUCLEAR_STATUS, NUCLEAR_TREATIES, NUCLEAR_UNIT, RESOURCE_CLASSES, SEVERITY, TREATY_STATUS } from '../../config';
+import { CHOKE_STATUS, LENSES, NUCLEAR_CIVIL, NUCLEAR_SITE_STATUS, NUCLEAR_SITE_TYPE, NUCLEAR_STATUS, NUCLEAR_TREATIES, NUCLEAR_UNIT, RESOURCE_CLASSES, SEVERITY, TREATY_STATUS } from '../../config';
 import type { DB } from '../../data/types';
 import { esc } from '../../ui/dom';
 import { Icon } from '../../ui/Icon';
@@ -15,7 +15,7 @@ import { catVar, edgeVar, pal, resClassVar, sevVar, traditionColor, type Palette
 import {
   BLOC_T, CHOKE_T, CONTINENTS, ETHNIC_CLASSES, GDP_RANGE, INCOME, POP_RANGE, RES_SHAPE,
   PIPE_DASH, PIPE_DOTS, PIPE_W, activeBloc, bi, borderFill, decadeWindow, ethnicClass, fuelVar, landTint, lngColor, nuclearCivilFill, nuclearFill, nuclearZoneFill, plantColor, seqFill,
-  ACTIVE_SEVERITY, activeConflicts, treatyFill, visibleConflicts, visibleFields, visibleNuclear, warheadRadius, visibleLng, visiblePipes, visiblePlants, visibleFacilities, windowEvents, POWER_R, layerVar, powerHalted, powerVar,
+  ACTIVE_SEVERITY, activeConflicts, nsiteColor, treatyFill, visibleConflicts, visibleFields, visibleNuclear, warheadRadius, visibleLng, visiblePipes, visiblePlants, visibleFacilities, windowEvents, POWER_R, layerVar, powerHalted, powerVar,
 } from './engine/scene';
 import { FUELS, FUEL_LABEL, PIPE_STATUS, STATUS_LABEL, capacityClass, isHalted, systemName } from '../../data/energy';
 import { useEnergy } from '../pipelines/useEnergy';
@@ -204,6 +204,29 @@ type LegendState = Pick<AtlasState, 'filters' | 'selection' | 'year' | 'yearFilt
 interface Ctx { DB: DB; S: LegendState; P: Palette; T: ReturnType<typeof useT> }
 
 const setOverviewMode = (v: AtlasState['filters']['overviewMode']) => atlas.setFilter('overviewMode', v);
+
+/** The nuclear lens's fuel-cycle, weapons and test sites: a chip to show them, and while shown, their kinds and states. */
+function NuclearSitesKey({ DB, S, P }: { DB: DB; S: LegendState; P: Palette }) {
+  const { t, pick: L } = useT();
+  const sites = DB.nuclear.sites ?? [], on = S.filters.nuclearSites;
+  const types = (Object.keys(NUCLEAR_SITE_TYPE) as (keyof typeof NUCLEAR_SITE_TYPE)[]).filter((ty) => sites.some((x) => x.type === ty));
+  // one row per marker colour: in service, not yet running, struck or destroyed, closed or idle
+  const groups = ([['active', L(NUCLEAR_SITE_STATUS.active), ['active']], ['building', L(NUCLEAR_SITE_STATUS.building), ['building']],
+    ['struck', t('map.nc.struck'), ['struck', 'destroyed']], ['closed', t('map.nc.idle'), ['closed', 'dormant']]] as const)
+    .map(([c, label, of]) => ({ c, label, n: sites.filter((x) => (of as readonly string[]).includes(x.status)).length })).filter((g) => g.n);
+  return (
+    <Sec k="map.nc.sites">
+      <Chips label={t('map.nc.sites')}>
+        <Chip act="layer" k="nuclearSites" pressed={on} label={t('map.nc.sitesShow')} n={sites.length}
+          lead={<Glyph shape="hex" color={nsiteColor(P, 'active')} size={12} />} onClick={() => atlas.setFilter('nuclearSites', !on)} />
+      </Chips>
+      {on ? <Keys>
+        {types.map((ty) => <KeyRow key={ty} lead={<Glyph shape={NUCLEAR_SITE_TYPE[ty].shape} color="var(--fg-2)" />} label={L(NUCLEAR_SITE_TYPE[ty])} n={sites.filter((x) => x.type === ty).length} />)}
+        {groups.map((g) => <KeyRow key={g.c} lead={<Glyph shape="disc" color={nsiteColor(P, g.c)} />} label={g.label} n={g.n} />)}
+      </Keys> : null}
+    </Sec>
+  );
+}
 
 /** The conflicts layer in an infrastructure lens: its chip for the Show group… */
 function ConflictsChip({ DB, S }: { DB: DB; S: LegendState }) {
@@ -429,6 +452,7 @@ const BODY: Record<(typeof LENSES)[number]['id'], (c: Ctx) => ReactNode> = {
         <Sec k="map.lc.colorBy"><Chips label={t('map.lc.colorBy')}>{modes}</Chips></Sec>
         <Sec>{key}</Sec>
         {heads}
+        {(m === 'military' || m === 'civil') && DB.nuclear.sites?.length ? <NuclearSitesKey DB={DB} S={S} P={P} /> : null}
         <Sec k="pw.show"><Chips label={t('pw.show')}><ConflictsChip DB={DB} S={S} /></Chips><ConflictsKey DB={DB} S={S} /></Sec>
         <Note text={hint} />
         {m === 'civil' ? <TimelineNote S={S} undated={undated} caveat={t('map.nc.tl.caveat')} />

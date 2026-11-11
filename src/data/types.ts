@@ -73,6 +73,10 @@ export interface NuclearPlant extends Bi, Provenance {
   /** The plant's entries in GEM's power tracker (power/plants.json station ids). */
   gem?: string[];
 }
+/** A nuclear site other than a power plant (curated/nuclear.json `sites`). */
+export interface NuclearSite extends Bi, Provenance {
+  id: string; type: string; status: string; iso3: string; coords: [number, number]; from?: number; to?: number; note: Bi; conflictIds?: string[];
+}
 export interface NuclearPlantFile {
   source: { base: { name: string; version: string; date: string; url: string; license: string }; changes: Bi; limits: Bi };
   plants: NuclearPlant[];
@@ -87,6 +91,8 @@ export interface NuclearFile {
   warheads: { year: number; metric: Bi; publisher: string; sources: string[]; verified?: string; values: Record<string, number> };
   countries: Record<string, NuclearRecord>;
   zones: NuclearZone[];
+  /** Nuclear sites other than power plants: fuel cycle, weapons and test sites. */
+  sites?: NuclearSite[];
   /** Each state's status under the NPT, the CTBT (with whether it is an Annex 2 state) and the TPNW, with the year. */
   treaties?: {
     asOf: string; publisher: string; sources: string[]; note?: Bi;
@@ -185,6 +191,7 @@ export interface DB {
   live: LiveFile | null;
   nuclear: NuclearFile & { zoneById: Map<string, NuclearZone>; plants: Plant[]; plantSource: NuclearPlantFile['source'] };
   plantById: Map<string, Plant>;
+  nsiteById: Map<string, NuclearSite>;
   isUnverified(kind: Kind, id: string): boolean;
   features: Feature<Geometry, CountryProps>[];
   countries: Map<string, Country>;

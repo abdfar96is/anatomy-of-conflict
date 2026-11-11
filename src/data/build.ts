@@ -104,6 +104,7 @@ export function build(input: RawData): DB {
     return { ...p, count, mw, status: ORDER.find((s) => count[s] > 0) ?? 'shutdown' };
   });
   DB.plantById = new Map(plants.map((p) => [p.id, p]));
+  DB.nsiteById = new Map((R.nuclear.sites ?? []).map((s) => [s.id, s]));
   DB.nuclear = { ...R.nuclear, zoneById: new Map(R.nuclear.zones.map((z) => [z.id, z])), plants, plantSource: R.nuclearPlants.source };
   for (const c of DB.countries.values()) {
     const n = R.nuclear.countries[c.iso3] ?? {};
@@ -275,6 +276,7 @@ export function build(input: RawData): DB {
       case 'field': return getEnergy()?.fieldById.get(id);
       case 'station': return getPower()?.byId.get(id);
       case 'facility': return getIndustry()?.byId.get(id);
+      case 'nsite': return DB.nsiteById.get(id);
       default: return undefined;
     }
   };
@@ -305,6 +307,7 @@ export function build(input: RawData): DB {
       case 'field': return (x as unknown as OilField).countries;
       case 'station': { const p = x as unknown as PowerPlant; return p.iso3 ? [p.iso3] : []; }
       case 'facility': { const f = x as unknown as Facility; return f.c ? [f.c] : []; }
+      case 'nsite': return [x.iso3 as string];
       default: return [];
     }
   };
@@ -350,6 +353,7 @@ export function build(input: RawData): DB {
   for (const b of DB.relations.blocs) push('bloc', b.id, b.ar, b.en);
   for (const s of DB.resources.sites) push('site', s.id, s.ar, s.en);
   for (const p of plants) push('plant', p.id, p.ar, p.en);
+  for (const s of R.nuclear.sites ?? []) push('nsite', s.id, s.ar, s.en);
   DB.searchIndex = S;
   DB.search = (q, limit = 30) => {
     const n = normalize(q);

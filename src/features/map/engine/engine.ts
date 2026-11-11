@@ -46,7 +46,7 @@ const TOL_COARSE = 0.12, TOL_FINE = 0.02;
 const SCENE_KEYS = new Set<keyof AtlasState>(['lens', 'selection', 'filters', 'layers', 'year', 'yearFilter', 'theme', 'compare', 'view', 'lang']);
 /** Landmark names show from this zoom factor (about a region filling the screen). */
 const PIN_K = 2.2;
-const POINT_KINDS: Kind[] = ['conflict', 'choke', 'site', 'plant', 'lng', 'field', 'station', 'facility'];
+const POINT_KINDS: Kind[] = ['conflict', 'choke', 'site', 'plant', 'lng', 'field', 'station', 'facility', 'nsite'];
 /** Grid cell size (degrees) of the line hit-test index. */
 const LINE_CELL = 2;
 const lineCell = (lon: number, lat: number) => (Math.floor(lat / LINE_CELL) + 46) * 182 + Math.floor(lon / LINE_CELL) + 91;

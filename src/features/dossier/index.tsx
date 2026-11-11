@@ -29,6 +29,7 @@ import { fieldPanel } from './kinds/field';
 import { lngPanel } from './kinds/lng';
 import { pipelinePanel } from './kinds/pipeline';
 import { plantPanel } from './kinds/plant';
+import { nsitePanel } from './kinds/nsite';
 import { powerPanel } from './kinds/power';
 import { facilityPanel } from './kinds/facility';
 import { getIndustry, subscribeIndustry } from '../../data/industry';
@@ -39,13 +40,13 @@ import { isEmpty, kit, type Kit } from './parts';
 import './strings';
 import { useSheet } from './useSheet';
 
-const KIND_ICON: Record<Kind, string> = { country: 'globe', conflict: 'flame', group: 'people', religion: 'pie', choke: 'anchor', disputed: 'hatch', event: 'clock', bloc: 'network', site: 'gem', plant: 'atom', border: 'borders', pipeline: 'pipeline', lng: 'lng', field: 'derrick', station: 'bolt', facility: 'factory' };
+const KIND_ICON: Record<Kind, string> = { country: 'globe', conflict: 'flame', group: 'people', religion: 'pie', choke: 'anchor', disputed: 'hatch', event: 'clock', bloc: 'network', site: 'gem', plant: 'atom', border: 'borders', pipeline: 'pipeline', lng: 'lng', field: 'derrick', station: 'bolt', facility: 'factory', nsite: 'atom' };
 // Lens a selection kind belongs to (SPEC); country keeps the current lens.
-const LENS_OF: Partial<Record<Kind, LensId>> = { conflict: 'conflicts', group: 'ethnic', religion: 'religion', choke: 'chokepoints', disputed: 'disputed', event: 'history', bloc: 'powers', site: 'resources', plant: 'nuclear', border: 'borders', pipeline: 'pipelines', lng: 'pipelines', field: 'pipelines', station: 'industry', facility: 'industry' };
+const LENS_OF: Partial<Record<Kind, LensId>> = { conflict: 'conflicts', group: 'ethnic', religion: 'religion', choke: 'chokepoints', disputed: 'disputed', event: 'history', bloc: 'powers', site: 'resources', plant: 'nuclear', border: 'borders', pipeline: 'pipelines', lng: 'pipelines', field: 'pipelines', station: 'industry', facility: 'industry', nsite: 'nuclear' };
 const PANELS: Record<Kind, (id: string, k: Kit) => Panel | null> = {
   country: countryPanel, conflict: conflictPanel, group: groupPanel, religion: religionPanel, choke: chokePanel,
   disputed: disputedPanel, event: eventPanel, bloc: blocPanel, site: sitePanel, plant: plantPanel, border: borderPanel,
-  pipeline: pipelinePanel, lng: lngPanel, field: fieldPanel, station: powerPanel, facility: facilityPanel,
+  pipeline: pipelinePanel, lng: lngPanel, field: fieldPanel, station: powerPanel, facility: facilityPanel, nsite: nsitePanel,
 };
 const LEAVE_MS = 260;
 

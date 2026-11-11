@@ -4,7 +4,7 @@ import { useLayoutEffect, useMemo, useRef, useState, type KeyboardEvent, type Re
 import { atlas, useAtlas } from '../../app/store';
 import { useDb, useT } from '../../app/useT';
 import type { Prefs } from '../../app/prefs';
-import { LENSES, NUCLEAR_UNIT, RELIGION_FAMILIES, SEVERITY, VIEWS, type LensId, type ViewId } from '../../config';
+import { LENSES, NUCLEAR_SITE_TYPE, NUCLEAR_UNIT, RELIGION_FAMILIES, SEVERITY, VIEWS, type LensId, type ViewId } from '../../config';
 import { FIELD_FUEL_LABEL, FIELD_STATUS_LABEL, FUEL_LABEL, STATUS_LABEL, getEnergy } from '../../data/energy';
 import { POWER_LABEL, POWER_STATUS_LABEL, fmtMW, getPower, type Power } from '../../data/power';
 import { INDUSTRY_STATUS_LABEL, LAYER_ONE, facilityClass, getIndustry, sizeOf, type Facility, type Industry } from '../../data/industry';
@@ -101,6 +101,10 @@ export function subOf(db: DB, T: T, kind: Kind, id: string): string {
     case 'bloc': {
       const x = db.relations.blocById.get(id);
       return x ? membersLabel((x.members || []).length, lang) : '';
+    }
+    case 'nsite': {
+      const x = db.nsiteById.get(id);
+      return x ? [countryName(x.iso3), L(NUCLEAR_SITE_TYPE[x.type as keyof typeof NUCLEAR_SITE_TYPE])].filter(Boolean).join(' · ') : '';
     }
     case 'plant': {
       const x = db.plantById.get(id);

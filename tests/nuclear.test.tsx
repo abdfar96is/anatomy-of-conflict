@@ -11,7 +11,7 @@ import { checkData } from '../scripts/check-data';
 import { formatJson } from '../scripts/format-json';
 import { atlas, initialState, type AtlasState } from '../src/app/store';
 import { DbContext } from '../src/app/useT';
-import { LENSES } from '../src/config';
+import { LENSES, NUCLEAR_SITE_STATUS, NUCLEAR_SITE_TYPE } from '../src/config';
 import { build } from '../src/data/build';
 import type { DB, NuclearFile } from '../src/data/types';
 import { Dossier } from '../src/features/dossier';
@@ -326,6 +326,82 @@ describe('nuclear power plants', () => {
   });
 });
 
+describe('nuclear sites', () => {
+  const P = { land: '#2a3440', landMuted: '#20262e', accent2: '#40a0c0', fg3: '#999999', cat: Array.from({ length: 9 }, (_, i) => `#7${i}7${i}7${i}`), seq: () => '#555555', status: { good: '#00ff00', warn: '#ffaa00', critical: '#ff0000' } } as unknown as Palette;
+  const at = (over: Partial<AtlasState['filters']> = {}, rest: Partial<AtlasState> = {}): AtlasState => {
+    const s = initialState();
+    return { ...s, lens: 'nuclear', lang: 'en', ...rest, filters: { ...s.filters, ...over } };
+  };
+
+  test('every site has a known kind and state, a note in both languages and a source, and ties only to known conflicts', () => {
+    const sites = file().sites!;
+    expect(sites.length).toBeGreaterThanOrEqual(30);
+    for (const x of sites) {
+      expect(NUCLEAR_SITE_TYPE[x.type as keyof typeof NUCLEAR_SITE_TYPE], x.id).toBeTruthy();
+      expect(NUCLEAR_SITE_STATUS[x.status as keyof typeof NUCLEAR_SITE_STATUS], x.id).toBeTruthy();
+      expect(x.note.ar && x.note.en, x.id).toBeTruthy();
+      expect(x.sources?.length, x.id).toBeGreaterThan(0);
+      for (const c of x.conflictIds ?? []) expect(db.conflictById.has(c), `${x.id} ${c}`).toBe(true);
+    }
+    // the sites struck in the 2025 and 2026 wars belong to that conflict
+    for (const id of ['natanz', 'fordow', 'isfahan', 'arak']) expect(db.nsiteById.get(id)).toMatchObject({ status: 'struck', iso3: 'IRN', conflictIds: ['iran-us-israel'] });
+  });
+
+  test('military and civil modes draw the sites, shaped by kind and coloured by state; the chip hides them', () => {
+    const sc = buildScene(db, at(), P);
+    const marks = sc.markers.filter((m) => m.kind === 'nsite');
+    expect(marks.length).toBe(db.nuclear.sites!.length);
+    const m = (id: string) => marks.find((x) => x.id === id)!;
+    expect(m('natanz')).toMatchObject({ shape: 'diamond', color: P.status.critical });
+    expect(m('dimona')).toMatchObject({ shape: 'hex', color: P.cat[7] });
+    expect(m('semipalatinsk')).toMatchObject({ shape: 'ring', color: P.fg3 });
+    expect(m('rokkasho')).toMatchObject({ shape: 'square', color: P.accent2 });
+    expect(buildScene(db, at({ nuclearMode: 'civil' }), P).markers.some((x) => x.kind === 'nsite')).toBe(true);
+    expect(buildScene(db, at({ nuclearSites: false }), P).markers.some((x) => x.kind === 'nsite')).toBe(false);
+    // other modes draw only a selected site, with the selection ring on it
+    const zones = buildScene(db, at({ nuclearMode: 'zones' }, { selection: { kind: 'nsite', id: 'osirak' } }), P);
+    expect(zones.markers.filter((x) => x.kind === 'nsite').map((x) => x.id)).toEqual(['osirak']);
+    expect(zones.selRing).toMatchObject({ kind: 'nsite', id: 'osirak' });
+  });
+
+  test('tooltip, search, the legend and the site dossier', () => {
+    const tip = tipFor({ kind: 'nsite', id: 'semipalatinsk' }, db, at());
+    expect(tip).toContain('Semipalatinsk');
+    expect(tip).toContain('Nuclear test site');
+    expect(tip).toContain('1949–1989');
+    expect(db.search('نطنز').some((e) => e.kind === 'nsite' && e.id === 'natanz')).toBe(true);
+
+    atlas.set({ lens: 'nuclear', lang: 'en' });
+    const legend = render(<DbContext.Provider value={db}><Legend /></DbContext.Provider>).container;
+    const sec = legend.querySelector('[data-fold="map.nc.sites"]')!;
+    expect(sec.textContent).toContain('Uranium enrichment');
+    expect(sec.textContent).toContain('Struck or destroyed');
+    fireEvent.click(sec.querySelector('[data-key="nuclearSites"]')!);
+    expect(atlas.get().filters.nuclearSites).toBe(false);
+    expect(legend.querySelector('[data-fold="map.nc.sites"]')!.textContent).not.toContain('Uranium enrichment');
+
+    render(<DbContext.Provider value={db}><Dossier /></DbContext.Provider>);
+    act(() => { atlas.select('nsite', 'natanz', { fly: false }); });
+    const panel = document.getElementById('dz-panel')!;
+    expect(panel.textContent).toContain('Uranium enrichment');
+    expect(panel.textContent).toContain('21 March 2026');
+    expect(panel.querySelector('[data-sel-kind="conflict"][data-sel-id="iran-us-israel"]')).not.toBeNull();
+    expect([...panel.querySelectorAll('.dz-pv a')].map((a) => a.getAttribute('href'))).toContain('https://en.wikipedia.org/wiki/Natanz_Nuclear_Facility');
+  });
+
+  test('the conflict and the country link back to their sites', () => {
+    atlas.set({ lang: 'en' });
+    render(<DbContext.Provider value={db}><Dossier /></DbContext.Provider>);
+    act(() => { atlas.select('country', 'PAK', { fly: false }); });
+    const sec = document.getElementById('dz-a-nuclear')!;
+    for (const id of ['kahuta', 'khushab', 'ras-koh']) expect(sec.querySelector(`[data-sel-kind="nsite"][data-sel-id="${id}"]`), id).not.toBeNull();
+    act(() => { atlas.select('conflict', 'iran-us-israel', { fly: false }); });
+    fireEvent.click(screen.getByRole('tab', { name: /^Energy/ }));
+    const chips = [...document.querySelectorAll('#dz-panel [data-sel-kind="nsite"]')].map((x) => x.getAttribute('data-sel-id'));
+    expect(chips.sort()).toEqual(['arak', 'fordow', 'isfahan', 'natanz']);
+  });
+});
+
 describe('check-data on the nuclear file', () => {
   let dir: string;
   beforeAll(() => {
@@ -335,6 +411,8 @@ describe('check-data on the nuclear file', () => {
     const n = JSON.parse(fs.readFileSync(f, 'utf8'));
     n.countries.BEL.host = 'USX';
     n.zones[0].members.push('ZZZ');
+    n.sites[0].iso3 = 'XYZ';
+    n.sites[1].conflictIds = ['no-such-war'];
     fs.writeFileSync(f, formatJson(n));
     const pf = path.join(dir, 'curated/nuclear_plants.json');
     const pl = JSON.parse(fs.readFileSync(pf, 'utf8'));
@@ -344,10 +422,12 @@ describe('check-data on the nuclear file', () => {
   });
   afterAll(() => fs.rmSync(dir, { recursive: true, force: true }));
 
-  test('reports unknown country codes and a link to no GEM nuclear plant', () => {
+  test('reports unknown country codes and conflicts, and a link to no GEM nuclear plant', () => {
     expect(checkData(dir).map((p) => `${p.file} › ${p.path} › ${p.message}`)).toEqual([
       'nuclear.json › countries.BEL.host › unknown country code',
       expect.stringMatching(/^nuclear\.json › zones\[0\]\.members\[\d+\] › unknown country code$/),
+      'nuclear.json › sites[0].iso3 › unknown country code',
+      'nuclear.json › sites[1].conflictIds[0] › unknown conflict id',
       'nuclear_plants.json › plants[0].iso3 › unknown country code',
       'nuclear_plants.json › plants[1].gem[0] › not a nuclear plant in power/plants.json',
     ]);
