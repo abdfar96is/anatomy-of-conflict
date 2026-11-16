@@ -1,7 +1,7 @@
 {
   "source": "World Bank Indicators API v2",
   "api": "https://api.worldbank.org/v2/",
-  "retrieved": "2026-11-09",
+  "retrieved": "2026-11-16",
   "indicators": {
     "pop": {
       "code": "SP.POP.TOTL",
@@ -9,7 +9,7 @@
       "origin": { "ar": "الأمم المتحدة (WPP)", "en": "UN WPP" },
       "url": "https://data.worldbank.org/indicator/SP.POP.TOTL",
       "sourceOrganization": "World Population Prospects, United Nations (UN), uri: https://population.un.org/wpp/, publisher: UN Population Division; Statistical databases and publications from national statistical offices, National Statistical Offices (NSOs), uri: https://unstats.un.org/home/nso_sites/, publisher: National Statistical Offices; Eurostat: Demographic Statistics, Eurostat (ESTAT), uri: https://ec.europa.eu/eurostat/data/database?node_code=earn_ses_monthly, publisher: Eurostat; Population and Vital Statistics Report (various years), United Nations (UN), uri: https://unstats.un.org, publisher: UN Statistics Division",
-      "lastUpdated": "2026-10-08",
+      "lastUpdated": "2026-11-11",
       "latestYear": 2025,
       "countries": 215
     },
@@ -19,7 +19,7 @@
       "origin": { "ar": "الحسابات القومية", "en": "national accounts" },
       "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD",
       "sourceOrganization": "Country official statistics, National Statistical Organizations and/or Central Banks; National Accounts data files, Organisation for Economic Co-operation and Development (OECD); Staff estimates, World Bank (WB)",
-      "lastUpdated": "2026-10-08",
+      "lastUpdated": "2026-11-11",
       "latestYear": 2025,
       "countries": 212
     },
@@ -29,7 +29,7 @@
       "origin": { "ar": "الحسابات القومية", "en": "national accounts" },
       "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD",
       "sourceOrganization": "Country official statistics, National Statistical Organizations and/or Central Banks; National Accounts data files, Organisation for Economic Co-operation and Development (OECD); Staff estimates, World Bank (WB)",
-      "lastUpdated": "2026-10-08",
+      "lastUpdated": "2026-11-11",
       "latestYear": 2025,
       "countries": 212
     },
@@ -69,7 +69,7 @@
       "origin": { "ar": "برنامج أوبسالا (UCDP)", "en": "UCDP" },
       "url": "https://data.worldbank.org/indicator/VC.BTL.DETH",
       "sourceOrganization": "UCDP Battle-related Deaths Dataset , Uppsala Conflict Data Program (UCDP), uri: https://ucdp.uu.se/downloads/, publisher: Uppsala University",
-      "lastUpdated": "2026-10-08",
+      "lastUpdated": "2026-11-11",
       "latestYear": 2024,
       "countries": 41
     }
