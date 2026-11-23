@@ -1,7 +1,7 @@
 {
   "source": "World Bank Indicators API v2",
   "api": "https://api.worldbank.org/v2/",
-  "retrieved": "2026-11-16",
+  "retrieved": "2026-11-23",
   "indicators": {
     "pop": {
       "code": "SP.POP.TOTL",
@@ -39,7 +39,7 @@
       "origin": { "ar": "المفوضية (UNHCR) والأونروا", "en": "UNHCR and UNRWA" },
       "url": "https://data.worldbank.org/indicator/SM.POP.RHCR.EO",
       "sourceOrganization": "Refugee Population Statistics Database, UN High Commissioner for Refugees (UNHCR), uri: https://www.unhcr.org/refugee-statistics/download; Refugee Population Statistics Database, UN High Commissioner for Refugees (UNHCR), uri: https://www.unhcr.org/refugee-statistics/download; Statistics Bulletin, UN Relief and Works Agency for Palestine Refugees in the Near East (UNRWA), uri: https://www.unrwa.org/what-we-do/unrwa-statistics-bulletin",
-      "lastUpdated": "2026-10-08",
+      "lastUpdated": "2026-11-11",
       "latestYear": 2025,
       "countries": 200
     },
@@ -49,7 +49,7 @@
       "origin": { "ar": "المفوضية (UNHCR) والأونروا", "en": "UNHCR and UNRWA" },
       "url": "https://data.worldbank.org/indicator/SM.POP.RHCR.EA",
       "sourceOrganization": "Refugee Population Statistics Database, UN High Commissioner for Refugees (UNHCR), uri: https://www.unhcr.org/refugee-statistics/download; Refugee Population Statistics Database, UN High Commissioner for Refugees (UNHCR), uri: https://www.unhcr.org/refugee-statistics/download; Statistics Bulletin, UN Relief and Works Agency for Palestine Refugees in the Near East (UNRWA), uri: https://www.unrwa.org/what-we-do/unrwa-statistics-bulletin",
-      "lastUpdated": "2026-10-08",
+      "lastUpdated": "2026-11-11",
       "latestYear": 2025,
       "countries": 182
     },
@@ -59,7 +59,7 @@
       "origin": { "ar": "المفوضية (UNHCR) ومركز رصد النزوح (IDMC)", "en": "UNHCR and IDMC" },
       "url": "https://data.worldbank.org/indicator/SM.POP.IDPC",
       "sourceOrganization": "Refugee Population Statistics Database, UN High Commissioner for Refugees (UNHCR), uri: https://www.unhcr.org/refugee-statistics/download; Global Internal Displacement Database, Internal Displacement Monitoring Centre (IDMC), uri: https://www.internal-displacement.org/database/displacement-data/",
-      "lastUpdated": "2026-10-08",
+      "lastUpdated": "2026-11-11",
       "latestYear": 2025,
       "countries": 66
     },
