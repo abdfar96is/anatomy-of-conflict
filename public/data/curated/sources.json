@@ -560,23 +560,23 @@
         "en": "Nuclear status of states — weapons, civil use and treaties"
       },
       "publisher": {
-        "ar": "تجميع تحريري لهذا الأطلس من SIPRI ومراكز الحد من التسلح والوكالة الدولية للطاقة الذرية والرابطة النووية العالمية",
-        "en": "Editorial compilation for this atlas from SIPRI, arms-control centres, the IAEA and the World Nuclear Association"
+        "ar": "تجميع تحريري لهذا الأطلس من SIPRI ومراكز الحد من التسلح والوكالة الدولية للطاقة الذرية والرابطة النووية العالمية، مع سلسلة اتحاد العلماء الأمريكيين (FAS) منذ 1945",
+        "en": "Editorial compilation for this atlas from SIPRI, arms-control centres, the IAEA and the World Nuclear Association, with the Federation of American Scientists (FAS) series since 1945"
       },
-      "license": "CC-BY-4.0 (compilation)",
+      "license": "CC-BY-4.0 (compilation); warheads.history © Federation of American Scientists, shown with attribution",
       "published": "2026-11-03",
-      "lastRetrieved": "2026-11-03",
+      "lastRetrieved": "2026-11-25",
       "resolution": {
-        "ar": "على مستوى الدولة فقط؛ لا مواقع عسكرية. المناطق الخالية تُظهر النطاق الجغرافي لكل معاهدة.",
-        "en": "State level only; no military sites. Weapon-free zones show each treaty's geographic scope."
+        "ar": "على مستوى الدولة، مع 35 منشأة نووية مختارة بإحداثياتها، وأعداد الرؤوس لكل سنة منذ 1945. المناطق الخالية تُظهر النطاق الجغرافي لكل معاهدة.",
+        "en": "State level, with 35 selected nuclear sites at their coordinates and warhead counts for each year since 1945. Weapon-free zones show each treaty's geographic scope."
       },
       "methodology": {
-        "ar": "لكل دولة وضع عسكري واحد (دولة نووية بموجب المعاهدة، خارجها، غير معلنة، مستضيفة، مستضيفة بإعلان، برنامج موضع نزاع، تخلّت عن أسلحة) ووضع مدني، مع مصادر وتاريخ تحقق. تقديرات الرؤوس من الكتاب السنوي لـ SIPRI لمطلع 2026 (إجمالي المخزون)، ومجموعها يطابق مجموع SIPRI العالمي (12,187). عضوية معاهدة عدم الانتشار تُفترض للدول الأعضاء في الأمم المتحدة إلا الاستثناءات المسجلة.",
-        "en": "Each state has one military status (NPT nuclear-weapon state, outside the NPT, undeclared, host, announced host, disputed programme, gave up weapons) and a civil status, with sources and a check date. Warhead estimates come from the SIPRI Yearbook for early 2026 (total inventory) and sum to SIPRI's world total (12,187). NPT membership is assumed for UN member states except the recorded exceptions."
+        "ar": "لكل دولة وضع عسكري واحد (دولة نووية بموجب المعاهدة، خارجها، غير معلنة، مستضيفة، مستضيفة بإعلان، برنامج موضع نزاع، تخلّت عن أسلحة) ووضع مدني، مع مصادر وتاريخ تحقق. تقديرات الرؤوس من الكتاب السنوي لـ SIPRI لمطلع 2026 (إجمالي المخزون)، ومجموعها يطابق مجموع SIPRI العالمي (12,187). عضوية معاهدة عدم الانتشار تُفترض للدول الأعضاء في الأمم المتحدة إلا الاستثناءات المسجلة. المخزون العسكري لكل سنة منذ 1945 من تقديرات اتحاد العلماء الأمريكيين (FAS)، كما نشرتها Our World in Data، ويطابق جدول FAS لعام 2026.",
+        "en": "Each state has one military status (NPT nuclear-weapon state, outside the NPT, undeclared, host, announced host, disputed programme, gave up weapons) and a civil status, with sources and a check date. Warhead estimates come from the SIPRI Yearbook for early 2026 (total inventory) and sum to SIPRI's world total (12,187). NPT membership is assumed for UN member states except the recorded exceptions. Each year's military stockpile since 1945 comes from the Federation of American Scientists' estimates as published by Our World in Data, and matches FAS's 2026 table."
       },
       "limitations": {
-        "ar": "أعداد الرؤوس تقديرات لا أرقام رسمية، وإسرائيل لا تؤكد امتلاكها. استضافة الأسلحة الأمريكية في أوروبا قائمة على تقارير لا تأكيد رسمي، واستضافة بيلاروس لأسلحة روسية إعلان لم يُثبت علناً. القائمة المدنية مأخوذة من مصدر عام ولم تُدقَّق كل دولة على حدة بعد. لا تشمل هذه النسخة عضوية معاهدة حظر الأسلحة النووية لكل دولة، لأن قائمتها لم يتسنَّ التحقق منها.",
-        "en": "Warhead counts are estimates, not official figures, and Israel does not confirm its arsenal. US weapons in Europe rest on reports rather than official confirmation, and Belarus hosting Russian weapons is an announcement not publicly proven. The civil list comes from a general source and has not yet been checked state by state. This edition leaves out per-state membership of the Treaty on the Prohibition of Nuclear Weapons, as its list could not be verified."
+        "ar": "أعداد الرؤوس تقديرات لا أرقام رسمية، وإسرائيل لا تؤكد امتلاكها. استضافة الأسلحة الأمريكية في أوروبا قائمة على تقارير لا تأكيد رسمي، واستضافة بيلاروس لأسلحة روسية إعلان لم يُثبت علناً. القائمة المدنية مأخوذة من مصدر عام ولم تُدقَّق كل دولة على حدة بعد. سلسلة FAS السنوية تستثني الرؤوس المتقاعدة، خلافاً لإجمالي المخزون لعام 2026، وتعدّ الاتحاد السوفييتي مع روسيا حتى 1991. وهي محفوظة الحقوق لاتحاد العلماء الأمريكيين، فلا يشملها ترخيص CC BY لهذا التجميع.",
+        "en": "Warhead counts are estimates, not official figures, and Israel does not confirm its arsenal. US weapons in Europe rest on reports rather than official confirmation, and Belarus hosting Russian weapons is an announcement not publicly proven. The civil list comes from a general source and has not yet been checked state by state. FAS's yearly series leaves out retired warheads, unlike the 2026 total inventory, and counts the Soviet Union with Russia up to 1991. It is © the Federation of American Scientists, so this compilation's CC BY licence does not cover it."
       }
     },
     {
@@ -829,6 +829,18 @@
       "role": {
         "ar": "إنتاج واحتياطيات المعادن على مستوى الدول — مصدر طبقة الموارد",
         "en": "Country-level mineral production and reserves — source for the resources layer"
+      }
+    },
+    {
+      "id": "fas",
+      "name": {
+        "ar": "اتحاد العلماء الأمريكيين — حالة القوى النووية في العالم",
+        "en": "Federation of American Scientists — Status of World Nuclear Forces"
+      },
+      "url": "https://fas.org/initiative/status-world-nuclear-forces/",
+      "role": {
+        "ar": "تقديرات المخزون العسكري من الرؤوس لكل دولة نووية منذ 1945 (عبر Our World in Data)، للخط الزمني في عدسة النووي. البيانات محفوظة الحقوق لاتحاد العلماء الأمريكيين وتُعرض مع ذكر المصدر.",
+        "en": "Each nuclear-armed state's military stockpile estimates since 1945 (via Our World in Data), for the Nuclear lens's timeline. The data is © the Federation of American Scientists and is shown with attribution."
       }
     }
   ]

@@ -16,6 +16,18 @@ function layout(v: unknown, indent: string, used: number): string {
   const next = indent + '  ';
   if (Array.isArray(v)) {
     if (!v.length) return '[]';
+    // a long run of numbers (a yearly series) is packed into lines of the width rather than one number per line
+    if (v.every((x) => typeof x === 'number')) {
+      const rows: string[] = [];
+      let row = '';
+      for (const x of v as number[]) {
+        const s = JSON.stringify(x);
+        if (row && next.length + row.length + s.length + 2 > WIDTH) { rows.push(row); row = ''; }
+        row += (row ? ', ' : '') + s;
+      }
+      rows.push(row);
+      return '[\n' + rows.map((r) => next + r).join(',\n') + '\n' + indent + ']';
+    }
     return '[\n' + v.map((x) => next + layout(x, next, next.length)).join(',\n') + '\n' + indent + ']';
   }
   const e = Object.entries(v).filter(([, x]) => x !== undefined);

@@ -353,3 +353,10 @@ button.dz-pn-b:hover { background: var(--surface-2); }
 .dz-units td, .dz-units th { white-space: nowrap; }
 .dz-units td:nth-child(3) { white-space: normal; font-size: var(--fs-xs); color: var(--fg-2); }
 .dz-units tr.pl-shutdown th, .dz-units tr.pl-shutdown td { color: var(--fg-3); }
+
+/* the nuclear profile's stockpile history: a column a year, the axis's first and last years under it */
+.dz-arms { margin-block: 10px 4px; }
+.dz-arms-h { margin: 0; font-weight: 500; color: var(--fg); }
+.dz-arms-m { margin: 2px 0 6px; color: var(--fg-2); font-size: var(--fs-sm); }
+.dz-arms-c .histo { width: 100%; }
+.dz-arms-ax { display: flex; justify-content: space-between; color: var(--fg-3); font-size: var(--fs-xs); margin-top: 3px; }

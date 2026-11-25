@@ -95,3 +95,15 @@ describe('check-data', () => {
   });
 });
 
+
+describe('formatJson', () => {
+  test('keeps short arrays on one line and packs a long run of numbers into lines of the width', () => {
+    expect(formatJson({ a: [1, 2, 3] })).toBe('{ "a": [1, 2, 3] }\n');
+    const out = formatJson({ series: Array.from({ length: 60 }, (_, i) => 1000 + i) });
+    const lines = out.split('\n');
+    expect(lines.length).toBeGreaterThan(3);
+    expect(lines.length).toBeLessThan(10);
+    expect(lines.every((l) => l.length <= 100)).toBe(true);
+    expect(JSON.parse(out).series).toHaveLength(60);
+  });
+});

@@ -105,6 +105,14 @@ export function checkData(dataDir: string): Problem[] {
     if (r.host) country('nuclear.json', `countries.${iso}.host`, r.host);
   }
   for (const iso of Object.keys(nuclear.warheads.values)) country('nuclear.json', `warheads.values.${iso}`, iso);
+  // the yearly series: known states, one value a year as long as the world's, and no state above the world total that year
+  const hist = (nuclear.warheads as { history?: { values: Record<string, number[]>; world: number[] } }).history;
+  if (hist) for (const [iso, v] of Object.entries(hist.values)) {
+    country('nuclear.json', `warheads.history.values.${iso}`, iso);
+    if (v.length !== hist.world.length) problems.push({ file: 'nuclear.json', path: `warheads.history.values.${iso}`, message: `has ${v.length} years, the world total ${hist.world.length}` });
+    const i = v.findIndex((n, j) => n > (hist.world[j] ?? 0));
+    if (i >= 0) problems.push({ file: 'nuclear.json', path: `warheads.history.values.${iso}[${i}]`, message: 'above the world total for that year', value: v[i] });
+  }
   nuclear.zones.forEach((zn, i) => each('nuclear.json', zn.members, `zones[${i}].members`, country));
   // the treaties' parties lists: known states only
   const treaties = (nuclear as { treaties?: Record<'npt' | 'ctbt' | 'tpnw', Record<string, unknown>> }).treaties;

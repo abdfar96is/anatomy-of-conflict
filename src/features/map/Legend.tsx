@@ -15,7 +15,7 @@ import { catVar, edgeVar, pal, resClassVar, sevVar, traditionColor, type Palette
 import {
   BLOC_T, CHOKE_T, CONTINENTS, ETHNIC_CLASSES, GDP_RANGE, INCOME, POP_RANGE, RES_SHAPE,
   PIPE_DASH, PIPE_DOTS, PIPE_W, activeBloc, bi, borderFill, decadeWindow, ethnicClass, fuelVar, landTint, lngColor, nuclearCivilFill, nuclearFill, nuclearZoneFill, plantColor, seqFill,
-  ACTIVE_SEVERITY, activeConflicts, nsiteColor, treatyFill, visibleConflicts, visibleFields, visibleNuclear, warheadRadius, visibleLng, visiblePipes, visiblePlants, visibleFacilities, windowEvents, POWER_R, layerVar, powerHalted, powerVar,
+  ACTIVE_SEVERITY, activeConflicts, armsByYear, HISTORY_R, historyRadius, WARHEAD_R, nsiteColor, stockpilePeak, stockpilesIn, treatyFill, visibleConflicts, visibleFields, visibleNuclear, warheadRadius, visibleLng, visiblePipes, visiblePlants, visibleFacilities, windowEvents, POWER_R, layerVar, powerHalted, powerVar,
 } from './engine/scene';
 import { FUELS, FUEL_LABEL, PIPE_STATUS, STATUS_LABEL, capacityClass, isHalted, systemName } from '../../data/energy';
 import { useEnergy } from '../pipelines/useEnergy';
@@ -401,6 +401,24 @@ const BODY: Record<(typeof LENSES)[number]['id'], (c: Ctx) => ReactNode> = {
       );
       hint = t('map.nc.hatch');
       note = [t('map.nc.warheads', { n: fmt.num(total), y: W.year }), L(DB.nuclear.note)].join(' ');
+      // with the timeline on: FAS's year instead, the states then armed and their stockpiles on one scale for all years
+      const H = W.history, yr = armsByYear(DB, S) ? stockpilesIn(DB, S.year) : null;
+      if (H && yr) {
+        // the card's circles no larger than today's largest there (a third of WARHEAD_R)
+        const peak = stockpilePeak(DB), kr = (n: number) => 2 * Math.max(1.5, (historyRadius(n, peak) * WARHEAD_R) / HISTORY_R / 3);
+        key = <Keys><KeyRow lead={<Sw bg={nuclearFill(P, 'non-npt')} cls="sw-land" />} label={t('map.nc.armedYear', { y: yr.year })} n={yr.values.length} /></Keys>;
+        heads = (
+          <Sec k="map.nc.heads" label={t('map.nc.stockYear', { y: yr.year })}>
+            <Keys>{yr.values.map(([iso, n]) => (
+              <KeyRow key={iso} lead={<span className="nc-head" aria-hidden="true"><span style={{ width: kr(n), height: kr(n) }} /></span>}
+                label={Lk(DB.countries.get(iso), 'name') || iso} n={n} />
+            ))}</Keys>
+            <p className="lc-note">{[yr.world ? t('map.nc.worldYear', { n: fmt.num(yr.world), y: yr.year }) : '', t('map.nc.headsKeyTl')].filter(Boolean).join(' ')}</p>
+          </Sec>
+        );
+        hint = '';
+        note = [`${H.title} — ${H.authors}, ${H.publisher}${H.via ? ` (${t('map.nc.via', { v: H.via })})` : ''}.`, L(H.metric) + '.', L(H.note), H.sources.join(' · ')].join(' ');
+      }
     } else if (m === 'civil') {
       key = <Keys>{(Object.keys(NUCLEAR_CIVIL) as (keyof typeof NUCLEAR_CIVIL)[]).map((id) => (
         <KeyRow key={id} lead={<Sw bg={nuclearCivilFill(P, id)} cls={`sw-land${id === 'phased-out' ? ' sw-overhatch' : ''}`} />} label={L(NUCLEAR_CIVIL[id])}
@@ -452,11 +470,12 @@ const BODY: Record<(typeof LENSES)[number]['id'], (c: Ctx) => ReactNode> = {
         <Sec k="map.lc.colorBy"><Chips label={t('map.lc.colorBy')}>{modes}</Chips></Sec>
         <Sec>{key}</Sec>
         {heads}
-        {(m === 'military' || m === 'civil') && DB.nuclear.sites?.length ? <NuclearSitesKey DB={DB} S={S} P={P} /> : null}
+        {(m === 'military' || m === 'civil') && !S.yearFilter && DB.nuclear.sites?.length ? <NuclearSitesKey DB={DB} S={S} P={P} /> : null}
         <Sec k="pw.show"><Chips label={t('pw.show')}><ConflictsChip DB={DB} S={S} /></Chips><ConflictsKey DB={DB} S={S} /></Sec>
         <Note text={hint} />
         {m === 'civil' ? <TimelineNote S={S} undated={undated} caveat={t('map.nc.tl.caveat')} />
-          : S.yearFilter ? <Note text={t('map.nc.noYear', { y: m === 'military' ? DB.nuclear.warheads.year : new Date().getFullYear() })} /> : null}
+          : m === 'military' && DB.nuclear.warheads.history ? <TimelineNote S={S} undated={0} from={DB.nuclear.warheads.history.from} keys="map.nc.tla" caveat={armsCaveat(DB, S, t)} />
+            : S.yearFilter ? <Note text={t('map.nc.noYear', { y: m === 'military' ? DB.nuclear.warheads.year : new Date().getFullYear() })} /> : null}
         <About notes={[note]} />
       </>
     );
@@ -720,18 +739,30 @@ function PipelinesCard({ DB, S, P, T: { t, pick: L, fmt, lang } }: Ctx) {
  * The timeline in an infrastructure lens: off, a button that plays the build-out from 1950; on, the year the map shows,
  * what has no known year, and what the data cannot show of the past.
  */
-function TimelineNote({ S, undated, caveat }: { S: LegendState; undated: number; caveat: string }) {
+/** The military timeline's caveat: what the circles count, and that years after the series show its last year. */
+function armsCaveat(DB: DB, S: LegendState, t: (k: string, v?: Record<string, string | number>) => string) {
+  const H = DB.nuclear.warheads.history;
+  if (!H) return '';
+  const last = H.from + H.world.length - 1;
+  return [t('map.nc.tl.arms'), S.year > last ? t('map.nc.tl.last', { y: last }) : ''].filter(Boolean).join(' ');
+}
+
+/**
+ * The timeline's play chip while it is off, and while on, the year shown with its caveats. `keys` is the prefix of the
+ * play, playTip and on strings: `map.tl` for what was built by a year, others for a timeline that counts something else.
+ */
+function TimelineNote({ S, undated, caveat, from = 1950, keys = 'map.tl' }: { S: LegendState; undated: number; caveat: string; from?: number; keys?: string }) {
   const { t, fmt } = useT();
   if (!S.yearFilter) {
     return (
       <div className="chips">
-        <button type="button" className="chip tl-play" data-tip={esc(t('map.tl.playTip'))} onClick={() => atlas.set({ yearFilter: true, year: 1950, playing: true })}>
-          <Icon name="play" size={13} />{t('map.tl.play')}
+        <button type="button" className="chip tl-play" data-tip={esc(t(`${keys}.playTip`))} onClick={() => atlas.set({ yearFilter: true, year: from, playing: true })}>
+          <Icon name="play" size={13} />{t(`${keys}.play`)}
         </button>
       </div>
     );
   }
-  return <Note text={[t('map.tl.on', { y: S.year }), undated ? t('map.tl.undated', { n: fmt.num(undated) }) : '', caveat].filter(Boolean).join(' ')} />;
+  return <Note text={[t(`${keys}.on`, { y: S.year }), undated ? t('map.tl.undated', { n: fmt.num(undated) }) : '', caveat].filter(Boolean).join(' ')} />;
 }
 
 /** The Power & industry card: plant types, status, the mothballed layer, and the size key. */
