@@ -30,6 +30,7 @@ registerStrings({
     'map.tip.yr': '{v} ({y})',
     'map.tip.nuc.none': 'لا وضع نووياً عسكرياً مسجّلاً',
     'map.tip.nuc.warheads': 'نحو {n} رأس نووي (تقدير SIPRI، {y})',
+    'map.tip.nuc.stock': 'مخزون عسكري من نحو {n} رأس نووي في {y} (تقدير FAS)', 'map.tip.nuc.stock0': 'لا رؤوس نووية في {y} بحسب تقديرات FAS',
     'map.tip.nuc.civil0': 'لا مفاعلات طاقة مسجّلة',
     'map.tip.nuc.zone0': 'خارج المناطق الخالية من السلاح النووي',
     'map.tip.nuc.notParty': 'ليست طرفاً ولم توقّع', 'map.tip.nuc.annex2': 'من دول المرفق 2: المعاهدة تنتظر تصديقها',
@@ -84,6 +85,7 @@ registerStrings({
     'map.tip.yr': '{v} ({y})',
     'map.tip.nuc.none': 'No military nuclear status recorded',
     'map.tip.nuc.warheads': 'About {n} nuclear warheads (SIPRI estimate, {y})',
+    'map.tip.nuc.stock': 'A military stockpile of about {n} warheads in {y} (FAS estimate)', 'map.tip.nuc.stock0': 'No nuclear warheads in {y}, by FAS estimates',
     'map.tip.nuc.civil0': 'No power reactors recorded',
     'map.tip.nuc.zone0': 'Outside the nuclear-weapon-free zones',
     'map.tip.nuc.notParty': 'Not a party and not signed', 'map.tip.nuc.annex2': 'An Annex 2 state: the treaty awaits its ratification',
@@ -267,9 +269,12 @@ export function nuclearFill(P: Palette, id: keyof typeof NUCLEAR_STATUS): string
 /** A nuclear site's marker colour: struck or destroyed in the alarm colour, closed muted, active in the lens's violet. */
 export const nsiteColor = (P: Palette, status: string) =>
   status === 'struck' || status === 'destroyed' ? P.status.critical : status === 'closed' || status === 'dormant' ? P.fg3 : status === 'building' ? P.accent2 : (P.cat[7] ?? P.accent2);
-/** The sites the military and civil modes draw (all of them, with the sites layer on). */
-export const visibleNsites = (DB: DB, S: Pick<AtlasState, 'filters'>) =>
-  S.filters.nuclearSites && (S.filters.nuclearMode === 'military' || S.filters.nuclearMode === 'civil') ? DB.nuclear.sites ?? [] : [];
+/**
+ * The sites the military and civil modes draw (all of them, with the sites layer on). Their states are today's, so the
+ * timeline hides them rather than show a 2025 strike in 1986.
+ */
+export const visibleNsites = (DB: DB, S: Pick<AtlasState, 'filters' | 'yearFilter'>) =>
+  S.filters.nuclearSites && !S.yearFilter && (S.filters.nuclearMode === 'military' || S.filters.nuclearMode === 'civil') ? DB.nuclear.sites ?? [] : [];
 
 /** A state's fill for its status under a treaty (the land colour pulled toward the status's tone). */
 export function treatyFill(P: Palette, tr: TreatyId, status: string): string {
@@ -291,6 +296,26 @@ export const plantRadius = (mw: number) => 3 + Math.sqrt(Math.max(0, mw)) / 9;
 /** The largest warhead circle (the largest arsenal), in pixels; the others by area. */
 export const WARHEAD_R = 38;
 export const warheadRadius = (n: number, max: number) => WARHEAD_R * Math.sqrt(n / max);
+/**
+ * FAS's estimates for a year (the last one in the series for later years): the states holding a military stockpile, largest
+ * first, and the world total inventory. Before 1945 no state is armed; null without the series.
+ */
+export function stockpilesIn(DB: DB, year: number): { year: number; values: [string, number][]; world: number } | null {
+  const H = DB.nuclear.warheads.history;
+  if (!H) return null;
+  const y = Math.min(year, H.from + H.world.length - 1), i = y - H.from;
+  if (i < 0) return { year: y, values: [], world: 0 };
+  const values = Object.entries(H.values).map(([iso, v]) => [iso, v[i] ?? 0] as [string, number]).filter(([, n]) => n > 0);
+  return { year: y, values: values.sort((a, b) => b[1] - a[1]), world: H.world[i] ?? 0 };
+}
+/** The largest stockpile any state held in the series: on the timeline the circles keep this one scale across the years. */
+export const stockpilePeak = (DB: DB) => Math.max(1, ...Object.values(DB.nuclear.warheads.history?.values ?? {}).flat());
+/** The timeline's circle for the all-time largest stockpile, in pixels; smaller ones by area, never under a dot. */
+export const HISTORY_R = 64;
+export const historyRadius = (n: number, peak: number) => Math.max(2.5, HISTORY_R * Math.sqrt(n / peak));
+/** With the timeline on, military mode shows FAS's yearly series (when the file has it) instead of today's estimates. */
+export const armsByYear = (DB: DB, S: Pick<AtlasState, 'yearFilter' | 'filters'>) =>
+  S.yearFilter && S.filters.nuclearMode === 'military' && !!DB.nuclear.warheads.history;
 
 /** A plant's units in service in a year: started by then and not yet shut for good (idle spells are not recorded). */
 export const unitsInYear = (p: Plant, year: number) =>
@@ -627,7 +652,9 @@ const BUILD: Record<LensId, Builder> = {
 
   nuclear(sc, DB, S, P) {
     const mode = S.filters.nuclearMode;
-    for (const c of DB.countries.values()) {
+    // with the timeline on, military mode draws the year: the states then holding warheads, and their stockpiles
+    const years = armsByYear(DB, S) ? stockpilesIn(DB, S.year) : null;
+    for (const c of years ? [] : DB.countries.values()) {
       const n = c.nuclear;
       if (mode === 'military' && n.weapons) {
         sc.fill.set(c.iso3, nuclearFill(P, n.weapons));
@@ -647,7 +674,14 @@ const BUILD: Record<LensId, Builder> = {
     }
     sc.hatchAlpha = 0.5;
     // the arsenals: a circle per armed state, its area by the warheads
-    if (mode === 'military') {
+    if (years) {
+      const peak = stockpilePeak(DB);
+      for (const [iso, n] of years.values) {
+        sc.fill.set(iso, nuclearFill(P, 'non-npt'));
+        const ll = llOf(DB.countries.get(iso));
+        if (ll) sc.bubbles.push({ lonlat: ll, r: historyRadius(n, peak), text: fmtNum(n, S.lang), iso3: iso });
+      }
+    } else if (mode === 'military') {
       const W = DB.nuclear.warheads.values, max = Math.max(1, ...Object.values(W));
       for (const [iso, n] of Object.entries(W).sort((a, b) => b[1] - a[1])) {
         const ll = llOf(DB.countries.get(iso));
@@ -958,6 +992,12 @@ function countryLine(c: Country, DB: DB, S: AtlasState): string[] {
       if (f.nuclearMode === 'zones') {
         const z = n.zones.map((id) => DB.nuclear.zoneById.get(id)).filter((x) => !!x);
         return [z.length ? z.map((x) => `${L(x.treaty)} (${x.year})`).join(t('map.sep')) : t('map.tip.nuc.zone0')];
+      }
+      // the timeline's year: this state's FAS stockpile then
+      const years = armsByYear(DB, S) ? stockpilesIn(DB, S.year) : null;
+      if (years) {
+        const v = years.values.find(([iso]) => iso === c.iso3)?.[1];
+        return [v ? t('map.tip.nuc.stock', { n: fmtNum(v), y: years.year }) : t('map.tip.nuc.stock0', { y: years.year })];
       }
       if (!n.weapons) return [t('map.tip.nuc.none')];
       return [L(NUCLEAR_STATUS[n.weapons]), n.warheads ? t('map.tip.nuc.warheads', { n: fmtNum(n.warheads), y: DB.nuclear.warheads.year }) : ''];

@@ -2,7 +2,7 @@
 
 import { Fragment, type ReactNode } from 'react';
 import { NUCLEAR_CIVIL, NUCLEAR_NPT, NUCLEAR_STATUS, NUCLEAR_TREATIES, TREATY_STATUS, type TreatyId } from '../../../config';
-import { BarList, Donut, Pips, StackBar } from '../../../ui/charts';
+import { BarList, Donut, Histogram, Pips, StackBar } from '../../../ui/charts';
 import { POWER_LABEL, POWER_TYPES, fmtMW, powerCountries } from '../../../data/power';
 import { powerVar } from '../../map/engine/scene';
 import '../../power/strings';
@@ -10,7 +10,7 @@ import { esc } from '../../../ui/dom';
 import { Icon } from '../../../ui/Icon';
 import { edgeVar, traditionColor } from '../../../ui/palette';
 import type { Bi } from '../../../i18n/format';
-import type { Country } from '../../../data/types';
+import type { Country, WarheadHistory } from '../../../data/types';
 import { extPowers, pickList, type ConflictX, type EdgeX, type EventX, type IntelX, type Panel, type ResEntryX } from '../model';
 import type { Kit } from '../parts';
 
@@ -175,11 +175,34 @@ function nuclear(c: Country, k: Kit) {
   const zoneSources = [...new Set(zones.flatMap((z) => z.sources))];
   return k.sec(t('dz.nc.title'), [
     facts,
+    w.history ? arms(c.iso3, w.history, k) : null,
     n.note ? k.prose(L(n.note), { cls: 'sm', clamp: false }) : null,
     plants.length ? <div className="chips dz-chips" key="pl" aria-label={t('dz.nc.plants')}>{plants.map((p) => k.kchip('plant', p.id, L(p), { lead: <Icon name="atom" size={13} />, isos: [p.iso3] }))}</div> : null,
     sites.length ? <div className="chips dz-chips" key="ns" aria-label={t('dz.nc.sites')}>{sites.map((x) => k.kchip('nsite', x.id, L(x), { lead: <Icon name="atom" size={13} />, isos: [x.iso3] }))}</div> : null,
     record?.sources?.length ? k.provenance(record) : zoneSources.length ? k.provenance({ sources: zoneSources }) : null,
   ], { id: 'nuclear' });
+}
+
+/** FAS's yearly military stockpile for a state, from its first armed year: a column a year, the peak picked out. */
+function arms(iso: string, H: WarheadHistory, k: Kit) {
+  const { t, pick: L, fmt } = k;
+  const v = H.values[iso], start = v ? v.findIndex((x) => x > 0) : -1;
+  if (!v || start < 0) return null;
+  const year = (i: number) => H.from + i, end = v.length - 1;
+  const peak = v.reduce((b, x, i) => (x > v[b]! ? i : b), 0);
+  const bins = v.slice(start).map((n, i) => ({ x: year(start + i), value: n, label: esc(`${year(start + i)}: ${fmt.num(n)}`) }));
+  return (
+    <div className="dz-arms" key="arms">
+      <p className="dz-arms-h">{t('dz.nc.stockH', { a: year(start), b: year(end) })}</p>
+      <p className="dz-arms-m">{t('dz.nc.stockPeak', { n: fmt.num(v[peak]!), y: year(peak) })}{v[end] !== v[peak] ? ` · ${t('dz.nc.stockNow', { n: fmt.num(v[end]!), y: year(end) })}` : ''}</p>
+      <div className="dz-arms-c" dir="ltr">
+        <Histogram bins={bins} h={52} highlight={year(peak)} label={t('dz.nc.stockH', { a: year(start), b: year(end) })} />
+        <div className="dz-arms-ax"><span className="data">{year(start)}</span><span className="data">{year(end)}</span></div>
+      </div>
+      {k.note(`${L(H.metric)}. ${L(H.note)}`)}
+      {k.provenance({ sources: H.sources })}
+    </div>
+  );
 }
 
 function religion(c: Country, k: Kit) {

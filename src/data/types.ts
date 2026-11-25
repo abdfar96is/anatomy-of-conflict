@@ -85,10 +85,18 @@ export interface NuclearPlantFile {
 export interface Plant extends NuclearPlant {
   status: NuclearUnitStatus; count: Record<NuclearUnitStatus, number>; mw: Record<NuclearUnitStatus, number>;
 }
+/**
+ * FAS's yearly estimates since 1945 (curated/nuclear.json `warheads.history`): each state's military stockpile, one value
+ * a year from `from`, and the world total inventory (retired warheads are counted only there).
+ */
+export interface WarheadHistory {
+  title: string; publisher: string; authors: string; via?: string; metric: Bi; worldMetric: Bi; note: Bi; sources: string[];
+  from: number; values: Record<string, number[]>; world: number[];
+}
 export interface NuclearFile {
   note?: Bi; zonesNote?: Bi;
   fleet: { year: number; publisher: string; sources: string[]; verified?: string; note?: Bi; columns: string[]; values: Record<string, [number, number, number]> };
-  warheads: { year: number; metric: Bi; publisher: string; sources: string[]; verified?: string; values: Record<string, number> };
+  warheads: { year: number; metric: Bi; publisher: string; sources: string[]; verified?: string; values: Record<string, number>; history?: WarheadHistory };
   countries: Record<string, NuclearRecord>;
   zones: NuclearZone[];
   /** Nuclear sites other than power plants: fuel cycle, weapons and test sites. */

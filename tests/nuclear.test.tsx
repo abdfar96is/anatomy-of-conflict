@@ -15,7 +15,7 @@ import { LENSES, NUCLEAR_SITE_STATUS, NUCLEAR_SITE_TYPE } from '../src/config';
 import { build } from '../src/data/build';
 import type { DB, NuclearFile } from '../src/data/types';
 import { Dossier } from '../src/features/dossier';
-import { WARHEAD_R, buildScene, tipFor, treatyFill, visibleNuclear } from '../src/features/map/engine/scene';
+import { HISTORY_R, WARHEAD_R, buildScene, stockpilesIn, tipFor, treatyFill, visibleNuclear } from '../src/features/map/engine/scene';
 import { Legend } from '../src/features/map/Legend';
 import { useGlobalKeys } from '../src/features/shell/keyboard';
 import '../src/i18n/core';
@@ -292,8 +292,10 @@ describe('nuclear power plants', () => {
     act(() => { atlas.set({ yearFilter: true, year: 1970 }); });
     expect(legend.textContent).toContain('Plants in service in 1970');
     expect(legend.textContent).toContain('idle spells are not recorded');
+    // military mode follows the timeline with FAS's yearly stockpiles
     act(() => { atlas.setFilter('nuclearMode', 'military'); });
-    expect(legend.textContent).toContain('does not change with the timeline');
+    expect(legend.textContent).toContain('Military stockpiles (1970)');
+    expect(legend.textContent).toContain('Russia includes the Soviet Union');
     // the conflicts layer, as in the infrastructure lenses
     fireEvent.click(legend.querySelector('[data-key="conflicts"]')!);
     expect(atlas.get().layers.conflicts).toBe(true);
@@ -323,6 +325,85 @@ describe('nuclear power plants', () => {
     const fact = [...sec.querySelectorAll('.dz-fact')].find((f) => f.querySelector('dt')?.textContent === en('dz.nc.fleet'))!;
     expect(fact.querySelector('dd')!.textContent).toBe('152026 · Reactor Atlas');
     expect(sec.querySelector('[data-sel-kind="plant"][data-sel-id="zaporizhzhia"]')).not.toBeNull();
+  });
+});
+
+describe('the arsenals since 1945 (FAS)', () => {
+  const P = { land: '#2a3440', landMuted: '#20262e', accent2: '#40a0c0', fg3: '#999999', cat: Array(9).fill('#888888'), seq: () => '#555555', status: { good: '#00ff00', warn: '#ffaa00', critical: '#ff0000' } } as unknown as Palette;
+  const at = (year: number, yearFilter = true): AtlasState => ({ ...initialState(), lens: 'nuclear', lang: 'en', yearFilter, year });
+
+  test('one value a year from 1945 for each armed state; the last year matches the FAS 2026 table', () => {
+    const H = file().warheads.history!;
+    expect(H.from).toBe(1945);
+    expect(H.world).toHaveLength(2026 - 1945 + 1);
+    for (const v of Object.values(H.values)) expect(v).toHaveLength(H.world.length);
+    const last = (iso: string) => H.values[iso]!.at(-1);
+    // military stockpiles from FAS's 2026 table; the world total counts retired warheads too
+    expect([last('RUS'), last('USA'), last('FRA'), last('CHN'), last('GBR'), last('IND'), last('PAK'), last('ISR'), last('PRK')]).toEqual([4400, 3700, 290, 620, 225, 190, 170, 90, 60]);
+    expect(H.world.at(-1)).toBe(12187);
+    expect(H.sources).toContain('https://fas.org/initiative/status-world-nuclear-forces/');
+  });
+
+  test('stockpilesIn: the states armed that year, largest first; later years show the last one, earlier ones none', () => {
+    expect(stockpilesIn(db, 1945)!.values).toEqual([['USA', 2]]);
+    const y86 = stockpilesIn(db, 1986)!;
+    expect(y86.values.slice(0, 2)).toEqual([['RUS', 40159], ['USA', 23317]]);
+    expect(y86.values.map(([iso]) => iso)).toContain('ZAF');
+    expect(y86.world).toBe(70374);
+    expect(stockpilesIn(db, 1995)!.values.map(([iso]) => iso)).not.toContain('ZAF');
+    expect(stockpilesIn(db, 2030)!.year).toBe(2026);
+    expect(stockpilesIn(db, 1930)!.values).toEqual([]);
+  });
+
+  test('with the timeline on, military mode draws the year: the armed states and their circles on one scale', () => {
+    const sc = buildScene(db, at(1986), P);
+    expect([...sc.fill.keys()].sort()).toEqual(['CHN', 'FRA', 'GBR', 'IND', 'ISR', 'PAK', 'PRK', 'RUS', 'USA', 'ZAF'].filter((iso) => stockpilesIn(db, 1986)!.values.some(([x]) => x === iso)).sort());
+    expect(sc.hatch.size).toBe(0);
+    const r = (s: typeof sc, iso: string) => s.bubbles.find((b) => b.iso3 === iso)!.r;
+    expect(r(sc, 'RUS')).toBe(HISTORY_R);
+    expect(sc.bubbles.find((b) => b.iso3 === 'RUS')!.text).toBe('40,159');
+    // the same scale in another year: Russia's 2026 circle by area against its 1986 peak
+    const now = buildScene(db, at(2026), P);
+    expect((r(now, 'RUS') / HISTORY_R) ** 2).toBeCloseTo(4400 / 40159, 5);
+    expect(buildScene(db, at(1940), P).bubbles).toEqual([]);
+    // the timeline off: today's SIPRI figures and statuses
+    const today = buildScene(db, at(1986, false), P);
+    expect(today.bubbles.find((b) => b.iso3 === 'RUS')!.text).toBe('5,420');
+    expect(today.fill.has('BEL')).toBe(true);
+  });
+
+  test('the tooltip gives the year\'s stockpile', () => {
+    expect(tipFor({ kind: 'country', id: 'ZAF' }, db, at(1988))).toContain('A military stockpile of about');
+    expect(tipFor({ kind: 'country', id: 'ZAF' }, db, at(1995))).toContain('No nuclear warheads in 1995');
+  });
+
+  test('the card: play from 1945, the year\'s stockpiles with the world total, and FAS credited', () => {
+    atlas.set({ lens: 'nuclear', lang: 'en' });
+    render(<DbContext.Provider value={db}><Legend /></DbContext.Provider>);
+    const legend = document.getElementById('legend')!;
+    fireEvent.click(legend.querySelector('.tl-play')!);
+    expect(atlas.get()).toMatchObject({ yearFilter: true, year: 1945 });
+    act(() => { atlas.set({ year: 1986, playing: false }); });
+    const heads = [...legend.querySelectorAll('[data-fold="map.nc.heads"] li')].map((li) => li.textContent);
+    expect(heads[0]).toMatch(/^Russia.*40,159$/);
+    expect(legend.textContent).toContain('World total in 1986: about 70,374 warheads');
+    expect(legend.textContent).toContain('Held nuclear weapons in 1986');
+    expect(legend.textContent).toContain('Federation of American Scientists');
+    act(() => { atlas.set({ year: 2030 }); });
+    expect(legend.textContent).toContain('The latest estimate is for 2026');
+  });
+
+  test('the country dossier charts the stockpile since the first armed year, with its peak and source', () => {
+    atlas.set({ lang: 'en' });
+    render(<DbContext.Provider value={db}><Dossier /></DbContext.Provider>);
+    act(() => { atlas.select('country', 'GBR', { fly: false }); });
+    const box = document.querySelector('#dz-a-nuclear .dz-arms')!;
+    expect(box.textContent).toContain('Military stockpile of warheads, 1953–2026 (FAS estimates)');
+    expect(box.textContent).toContain('Peak of about 500 in 1973');
+    expect(box.querySelectorAll('.histo rect')).toHaveLength(2026 - 1953 + 1);
+    expect([...box.querySelectorAll('.dz-pv a')].map((a) => a.getAttribute('href'))).toContain('https://fas.org/initiative/status-world-nuclear-forces/');
+    act(() => { atlas.select('country', 'SAU', { fly: false }); });
+    expect(document.querySelector('.dz-arms')).toBeNull();
   });
 });
 
@@ -358,6 +439,8 @@ describe('nuclear sites', () => {
     expect(m('rokkasho')).toMatchObject({ shape: 'square', color: P.accent2 });
     expect(buildScene(db, at({ nuclearMode: 'civil' }), P).markers.some((x) => x.kind === 'nsite')).toBe(true);
     expect(buildScene(db, at({ nuclearSites: false }), P).markers.some((x) => x.kind === 'nsite')).toBe(false);
+    // their states are today's: the timeline hides them
+    expect(buildScene(db, at({}, { yearFilter: true, year: 1986 }), P).markers.some((x) => x.kind === 'nsite')).toBe(false);
     // other modes draw only a selected site, with the selection ring on it
     const zones = buildScene(db, at({ nuclearMode: 'zones' }, { selection: { kind: 'nsite', id: 'osirak' } }), P);
     expect(zones.markers.filter((x) => x.kind === 'nsite').map((x) => x.id)).toEqual(['osirak']);
@@ -413,6 +496,7 @@ describe('check-data on the nuclear file', () => {
     n.zones[0].members.push('ZZZ');
     n.sites[0].iso3 = 'XYZ';
     n.sites[1].conflictIds = ['no-such-war'];
+    n.warheads.history.values.QQX = [1];
     fs.writeFileSync(f, formatJson(n));
     const pf = path.join(dir, 'curated/nuclear_plants.json');
     const pl = JSON.parse(fs.readFileSync(pf, 'utf8'));
@@ -425,6 +509,8 @@ describe('check-data on the nuclear file', () => {
   test('reports unknown country codes and conflicts, and a link to no GEM nuclear plant', () => {
     expect(checkData(dir).map((p) => `${p.file} › ${p.path} › ${p.message}`)).toEqual([
       'nuclear.json › countries.BEL.host › unknown country code',
+      'nuclear.json › warheads.history.values.QQX › unknown country code',
+      'nuclear.json › warheads.history.values.QQX › has 1 years, the world total 82',
       expect.stringMatching(/^nuclear\.json › zones\[0\]\.members\[\d+\] › unknown country code$/),
       'nuclear.json › sites[0].iso3 › unknown country code',
       'nuclear.json › sites[1].conflictIds[0] › unknown conflict id',

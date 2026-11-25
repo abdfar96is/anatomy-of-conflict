@@ -84,7 +84,13 @@ export const SCHEMAS: Record<string, z.ZodType> = {
   'corrections.json': z.array(z.object({ id, where: bi, what: bi })),
   'nuclear.json': z.looseObject({
     note: bi.optional(), zonesNote: bi.optional(),
-    warheads: z.looseObject({ year: z.number().int(), metric: bi, publisher: z.string(), sources: z.array(url).min(1), verified: day.optional(), values: z.record(iso, z.number().int().min(0)) }),
+    warheads: z.looseObject({
+      year: z.number().int(), metric: bi, publisher: z.string(), sources: z.array(url).min(1), verified: day.optional(), values: z.record(iso, z.number().int().min(0)),
+      history: z.looseObject({
+        title: z.string().min(1), publisher: z.string().min(1), authors: z.string().min(1), via: z.string().optional(), metric: bi, worldMetric: bi, note: bi,
+        sources: z.array(url).min(1), from: z.number().int(), values: z.record(iso, z.array(z.number().int().min(0))), world: z.array(z.number().int().min(0)).min(1),
+      }).optional(),
+    }),
     fleet: z.looseObject({
       year: z.number().int(), publisher: z.string(), sources: z.array(url).min(1), verified: day.optional(), note: bi.optional(),
       columns: z.tuple([z.literal('reactors'), z.literal('mwe'), z.literal('underConstruction')]),
